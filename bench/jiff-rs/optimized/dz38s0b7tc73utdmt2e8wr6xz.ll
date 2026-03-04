@@ -2041,21 +2041,21 @@ _ZN4jiff3fmt7strtime5parse6Parser13parse_percent17h2cde9cda93f49701E.exit: ; pre
   %820 = load i8, ptr %812, align 1, !noalias !77, !noundef !3
   %821 = add i8 %820, -65
   %822 = icmp ult i8 %821, 26
-  %.sroa.011.0.i.i = select i1 %822, i8 32, i8 0
-  %823 = or i8 %.sroa.011.0.i.i, %820
+  %823 = select i1 %822, i8 32, i8 0
+  %.sroa.011.0.i.i = or i8 %823, %820
   %824 = getelementptr inbounds nuw i8, ptr %812, i64 1
   %825 = load i8, ptr %824, align 1, !noalias !77, !noundef !3
   %826 = add i8 %825, -65
   %827 = icmp ult i8 %826, 26
-  %.sroa.012.0.i.i = select i1 %827, i8 32, i8 0
-  %828 = or i8 %.sroa.012.0.i.i, %825
+  %828 = select i1 %827, i8 32, i8 0
+  %.sroa.012.0.i.i = or i8 %828, %825
   %829 = getelementptr inbounds nuw i8, ptr %812, i64 2
   %830 = load i8, ptr %829, align 1, !noalias !77, !noundef !3
   %831 = add i8 %830, -65
   %832 = icmp ult i8 %831, 26
-  %.sroa.013.0.i.i642 = select i1 %832, i8 32, i8 0
-  %833 = or i8 %.sroa.013.0.i.i642, %830
-  switch i8 %823, label %834 [
+  %833 = select i1 %832, i8 32, i8 0
+  %.sroa.013.0.i.i642 = or i8 %833, %830
+  switch i8 %.sroa.011.0.i.i, label %834 [
     i8 115, label %836
     i8 109, label %837
     i8 116, label %840
@@ -2083,49 +2083,49 @@ _ZN4jiff3fmt7strtime5parse6Parser13parse_percent17h2cde9cda93f49701E.exit: ; pre
   br label %_ZN4jiff3fmt7strtime5parse6Parser20parse_weekday_abbrev17hbc1d94c8183a9399E.exit
 
 836:                                              ; preds = %817
-  switch i8 %828, label %834 [
+  switch i8 %.sroa.012.0.i.i, label %834 [
     i8 117, label %847
     i8 97, label %849
   ], !prof !79
 
 837:                                              ; preds = %817
-  %838 = icmp eq i8 %828, 111
-  %839 = icmp eq i8 %833, 110
+  %838 = icmp eq i8 %.sroa.012.0.i.i, 111
+  %839 = icmp eq i8 %.sroa.013.0.i.i642, 110
   %or.cond.i.i647 = and i1 %838, %839
   br i1 %or.cond.i.i647, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !80
 
 840:                                              ; preds = %817
-  switch i8 %828, label %834 [
+  switch i8 %.sroa.012.0.i.i, label %834 [
     i8 117, label %851
     i8 104, label %853
   ], !prof !79
 
 841:                                              ; preds = %817
-  %842 = icmp eq i8 %828, 101
-  %843 = icmp eq i8 %833, 100
+  %842 = icmp eq i8 %.sroa.012.0.i.i, 101
+  %843 = icmp eq i8 %.sroa.013.0.i.i642, 100
   %or.cond1.i.i = and i1 %842, %843
   br i1 %or.cond1.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !80
 
 844:                                              ; preds = %817
-  %845 = icmp eq i8 %828, 114
-  %846 = icmp eq i8 %833, 105
+  %845 = icmp eq i8 %.sroa.012.0.i.i, 114
+  %846 = icmp eq i8 %.sroa.013.0.i.i642, 105
   %or.cond2.i.i = and i1 %845, %846
   br i1 %or.cond2.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !80
 
 847:                                              ; preds = %836
-  %848 = icmp eq i8 %833, 110
+  %848 = icmp eq i8 %.sroa.013.0.i.i642, 110
   br i1 %848, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !17
 
 849:                                              ; preds = %836
-  %850 = icmp eq i8 %833, 116
+  %850 = icmp eq i8 %.sroa.013.0.i.i642, 116
   br i1 %850, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !17
 
 851:                                              ; preds = %840
-  %852 = icmp eq i8 %833, 101
+  %852 = icmp eq i8 %.sroa.013.0.i.i642, 101
   br i1 %852, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !17
 
 853:                                              ; preds = %840
-  %854 = icmp eq i8 %833, 117
+  %854 = icmp eq i8 %.sroa.013.0.i.i642, 117
   br i1 %854, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i", label %834, !prof !17
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit.i": ; preds = %853, %851, %849, %847, %844, %841, %837
@@ -9608,54 +9608,54 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser10parse_am
   %23 = load i8, ptr %9, align 1, !noalias !939, !noundef !3
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.sroa.08.0.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.sroa.08.0.i, %23
+  %26 = select i1 %25, i8 32, i8 0
+  %.sroa.08.0.i = or i8 %26, %23
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %28 = load i8, ptr %27, align 1, !noalias !939, !noundef !3
-  %29 = add i8 %28, -65
-  %30 = icmp ult i8 %29, 26
-  %.sroa.09.0.i = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.09.0.i, %28
-  switch i8 %26, label %32 [
-    i8 97, label %39
-    i8 112, label %41
+  %29 = icmp ugt i8 %28, 64
+  %30 = icmp ult i8 %28, 91
+  %31 = select i1 %30, i8 32, i8 0
+  %32 = or i8 %31, %28
+  %33 = icmp eq i8 %32, 109
+  %.sroa.09.0.i = and i1 %29, %33
+  switch i8 %.sroa.08.0.i, label %34 [
+    i8 97, label %41
+    i8 112, label %42
   ], !prof !79
 
-32:                                               ; preds = %41, %39, %20
+34:                                               ; preds = %42, %41, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !935
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !935
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !935
   store ptr %9, ptr %2, align 8, !noalias !935
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 2, ptr %33, align 8, !noalias !935
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 2, ptr %35, align 8, !noalias !935
   store ptr %2, ptr %3, align 8, !noalias !935
   %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN70_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e7519d3a6cd2ed6E", ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !935
   store ptr @anon.9b39c701aec730dc9da9cb3578b47497.255, ptr %4, align 8, !noalias !935
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %34, align 8, !noalias !935
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %35, align 8, !noalias !935
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %36, align 8, !noalias !935
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %37, align 8, !noalias !935
-  %38 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !939
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %36, align 8, !noalias !935
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %37, align 8, !noalias !935
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %38, align 8, !noalias !935
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %39, align 8, !noalias !935
+  %40 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !939
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !935
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !935
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !935
   br label %53
 
-39:                                               ; preds = %20
-  %40 = icmp eq i8 %31, 109
-  br i1 %40, label %_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread, label %32, !prof !17
-
 41:                                               ; preds = %20
-  %42 = icmp eq i8 %31, 109
-  br i1 %42, label %_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread, label %32, !prof !17
+  br i1 %.sroa.09.0.i, label %_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread, label %34, !prof !17
 
-_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread: ; preds = %41, %39
-  %.sroa.05.0 = phi i8 [ 0, %39 ], [ 1, %41 ]
+42:                                               ; preds = %20
+  br i1 %.sroa.09.0.i, label %_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread, label %34, !prof !17
+
+_ZN4jiff3fmt7strtime5parse10parse_ampm17hcad9231784043b92E.exit.thread: ; preds = %42, %41
+  %.sroa.05.0 = phi i8 [ 0, %41 ], [ 1, %42 ]
   store ptr %21, ptr %8, align 8
   store i64 %22, ptr %10, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9680,9 +9680,9 @@ _ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit: ; preds = %
   store i64 %51, ptr %46, align 8, !alias.scope !940
   br label %53
 
-53:                                               ; preds = %32, %13, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit
-  %.sroa.3.0 = phi ptr [ undef, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit ], [ %38, %32 ], [ %19, %13 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit ], [ 1, %32 ], [ 1, %13 ]
+53:                                               ; preds = %34, %13, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit
+  %.sroa.3.0 = phi ptr [ undef, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit ], [ %40, %34 ], [ %19, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %_ZN4jiff3fmt7strtime5parse6Parser8bump_fmt17h8b41e41cf2227221E.exit ], [ 1, %34 ], [ 1, %13 ]
   %54 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %55 = insertvalue { i64, ptr } %54, ptr %.sroa.3.0, 1
   ret { i64, ptr } %55
@@ -11156,21 +11156,21 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser23parse_mo
   %23 = load i8, ptr %9, align 1, !noalias !1060, !noundef !3
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.sroa.013.0.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.sroa.013.0.i, %23
+  %26 = select i1 %25, i8 32, i8 0
+  %.sroa.013.0.i = or i8 %26, %23
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %28 = load i8, ptr %27, align 1, !noalias !1060, !noundef !3
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.014.0.i = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.014.0.i, %28
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.014.0.i = or i8 %31, %28
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %33 = load i8, ptr %32, align 1, !noalias !1060, !noundef !3
   %34 = add i8 %33, -65
   %35 = icmp ult i8 %34, 26
-  %.sroa.015.0.i = select i1 %35, i8 32, i8 0
-  %36 = or i8 %.sroa.015.0.i, %33
-  switch i8 %26, label %37 [
+  %36 = select i1 %35, i8 32, i8 0
+  %.sroa.015.0.i = or i8 %36, %33
+  switch i8 %.sroa.013.0.i, label %37 [
     i8 106, label %44
     i8 102, label %45
     i8 109, label %48
@@ -11207,57 +11207,57 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser23parse_mo
   br label %_ZN4jiff3fmt7strtime5parse23parse_month_name_abbrev17ha7f0e9ea6d03f882E.exit
 
 44:                                               ; preds = %20
-  switch i8 %31, label %37 [
+  switch i8 %.sroa.014.0.i, label %37 [
     i8 97, label %63
     i8 117, label %65
   ], !prof !79
 
 45:                                               ; preds = %20
-  %46 = icmp eq i8 %31, 101
-  %47 = icmp eq i8 %36, 98
+  %46 = icmp eq i8 %.sroa.014.0.i, 101
+  %47 = icmp eq i8 %.sroa.015.0.i, 98
   %or.cond.i = and i1 %46, %47
   br i1 %or.cond.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !80
 
 48:                                               ; preds = %20
-  %49 = icmp eq i8 %31, 97
+  %49 = icmp eq i8 %.sroa.014.0.i, 97
   br i1 %49, label %67, label %37, !prof !17
 
 50:                                               ; preds = %20
-  switch i8 %31, label %37 [
+  switch i8 %.sroa.014.0.i, label %37 [
     i8 112, label %69
     i8 117, label %71
   ], !prof !79
 
 51:                                               ; preds = %20
-  %52 = icmp eq i8 %31, 101
-  %53 = icmp eq i8 %36, 112
+  %52 = icmp eq i8 %.sroa.014.0.i, 101
+  %53 = icmp eq i8 %.sroa.015.0.i, 112
   %or.cond1.i = and i1 %52, %53
   br i1 %or.cond1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !80
 
 54:                                               ; preds = %20
-  %55 = icmp eq i8 %31, 99
-  %56 = icmp eq i8 %36, 116
+  %55 = icmp eq i8 %.sroa.014.0.i, 99
+  %56 = icmp eq i8 %.sroa.015.0.i, 116
   %or.cond2.i = and i1 %55, %56
   br i1 %or.cond2.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !80
 
 57:                                               ; preds = %20
-  %58 = icmp eq i8 %31, 111
-  %59 = icmp eq i8 %36, 118
+  %58 = icmp eq i8 %.sroa.014.0.i, 111
+  %59 = icmp eq i8 %.sroa.015.0.i, 118
   %or.cond3.i = and i1 %58, %59
   br i1 %or.cond3.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !80
 
 60:                                               ; preds = %20
-  %61 = icmp eq i8 %31, 101
-  %62 = icmp eq i8 %36, 99
+  %61 = icmp eq i8 %.sroa.014.0.i, 101
+  %62 = icmp eq i8 %.sroa.015.0.i, 99
   %or.cond4.i = and i1 %61, %62
   br i1 %or.cond4.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !80
 
 63:                                               ; preds = %44
-  %64 = icmp eq i8 %36, 110
+  %64 = icmp eq i8 %.sroa.015.0.i, 110
   br i1 %64, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !17
 
 65:                                               ; preds = %44
-  switch i8 %36, label %37 [
+  switch i8 %.sroa.015.0.i, label %37 [
     i8 110, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit"
     i8 108, label %66
   ], !prof !79
@@ -11266,7 +11266,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser23parse_mo
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit"
 
 67:                                               ; preds = %48
-  switch i8 %36, label %37 [
+  switch i8 %.sroa.015.0.i, label %37 [
     i8 114, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit"
     i8 121, label %68
   ], !prof !79
@@ -11275,11 +11275,11 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser23parse_mo
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit"
 
 69:                                               ; preds = %50
-  %70 = icmp eq i8 %36, 114
+  %70 = icmp eq i8 %.sroa.015.0.i, 114
   br i1 %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !17
 
 71:                                               ; preds = %50
-  %72 = icmp eq i8 %36, 103
+  %72 = icmp eq i8 %.sroa.015.0.i, 103
   br i1 %72, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit", label %37, !prof !17
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h91a942cdca8c37ceE.exit": ; preds = %45, %51, %54, %57, %60, %63, %65, %66, %67, %68, %69, %71
@@ -11794,14 +11794,14 @@ define internal fastcc void @_ZN4jiff3fmt7strtime5parse12parse_choice17h3fbe6833
   %47 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1119, !noalias !1122, !noundef !3
   %48 = add i8 %47, -65
   %49 = icmp ult i8 %48, 26
-  %.sroa.04.0.i = select i1 %49, i8 32, i8 0
-  %50 = or i8 %.sroa.04.0.i, %47
+  %50 = select i1 %49, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %50, %47
   %51 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1122, !noalias !1119, !noundef !3
   %52 = add i8 %51, -65
   %53 = icmp ult i8 %52, 26
-  %.sroa.05.0.i = select i1 %53, i8 32, i8 0
-  %54 = or i8 %.sroa.05.0.i, %51
-  %55 = icmp eq i8 %50, %54
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %54, %51
+  %55 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %55, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.backedge"
 
 56:                                               ; preds = %.preheader.i

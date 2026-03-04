@@ -1857,18 +1857,18 @@ define dso_local void @_ZN5clang13ASTDeclWriter9VisitDeclEPNS_4DeclE(ptr noundef
   %29 = load ptr, ptr %28, align 8, !tbaa !337
   %.not80 = icmp eq ptr %27, %29
   %30 = select i1 %.not80, i32 0, i32 256
+  %31 = or disjoint i32 %30, %20
   br label %_ZN5clang4Decl21getLexicalDeclContextEv.exit
 
 _ZN5clang4Decl21getLexicalDeclContextEv.exit:     ; preds = %2, %24
-  %.0.i72 = phi i32 [ %30, %24 ], [ 0, %2 ]
-  %31 = shl i32 %14, 1
-  %32 = and i32 %31, 512
-  %33 = and i32 %18, 1024
-  %34 = shl i32 %14, 4
-  %35 = and i32 %34, 2048
-  %36 = or disjoint i32 %20, %32
-  %37 = or i32 %36, %33
-  %38 = or i32 %37, %35
+  %.0.i72 = phi i32 [ %31, %24 ], [ %20, %2 ]
+  %32 = shl i32 %14, 1
+  %33 = and i32 %32, 512
+  %34 = and i32 %18, 1024
+  %35 = shl i32 %14, 4
+  %36 = and i32 %35, 2048
+  %37 = or disjoint i32 %34, %33
+  %38 = or disjoint i32 %37, %36
   %39 = or i32 %38, %.0.i72
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = zext nneg i32 %39 to i64

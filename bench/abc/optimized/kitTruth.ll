@@ -6704,23 +6704,23 @@ Kit_TruthSwapAdjacentVars.exit.us:                ; preds = %._crit_edge.us.i.us
 .split.us:                                        ; preds = %._crit_edge129.us
   %142 = and i32 %.285.us, 1
   %143 = icmp eq i32 %142, 0
-  %brmerge = or i1 %13, %143
-  br i1 %brmerge, label %Kit_TruthCopy.exit, label %select.unfold.i110
+  %144 = or i1 %13, %143
+  br i1 %144, label %Kit_TruthCopy.exit, label %select.unfold.i110
 
 select.unfold.i110:                               ; preds = %.split.us, %select.unfold.i110
   %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %select.unfold.i110 ], [ %46, %.split.us ]
   %indvars.iv.next.i112 = add nsw i64 %indvars.iv.i111, -1
-  %144 = getelementptr inbounds nuw i32, ptr %.282.us, i64 %indvars.iv.next.i112
-  %145 = load i32, ptr %144, align 4, !tbaa !3
-  %146 = getelementptr inbounds nuw i32, ptr %.293.us, i64 %indvars.iv.next.i112
-  store i32 %145, ptr %146, align 4, !tbaa !3
-  %147 = icmp samesign ugt i64 %indvars.iv.i111, 1
-  br i1 %147, label %select.unfold.i110, label %Kit_TruthCopy.exit, !llvm.loop !27
+  %145 = getelementptr inbounds nuw i32, ptr %.282.us, i64 %indvars.iv.next.i112
+  %146 = load i32, ptr %145, align 4, !tbaa !3
+  %147 = getelementptr inbounds nuw i32, ptr %.293.us, i64 %indvars.iv.next.i112
+  store i32 %146, ptr %147, align 4, !tbaa !3
+  %148 = icmp samesign ugt i64 %indvars.iv.i111, 1
+  br i1 %148, label %select.unfold.i110, label %Kit_TruthCopy.exit, !llvm.loop !27
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i110, %Kit_TruthNot.exit, %.preheader, %.split.us
-  %.us-phi137170 = phi i32 [ %.0, %Kit_TruthNot.exit ], [ %.5.us, %.split.us ], [ %.2, %.preheader ], [ %.5.us, %select.unfold.i110 ]
+  %.us-phi137169 = phi i32 [ %.0, %Kit_TruthNot.exit ], [ %.5.us, %.split.us ], [ %.2, %.preheader ], [ %.5.us, %select.unfold.i110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.us-phi137170
+  ret i32 %.us-phi137169
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

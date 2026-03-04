@@ -3151,45 +3151,45 @@ decode_idat_chunk.exit:                           ; preds = %png_decode_idat.exi
   %969 = load i8, ptr %963, align 1, !tbaa !4
   %970 = zext i8 %969 to i32
   %971 = shl nuw nsw i32 %970, 16
-  %972 = or disjoint i32 %971, -16777216
   %.pre.i381 = ptrtoint ptr %968 to i64
   br label %bytestream2_get_byte.exit.i382
 
 bytestream2_get_byte.exit.i382:                   ; preds = %967, %962
   %.pre-phi.i383 = phi i64 [ %.pre.i381, %967 ], [ %954, %962 ]
-  %973 = phi ptr [ %968, %967 ], [ %189, %962 ]
-  %.0.i.i384 = phi i32 [ %972, %967 ], [ -16777216, %962 ]
-  %974 = sub i64 %954, %.pre-phi.i383
-  %975 = icmp slt i64 %974, 1
-  br i1 %975, label %bytestream2_get_byte.exit24.i, label %976
+  %972 = phi ptr [ %968, %967 ], [ %189, %962 ]
+  %.0.i.i384 = phi i32 [ %971, %967 ], [ 0, %962 ]
+  %973 = sub i64 %954, %.pre-phi.i383
+  %974 = icmp slt i64 %973, 1
+  br i1 %974, label %bytestream2_get_byte.exit24.i, label %975
 
-976:                                              ; preds = %bytestream2_get_byte.exit.i382
-  %977 = getelementptr inbounds nuw i8, ptr %973, i64 1
-  %978 = load i8, ptr %973, align 1, !tbaa !4
-  %979 = zext i8 %978 to i32
-  %980 = shl nuw nsw i32 %979, 8
-  %.pre9.i = ptrtoint ptr %977 to i64
-  %981 = or disjoint i32 %980, %.0.i.i384
+975:                                              ; preds = %bytestream2_get_byte.exit.i382
+  %976 = getelementptr inbounds nuw i8, ptr %972, i64 1
+  %977 = load i8, ptr %972, align 1, !tbaa !4
+  %978 = zext i8 %977 to i32
+  %979 = shl nuw nsw i32 %978, 8
+  %980 = or disjoint i32 %979, %.0.i.i384
+  %.pre9.i = ptrtoint ptr %976 to i64
   br label %bytestream2_get_byte.exit24.i
 
-bytestream2_get_byte.exit24.i:                    ; preds = %976, %bytestream2_get_byte.exit.i382
-  %.pre-phi10.i = phi i64 [ %.pre9.i, %976 ], [ %954, %bytestream2_get_byte.exit.i382 ]
-  %982 = phi ptr [ %977, %976 ], [ %189, %bytestream2_get_byte.exit.i382 ]
-  %.0.i23.i = phi i32 [ %981, %976 ], [ %.0.i.i384, %bytestream2_get_byte.exit.i382 ]
-  %983 = sub i64 %954, %.pre-phi10.i
-  %984 = icmp slt i64 %983, 1
-  br i1 %984, label %bytestream2_get_byte.exit26.i, label %985
+bytestream2_get_byte.exit24.i:                    ; preds = %975, %bytestream2_get_byte.exit.i382
+  %.pre-phi10.i = phi i64 [ %.pre9.i, %975 ], [ %954, %bytestream2_get_byte.exit.i382 ]
+  %981 = phi ptr [ %976, %975 ], [ %189, %bytestream2_get_byte.exit.i382 ]
+  %.0.i23.i = phi i32 [ %980, %975 ], [ %.0.i.i384, %bytestream2_get_byte.exit.i382 ]
+  %982 = sub i64 %954, %.pre-phi10.i
+  %983 = icmp slt i64 %982, 1
+  br i1 %983, label %bytestream2_get_byte.exit26.i, label %984
 
-985:                                              ; preds = %bytestream2_get_byte.exit24.i
-  %986 = getelementptr inbounds nuw i8, ptr %982, i64 1
-  %987 = load i8, ptr %982, align 1, !tbaa !4
-  %988 = zext i8 %987 to i32
+984:                                              ; preds = %bytestream2_get_byte.exit24.i
+  %985 = getelementptr inbounds nuw i8, ptr %981, i64 1
+  %986 = load i8, ptr %981, align 1, !tbaa !4
+  %987 = zext i8 %986 to i32
+  %988 = or disjoint i32 %.0.i23.i, %987
   br label %bytestream2_get_byte.exit26.i
 
-bytestream2_get_byte.exit26.i:                    ; preds = %bytestream2_get_byte.exit24.i, %985
-  %989 = phi ptr [ %986, %985 ], [ %189, %bytestream2_get_byte.exit24.i ]
-  %.0.i25.i = phi i32 [ %988, %985 ], [ 0, %bytestream2_get_byte.exit24.i ]
-  %990 = or disjoint i32 %.0.i23.i, %.0.i25.i
+bytestream2_get_byte.exit26.i:                    ; preds = %bytestream2_get_byte.exit24.i, %984
+  %989 = phi ptr [ %985, %984 ], [ %189, %bytestream2_get_byte.exit24.i ]
+  %.0.i25.i = phi i32 [ %988, %984 ], [ %.0.i23.i, %bytestream2_get_byte.exit24.i ]
+  %990 = or disjoint i32 %.0.i25.i, -16777216
   %991 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
   store i32 %990, ptr %991, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

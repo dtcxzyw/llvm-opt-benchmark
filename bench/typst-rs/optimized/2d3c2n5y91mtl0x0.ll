@@ -142807,9 +142807,9 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread9: ; preds = %7, %3
   %15 = load i8, ptr %.sroa.0.06.i.ptr, align 1, !noundef !7
   %16 = add i8 %15, -65
   %17 = icmp ult i8 %16, 26
-  %.0.i = select i1 %17, i8 32, i8 0
-  %18 = or i8 %.0.i, %15
-  store i8 %18, ptr %.sroa.0.06.i.ptr, align 1
+  %18 = select i1 %17, i8 32, i8 0
+  %.0.i = or i8 %18, %15
+  store i8 %.0.i, ptr %.sroa.0.06.i.ptr, align 1
   %19 = icmp eq i64 %.sroa.0.06.i.add, 3
   br i1 %19, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_lowercase17h9bc6c58b2f89260fE.exit", label %.lr.ph.i6
 
@@ -142912,9 +142912,9 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit: ; preds = %6, %3
   %13 = load i8, ptr %.sroa.0.0.ptr.i, align 1, !alias.scope !25781, !noundef !7
   %14 = add i8 %13, -97
   %15 = icmp ult i8 %14, 26
-  %.0.i = select i1 %15, i8 32, i8 0
-  %16 = xor i8 %.0.i, %13
-  store i8 %16, ptr %.sroa.0.0.ptr.i, align 1, !alias.scope !25781
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i = xor i8 %16, %13
+  store i8 %.0.i, ptr %.sroa.0.0.ptr.i, align 1, !alias.scope !25781
   %17 = icmp eq i64 %.sroa.0.0.add.i, 2
   br i1 %17, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_uppercase17h413ea74cb71d3978E.exit", label %12
 
@@ -143011,9 +143011,9 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread10: ; preds = %7, %
   %15 = load i8, ptr %.sroa.0.06.i.ptr, align 1, !alias.scope !25802, !noundef !7
   %16 = add i8 %15, -65
   %17 = icmp ult i8 %16, 26
-  %.0.i = select i1 %17, i8 32, i8 0
-  %18 = or i8 %.0.i, %15
-  store i8 %18, ptr %.sroa.0.06.i.ptr, align 1, !alias.scope !25802
+  %18 = select i1 %17, i8 32, i8 0
+  %.0.i = or i8 %18, %15
+  store i8 %.0.i, ptr %.sroa.0.06.i.ptr, align 1, !alias.scope !25802
   %19 = icmp eq i64 %.sroa.0.06.i.add, 4
   br i1 %19, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_lowercase17h9bc6c58b2f89260fE.exit", label %.lr.ph.i7
 
@@ -164582,9 +164582,9 @@ define void @"_ZN88_$LT$typst..text..lang..WritingScript$u20$as$u20$typst..found
   %50 = load i8, ptr %.sroa.0.06.i.ptr.i, align 1, !alias.scope !30208, !noalias !30201, !noundef !7
   %51 = add i8 %50, -65
   %52 = icmp ult i8 %51, 26
-  %.0.i.i = select i1 %52, i8 32, i8 0
-  %53 = or i8 %.0.i.i, %50
-  store i8 %53, ptr %.sroa.0.06.i.ptr.i, align 1, !alias.scope !30208, !noalias !30201
+  %53 = select i1 %52, i8 32, i8 0
+  %.0.i.i = or i8 %53, %50
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.ptr.i, align 1, !alias.scope !30208, !noalias !30201
   %54 = icmp eq i64 %.sroa.0.06.i.add.i, 4
   br i1 %54, label %55, label %.lr.ph.i7.i
 
@@ -164840,9 +164840,9 @@ define void @"_ZN81_$LT$typst..text..lang..Region$u20$as$u20$typst..foundations.
   %48 = load i8, ptr %.sroa.0.0.ptr.i.i, align 1, !alias.scope !30294, !noalias !30290, !noundef !7
   %49 = add i8 %48, -97
   %50 = icmp ult i8 %49, 26
-  %.0.i.i = select i1 %50, i8 32, i8 0
-  %51 = xor i8 %.0.i.i, %48
-  store i8 %51, ptr %.sroa.0.0.ptr.i.i, align 1, !alias.scope !30294, !noalias !30290
+  %51 = select i1 %50, i8 32, i8 0
+  %.0.i.i = xor i8 %51, %48
+  store i8 %.0.i.i, ptr %.sroa.0.0.ptr.i.i, align 1, !alias.scope !30294, !noalias !30290
   %52 = icmp eq i64 %.sroa.0.0.add.i.i, 2
   br i1 %52, label %53, label %47
 
@@ -165117,9 +165117,9 @@ define void @"_ZN79_$LT$typst..text..lang..Lang$u20$as$u20$typst..foundations..c
   %50 = load i8, ptr %.sroa.0.06.i.ptr.i, align 1, !noalias !30379, !noundef !7
   %51 = add i8 %50, -65
   %52 = icmp ult i8 %51, 26
-  %.0.i.i = select i1 %52, i8 32, i8 0
-  %53 = or i8 %.0.i.i, %50
-  store i8 %53, ptr %.sroa.0.06.i.ptr.i, align 1, !noalias !30379
+  %53 = select i1 %52, i8 32, i8 0
+  %.0.i.i = or i8 %53, %50
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.ptr.i, align 1, !noalias !30379
   %54 = icmp eq i64 %.sroa.0.06.i.add.i, 3
   br i1 %54, label %55, label %.lr.ph.i6.i
 

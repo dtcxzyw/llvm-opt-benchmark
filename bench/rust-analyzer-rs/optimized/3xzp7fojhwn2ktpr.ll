@@ -2239,13 +2239,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %63
   %.val6.i.i.i = load i8, ptr %161, align 1, !noalias !364, !noundef !13
   %162 = add i8 %.val.i.i.i, -65
   %163 = icmp ult i8 %162, 26
-  %.0.i.i.i.i.i.i = select i1 %163, i8 32, i8 0
-  %164 = add i8 %.val6.i.i.i, -65
-  %165 = icmp ult i8 %164, 26
-  %.02.i.i.i.i.i.i = select i1 %165, i8 32, i8 0
-  %166 = or i8 %.0.i.i.i.i.i.i, %.val.i.i.i
-  %167 = or i8 %.02.i.i.i.i.i.i, %.val6.i.i.i
-  %.not.i.i.i = icmp eq i8 %166, %167
+  %164 = select i1 %163, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %164, %.val.i.i.i
+  %165 = add i8 %.val6.i.i.i, -65
+  %166 = icmp ult i8 %165, 26
+  %167 = select i1 %166, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %167, %.val6.i.i.i
+  %.not.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %156, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i"
 
 168:                                              ; preds = %.noexc127.i

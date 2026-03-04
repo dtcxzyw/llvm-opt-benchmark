@@ -15913,22 +15913,19 @@ define dso_local noundef ptr @_ZNK6AstAdd9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -15937,65 +15934,68 @@ define dso_local noundef ptr @_ZNK6AstAdd9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.10, %34 ], [ @.str.11, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.10, %35 ], [ @.str.11, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -16034,22 +16034,19 @@ define dso_local noundef ptr @_ZNK15AstNodeBiComAsv9brokenGenEv(ptr noundef nonn
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -16058,13 +16055,16 @@ define dso_local noundef ptr @_ZNK15AstNodeBiComAsv9brokenGenEv(ptr noundef nonn
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.677, %6 ], [ @.str.678, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.677, %6 ], [ @.str.678, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -16086,24 +16086,21 @@ define linkonce_odr dso_local noundef ptr @_ZNK6AstAdd4rhspEv(ptr noundef nonnul
 define dso_local noundef ptr @_ZNK11AstNodeBiop6brokenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i64, ptr %2, align 8
-  %.fr3 = freeze i64 %3
-  %4 = and i64 %.fr3, 9223372036854775807
+  %.fr = freeze i64 %3
+  %4 = and i64 %.fr, 9223372036854775807
   %5 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %6 = icmp eq i64 %4, %5
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
-  %8 = icmp slt i64 %.fr3, 0
+  %8 = icmp slt i64 %.fr, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(152) %10)
-  br i1 %14, label %15, label %._crit_edge
-
-._crit_edge:                                      ; preds = %7
-  br i1 %8, label %23, label %.thread, !prof !26
+  br i1 %14, label %15, label %23
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16113,14 +16110,17 @@ define dso_local noundef ptr @_ZNK11AstNodeBiop6brokenEv(ptr noundef nonnull rea
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(152) %17)
   %22 = xor i1 %8, %21
-  br i1 %22, label %23, label %.thread, !prof !26
+  br i1 %22, label %24, label %.thread, !prof !26
 
-23:                                               ; preds = %._crit_edge, %15
+23:                                               ; preds = %7
+  br i1 %8, label %24, label %.thread, !prof !26
+
+24:                                               ; preds = %15, %23
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %1, %15, %23
-  %24 = phi ptr [ @.str.1113, %23 ], [ null, %15 ], [ null, %1 ], [ null, %._crit_edge ]
-  ret ptr %24
+.thread:                                          ; preds = %15, %1, %23, %24
+  %25 = phi ptr [ @.str.1113, %24 ], [ null, %23 ], [ null, %1 ], [ null, %15 ]
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -16276,22 +16276,19 @@ define dso_local noundef ptr @_ZNK7AstAddD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -16300,65 +16297,68 @@ define dso_local noundef ptr @_ZNK7AstAddD9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.13, %34 ], [ @.str.14, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.13, %35 ], [ @.str.14, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -17521,22 +17521,19 @@ define dso_local noundef ptr @_ZNK6AstAnd9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -17545,65 +17542,68 @@ define dso_local noundef ptr @_ZNK6AstAnd9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.29, %34 ], [ @.str.30, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.29, %35 ], [ @.str.30, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -17853,22 +17853,19 @@ define dso_local noundef ptr @_ZNK11AstArraySel9brokenGenEv(ptr noundef nonnull 
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -17877,13 +17874,16 @@ define dso_local noundef ptr @_ZNK11AstArraySel9brokenGenEv(ptr noundef nonnull 
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.33, %6 ], [ @.str.34, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.33, %6 ], [ @.str.34, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -17917,22 +17917,19 @@ define dso_local noundef ptr @_ZNK10AstNodeSel9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -17941,65 +17938,68 @@ define dso_local noundef ptr @_ZNK10AstNodeSel9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.741, %32 ], [ @.str.742, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.741, %33 ], [ @.str.742, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -21896,22 +21896,19 @@ define dso_local noundef ptr @_ZNK11AstAssocSel9brokenGenEv(ptr noundef nonnull 
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -21920,13 +21917,16 @@ define dso_local noundef ptr @_ZNK11AstAssocSel9brokenGenEv(ptr noundef nonnull 
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.94, %6 ], [ @.str.95, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.94, %6 ], [ @.str.95, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -22087,22 +22087,19 @@ define dso_local noundef ptr @_ZNK9AstAtan2D9brokenGenEv(ptr noundef nonnull rea
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -22111,13 +22108,16 @@ define dso_local noundef ptr @_ZNK9AstAtan2D9brokenGenEv(ptr noundef nonnull rea
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.96, %6 ], [ @.str.97, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.96, %6 ], [ @.str.97, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -22151,22 +22151,19 @@ define dso_local noundef ptr @_ZNK18AstNodeSystemBiopD9brokenGenEv(ptr noundef n
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -22175,65 +22172,68 @@ define dso_local noundef ptr @_ZNK18AstNodeSystemBiopD9brokenGenEv(ptr noundef n
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.745, %32 ], [ @.str.746, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.745, %33 ], [ @.str.746, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -23873,22 +23873,19 @@ define dso_local noundef ptr @_ZNK9AstBufIf19brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -23897,65 +23894,68 @@ define dso_local noundef ptr @_ZNK9AstBufIf19brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.116, %32 ], [ @.str.117, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.116, %33 ], [ @.str.117, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -23989,22 +23989,19 @@ define dso_local noundef ptr @_ZNK11AstNodeBiop9brokenGenEv(ptr noundef nonnull 
 .critedge8:                                       ; preds = %.critedge, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %13
-  %14 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %13
+  %14 = and i64 %.fr.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 17:                                               ; preds = %.critedge8
-  %18 = icmp slt i64 %.fr3.i, 0
+  %18 = icmp slt i64 %.fr.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %17
-  br i1 %18, label %30, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -24013,13 +24010,16 @@ define dso_local noundef ptr @_ZNK11AstNodeBiop9brokenGenEv(ptr noundef nonnull 
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %30, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %29, label %31, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-30:                                               ; preds = %23, %._crit_edge.i
+30:                                               ; preds = %17
+  br i1 %18, label %31, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+31:                                               ; preds = %30, %23
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %30, %23, %._crit_edge.i, %.critedge8, %9, %4
-  %.1 = phi ptr [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ null, %23 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %31, %30, %23, %.critedge8, %9, %4
+  %.1 = phi ptr [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %31 ], [ null, %30 ], [ null, %.critedge8 ], [ null, %23 ]
   ret ptr %.1
 }
 
@@ -27022,22 +27022,19 @@ define dso_local noundef ptr @_ZNK14AstCastDynamic9brokenGenEv(ptr noundef nonnu
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -27046,65 +27043,68 @@ define dso_local noundef ptr @_ZNK14AstCastDynamic9brokenGenEv(ptr noundef nonnu
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.159, %32 ], [ @.str.160, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.159, %33 ], [ @.str.160, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -31235,22 +31235,19 @@ define dso_local noundef ptr @_ZNK12AstCompareNN9brokenGenEv(ptr noundef nonnull
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -31259,65 +31256,68 @@ define dso_local noundef ptr @_ZNK12AstCompareNN9brokenGenEv(ptr noundef nonnull
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.231, %32 ], [ @.str.232, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.231, %33 ], [ @.str.232, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -31473,22 +31473,19 @@ define dso_local noundef ptr @_ZNK9AstConcat9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -31497,65 +31494,68 @@ define dso_local noundef ptr @_ZNK9AstConcat9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.233, %32 ], [ @.str.234, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.233, %33 ], [ @.str.234, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -31711,22 +31711,19 @@ define dso_local noundef ptr @_ZNK10AstConcatN9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -31735,65 +31732,68 @@ define dso_local noundef ptr @_ZNK10AstConcatN9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.235, %32 ], [ @.str.236, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.235, %33 ], [ @.str.236, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -31967,19 +31967,19 @@ define dso_local noundef ptr @_ZNK7AstCond9brokenGenEv(ptr noundef nonnull reado
 .critedge11:                                      ; preds = %.critedge9, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %.fr3.i = freeze i64 %20
-  %21 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %20
+  %21 = and i64 %.fr.i, 9223372036854775807
   %22 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %23 = icmp eq i64 %21, %22
   br i1 %23, label %24, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 24:                                               ; preds = %.critedge11
-  %25 = icmp slt i64 %.fr3.i, 0
+  %25 = icmp slt i64 %.fr.i, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %29, label %30, label %.thr_comm.i
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %9, align 8, !tbaa !56
@@ -31987,10 +31987,7 @@ define dso_local noundef ptr @_ZNK7AstCond9brokenGenEv(ptr noundef nonnull reado
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %35, label %36, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %30, %24
-  br i1 %25, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %14, align 8, !tbaa !101
@@ -31999,13 +31996,16 @@ define dso_local noundef ptr @_ZNK7AstCond9brokenGenEv(ptr noundef nonnull reado
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(152) %37)
   %42 = xor i1 %25, %41
-  br i1 %42, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %42, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-43:                                               ; preds = %36, %.thr_comm.i
+43:                                               ; preds = %30, %24
+  br i1 %25, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+44:                                               ; preds = %43, %36
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %43, %36, %.thr_comm.i, %.critedge11, %1, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.237, %6 ], [ @.str.238, %11 ], [ @.str.239, %16 ], [ @.str.1114, %43 ], [ null, %36 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %44, %43, %36, %.critedge11, %1, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.237, %6 ], [ @.str.238, %11 ], [ @.str.239, %16 ], [ @.str.1114, %44 ], [ null, %43 ], [ null, %.critedge11 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -32052,19 +32052,19 @@ define dso_local noundef ptr @_ZNK11AstNodeCond9brokenGenEv(ptr noundef nonnull 
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -32072,10 +32072,7 @@ define dso_local noundef ptr @_ZNK11AstNodeCond9brokenGenEv(ptr noundef nonnull 
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -32084,85 +32081,88 @@ define dso_local noundef ptr @_ZNK11AstNodeCond9brokenGenEv(ptr noundef nonnull 
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.689, %43 ], [ @.str.690, %47 ], [ @.str.691, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.689, %44 ], [ @.str.690, %48 ], [ @.str.691, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -32191,21 +32191,21 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstCond5elsepEv(ptr noundef nonn
 define dso_local noundef ptr @_ZNK12AstNodeTriop6brokenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i64, ptr %2, align 8
-  %.fr3 = freeze i64 %3
-  %4 = and i64 %.fr3, 9223372036854775807
+  %.fr = freeze i64 %3
+  %4 = and i64 %.fr, 9223372036854775807
   %5 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %6 = icmp eq i64 %4, %5
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
-  %8 = icmp slt i64 %.fr3, 0
+  %8 = icmp slt i64 %.fr, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(152) %10)
-  br i1 %14, label %15, label %.thr_comm
+  br i1 %14, label %15, label %30
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -32214,10 +32214,7 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop6brokenEv(ptr noundef nonnull re
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(152) %17)
-  br i1 %21, label %22, label %.thr_comm
-
-.thr_comm:                                        ; preds = %7, %15
-  br i1 %8, label %30, label %.thread, !prof !26
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -32227,14 +32224,17 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop6brokenEv(ptr noundef nonnull re
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %8, %28
-  br i1 %29, label %30, label %.thread, !prof !26
+  br i1 %29, label %31, label %.thread, !prof !26
 
-30:                                               ; preds = %.thr_comm, %22
+30:                                               ; preds = %15, %7
+  br i1 %8, label %31, label %.thread, !prof !26
+
+31:                                               ; preds = %22, %30
   br label %.thread
 
-.thread:                                          ; preds = %.thr_comm, %1, %22, %30
-  %31 = phi ptr [ @.str.1114, %30 ], [ null, %22 ], [ null, %1 ], [ null, %.thr_comm ]
-  ret ptr %31
+.thread:                                          ; preds = %22, %1, %30, %31
+  %32 = phi ptr [ @.str.1114, %31 ], [ null, %30 ], [ null, %1 ], [ null, %22 ]
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -32447,19 +32447,19 @@ define dso_local noundef ptr @_ZNK12AstCondBound9brokenGenEv(ptr noundef nonnull
 .critedge11:                                      ; preds = %.critedge9, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %.fr3.i = freeze i64 %20
-  %21 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %20
+  %21 = and i64 %.fr.i, 9223372036854775807
   %22 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %23 = icmp eq i64 %21, %22
   br i1 %23, label %24, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 24:                                               ; preds = %.critedge11
-  %25 = icmp slt i64 %.fr3.i, 0
+  %25 = icmp slt i64 %.fr.i, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %29, label %30, label %.thr_comm.i
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %9, align 8, !tbaa !56
@@ -32467,10 +32467,7 @@ define dso_local noundef ptr @_ZNK12AstCondBound9brokenGenEv(ptr noundef nonnull
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %35, label %36, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %30, %24
-  br i1 %25, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %14, align 8, !tbaa !101
@@ -32479,13 +32476,16 @@ define dso_local noundef ptr @_ZNK12AstCondBound9brokenGenEv(ptr noundef nonnull
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(152) %37)
   %42 = xor i1 %25, %41
-  br i1 %42, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %42, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-43:                                               ; preds = %36, %.thr_comm.i
+43:                                               ; preds = %30, %24
+  br i1 %25, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+44:                                               ; preds = %43, %36
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %43, %36, %.thr_comm.i, %.critedge11, %1, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.243, %6 ], [ @.str.244, %11 ], [ @.str.245, %16 ], [ @.str.1114, %43 ], [ null, %36 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %44, %43, %36, %.critedge11, %1, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.243, %6 ], [ @.str.244, %11 ], [ @.str.245, %16 ], [ @.str.1114, %44 ], [ null, %43 ], [ null, %.critedge11 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -35371,19 +35371,19 @@ define dso_local noundef ptr @_ZNK12AstCountBits9brokenGenEv(ptr noundef nonnull
 .critedge14:                                      ; preds = %.critedge12, %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load i64, ptr %24, align 8
-  %.fr3.i = freeze i64 %25
-  %26 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %25
+  %26 = and i64 %.fr.i, 9223372036854775807
   %27 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %28 = icmp eq i64 %26, %27
   br i1 %28, label %29, label %_ZNK13AstNodeQuadop6brokenEv.exit
 
 29:                                               ; preds = %.critedge14
-  %30 = icmp slt i64 %.fr3.i, 0
+  %30 = icmp slt i64 %.fr.i, 0
   %31 = load ptr, ptr %5, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 184
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %34, label %35, label %.thr_comm.i
+  br i1 %34, label %35, label %54
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %9, align 8, !tbaa !56
@@ -35391,7 +35391,7 @@ define dso_local noundef ptr @_ZNK12AstCountBits9brokenGenEv(ptr noundef nonnull
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(152) %36)
-  br i1 %40, label %41, label %.thr_comm.i
+  br i1 %40, label %41, label %54
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %14, align 8, !tbaa !101
@@ -35399,10 +35399,7 @@ define dso_local noundef ptr @_ZNK12AstCountBits9brokenGenEv(ptr noundef nonnull
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 184
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %46, label %47, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %41, %35, %29
-  br i1 %30, label %54, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+  br i1 %46, label %47, label %54
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %19, align 8, !tbaa !102
@@ -35411,13 +35408,16 @@ define dso_local noundef ptr @_ZNK12AstCountBits9brokenGenEv(ptr noundef nonnull
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(152) %48)
   %53 = xor i1 %30, %52
-  br i1 %53, label %54, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+  br i1 %53, label %55, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
 
-54:                                               ; preds = %47, %.thr_comm.i
+54:                                               ; preds = %41, %35, %29
+  br i1 %30, label %55, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+
+55:                                               ; preds = %54, %47
   br label %_ZNK13AstNodeQuadop6brokenEv.exit
 
-_ZNK13AstNodeQuadop6brokenEv.exit:                ; preds = %54, %47, %.thr_comm.i, %.critedge14, %1, %21, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.293, %6 ], [ @.str.294, %11 ], [ @.str.295, %16 ], [ @.str.296, %21 ], [ @.str.1116, %54 ], [ null, %47 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ]
+_ZNK13AstNodeQuadop6brokenEv.exit:                ; preds = %55, %54, %47, %.critedge14, %1, %21, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.293, %6 ], [ @.str.294, %11 ], [ @.str.295, %16 ], [ @.str.296, %21 ], [ @.str.1116, %55 ], [ null, %54 ], [ null, %.critedge14 ], [ null, %47 ]
   ret ptr %.1
 }
 
@@ -35477,19 +35477,19 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop9brokenGenEv(ptr noundef nonnul
 .critedge14:                                      ; preds = %.critedge12, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load i64, ptr %22, align 8
-  %.fr3.i = freeze i64 %23
-  %24 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %23
+  %24 = and i64 %.fr.i, 9223372036854775807
   %25 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %26 = icmp eq i64 %24, %25
   br i1 %26, label %27, label %_ZNK13AstNodeQuadop6brokenEv.exit
 
 27:                                               ; preds = %.critedge14
-  %28 = icmp slt i64 %.fr3.i, 0
+  %28 = icmp slt i64 %.fr.i, 0
   %29 = load ptr, ptr %3, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 184
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %32, label %33, label %.thr_comm.i
+  br i1 %32, label %33, label %52
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %7, align 8, !tbaa !56
@@ -35497,7 +35497,7 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop9brokenGenEv(ptr noundef nonnul
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(152) %34)
-  br i1 %38, label %39, label %.thr_comm.i
+  br i1 %38, label %39, label %52
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %12, align 8, !tbaa !101
@@ -35505,10 +35505,7 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop9brokenGenEv(ptr noundef nonnul
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(152) %40)
-  br i1 %44, label %45, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %39, %33, %27
-  br i1 %28, label %52, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %17, align 8, !tbaa !102
@@ -35517,13 +35514,16 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop9brokenGenEv(ptr noundef nonnul
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %46)
   %51 = xor i1 %28, %50
-  br i1 %51, label %52, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+  br i1 %51, label %53, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
 
-52:                                               ; preds = %45, %.thr_comm.i
+52:                                               ; preds = %39, %33, %27
+  br i1 %28, label %53, label %_ZNK13AstNodeQuadop6brokenEv.exit, !prof !26
+
+53:                                               ; preds = %52, %45
   br label %_ZNK13AstNodeQuadop6brokenEv.exit
 
-_ZNK13AstNodeQuadop6brokenEv.exit:                ; preds = %52, %45, %.thr_comm.i, %.critedge14, %19, %14, %9, %4
-  %.1 = phi ptr [ @.str.734, %19 ], [ @.str.731, %4 ], [ @.str.732, %9 ], [ @.str.733, %14 ], [ @.str.1116, %52 ], [ null, %45 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ]
+_ZNK13AstNodeQuadop6brokenEv.exit:                ; preds = %53, %52, %45, %.critedge14, %19, %14, %9, %4
+  %.1 = phi ptr [ @.str.734, %19 ], [ @.str.731, %4 ], [ @.str.732, %9 ], [ @.str.733, %14 ], [ @.str.1116, %53 ], [ null, %52 ], [ null, %.critedge14 ], [ null, %45 ]
   ret ptr %.1
 }
 
@@ -35559,21 +35559,21 @@ define linkonce_odr dso_local noundef ptr @_ZNK12AstCountBits4fhspEv(ptr noundef
 define dso_local noundef ptr @_ZNK13AstNodeQuadop6brokenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i64, ptr %2, align 8
-  %.fr3 = freeze i64 %3
-  %4 = and i64 %.fr3, 9223372036854775807
+  %.fr = freeze i64 %3
+  %4 = and i64 %.fr, 9223372036854775807
   %5 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %6 = icmp eq i64 %4, %5
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
-  %8 = icmp slt i64 %.fr3, 0
+  %8 = icmp slt i64 %.fr, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(152) %10)
-  br i1 %14, label %15, label %.thr_comm
+  br i1 %14, label %15, label %37
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -35582,7 +35582,7 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop6brokenEv(ptr noundef nonnull r
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(152) %17)
-  br i1 %21, label %22, label %.thr_comm
+  br i1 %21, label %22, label %37
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -35591,10 +35591,7 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop6brokenEv(ptr noundef nonnull r
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 184
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
-  br i1 %28, label %29, label %.thr_comm
-
-.thr_comm:                                        ; preds = %7, %15, %22
-  br i1 %8, label %37, label %.thread, !prof !26
+  br i1 %28, label %29, label %37
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -35604,14 +35601,17 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop6brokenEv(ptr noundef nonnull r
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
   %36 = xor i1 %8, %35
-  br i1 %36, label %37, label %.thread, !prof !26
+  br i1 %36, label %38, label %.thread, !prof !26
 
-37:                                               ; preds = %.thr_comm, %29
+37:                                               ; preds = %22, %15, %7
+  br i1 %8, label %38, label %.thread, !prof !26
+
+38:                                               ; preds = %29, %37
   br label %.thread
 
-.thread:                                          ; preds = %.thr_comm, %1, %29, %37
-  %38 = phi ptr [ @.str.1116, %37 ], [ null, %29 ], [ null, %1 ], [ null, %.thr_comm ]
-  ret ptr %38
+.thread:                                          ; preds = %29, %1, %37, %38
+  %39 = phi ptr [ @.str.1116, %38 ], [ null, %37 ], [ null, %1 ], [ null, %29 ]
+  ret ptr %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -37830,22 +37830,19 @@ define dso_local noundef ptr @_ZNK16AstDistChiSquare9brokenGenEv(ptr noundef non
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -37854,13 +37851,16 @@ define dso_local noundef ptr @_ZNK16AstDistChiSquare9brokenGenEv(ptr noundef non
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.332, %6 ], [ @.str.333, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.332, %6 ], [ @.str.333, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -37894,22 +37894,19 @@ define dso_local noundef ptr @_ZNK15AstNodeDistBiop9brokenGenEv(ptr noundef nonn
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -37918,65 +37915,68 @@ define dso_local noundef ptr @_ZNK15AstNodeDistBiop9brokenGenEv(ptr noundef nonn
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.695, %32 ], [ @.str.696, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.695, %33 ], [ @.str.696, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -38155,19 +38155,19 @@ define dso_local noundef ptr @_ZNK13AstDistErlang9brokenGenEv(ptr noundef nonnul
 .critedge11:                                      ; preds = %.critedge9, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %.fr3.i = freeze i64 %20
-  %21 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %20
+  %21 = and i64 %.fr.i, 9223372036854775807
   %22 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %23 = icmp eq i64 %21, %22
   br i1 %23, label %24, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 24:                                               ; preds = %.critedge11
-  %25 = icmp slt i64 %.fr3.i, 0
+  %25 = icmp slt i64 %.fr.i, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %29, label %30, label %.thr_comm.i
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %9, align 8, !tbaa !56
@@ -38175,10 +38175,7 @@ define dso_local noundef ptr @_ZNK13AstDistErlang9brokenGenEv(ptr noundef nonnul
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %35, label %36, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %30, %24
-  br i1 %25, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %14, align 8, !tbaa !101
@@ -38187,13 +38184,16 @@ define dso_local noundef ptr @_ZNK13AstDistErlang9brokenGenEv(ptr noundef nonnul
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(152) %37)
   %42 = xor i1 %25, %41
-  br i1 %42, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %42, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-43:                                               ; preds = %36, %.thr_comm.i
+43:                                               ; preds = %30, %24
+  br i1 %25, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+44:                                               ; preds = %43, %36
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %43, %36, %.thr_comm.i, %.critedge11, %1, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.334, %6 ], [ @.str.335, %11 ], [ @.str.336, %16 ], [ @.str.1114, %43 ], [ null, %36 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %44, %43, %36, %.critedge11, %1, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.334, %6 ], [ @.str.335, %11 ], [ @.str.336, %16 ], [ @.str.1114, %44 ], [ null, %43 ], [ null, %.critedge11 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -38240,19 +38240,19 @@ define dso_local noundef ptr @_ZNK16AstNodeDistTriop9brokenGenEv(ptr noundef non
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -38260,10 +38260,7 @@ define dso_local noundef ptr @_ZNK16AstNodeDistTriop9brokenGenEv(ptr noundef non
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -38272,85 +38269,88 @@ define dso_local noundef ptr @_ZNK16AstNodeDistTriop9brokenGenEv(ptr noundef non
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.697, %43 ], [ @.str.698, %47 ], [ @.str.699, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.697, %44 ], [ @.str.698, %48 ], [ @.str.699, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -38567,22 +38567,19 @@ define dso_local noundef ptr @_ZNK18AstDistExponential9brokenGenEv(ptr noundef n
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -38591,13 +38588,16 @@ define dso_local noundef ptr @_ZNK18AstDistExponential9brokenGenEv(ptr noundef n
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.337, %6 ], [ @.str.338, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.337, %6 ], [ @.str.338, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -38928,19 +38928,19 @@ define dso_local noundef ptr @_ZNK13AstDistNormal9brokenGenEv(ptr noundef nonnul
 .critedge11:                                      ; preds = %.critedge9, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %.fr3.i = freeze i64 %20
-  %21 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %20
+  %21 = and i64 %.fr.i, 9223372036854775807
   %22 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %23 = icmp eq i64 %21, %22
   br i1 %23, label %24, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 24:                                               ; preds = %.critedge11
-  %25 = icmp slt i64 %.fr3.i, 0
+  %25 = icmp slt i64 %.fr.i, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %29, label %30, label %.thr_comm.i
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %9, align 8, !tbaa !56
@@ -38948,10 +38948,7 @@ define dso_local noundef ptr @_ZNK13AstDistNormal9brokenGenEv(ptr noundef nonnul
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %35, label %36, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %30, %24
-  br i1 %25, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %14, align 8, !tbaa !101
@@ -38960,13 +38957,16 @@ define dso_local noundef ptr @_ZNK13AstDistNormal9brokenGenEv(ptr noundef nonnul
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(152) %37)
   %42 = xor i1 %25, %41
-  br i1 %42, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %42, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-43:                                               ; preds = %36, %.thr_comm.i
+43:                                               ; preds = %30, %24
+  br i1 %25, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+44:                                               ; preds = %43, %36
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %43, %36, %.thr_comm.i, %.critedge11, %1, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.342, %6 ], [ @.str.343, %11 ], [ @.str.344, %16 ], [ @.str.1114, %43 ], [ null, %36 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %44, %43, %36, %.critedge11, %1, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.342, %6 ], [ @.str.343, %11 ], [ @.str.344, %16 ], [ @.str.1114, %44 ], [ null, %43 ], [ null, %.critedge11 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -39178,22 +39178,19 @@ define dso_local noundef ptr @_ZNK14AstDistPoisson9brokenGenEv(ptr noundef nonnu
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -39202,13 +39199,16 @@ define dso_local noundef ptr @_ZNK14AstDistPoisson9brokenGenEv(ptr noundef nonnu
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.345, %6 ], [ @.str.346, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.345, %6 ], [ @.str.346, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -39369,22 +39369,19 @@ define dso_local noundef ptr @_ZNK8AstDistT9brokenGenEv(ptr noundef nonnull read
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -39393,13 +39390,16 @@ define dso_local noundef ptr @_ZNK8AstDistT9brokenGenEv(ptr noundef nonnull read
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.347, %6 ], [ @.str.348, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.347, %6 ], [ @.str.348, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -39573,19 +39573,19 @@ define dso_local noundef ptr @_ZNK14AstDistUniform9brokenGenEv(ptr noundef nonnu
 .critedge11:                                      ; preds = %.critedge9, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %.fr3.i = freeze i64 %20
-  %21 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %20
+  %21 = and i64 %.fr.i, 9223372036854775807
   %22 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %23 = icmp eq i64 %21, %22
   br i1 %23, label %24, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 24:                                               ; preds = %.critedge11
-  %25 = icmp slt i64 %.fr3.i, 0
+  %25 = icmp slt i64 %.fr.i, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %29, label %30, label %.thr_comm.i
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %9, align 8, !tbaa !56
@@ -39593,10 +39593,7 @@ define dso_local noundef ptr @_ZNK14AstDistUniform9brokenGenEv(ptr noundef nonnu
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %35, label %36, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %30, %24
-  br i1 %25, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %14, align 8, !tbaa !101
@@ -39605,13 +39602,16 @@ define dso_local noundef ptr @_ZNK14AstDistUniform9brokenGenEv(ptr noundef nonnu
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(152) %37)
   %42 = xor i1 %25, %41
-  br i1 %42, label %43, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %42, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-43:                                               ; preds = %36, %.thr_comm.i
+43:                                               ; preds = %30, %24
+  br i1 %25, label %44, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+44:                                               ; preds = %43, %36
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %43, %36, %.thr_comm.i, %.critedge11, %1, %16, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.349, %6 ], [ @.str.350, %11 ], [ @.str.351, %16 ], [ @.str.1114, %43 ], [ null, %36 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %44, %43, %36, %.critedge11, %1, %16, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.349, %6 ], [ @.str.350, %11 ], [ @.str.351, %16 ], [ @.str.1114, %44 ], [ null, %43 ], [ null, %.critedge11 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -39818,22 +39818,19 @@ define dso_local noundef ptr @_ZNK6AstDiv9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -39842,65 +39839,68 @@ define dso_local noundef ptr @_ZNK6AstDiv9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.352, %32 ], [ @.str.353, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.352, %33 ], [ @.str.353, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -40056,22 +40056,19 @@ define dso_local noundef ptr @_ZNK7AstDivD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -40080,65 +40077,68 @@ define dso_local noundef ptr @_ZNK7AstDivD9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.354, %32 ], [ @.str.355, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.354, %33 ], [ @.str.355, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -40294,22 +40294,19 @@ define dso_local noundef ptr @_ZNK7AstDivS9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -40318,65 +40315,68 @@ define dso_local noundef ptr @_ZNK7AstDivS9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.356, %32 ], [ @.str.357, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.356, %33 ], [ @.str.357, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -42007,22 +42007,19 @@ define dso_local noundef ptr @_ZNK5AstEq9brokenGenEv(ptr noundef nonnull readonl
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -42031,13 +42028,16 @@ define dso_local noundef ptr @_ZNK5AstEq9brokenGenEv(ptr noundef nonnull readonl
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.380, %6 ], [ @.str.381, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.380, %6 ], [ @.str.381, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -42071,22 +42071,19 @@ define dso_local noundef ptr @_ZNK12AstNodeBiCom9brokenGenEv(ptr noundef nonnull
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -42095,65 +42092,68 @@ define dso_local noundef ptr @_ZNK12AstNodeBiCom9brokenGenEv(ptr noundef nonnull
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.675, %32 ], [ @.str.676, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.675, %33 ], [ @.str.676, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -42319,22 +42319,19 @@ define dso_local noundef ptr @_ZNK9AstEqCase9brokenGenEv(ptr noundef nonnull rea
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -42343,13 +42340,16 @@ define dso_local noundef ptr @_ZNK9AstEqCase9brokenGenEv(ptr noundef nonnull rea
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.382, %6 ], [ @.str.383, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.382, %6 ], [ @.str.383, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -42510,22 +42510,19 @@ define dso_local noundef ptr @_ZNK6AstEqD9brokenGenEv(ptr noundef nonnull readon
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -42534,13 +42531,16 @@ define dso_local noundef ptr @_ZNK6AstEqD9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.384, %6 ], [ @.str.385, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.384, %6 ], [ @.str.385, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -42701,22 +42701,19 @@ define dso_local noundef ptr @_ZNK6AstEqN9brokenGenEv(ptr noundef nonnull readon
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -42725,13 +42722,16 @@ define dso_local noundef ptr @_ZNK6AstEqN9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.386, %6 ], [ @.str.387, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.386, %6 ], [ @.str.387, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -42892,22 +42892,19 @@ define dso_local noundef ptr @_ZNK6AstEqT9brokenGenEv(ptr noundef nonnull readon
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -42916,13 +42913,16 @@ define dso_local noundef ptr @_ZNK6AstEqT9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.388, %6 ], [ @.str.389, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.388, %6 ], [ @.str.389, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -43078,22 +43078,19 @@ define dso_local noundef ptr @_ZNK9AstEqWild9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -43102,65 +43099,68 @@ define dso_local noundef ptr @_ZNK9AstEqWild9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.390, %32 ], [ @.str.391, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.390, %33 ], [ @.str.391, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -44799,22 +44799,19 @@ define dso_local noundef ptr @_ZNK8AstFGetS9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -44823,65 +44820,68 @@ define dso_local noundef ptr @_ZNK8AstFGetS9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.410, %32 ], [ @.str.411, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.410, %33 ], [ @.str.411, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -45966,22 +45966,19 @@ define dso_local noundef ptr @_ZNK10AstFUngetC9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -45990,65 +45987,68 @@ define dso_local noundef ptr @_ZNK10AstFUngetC9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.433, %32 ], [ @.str.434, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.433, %33 ], [ @.str.434, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -48172,27 +48172,27 @@ define dso_local noundef ptr @_ZNK10AstFuncRef9brokenGenEv(ptr noundef nonnull r
 .critedge11:                                      ; preds = %.critedge9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %13 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %13
-  %14 = and i64 %.fr3.i, 9223372036854775807
+  %.fr4.i = freeze i64 %13
+  %14 = and i64 %.fr4.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 17:                                               ; preds = %.critedge11
-  %18 = icmp slt i64 %.fr3.i, 0
+  %18 = icmp slt i64 %.fr4.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8, !tbaa !232
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %.loopexit.thr_comm.i, label %21
+  br i1 %.not.i.i, label %.loopexit.i, label %21
 
 21:                                               ; preds = %17
-  br i1 %.not6, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not6, label %.critedge.i.i, label %.lr.ph.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %23, align 8, !tbaa !235
   %.not10.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not10.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !236
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !236
 
 .lr.ph.i.i:                                       ; preds = %21, %22
   %.013.i.i = phi ptr [ %.0.i.i, %22 ], [ %4, %21 ]
@@ -48200,12 +48200,9 @@ define dso_local noundef ptr @_ZNK10AstFuncRef9brokenGenEv(ptr noundef nonnull r
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %.013.i.i)
-  br i1 %27, label %22, label %.loopexit.thr_comm.i
+  br i1 %27, label %22, label %.loopexit.i
 
-.loopexit.thr_comm.i:                             ; preds = %.lr.ph.i.i, %17
-  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
-
-.loopexit.i:                                      ; preds = %22, %21
+.critedge.i.i:                                    ; preds = %22, %21
   %28 = load ptr, ptr %20, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
@@ -48213,11 +48210,14 @@ define dso_local noundef ptr @_ZNK10AstFuncRef9brokenGenEv(ptr noundef nonnull r
   %32 = xor i1 %18, %31
   br i1 %32, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
 
-33:                                               ; preds = %.loopexit.i, %.loopexit.thr_comm.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %17
+  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %.loopexit.i, %.critedge.i.i
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
-_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.453, %10 ], [ @.str.452, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.critedge.i.i, %.critedge11, %1, %10, %5
+  %.1 = phi ptr [ %2, %1 ], [ @.str.453, %10 ], [ @.str.452, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.critedge.i.i ]
   ret ptr %.1
 }
 
@@ -48294,26 +48294,26 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef9brokenGenEv(ptr noundef nonn
 .critedge27:                                      ; preds = %.critedge25, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %26 = load i64, ptr %25, align 8
-  %.fr3.i = freeze i64 %26
-  %27 = and i64 %.fr3.i, 9223372036854775807
+  %.fr4.i = freeze i64 %26
+  %27 = and i64 %.fr4.i, 9223372036854775807
   %28 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %29 = icmp eq i64 %27, %28
   br i1 %29, label %30, label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 30:                                               ; preds = %.critedge27
-  %31 = icmp slt i64 %.fr3.i, 0
+  %31 = icmp slt i64 %.fr4.i, 0
   %32 = load ptr, ptr %2, align 8, !tbaa !232
   %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %.loopexit.thr_comm.i, label %33
+  br i1 %.not.i.i, label %.loopexit.i, label %33
 
 33:                                               ; preds = %30
-  br i1 %.not14, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not14, label %.critedge.i.i, label %.lr.ph.i.i
 
 34:                                               ; preds = %.lr.ph.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %35, align 8, !tbaa !235
   %.not10.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not10.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !236
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !236
 
 .lr.ph.i.i:                                       ; preds = %33, %34
   %.013.i.i = phi ptr [ %.0.i.i, %34 ], [ %17, %33 ]
@@ -48321,12 +48321,9 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef9brokenGenEv(ptr noundef nonn
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 184
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %.013.i.i)
-  br i1 %39, label %34, label %.loopexit.thr_comm.i
+  br i1 %39, label %34, label %.loopexit.i
 
-.loopexit.thr_comm.i:                             ; preds = %.lr.ph.i.i, %30
-  br i1 %31, label %45, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
-
-.loopexit.i:                                      ; preds = %34, %33
+.critedge.i.i:                                    ; preds = %34, %33
   %40 = load ptr, ptr %32, align 8, !tbaa !24
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 184
   %42 = load ptr, ptr %41, align 8
@@ -48334,11 +48331,14 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef9brokenGenEv(ptr noundef nonn
   %44 = xor i1 %31, %43
   br i1 %44, label %45, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
 
-45:                                               ; preds = %.loopexit.i, %.loopexit.thr_comm.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %30
+  br i1 %31, label %45, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
+
+45:                                               ; preds = %.loopexit.i, %.critedge.i.i
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
-_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %45, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge27, %23, %18, %13, %11, %6, %4
-  %.1 = phi ptr [ @.str.710, %23 ], [ @.str.704, %4 ], [ @.str.705, %6 ], [ @.str.706, %11 ], [ @.str.707, %13 ], [ @.str.709, %18 ], [ @.str.1108, %45 ], [ null, %.loopexit.i ], [ null, %.critedge27 ], [ null, %.loopexit.thr_comm.i ]
+_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %45, %.loopexit.i, %.critedge.i.i, %.critedge27, %23, %18, %13, %11, %6, %4
+  %.1 = phi ptr [ @.str.710, %23 ], [ @.str.704, %4 ], [ @.str.705, %6 ], [ @.str.706, %11 ], [ @.str.707, %13 ], [ @.str.709, %18 ], [ @.str.1108, %45 ], [ null, %.loopexit.i ], [ null, %.critedge27 ], [ null, %.critedge.i.i ]
   ret ptr %.1
 }
 
@@ -48367,30 +48367,30 @@ define linkonce_odr dso_local noundef ptr @_ZNK10AstFuncRef10scopeNamepEv(ptr no
 define dso_local noundef ptr @_ZNK15AstNodeFTaskRef6brokenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i64, ptr %2, align 8
-  %.fr3 = freeze i64 %3
-  %4 = and i64 %.fr3, 9223372036854775807
+  %.fr4 = freeze i64 %3
+  %4 = and i64 %.fr4, 9223372036854775807
   %5 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %6 = icmp eq i64 %4, %5
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
-  %8 = icmp slt i64 %.fr3, 0
+  %8 = icmp slt i64 %.fr4, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8, !tbaa !232
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.loopexit.thr_comm, label %11
+  br i1 %.not.i, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.011.i = load ptr, ptr %12, align 8, !tbaa !235
   %.not1012.i = icmp eq ptr %.011.i, null
-  br i1 %.not1012.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not1012.i, label %.critedge.i, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i = load ptr, ptr %14, align 8, !tbaa !235
   %.not10.i = icmp eq ptr %.0.i, null
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !236
+  br i1 %.not10.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !236
 
 .lr.ph.i:                                         ; preds = %11, %13
   %.013.i = phi ptr [ %.0.i, %13 ], [ %.011.i, %11 ]
@@ -48398,12 +48398,9 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef6brokenEv(ptr noundef nonnull
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(152) %.013.i)
-  br i1 %18, label %13, label %.loopexit.thr_comm
+  br i1 %18, label %13, label %.loopexit
 
-.loopexit.thr_comm:                               ; preds = %.lr.ph.i, %7
-  br i1 %8, label %24, label %.thread, !prof !26
-
-.loopexit:                                        ; preds = %13, %11
+.critedge.i:                                      ; preds = %13, %11
   %19 = load ptr, ptr %10, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
@@ -48411,11 +48408,14 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef6brokenEv(ptr noundef nonnull
   %23 = xor i1 %8, %22
   br i1 %23, label %24, label %.thread, !prof !26
 
-24:                                               ; preds = %.loopexit.thr_comm, %.loopexit
+.loopexit:                                        ; preds = %.lr.ph.i, %7
+  br i1 %8, label %24, label %.thread, !prof !26
+
+24:                                               ; preds = %.critedge.i, %.loopexit
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit.thr_comm, %1, %.loopexit, %24
-  %25 = phi ptr [ @.str.1108, %24 ], [ null, %.loopexit ], [ null, %1 ], [ null, %.loopexit.thr_comm ]
+.thread:                                          ; preds = %.critedge.i, %1, %.loopexit, %24
+  %25 = phi ptr [ @.str.1108, %24 ], [ null, %.loopexit ], [ null, %1 ], [ null, %.critedge.i ]
   ret ptr %25
 }
 
@@ -49670,22 +49670,19 @@ define dso_local noundef ptr @_ZNK8AstGetcN9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -49694,65 +49691,68 @@ define dso_local noundef ptr @_ZNK8AstGetcN9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.468, %32 ], [ @.str.469, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.468, %33 ], [ @.str.469, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -49908,22 +49908,19 @@ define dso_local noundef ptr @_ZNK11AstGetcRefN9brokenGenEv(ptr noundef nonnull 
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -49932,65 +49929,68 @@ define dso_local noundef ptr @_ZNK11AstGetcRefN9brokenGenEv(ptr noundef nonnull 
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.470, %32 ], [ @.str.471, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.470, %33 ], [ @.str.471, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -50146,22 +50146,19 @@ define dso_local noundef ptr @_ZNK5AstGt9brokenGenEv(ptr noundef nonnull readonl
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -50170,65 +50167,68 @@ define dso_local noundef ptr @_ZNK5AstGt9brokenGenEv(ptr noundef nonnull readonl
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.472, %32 ], [ @.str.473, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.472, %33 ], [ @.str.473, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -50384,22 +50384,19 @@ define dso_local noundef ptr @_ZNK6AstGtD9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -50408,65 +50405,68 @@ define dso_local noundef ptr @_ZNK6AstGtD9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.474, %32 ], [ @.str.475, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.474, %33 ], [ @.str.475, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -50622,22 +50622,19 @@ define dso_local noundef ptr @_ZNK6AstGtN9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -50646,65 +50643,68 @@ define dso_local noundef ptr @_ZNK6AstGtN9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.476, %32 ], [ @.str.477, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.476, %33 ], [ @.str.477, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -50860,22 +50860,19 @@ define dso_local noundef ptr @_ZNK6AstGtS9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -50884,65 +50881,68 @@ define dso_local noundef ptr @_ZNK6AstGtS9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.478, %32 ], [ @.str.479, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.478, %33 ], [ @.str.479, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -51098,22 +51098,19 @@ define dso_local noundef ptr @_ZNK6AstGte9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -51122,65 +51119,68 @@ define dso_local noundef ptr @_ZNK6AstGte9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.480, %32 ], [ @.str.481, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.480, %33 ], [ @.str.481, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -51336,22 +51336,19 @@ define dso_local noundef ptr @_ZNK7AstGteD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -51360,65 +51357,68 @@ define dso_local noundef ptr @_ZNK7AstGteD9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.482, %32 ], [ @.str.483, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.482, %33 ], [ @.str.483, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -51574,22 +51574,19 @@ define dso_local noundef ptr @_ZNK7AstGteN9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -51598,65 +51595,68 @@ define dso_local noundef ptr @_ZNK7AstGteN9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.484, %32 ], [ @.str.485, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.484, %33 ], [ @.str.485, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -51812,22 +51812,19 @@ define dso_local noundef ptr @_ZNK7AstGteS9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -51836,65 +51833,68 @@ define dso_local noundef ptr @_ZNK7AstGteS9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.486, %32 ], [ @.str.487, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.486, %33 ], [ @.str.487, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -52055,22 +52055,19 @@ define dso_local noundef ptr @_ZNK9AstHypotD9brokenGenEv(ptr noundef nonnull rea
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -52079,13 +52076,16 @@ define dso_local noundef ptr @_ZNK9AstHypotD9brokenGenEv(ptr noundef nonnull rea
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.488, %6 ], [ @.str.489, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.488, %6 ], [ @.str.489, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -55866,22 +55866,19 @@ define dso_local noundef ptr @_ZNK9AstLogAnd9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -55890,65 +55887,68 @@ define dso_local noundef ptr @_ZNK9AstLogAnd9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.543, %32 ], [ @.str.544, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.543, %33 ], [ @.str.544, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -56282,22 +56282,19 @@ define dso_local noundef ptr @_ZNK8AstLogEq9brokenGenEv(ptr noundef nonnull read
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -56306,13 +56303,16 @@ define dso_local noundef ptr @_ZNK8AstLogEq9brokenGenEv(ptr noundef nonnull read
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.546, %6 ], [ @.str.547, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.546, %6 ], [ @.str.547, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -56468,22 +56468,19 @@ define dso_local noundef ptr @_ZNK8AstLogIf9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -56492,65 +56489,68 @@ define dso_local noundef ptr @_ZNK8AstLogIf9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.548, %32 ], [ @.str.549, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.548, %33 ], [ @.str.549, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -56846,22 +56846,19 @@ define dso_local noundef ptr @_ZNK8AstLogOr9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -56870,65 +56867,68 @@ define dso_local noundef ptr @_ZNK8AstLogOr9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.551, %32 ], [ @.str.552, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.551, %33 ], [ @.str.552, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -57084,22 +57084,19 @@ define dso_local noundef ptr @_ZNK5AstLt9brokenGenEv(ptr noundef nonnull readonl
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -57108,65 +57105,68 @@ define dso_local noundef ptr @_ZNK5AstLt9brokenGenEv(ptr noundef nonnull readonl
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.553, %32 ], [ @.str.554, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.553, %33 ], [ @.str.554, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -57322,22 +57322,19 @@ define dso_local noundef ptr @_ZNK6AstLtD9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -57346,65 +57343,68 @@ define dso_local noundef ptr @_ZNK6AstLtD9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.555, %32 ], [ @.str.556, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.555, %33 ], [ @.str.556, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -57560,22 +57560,19 @@ define dso_local noundef ptr @_ZNK6AstLtN9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -57584,65 +57581,68 @@ define dso_local noundef ptr @_ZNK6AstLtN9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.557, %32 ], [ @.str.558, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.557, %33 ], [ @.str.558, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -57798,22 +57798,19 @@ define dso_local noundef ptr @_ZNK6AstLtS9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -57822,65 +57819,68 @@ define dso_local noundef ptr @_ZNK6AstLtS9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.559, %32 ], [ @.str.560, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.559, %33 ], [ @.str.560, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -58036,22 +58036,19 @@ define dso_local noundef ptr @_ZNK6AstLte9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -58060,65 +58057,68 @@ define dso_local noundef ptr @_ZNK6AstLte9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.561, %32 ], [ @.str.562, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.561, %33 ], [ @.str.562, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -58274,22 +58274,19 @@ define dso_local noundef ptr @_ZNK7AstLteD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -58298,65 +58295,68 @@ define dso_local noundef ptr @_ZNK7AstLteD9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.563, %32 ], [ @.str.564, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.563, %33 ], [ @.str.564, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -58512,22 +58512,19 @@ define dso_local noundef ptr @_ZNK7AstLteN9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -58536,65 +58533,68 @@ define dso_local noundef ptr @_ZNK7AstLteN9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.565, %32 ], [ @.str.566, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.565, %33 ], [ @.str.566, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -58750,22 +58750,19 @@ define dso_local noundef ptr @_ZNK7AstLteS9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -58774,65 +58771,68 @@ define dso_local noundef ptr @_ZNK7AstLteS9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.567, %32 ], [ @.str.568, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.567, %33 ], [ @.str.568, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -59499,27 +59499,27 @@ define dso_local noundef ptr @_ZNK13AstMethodCall9brokenGenEv(ptr noundef nonnul
 .critedge14:                                      ; preds = %.critedge12, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %18
-  %19 = and i64 %.fr3.i, 9223372036854775807
+  %.fr4.i = freeze i64 %18
+  %19 = and i64 %.fr4.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
   br i1 %21, label %22, label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 22:                                               ; preds = %.critedge14
-  %23 = icmp slt i64 %.fr3.i, 0
+  %23 = icmp slt i64 %.fr4.i, 0
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load ptr, ptr %24, align 8, !tbaa !232
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %.loopexit.thr_comm.i, label %26
+  br i1 %.not.i.i, label %.loopexit.i, label %26
 
 26:                                               ; preds = %22
-  br i1 %.not7, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not7, label %.critedge.i.i, label %.lr.ph.i.i
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %28, align 8, !tbaa !235
   %.not10.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not10.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !236
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !236
 
 .lr.ph.i.i:                                       ; preds = %26, %27
   %.013.i.i = phi ptr [ %.0.i.i, %27 ], [ %9, %26 ]
@@ -59527,12 +59527,9 @@ define dso_local noundef ptr @_ZNK13AstMethodCall9brokenGenEv(ptr noundef nonnul
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 184
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(152) %.013.i.i)
-  br i1 %32, label %27, label %.loopexit.thr_comm.i
+  br i1 %32, label %27, label %.loopexit.i
 
-.loopexit.thr_comm.i:                             ; preds = %.lr.ph.i.i, %22
-  br i1 %23, label %38, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
-
-.loopexit.i:                                      ; preds = %27, %26
+.critedge.i.i:                                    ; preds = %27, %26
   %33 = load ptr, ptr %25, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
   %35 = load ptr, ptr %34, align 8
@@ -59540,11 +59537,14 @@ define dso_local noundef ptr @_ZNK13AstMethodCall9brokenGenEv(ptr noundef nonnul
   %37 = xor i1 %23, %36
   br i1 %37, label %38, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
 
-38:                                               ; preds = %.loopexit.i, %.loopexit.thr_comm.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %22
+  br i1 %23, label %38, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
+
+38:                                               ; preds = %.loopexit.i, %.critedge.i.i
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
-_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %38, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge14, %1, %15, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.580, %15 ], [ @.str.578, %5 ], [ @.str.579, %10 ], [ @.str.1108, %38 ], [ null, %.loopexit.i ], [ null, %.critedge14 ], [ null, %.loopexit.thr_comm.i ]
+_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %38, %.loopexit.i, %.critedge.i.i, %.critedge14, %1, %15, %10, %5
+  %.1 = phi ptr [ %2, %1 ], [ @.str.580, %15 ], [ @.str.578, %5 ], [ @.str.579, %10 ], [ @.str.1108, %38 ], [ null, %.loopexit.i ], [ null, %.critedge14 ], [ null, %.critedge.i.i ]
   ret ptr %.1
 }
 
@@ -59845,22 +59845,19 @@ define dso_local noundef ptr @_ZNK9AstModDiv9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -59869,65 +59866,68 @@ define dso_local noundef ptr @_ZNK9AstModDiv9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.581, %32 ], [ @.str.582, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.581, %33 ], [ @.str.582, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -60083,22 +60083,19 @@ define dso_local noundef ptr @_ZNK10AstModDivS9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -60107,65 +60104,68 @@ define dso_local noundef ptr @_ZNK10AstModDivS9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.583, %32 ], [ @.str.584, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.583, %33 ], [ @.str.584, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -60837,22 +60837,19 @@ define dso_local noundef ptr @_ZNK6AstMul9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -60861,65 +60858,68 @@ define dso_local noundef ptr @_ZNK6AstMul9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.595, %34 ], [ @.str.596, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.595, %35 ], [ @.str.596, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -61080,22 +61080,19 @@ define dso_local noundef ptr @_ZNK7AstMulD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -61104,65 +61101,68 @@ define dso_local noundef ptr @_ZNK7AstMulD9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.597, %34 ], [ @.str.598, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.597, %35 ], [ @.str.598, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -61323,22 +61323,19 @@ define dso_local noundef ptr @_ZNK7AstMulS9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -61347,65 +61344,68 @@ define dso_local noundef ptr @_ZNK7AstMulS9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.599, %34 ], [ @.str.600, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.599, %35 ], [ @.str.600, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -62099,22 +62099,19 @@ define dso_local noundef ptr @_ZNK6AstNeq9brokenGenEv(ptr noundef nonnull readon
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -62123,13 +62120,16 @@ define dso_local noundef ptr @_ZNK6AstNeq9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.608, %6 ], [ @.str.609, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.608, %6 ], [ @.str.609, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -62290,22 +62290,19 @@ define dso_local noundef ptr @_ZNK10AstNeqCase9brokenGenEv(ptr noundef nonnull r
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -62314,13 +62311,16 @@ define dso_local noundef ptr @_ZNK10AstNeqCase9brokenGenEv(ptr noundef nonnull r
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.610, %6 ], [ @.str.611, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.610, %6 ], [ @.str.611, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -62481,22 +62481,19 @@ define dso_local noundef ptr @_ZNK7AstNeqD9brokenGenEv(ptr noundef nonnull reado
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -62505,13 +62502,16 @@ define dso_local noundef ptr @_ZNK7AstNeqD9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.612, %6 ], [ @.str.613, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.612, %6 ], [ @.str.613, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -62672,22 +62672,19 @@ define dso_local noundef ptr @_ZNK7AstNeqN9brokenGenEv(ptr noundef nonnull reado
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -62696,13 +62693,16 @@ define dso_local noundef ptr @_ZNK7AstNeqN9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.614, %6 ], [ @.str.615, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.614, %6 ], [ @.str.615, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -62863,22 +62863,19 @@ define dso_local noundef ptr @_ZNK7AstNeqT9brokenGenEv(ptr noundef nonnull reado
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -62887,13 +62884,16 @@ define dso_local noundef ptr @_ZNK7AstNeqT9brokenGenEv(ptr noundef nonnull reado
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.616, %6 ], [ @.str.617, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.616, %6 ], [ @.str.617, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -63049,22 +63049,19 @@ define dso_local noundef ptr @_ZNK10AstNeqWild9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -63073,65 +63070,68 @@ define dso_local noundef ptr @_ZNK10AstNeqWild9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.618, %32 ], [ @.str.619, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.618, %33 ], [ @.str.619, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -64486,27 +64486,27 @@ define dso_local noundef ptr @_ZNK6AstNew9brokenGenEv(ptr noundef nonnull readon
 .critedge11:                                      ; preds = %.critedge9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %13 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %13
-  %14 = and i64 %.fr3.i, 9223372036854775807
+  %.fr4.i = freeze i64 %13
+  %14 = and i64 %.fr4.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 17:                                               ; preds = %.critedge11
-  %18 = icmp slt i64 %.fr3.i, 0
+  %18 = icmp slt i64 %.fr4.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8, !tbaa !232
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %.loopexit.thr_comm.i, label %21
+  br i1 %.not.i.i, label %.loopexit.i, label %21
 
 21:                                               ; preds = %17
-  br i1 %.not6, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not6, label %.critedge.i.i, label %.lr.ph.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %23, align 8, !tbaa !235
   %.not10.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not10.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !236
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !236
 
 .lr.ph.i.i:                                       ; preds = %21, %22
   %.013.i.i = phi ptr [ %.0.i.i, %22 ], [ %4, %21 ]
@@ -64514,12 +64514,9 @@ define dso_local noundef ptr @_ZNK6AstNew9brokenGenEv(ptr noundef nonnull readon
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %.013.i.i)
-  br i1 %27, label %22, label %.loopexit.thr_comm.i
+  br i1 %27, label %22, label %.loopexit.i
 
-.loopexit.thr_comm.i:                             ; preds = %.lr.ph.i.i, %17
-  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
-
-.loopexit.i:                                      ; preds = %22, %21
+.critedge.i.i:                                    ; preds = %22, %21
   %28 = load ptr, ptr %20, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
@@ -64527,11 +64524,14 @@ define dso_local noundef ptr @_ZNK6AstNew9brokenGenEv(ptr noundef nonnull readon
   %32 = xor i1 %18, %31
   br i1 %32, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
 
-33:                                               ; preds = %.loopexit.i, %.loopexit.thr_comm.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %17
+  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %.loopexit.i, %.critedge.i.i
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
-_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.663, %10 ], [ @.str.662, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.critedge.i.i, %.critedge11, %1, %10, %5
+  %.1 = phi ptr [ %2, %1 ], [ @.str.663, %10 ], [ @.str.662, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.critedge.i.i ]
   ret ptr %.1
 }
 
@@ -66177,19 +66177,19 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop9brokenGenEv(ptr noundef nonnull
 .critedge11:                                      ; preds = %.critedge9, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %18
-  %19 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %18
+  %19 = and i64 %.fr.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
   br i1 %21, label %22, label %_ZNK12AstNodeTriop6brokenEv.exit
 
 22:                                               ; preds = %.critedge11
-  %23 = icmp slt i64 %.fr3.i, 0
+  %23 = icmp slt i64 %.fr.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -66197,10 +66197,7 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop9brokenGenEv(ptr noundef nonnull
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i
-
-.thr_comm.i:                                      ; preds = %28, %22
-  br i1 %23, label %41, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -66209,13 +66206,16 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop9brokenGenEv(ptr noundef nonnull
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %41, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+  br i1 %40, label %42, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i
+41:                                               ; preds = %28, %22
+  br i1 %23, label %42, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+
+42:                                               ; preds = %41, %34
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %41, %34, %.thr_comm.i, %.critedge11, %14, %9, %4
-  %.1 = phi ptr [ @.str.750, %14 ], [ @.str.748, %4 ], [ @.str.749, %9 ], [ @.str.1114, %41 ], [ null, %34 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %42, %41, %34, %.critedge11, %14, %9, %4
+  %.1 = phi ptr [ @.str.750, %14 ], [ @.str.748, %4 ], [ @.str.749, %9 ], [ @.str.1114, %42 ], [ null, %41 ], [ null, %.critedge11 ], [ null, %34 ]
   ret ptr %.1
 }
 
@@ -69314,22 +69314,19 @@ define dso_local noundef ptr @_ZNK13AstNodeStream9brokenGenEv(ptr noundef nonnul
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -69338,65 +69335,68 @@ define dso_local noundef ptr @_ZNK13AstNodeStream9brokenGenEv(ptr noundef nonnul
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.743, %32 ], [ @.str.744, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.743, %33 ], [ @.str.744, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -71206,22 +71206,19 @@ define dso_local noundef ptr @_ZNK5AstOr9brokenGenEv(ptr noundef nonnull readonl
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -71230,65 +71227,68 @@ define dso_local noundef ptr @_ZNK5AstOr9brokenGenEv(ptr noundef nonnull readonl
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.769, %34 ], [ @.str.770, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.769, %35 ], [ @.str.770, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -73641,19 +73641,19 @@ define dso_local noundef ptr @_ZNK10AstPostAdd9brokenGenEv(ptr noundef nonnull r
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -73661,10 +73661,7 @@ define dso_local noundef ptr @_ZNK10AstPostAdd9brokenGenEv(ptr noundef nonnull r
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -73673,85 +73670,88 @@ define dso_local noundef ptr @_ZNK10AstPostAdd9brokenGenEv(ptr noundef nonnull r
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.805, %43 ], [ @.str.806, %47 ], [ @.str.807, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.805, %44 ], [ @.str.806, %48 ], [ @.str.807, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -73971,19 +73971,19 @@ define dso_local noundef ptr @_ZNK10AstPostSub9brokenGenEv(ptr noundef nonnull r
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -73991,10 +73991,7 @@ define dso_local noundef ptr @_ZNK10AstPostSub9brokenGenEv(ptr noundef nonnull r
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -74003,85 +74000,88 @@ define dso_local noundef ptr @_ZNK10AstPostSub9brokenGenEv(ptr noundef nonnull r
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.808, %43 ], [ @.str.809, %47 ], [ @.str.810, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.808, %44 ], [ @.str.809, %48 ], [ @.str.810, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -74288,22 +74288,19 @@ define dso_local noundef ptr @_ZNK6AstPow9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -74312,65 +74309,68 @@ define dso_local noundef ptr @_ZNK6AstPow9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.811, %32 ], [ @.str.812, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.811, %33 ], [ @.str.812, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -74526,22 +74526,19 @@ define dso_local noundef ptr @_ZNK7AstPowD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -74550,65 +74547,68 @@ define dso_local noundef ptr @_ZNK7AstPowD9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.813, %32 ], [ @.str.814, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.813, %33 ], [ @.str.814, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -74764,22 +74764,19 @@ define dso_local noundef ptr @_ZNK8AstPowSS9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -74788,65 +74785,68 @@ define dso_local noundef ptr @_ZNK8AstPowSS9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.815, %32 ], [ @.str.816, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.815, %33 ], [ @.str.816, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -75002,22 +75002,19 @@ define dso_local noundef ptr @_ZNK8AstPowSU9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -75026,65 +75023,68 @@ define dso_local noundef ptr @_ZNK8AstPowSU9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.817, %32 ], [ @.str.818, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.817, %33 ], [ @.str.818, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -75240,22 +75240,19 @@ define dso_local noundef ptr @_ZNK8AstPowUS9brokenGenEv(ptr noundef nonnull read
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -75264,65 +75261,68 @@ define dso_local noundef ptr @_ZNK8AstPowUS9brokenGenEv(ptr noundef nonnull read
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.819, %32 ], [ @.str.820, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.819, %33 ], [ @.str.820, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -75511,19 +75511,19 @@ define dso_local noundef ptr @_ZNK9AstPreAdd9brokenGenEv(ptr noundef nonnull rea
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -75531,10 +75531,7 @@ define dso_local noundef ptr @_ZNK9AstPreAdd9brokenGenEv(ptr noundef nonnull rea
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -75543,85 +75540,88 @@ define dso_local noundef ptr @_ZNK9AstPreAdd9brokenGenEv(ptr noundef nonnull rea
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.821, %43 ], [ @.str.822, %47 ], [ @.str.823, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.821, %44 ], [ @.str.822, %48 ], [ @.str.823, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -75841,19 +75841,19 @@ define dso_local noundef ptr @_ZNK9AstPreSub9brokenGenEv(ptr noundef nonnull rea
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -75861,10 +75861,7 @@ define dso_local noundef ptr @_ZNK9AstPreSub9brokenGenEv(ptr noundef nonnull rea
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -75873,85 +75870,88 @@ define dso_local noundef ptr @_ZNK9AstPreSub9brokenGenEv(ptr noundef nonnull rea
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.824, %43 ], [ @.str.825, %47 ], [ @.str.826, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.824, %44 ], [ @.str.825, %48 ], [ @.str.826, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -76972,19 +76972,19 @@ define dso_local noundef ptr @_ZNK8AstPutcN9brokenGenEv(ptr noundef nonnull read
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -76992,10 +76992,7 @@ define dso_local noundef ptr @_ZNK8AstPutcN9brokenGenEv(ptr noundef nonnull read
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -77004,85 +77001,88 @@ define dso_local noundef ptr @_ZNK8AstPutcN9brokenGenEv(ptr noundef nonnull read
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.839, %43 ], [ @.str.840, %47 ], [ @.str.841, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.839, %44 ], [ @.str.840, %48 ], [ @.str.841, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -79811,22 +79811,19 @@ define dso_local noundef ptr @_ZNK12AstReplicate9brokenGenEv(ptr noundef nonnull
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -79835,65 +79832,68 @@ define dso_local noundef ptr @_ZNK12AstReplicate9brokenGenEv(ptr noundef nonnull
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.879, %32 ], [ @.str.880, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.879, %33 ], [ @.str.880, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -80049,22 +80049,19 @@ define dso_local noundef ptr @_ZNK13AstReplicateN9brokenGenEv(ptr noundef nonnul
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -80073,65 +80070,68 @@ define dso_local noundef ptr @_ZNK13AstReplicateN9brokenGenEv(ptr noundef nonnul
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.882, %32 ], [ @.str.883, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.882, %33 ], [ @.str.883, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -82383,19 +82383,19 @@ define dso_local noundef ptr @_ZNK6AstSel9brokenGenEv(ptr noundef nonnull readon
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -82403,10 +82403,7 @@ define dso_local noundef ptr @_ZNK6AstSel9brokenGenEv(ptr noundef nonnull readon
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -82415,85 +82412,88 @@ define dso_local noundef ptr @_ZNK6AstSel9brokenGenEv(ptr noundef nonnull readon
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.918, %43 ], [ @.str.919, %47 ], [ @.str.920, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.918, %44 ], [ @.str.919, %48 ], [ @.str.920, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -85153,22 +85153,19 @@ define dso_local noundef ptr @_ZNK9AstShiftL9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -85177,65 +85174,68 @@ define dso_local noundef ptr @_ZNK9AstShiftL9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.950, %32 ], [ @.str.951, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.950, %33 ], [ @.str.951, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -85391,22 +85391,19 @@ define dso_local noundef ptr @_ZNK12AstShiftLOvr9brokenGenEv(ptr noundef nonnull
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -85415,65 +85412,68 @@ define dso_local noundef ptr @_ZNK12AstShiftLOvr9brokenGenEv(ptr noundef nonnull
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.952, %32 ], [ @.str.953, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.952, %33 ], [ @.str.953, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -85629,22 +85629,19 @@ define dso_local noundef ptr @_ZNK9AstShiftR9brokenGenEv(ptr noundef nonnull rea
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -85653,65 +85650,68 @@ define dso_local noundef ptr @_ZNK9AstShiftR9brokenGenEv(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.954, %32 ], [ @.str.955, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.954, %33 ], [ @.str.955, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -85867,22 +85867,19 @@ define dso_local noundef ptr @_ZNK12AstShiftROvr9brokenGenEv(ptr noundef nonnull
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -85891,65 +85888,68 @@ define dso_local noundef ptr @_ZNK12AstShiftROvr9brokenGenEv(ptr noundef nonnull
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.956, %32 ], [ @.str.957, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.956, %33 ], [ @.str.957, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -86105,22 +86105,19 @@ define dso_local noundef ptr @_ZNK10AstShiftRS9brokenGenEv(ptr noundef nonnull r
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -86129,65 +86126,68 @@ define dso_local noundef ptr @_ZNK10AstShiftRS9brokenGenEv(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.958, %32 ], [ @.str.959, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.958, %33 ], [ @.str.959, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -86343,22 +86343,19 @@ define dso_local noundef ptr @_ZNK13AstShiftRSOvr9brokenGenEv(ptr noundef nonnul
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -86367,65 +86364,68 @@ define dso_local noundef ptr @_ZNK13AstShiftRSOvr9brokenGenEv(ptr noundef nonnul
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.960, %32 ], [ @.str.961, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.960, %33 ], [ @.str.961, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -87080,19 +87080,19 @@ define dso_local noundef ptr @_ZNK11AstSliceSel9brokenGenEv(ptr noundef nonnull 
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -87100,10 +87100,7 @@ define dso_local noundef ptr @_ZNK11AstSliceSel9brokenGenEv(ptr noundef nonnull 
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -87112,85 +87109,88 @@ define dso_local noundef ptr @_ZNK11AstSliceSel9brokenGenEv(ptr noundef nonnull 
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.965, %43 ], [ @.str.966, %47 ], [ @.str.967, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.965, %44 ], [ @.str.966, %48 ], [ @.str.967, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -87921,22 +87921,19 @@ define dso_local noundef ptr @_ZNK10AstStreamL9brokenGenEv(ptr noundef nonnull r
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -87945,13 +87942,16 @@ define dso_local noundef ptr @_ZNK10AstStreamL9brokenGenEv(ptr noundef nonnull r
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.972, %6 ], [ @.str.973, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.972, %6 ], [ @.str.973, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -88112,22 +88112,19 @@ define dso_local noundef ptr @_ZNK10AstStreamR9brokenGenEv(ptr noundef nonnull r
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -88136,13 +88133,16 @@ define dso_local noundef ptr @_ZNK10AstStreamR9brokenGenEv(ptr noundef nonnull r
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.974, %6 ], [ @.str.975, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.974, %6 ], [ @.str.975, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -88726,22 +88726,19 @@ define dso_local noundef ptr @_ZNK6AstSub9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -88750,65 +88747,68 @@ define dso_local noundef ptr @_ZNK6AstSub9brokenGenEv(ptr noundef nonnull readon
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.978, %32 ], [ @.str.979, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.978, %33 ], [ @.str.979, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -88964,22 +88964,19 @@ define dso_local noundef ptr @_ZNK7AstSubD9brokenGenEv(ptr noundef nonnull reado
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -88988,65 +88985,68 @@ define dso_local noundef ptr @_ZNK7AstSubD9brokenGenEv(ptr noundef nonnull reado
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.980, %32 ], [ @.str.981, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.980, %33 ], [ @.str.981, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -89215,19 +89215,19 @@ define dso_local noundef ptr @_ZNK10AstSubstrN9brokenGenEv(ptr noundef nonnull r
 .critedge11.i:                                    ; preds = %14, %.critedge9.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
-  %.fr3.i.i = freeze i64 %18
-  %19 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %18
+  %19 = and i64 %.fr.i.i, 9223372036854775807
   %20 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %22, label %41
+  br i1 %21, label %22, label %42
 
 22:                                               ; preds = %.critedge11.i
-  %23 = icmp slt i64 %.fr3.i.i, 0
+  %23 = icmp slt i64 %.fr.i.i, 0
   %24 = load ptr, ptr %3, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %27, label %28, label %.thr_comm.i.i
+  br i1 %27, label %28, label %41
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !56
@@ -89235,10 +89235,7 @@ define dso_local noundef ptr @_ZNK10AstSubstrN9brokenGenEv(ptr noundef nonnull r
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(152) %29)
-  br i1 %33, label %34, label %.thr_comm.i.i
-
-.thr_comm.i.i:                                    ; preds = %28, %22
-  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8, !tbaa !101
@@ -89247,85 +89244,88 @@ define dso_local noundef ptr @_ZNK10AstSubstrN9brokenGenEv(ptr noundef nonnull r
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(152) %35)
   %40 = xor i1 %23, %39
-  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %41, !prof !26
+  br i1 %40, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-41:                                               ; preds = %34, %.thr_comm.i.i, %.critedge11.i
-  %42 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %42, null
-  br i1 %.not5, label %.critedge, label %43
+41:                                               ; preds = %28, %22
+  br i1 %23, label %_ZNK12AstNodeTriop6brokenEv.exit, label %42, !prof !26
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !20
-  %45 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %45, -242
+42:                                               ; preds = %41, %34, %.critedge11.i
+  %43 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %43, null
+  br i1 %.not5, label %.critedge, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %45, align 8, !tbaa !20
+  %46 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %46, -242
   br i1 %spec.select.i, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %41, %43
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %.critedge9, label %47
+.critedge:                                        ; preds = %42, %44
+  %47 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %47, null
+  br i1 %.not6, label %.critedge9, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %.sroa.0.0.copyload.i.i12 = load i16, ptr %48, align 8, !tbaa !20
-  %49 = add i16 %.sroa.0.0.copyload.i.i12, -322
-  %spec.select.i13 = icmp ult i16 %49, -242
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %.sroa.0.0.copyload.i.i12 = load i16, ptr %49, align 8, !tbaa !20
+  %50 = add i16 %.sroa.0.0.copyload.i.i12, -322
+  %spec.select.i13 = icmp ult i16 %50, -242
   br i1 %spec.select.i13, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge9, !prof !21
 
-.critedge9:                                       ; preds = %.critedge, %47
-  %50 = load ptr, ptr %12, align 8, !tbaa !101
-  %.not7 = icmp eq ptr %50, null
-  br i1 %.not7, label %.critedge11, label %51
+.critedge9:                                       ; preds = %.critedge, %48
+  %51 = load ptr, ptr %12, align 8, !tbaa !101
+  %.not7 = icmp eq ptr %51, null
+  br i1 %.not7, label %.critedge11, label %52
 
-51:                                               ; preds = %.critedge9
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %.sroa.0.0.copyload.i.i14 = load i16, ptr %52, align 8, !tbaa !20
-  %53 = add i16 %.sroa.0.0.copyload.i.i14, -322
-  %spec.select.i15 = icmp ult i16 %53, -242
+52:                                               ; preds = %.critedge9
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %.sroa.0.0.copyload.i.i14 = load i16, ptr %53, align 8, !tbaa !20
+  %54 = add i16 %.sroa.0.0.copyload.i.i14, -322
+  %spec.select.i15 = icmp ult i16 %54, -242
   br i1 %spec.select.i15, label %_ZNK12AstNodeTriop6brokenEv.exit, label %.critedge11, !prof !21
 
-.critedge11:                                      ; preds = %.critedge9, %51
-  %54 = load i64, ptr %17, align 8
-  %.fr3.i = freeze i64 %54
-  %55 = and i64 %.fr3.i, 9223372036854775807
-  %56 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %57 = icmp eq i64 %55, %56
-  br i1 %57, label %58, label %_ZNK12AstNodeTriop6brokenEv.exit
+.critedge11:                                      ; preds = %.critedge9, %52
+  %55 = load i64, ptr %17, align 8
+  %.fr.i = freeze i64 %55
+  %56 = and i64 %.fr.i, 9223372036854775807
+  %57 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %_ZNK12AstNodeTriop6brokenEv.exit
 
-58:                                               ; preds = %.critedge11
-  %59 = icmp slt i64 %.fr3.i, 0
-  %60 = load ptr, ptr %42, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(152) %42)
-  br i1 %63, label %64, label %.thr_comm.i
+59:                                               ; preds = %.critedge11
+  %60 = icmp slt i64 %.fr.i, 0
+  %61 = load ptr, ptr %43, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %43)
+  br i1 %64, label %65, label %78
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %7, align 8, !tbaa !56
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %65)
-  br i1 %69, label %70, label %.thr_comm.i
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(152) %66)
+  br i1 %70, label %71, label %78
 
-.thr_comm.i:                                      ; preds = %64, %58
-  br i1 %59, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %12, align 8, !tbaa !101
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(152) %72)
+  %77 = xor i1 %60, %76
+  br i1 %77, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %12, align 8, !tbaa !101
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(152) %71)
-  %76 = xor i1 %59, %75
-  br i1 %76, label %77, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
+78:                                               ; preds = %65, %59
+  br i1 %60, label %79, label %_ZNK12AstNodeTriop6brokenEv.exit, !prof !26
 
-77:                                               ; preds = %70, %.thr_comm.i
+79:                                               ; preds = %78, %71
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.982, %43 ], [ @.str.983, %47 ], [ @.str.984, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %34, %41, %9, %4, %14, %79, %78, %71, %.critedge11, %52, %48, %44
+  %.1 = phi ptr [ null, %71 ], [ @.str.982, %44 ], [ @.str.983, %48 ], [ @.str.984, %52 ], [ @.str.1114, %79 ], [ null, %78 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %41 ], [ @.str.1114, %34 ]
   ret ptr %.1
 }
 
@@ -90496,27 +90496,27 @@ define dso_local noundef ptr @_ZNK10AstTaskRef9brokenGenEv(ptr noundef nonnull r
 .critedge11:                                      ; preds = %.critedge9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %13 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %13
-  %14 = and i64 %.fr3.i, 9223372036854775807
+  %.fr4.i = freeze i64 %13
+  %14 = and i64 %.fr4.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 17:                                               ; preds = %.critedge11
-  %18 = icmp slt i64 %.fr3.i, 0
+  %18 = icmp slt i64 %.fr4.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8, !tbaa !232
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %.loopexit.thr_comm.i, label %21
+  br i1 %.not.i.i, label %.loopexit.i, label %21
 
 21:                                               ; preds = %17
-  br i1 %.not6, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not6, label %.critedge.i.i, label %.lr.ph.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %23, align 8, !tbaa !235
   %.not10.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not10.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !236
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !236
 
 .lr.ph.i.i:                                       ; preds = %21, %22
   %.013.i.i = phi ptr [ %.0.i.i, %22 ], [ %4, %21 ]
@@ -90524,12 +90524,9 @@ define dso_local noundef ptr @_ZNK10AstTaskRef9brokenGenEv(ptr noundef nonnull r
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %.013.i.i)
-  br i1 %27, label %22, label %.loopexit.thr_comm.i
+  br i1 %27, label %22, label %.loopexit.i
 
-.loopexit.thr_comm.i:                             ; preds = %.lr.ph.i.i, %17
-  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
-
-.loopexit.i:                                      ; preds = %22, %21
+.critedge.i.i:                                    ; preds = %22, %21
   %28 = load ptr, ptr %20, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
@@ -90537,11 +90534,14 @@ define dso_local noundef ptr @_ZNK10AstTaskRef9brokenGenEv(ptr noundef nonnull r
   %32 = xor i1 %18, %31
   br i1 %32, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
 
-33:                                               ; preds = %.loopexit.i, %.loopexit.thr_comm.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %17
+  br i1 %18, label %33, label %_ZNK15AstNodeFTaskRef6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %.loopexit.i, %.critedge.i.i
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
-_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.997, %10 ], [ @.str.996, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+_ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.critedge.i.i, %.critedge11, %1, %10, %5
+  %.1 = phi ptr [ %2, %1 ], [ @.str.997, %10 ], [ @.str.996, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.critedge.i.i ]
   ret ptr %.1
 }
 
@@ -93126,22 +93126,19 @@ define dso_local noundef ptr @_ZNK15AstURandomRange9brokenGenEv(ptr noundef nonn
 .critedge8.i:                                     ; preds = %9, %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i64, ptr %12, align 8
-  %.fr3.i.i = freeze i64 %13
-  %14 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %13
+  %14 = and i64 %.fr.i.i, 9223372036854775807
   %15 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %.critedge8.i
-  %18 = icmp slt i64 %.fr3.i.i, 0
+  %18 = icmp slt i64 %.fr.i.i, 0
   %19 = load ptr, ptr %3, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %22, label %23, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %17
-  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8, !tbaa !56
@@ -93150,65 +93147,68 @@ define dso_local noundef ptr @_ZNK15AstURandomRange9brokenGenEv(ptr noundef nonn
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(152) %24)
   %29 = xor i1 %18, %28
-  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %30, !prof !26
+  br i1 %29, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-30:                                               ; preds = %23, %.critedge8.i, %._crit_edge.i.i
-  %31 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %31, null
-  br i1 %.not5, label %.critedge, label %32
+30:                                               ; preds = %17
+  br i1 %18, label %_ZNK11AstNodeBiop6brokenEv.exit, label %31, !prof !26
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !20
-  %34 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %34, -242
+31:                                               ; preds = %30, %.critedge8.i, %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %32, null
+  br i1 %.not5, label %.critedge, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !20
+  %35 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %35, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %30, %32
-  %35 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %35, null
-  br i1 %.not6, label %.critedge8, label %36
+.critedge:                                        ; preds = %31, %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %36, null
+  br i1 %.not6, label %.critedge8, label %37
 
-36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %37, align 8, !tbaa !20
-  %38 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %38, -242
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %38, align 8, !tbaa !20
+  %39 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %39, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %36
-  %39 = load i64, ptr %12, align 8
-  %.fr3.i = freeze i64 %39
-  %40 = and i64 %.fr3.i, 9223372036854775807
-  %41 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %42 = icmp eq i64 %40, %41
-  br i1 %42, label %43, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %37
+  %40 = load i64, ptr %12, align 8
+  %.fr.i = freeze i64 %40
+  %41 = and i64 %.fr.i, 9223372036854775807
+  %42 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-43:                                               ; preds = %.critedge8
-  %44 = icmp slt i64 %.fr3.i, 0
-  %45 = load ptr, ptr %31, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(152) %31)
-  br i1 %48, label %49, label %._crit_edge.i
+44:                                               ; preds = %.critedge8
+  %45 = icmp slt i64 %.fr.i, 0
+  %46 = load ptr, ptr %32, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(152) %32)
+  br i1 %49, label %50, label %57
 
-._crit_edge.i:                                    ; preds = %43
-  br i1 %44, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %7, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(152) %51)
+  %56 = xor i1 %45, %55
+  br i1 %56, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(152) %50)
-  %55 = xor i1 %44, %54
-  br i1 %55, label %56, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+57:                                               ; preds = %44
+  br i1 %45, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-56:                                               ; preds = %49, %._crit_edge.i
+58:                                               ; preds = %57, %50
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.1043, %32 ], [ @.str.1044, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %30, %23, %58, %57, %50, %.critedge8, %37, %33
+  %.1 = phi ptr [ null, %50 ], [ @.str.1043, %33 ], [ @.str.1044, %37 ], [ @.str.1113, %58 ], [ null, %57 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ @.str.1113, %23 ]
   ret ptr %.1
 }
 
@@ -96269,22 +96269,19 @@ define dso_local noundef ptr @_ZNK14AstWildcardSel9brokenGenEv(ptr noundef nonnu
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -96293,13 +96290,16 @@ define dso_local noundef ptr @_ZNK14AstWildcardSel9brokenGenEv(ptr noundef nonnu
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.1084, %6 ], [ @.str.1085, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.1084, %6 ], [ @.str.1085, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -96825,22 +96825,19 @@ define dso_local noundef ptr @_ZNK10AstWordSel9brokenGenEv(ptr noundef nonnull r
 .critedge8:                                       ; preds = %.critedge, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %15
-  %16 = and i64 %.fr3.i, 9223372036854775807
+  %.fr.i = freeze i64 %15
+  %16 = and i64 %.fr.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNK11AstNodeBiop6brokenEv.exit
 
 19:                                               ; preds = %.critedge8
-  %20 = icmp slt i64 %.fr3.i, 0
+  %20 = icmp slt i64 %.fr.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %19
-  br i1 %20, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -96849,13 +96846,16 @@ define dso_local noundef ptr @_ZNK10AstWordSel9brokenGenEv(ptr noundef nonnull r
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %32, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+  br i1 %31, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i
+32:                                               ; preds = %19
+  br i1 %20, label %33, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+
+33:                                               ; preds = %32, %25
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %32, %25, %._crit_edge.i, %.critedge8, %1, %11, %6
-  %.1 = phi ptr [ %2, %1 ], [ @.str.1094, %6 ], [ @.str.1095, %11 ], [ @.str.1113, %32 ], [ null, %25 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %33, %32, %25, %.critedge8, %1, %11, %6
+  %.1 = phi ptr [ %2, %1 ], [ @.str.1094, %6 ], [ @.str.1095, %11 ], [ @.str.1113, %33 ], [ null, %32 ], [ null, %.critedge8 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -97341,22 +97341,19 @@ define dso_local noundef ptr @_ZNK6AstXor9brokenGenEv(ptr noundef nonnull readon
 .critedge8.i:                                     ; preds = %11, %.critedge.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8
-  %.fr3.i.i = freeze i64 %15
-  %16 = and i64 %.fr3.i.i, 9223372036854775807
+  %.fr.i.i = freeze i64 %15
+  %16 = and i64 %.fr.i.i, 9223372036854775807
   %17 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.critedge8.i
-  %20 = icmp slt i64 %.fr3.i.i, 0
+  %20 = icmp slt i64 %.fr.i.i, 0
   %21 = load ptr, ptr %5, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(152) %5)
-  br i1 %24, label %25, label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %19
-  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %9, align 8, !tbaa !56
@@ -97365,65 +97362,68 @@ define dso_local noundef ptr @_ZNK6AstXor9brokenGenEv(ptr noundef nonnull readon
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26)
   %31 = xor i1 %20, %30
-  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %32, !prof !26
+  br i1 %31, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-32:                                               ; preds = %25, %._crit_edge.i.i, %.critedge8.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %.critedge, label %34
+32:                                               ; preds = %19
+  br i1 %20, label %_ZNK11AstNodeBiop6brokenEv.exit, label %33, !prof !26
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !20
-  %36 = add i16 %.sroa.0.0.copyload.i.i, -322
-  %spec.select.i = icmp ult i16 %36, -242
+33:                                               ; preds = %32, %25, %.critedge8.i
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not5 = icmp eq ptr %34, null
+  br i1 %.not5, label %.critedge, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !20
+  %37 = add i16 %.sroa.0.0.copyload.i.i, -322
+  %spec.select.i = icmp ult i16 %37, -242
   br i1 %spec.select.i, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge, !prof !21
 
-.critedge:                                        ; preds = %32, %34
-  %37 = load ptr, ptr %9, align 8, !tbaa !56
-  %.not6 = icmp eq ptr %37, null
-  br i1 %.not6, label %.critedge8, label %38
+.critedge:                                        ; preds = %33, %35
+  %38 = load ptr, ptr %9, align 8, !tbaa !56
+  %.not6 = icmp eq ptr %38, null
+  br i1 %.not6, label %.critedge8, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %.sroa.0.0.copyload.i.i9 = load i16, ptr %39, align 8, !tbaa !20
-  %40 = add i16 %.sroa.0.0.copyload.i.i9, -322
-  %spec.select.i10 = icmp ult i16 %40, -242
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %.sroa.0.0.copyload.i.i9 = load i16, ptr %40, align 8, !tbaa !20
+  %41 = add i16 %.sroa.0.0.copyload.i.i9, -322
+  %spec.select.i10 = icmp ult i16 %41, -242
   br i1 %spec.select.i10, label %_ZNK11AstNodeBiop6brokenEv.exit, label %.critedge8, !prof !21
 
-.critedge8:                                       ; preds = %.critedge, %38
-  %41 = load i64, ptr %14, align 8
-  %.fr3.i = freeze i64 %41
-  %42 = and i64 %.fr3.i, 9223372036854775807
-  %43 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %_ZNK11AstNodeBiop6brokenEv.exit
+.critedge8:                                       ; preds = %.critedge, %39
+  %42 = load i64, ptr %14, align 8
+  %.fr.i = freeze i64 %42
+  %43 = and i64 %.fr.i, 9223372036854775807
+  %44 = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
+  %45 = icmp eq i64 %43, %44
+  br i1 %45, label %46, label %_ZNK11AstNodeBiop6brokenEv.exit
 
-45:                                               ; preds = %.critedge8
-  %46 = icmp slt i64 %.fr3.i, 0
-  %47 = load ptr, ptr %33, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(152) %33)
-  br i1 %50, label %51, label %._crit_edge.i
+46:                                               ; preds = %.critedge8
+  %47 = icmp slt i64 %.fr.i, 0
+  %48 = load ptr, ptr %34, align 8, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(152) %34)
+  br i1 %51, label %52, label %59
 
-._crit_edge.i:                                    ; preds = %45
-  br i1 %46, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8, !tbaa !56
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53)
+  %58 = xor i1 %47, %57
+  br i1 %58, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8, !tbaa !56
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(152) %52)
-  %57 = xor i1 %46, %56
-  br i1 %57, label %58, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
+59:                                               ; preds = %46
+  br i1 %47, label %60, label %_ZNK11AstNodeBiop6brokenEv.exit, !prof !26
 
-58:                                               ; preds = %51, %._crit_edge.i
+60:                                               ; preds = %59, %52
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
-_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.1100, %34 ], [ @.str.1101, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+_ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %25, %32, %11, %6, %1, %60, %59, %52, %.critedge8, %39, %35
+  %.1 = phi ptr [ null, %52 ], [ @.str.1100, %35 ], [ @.str.1101, %39 ], [ @.str.1113, %60 ], [ null, %59 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %32 ], [ @.str.1113, %25 ]
   ret ptr %.1
 }
 
@@ -115748,19 +115748,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %1191 = xor i1 %1185, true
+  %1192 = and i1 %3, %1191
   br label %.critedge394
 
 .critedge394:                                     ; preds = %1182, %.critedge392.thread
-  %1192 = phi i1 [ %1191, %.critedge392.thread ], [ false, %1182 ]
-  %1193 = load ptr, ptr %73, align 8, !tbaa !33
-  %1194 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %1195 = icmp eq ptr %1193, %1194
-  br i1 %1195, label %.critedge396.thread, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i777
+  %1193 = phi i1 [ %1192, %.critedge392.thread ], [ false, %1182 ]
+  %1194 = load ptr, ptr %73, align 8, !tbaa !33
+  %1195 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %1196 = icmp eq ptr %1194, %1195
+  br i1 %1196, label %.critedge396.thread, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i777
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i777: ; preds = %.critedge394
-  %1196 = load i64, ptr %1194, align 8, !tbaa !32
-  %1197 = add i64 %1196, 1
-  call void @_ZdlPvm(ptr noundef %1193, i64 noundef %1197) #38
+  %1197 = load i64, ptr %1195, align 8, !tbaa !32
+  %1198 = add i64 %1197, 1
+  call void @_ZdlPvm(ptr noundef %1194, i64 noundef %1198) #38
   br label %.critedge396.thread
 
 .critedge396.thread:                              ; preds = %.critedge394, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i777
@@ -115769,16 +115770,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   br label %.critedge398
 
 .critedge398:                                     ; preds = %1178, %.critedge396.thread
-  %1198 = phi i1 [ %1192, %.critedge396.thread ], [ false, %1178 ]
-  %1199 = load ptr, ptr %71, align 8, !tbaa !33
-  %1200 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %1201 = icmp eq ptr %1199, %1200
-  br i1 %1201, label %.critedge400.thread, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i780
+  %1199 = phi i1 [ %1193, %.critedge396.thread ], [ false, %1178 ]
+  %1200 = load ptr, ptr %71, align 8, !tbaa !33
+  %1201 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %1202 = icmp eq ptr %1200, %1201
+  br i1 %1202, label %.critedge400.thread, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i780
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i780: ; preds = %.critedge398
-  %1202 = load i64, ptr %1200, align 8, !tbaa !32
-  %1203 = add i64 %1202, 1
-  call void @_ZdlPvm(ptr noundef %1199, i64 noundef %1203) #38
+  %1203 = load i64, ptr %1201, align 8, !tbaa !32
+  %1204 = add i64 %1203, 1
+  call void @_ZdlPvm(ptr noundef %1200, i64 noundef %1204) #38
   br label %.critedge400.thread
 
 .critedge400.thread:                              ; preds = %.critedge398, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i780
@@ -115787,16 +115788,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.critedge402
 
 .critedge402:                                     ; preds = %1174, %.critedge400.thread
-  %1204 = phi i1 [ %1198, %.critedge400.thread ], [ false, %1174 ]
-  %1205 = load ptr, ptr %69, align 8, !tbaa !33
-  %1206 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %1207 = icmp eq ptr %1205, %1206
-  br i1 %1207, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i783
+  %1205 = phi i1 [ %1199, %.critedge400.thread ], [ false, %1174 ]
+  %1206 = load ptr, ptr %69, align 8, !tbaa !33
+  %1207 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %1208 = icmp eq ptr %1206, %1207
+  br i1 %1208, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i783
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i783: ; preds = %.critedge402
-  %1208 = load i64, ptr %1206, align 8, !tbaa !32
-  %1209 = add i64 %1208, 1
-  call void @_ZdlPvm(ptr noundef %1205, i64 noundef %1209) #38
+  %1209 = load i64, ptr %1207, align 8, !tbaa !32
+  %1210 = add i64 %1209, 1
+  call void @_ZdlPvm(ptr noundef %1206, i64 noundef %1210) #38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785: ; preds = %.critedge402, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i783
@@ -115805,23 +115806,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785: ; preds = %.c
   br label %.critedge404
 
 .critedge404:                                     ; preds = %1170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785
-  %.not303 = phi i1 [ %1204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785 ], [ false, %1170 ]
-  %1210 = load ptr, ptr %67, align 8, !tbaa !33
-  %1211 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %1212 = icmp eq ptr %1210, %1211
-  br i1 %1212, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit788, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i786
+  %.not303 = phi i1 [ %1205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit785 ], [ false, %1170 ]
+  %1211 = load ptr, ptr %67, align 8, !tbaa !33
+  %1212 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %1213 = icmp eq ptr %1211, %1212
+  br i1 %1213, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit788, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i786
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i786: ; preds = %.critedge404
-  %1213 = load i64, ptr %1211, align 8, !tbaa !32
-  %1214 = add i64 %1213, 1
-  call void @_ZdlPvm(ptr noundef %1210, i64 noundef %1214) #38
+  %1214 = load i64, ptr %1212, align 8, !tbaa !32
+  %1215 = add i64 %1214, 1
+  call void @_ZdlPvm(ptr noundef %1211, i64 noundef %1215) #38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit788
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit788: ; preds = %.critedge404, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i786
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  %1215 = and i1 %3, %.not303
-  br i1 %1215, label %1216, label %1274, !prof !21
+  br i1 %.not303, label %1216, label %1274, !prof !21
 
 1216:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit788
   %1217 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1117, i32 noundef 1000)

@@ -65941,12 +65941,12 @@ _ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i22:         ; preds = %51, %_ZN4pbrt6CosPh
   %70 = tail call noundef float @sqrtf(float noundef %69) #43, !tbaa !15
   %71 = fadd float %70, -1.000000e+00
   %72 = fmul float %71, 5.000000e-01
+  %73 = fadd float %.0.i, %72
   br label %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit25
 
 _ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit25: ; preds = %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit, %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i22
-  %.0.i23 = phi float [ %72, %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i22 ], [ 0.000000e+00, %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit ]
-  %73 = fadd float %.0.i, %.0.i23
-  %74 = fdiv float 1.000000e+00, %73
+  %.0.i23 = phi float [ %73, %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i22 ], [ %.0.i, %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit ]
+  %74 = fdiv float 1.000000e+00, %.0.i23
   ret float %74
 }
 

@@ -8913,9 +8913,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   %167 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722, !noundef !9
   %168 = add i8 %167, -65
   %169 = icmp ult i8 %168, 26
-  %.0.i.i = select i1 %169, i8 32, i8 0
-  %170 = or i8 %.0.i.i, %167
-  store i8 %170, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722
+  %170 = select i1 %169, i8 32, i8 0
+  %.0.i.i = or i8 %170, %167
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1719, !noalias !1722
   %171 = icmp eq ptr %166, %165
   br i1 %171, label %172, label %.lr.ph.i.i
 

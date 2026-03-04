@@ -1895,27 +1895,27 @@ define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr noundef reado
   br i1 %182, label %197, label %183
 
 183:                                              ; preds = %181
-  %184 = and i64 %0, 288230376151711743
-  %185 = load volatile i64, ptr %173, align 8
-  %186 = and i64 %185, 64
-  %187 = icmp eq i64 %186, 0
-  br i1 %187, label %193, label %188
+  %184 = load volatile i64, ptr %173, align 8
+  %185 = and i64 %184, 64
+  %186 = icmp eq i64 %185, 0
+  br i1 %186, label %194, label %187
 
-188:                                              ; preds = %183
+187:                                              ; preds = %183
+  %188 = and i64 %0, 288230376151711743
   %189 = getelementptr inbounds nuw i8, ptr %173, i64 100
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
   %192 = add nsw i64 %191, -1
-  br label %193
+  %193 = and i64 %188, %192
+  br label %194
 
-193:                                              ; preds = %188, %183
-  %194 = phi i64 [ %192, %188 ], [ 0, %183 ]
-  %195 = and i64 %184, %194
+194:                                              ; preds = %187, %183
+  %195 = phi i64 [ %193, %187 ], [ 0, %183 ]
   %196 = getelementptr %struct.page, ptr %173, i64 %195
   br label %197
 
-197:                                              ; preds = %193, %181
-  %198 = phi ptr [ %196, %193 ], [ null, %181 ]
+197:                                              ; preds = %194, %181
+  %198 = phi ptr [ %196, %194 ], [ null, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %198
 }

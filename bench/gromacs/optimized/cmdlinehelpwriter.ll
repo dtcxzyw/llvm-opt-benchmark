@@ -2224,6 +2224,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKN
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %21, align 8, !tbaa !12, !alias.scope !77
+  store ptr %14, ptr %11, align 8, !tbaa !16
   store i64 0, ptr %20, align 8, !tbaa !12
   store i8 0, ptr %14, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

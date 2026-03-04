@@ -1596,69 +1596,72 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   %.1.i26 = or i1 %.018.i22, %.pn.i25
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i21, 1
   %.not.i28 = icmp eq i64 %indvars.iv.next.i27, %207
-  br i1 %.not.i28, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, label %208, !llvm.loop !291
+  br i1 %.not.i28, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit.loopexit, label %208, !llvm.loop !291
 
-_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit: ; preds = %229, %._crit_edge
-  %.0.lcssa.i30 = phi i1 [ false, %._crit_edge ], [ %.1.i26, %229 ]
-  %230 = load ptr, ptr %54, align 8, !tbaa !54
-  %.not.i.i.i.i = icmp eq ptr %230, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm12CallGraphSCCD2Ev.exit, label %231
+_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit.loopexit: ; preds = %229
+  %230 = or i1 %.011.in.lcssa, %.1.i26
+  br label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit
 
-231:                                              ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit
-  %232 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %233 = load ptr, ptr %232, align 8, !tbaa !278
-  %234 = ptrtoint ptr %233 to i64
-  %235 = ptrtoint ptr %230 to i64
-  %236 = sub i64 %234, %235
-  call void @_ZdlPvm(ptr noundef nonnull %230, i64 noundef %236) #25
+_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit: ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit.loopexit, %._crit_edge
+  %.0.lcssa.i30 = phi i1 [ %.011.in.lcssa, %._crit_edge ], [ %230, %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit.loopexit ]
+  %231 = load ptr, ptr %54, align 8, !tbaa !54
+  %.not.i.i.i.i = icmp eq ptr %231, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm12CallGraphSCCD2Ev.exit, label %232
+
+232:                                              ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %234 = load ptr, ptr %233, align 8, !tbaa !278
+  %235 = ptrtoint ptr %234 to i64
+  %236 = ptrtoint ptr %231 to i64
+  %237 = sub i64 %235, %236
+  call void @_ZdlPvm(ptr noundef nonnull %231, i64 noundef %237) #25
   br label %_ZN4llvm12CallGraphSCCD2Ev.exit
 
-_ZN4llvm12CallGraphSCCD2Ev.exit:                  ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, %231
+_ZN4llvm12CallGraphSCCD2Ev.exit:                  ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %237 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %238 = load ptr, ptr %237, align 8, !tbaa !292
-  %.not.i.i.i.i32 = icmp eq ptr %238, null
-  br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %239
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %239 = load ptr, ptr %238, align 8, !tbaa !292
+  %.not.i.i.i.i32 = icmp eq ptr %239, null
+  br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %240
 
-239:                                              ; preds = %_ZN4llvm12CallGraphSCCD2Ev.exit
-  %240 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %241 = load ptr, ptr %240, align 8, !tbaa !293
-  %242 = ptrtoint ptr %241 to i64
-  %243 = ptrtoint ptr %238 to i64
-  %244 = sub i64 %242, %243
-  call void @_ZdlPvm(ptr noundef nonnull %238, i64 noundef %244) #25
+240:                                              ; preds = %_ZN4llvm12CallGraphSCCD2Ev.exit
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %242 = load ptr, ptr %241, align 8, !tbaa !293
+  %243 = ptrtoint ptr %242 to i64
+  %244 = ptrtoint ptr %239 to i64
+  %245 = sub i64 %243, %244
+  call void @_ZdlPvm(ptr noundef nonnull %239, i64 noundef %245) #25
   br label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
 
-_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i: ; preds = %239, %_ZN4llvm12CallGraphSCCD2Ev.exit
-  %245 = load ptr, ptr %55, align 8, !tbaa !54
-  %.not.i.i.i1.i = icmp eq ptr %245, null
-  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, label %246
+_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i: ; preds = %240, %_ZN4llvm12CallGraphSCCD2Ev.exit
+  %246 = load ptr, ptr %55, align 8, !tbaa !54
+  %.not.i.i.i1.i = icmp eq ptr %246, null
+  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, label %247
 
-246:                                              ; preds = %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
-  %247 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %248 = load ptr, ptr %247, align 8, !tbaa !278
-  %249 = ptrtoint ptr %248 to i64
-  %250 = ptrtoint ptr %245 to i64
-  %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %245, i64 noundef %251) #25
+247:                                              ; preds = %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %249 = load ptr, ptr %248, align 8, !tbaa !278
+  %250 = ptrtoint ptr %249 to i64
+  %251 = ptrtoint ptr %246 to i64
+  %252 = sub i64 %250, %251
+  call void @_ZdlPvm(ptr noundef nonnull %246, i64 noundef %252) #25
   br label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %246, %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
-  %252 = load ptr, ptr %52, align 8, !tbaa !54
-  %.not.i.i.i2.i = icmp eq ptr %252, null
-  br i1 %.not.i.i.i2.i, label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit, label %253
+_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %247, %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
+  %253 = load ptr, ptr %52, align 8, !tbaa !54
+  %.not.i.i.i2.i = icmp eq ptr %253, null
+  br i1 %.not.i.i.i2.i, label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit, label %254
 
-253:                                              ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i
-  %254 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %255 = load ptr, ptr %254, align 8, !tbaa !278
-  %256 = ptrtoint ptr %255 to i64
-  %257 = ptrtoint ptr %252 to i64
-  %258 = sub i64 %256, %257
-  call void @_ZdlPvm(ptr noundef nonnull %252, i64 noundef %258) #25
+254:                                              ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %256 = load ptr, ptr %255, align 8, !tbaa !278
+  %257 = ptrtoint ptr %256 to i64
+  %258 = ptrtoint ptr %253 to i64
+  %259 = sub i64 %257, %258
+  call void @_ZdlPvm(ptr noundef nonnull %253, i64 noundef %259) #25
   br label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit
 
-_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, %253
-  %259 = or i1 %.011.in.lcssa, %.0.lcssa.i30
+_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, %254
   %260 = load ptr, ptr %51, align 8, !tbaa !67
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %262 = load i32, ptr %261, align 8, !tbaa !70
@@ -1666,7 +1669,7 @@ _ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds 
   %264 = shl nuw nsw i64 %263, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %260, i64 noundef %264, i64 noundef 8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %259
+  ret i1 %.0.lcssa.i30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

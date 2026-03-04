@@ -2792,8 +2792,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit: ; 
 
 83:                                               ; preds = %74
   %84 = and i16 %76, -17305
-  %.not16.i = icmp ult i8 %.sroa.0.0.copyload.i, 64
-  %85 = select i1 %.not16.i, i16 24, i16 16
+  %.not16.i = icmp ugt i8 %.sroa.0.0.copyload.i, 63
+  %85 = select i1 %.not16.i, i16 16, i16 24
   %86 = or disjoint i16 %85, %84
   br label %87
 
@@ -3099,8 +3099,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb
 
 63:                                               ; preds = %54
   %64 = and i16 %56, -17305
-  %.not16.i = icmp ult i8 %52, 64
-  %65 = select i1 %.not16.i, i16 24, i16 16
+  %.not16.i = icmp ugt i8 %52, 63
+  %65 = select i1 %.not16.i, i16 16, i16 24
   %66 = or disjoint i16 %65, %64
   br label %67
 
@@ -3164,8 +3164,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
 
 100:                                              ; preds = %91
   %101 = and i16 %93, -17305
-  %.not16.i23 = icmp ult i8 %89, 64
-  %102 = select i1 %.not16.i23, i16 24, i16 16
+  %.not16.i23 = icmp ugt i8 %89, 63
+  %102 = select i1 %.not16.i23, i16 16, i16 24
   %103 = or disjoint i16 %102, %101
   br label %104
 
@@ -3261,8 +3261,8 @@ define i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVT
 
 36:                                               ; preds = %27
   %37 = and i16 %29, -17305
-  %.not16.i = icmp ult i8 %25, 64
-  %38 = select i1 %.not16.i, i16 24, i16 16
+  %.not16.i = icmp ugt i8 %25, 63
+  %38 = select i1 %.not16.i, i16 16, i16 24
   %39 = or disjoint i16 %38, %37
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
 
@@ -3316,8 +3316,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
   br label %70
 
 68:                                               ; preds = %62
-  %.not16.i21 = icmp ult i8 %60, 64
-  %69 = select i1 %.not16.i21, i16 8, i16 0
+  %.not16.i21 = icmp ugt i8 %60, 63
+  %69 = select i1 %.not16.i21, i16 0, i16 8
   %.reass = or disjoint i16 %69, %invariant.op
   br label %70
 

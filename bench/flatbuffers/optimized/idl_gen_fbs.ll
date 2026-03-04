@@ -6079,6 +6079,7 @@ define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %33, ptr %37, align 8, !tbaa !10, !alias.scope !328
+  store ptr %30, ptr %27, align 8, !tbaa !23
   store i64 0, ptr %36, align 8, !tbaa !10
   store i8 0, ptr %30, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -8504,6 +8505,7 @@ _ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.
   call void @llvm.assume(i1 %35)
   %36 = add nuw nsw i64 %34, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %31, i64 %36, i1 false)
+  store ptr %31, ptr %29, align 8, !tbaa !23
   store i64 0, ptr %33, align 8, !tbaa !10
   store i8 0, ptr %31, align 8, !tbaa !13
   store i32 %28, ptr %7, align 8, !tbaa !279

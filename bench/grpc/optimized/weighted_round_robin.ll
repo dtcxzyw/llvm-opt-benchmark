@@ -2967,6 +2967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   %185 = add nuw nsw i64 %183, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %178, ptr noundef nonnull align 8 dereferenceable(1) %180, i64 %185, i1 false), !noalias !207
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %180, ptr %176, align 8, !tbaa !36, !noalias !207
   store i64 0, ptr %182, align 8, !tbaa !40, !noalias !207
   store i8 0, ptr %180, align 8, !tbaa !41, !noalias !207
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !207
@@ -13474,9 +13475,9 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14En
   %30 = fdiv double %2, %1
   %31 = fpext nnan float %4 to double
   %32 = fmul double %30, %31
-  %.085 = select i1 %or.cond3, double %32, double 0.000000e+00
-  %33 = fadd double %3, %.085
-  %34 = fdiv double %1, %33
+  %33 = select i1 %or.cond3, double %32, double -0.000000e+00
+  %.085 = fadd double %3, %33
+  %34 = fdiv double %1, %.085
   %35 = fptrunc double %34 to float
   %36 = fcmp oeq float %35, 0.000000e+00
   br i1 %36, label %.thread, label %76

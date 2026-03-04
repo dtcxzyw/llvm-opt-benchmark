@@ -1697,6 +1697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %32, ptr %35, align 8, !tbaa !162
+  store ptr %12, ptr %8, align 8, !tbaa !159
   store i64 0, ptr %13, align 8, !tbaa !162
   store i8 0, ptr %12, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

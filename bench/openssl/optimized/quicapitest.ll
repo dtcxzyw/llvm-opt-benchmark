@@ -711,7 +711,7 @@ define internal i32 @test_quic_write_read(i32 noundef %0) #1 {
 
 14:                                               ; preds = %12
   %15 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.14, i32 noundef 66, ptr noundef nonnull @.str.61) #10
-  br label %195
+  br label %193
 
 16:                                               ; preds = %12, %1
   %17 = zext i1 %11 to i32
@@ -720,320 +720,318 @@ define internal i32 @test_quic_write_read(i32 noundef %0) #1 {
   %20 = icmp slt i32 %0, 2
   br label %21
 
-21:                                               ; preds = %190, %16
-  %.093 = phi ptr [ null, %16 ], [ %.3, %190 ]
-  %.03992 = phi i32 [ 0, %16 ], [ %.140, %190 ]
-  %22 = phi i1 [ true, %16 ], [ false, %190 ]
-  %.04590 = phi ptr [ null, %16 ], [ %.348, %190 ]
-  %23 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 69, ptr noundef nonnull @.str.62, ptr noundef %10) #10
-  %.not50 = icmp eq i32 %23, 0
-  br i1 %.not50, label %.loopexit, label %24
+21:                                               ; preds = %188, %16
+  %.093 = phi ptr [ null, %16 ], [ %.3, %188 ]
+  %.03992 = phi i32 [ 0, %16 ], [ %.140, %188 ]
+  %or.cond106 = phi i1 [ %20, %16 ], [ false, %188 ]
+  %.04590 = phi ptr [ null, %16 ], [ %.348, %188 ]
+  %22 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 69, ptr noundef nonnull @.str.62, ptr noundef %10) #10
+  %.not50 = icmp eq i32 %22, 0
+  br i1 %.not50, label %.loopexit, label %23
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @libctx, align 8, !tbaa !4
-  %26 = load ptr, ptr @cert, align 8, !tbaa !11
-  %27 = load ptr, ptr @privkey, align 8, !tbaa !11
-  %28 = call i32 @qtest_create_quic_objects(ptr noundef %25, ptr noundef %10, ptr noundef %.04590, ptr noundef %26, ptr noundef %27, i32 noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #10
-  %29 = icmp ne i32 %28, 0
-  %30 = zext i1 %29 to i32
-  %31 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 76, ptr noundef nonnull @.str.63, i32 noundef %30) #10
-  %.not51 = icmp eq i32 %31, 0
-  br i1 %.not51, label %.loopexit, label %32
+23:                                               ; preds = %21
+  %24 = load ptr, ptr @libctx, align 8, !tbaa !4
+  %25 = load ptr, ptr @cert, align 8, !tbaa !11
+  %26 = load ptr, ptr @privkey, align 8, !tbaa !11
+  %27 = call i32 @qtest_create_quic_objects(ptr noundef %24, ptr noundef %10, ptr noundef %.04590, ptr noundef %25, ptr noundef %26, i32 noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #10
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 76, ptr noundef nonnull @.str.63, i32 noundef %29) #10
+  %.not51 = icmp eq i32 %30, 0
+  br i1 %.not51, label %.loopexit, label %31
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %2, align 8, !tbaa !13
-  %34 = call i64 @SSL_ctrl(ptr noundef %33, i32 noundef 55, i64 noundef 0, ptr noundef nonnull @.str.65) #10
-  %35 = icmp ne i64 %34, 0
-  %36 = zext i1 %35 to i32
-  %37 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @.str.64, i32 noundef %36) #10
-  %.not52 = icmp eq i32 %37, 0
-  br i1 %.not52, label %.loopexit, label %38
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %2, align 8, !tbaa !13
+  %33 = call i64 @SSL_ctrl(ptr noundef %32, i32 noundef 55, i64 noundef 0, ptr noundef nonnull @.str.65) #10
+  %34 = icmp ne i64 %33, 0
+  %35 = zext i1 %34 to i32
+  %36 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @.str.64, i32 noundef %35) #10
+  %.not52 = icmp eq i32 %36, 0
+  br i1 %.not52, label %.loopexit, label %37
 
-38:                                               ; preds = %32
+37:                                               ; preds = %31
   %.not53 = icmp eq ptr %.093, null
-  br i1 %.not53, label %45, label %39
+  br i1 %.not53, label %44, label %38
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %2, align 8, !tbaa !13
-  %41 = call i32 @SSL_set_session(ptr noundef %40, ptr noundef nonnull %.093) #10
-  %42 = icmp ne i32 %41, 0
-  %43 = zext i1 %42 to i32
-  %44 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 80, ptr noundef nonnull @.str.66, i32 noundef %43) #10
-  %.not54 = icmp eq i32 %44, 0
-  br i1 %.not54, label %.loopexit, label %45
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %2, align 8, !tbaa !13
+  %40 = call i32 @SSL_set_session(ptr noundef %39, ptr noundef nonnull %.093) #10
+  %41 = icmp ne i32 %40, 0
+  %42 = zext i1 %41 to i32
+  %43 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 80, ptr noundef nonnull @.str.66, i32 noundef %42) #10
+  %.not54 = icmp eq i32 %43, 0
+  br i1 %.not54, label %.loopexit, label %44
 
-45:                                               ; preds = %39, %38
-  %46 = load ptr, ptr %3, align 8, !tbaa !15
-  %47 = load ptr, ptr %2, align 8, !tbaa !13
-  %48 = call i32 @qtest_create_quic_connection(ptr noundef %46, ptr noundef %47) #10
-  %49 = icmp ne i32 %48, 0
-  %50 = zext i1 %49 to i32
-  %51 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 83, ptr noundef nonnull @.str.67, i32 noundef %50) #10
-  %.not55 = icmp eq i32 %51, 0
-  br i1 %.not55, label %.loopexit, label %52
+44:                                               ; preds = %38, %37
+  %45 = load ptr, ptr %3, align 8, !tbaa !15
+  %46 = load ptr, ptr %2, align 8, !tbaa !13
+  %47 = call i32 @qtest_create_quic_connection(ptr noundef %45, ptr noundef %46) #10
+  %48 = icmp ne i32 %47, 0
+  %49 = zext i1 %48 to i32
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 83, ptr noundef nonnull @.str.67, i32 noundef %49) #10
+  %.not55 = icmp eq i32 %50, 0
+  br i1 %.not55, label %.loopexit, label %51
 
-52:                                               ; preds = %45
-  br i1 %11, label %53, label %64
+51:                                               ; preds = %44
+  br i1 %11, label %52, label %63
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %3, align 8, !tbaa !15
-  %55 = call ptr @ossl_quic_tserver_get0_rbio(ptr noundef %54) #10
-  %56 = call i64 @BIO_ctrl(ptr noundef %55, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %7) #10
-  %57 = icmp ne i64 %56, 0
-  %58 = zext i1 %57 to i32
-  %59 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 88, ptr noundef nonnull @.str.68, i32 noundef %58) #10
-  %.not56 = icmp eq i32 %59, 0
-  br i1 %.not56, label %.loopexit, label %60
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %3, align 8, !tbaa !15
+  %54 = call ptr @ossl_quic_tserver_get0_rbio(ptr noundef %53) #10
+  %55 = call i64 @BIO_ctrl(ptr noundef %54, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %7) #10
+  %56 = icmp ne i64 %55, 0
+  %57 = zext i1 %56 to i32
+  %58 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 88, ptr noundef nonnull @.str.68, i32 noundef %57) #10
+  %.not56 = icmp eq i32 %58, 0
+  br i1 %.not56, label %.loopexit, label %59
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %2, align 8, !tbaa !13
-  %62 = call i32 @SSL_get_rfd(ptr noundef %61) #10
-  %63 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 90, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef %62, i32 noundef 0) #10
-  %.not57 = icmp eq i32 %63, 0
-  br i1 %.not57, label %.loopexit, label %64
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %2, align 8, !tbaa !13
+  %61 = call i32 @SSL_get_rfd(ptr noundef %60) #10
+  %62 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 90, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef %61, i32 noundef 0) #10
+  %.not57 = icmp eq i32 %62, 0
+  br i1 %.not57, label %.loopexit, label %63
 
-64:                                               ; preds = %60, %52
-  %.140 = phi i32 [ %62, %60 ], [ %.03992, %52 ]
-  br label %66
+63:                                               ; preds = %59, %51
+  %.140 = phi i32 [ %61, %59 ], [ %.03992, %51 ]
+  br label %65
 
-65:                                               ; preds = %152
-  br i1 %68, label %66, label %.loopexit82, !llvm.loop !21
+64:                                               ; preds = %150
+  br i1 %66, label %65, label %.loopexit82, !llvm.loop !21
 
-66:                                               ; preds = %64, %65
-  %67 = phi i1 [ false, %64 ], [ true, %65 ]
-  %68 = phi i1 [ true, %64 ], [ false, %65 ]
-  %69 = load ptr, ptr %2, align 8, !tbaa !13
-  %70 = call i32 @SSL_write_ex(ptr noundef %69, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
-  %71 = icmp ne i32 %70, 0
-  %72 = zext i1 %71 to i32
-  %73 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 98, ptr noundef nonnull @.str.71, i32 noundef %72) #10
-  %.not58 = icmp eq i32 %73, 0
-  br i1 %.not58, label %.loopexit, label %74
+65:                                               ; preds = %63, %64
+  %or.cond = phi i1 [ false, %63 ], [ %18, %64 ]
+  %66 = phi i1 [ true, %63 ], [ false, %64 ]
+  %67 = load ptr, ptr %2, align 8, !tbaa !13
+  %68 = call i32 @SSL_write_ex(ptr noundef %67, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
+  %69 = icmp ne i32 %68, 0
+  %70 = zext i1 %69 to i32
+  %71 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 98, ptr noundef nonnull @.str.71, i32 noundef %70) #10
+  %.not58 = icmp eq i32 %71, 0
+  br i1 %.not58, label %.loopexit, label %72
 
-74:                                               ; preds = %66
-  %75 = load i64, ptr %6, align 8, !tbaa !17
-  %76 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 99, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i64 noundef %75, i64 noundef 14) #10
-  %.not59 = icmp eq i32 %76, 0
-  br i1 %.not59, label %.loopexit, label %77
+72:                                               ; preds = %65
+  %73 = load i64, ptr %6, align 8, !tbaa !17
+  %74 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 99, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i64 noundef %73, i64 noundef 14) #10
+  %.not59 = icmp eq i32 %74, 0
+  br i1 %.not59, label %.loopexit, label %75
 
-77:                                               ; preds = %74
+75:                                               ; preds = %72
   br i1 %11, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %77, %91
-  %78 = load i32, ptr %7, align 4, !tbaa !19
-  %79 = call i32 @wait_until_sock_readable(i32 noundef %78) #10
-  %80 = icmp ne i32 %79, 0
-  %81 = zext i1 %80 to i32
-  %82 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 103, ptr noundef nonnull @.str.74, i32 noundef %81) #10
-  %.not60 = icmp eq i32 %82, 0
-  br i1 %.not60, label %.loopexit, label %83
+.preheader:                                       ; preds = %75, %89
+  %76 = load i32, ptr %7, align 4, !tbaa !19
+  %77 = call i32 @wait_until_sock_readable(i32 noundef %76) #10
+  %78 = icmp ne i32 %77, 0
+  %79 = zext i1 %78 to i32
+  %80 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 103, ptr noundef nonnull @.str.74, i32 noundef %79) #10
+  %.not60 = icmp eq i32 %80, 0
+  br i1 %.not60, label %.loopexit, label %81
 
-83:                                               ; preds = %.preheader
+81:                                               ; preds = %.preheader
+  %82 = load ptr, ptr %3, align 8, !tbaa !15
+  %83 = call i32 @ossl_quic_tserver_tick(ptr noundef %82) #10
   %84 = load ptr, ptr %3, align 8, !tbaa !15
-  %85 = call i32 @ossl_quic_tserver_tick(ptr noundef %84) #10
-  %86 = load ptr, ptr %3, align 8, !tbaa !15
-  %87 = call i32 @ossl_quic_tserver_read(ptr noundef %86, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull %6) #10
-  %88 = icmp ne i32 %87, 0
-  %89 = zext i1 %88 to i32
-  %90 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 110, ptr noundef nonnull @.str.75, i32 noundef %89) #10
-  %.not61 = icmp eq i32 %90, 0
-  br i1 %.not61, label %.loopexit, label %91
+  %85 = call i32 @ossl_quic_tserver_read(ptr noundef %84, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull %6) #10
+  %86 = icmp ne i32 %85, 0
+  %87 = zext i1 %86 to i32
+  %88 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 110, ptr noundef nonnull @.str.75, i32 noundef %87) #10
+  %.not61 = icmp eq i32 %88, 0
+  br i1 %.not61, label %.loopexit, label %89
 
-91:                                               ; preds = %83
-  %92 = load i64, ptr %6, align 8, !tbaa !17
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.preheader, label %94, !llvm.loop !23
+89:                                               ; preds = %81
+  %90 = load i64, ptr %6, align 8, !tbaa !17
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %.preheader, label %92, !llvm.loop !23
 
-94:                                               ; preds = %91
-  %95 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 114, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %4, i64 noundef %92, ptr noundef nonnull @.str.60, i64 noundef 14) #10
-  %.not62 = icmp eq i32 %95, 0
-  br i1 %.not62, label %.loopexit, label %96
+92:                                               ; preds = %89
+  %93 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 114, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %4, i64 noundef %90, ptr noundef nonnull @.str.60, i64 noundef 14) #10
+  %.not62 = icmp eq i32 %93, 0
+  br i1 %.not62, label %.loopexit, label %94
 
-96:                                               ; preds = %94
-  %or.cond = and i1 %18, %67
-  br i1 %or.cond, label %97, label %.thread
+94:                                               ; preds = %92
+  br i1 %or.cond, label %95, label %.thread
 
-97:                                               ; preds = %96
-  %98 = call i32 @BIO_closesocket(i32 noundef %.140) #10
+95:                                               ; preds = %94
+  %96 = call i32 @BIO_closesocket(i32 noundef %.140) #10
   br label %.thread
 
-.thread:                                          ; preds = %77, %97, %96
-  %or.cond81 = phi i1 [ false, %96 ], [ true, %97 ], [ false, %77 ]
+.thread:                                          ; preds = %75, %95, %94
+  %or.cond81 = phi i1 [ false, %94 ], [ true, %95 ], [ false, %75 ]
+  %97 = load ptr, ptr %3, align 8, !tbaa !15
+  %98 = call i32 @ossl_quic_tserver_tick(ptr noundef %97) #10
   %99 = load ptr, ptr %3, align 8, !tbaa !15
-  %100 = call i32 @ossl_quic_tserver_tick(ptr noundef %99) #10
-  %101 = load ptr, ptr %3, align 8, !tbaa !15
-  %102 = call i32 @ossl_quic_tserver_write(ptr noundef %101, i64 noundef 0, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
-  %103 = icmp ne i32 %102, 0
-  %104 = zext i1 %103 to i32
-  %105 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 125, ptr noundef nonnull @.str.78, i32 noundef %104) #10
-  %.not63 = icmp eq i32 %105, 0
-  br i1 %.not63, label %.loopexit, label %106
+  %100 = call i32 @ossl_quic_tserver_write(ptr noundef %99, i64 noundef 0, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
+  %101 = icmp ne i32 %100, 0
+  %102 = zext i1 %101 to i32
+  %103 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 125, ptr noundef nonnull @.str.78, i32 noundef %102) #10
+  %.not63 = icmp eq i32 %103, 0
+  br i1 %.not63, label %.loopexit, label %104
 
-106:                                              ; preds = %.thread
-  %107 = load ptr, ptr %3, align 8, !tbaa !15
-  %108 = call i32 @ossl_quic_tserver_tick(ptr noundef %107) #10
+104:                                              ; preds = %.thread
+  %105 = load ptr, ptr %3, align 8, !tbaa !15
+  %106 = call i32 @ossl_quic_tserver_tick(ptr noundef %105) #10
+  %107 = load ptr, ptr %2, align 8, !tbaa !13
+  %108 = call i32 @SSL_handle_events(ptr noundef %107) #10
   %109 = load ptr, ptr %2, align 8, !tbaa !13
-  %110 = call i32 @SSL_handle_events(ptr noundef %109) #10
-  %111 = load ptr, ptr %2, align 8, !tbaa !13
-  %112 = call i32 @SSL_read_ex(ptr noundef %111, ptr noundef nonnull %4, i64 noundef 1, ptr noundef nonnull %6) #10
-  %113 = icmp ne i32 %112, 0
-  %114 = zext i1 %113 to i32
-  br i1 %or.cond81, label %115, label %131
+  %110 = call i32 @SSL_read_ex(ptr noundef %109, ptr noundef nonnull %4, i64 noundef 1, ptr noundef nonnull %6) #10
+  %111 = icmp ne i32 %110, 0
+  %112 = zext i1 %111 to i32
+  br i1 %or.cond81, label %113, label %129
 
-115:                                              ; preds = %106
-  %116 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 131, ptr noundef nonnull @.str.79, i32 noundef %114) #10
-  %.not70 = icmp eq i32 %116, 0
-  br i1 %.not70, label %.loopexit, label %117
+113:                                              ; preds = %104
+  %114 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 131, ptr noundef nonnull @.str.79, i32 noundef %112) #10
+  %.not70 = icmp eq i32 %114, 0
+  br i1 %.not70, label %.loopexit, label %115
 
-117:                                              ; preds = %115
-  %118 = load ptr, ptr %2, align 8, !tbaa !13
-  %119 = call i32 @SSL_get_error(ptr noundef %118, i32 noundef 0) #10
-  %120 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 133, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %119, i32 noundef 5) #10
-  %.not71 = icmp eq i32 %120, 0
-  br i1 %.not71, label %.loopexit, label %121
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %2, align 8, !tbaa !13
+  %117 = call i32 @SSL_get_error(ptr noundef %116, i32 noundef 0) #10
+  %118 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 133, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %117, i32 noundef 5) #10
+  %.not71 = icmp eq i32 %118, 0
+  br i1 %.not71, label %.loopexit, label %119
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %2, align 8, !tbaa !13
-  %123 = call i32 @SSL_write_ex(ptr noundef %122, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
-  %124 = icmp ne i32 %123, 0
-  %125 = zext i1 %124 to i32
-  %126 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 135, ptr noundef nonnull @.str.71, i32 noundef %125) #10
-  %.not72 = icmp eq i32 %126, 0
-  br i1 %.not72, label %.loopexit, label %127
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %2, align 8, !tbaa !13
+  %121 = call i32 @SSL_write_ex(ptr noundef %120, ptr noundef nonnull @.str.60, i64 noundef 14, ptr noundef nonnull %6) #10
+  %122 = icmp ne i32 %121, 0
+  %123 = zext i1 %122 to i32
+  %124 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 135, ptr noundef nonnull @.str.71, i32 noundef %123) #10
+  %.not72 = icmp eq i32 %124, 0
+  br i1 %.not72, label %.loopexit, label %125
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %2, align 8, !tbaa !13
-  %129 = call i32 @SSL_get_error(ptr noundef %128, i32 noundef 0) #10
-  %130 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 137, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %129, i32 noundef 5) #10
-  %.not73 = icmp eq i32 %130, 0
+125:                                              ; preds = %119
+  %126 = load ptr, ptr %2, align 8, !tbaa !13
+  %127 = call i32 @SSL_get_error(ptr noundef %126, i32 noundef 0) #10
+  %128 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 137, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %127, i32 noundef 5) #10
+  %.not73 = icmp eq i32 %128, 0
   br i1 %.not73, label %.loopexit, label %.loopexit82
 
-131:                                              ; preds = %106
-  %132 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 147, ptr noundef nonnull @.str.79, i32 noundef %114) #10
-  %.not64 = icmp eq i32 %132, 0
-  br i1 %.not64, label %.loopexit, label %133
+129:                                              ; preds = %104
+  %130 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 147, ptr noundef nonnull @.str.79, i32 noundef %112) #10
+  %.not64 = icmp eq i32 %130, 0
+  br i1 %.not64, label %.loopexit, label %131
 
-133:                                              ; preds = %131
-  %134 = load i64, ptr %6, align 8, !tbaa !17
-  %135 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 148, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.82, i64 noundef %134, i64 noundef 1) #10
-  %.not65 = icmp eq i32 %135, 0
-  br i1 %.not65, label %.loopexit, label %136
+131:                                              ; preds = %129
+  %132 = load i64, ptr %6, align 8, !tbaa !17
+  %133 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 148, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.82, i64 noundef %132, i64 noundef 1) #10
+  %.not65 = icmp eq i32 %133, 0
+  br i1 %.not65, label %.loopexit, label %134
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %2, align 8, !tbaa !13
-  %138 = call i32 @SSL_has_pending(ptr noundef %137) #10
-  %139 = icmp ne i32 %138, 0
-  %140 = zext i1 %139 to i32
-  %141 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 149, ptr noundef nonnull @.str.83, i32 noundef %140) #10
-  %.not66 = icmp eq i32 %141, 0
-  br i1 %.not66, label %.loopexit, label %142
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %2, align 8, !tbaa !13
+  %136 = call i32 @SSL_has_pending(ptr noundef %135) #10
+  %137 = icmp ne i32 %136, 0
+  %138 = zext i1 %137 to i32
+  %139 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 149, ptr noundef nonnull @.str.83, i32 noundef %138) #10
+  %.not66 = icmp eq i32 %139, 0
+  br i1 %.not66, label %.loopexit, label %140
 
-142:                                              ; preds = %136
-  %143 = load ptr, ptr %2, align 8, !tbaa !13
-  %144 = call i32 @SSL_pending(ptr noundef %143) #10
-  %145 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 150, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %144, i32 noundef 13) #10
-  %.not67 = icmp eq i32 %145, 0
-  br i1 %.not67, label %.loopexit, label %146
+140:                                              ; preds = %134
+  %141 = load ptr, ptr %2, align 8, !tbaa !13
+  %142 = call i32 @SSL_pending(ptr noundef %141) #10
+  %143 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 150, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %142, i32 noundef 13) #10
+  %.not67 = icmp eq i32 %143, 0
+  br i1 %.not67, label %.loopexit, label %144
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %2, align 8, !tbaa !13
-  %148 = call i32 @SSL_read_ex(ptr noundef %147, ptr noundef nonnull %19, i64 noundef 19, ptr noundef nonnull %6) #10
-  %149 = icmp ne i32 %148, 0
-  %150 = zext i1 %149 to i32
-  %151 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 152, ptr noundef nonnull @.str.86, i32 noundef %150) #10
-  %.not68 = icmp eq i32 %151, 0
-  br i1 %.not68, label %.loopexit, label %152
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %2, align 8, !tbaa !13
+  %146 = call i32 @SSL_read_ex(ptr noundef %145, ptr noundef nonnull %19, i64 noundef 19, ptr noundef nonnull %6) #10
+  %147 = icmp ne i32 %146, 0
+  %148 = zext i1 %147 to i32
+  %149 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 152, ptr noundef nonnull @.str.86, i32 noundef %148) #10
+  %.not68 = icmp eq i32 %149, 0
+  br i1 %.not68, label %.loopexit, label %150
 
-152:                                              ; preds = %146
-  %153 = load i64, ptr %6, align 8, !tbaa !17
-  %154 = add i64 %153, 1
-  %155 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 153, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %4, i64 noundef %154, ptr noundef nonnull @.str.60, i64 noundef 14) #10
-  %.not69 = icmp eq i32 %155, 0
-  br i1 %.not69, label %.loopexit, label %65
+150:                                              ; preds = %144
+  %151 = load i64, ptr %6, align 8, !tbaa !17
+  %152 = add i64 %151, 1
+  %153 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 153, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %4, i64 noundef %152, ptr noundef nonnull @.str.60, i64 noundef 14) #10
+  %.not69 = icmp eq i32 %153, 0
+  br i1 %.not69, label %.loopexit, label %64
 
-.loopexit82:                                      ; preds = %65, %127
-  %156 = load ptr, ptr %2, align 8, !tbaa !13
-  %157 = call i32 @SSL_export_keying_material(ptr noundef %156, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef nonnull @.str.88, i64 noundef 3, i32 noundef 1) #10
-  %158 = icmp ne i32 %157, 0
-  %159 = zext i1 %158 to i32
-  %160 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 160, ptr noundef nonnull @.str.87, i32 noundef %159) #10
-  %.not74 = icmp eq i32 %160, 0
-  br i1 %.not74, label %.loopexit, label %161
+.loopexit82:                                      ; preds = %64, %125
+  %154 = load ptr, ptr %2, align 8, !tbaa !13
+  %155 = call i32 @SSL_export_keying_material(ptr noundef %154, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef nonnull @.str.88, i64 noundef 3, i32 noundef 1) #10
+  %156 = icmp ne i32 %155, 0
+  %157 = zext i1 %156 to i32
+  %158 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 160, ptr noundef nonnull @.str.87, i32 noundef %157) #10
+  %.not74 = icmp eq i32 %158, 0
+  br i1 %.not74, label %.loopexit, label %159
 
-161:                                              ; preds = %.loopexit82
-  %162 = load ptr, ptr %2, align 8, !tbaa !13
-  %163 = call i32 @SSL_session_reused(ptr noundef %162) #10
-  %164 = icmp ne i32 %163, 0
-  %165 = zext i1 %164 to i32
-  br i1 %.not53, label %166, label %172
+159:                                              ; preds = %.loopexit82
+  %160 = load ptr, ptr %2, align 8, !tbaa !13
+  %161 = call i32 @SSL_session_reused(ptr noundef %160) #10
+  %162 = icmp ne i32 %161, 0
+  %163 = zext i1 %162 to i32
+  br i1 %.not53, label %164, label %170
 
-166:                                              ; preds = %161
-  %167 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 165, ptr noundef nonnull @.str.89, i32 noundef %165) #10
-  %.not76 = icmp eq i32 %167, 0
-  br i1 %.not76, label %.loopexit, label %168
+164:                                              ; preds = %159
+  %165 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 165, ptr noundef nonnull @.str.89, i32 noundef %163) #10
+  %.not76 = icmp eq i32 %165, 0
+  br i1 %.not76, label %.loopexit, label %166
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr %2, align 8, !tbaa !13
-  %170 = call ptr @SSL_get1_session(ptr noundef %169) #10
-  %171 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.90, ptr noundef %170) #10
-  %.not77 = icmp eq i32 %171, 0
-  br i1 %.not77, label %.loopexit, label %174
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %2, align 8, !tbaa !13
+  %168 = call ptr @SSL_get1_session(ptr noundef %167) #10
+  %169 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.90, ptr noundef %168) #10
+  %.not77 = icmp eq i32 %169, 0
+  br i1 %.not77, label %.loopexit, label %172
 
-172:                                              ; preds = %161
-  %173 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 173, ptr noundef nonnull @.str.89, i32 noundef %165) #10
-  %.not75 = icmp eq i32 %173, 0
-  br i1 %.not75, label %.loopexit, label %174
+170:                                              ; preds = %159
+  %171 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 173, ptr noundef nonnull @.str.89, i32 noundef %163) #10
+  %.not75 = icmp eq i32 %171, 0
+  br i1 %.not75, label %.loopexit, label %172
 
-174:                                              ; preds = %172, %168
-  %.3 = phi ptr [ %170, %168 ], [ %.093, %172 ]
-  %175 = load ptr, ptr %3, align 8, !tbaa !15
-  %176 = load ptr, ptr %2, align 8, !tbaa !13
-  %177 = call i32 @qtest_shutdown(ptr noundef %175, ptr noundef %176) #10
-  %178 = icmp ne i32 %177, 0
-  %179 = zext i1 %178 to i32
-  %180 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 177, ptr noundef nonnull @.str.91, i32 noundef %179) #10
-  %.not78 = icmp eq i32 %180, 0
-  br i1 %.not78, label %.loopexit, label %181
+172:                                              ; preds = %170, %166
+  %.3 = phi ptr [ %168, %166 ], [ %.093, %170 ]
+  %173 = load ptr, ptr %3, align 8, !tbaa !15
+  %174 = load ptr, ptr %2, align 8, !tbaa !13
+  %175 = call i32 @qtest_shutdown(ptr noundef %173, ptr noundef %174) #10
+  %176 = icmp ne i32 %175, 0
+  %177 = zext i1 %176 to i32
+  %178 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 177, ptr noundef nonnull @.str.91, i32 noundef %177) #10
+  %.not78 = icmp eq i32 %178, 0
+  br i1 %.not78, label %.loopexit, label %179
 
-181:                                              ; preds = %174
-  %182 = icmp eq ptr %.04590, null
-  br i1 %182, label %183, label %190
+179:                                              ; preds = %172
+  %180 = icmp eq ptr %.04590, null
+  br i1 %180, label %181, label %188
 
-183:                                              ; preds = %181
-  %184 = load ptr, ptr %3, align 8, !tbaa !15
-  %185 = call ptr @ossl_quic_tserver_get0_ssl_ctx(ptr noundef %184) #10
-  %186 = call i32 @SSL_CTX_up_ref(ptr noundef %185) #10
-  %187 = icmp ne i32 %186, 0
-  %188 = zext i1 %187 to i32
-  %189 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 182, ptr noundef nonnull @.str.92, i32 noundef %188) #10
-  %.not79 = icmp eq i32 %189, 0
-  br i1 %.not79, label %.loopexit, label %190
+181:                                              ; preds = %179
+  %182 = load ptr, ptr %3, align 8, !tbaa !15
+  %183 = call ptr @ossl_quic_tserver_get0_ssl_ctx(ptr noundef %182) #10
+  %184 = call i32 @SSL_CTX_up_ref(ptr noundef %183) #10
+  %185 = icmp ne i32 %184, 0
+  %186 = zext i1 %185 to i32
+  %187 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 182, ptr noundef nonnull @.str.92, i32 noundef %186) #10
+  %.not79 = icmp eq i32 %187, 0
+  br i1 %.not79, label %.loopexit, label %188
 
-190:                                              ; preds = %183, %181
-  %.348 = phi ptr [ %185, %183 ], [ %.04590, %181 ]
-  %191 = load ptr, ptr %3, align 8, !tbaa !15
-  call void @ossl_quic_tserver_free(ptr noundef %191) #10
+188:                                              ; preds = %181, %179
+  %.348 = phi ptr [ %183, %181 ], [ %.04590, %179 ]
+  %189 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @ossl_quic_tserver_free(ptr noundef %189) #10
   store ptr null, ptr %3, align 8, !tbaa !15
-  %192 = load ptr, ptr %2, align 8, !tbaa !13
-  call void @SSL_free(ptr noundef %192) #10
+  %190 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @SSL_free(ptr noundef %190) #10
   store ptr null, ptr %2, align 8, !tbaa !13
-  %or.cond106 = and i1 %20, %22
   br i1 %or.cond106, label %21, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %190, %183, %174, %172, %168, %166, %.loopexit82, %115, %117, %121, %127, %60, %53, %45, %39, %21, %24, %32, %131, %133, %136, %142, %146, %152, %.thread, %94, %66, %74, %83, %.preheader
-  %.247 = phi ptr [ %.04590, %83 ], [ %.04590, %131 ], [ %.04590, %.preheader ], [ %.04590, %74 ], [ %.04590, %66 ], [ %.04590, %94 ], [ %.04590, %.thread ], [ %.04590, %152 ], [ %.04590, %146 ], [ %.04590, %142 ], [ %.04590, %136 ], [ %.04590, %133 ], [ %.348, %190 ], [ %.04590, %32 ], [ %.04590, %39 ], [ %.04590, %45 ], [ %.04590, %53 ], [ %.04590, %60 ], [ %.04590, %24 ], [ %.04590, %174 ], [ null, %183 ], [ %.04590, %117 ], [ %.04590, %121 ], [ %.04590, %127 ], [ %.04590, %.loopexit82 ], [ %.04590, %172 ], [ %.04590, %166 ], [ %.04590, %21 ], [ %.04590, %168 ], [ %.04590, %115 ]
-  %.042 = phi i32 [ 0, %83 ], [ 0, %131 ], [ 0, %.preheader ], [ 0, %74 ], [ 0, %66 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %152 ], [ 0, %146 ], [ 0, %142 ], [ 0, %136 ], [ 0, %133 ], [ 1, %190 ], [ 0, %32 ], [ 0, %39 ], [ 0, %45 ], [ 0, %53 ], [ 0, %60 ], [ 0, %24 ], [ 0, %174 ], [ 0, %183 ], [ 0, %117 ], [ 0, %121 ], [ 0, %127 ], [ 0, %.loopexit82 ], [ 0, %172 ], [ 0, %166 ], [ 0, %21 ], [ 0, %168 ], [ 0, %115 ]
-  %.2 = phi ptr [ %.093, %83 ], [ %.093, %131 ], [ %.093, %.preheader ], [ %.093, %74 ], [ %.093, %66 ], [ %.093, %94 ], [ %.093, %.thread ], [ %.093, %152 ], [ %.093, %146 ], [ %.093, %142 ], [ %.093, %136 ], [ %.093, %133 ], [ %.3, %190 ], [ %.093, %32 ], [ %.093, %39 ], [ %.093, %45 ], [ %.093, %53 ], [ %.093, %60 ], [ %.093, %24 ], [ %.3, %174 ], [ %.3, %183 ], [ %.093, %117 ], [ %.093, %121 ], [ %.093, %127 ], [ %.093, %.loopexit82 ], [ %.093, %172 ], [ null, %166 ], [ %.093, %21 ], [ %170, %168 ], [ %.093, %115 ]
+.loopexit:                                        ; preds = %188, %181, %172, %170, %166, %164, %.loopexit82, %113, %115, %119, %125, %59, %52, %44, %38, %21, %23, %31, %129, %131, %134, %140, %144, %150, %.thread, %92, %65, %72, %81, %.preheader
+  %.247 = phi ptr [ %.04590, %81 ], [ %.04590, %129 ], [ %.04590, %.preheader ], [ %.04590, %72 ], [ %.04590, %65 ], [ %.04590, %92 ], [ %.04590, %.thread ], [ %.04590, %150 ], [ %.04590, %144 ], [ %.04590, %140 ], [ %.04590, %134 ], [ %.04590, %131 ], [ %.348, %188 ], [ %.04590, %31 ], [ %.04590, %38 ], [ %.04590, %44 ], [ %.04590, %52 ], [ %.04590, %59 ], [ %.04590, %23 ], [ %.04590, %172 ], [ null, %181 ], [ %.04590, %115 ], [ %.04590, %119 ], [ %.04590, %125 ], [ %.04590, %.loopexit82 ], [ %.04590, %170 ], [ %.04590, %164 ], [ %.04590, %21 ], [ %.04590, %166 ], [ %.04590, %113 ]
+  %.042 = phi i32 [ 0, %81 ], [ 0, %129 ], [ 0, %.preheader ], [ 0, %72 ], [ 0, %65 ], [ 0, %92 ], [ 0, %.thread ], [ 0, %150 ], [ 0, %144 ], [ 0, %140 ], [ 0, %134 ], [ 0, %131 ], [ 1, %188 ], [ 0, %31 ], [ 0, %38 ], [ 0, %44 ], [ 0, %52 ], [ 0, %59 ], [ 0, %23 ], [ 0, %172 ], [ 0, %181 ], [ 0, %115 ], [ 0, %119 ], [ 0, %125 ], [ 0, %.loopexit82 ], [ 0, %170 ], [ 0, %164 ], [ 0, %21 ], [ 0, %166 ], [ 0, %113 ]
+  %.2 = phi ptr [ %.093, %81 ], [ %.093, %129 ], [ %.093, %.preheader ], [ %.093, %72 ], [ %.093, %65 ], [ %.093, %92 ], [ %.093, %.thread ], [ %.093, %150 ], [ %.093, %144 ], [ %.093, %140 ], [ %.093, %134 ], [ %.093, %131 ], [ %.3, %188 ], [ %.093, %31 ], [ %.093, %38 ], [ %.093, %44 ], [ %.093, %52 ], [ %.093, %59 ], [ %.093, %23 ], [ %.3, %172 ], [ %.3, %181 ], [ %.093, %115 ], [ %.093, %119 ], [ %.093, %125 ], [ %.093, %.loopexit82 ], [ %.093, %170 ], [ null, %164 ], [ %.093, %21 ], [ %168, %166 ], [ %.093, %113 ]
   call void @SSL_SESSION_free(ptr noundef %.2) #10
-  %193 = load ptr, ptr %3, align 8, !tbaa !15
-  call void @ossl_quic_tserver_free(ptr noundef %193) #10
-  %194 = load ptr, ptr %2, align 8, !tbaa !13
-  call void @SSL_free(ptr noundef %194) #10
+  %191 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @ossl_quic_tserver_free(ptr noundef %191) #10
+  %192 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @SSL_free(ptr noundef %192) #10
   call void @SSL_CTX_free(ptr noundef %10) #10
   call void @SSL_CTX_free(ptr noundef %.247) #10
-  br label %195
+  br label %193
 
-195:                                              ; preds = %.loopexit, %14
+193:                                              ; preds = %.loopexit, %14
   %.041 = phi i32 [ %.042, %.loopexit ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

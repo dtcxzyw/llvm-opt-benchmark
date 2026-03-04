@@ -5370,22 +5370,22 @@ _ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit.threa
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !186
   %.not.i15 = icmp eq ptr %18, null
-  br i1 %.not.i15, label %.thread, label %19
+  br i1 %.not.i15, label %.critedge, label %19
 
 19:                                               ; preds = %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit.thread
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %.sroa.0.0.copyload.i.i.i16 = load i16, ptr %20, align 8, !tbaa !151
   %21 = icmp eq i16 %.sroa.0.0.copyload.i.i.i16, 90
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit18, label %.critedge
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 184
-  %24 = load ptr, ptr %23, align 8, !tbaa !183
-  %25 = icmp ne ptr %24, null
-  %or.cond = and i1 %.0, %25
-  br i1 %or.cond, label %26, label %.thread
+_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit18: ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 184
+  %23 = load ptr, ptr %22, align 8, !tbaa !183
+  %24 = icmp ne ptr %23, null
+  %25 = and i1 %.0, %24
+  br i1 %25, label %26, label %.critedge
 
-26:                                               ; preds = %22
+26:                                               ; preds = %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %29 = load ptr, ptr %28, align 8, !tbaa !247
@@ -5448,14 +5448,14 @@ _ZNSt6vectorIP6AstDotSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   store ptr %53, ptr %30, align 8, !tbaa !170
   br label %_ZNSt6vectorIP6AstDotSaIS1_EE9push_backERKS1_.exit
 
-.thread:                                          ; preds = %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit.thread, %19, %22
+.critedge:                                        ; preds = %19, %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit.thread, %_ZN7AstNode11privateCastI20AstClassOrPackageRefP11AstNodeExprEEPT_PS_.exit18
   %54 = load ptr, ptr %18, align 8, !tbaa !57
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 288
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(152) %18, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %_ZNSt6vectorIP6AstDotSaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIP6AstDotSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6AstDotSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %32, %.thread
+_ZNSt6vectorIP6AstDotSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6AstDotSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %32, %.critedge
   ret void
 }
 

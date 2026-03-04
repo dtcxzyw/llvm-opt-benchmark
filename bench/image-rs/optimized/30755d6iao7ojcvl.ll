@@ -1670,11 +1670,11 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   store i64 0, ptr %0, align 8
   br label %118
 
-56:                                               ; preds = %31, %48
-  %.sroa.8.0 = phi i64 [ %52, %48 ], [ undef, %31 ]
-  %.sroa.710.0 = phi i64 [ %44, %48 ], [ undef, %31 ]
-  %.sroa.08.0 = phi ptr [ %37, %48 ], [ null, %31 ]
-  %.1 = phi i8 [ %54, %48 ], [ %spec.select, %31 ]
+56:                                               ; preds = %48, %31
+  %.sroa.8.0 = phi i64 [ undef, %31 ], [ %52, %48 ]
+  %.sroa.710.0 = phi i64 [ undef, %31 ], [ %44, %48 ]
+  %.sroa.08.0 = phi ptr [ null, %31 ], [ %37, %48 ]
+  %.1 = phi i8 [ %spec.select, %31 ], [ %54, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 44, ptr %57, align 8, !alias.scope !480, !noalias !487
@@ -1702,7 +1702,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %72 = load ptr, ptr %71, align 8, !alias.scope !551, !noundef !13
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit217, label %74
+  br i1 %73, label %.loopexit215, label %74
 
 74:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !554
@@ -1738,7 +1738,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit": ; preds = %79
   %89 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %72, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 10), !noalias !575
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %.loopexit217
+  br i1 %90, label %91, label %.loopexit215
 
 91:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
   %.not = icmp eq ptr %.sroa.08.0, null
@@ -1764,7 +1764,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.i": ; preds = %92
   %101 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %72, ptr noalias noundef nonnull readonly align 1 %.sroa.08.0, i64 noundef %.sroa.710.0), !noalias !588
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.preheader.i, label %.loopexit217
+  br i1 %102, label %.preheader.i, label %.loopexit215
 
 .preheader.i:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread.i"
   %103 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -1798,14 +1798,14 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit19.i": ; preds = %113, %111
   %.0.i.i18.i = phi ptr [ null, %113 ], [ %112, %111 ]
   %117 = icmp eq ptr %.0.i.i18.i, null
-  br i1 %117, label %104, label %.loopexit217
+  br i1 %117, label %104, label %.loopexit215
 
 .loopexit:                                        ; preds = %104, %91
   store i8 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 
-.loopexit217:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit19.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit", %56
+.loopexit215:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit19.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit", %56
   %.sroa.7150.0.ph.sink = phi ptr [ %89, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit" ], [ inttoptr (i64 154618822659 to ptr), %56 ], [ %101, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.i" ], [ %.0.i.i18.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit19.i" ]
   store i8 1, ptr %0, align 8
   %.sroa.2111.sroa.2.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1813,7 +1813,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 
-118:                                              ; preds = %47, %55, %.loopexit217, %.loopexit, %30
+118:                                              ; preds = %47, %55, %.loopexit215, %.loopexit, %30
   ret void
 }
 

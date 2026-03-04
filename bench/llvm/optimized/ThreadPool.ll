@@ -352,7 +352,7 @@ define dso_local void @_ZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTas
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.not91 = icmp eq ptr %1, null
+  %.not90 = icmp eq ptr %1, null
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -391,8 +391,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %33
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us"
   %38 = load ptr, ptr %11, align 8, !tbaa !69
   %39 = load ptr, ptr %12, align 8, !tbaa !69
-  %.not92 = icmp eq ptr %38, %39
-  br i1 %.not92, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", label %._crit_edge
+  %.not91 = icmp eq ptr %38, %39
+  br i1 %.not91, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", label %._crit_edge
 
 "_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us": ; preds = %.lr.ph.i.split.us
   call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(9) %6) #22
@@ -640,7 +640,7 @@ _ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit:
   br i1 %169, label %210, label %171
 
 170:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i, %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit
-  br i1 %.not91, label %._crit_edge, label %210
+  br i1 %.not90, label %._crit_edge, label %210
 
 ._crit_edge:                                      ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us, %170
   %.pre = load ptr, ptr %12, align 8, !tbaa !69, !noalias !109

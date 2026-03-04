@@ -12524,11 +12524,11 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9: ; preds = %_ZNK3smt12theory_a
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !802
   %68 = icmp eq i32 %67, 1
+  %69 = xor i1 %51, %68
   br label %_ZNK3smt12theory_arithINS_6mi_extEE10is_int_srcEi.exit10
 
 _ZNK3smt12theory_arithINS_6mi_extEE10is_int_srcEi.exit10: ; preds = %_ZNK3smt12theory_arithINS_6mi_extEE10is_int_srcEi.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9, %65
-  %69 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %68, %65 ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE10is_int_srcEi.exit ]
-  %70 = xor i1 %51, %69
+  %70 = phi i1 [ %51, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %69, %65 ], [ %51, %_ZNK3smt12theory_arithINS_6mi_extEE10is_int_srcEi.exit ]
   %71 = xor i1 %70, true
   br label %72
 
@@ -118189,11 +118189,11 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9: ; preds = %_ZNK3smt12theory_a
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !802
   %101 = icmp eq i32 %100, 1
+  %102 = xor i1 %84, %101
   br label %_ZNK3smt12theory_arithINS_5i_extEE10is_int_srcEi.exit10
 
 _ZNK3smt12theory_arithINS_5i_extEE10is_int_srcEi.exit10: ; preds = %_ZNK3smt12theory_arithINS_5i_extEE10is_int_srcEi.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9, %98
-  %102 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %101, %98 ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE10is_int_srcEi.exit ]
-  %103 = xor i1 %84, %102
+  %103 = phi i1 [ %84, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %102, %98 ], [ %84, %_ZNK3smt12theory_arithINS_5i_extEE10is_int_srcEi.exit ]
   %104 = xor i1 %103, true
   br label %_ZeqRK8rationalS1_.exit.thread
 
@@ -224014,11 +224014,11 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9: ; preds = %_ZNK3smt12theory_a
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !802
   %104 = icmp eq i32 %103, 1
+  %105 = xor i1 %87, %104
   br label %_ZNK3smt12theory_arithINS_7inf_extEE10is_int_srcEi.exit10
 
 _ZNK3smt12theory_arithINS_7inf_extEE10is_int_srcEi.exit10: ; preds = %_ZNK3smt12theory_arithINS_7inf_extEE10is_int_srcEi.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9, %101
-  %105 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %104, %101 ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE10is_int_srcEi.exit ]
-  %106 = xor i1 %87, %105
+  %106 = phi i1 [ %87, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i9 ], [ %105, %101 ], [ %87, %_ZNK3smt12theory_arithINS_7inf_extEE10is_int_srcEi.exit ]
   %107 = xor i1 %106, true
   br label %_ZeqRK16inf_eps_rationalI12inf_rationalES3_.exit.thread
 

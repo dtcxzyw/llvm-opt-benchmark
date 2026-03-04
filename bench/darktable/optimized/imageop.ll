@@ -8344,11 +8344,11 @@ define ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone captures(a
   %.fr = freeze i32 %3
   %.not = icmp eq i32 %.fr, 0
   %4 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.165) #25
-  %.fr87 = freeze i32 %4
-  %.not34 = icmp eq i32 %.fr87, 0
+  %.fr88 = freeze i32 %4
+  %.not34 = icmp eq i32 %.fr88, 0
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.166) #25
-  %.fr88 = freeze i32 %5
-  %.not35 = icmp ne i32 %.fr88, 0
+  %.fr89 = freeze i32 %5
+  %.not35 = icmp ne i32 %.fr89, 0
   %6 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168) #25
   %.not36 = icmp ne i32 %6, 0
   %7 = zext i1 %.not36 to i32
@@ -8411,11 +8411,11 @@ dt_dev_gui_module.exit.thread:                    ; preds = %1, %13, %dt_dev_gui
   %37 = load i32, ptr %36, align 4, !tbaa !34
   %switch.us = icmp ult i32 %37, 2
   %38 = and i1 %switch.us, %.not35
-  %spec.select45.us = select i1 %38, i32 2, i32 0
-  %39 = or disjoint i32 %34, %spec.select45.us
-  %40 = or disjoint i32 %39, %7
+  %39 = select i1 %38, i32 2, i32 0
+  %spec.select45.us = or disjoint i32 %34, %39
+  %40 = or disjoint i32 %spec.select45.us, %7
   %41 = icmp sgt i32 %40, %.02749.us
-  %spec.select.us = select i1 %41, i32 %39, i32 %.02749.us
+  %spec.select.us = select i1 %41, i32 %spec.select45.us, i32 %.02749.us
   %spec.select44.us = select i1 %41, ptr %23, ptr %.150.us
   br label %42
 
@@ -8450,17 +8450,17 @@ dt_dev_gui_module.exit.thread:                    ; preds = %1, %13, %dt_dev_gui
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 872
   %54 = load i32, ptr %53, align 8, !tbaa !293
   %.not39.us = icmp eq i32 %54, 0
-  %spec.select84 = select i1 %.not39.us, i32 0, i32 8
+  %spec.select85 = select i1 %.not39.us, i32 0, i32 8
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 760
   %56 = load ptr, ptr %55, align 8, !tbaa !30
   %57 = load i32, ptr %56, align 4, !tbaa !34
   %switch.us61 = icmp ult i32 %57, 2
   %58 = and i1 %switch.us61, %.not35
-  %spec.select45.us62 = select i1 %58, i32 2, i32 0
-  %59 = or disjoint i32 %spec.select84, %spec.select45.us62
-  %60 = or disjoint i32 %59, %7
+  %59 = select i1 %58, i32 2, i32 0
+  %spec.select45.us62 = or disjoint i32 %spec.select85, %59
+  %60 = or disjoint i32 %spec.select45.us62, %7
   %61 = icmp sgt i32 %60, %.02749.us53
-  %spec.select.us63 = select i1 %61, i32 %59, i32 %.02749.us53
+  %spec.select.us63 = select i1 %61, i32 %spec.select45.us62, i32 %.02749.us53
   %spec.select44.us64 = select i1 %61, ptr %45, ptr %.150.us52
   br label %62
 
@@ -8495,74 +8495,74 @@ dt_dev_gui_module.exit.thread:                    ; preds = %1, %13, %dt_dev_gui
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 872
   %74 = load i32, ptr %73, align 8, !tbaa !293
   %.not39.us72 = icmp eq i32 %74, 0
-  %spec.select85 = select i1 %.not39.us72, i32 0, i32 8
+  %spec.select86 = select i1 %.not39.us72, i32 0, i32 8
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 672
   %76 = load i32, ptr %75, align 16, !tbaa !178
   %.not40.us77 = icmp eq i32 %76, 0
   %unswitched.select51.us78 = select i1 %.not40.us77, i32 0, i32 4
-  %77 = or disjoint i32 %unswitched.select51.us78, %spec.select85
+  %77 = or disjoint i32 %unswitched.select51.us78, %spec.select86
   %78 = or disjoint i32 %77, %7
   %79 = icmp sgt i32 %78, %.02749.us69
-  %spec.select.us80 = select i1 %79, i32 %77, i32 %.02749.us69
-  %spec.select44.us81 = select i1 %79, ptr %65, ptr %.150.us68
+  %spec.select.us81 = select i1 %79, i32 %77, i32 %.02749.us69
+  %spec.select44.us82 = select i1 %79, ptr %65, ptr %.150.us68
   br label %80
 
 80:                                               ; preds = %72, %69, %.lr.ph.split.split.split.us
-  %.128.us73 = phi i32 [ %spec.select.us80, %72 ], [ %.02749.us69, %69 ], [ %.02749.us69, %.lr.ph.split.split.split.us ]
-  %.2.us74 = phi ptr [ %spec.select44.us81, %72 ], [ %.150.us68, %69 ], [ %.150.us68, %.lr.ph.split.split.split.us ]
+  %.128.us73 = phi i32 [ %spec.select.us81, %72 ], [ %.02749.us69, %69 ], [ %.02749.us69, %.lr.ph.split.split.split.us ]
+  %.2.us74 = phi ptr [ %spec.select44.us82, %72 ], [ %.150.us68, %69 ], [ %.150.us68, %.lr.ph.split.split.split.us ]
   %81 = getelementptr inbounds nuw i8, ptr %.03048.us70, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !266
   %.not37.us75 = icmp eq ptr %82, null
   br i1 %.not37.us75, label %.loopexit, label %.lr.ph.split.split.split.us
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %102
-  %.150 = phi ptr [ %.2, %102 ], [ null, %.lr.ph.split.split ]
-  %.02749 = phi i32 [ %.128, %102 ], [ -1, %.lr.ph.split.split ]
-  %.03048 = phi ptr [ %104, %102 ], [ %22, %.lr.ph.split.split ]
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %101
+  %.150 = phi ptr [ %.2, %101 ], [ null, %.lr.ph.split.split ]
+  %.02749 = phi i32 [ %.128, %101 ], [ -1, %.lr.ph.split.split ]
+  %.03048 = phi ptr [ %103, %101 ], [ %22, %.lr.ph.split.split ]
   %83 = load ptr, ptr %.03048, align 8, !tbaa !40
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 944
   %85 = load ptr, ptr %84, align 16, !tbaa !42
   %86 = icmp eq ptr %85, %0
-  br i1 %86, label %87, label %102
+  br i1 %86, label %87, label %101
 
 87:                                               ; preds = %.lr.ph.split.split.split
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 480
   %89 = load i32, ptr %88, align 16, !tbaa !172
   %.not38 = icmp eq i32 %89, 2147483647
-  br i1 %.not38, label %102, label %90
+  br i1 %.not38, label %101, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 872
   %92 = load i32, ptr %91, align 8, !tbaa !293
   %.not39 = icmp eq i32 %92, 0
-  %spec.select86 = select i1 %.not39, i32 0, i32 8
+  %spec.select87 = select i1 %.not39, i32 0, i32 8
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 672
   %94 = load i32, ptr %93, align 16, !tbaa !178
   %.not40 = icmp eq i32 %94, 0
   %unswitched.select51 = select i1 %.not40, i32 0, i32 4
-  %95 = or disjoint i32 %unswitched.select51, %spec.select86
+  %95 = or disjoint i32 %unswitched.select51, %spec.select87
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 760
   %97 = load ptr, ptr %96, align 8, !tbaa !30
   %98 = load i32, ptr %97, align 4, !tbaa !34
   %switch = icmp ult i32 %98, 2
   %unswitched.select67 = select i1 %switch, i32 2, i32 0
-  %99 = or disjoint i32 %95, %unswitched.select67
-  %100 = or disjoint i32 %99, %7
-  %101 = icmp sgt i32 %100, %.02749
-  %spec.select = select i1 %101, i32 %99, i32 %.02749
-  %spec.select44 = select i1 %101, ptr %83, ptr %.150
-  br label %102
+  %spec.select45 = or disjoint i32 %95, %unswitched.select67
+  %99 = or disjoint i32 %spec.select45, %7
+  %100 = icmp sgt i32 %99, %.02749
+  %spec.select = select i1 %100, i32 %spec.select45, i32 %.02749
+  %spec.select44 = select i1 %100, ptr %83, ptr %.150
+  br label %101
 
-102:                                              ; preds = %90, %87, %.lr.ph.split.split.split
+101:                                              ; preds = %90, %87, %.lr.ph.split.split.split
   %.128 = phi i32 [ %spec.select, %90 ], [ %.02749, %87 ], [ %.02749, %.lr.ph.split.split.split ]
   %.2 = phi ptr [ %spec.select44, %90 ], [ %.150, %87 ], [ %.150, %.lr.ph.split.split.split ]
-  %103 = getelementptr inbounds nuw i8, ptr %.03048, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !266
-  %.not37 = icmp eq ptr %104, null
+  %102 = getelementptr inbounds nuw i8, ptr %.03048, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !266
+  %.not37 = icmp eq ptr %103, null
   br i1 %.not37, label %.loopexit, label %.lr.ph.split.split.split
 
-.loopexit:                                        ; preds = %80, %102, %62, %42, %dt_dev_gui_module.exit.thread, %13
-  %.0 = phi ptr [ %10, %13 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us, %42 ], [ %.2, %102 ], [ %.2.us57, %62 ], [ %.2.us74, %80 ]
+.loopexit:                                        ; preds = %80, %101, %62, %42, %dt_dev_gui_module.exit.thread, %13
+  %.0 = phi ptr [ %10, %13 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us, %42 ], [ %.2, %101 ], [ %.2.us57, %62 ], [ %.2.us74, %80 ]
   ret ptr %.0
 }
 

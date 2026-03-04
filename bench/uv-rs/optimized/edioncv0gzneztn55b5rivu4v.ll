@@ -3857,14 +3857,14 @@ define void @_ZN21uv_distribution_types9index_url8IndexUrl4root17h776d913e0bd0bb
   %29 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !884, !noundef !8
   %30 = add i8 %29, -65
   %31 = icmp ult i8 %30, 26
-  %.sroa.04.0.i = select i1 %31, i8 32, i8 0
-  %32 = or i8 %.sroa.04.0.i, %29
+  %32 = select i1 %31, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %32, %29
   %33 = load i8, ptr %.sroa.02.0.i, align 1, !noalias !884, !noundef !8
   %34 = add i8 %33, -65
   %35 = icmp ult i8 %34, 26
-  %.sroa.05.0.i = select i1 %35, i8 32, i8 0
-  %36 = or i8 %.sroa.05.0.i, %33
-  %37 = icmp eq i8 %32, %36
+  %36 = select i1 %35, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %36, %33
+  %37 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %37, label %.preheader.i, label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit": ; preds = %22

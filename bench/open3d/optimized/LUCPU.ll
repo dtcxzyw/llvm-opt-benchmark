@@ -16293,12 +16293,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %241, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %248 = phi i64 [ %247, %241 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %249 = icmp samesign ugt i64 %239, %248
+  %249 = icmp ugt i64 %239, %248
   br i1 %249, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %250
 
 250:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %251 = sub nuw nsw i64 %248, %239
-  %252 = icmp samesign ugt i64 %251, 1
+  %252 = icmp ugt i64 %251, 1
   br i1 %252, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %253
 
 253:                                              ; preds = %250
@@ -16701,12 +16701,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250: ; preds = %422, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247
   %429 = phi i64 [ %428, %422 ], [ %.03556.i240, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247 ]
-  %430 = icmp samesign ugt i64 %420, %429
+  %430 = icmp ugt i64 %420, %429
   br i1 %430, label %.thread664, label %431
 
 431:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250
   %432 = sub nuw nsw i64 %429, %420
-  %433 = icmp samesign ugt i64 %432, 1
+  %433 = icmp ugt i64 %432, 1
   br i1 %433, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253, label %434
 
 434:                                              ; preds = %431
@@ -16824,12 +16824,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268: ; preds = %477, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265
   %484 = phi i64 [ %483, %477 ], [ %.03556.i258, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265 ]
-  %485 = icmp samesign ugt i64 %475, %484
+  %485 = icmp ugt i64 %475, %484
   br i1 %485, label %.thread.sink.split, label %486
 
 486:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268
   %487 = sub nuw nsw i64 %484, %475
-  %488 = icmp samesign ugt i64 %487, 1
+  %488 = icmp ugt i64 %487, 1
   br i1 %488, label %.thread, label %489
 
 489:                                              ; preds = %486
@@ -17183,7 +17183,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344: ; preds = %628, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
   %635 = phi i64 [ %634, %628 ], [ %.03556.i334, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
-  %636 = icmp samesign ugt i64 %626, %635
+  %636 = icmp ugt i64 %626, %635
   br i1 %636, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %637
 
 637:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
@@ -17403,12 +17403,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382: ; preds = %729, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
   %736 = phi i64 [ %735, %729 ], [ %.03556.i372, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
-  %737 = icmp samesign ugt i64 %727, %736
+  %737 = icmp ugt i64 %727, %736
   br i1 %737, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %738
 
 738:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
   %739 = sub nuw nsw i64 %736, %727
-  %740 = icmp samesign ugt i64 %739, 1
+  %740 = icmp ugt i64 %739, 1
   br i1 %740, label %.thread464, label %741
 
 741:                                              ; preds = %738

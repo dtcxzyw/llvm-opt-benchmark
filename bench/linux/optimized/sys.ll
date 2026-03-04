@@ -5635,99 +5635,98 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @do_prlimit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = icmp ugt i32 %1, 15
-  br i1 %5, label %60, label %6
+  br i1 %5, label %58, label %6
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %1 to i64
   %8 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %7) #13, !srcloc !30
   %9 = trunc i64 %8 to i32
   %10 = and i32 %1, %9
-  %11 = icmp ne ptr %2, null
-  br i1 %11, label %12, label %23
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %22, label %11
 
-12:                                               ; preds = %6
-  %13 = load i64, ptr %2, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = icmp ugt i64 %13, %15
-  br i1 %16, label %60, label %17
+11:                                               ; preds = %6
+  %12 = load i64, ptr %2, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp ugt i64 %12, %14
+  br i1 %15, label %58, label %16
 
-17:                                               ; preds = %12
-  %18 = icmp eq i32 %10, 7
-  %19 = load i32, ptr @sysctl_nr_open, align 4
-  %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %15, %20
-  %22 = select i1 %18, i1 %21, i1 false
-  br i1 %22, label %60, label %23
+16:                                               ; preds = %11
+  %17 = icmp eq i32 %10, 7
+  %18 = load i32, ptr @sysctl_nr_open, align 4
+  %19 = zext i32 %18 to i64
+  %20 = icmp ugt i64 %14, %19
+  %21 = select i1 %17, i1 %20, i1 false
+  br i1 %21, label %58, label %22
 
-23:                                               ; preds = %17, %6
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 672
-  %27 = zext nneg i32 %10 to i64
-  %28 = getelementptr %struct.rlimit, ptr %26, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  %30 = load ptr, ptr %29, align 32
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef nonnull %31) #13
-  br i1 %11, label %32, label %.thread
+22:                                               ; preds = %16, %6
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 672
+  %26 = zext nneg i32 %10 to i64
+  %27 = getelementptr %struct.rlimit, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1376
+  %29 = load ptr, ptr %28, align 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %30) #13
+  br i1 %.not, label %.thread, label %31
 
-32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp ugt i64 %34, %36
-  br i1 %37, label %38, label %40
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp ugt i64 %33, %35
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %32
-  %39 = tail call zeroext i1 @capable(i32 noundef 24) #13
-  br i1 %39, label %40, label %.thread6
+37:                                               ; preds = %31
+  %38 = tail call zeroext i1 @capable(i32 noundef 24) #13
+  br i1 %38, label %39, label %.thread6
 
-40:                                               ; preds = %32, %38
-  %41 = tail call i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2) #13
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %.thread6
+39:                                               ; preds = %31, %37
+  %40 = tail call i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2) #13
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.thread, label %.thread6
 
-.thread:                                          ; preds = %23, %40
-  %43 = icmp eq ptr %3, null
-  br i1 %43, label %45, label %44
+.thread:                                          ; preds = %22, %39
+  %42 = icmp eq ptr %3, null
+  br i1 %42, label %44, label %43
 
-44:                                               ; preds = %.thread
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %28, i64 16, i1 false)
-  br label %45
+43:                                               ; preds = %.thread
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %27, i64 16, i1 false)
+  br label %44
 
-45:                                               ; preds = %44, %.thread
-  br i1 %11, label %46, label %.thread6
+44:                                               ; preds = %43, %.thread
+  br i1 %.not, label %.thread6, label %45
 
-46:                                               ; preds = %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+45:                                               ; preds = %44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   br label %.thread6
 
-.thread6:                                         ; preds = %38, %46, %45, %40
-  %47 = phi i1 [ true, %46 ], [ true, %45 ], [ false, %40 ], [ false, %38 ]
-  %48 = phi i32 [ 0, %46 ], [ 0, %45 ], [ %41, %40 ], [ -1, %38 ]
-  %49 = load ptr, ptr %29, align 32
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2056
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %50) #13
-  %51 = and i1 %11, %47
-  %52 = icmp eq i32 %10, 0
-  %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %54, label %60
+.thread6:                                         ; preds = %37, %45, %44, %39
+  %46 = phi i1 [ true, %45 ], [ false, %44 ], [ false, %39 ], [ false, %37 ]
+  %47 = phi i32 [ 0, %45 ], [ 0, %44 ], [ %40, %39 ], [ -1, %37 ]
+  %48 = load ptr, ptr %28, align 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2056
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %49) #13
+  %50 = icmp eq i32 %10, 0
+  %51 = select i1 %46, i1 %50, i1 false
+  br i1 %51, label %52, label %58
 
-54:                                               ; preds = %.thread6
-  %55 = load i64, ptr %2, align 8
-  %56 = icmp eq i64 %55, -1
-  br i1 %56, label %60, label %57
+52:                                               ; preds = %.thread6
+  %53 = load i64, ptr %2, align 8
+  %54 = icmp eq i64 %53, -1
+  br i1 %54, label %58, label %55
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %29, align 32
-  %59 = tail call i32 @update_rlimit_cpu(ptr noundef %58, i64 noundef %55) #13
-  br label %60
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %28, align 32
+  %57 = tail call i32 @update_rlimit_cpu(ptr noundef %56, i64 noundef %53) #13
+  br label %58
 
-60:                                               ; preds = %57, %54, %.thread6, %17, %12, %4
-  %61 = phi i32 [ -22, %4 ], [ -22, %12 ], [ -1, %17 ], [ 0, %57 ], [ 0, %54 ], [ %48, %.thread6 ]
-  ret i32 %61
+58:                                               ; preds = %55, %52, %.thread6, %16, %11, %4
+  %59 = phi i32 [ -22, %4 ], [ -22, %11 ], [ -1, %16 ], [ 0, %55 ], [ 0, %52 ], [ %47, %.thread6 ]
+  ret i32 %59
 }
 
 ; Function Attrs: null_pointer_is_valid

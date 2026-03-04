@@ -51882,9 +51882,9 @@ define hidden void @_ZN10polars_sql8sql_expr23parse_extract_date_part17h93da430e
   %123 = load i8, ptr %122, align 1, !alias.scope !4040, !noalias !4043, !noundef !4
   %124 = add i8 %123, -65
   %125 = icmp ult i8 %124, 26
-  %.sroa.03.0.i.i = select i1 %125, i8 32, i8 0
-  %126 = or i8 %.sroa.03.0.i.i, %123
-  store i8 %126, ptr %122, align 1, !alias.scope !4040, !noalias !4043
+  %126 = select i1 %125, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %126, %123
+  store i8 %.sroa.03.0.i.i, ptr %122, align 1, !alias.scope !4040, !noalias !4043
   %127 = add nuw i64 %.sroa.0.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %127, %112
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i

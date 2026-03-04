@@ -1784,11 +1784,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %54 = shl nuw i32 1, %53
   %55 = and i32 %52, %54
   %56 = icmp ne i32 %55, 0
+  %57 = or i1 %.03787, %56
   br label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit
 
 _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; preds = %48, %44
-  %57 = phi i1 [ false, %44 ], [ %56, %48 ]
-  %58 = or i1 %.03787, %57
+  %58 = phi i1 [ %.03787, %44 ], [ %57, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %.03886, i64 8
   %.not39 = icmp eq ptr %59, %41
   br i1 %.not39, label %._crit_edge, label %44
@@ -2738,11 +2738,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %92 = shl nuw i32 1, %91
   %93 = and i32 %90, %92
   %94 = icmp ne i32 %93, 0
+  %95 = and i1 %.02343, %94
   br label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit
 
 _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; preds = %86, %82
-  %95 = phi i1 [ false, %82 ], [ %94, %86 ]
-  %96 = and i1 %.02343, %95
+  %96 = phi i1 [ false, %82 ], [ %95, %86 ]
   %97 = getelementptr inbounds nuw i8, ptr %.02244, i64 8
   %.not = icmp eq ptr %97, %74
   br i1 %.not, label %._crit_edge, label %82

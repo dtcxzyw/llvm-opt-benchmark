@@ -29061,8 +29061,8 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 30:                                               ; preds = %.lr.ph109, %._crit_edge102.thread
-  %.0108 = phi i32 [ %8, %.lr.ph109 ], [ %89, %._crit_edge102.thread ]
-  %.087106 = phi i32 [ %7, %.lr.ph109 ], [ %88, %._crit_edge102.thread ]
+  %.0108 = phi i32 [ %8, %.lr.ph109 ], [ %90, %._crit_edge102.thread ]
+  %.087106 = phi i32 [ %7, %.lr.ph109 ], [ %89, %._crit_edge102.thread ]
   %31 = load i32, ptr %2, align 4
   %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %17, i32 noundef %5, ptr noundef %0, i32 noundef %31, i32 noundef %22, ptr noundef nonnull @.str.14901, i32 noundef %.087106)
   %33 = icmp sgt i32 %.087106, 255
@@ -29164,40 +29164,40 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   %75 = getelementptr i32, ptr %65, i64 %indvars.iv114
   %76 = load i32, ptr %75, align 4
   %.not92 = icmp eq i32 %76, 0
-  br i1 %.not92, label %77, label %._crit_edge102.split.loop.exit126
+  br i1 %.not92, label %77, label %._crit_edge102.split.loop.exit125
 
 77:                                               ; preds = %74
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %._crit_edge102, label %74, !llvm.loop !30
 
-._crit_edge102.split.loop.exit126:                ; preds = %74
+._crit_edge102.split.loop.exit125:                ; preds = %74
   %78 = trunc nuw nsw i64 %indvars.iv114 to i32
   br label %._crit_edge102
 
-._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit126
-  %.2.lcssa.ph = phi i32 [ %78, %._crit_edge102.split.loop.exit126 ], [ %9, %77 ]
+._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit125
+  %.2.lcssa.ph = phi i32 [ %78, %._crit_edge102.split.loop.exit125 ], [ %9, %77 ]
   %79 = icmp eq i32 %.2.lcssa.ph, 4
-  %or.cond = and i1 %28, %79
-  br i1 %or.cond, label %80, label %._crit_edge102.thread
+  %80 = and i1 %28, %79
+  br i1 %80, label %81, label %._crit_edge102.thread
 
-80:                                               ; preds = %._crit_edge102
-  %81 = load ptr, ptr %45, align 8
-  %82 = load i32, ptr %81, align 4
-  %83 = getelementptr i8, ptr %81, i64 8
-  store i32 %82, ptr %83, align 4
-  %84 = load ptr, ptr %45, align 8
-  %85 = getelementptr i8, ptr %84, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = getelementptr i8, ptr %84, i64 12
-  store i32 %86, ptr %87, align 4
+81:                                               ; preds = %._crit_edge102
+  %82 = load ptr, ptr %45, align 8
+  %83 = load i32, ptr %82, align 4
+  %84 = getelementptr i8, ptr %82, i64 8
+  store i32 %83, ptr %84, align 4
+  %85 = load ptr, ptr %45, align 8
+  %86 = getelementptr i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr i8, ptr %85, i64 12
+  store i32 %87, ptr %88, align 4
   br label %._crit_edge102.thread
 
-._crit_edge102.thread:                            ; preds = %.preheader, %._crit_edge102, %80, %._crit_edge.thread, %66, %34
-  %88 = add i32 %.087106, 1
-  %89 = add nsw i32 %.0108, -1
-  %90 = icmp sgt i32 %.0108, 1
-  br i1 %90, label %30, label %._crit_edge110, !llvm.loop !31
+._crit_edge102.thread:                            ; preds = %.preheader, %._crit_edge102, %81, %._crit_edge.thread, %66, %34
+  %89 = add i32 %.087106, 1
+  %90 = add nsw i32 %.0108, -1
+  %91 = icmp sgt i32 %.0108, 1
+  br i1 %91, label %30, label %._crit_edge110, !llvm.loop !31
 
 ._crit_edge110:                                   ; preds = %._crit_edge102.thread, %.preheader94
   ret void

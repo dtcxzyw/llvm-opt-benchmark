@@ -3844,6 +3844,7 @@ _ZNK5arrow5Datum6scalarEv.exit:                   ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %31, ptr %35, align 8, !tbaa !250, !alias.scope !252
+  store ptr %28, ptr %25, align 8, !tbaa !255
   store i64 0, ptr %34, align 8, !tbaa !250
   store i8 0, ptr %28, align 8, !tbaa !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -4237,6 +4238,7 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %165
   %179 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %180 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %176, ptr %180, align 8, !tbaa !250, !alias.scope !268
+  store ptr %173, ptr %170, align 8, !tbaa !255
   store i64 0, ptr %179, align 8, !tbaa !250
   store i8 0, ptr %173, align 8, !tbaa !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i69
@@ -4401,6 +4403,7 @@ _ZNK5arrow5Datum12record_batchEv.exit:            ; preds = %224
   %238 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %239 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %235, ptr %239, align 8, !tbaa !250, !alias.scope !274
+  store ptr %232, ptr %229, align 8, !tbaa !255
   store i64 0, ptr %238, align 8, !tbaa !250
   store i8 0, ptr %232, align 8, !tbaa !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i94
@@ -4565,6 +4568,7 @@ _ZNK5arrow5Datum5tableEv.exit:                    ; preds = %283
   %297 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %298 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %294, ptr %298, align 8, !tbaa !250, !alias.scope !280
+  store ptr %291, ptr %288, align 8, !tbaa !255
   store i64 0, ptr %297, align 8, !tbaa !250
   store i8 0, ptr %291, align 8, !tbaa !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i119

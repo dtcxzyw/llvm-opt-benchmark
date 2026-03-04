@@ -148,8 +148,8 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %9, align 8, !tbaa !16
-  %.not2488 = icmp eq ptr %38, %10
-  br i1 %.not2488, label %.split28.us, label %.lr.ph.preheader
+  %.not2485 = icmp eq ptr %38, %10
+  br i1 %.not2485, label %.split28.us, label %.lr.ph.preheader
 
 .split:                                           ; preds = %._crit_edge
   %.sroa.014.023 = load ptr, ptr %9, align 8, !tbaa !16
@@ -157,16 +157,16 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   br i1 %.not24, label %.split28.us, label %.lr.ph.preheader, !llvm.loop !19
 
 .lr.ph.preheader:                                 ; preds = %4, %.split
-  %.sroa.014.02390 = phi ptr [ %.sroa.014.023, %.split ], [ %38, %4 ]
-  %.01189 = phi i1 [ true, %.split ], [ false, %4 ]
+  %.sroa.014.02387 = phi ptr [ %.sroa.014.023, %.split ], [ %38, %4 ]
+  %.01186 = phi i1 [ true, %.split ], [ false, %4 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit
-  br i1 %300, label %.split, label %._crit_edge..split28.us.loopexit_crit_edge, !llvm.loop !19
+  br i1 %.0.i, label %.split, label %._crit_edge..split28.us.loopexit_crit_edge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit
-  %.sroa.014.026 = phi ptr [ %.sroa.014.0, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit ], [ %.sroa.014.02390, %.lr.ph.preheader ]
-  %.025 = phi i1 [ %300, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit ], [ false, %.lr.ph.preheader ]
+  %.sroa.014.026 = phi ptr [ %.sroa.014.0, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit ], [ %.sroa.014.02387, %.lr.ph.preheader ]
+  %.025 = phi i1 [ %.0.i, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit ], [ false, %.lr.ph.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.014.026, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !22
   %41 = add i32 %40, 1
@@ -845,11 +845,11 @@ _ZL15SinkInstructionPN4llvm11InstructionERNS_15SmallPtrSetImplIS1_EERNS_13Domina
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %298, %295
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %300 = or i1 %.025, %.1.i
   br label %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit
 
 _ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit: ; preds = %.lr.ph, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
-  %.0.i = phi i1 [ %.1.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ false, %.lr.ph ]
-  %300 = or i1 %.025, %.0.i
+  %.0.i = phi i1 [ %300, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i ], [ %.025, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ %.025, %.lr.ph ]
   %301 = getelementptr inbounds nuw i8, ptr %.sroa.014.026, i64 8
   %.sroa.014.0 = load ptr, ptr %301, align 8, !tbaa !16
   %.not = icmp eq ptr %.sroa.014.0, %10
@@ -859,7 +859,7 @@ _ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AARe
   br label %.split28.us, !llvm.loop !19
 
 .split28.us:                                      ; preds = %.split, %._crit_edge..split28.us.loopexit_crit_edge, %4
-  %.us-phi = phi i1 [ false, %4 ], [ %.01189, %._crit_edge..split28.us.loopexit_crit_edge ], [ true, %.split ]
+  %.us-phi = phi i1 [ false, %4 ], [ %.01186, %._crit_edge..split28.us.loopexit_crit_edge ], [ true, %.split ]
   ret i1 %.us-phi
 }
 

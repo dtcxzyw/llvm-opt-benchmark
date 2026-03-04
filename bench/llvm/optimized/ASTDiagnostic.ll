@@ -6230,7 +6230,7 @@ _ZNK4llvm6APSInteqERKS0_.exit.i:                  ; preds = %604, %600, %583
   %or.cond19.i = select i1 %454, i1 %458, i1 false
   %627 = icmp eq i8 %610, %611
   %or.cond76.i = and i1 %or.cond19.i, %627
-  br i1 %or.cond76.i, label %628, label %638
+  br i1 %or.cond76.i, label %628, label %639
 
 628:                                              ; preds = %609
   %629 = load ptr, ptr %453, align 8, !tbaa !93
@@ -6242,16 +6242,16 @@ _ZNK4llvm6APSInteqERKS0_.exit.i:                  ; preds = %604, %600, %583
   %635 = load ptr, ptr %634, align 8
   %636 = call noundef ptr %635(ptr noundef nonnull align 8 dereferenceable(33) %.pre.i28) #16
   %637 = icmp eq ptr %632, %636
+  %638 = or i1 %626, %637
   %.val55.pre.i = load ptr, ptr %45, align 8, !tbaa !21
   %.val56.pre.i = load i32, ptr %46, align 8, !tbaa !471
   %.pre85.i = zext i32 %.val56.pre.i to i64
-  br label %638
+  br label %639
 
-638:                                              ; preds = %628, %609
+639:                                              ; preds = %628, %609
   %.pre-phi.i29 = phi i64 [ %.pre85.i, %628 ], [ %614, %609 ]
   %.val55.i = phi ptr [ %.val55.pre.i, %628 ], [ %.val59.i, %609 ]
-  %639 = phi i1 [ %637, %628 ], [ false, %609 ]
-  %640 = or i1 %626, %639
+  %640 = phi i1 [ %638, %628 ], [ %626, %609 ]
   %641 = zext i1 %640 to i8
   %642 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val55.i, i64 %.pre-phi.i29
   br label %.sink.split.i
@@ -6327,9 +6327,9 @@ _ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_
   %666 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val57.i, i64 %.pre-phi87.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i, %638, %_ZNK4llvm6APSInteqERKS0_.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i
-  %.sink97.i = phi ptr [ %578, %_ZNK4llvm6APSInteqERKS0_.exit.i ], [ %666, %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i ], [ %642, %638 ], [ %524, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i ], [ %491, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i ]
-  %.sink.i = phi i8 [ %607, %_ZNK4llvm6APSInteqERKS0_.exit.i ], [ %.0.i.i, %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i ], [ %641, %638 ], [ 0, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i ], [ 0, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i ]
+.sink.split.i:                                    ; preds = %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i, %639, %_ZNK4llvm6APSInteqERKS0_.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i
+  %.sink97.i = phi ptr [ %578, %_ZNK4llvm6APSInteqERKS0_.exit.i ], [ %666, %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i ], [ %642, %639 ], [ %524, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i ], [ %491, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i ]
+  %.sink.i = phi i8 [ %607, %_ZNK4llvm6APSInteqERKS0_.exit.i ], [ %.0.i.i, %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i ], [ %641, %639 ], [ 0, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i ], [ 0, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i ]
   %667 = getelementptr inbounds nuw i8, ptr %.sink97.i, i64 160
   store i8 %.sink.i, ptr %667, align 8, !tbaa !476
   br label %668

@@ -3030,31 +3030,29 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL8isHiddenPKN4llvm6RecordE(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull @.str.37, i64 6) #12
-  br i1 %2, label %13, label %3
+  br label %tailrecurse
 
-3:                                                ; preds = %1
-  %4 = tail call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull @.str.29, i64 13) #12
+tailrecurse:                                      ; preds = %8, %1
+  %.tr = phi ptr [ %0, %1 ], [ %10, %8 ]
+  %2 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.tr, ptr nonnull @.str.37, i64 6) #12
+  br i1 %2, label %11, label %3
+
+3:                                                ; preds = %tailrecurse
+  %4 = tail call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.tr, ptr nonnull @.str.29, i64 13) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !35
   %7 = icmp eq i8 %6, 5
   %.not9 = icmp ne ptr %4, null
   %.not.not.not = and i1 %.not9, %7
-  br i1 %.not.not.not, label %8, label %12
+  br i1 %.not.not.not, label %8, label %11
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !47
-  %11 = tail call fastcc noundef zeroext i1 @_ZL8isHiddenPKN4llvm6RecordE(ptr noundef %10)
-  br label %12
+  br label %tailrecurse
 
-12:                                               ; preds = %3, %8
-  %.1 = phi i1 [ %11, %8 ], [ undef, %3 ]
-  %spec.select = and i1 %.not.not.not, %.1
-  br label %13
-
-13:                                               ; preds = %12, %1
-  %.05 = phi i1 [ %spec.select, %12 ], [ true, %1 ]
+11:                                               ; preds = %3, %tailrecurse
+  %.05 = phi i1 [ true, %tailrecurse ], [ false, %3 ]
   ret i1 %.05
 }
 

@@ -22177,42 +22177,47 @@ _ZN4core3ops8function6FnOnce9call_once17hd0a976f9efb4701eE.exit.i59.i.i.i: ; pre
   %.sroa.889.i.i.i.0..sroa.889.i.i.i.0..sroa.889.i.i.i.0..sroa.889.i.i.0..sroa.889.i.i.0..sroa.889.i.0..sroa.889.i.0..sroa.889.0..sroa.889.0..sroa.889.8..pre.i.i.i = load i64, ptr %.sroa.889.i.i.i, align 8, !range !129, !noalias !6683
   %.sroa.14.i.i.i.0..sroa.14.i.i.i.0..sroa.14.i.i.i.0..sroa.14.i.i.0..sroa.14.i.i.0..sroa.14.i.0..sroa.14.i.0..sroa.14.0..sroa.14.0..sroa.14.16..pre.i.i.i = load i64, ptr %.sroa.14.i.i.i, align 8, !noalias !6683
   %131 = icmp ne i64 %.sroa.889.i.i.i.0..sroa.889.i.i.i.0..sroa.889.i.i.i.0..sroa.889.i.i.0..sroa.889.i.i.0..sroa.889.i.0..sroa.889.i.0..sroa.889.0..sroa.889.0..sroa.889.8..pre.i.i.i, 0
+  %132 = and i1 %.sroa.8.0..sroa.8.0..sroa.8.8..i.i.i, %131
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd0a976f9efb4701eE.exit.i59.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit.i.i.i"
   %.sroa.14.0..sroa.14.0..sroa.14.16..i.i.i = phi i64 [ %.sroa.14.i.i.i.0..sroa.14.i.i.i.0..sroa.14.i.i.i.0..sroa.14.i.i.0..sroa.14.i.i.0..sroa.14.i.0..sroa.14.i.0..sroa.14.0..sroa.14.0..sroa.14.16..pre.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hd0a976f9efb4701eE.exit.i59.i.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit.i.i.i" ]
-  %.sroa.889.0..sroa.889.0..sroa.889.8..i.i.i = phi i1 [ %131, %_ZN4core3ops8function6FnOnce9call_once17hd0a976f9efb4701eE.exit.i59.i.i.i ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit.i.i.i" ]
+  %.sroa.889.0..sroa.889.0..sroa.889.8..i.i.i = phi i1 [ %132, %_ZN4core3ops8function6FnOnce9call_once17hd0a976f9efb4701eE.exit.i59.i.i.i ], [ %.sroa.8.0..sroa.8.0..sroa.8.8..i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.889.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.i)
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %133 = load ptr, ptr %132, align 8, !alias.scope !6609, !noalias !6610, !noundef !13
-  %134 = icmp eq ptr %133, null
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 424
-  %.val.i.i.i = load ptr, ptr %135, align 8, !alias.scope !6609, !noalias !6610, !nonnull !13
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %.val45.i.i.i = load ptr, ptr %136, align 8, !alias.scope !6609, !noalias !6610, !nonnull !13
-  %137 = icmp eq ptr %.val45.i.i.i, %.val.i.i.i
-  %.sroa.090.0.i.i.i = select i1 %134, i1 true, i1 %137
-  %138 = and i1 %.sroa.8.0..sroa.8.0..sroa.8.8..i.i.i, %.sroa.889.0..sroa.889.0..sroa.889.8..i.i.i
-  %or.cond5.i.i.i = and i1 %138, %.sroa.090.0.i.i.i
-  br i1 %or.cond5.i.i.i, label %139, label %"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit"
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %134 = load ptr, ptr %133, align 8, !alias.scope !6609, !noalias !6610, !noundef !13
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %141, label %136
 
-139:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i"
-  %140 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.13.0..sroa.13.0..sroa.13.16..i.i.i, i64 %.sroa.14.0..sroa.14.0..sroa.14.16..i.i.i)
-  %141 = extractvalue { i64, i1 } %140, 1
-  %142 = extractvalue { i64, i1 } %140, 0
-  %not..i.i.i = xor i1 %141, true
+136:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i"
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 424
+  %.val.i.i.i = load ptr, ptr %137, align 8, !alias.scope !6609, !noalias !6610, !nonnull !13, !noundef !13
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %.val45.i.i.i = load ptr, ptr %138, align 8, !alias.scope !6609, !noalias !6610, !nonnull !13, !noundef !13
+  %139 = icmp eq ptr %.val45.i.i.i, %.val.i.i.i
+  %140 = and i1 %.sroa.889.0..sroa.889.0..sroa.889.8..i.i.i, %139
+  br i1 %140, label %142, label %"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit"
+
+141:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i"
+  br i1 %.sroa.889.0..sroa.889.0..sroa.889.8..i.i.i, label %142, label %"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit"
+
+142:                                              ; preds = %141, %136
+  %143 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.13.0..sroa.13.0..sroa.13.16..i.i.i, i64 %.sroa.14.0..sroa.14.0..sroa.14.16..i.i.i)
+  %144 = extractvalue { i64, i1 } %143, 1
+  %145 = extractvalue { i64, i1 } %143, 0
+  %not..i.i.i = xor i1 %144, true
   %.sroa.036.0.i.i.i = zext i1 %not..i.i.i to i64
   br label %"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit"
 
-"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i", %139
-  %.sroa.6.0.i = phi i64 [ %142, %139 ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i" ]
-  %.sink.i.i.i = phi i64 [ %.sroa.036.0.i.i.i, %139 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17heff6d4bd788d3c55E.exit75.i.i.i" ]
+"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h63cf789a7756ee7eE.exit": ; preds = %136, %141, %142
+  %.sroa.6.0.i = phi i64 [ %145, %142 ], [ undef, %141 ], [ undef, %136 ]
+  %.sink.i.i.i = phi i64 [ %.sroa.036.0.i.i.i, %142 ], [ 0, %141 ], [ 0, %136 ]
   store i64 0, ptr %0, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.i.i, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.0.i, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.i.i, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.6.0.i, ptr %147, align 8
   ret void
 }
 

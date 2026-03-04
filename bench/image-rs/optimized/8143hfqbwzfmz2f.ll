@@ -26641,9 +26641,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.98706352026558795.exit.i: ; preds 
   %98 = load i8, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !6911, !noalias !6914, !noundef !4
   %99 = add i8 %98, -65
   %100 = icmp ult i8 %99, 26
-  %.0.i.i.i.i = select i1 %100, i8 32, i8 0
-  %101 = or i8 %.0.i.i.i.i, %98
-  store i8 %101, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !6911, !noalias !6914
+  %101 = select i1 %100, i8 32, i8 0
+  %.0.i.i.i.i = or i8 %101, %98
+  store i8 %.0.i.i.i.i, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !6911, !noalias !6914
   %102 = icmp eq ptr %97, %95
   br i1 %102, label %.loopexit.i, label %.lr.ph.i.i.i.i
 

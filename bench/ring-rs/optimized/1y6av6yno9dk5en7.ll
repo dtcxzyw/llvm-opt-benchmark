@@ -2255,14 +2255,14 @@ define void @"_ZN84_$LT$ring..test..rand..FixedSliceSequenceRandom$u20$as$u20$co
 define noundef i8 @_ZN4ring10arithmetic8constant11parse_digit17hd846fe16e04af1c1E(i8 noundef %0) unnamed_addr #2 {
   %2 = add i8 %0, -65
   %3 = icmp ult i8 %2, 26
-  %.0 = select i1 %3, i8 32, i8 0
-  %4 = or i8 %.0, %0
-  %5 = add i8 %4, -48
+  %4 = select i1 %3, i8 32, i8 0
+  %.0 = or i8 %4, %0
+  %5 = add i8 %.0, -48
   %or.cond = icmp ult i8 %5, 10
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = add i8 %4, -97
+  %7 = add i8 %.0, -97
   %or.cond1 = icmp ult i8 %7, 6
   br i1 %or.cond1, label %9, label %8
 

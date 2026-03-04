@@ -38188,6 +38188,7 @@ define linkonce_odr dso_local void @_ZZNK11flatbuffers6kotlin15KotlinGenerator25
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %21, ptr %25, align 8, !tbaa !24, !alias.scope !1018
+  store ptr %18, ptr %15, align 8, !tbaa !7
   store i64 0, ptr %24, align 8, !tbaa !24
   store i8 0, ptr %18, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

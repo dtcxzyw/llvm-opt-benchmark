@@ -3630,7 +3630,7 @@ intra_luma_pred_modes.exit.i.i:                   ; preds = %971, %._crit_edge.i
   %1117 = icmp eq i32 %1081, %1080
   %1118 = icmp eq i8 %1093, 2
   %or.cond.i.i44.i.i = select i1 %1117, i1 %1118, i1 false
-  br i1 %or.cond.i.i44.i.i, label %1119, label %1133
+  br i1 %or.cond.i.i44.i.i, label %1119, label %1134
 
 1119:                                             ; preds = %1115
   %1120 = mul nsw i32 %1066, %1071
@@ -3639,7 +3639,7 @@ intra_luma_pred_modes.exit.i.i:                   ; preds = %971, %._crit_edge.i
   %1123 = getelementptr inbounds i8, ptr %1104, i64 %1122
   %1124 = load i8, ptr %1123, align 1, !tbaa !93
   %1125 = icmp eq i8 %1124, 64
-  br i1 %1125, label %1126, label %1133
+  br i1 %1125, label %1126, label %1134
 
 1126:                                             ; preds = %1119
   %1127 = getelementptr inbounds nuw i8, ptr %1036, i64 21424
@@ -3648,21 +3648,21 @@ intra_luma_pred_modes.exit.i.i:                   ; preds = %971, %._crit_edge.i
   %1130 = load i8, ptr %1129, align 1, !tbaa !93
   %1131 = icmp eq i8 %1130, 32
   %1132 = zext i1 %1131 to i32
-  br label %1133
+  %1133 = or i32 %1116, %1132
+  br label %1134
 
-1133:                                             ; preds = %1126, %1119, %1115
-  %1134 = phi i32 [ 0, %1119 ], [ %1132, %1126 ], [ 0, %1115 ]
-  %1135 = icmp samesign ult i32 %1081, %1080
-  %1136 = icmp eq i8 %1101, 4
-  %narrow.i.i45.i.i = select i1 %or.cond.i.i44.i.i, i1 %1136, i1 false
-  %1137 = or i1 %1135, %narrow.i.i45.i.i
-  %1138 = zext i1 %1137 to i32
-  %1139 = or i32 %1116, %1138
-  %1140 = or i32 %1139, %1134
+1134:                                             ; preds = %1126, %1119, %1115
+  %1135 = phi i32 [ %1116, %1119 ], [ %1133, %1126 ], [ %1116, %1115 ]
+  %1136 = icmp samesign ult i32 %1081, %1080
+  %1137 = icmp eq i8 %1101, 4
+  %narrow.i.i45.i.i = select i1 %or.cond.i.i44.i.i, i1 %1137, i1 false
+  %1138 = or i1 %1136, %narrow.i.i45.i.i
+  %1139 = zext i1 %1138 to i32
+  %1140 = or i32 %1135, %1139
   %.not95.i.i.i.i = icmp eq i32 %1140, 0
   br i1 %.not95.i.i.i.i, label %.thread.i.i.i, label %1141
 
-1141:                                             ; preds = %1133
+1141:                                             ; preds = %1134
   %1142 = load ptr, ptr %1102, align 8, !tbaa !191
   %1143 = getelementptr inbounds i8, ptr %1142, i64 %1077
   %1144 = load i8, ptr %1143, align 1, !tbaa !93
@@ -3714,7 +3714,7 @@ get_cclm_enabled.exit.thread51.i.i.i:             ; preds = %.critedge.i.i46.i.i
   %1174 = add nsw i32 %1173, 81
   br label %1176
 
-.thread.i.i.i:                                    ; preds = %get_cclm_enabled.exit.thread51.i.i.i, %.critedge.i.i46.i.i, %1155, %1133, %1031
+.thread.i.i.i:                                    ; preds = %get_cclm_enabled.exit.thread51.i.i.i, %.critedge.i.i46.i.i, %1155, %1134, %1031
   %1175 = call i32 @ff_vvc_intra_chroma_pred_mode(ptr noundef nonnull %0) #15
   br label %1176
 

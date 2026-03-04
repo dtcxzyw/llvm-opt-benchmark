@@ -7907,7 +7907,7 @@ print_header.exit:                                ; preds = %25, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %29 = load i32, ptr %28, align 8, !tbaa !90
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %85
+  br i1 %30, label %31, label %87
 
 31:                                               ; preds = %27
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.61) #16
@@ -7922,8 +7922,8 @@ print_header.exit:                                ; preds = %25, %26
 
 34:                                               ; preds = %31
   %.not81 = icmp ne i64 %1, 0
-  %.pre117 = load i32, ptr %28, align 8, !tbaa !90
-  %35 = icmp sgt i32 %.pre117, 0
+  %.pre118 = load i32, ptr %28, align 8, !tbaa !90
+  %35 = icmp sgt i32 %.pre118, 0
   %or.cond = select i1 %.not81, i1 %35, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread
 
@@ -7935,20 +7935,20 @@ print_header.exit:                                ; preds = %25, %26
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !97
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %43 = zext nneg i32 %.pre117 to i64
-  %wide.trip.count = zext nneg i32 %.pre117 to i64
+  %43 = zext nneg i32 %.pre118 to i64
+  %wide.trip.count = zext nneg i32 %.pre118 to i64
   br label %44
 
 44:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %.06399 = phi i64 [ 1, %.lr.ph ], [ %47, %60 ]
-  %.06498 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
-  %.06597 = phi i64 [ 1, %.lr.ph ], [ %63, %60 ]
-  %.296 = phi i64 [ 0, %.lr.ph ], [ %59, %60 ]
-  %.07295 = phi i64 [ %1, %.lr.ph ], [ %61, %60 ]
+  %.063100 = phi i64 [ 1, %.lr.ph ], [ %47, %60 ]
+  %.06499 = phi i64 [ 1, %.lr.ph ], [ %65, %60 ]
+  %.06598 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
+  %.297 = phi i64 [ 0, %.lr.ph ], [ %59, %60 ]
+  %.07296 = phi i64 [ %1, %.lr.ph ], [ %62, %60 ]
   %45 = xor i64 %indvars.iv, -1
   %46 = add nsw i64 %43, %45
-  %47 = mul i64 %.06399, %.06597
+  %47 = mul i64 %.063100, %.06598
   %48 = getelementptr inbounds i64, ptr %37, i64 %46
   %49 = load i64, ptr %48, align 8, !tbaa !15
   %50 = getelementptr inbounds i64, ptr %39, i64 %46
@@ -7956,89 +7956,88 @@ print_header.exit:                                ; preds = %25, %26
   %52 = getelementptr inbounds i64, ptr %41, i64 %46
   %53 = load i64, ptr %52, align 8, !tbaa !15
   %54 = mul i64 %51, %49
-  %55 = urem i64 %.07295, %54
-  %56 = udiv i64 %.07295, %54
+  %55 = urem i64 %.07296, %54
+  %56 = udiv i64 %.07296, %54
   %57 = mul i64 %53, %47
   %58 = mul i64 %57, %55
-  %59 = add i64 %58, %.296
-  %.not82 = icmp ugt i64 %54, %.07295
+  %59 = add i64 %58, %.297
+  %.not82 = icmp ugt i64 %54, %.07296
   br i1 %.not82, label %.thread, label %60
 
 60:                                               ; preds = %44
-  %61 = mul i64 %56, %.06498
-  %62 = getelementptr inbounds i64, ptr %42, i64 %46
-  %63 = load i64, ptr %62, align 8, !tbaa !15
-  %64 = mul i64 %63, %.06498
+  %61 = freeze i64 %56
+  %62 = mul i64 %61, %.06499
+  %63 = getelementptr inbounds i64, ptr %42, i64 %46
+  %64 = load i64, ptr %63, align 8, !tbaa !15
+  %65 = mul i64 %64, %.06499
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %44, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %60
-  %.not83 = icmp ugt i64 %54, %.07295
-  br i1 %.not83, label %.thread, label %65
-
-65:                                               ; preds = %._crit_edge
-  %66 = mul i64 %56, %53
-  %67 = mul i64 %66, %47
-  %68 = add i64 %67, %59
+._crit_edge.loopexit:                             ; preds = %60
+  %66 = mul i64 %61, %53
+  %67 = icmp eq i64 %61, 0
+  %68 = mul i64 %66, %47
+  %69 = select i1 %67, i64 0, i64 %68
+  %70 = add i64 %69, %59
   br label %.thread
 
-.thread:                                          ; preds = %44, %..thread_crit_edge, %34, %._crit_edge, %65
-  %69 = phi i32 [ %.pre, %..thread_crit_edge ], [ %.pre117, %34 ], [ %.pre117, %65 ], [ %.pre117, %._crit_edge ], [ %.pre117, %44 ]
-  %.070 = phi i64 [ %1, %..thread_crit_edge ], [ 0, %34 ], [ %68, %65 ], [ %59, %._crit_edge ], [ %59, %44 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %72 = tail call i64 @calc_acc_pos(i32 noundef %69, i64 noundef %.070, ptr noundef nonnull %70, ptr noundef nonnull %71) #16
-  %73 = load i32, ptr %28, align 8, !tbaa !90
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph105, label %._crit_edge106
+.thread:                                          ; preds = %44, %._crit_edge.loopexit, %..thread_crit_edge, %34
+  %71 = phi i32 [ %.pre, %..thread_crit_edge ], [ %.pre118, %34 ], [ %.pre118, %._crit_edge.loopexit ], [ %.pre118, %44 ]
+  %.070 = phi i64 [ %1, %..thread_crit_edge ], [ 0, %34 ], [ %70, %._crit_edge.loopexit ], [ %59, %44 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %74 = tail call i64 @calc_acc_pos(i32 noundef %71, i64 noundef %.070, ptr noundef nonnull %72, ptr noundef nonnull %73) #16
+  %75 = load i32, ptr %28, align 8, !tbaa !90
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph106, label %._crit_edge107
 
-.lr.ph105:                                        ; preds = %.thread
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  br label %76
+.lr.ph106:                                        ; preds = %.thread
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  br label %78
 
-._crit_edge106:                                   ; preds = %76, %.thread
+._crit_edge107:                                   ; preds = %78, %.thread
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.64) #16
-  br label %90
+  br label %92
 
-76:                                               ; preds = %.lr.ph105, %76
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next115, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv114
-  %78 = load i64, ptr %77, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv114
+78:                                               ; preds = %.lr.ph106, %78
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next116, %78 ]
+  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv115
   %80 = load i64, ptr %79, align 8, !tbaa !15
-  %81 = add i64 %80, %78
-  store i64 %81, ptr %79, align 8, !tbaa !15
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.62, i64 noundef %81) #16
+  %81 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv115
+  %82 = load i64, ptr %81, align 8, !tbaa !15
+  %83 = add i64 %82, %80
+  store i64 %83, ptr %81, align 8, !tbaa !15
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.62, i64 noundef %83) #16
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.63) #16
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %82 = load i32, ptr %28, align 8, !tbaa !90
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next115, %83
-  br i1 %84, label %76, label %._crit_edge106, !llvm.loop !99
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %84 = load i32, ptr %28, align 8, !tbaa !90
+  %85 = sext i32 %84 to i64
+  %86 = icmp slt i64 %indvars.iv.next116, %85
+  br i1 %86, label %78, label %._crit_edge107, !llvm.loop !99
 
-85:                                               ; preds = %27
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %87 = load i32, ptr %86, align 4, !tbaa !74
-  %.not79 = icmp eq i32 %87, 0
-  br i1 %.not79, label %89, label %88
+87:                                               ; preds = %27
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %89 = load i32, ptr %88, align 4, !tbaa !74
+  %.not79 = icmp eq i32 %89, 0
+  br i1 %.not79, label %91, label %90
 
-88:                                               ; preds = %85
+90:                                               ; preds = %87
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.61) #16
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.65, i64 noundef %2) #16
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.64) #16
-  store i32 0, ptr %86, align 4, !tbaa !74
-  br label %90
+  store i32 0, ptr %88, align 4, !tbaa !74
+  br label %92
 
-89:                                               ; preds = %85
+91:                                               ; preds = %87
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.66) #16
-  br label %90
+  br label %92
 
-90:                                               ; preds = %88, %89, %._crit_edge106
+92:                                               ; preds = %90, %91, %._crit_edge107
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.67) #16
   br label %print_data.exit.thread
 
-print_data.exit.thread:                           ; preds = %6, %90, %print_data.exit
+print_data.exit.thread:                           ; preds = %6, %92, %print_data.exit
   ret void
 }
 

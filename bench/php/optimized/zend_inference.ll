@@ -27519,21 +27519,21 @@ is_recursive_tail_call.exit.i:                    ; preds = %291, %287, %279, %2
   %.4.i = phi i32 [ %.015816.i, %71 ], [ %.015816.i, %75 ], [ %.015816.i, %78 ], [ %210, %279 ], [ %210, %263 ], [ %210, %264 ], [ %210, %266 ], [ %210, %269 ], [ %210, %287 ], [ %210, %254 ], [ %210, %261 ], [ %210, %259 ], [ %210, %252 ], [ %210, %245 ], [ %210, %277 ], [ %210, %291 ], [ %.015816.i, %116 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %71
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %71
 
-._crit_edge.i.loopexit:                           ; preds = %is_recursive_tail_call.exit.i
+._crit_edge.loopexit.i:                           ; preds = %is_recursive_tail_call.exit.i
   %294 = and i32 %.4.i, %62
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %61
-  %.0176.lcssa.i = phi ptr [ null, %61 ], [ %.5181.i, %._crit_edge.i.loopexit ]
-  %.0169.lcssa.i = phi i32 [ -1, %61 ], [ %.5174.i, %._crit_edge.i.loopexit ]
-  %.sroa.0.0.lcssa.i = phi i64 [ 0, %61 ], [ %.sroa.0.8.i, %._crit_edge.i.loopexit ]
-  %.sroa.15.0.lcssa.i = phi i64 [ 0, %61 ], [ %.sroa.15.6.i, %._crit_edge.i.loopexit ]
-  %.sroa.24.0.lcssa.i = phi i8 [ 0, %61 ], [ %.sroa.24.7.i, %._crit_edge.i.loopexit ]
-  %.sroa.28.0.lcssa.i = phi i8 [ 0, %61 ], [ %.sroa.28.6.i, %._crit_edge.i.loopexit ]
-  %.0162.lcssa.i = phi i32 [ -1, %61 ], [ %.6.i, %._crit_edge.i.loopexit ]
-  %.0158.lcssa.i = phi i32 [ 0, %61 ], [ %294, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %61
+  %.0176.lcssa.i = phi ptr [ null, %61 ], [ %.5181.i, %._crit_edge.loopexit.i ]
+  %.0169.lcssa.i = phi i32 [ -1, %61 ], [ %.5174.i, %._crit_edge.loopexit.i ]
+  %.sroa.0.0.lcssa.i = phi i64 [ 0, %61 ], [ %.sroa.0.8.i, %._crit_edge.loopexit.i ]
+  %.sroa.15.0.lcssa.i = phi i64 [ 0, %61 ], [ %.sroa.15.6.i, %._crit_edge.loopexit.i ]
+  %.sroa.24.0.lcssa.i = phi i8 [ 0, %61 ], [ %.sroa.24.7.i, %._crit_edge.loopexit.i ]
+  %.sroa.28.0.lcssa.i = phi i8 [ 0, %61 ], [ %.sroa.28.6.i, %._crit_edge.loopexit.i ]
+  %.0162.lcssa.i = phi i32 [ -1, %61 ], [ %.6.i, %._crit_edge.loopexit.i ]
+  %.0158.lcssa.i = phi i32 [ 0, %61 ], [ %294, %._crit_edge.loopexit.i ]
   %295 = and i32 %49, 8192
   %.not201.i = icmp eq i32 %295, 0
   br i1 %.not201.i, label %296, label %._crit_edge._crit_edge.i

@@ -259,7 +259,7 @@ _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store float 0.000000e+00, ptr %69, align 4, !tbaa !33
   %70 = fcmp ogt float %sqrt.i, 0x3E80000000000000
-  br i1 %70, label %71, label %76
+  br i1 %70, label %71, label %77
 
 71:                                               ; preds = %65
   %72 = fdiv float 1.000000e+00, %sqrt.i
@@ -271,24 +271,24 @@ _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %75, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %68, align 8, !tbaa !42
-  br label %76
+  %76 = fmul float %48, %73
+  br label %77
 
-76:                                               ; preds = %71, %65
-  %77 = phi float [ %75, %71 ], [ 0.000000e+00, %65 ]
-  %78 = phi float [ %74, %71 ], [ 0.000000e+00, %65 ]
-  %79 = phi float [ %73, %71 ], [ 1.000000e+00, %65 ]
+77:                                               ; preds = %71, %65
+  %78 = phi float [ %75, %71 ], [ 0.000000e+00, %65 ]
+  %79 = phi float [ %74, %71 ], [ 0.000000e+00, %65 ]
+  %80 = phi float [ %76, %71 ], [ %48, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %80 = load ptr, ptr %20, align 8, !tbaa !32
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = fmul float %48, %79
-  %83 = fmul float %48, %78
-  %84 = fmul float %48, %77
-  %85 = load float, ptr %81, align 4, !tbaa !33
-  %86 = fadd float %82, %85
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 52
+  %81 = load ptr, ptr %20, align 8, !tbaa !32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  %83 = fmul float %48, %79
+  %84 = fmul float %48, %78
+  %85 = load float, ptr %82, align 4, !tbaa !33
+  %86 = fadd float %80, %85
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 52
   %88 = load float, ptr %87, align 4, !tbaa !33
   %89 = fadd float %83, %88
-  %90 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %91 = load float, ptr %90, align 4, !tbaa !33
   %92 = fadd float %84, %91
   %.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %86, i64 0
@@ -305,7 +305,7 @@ _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
-97:                                               ; preds = %76, %_ZN20btPersistentManifold13clearManifoldEv.exit, %5
+97:                                               ; preds = %77, %_ZN20btPersistentManifold13clearManifoldEv.exit, %5
   ret void
 }
 

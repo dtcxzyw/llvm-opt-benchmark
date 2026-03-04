@@ -197,9 +197,9 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   %21 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !39, !noalias !35, !noundef !7
   %22 = add i8 %21, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i = select i1 %23, i8 32, i8 0
-  %24 = or i8 %.0.i.i.i, %21
-  store i8 %24, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !39, !noalias !35
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i = or i8 %24, %21
+  store i8 %.0.i.i.i, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !39, !noalias !35
   %25 = icmp eq ptr %20, %17
   br i1 %25, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit.i", label %.lr.ph.i.i.i
 

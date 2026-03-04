@@ -116463,13 +116463,13 @@ common.resume:                                    ; preds = %267, %257, %200, %1
   %.val6.i.i = load i8, ptr %157, align 1, !alias.scope !26592, !noalias !26597, !noundef !7
   %158 = add i8 %.val.i.i, -65
   %159 = icmp ult i8 %158, 26
-  %.0.i.i.i.i.i = select i1 %159, i8 32, i8 0
-  %160 = add i8 %.val6.i.i, -65
-  %161 = icmp ult i8 %160, 26
-  %.02.i.i.i.i.i = select i1 %161, i8 32, i8 0
-  %162 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %163 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %162, %163
+  %160 = select i1 %159, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %160, %.val.i.i
+  %161 = add i8 %.val6.i.i, -65
+  %162 = icmp ult i8 %161, 26
+  %163 = select i1 %162, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %163, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.240573438051967091.exit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit": ; preds = %.preheader.i
@@ -117182,13 +117182,13 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   %.val6.i.i = load i8, ptr %100, align 1, !alias.scope !26719, !noalias !26724, !noundef !7
   %101 = add i8 %.val.i.i, -65
   %102 = icmp ult i8 %101, 26
-  %.0.i.i.i.i.i = select i1 %102, i8 32, i8 0
-  %103 = add i8 %.val6.i.i, -65
-  %104 = icmp ult i8 %103, 26
-  %.02.i.i.i.i.i = select i1 %104, i8 32, i8 0
-  %105 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %106 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %105, %106
+  %103 = select i1 %102, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %103, %.val.i.i
+  %104 = add i8 %.val6.i.i, -65
+  %105 = icmp ult i8 %104, 26
+  %106 = select i1 %105, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %106, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit595
 
 107:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.thread"
@@ -117245,13 +117245,13 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   %.val6.i.i367 = load i8, ptr %124, align 1, !alias.scope !26749, !noalias !26754, !noundef !7
   %125 = add i8 %.val.i.i366, -65
   %126 = icmp ult i8 %125, 26
-  %.0.i.i.i.i.i368 = select i1 %126, i8 32, i8 0
-  %127 = add i8 %.val6.i.i367, -65
-  %128 = icmp ult i8 %127, 26
-  %.02.i.i.i.i.i369 = select i1 %128, i8 32, i8 0
-  %129 = or i8 %.0.i.i.i.i.i368, %.val.i.i366
-  %130 = or i8 %.02.i.i.i.i.i369, %.val6.i.i367
-  %.not.i.i370 = icmp eq i8 %129, %130
+  %127 = select i1 %126, i8 32, i8 0
+  %.0.i.i.i.i.i368 = or i8 %127, %.val.i.i366
+  %128 = add i8 %.val6.i.i367, -65
+  %129 = icmp ult i8 %128, 26
+  %130 = select i1 %129, i8 32, i8 0
+  %.02.i.i.i.i.i369 = or i8 %130, %.val6.i.i367
+  %.not.i.i370 = icmp eq i8 %.0.i.i.i.i.i368, %.02.i.i.i.i.i369
   br i1 %.not.i.i370, label %.preheader.i364, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit": ; preds = %.preheader.i

@@ -545,7 +545,7 @@ define dso_local void @SPI_rollback_and_chain() local_unnamed_addr #0 {
 define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %_SPI_connected.promoted = load i32, ptr @_SPI_connected, align 4
   %2 = icmp sgt i32 %_SPI_connected.promoted, -1
-  br i1 %2, label %.lr.ph, label %.thread.thread
+  br i1 %2, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %3 = load ptr, ptr @_SPI_stack, align 8
@@ -554,18 +554,18 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %.thread, label %.lr.ph18
+  br i1 %8, label %.critedge, label %.lr.ph16
 
-9:                                                ; preds = %.lr.ph18
+9:                                                ; preds = %.lr.ph16
   %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 73
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.thread.loopexit, label %.lr.ph18
+  br i1 %13, label %.thread, label %.lr.ph16
 
-.lr.ph18:                                         ; preds = %.lr.ph, %9
+.lr.ph16:                                         ; preds = %.lr.ph, %9
   %14 = phi ptr [ %10, %9 ], [ %5, %.lr.ph ]
-  %indvars.iv17 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
+  %indvars.iv15 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr @SPI_processed, align 8
@@ -575,36 +575,31 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @SPI_result, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv17, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv15, -1
   %21 = trunc nsw i64 %indvars.iv.next to i32
-  %22 = icmp eq i64 %indvars.iv17, 0
+  %22 = icmp eq i64 %indvars.iv15, 0
   %23 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %storemerge = select i1 %22, ptr null, ptr %23
-  %24 = icmp sgt i64 %indvars.iv17, 0
-  br i1 %24, label %9, label %.thread.loopexit
+  %24 = icmp sgt i64 %indvars.iv15, 0
+  br i1 %24, label %9, label %.thread
 
-.thread.loopexit:                                 ; preds = %.lr.ph18, %9
+.thread:                                          ; preds = %9, %.lr.ph16
   store i32 %21, ptr @_SPI_connected, align 4
   store ptr %storemerge, ptr @_SPI_current, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.loopexit, %.lr.ph
-  %.07.lcssa = xor i1 %8, true
-  %or.cond = and i1 %0, %.07.lcssa
-  br i1 %or.cond, label %25, label %.thread.thread
+  br i1 %0, label %25, label %.critedge
 
 25:                                               ; preds = %.thread
   %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
-  br i1 %26, label %27, label %.thread.thread
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %25
   %28 = tail call i32 @errcode(i32 noundef 64) #16
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #16
   %30 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__func__.AtEOXact_SPI) #16
-  br label %.thread.thread
+  br label %.critedge
 
-.thread.thread:                                   ; preds = %1, %25, %27, %.thread
+.critedge:                                        ; preds = %.lr.ph, %1, %25, %27, %.thread
   ret void
 }
 
@@ -618,7 +613,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @_SPI_connected, align 4
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %.lr.ph.preheader, label %.thread.thread
+  br i1 %4, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %2
   %.pre = load ptr, ptr @_SPI_stack, align 8
@@ -626,8 +621,8 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %6 = getelementptr inbounds nuw %struct._SPI_connection, ptr %.pre, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
-  %.not65 = icmp eq i32 %8, %1
-  br i1 %.not65, label %.lr.ph67, label %.thread
+  %.not63 = icmp eq i32 %8, %1
+  br i1 %.not63, label %.lr.ph65, label %.critedge
 
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
@@ -635,17 +630,17 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
-  br i1 %.not, label %.lr.ph67, label %.thread
+  br i1 %.not, label %.lr.ph65, label %.thread
 
-.lr.ph67:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph65:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.04566 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
+  %.04564 = phi i1 [ %0, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 73
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %.lr.ph67
+17:                                               ; preds = %.lr.ph65
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not32 = icmp eq ptr %19, null
@@ -689,29 +684,28 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %38 = icmp sgt i32 %33, -1
   br i1 %38, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.lr.ph67, %.lr.ph, %25, %.lr.ph.preheader
-  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04566, %.lr.ph67 ], [ true, %25 ], [ true, %.lr.ph ]
-  %or.cond = and i1 %0, %.0.lcssa
-  br i1 %or.cond, label %39, label %.thread.thread
+.thread:                                          ; preds = %.lr.ph65, %.lr.ph, %25
+  %.0.lcssa = phi i1 [ %.04564, %.lr.ph65 ], [ %0, %.lr.ph ], [ %0, %25 ]
+  br i1 %.0.lcssa, label %39, label %.critedge
 
 39:                                               ; preds = %.thread
   %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
-  br i1 %40, label %41, label %.thread.thread
+  br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %39
   %42 = tail call i32 @errcode(i32 noundef 64) #16
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #16
   %44 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #16
-  br label %.thread.thread
+  br label %.critedge
 
-.thread.thread:                                   ; preds = %2, %39, %41, %.thread
+.critedge:                                        ; preds = %.lr.ph.preheader, %2, %39, %41, %.thread
   %45 = load ptr, ptr @_SPI_current, align 8
   %46 = icmp eq ptr %45, null
   %or.cond3 = or i1 %0, %46
   br i1 %or.cond3, label %.loopexit, label %47
 
-47:                                               ; preds = %.thread.thread
+47:                                               ; preds = %.critedge
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load i32, ptr %48, align 8
   %.not34 = icmp ult i32 %49, %1
@@ -774,7 +768,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %.not39 = icmp eq ptr %57, null
   br i1 %.not39, label %.loopexit, label %.lr.ph54, !llvm.loop !6
 
-.loopexit:                                        ; preds = %74, %53, %.thread.thread
+.loopexit:                                        ; preds = %74, %53, %.critedge
   ret void
 }
 

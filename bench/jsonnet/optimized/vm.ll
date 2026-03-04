@@ -70401,7 +70401,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 
 140:                                              ; preds = %134, %._crit_edge103.us
   %exitcond126.not = icmp eq i64 %153, %.041
-  br i1 %exitcond126.not, label %._crit_edge105, label %.preheader.us, !llvm.loop !1067
+  br i1 %exitcond126.not, label %._crit_edge105.thread, label %.preheader.us, !llvm.loop !1067
 
 141:                                              ; preds = %.preheader.us, %141
   %.0101.us = phi i64 [ 0, %.preheader.us ], [ %152, %141 ]
@@ -70448,10 +70448,8 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   %162 = icmp ult i64 %161, %.041
   br i1 %162, label %163, label %169
 
-._crit_edge105:                                   ; preds = %140, %169, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit66, %132
-  %.not113144 = phi i1 [ true, %132 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit66 ], [ false, %169 ], [ false, %140 ]
-  %or.cond6.not = and i1 %4, %.not113144
-  br i1 %or.cond6.not, label %170, label %._crit_edge105.thread
+._crit_edge105:                                   ; preds = %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit66, %132
+  br i1 %4, label %170, label %._crit_edge105.thread
 
 163:                                              ; preds = %.preheader
   %164 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -70464,7 +70462,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 
 169:                                              ; preds = %163, %.preheader
   %exitcond127.not = icmp eq i64 %161, %.041
-  br i1 %exitcond127.not, label %._crit_edge105, label %.preheader, !llvm.loop !1067
+  br i1 %exitcond127.not, label %._crit_edge105.thread, label %.preheader, !llvm.loop !1067
 
 170:                                              ; preds = %._crit_edge105
   %171 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -70476,7 +70474,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   store i64 %176, ptr %174, align 8, !tbaa !526
   br label %._crit_edge105.thread
 
-._crit_edge105.thread:                            ; preds = %.preheader.us106, %170, %._crit_edge105
+._crit_edge105.thread:                            ; preds = %140, %169, %.preheader.us106, %170, %._crit_edge105
   ret void
 }
 
@@ -70690,7 +70688,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 
 102:                                              ; preds = %96, %._crit_edge79.us
   %exitcond95.not = icmp eq i64 %115, %.038
-  br i1 %exitcond95.not, label %._crit_edge81, label %.preheader.us, !llvm.loop !1073
+  br i1 %exitcond95.not, label %._crit_edge81.thread, label %.preheader.us, !llvm.loop !1073
 
 103:                                              ; preds = %.preheader.us, %103
   %.077.us = phi i64 [ 0, %.preheader.us ], [ %114, %103 ]
@@ -70737,10 +70735,8 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   %124 = icmp ult i64 %123, %.038
   br i1 %124, label %125, label %131
 
-._crit_edge81:                                    ; preds = %102, %131, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit57, %94
-  %.not87108 = phi i1 [ true, %94 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit57 ], [ false, %131 ], [ false, %102 ]
-  %or.cond3.not = and i1 %4, %.not87108
-  br i1 %or.cond3.not, label %132, label %._crit_edge81.thread
+._crit_edge81:                                    ; preds = %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit57, %94
+  br i1 %4, label %132, label %._crit_edge81.thread
 
 125:                                              ; preds = %.preheader
   %126 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -70753,7 +70749,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 
 131:                                              ; preds = %125, %.preheader
   %exitcond96.not = icmp eq i64 %123, %.038
-  br i1 %exitcond96.not, label %._crit_edge81, label %.preheader, !llvm.loop !1073
+  br i1 %exitcond96.not, label %._crit_edge81.thread, label %.preheader, !llvm.loop !1073
 
 132:                                              ; preds = %._crit_edge81
   %133 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -70765,7 +70761,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   store i64 %138, ptr %136, align 8, !tbaa !526
   br label %._crit_edge81.thread
 
-._crit_edge81.thread:                             ; preds = %.preheader.us82, %132, %._crit_edge81
+._crit_edge81.thread:                             ; preds = %102, %131, %.preheader.us82, %132, %._crit_edge81
   ret void
 }
 
@@ -72564,7 +72560,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !1105
 
 .preheader210:                                    ; preds = %.lr.ph._crit_edge, %20
-  %.175 = phi i1 [ true, %20 ], [ false, %.lr.ph._crit_edge ]
+  %.175 = phi i1 [ true, %20 ], [ %or.cond269, %.lr.ph._crit_edge ]
   %.3.in = phi i64 [ %.3, %20 ], [ %.069224.lcssa, %.lr.ph._crit_edge ]
   %.3 = add nuw i64 %.3.in, 1
   %19 = icmp ult i64 %.3, %4
@@ -72597,8 +72593,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   ]
 
 27:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  %or.cond13 = or i1 %or.cond269, %.175
-  %.3. = select i1 %or.cond13, i64 %.3, i64 0
+  %.3. = select i1 %.175, i64 %.3, i64 0
   br label %.thread
 
 28:                                               ; preds = %24
@@ -72606,17 +72601,15 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br label %31
 
 30:                                               ; preds = %.preheader210
-  %or.cond15 = or i1 %or.cond269, %.175
-  %spec.select = select i1 %or.cond15, i64 %4, i64 0
+  %spec.select = select i1 %.175, i64 %4, i64 0
   br label %.thread
 
 31:                                               ; preds = %28, %.thread178
-  %.074 = phi i1 [ %.175, %28 ], [ false, %.thread178 ]
+  %.074 = phi i1 [ %.175, %28 ], [ %or.cond269, %.thread178 ]
   %.271 = phi i64 [ %29, %28 ], [ %15, %.thread178 ]
   %32 = add i64 %.271, 1
   %.not = icmp ugt i64 %4, %32
-  %or.cond17 = or i1 %or.cond269, %.074
-  %or.cond88 = and i1 %or.cond17, %.not
+  %or.cond88 = and i1 %.074, %.not
   br i1 %or.cond88, label %.preheader.preheader, label %.thread
 
 .preheader.preheader:                             ; preds = %31
@@ -72677,9 +72670,9 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
-  %.063237 = phi i64 [ %15, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ %1, %2 ]
-  %.071236 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ false, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.063237
+  %.063236 = phi i64 [ %15, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ %1, %2 ]
+  %.071235 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ false, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.063236
   %7 = load i8, ptr %6, align 1, !tbaa !21
   %.fr213 = freeze i8 %7
   %8 = add i8 %.fr213, -48
@@ -72704,9 +72697,9 @@ switch.early.test:                                ; preds = %.lr.ph
   ]
 
 .preheader219:                                    ; preds = %switch.early.test
-  %.3239 = add nuw i64 %.063237, 1
-  %9 = icmp ult i64 %.3239, %4
-  br i1 %9, label %.lr.ph243, label %._crit_edge244
+  %.3238 = add nuw i64 %.063236, 1
+  %9 = icmp ult i64 %.3238, %4
+  br i1 %9, label %.lr.ph242, label %._crit_edge243
 
 10:                                               ; preds = %switch.early.test
   %11 = and i8 %.fr213, -33
@@ -72714,7 +72707,7 @@ switch.early.test:                                ; preds = %.lr.ph
   br i1 %or.cond, label %.thread178, label %13
 
 .thread178:                                       ; preds = %10
-  %12 = add nuw i64 %.063237, 1
+  %12 = add nuw i64 %.063236, 1
   br label %26
 
 13:                                               ; preds = %10
@@ -72732,26 +72725,26 @@ switch.early.test:                                ; preds = %.lr.ph
   ]
 
 14:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %.063. = select i1 %.071236, i64 %.063237, i64 0
+  %.063. = select i1 %.071235, i64 %.063236, i64 0
   br label %.thread
 
 _ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
-  %15 = add i64 %.063237, 1
+  %15 = add i64 %.063236, 1
   %exitcond.not = icmp eq i64 %15, %4
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !1108
 
-.lr.ph243:                                        ; preds = %.preheader219, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
-  %.3242 = phi i64 [ %.3, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.3239, %.preheader219 ]
-  %.3.in241 = phi i64 [ %.3242, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.063237, %.preheader219 ]
-  %.169240 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ false, %.preheader219 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.3242
+.lr.ph242:                                        ; preds = %.preheader219, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
+  %.3241 = phi i64 [ %.3, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.3238, %.preheader219 ]
+  %.3.in240 = phi i64 [ %.3241, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.063236, %.preheader219 ]
+  %.169239 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.071235, %.preheader219 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.3241
   %17 = load i8, ptr %16, align 1, !tbaa !21
   %.fr214 = freeze i8 %17
   %18 = add i8 %.fr214, -48
   %or.cond.i = icmp ult i8 %18, 10
   br i1 %or.cond.i, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, label %switch.early.test212
 
-switch.early.test212:                             ; preds = %.lr.ph243
+switch.early.test212:                             ; preds = %.lr.ph242
   switch i8 %.fr214, label %19 [
     i8 102, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
     i8 101, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
@@ -72787,26 +72780,26 @@ switch.early.test212:                             ; preds = %.lr.ph243
   ]
 
 22:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %or.cond7 = or i1 %.071236, %.169240
-  %.3. = select i1 %or.cond7, i64 %.3242, i64 0
+  %.3. = select i1 %.169239, i64 %.3241, i64 0
   br label %.thread
 
 23:                                               ; preds = %19
-  %24 = add nuw i64 %.3.in241, 2
+  %24 = add nuw i64 %.3.in240, 2
   br label %26
 
-_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %.lr.ph243
-  %.3 = add nuw i64 %.3242, 1
+_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %.lr.ph242
+  %.3 = add nuw i64 %.3241, 1
   %25 = icmp ult i64 %.3, %4
-  br i1 %25, label %.lr.ph243, label %._crit_edge244, !llvm.loop !1109
+  br i1 %25, label %.lr.ph242, label %._crit_edge243.thread, !llvm.loop !1109
 
-._crit_edge244:                                   ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %.preheader219
-  %or.cond9 = or i1 %.071236, %9
-  %spec.select = select i1 %or.cond9, i64 %4, i64 0
+._crit_edge243:                                   ; preds = %.preheader219
+  br i1 %.071235, label %._crit_edge243.thread, label %.thread
+
+._crit_edge243.thread:                            ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %._crit_edge243
   br label %.thread
 
 26:                                               ; preds = %23, %.thread178
-  %.068 = phi i1 [ %.169240, %23 ], [ false, %.thread178 ]
+  %.068 = phi i1 [ %.169239, %23 ], [ %.071235, %.thread178 ]
   %.265 = phi i64 [ %24, %23 ], [ %12, %.thread178 ]
   %27 = add i64 %.265, 1
   %.not = icmp ugt i64 %4, %27
@@ -72821,29 +72814,28 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
   ]
 
 31:                                               ; preds = %28, %28
-  %or.cond11 = or i1 %.071236, %.068
-  br i1 %or.cond11, label %.lr.ph248.preheader, label %.thread
+  br i1 %.068, label %.lr.ph247.preheader, label %.thread
 
-.lr.ph248.preheader:                              ; preds = %31
+.lr.ph247.preheader:                              ; preds = %31
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %27
   %33 = load i8, ptr %32, align 1, !tbaa !21
   %34 = add i8 %33, -48
-  %or.cond14298 = icmp ult i8 %34, 10
-  br i1 %or.cond14298, label %.lr.ph300, label %.lr.ph248._crit_edge
+  %or.cond14295 = icmp ult i8 %34, 10
+  br i1 %or.cond14295, label %.lr.ph297, label %.lr.ph247._crit_edge
 
-.lr.ph248:                                        ; preds = %.lr.ph300
+.lr.ph247:                                        ; preds = %.lr.ph297
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %39
   %36 = load i8, ptr %35, align 1, !tbaa !21
   %37 = add i8 %36, -48
   %or.cond14 = icmp ult i8 %37, 10
-  br i1 %or.cond14, label %.lr.ph300, label %.lr.ph248._crit_edge, !llvm.loop !1110
+  br i1 %or.cond14, label %.lr.ph297, label %.lr.ph247._crit_edge, !llvm.loop !1110
 
-.lr.ph248._crit_edge:                             ; preds = %.lr.ph248, %.lr.ph248.preheader
-  %.5247.lcssa = phi i64 [ %27, %.lr.ph248.preheader ], [ %39, %.lr.ph248 ]
-  %.lcssa = phi i8 [ %33, %.lr.ph248.preheader ], [ %36, %.lr.ph248 ]
-  br i1 %or.cond14298, label %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
+.lr.ph247._crit_edge:                             ; preds = %.lr.ph247, %.lr.ph247.preheader
+  %.5246.lcssa = phi i64 [ %27, %.lr.ph247.preheader ], [ %39, %.lr.ph247 ]
+  %.lcssa = phi i8 [ %33, %.lr.ph247.preheader ], [ %36, %.lr.ph247 ]
+  br i1 %or.cond14295, label %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
 
-38:                                               ; preds = %.lr.ph248._crit_edge
+38:                                               ; preds = %.lr.ph247._crit_edge
   switch i8 %.lcssa, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit [
     i8 125, label %.thread
     i8 93, label %.thread
@@ -72857,17 +72849,17 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
     i8 0, label %.thread
   ]
 
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %38, %.lr.ph248._crit_edge
+_ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %38, %.lr.ph247._crit_edge
   br label %.thread
 
-.lr.ph300:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
-  %.5247299 = phi i64 [ %39, %.lr.ph248 ], [ %27, %.lr.ph248.preheader ]
-  %39 = add i64 %.5247299, 1
-  %exitcond263.not = icmp eq i64 %39, %4
-  br i1 %exitcond263.not, label %.thread, label %.lr.ph248, !llvm.loop !1110
+.lr.ph297:                                        ; preds = %.lr.ph247.preheader, %.lr.ph247
+  %.5246296 = phi i64 [ %39, %.lr.ph247 ], [ %27, %.lr.ph247.preheader ]
+  %39 = add i64 %.5246296, 1
+  %exitcond261.not = icmp eq i64 %39, %4
+  br i1 %exitcond261.not, label %.thread, label %.lr.ph247, !llvm.loop !1110
 
-.thread:                                          ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread, %.lr.ph300, %2, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %26, %31, %28, %21, %13, %._crit_edge244, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %22, %14
-  %.sroa.15.3 = phi i64 [ %.5247.lcssa, %38 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ 0, %21 ], [ %.3., %22 ], [ %spec.select, %._crit_edge244 ], [ 0, %13 ], [ %4, %.lr.ph300 ], [ 0, %26 ], [ %.063., %14 ], [ 0, %28 ], [ 0, %31 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ 0, %2 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ]
+.thread:                                          ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread, %.lr.ph297, %._crit_edge243.thread, %._crit_edge243, %2, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %26, %31, %28, %21, %13, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %22, %14
+  %.sroa.15.3 = phi i64 [ %.5246.lcssa, %38 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ 0, %21 ], [ %.3., %22 ], [ %4, %.lr.ph297 ], [ 0, %13 ], [ 0, %._crit_edge243 ], [ 0, %26 ], [ %.063., %14 ], [ 0, %28 ], [ 0, %31 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ 0, %2 ], [ %4, %._crit_edge243.thread ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.pre, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.15.3, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -72935,7 +72927,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !1111
 
 .preheader214:                                    ; preds = %.lr.ph._crit_edge, %20
-  %.177 = phi i1 [ true, %20 ], [ false, %.lr.ph._crit_edge ]
+  %.177 = phi i1 [ true, %20 ], [ %or.cond274, %.lr.ph._crit_edge ]
   %.3.in = phi i64 [ %.3, %20 ], [ %.071228.lcssa, %.lr.ph._crit_edge ]
   %.3 = add nuw i64 %.3.in, 1
   %19 = icmp ult i64 %.3, %4
@@ -72968,8 +72960,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   ]
 
 27:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  %or.cond13 = or i1 %or.cond274, %.177
-  %.3. = select i1 %or.cond13, i64 %.3, i64 0
+  %.3. = select i1 %.177, i64 %.3, i64 0
   br label %.thread
 
 28:                                               ; preds = %24
@@ -72977,12 +72968,11 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br label %31
 
 30:                                               ; preds = %.preheader214
-  %or.cond15 = or i1 %or.cond274, %.177
-  %spec.select = select i1 %or.cond15, i64 %4, i64 0
+  %spec.select = select i1 %.177, i64 %4, i64 0
   br label %.thread
 
 31:                                               ; preds = %28, %.thread182
-  %.076 = phi i1 [ %.177, %28 ], [ false, %.thread182 ]
+  %.076 = phi i1 [ %.177, %28 ], [ %or.cond274, %.thread182 ]
   %.273 = phi i64 [ %29, %28 ], [ %15, %.thread182 ]
   %32 = add i64 %.273, 1
   %.not = icmp ugt i64 %4, %32
@@ -72997,8 +72987,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   ]
 
 36:                                               ; preds = %33, %33
-  %or.cond17 = or i1 %or.cond274, %.076
-  br i1 %or.cond17, label %.lr.ph232.preheader, label %.thread
+  br i1 %.076, label %.lr.ph232.preheader, label %.thread
 
 .lr.ph232.preheader:                              ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %32
@@ -73111,7 +73100,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !1114
 
 .preheader213:                                    ; preds = %.lr.ph._crit_edge, %20
-  %.177 = phi i1 [ true, %20 ], [ false, %.lr.ph._crit_edge ]
+  %.177 = phi i1 [ true, %20 ], [ %or.cond273, %.lr.ph._crit_edge ]
   %.3.in = phi i64 [ %.3, %20 ], [ %.071227.lcssa, %.lr.ph._crit_edge ]
   %.3 = add nuw i64 %.3.in, 1
   %19 = icmp ult i64 %.3, %4
@@ -73144,8 +73133,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   ]
 
 27:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  %or.cond13 = or i1 %or.cond273, %.177
-  %.3. = select i1 %or.cond13, i64 %.3, i64 0
+  %.3. = select i1 %.177, i64 %.3, i64 0
   br label %.thread
 
 28:                                               ; preds = %24
@@ -73153,12 +73141,11 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br label %31
 
 30:                                               ; preds = %.preheader213
-  %or.cond15 = or i1 %or.cond273, %.177
-  %spec.select = select i1 %or.cond15, i64 %4, i64 0
+  %spec.select = select i1 %.177, i64 %4, i64 0
   br label %.thread
 
 31:                                               ; preds = %28, %.thread181
-  %.076 = phi i1 [ %.177, %28 ], [ false, %.thread181 ]
+  %.076 = phi i1 [ %.177, %28 ], [ %or.cond273, %.thread181 ]
   %.273 = phi i64 [ %29, %28 ], [ %15, %.thread181 ]
   %32 = add i64 %.273, 1
   %.not = icmp ugt i64 %4, %32
@@ -73173,8 +73160,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   ]
 
 36:                                               ; preds = %33, %33
-  %or.cond17 = or i1 %or.cond273, %.076
-  br i1 %or.cond17, label %.lr.ph231.preheader, label %.thread
+  br i1 %.076, label %.lr.ph231.preheader, label %.thread
 
 .lr.ph231.preheader:                              ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %32

@@ -14736,7 +14736,7 @@ define dso_local ptr @sock_dequeue_err_skb(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
-  br i1 %4, label %43, label %5
+  br i1 %4, label %42, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -14745,7 +14745,7 @@ define dso_local ptr @sock_dequeue_err_skb(ptr noundef %0) #0 align 16 {
   %9 = icmp eq ptr %8, %2
   %10 = icmp eq ptr %8, null
   %11 = or i1 %9, %10
-  br i1 %11, label %.thread6, label %12
+  br i1 %11, label %.critedge.thread, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -14779,11 +14779,11 @@ define dso_local ptr @sock_dequeue_err_skb(ptr noundef %0) #0 align 16 {
   store i32 %31, ptr %32, align 8
   br label %33
 
-.thread6:                                         ; preds = %5
+.critedge.thread:                                 ; preds = %5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #23
-  br label %43
+  br label %42
 
-33:                                               ; preds = %12, %24, %29
+33:                                               ; preds = %29, %24, %12
   %.ph4 = phi i1 [ false, %12 ], [ false, %24 ], [ true, %29 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #23
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -14791,23 +14791,23 @@ define dso_local ptr @sock_dequeue_err_skb(ptr noundef %0) #0 align 16 {
   %36 = and i8 %35, -2
   %37 = icmp ne i8 %36, 2
   %38 = or i1 %.ph4, %37
-  br i1 %38, label %41, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %40, align 8
-  br i1 %23, label %43, label %42
+  br i1 %23, label %42, label %41
 
-41:                                               ; preds = %33
-  br i1 %23, label %43, label %42
+.critedge:                                        ; preds = %33
+  br i1 %23, label %42, label %41
 
-42:                                               ; preds = %39, %41
+41:                                               ; preds = %39, %.critedge
   tail call void @sk_error_report(ptr noundef %0) #23
-  br label %43
+  br label %42
 
-43:                                               ; preds = %39, %.thread6, %42, %41, %1
-  %44 = phi ptr [ null, %1 ], [ %8, %42 ], [ %8, %41 ], [ null, %.thread6 ], [ %8, %39 ]
-  ret ptr %44
+42:                                               ; preds = %39, %.critedge.thread, %41, %.critedge, %1
+  %43 = phi ptr [ null, %1 ], [ %8, %41 ], [ %8, %.critedge ], [ null, %.critedge.thread ], [ %8, %39 ]
+  ret ptr %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

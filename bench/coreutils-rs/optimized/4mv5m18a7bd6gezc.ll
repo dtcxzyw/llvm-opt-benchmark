@@ -24,12 +24,12 @@ define internal { i1, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %.val = load i8, ptr %4, align 1, !noundef !7
   %8 = add i8 %.val, -65
   %9 = icmp ult i8 %8, 26
-  %.0.i.i = select i1 %9, i8 32, i8 0
-  %10 = or i8 %.0.i.i, %.val
+  %10 = select i1 %9, i8 32, i8 0
+  %.0.i.i = or i8 %10, %.val
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h080a4a8b67cdb059E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h080a4a8b67cdb059E.exit": ; preds = %1, %6
-  %.sroa.3.0 = phi i8 [ %10, %6 ], [ undef, %1 ]
+  %.sroa.3.0 = phi i8 [ %.0.i.i, %6 ], [ undef, %1 ]
   %11 = insertvalue { i1, i8 } poison, i1 %5, 0
   %12 = insertvalue { i1, i8 } %11, i8 %.sroa.3.0, 1
   ret { i1, i8 } %12
@@ -49,12 +49,12 @@ define internal { i1, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %.val = load i8, ptr %4, align 1, !noundef !7
   %8 = add i8 %.val, -65
   %9 = icmp ult i8 %8, 26
-  %.0.i.i = select i1 %9, i8 32, i8 0
-  %10 = or i8 %.0.i.i, %.val
+  %10 = select i1 %9, i8 32, i8 0
+  %.0.i.i = or i8 %10, %.val
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h080a4a8b67cdb059E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h080a4a8b67cdb059E.exit": ; preds = %1, %6
-  %.sroa.3.0 = phi i8 [ %10, %6 ], [ undef, %1 ]
+  %.sroa.3.0 = phi i8 [ %.0.i.i, %6 ], [ undef, %1 ]
   %11 = insertvalue { i1, i8 } poison, i1 %5, 0
   %12 = insertvalue { i1, i8 } %11, i8 %.sroa.3.0, 1
   ret { i1, i8 } %12
@@ -105,13 +105,13 @@ select.unfold:                                    ; preds = %9, %14
   %.val = load i8, ptr %.0.ph.i.i.ph, align 1, !noundef !7
   %22 = add i8 %.val, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i = select i1 %23, i8 32, i8 0
-  %24 = or i8 %.0.i.i, %.val
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i = or i8 %24, %.val
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.thread": ; preds = %9, %1, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit", %select.unfold
   %25 = phi i1 [ true, %select.unfold ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ false, %1 ], [ false, %9 ]
-  %.sroa.3.0 = phi i8 [ %24, %select.unfold ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ undef, %1 ], [ undef, %9 ]
+  %.sroa.3.0 = phi i8 [ %.0.i.i, %select.unfold ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ undef, %1 ], [ undef, %9 ]
   %26 = insertvalue { i1, i8 } poison, i1 %25, 0
   %27 = insertvalue { i1, i8 } %26, i8 %.sroa.3.0, 1
   ret { i1, i8 } %27
@@ -162,13 +162,13 @@ select.unfold:                                    ; preds = %9, %14
   %.val = load i8, ptr %.0.ph.i.i.ph, align 1, !noundef !7
   %22 = add i8 %.val, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i = select i1 %23, i8 32, i8 0
-  %24 = or i8 %.0.i.i, %.val
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i = or i8 %24, %.val
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.thread": ; preds = %9, %1, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit", %select.unfold
   %25 = phi i1 [ true, %select.unfold ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ false, %1 ], [ false, %9 ]
-  %.sroa.3.0 = phi i8 [ %24, %select.unfold ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ undef, %1 ], [ undef, %9 ]
+  %.sroa.3.0 = phi i8 [ %.0.i.i, %select.unfold ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit" ], [ undef, %1 ], [ undef, %9 ]
   %26 = insertvalue { i1, i8 } poison, i1 %25, 0
   %27 = insertvalue { i1, i8 } %26, i8 %.sroa.3.0, 1
   ret { i1, i8 } %27
@@ -733,12 +733,12 @@ select.unfold.i:                                  ; preds = %36, %31
   %.val.i = load i8, ptr %.0.ph.i.i.ph.i, align 1, !noalias !131, !noundef !7
   %44 = add i8 %.val.i, -65
   %45 = icmp ult i8 %44, 26
-  %.0.i.i.i = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.0.i.i.i, %.val.i
+  %46 = select i1 %45, i8 32, i8 0
+  %.0.i.i.i = or i8 %46, %.val.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit": ; preds = %select.unfold.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i", %31, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit
-  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit ], [ %46, %select.unfold.i ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread ], [ undef, %31 ]
+  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit ], [ %.0.i.i.i, %select.unfold.i ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread ], [ undef, %31 ]
   %.sroa.0.0 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit ], [ true, %select.unfold.i ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread ], [ false, %31 ]
   %47 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %48 = insertvalue { i1, i8 } %47, i8 %.sroa.3.0, 1
@@ -855,12 +855,12 @@ select.unfold.i:                                  ; preds = %36, %31
   %.val.i = load i8, ptr %.0.ph.i.i.ph.i, align 1, !noalias !157, !noundef !7
   %44 = add i8 %.val.i, -65
   %45 = icmp ult i8 %44, 26
-  %.0.i.i.i = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.0.i.i.i, %.val.i
+  %46 = select i1 %45, i8 32, i8 0
+  %.0.i.i.i = or i8 %46, %.val.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit": ; preds = %select.unfold.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i", %31, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit
-  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit ], [ %46, %select.unfold.i ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread ], [ undef, %31 ]
+  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit ], [ %.0.i.i.i, %select.unfold.i ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread ], [ undef, %31 ]
   %.sroa.0.0 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit ], [ true, %select.unfold.i ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i" ], [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread ], [ false, %31 ]
   %47 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %48 = insertvalue { i1, i8 } %47, i8 %.sroa.3.0, 1
@@ -914,12 +914,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thre
   %.val.i = load i8, ptr %10, align 1, !noalias !180, !noundef !7
   %14 = add i8 %.val.i, -65
   %15 = icmp ult i8 %14, 26
-  %.0.i.i.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.0.i.i.i, %.val.i
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i.i.i = or i8 %16, %.val.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b7eede83a03e13fE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b7eede83a03e13fE.exit": ; preds = %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit
-  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit ], [ %16, %12 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread ]
+  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit ], [ %.0.i.i.i, %12 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread ]
   %.sroa.0.0 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit ], [ true, %12 ], [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread ]
   %17 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %18 = insertvalue { i1, i8 } %17, i8 %.sroa.3.0, 1
@@ -973,12 +973,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thre
   %.val.i = load i8, ptr %10, align 1, !noalias !194, !noundef !7
   %14 = add i8 %.val.i, -65
   %15 = icmp ult i8 %14, 26
-  %.0.i.i.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.0.i.i.i, %.val.i
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i.i.i = or i8 %16, %.val.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24fb5742fd1945e7E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24fb5742fd1945e7E.exit": ; preds = %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit
-  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit ], [ %16, %12 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread ]
+  %.sroa.3.0 = phi i8 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit ], [ %.0.i.i.i, %12 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread ]
   %.sroa.0.0 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit ], [ true, %12 ], [ false, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread ]
   %17 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %18 = insertvalue { i1, i8 } %17, i8 %.sroa.3.0, 1

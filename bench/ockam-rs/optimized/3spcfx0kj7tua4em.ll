@@ -59477,11 +59477,7 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i38.i: 
   %505 = icmp eq i8 %.sroa.16288.2.i, 5
   br i1 %505, label %.thread435.i, label %507
 
-506:                                              ; preds = %509, %507
-  %.sroa.14.7.i = phi i8 [ %.sroa.14.5.i, %507 ], [ %.sroa.16288.2.i, %509 ]
-  %.sroa.10.7.i = phi i64 [ %.sroa.10.5.i, %507 ], [ %.sroa.16.sroa.0.1.i, %509 ]
-  %.sroa.7.7.i = phi i64 [ %.sroa.7.5.i, %507 ], [ %.sroa.13.2.i, %509 ]
-  %.sroa.0.7.i = phi i64 [ %.sroa.0.5391.i, %507 ], [ %510, %509 ]
+506:                                              ; preds = %507
   br i1 %443, label %.thread435.i, label %512
 
 507:                                              ; preds = %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i"
@@ -59492,10 +59488,10 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i38.i: 
   %510 = ptrtoint ptr %.sroa.0259.2.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.i, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !noalias !9378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22.i, ptr noundef nonnull align 1 dereferenceable(7) %141, i64 7, i1 false), !noalias !9378
-  br label %506
+  br i1 %443, label %.thread435.i, label %512
 
-.thread435.i:                                     ; preds = %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i", %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i", %506, %441
-  %.sroa.8.2433.i = phi i64 [ %.sroa.8.0328350.i, %441 ], [ %.sroa.8.1360.i, %506 ], [ %.sroa.13.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %.sroa.13.2.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
+.thread435.i:                                     ; preds = %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i", %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i", %509, %506, %441
+  %.sroa.8.2433.i = phi i64 [ %.sroa.8.1360.i, %509 ], [ %.sroa.8.1360.i, %506 ], [ %.sroa.8.0328350.i, %441 ], [ %.sroa.13.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %.sroa.13.2.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !9378
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
@@ -59505,7 +59501,11 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i38.i: 
   %511 = icmp eq i64 %.sroa.8.2433.i, 0
   br i1 %511, label %515, label %517
 
-512:                                              ; preds = %506
+512:                                              ; preds = %509, %506
+  %.sroa.0.7445.i = phi i64 [ %510, %509 ], [ %.sroa.0.5391.i, %506 ]
+  %.sroa.7.7444.i = phi i64 [ %.sroa.13.2.i, %509 ], [ %.sroa.7.5.i, %506 ]
+  %.sroa.10.7443.i = phi i64 [ %.sroa.16.sroa.0.1.i, %509 ], [ %.sroa.10.5.i, %506 ]
+  %.sroa.14.7442.i = phi i8 [ %.sroa.16288.2.i, %509 ], [ %.sroa.14.5.i, %506 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.326.sroa.2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.528, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22.i, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !9378
@@ -59514,17 +59514,17 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i38.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.40.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.48.i)
-  %513 = inttoptr i64 %.sroa.0.7.i to ptr
+  %513 = inttoptr i64 %.sroa.0.7445.i to ptr
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %513, ptr %514, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.7.i, ptr %.sroa.225.0..sroa_idx, align 8
+  store i64 %.sroa.7.7444.i, ptr %.sroa.225.0..sroa_idx, align 8
   %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.10.7.i, ptr %.sroa.326.0..sroa_idx, align 8
+  store i64 %.sroa.10.7443.i, ptr %.sroa.326.0..sroa_idx, align 8
   %.sroa.326.sroa.2.0..sroa.326.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.326.sroa.2.0..sroa.326.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.326.sroa.2, i64 16, i1 false)
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sroa.14.7.i, ptr %.sroa.427.0..sroa_idx, align 8
+  store i8 %.sroa.14.7442.i, ptr %.sroa.427.0..sroa_idx, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.528.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.528, i64 7, i1 false)
   br label %519

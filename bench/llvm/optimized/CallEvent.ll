@@ -2788,7 +2788,7 @@ _ZNK5clang4ento9CallEvent9getCallerEv.exit:       ; preds = %11
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(72) %.pr) #20
   %.not.i3 = icmp eq ptr %23, null
-  br i1 %.not.i3, label %54, label %24
+  br i1 %.not.i3, label %53, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -2811,7 +2811,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i: ; preds
   %37 = icmp ne i32 %36, 0
   %38 = icmp ne i32 %36, 3
   %39 = and i1 %37, %38
-  br label %54
+  br label %53
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 28
@@ -2836,63 +2836,58 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i: ; preds
   %52 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl8isGlobalEv(ptr noundef nonnull align 8 dereferenceable(168) %23) #20
   br label %53
 
-53:                                               ; preds = %51, %48, %46, %40
-  %.2.i = phi i1 [ %52, %51 ], [ false, %48 ], [ false, %46 ], [ undef, %40 ]
-  %spec.select.i = and i1 %45, %.2.i
-  br label %54
+53:                                               ; preds = %19, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i, %40, %46, %48, %51
+  %.02.ph = phi i1 [ false, %40 ], [ false, %46 ], [ false, %48 ], [ %52, %51 ], [ %39, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i ], [ false, %19 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.pr, i64 68
+  %55 = load i32, ptr %54, align 4, !tbaa !241
+  %56 = add i32 %55, -1
+  store i32 %56, ptr %54, align 4, !tbaa !241
+  %.not.i.i.i.i = icmp eq i32 %56, 0
+  br i1 %.not.i.i.i.i, label %57, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit
 
-54:                                               ; preds = %19, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i, %53
-  %.02.ph = phi i1 [ %spec.select.i, %53 ], [ %39, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i ], [ false, %19 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.pr, i64 68
-  %56 = load i32, ptr %55, align 4, !tbaa !241
-  %57 = add i32 %56, -1
-  store i32 %57, ptr %55, align 4, !tbaa !241
-  %.not.i.i.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i.i.i, label %58, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 248
+  %63 = load ptr, ptr %62, align 8, !tbaa !231
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %66 = load i32, ptr %65, align 8, !tbaa !159
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  %68 = load i32, ptr %67, align 4, !tbaa !164
+  %.not.i.i.not.i.i.i.i.i.i = icmp ult i32 %66, %68
+  br i1 %.not.i.i.not.i.i.i.i.i.i, label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i, label %69, !prof !187
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !9
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 248
-  %64 = load ptr, ptr %63, align 8, !tbaa !231
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !159
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 20
-  %69 = load i32, ptr %68, align 4, !tbaa !164
-  %.not.i.i.not.i.i.i.i.i.i = icmp ult i32 %67, %69
-  br i1 %.not.i.i.not.i.i.i.i.i.i, label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i, label %70, !prof !187
-
-70:                                               ; preds = %58
-  %71 = zext i32 %67 to i64
-  %72 = add nuw nsw i64 %71, 1
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %73, i64 noundef %72, i64 noundef 8) #20
-  %.pre.i.i.i.i.i.i = load i32, ptr %66, align 8, !tbaa !159
+69:                                               ; preds = %57
+  %70 = zext i32 %66 to i64
+  %71 = add nuw nsw i64 %70, 1
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull %72, i64 noundef %71, i64 noundef 8) #20
+  %.pre.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !159
   br label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i
 
-_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i: ; preds = %70, %58
-  %74 = phi i32 [ %67, %58 ], [ %.pre.i.i.i.i.i.i, %70 ]
-  %75 = load ptr, ptr %65, align 8, !tbaa !158
-  %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
-  %78 = ptrtoint ptr %.pr to i64
-  store i64 %78, ptr %77, align 1
-  %79 = load i32, ptr %66, align 8, !tbaa !159
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %66, align 8, !tbaa !159
-  %81 = load ptr, ptr %.pr, align 8, !tbaa !71
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef nonnull align 8 dereferenceable(72) %.pr) #20
+_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i: ; preds = %69, %57
+  %73 = phi i32 [ %66, %57 ], [ %.pre.i.i.i.i.i.i, %69 ]
+  %74 = load ptr, ptr %64, align 8, !tbaa !158
+  %75 = zext i32 %73 to i64
+  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %77 = ptrtoint ptr %.pr to i64
+  store i64 %77, ptr %76, align 1
+  %78 = load i32, ptr %65, align 8, !tbaa !159
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %65, align 8, !tbaa !159
+  %80 = load ptr, ptr %.pr, align 8, !tbaa !71
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(72) %.pr) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit: ; preds = %_ZNK5clang4ento9CallEvent9getCallerEv.exit, %_ZNK5clang4ento9CallEvent9getCallerEv.exit.thread, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i, %54
-  %84 = phi i1 [ %.02.ph, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i ], [ %.02.ph, %54 ], [ false, %_ZNK5clang4ento9CallEvent9getCallerEv.exit.thread ], [ false, %_ZNK5clang4ento9CallEvent9getCallerEv.exit ]
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit: ; preds = %_ZNK5clang4ento9CallEvent9getCallerEv.exit, %_ZNK5clang4ento9CallEvent9getCallerEv.exit.thread, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i, %53
+  %83 = phi i1 [ %.02.ph, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i ], [ %.02.ph, %53 ], [ false, %_ZNK5clang4ento9CallEvent9getCallerEv.exit.thread ], [ false, %_ZNK5clang4ento9CallEvent9getCallerEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %84
+  ret i1 %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6626,7 +6621,7 @@ _ZNK5clang14IdentifierInfo5isStrILm17EEEbRAT__Kc.exit: ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
-_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread: ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %15, %17, %9, %1, %.thread, %20, %33
+_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread: ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %9, %15, %17, %1, %.thread, %20, %33
   %59 = call noundef zeroext i1 @_ZNK5clang4ento9CallEvent21hasNonZeroCallbackArgEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   br label %60
 

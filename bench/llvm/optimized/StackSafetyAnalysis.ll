@@ -16568,7 +16568,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4ll
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us
-  %.032.us = phi i1 [ %72, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ false, %.lr.ph ]
+  %.032.us = phi i1 [ %.0.lcssa.i.us, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ false, %.lr.ph ]
   %.sroa.027.031.us = phi ptr [ %73, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ %.val17, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.027.031.us, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.027.031.us, i64 144
@@ -16668,21 +16668,24 @@ _ZN4llvm13ConstantRangeD2Ev.exit.us.i.us:         ; preds = %70, %67, %_ZN4llvm5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.016.us.i.us) #31
   %.not.us.i.us = icmp eq ptr %71, %31
-  br i1 %.not.us.i.us, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us, label %.lr.ph.split.us.i.us
+  br i1 %.not.us.i.us, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us.loopexit, label %.lr.ph.split.us.i.us
 
-_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.us.i.us, %.lr.ph.split.us
-  %.0.lcssa.i.us = phi i1 [ false, %.lr.ph.split.us ], [ %.1.us.i.us, %_ZN4llvm13ConstantRangeD2Ev.exit.us.i.us ]
-  %72 = or i1 %.032.us, %.0.lcssa.i.us
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us.loopexit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.us.i.us
+  %72 = or i1 %.032.us, %.1.us.i.us
+  br label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us
+
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us: ; preds = %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us.loopexit, %.lr.ph.split.us
+  %.0.lcssa.i.us = phi i1 [ %.032.us, %.lr.ph.split.us ], [ %72, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us.loopexit ]
   %73 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.031.us) #31
   %.not28.us = icmp eq ptr %73, %12
   br i1 %.not28.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us
-  %.0.lcssa = phi i1 [ %72, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ %148, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ]
+  %.0.lcssa = phi i1 [ %.0.lcssa.i.us, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ]
   br i1 %.0.lcssa, label %150, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit
-  %.032 = phi i1 [ %148, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ], [ false, %.lr.ph ]
+  %.032 = phi i1 [ %.0.lcssa.i, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ], [ false, %.lr.ph ]
   %.sroa.027.031 = phi ptr [ %149, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ], [ %.val17, %.lr.ph ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.027.031, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.027.031, i64 144
@@ -16874,11 +16877,14 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %146, %143, %_ZN4llv
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %147 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.016.i) #31
   %.not.i = icmp eq ptr %147, %76
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit, label %.lr.ph.split.i
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit, label %.lr.ph.split.i
 
-_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.i, %.lr.ph.split
-  %.0.lcssa.i = phi i1 [ false, %.lr.ph.split ], [ %.1.i, %_ZN4llvm13ConstantRangeD2Ev.exit.i ]
-  %148 = or i1 %.032, %.0.lcssa.i
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.i
+  %148 = or i1 %.032, %.1.i
+  br label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit
+
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit: ; preds = %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit, %.lr.ph.split
+  %.0.lcssa.i = phi i1 [ %.032, %.lr.ph.split ], [ %148, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit ]
   %149 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.031) #31
   %.not28 = icmp eq ptr %149, %12
   br i1 %.not28, label %._crit_edge, label %.lr.ph.split
@@ -21396,10 +21402,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4ll
   br label %31
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit
-  br i1 %198, label %200, label %.critedge
+  br i1 %.0.lcssa.i, label %200, label %.critedge
 
 31:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit
-  %.027 = phi i1 [ false, %.lr.ph ], [ %198, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ]
+  %.027 = phi i1 [ false, %.lr.ph ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ]
   %.sroa.023.026 = phi ptr [ %.val, %.lr.ph ], [ %199, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.023.026, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.023.026, i64 144
@@ -21837,11 +21843,14 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %196, %193, %_ZN4llv
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %197 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.016.i) #31
   %.not.i = icmp eq ptr %197, %34
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit, label %38
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit, label %38
 
-_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.i, %31
-  %.0.lcssa.i = phi i1 [ false, %31 ], [ %.1.i, %_ZN4llvm13ConstantRangeD2Ev.exit.i ]
-  %198 = or i1 %.027, %.0.lcssa.i
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.i
+  %198 = or i1 %.027, %.1.i
+  br label %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit
+
+_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit: ; preds = %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit, %31
+  %.0.lcssa.i = phi i1 [ %.027, %31 ], [ %198, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.loopexit ]
   %199 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.023.026) #31
   %.not24 = icmp eq ptr %199, %15
   br i1 %.not24, label %._crit_edge, label %31

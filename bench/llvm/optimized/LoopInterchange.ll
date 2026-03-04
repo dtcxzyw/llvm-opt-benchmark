@@ -3331,8 +3331,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
   %.sroa.10.2.i.i = phi ptr [ %107, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i.i ], [ %.sroa.10.0.i.i, %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i.i.i ], [ %.sroa.10.0.i.i, %118 ], [ %.sroa.10.0.i.i, %111 ], [ %.sroa.10.0.i.i, %112 ]
   %122 = phi ptr [ %104, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i.i ], [ %88, %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i.i.i ], [ %88, %118 ], [ %88, %111 ], [ %88, %112 ]
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %96
-  %.not8.i.i.i = icmp eq ptr %92, %93
-  br i1 %.not8.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i
+  %.not7.i.i.i = icmp eq ptr %92, %93
+  br i1 %.not7.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i
 
 .thread.i.i:                                      ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit.i.i.i
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 %85
@@ -3344,8 +3344,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
   br label %.thread.loopexit.i19.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit.i.i.i, %129
-  %.sroa.01.09.i.i.i = phi ptr [ %130, %129 ], [ %122, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit.i.i.i ]
-  %128 = load i8, ptr %.sroa.01.09.i.i.i, align 1, !tbaa !122
+  %.sroa.01.08.i.i.i = phi ptr [ %130, %129 ], [ %122, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit.i.i.i ]
+  %128 = load i8, ptr %.sroa.01.08.i.i.i, align 1, !tbaa !122
   switch i8 %128, label %129 [
     i8 60, label %131
     i8 62, label %.critedge.i.i
@@ -3353,7 +3353,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
   ]
 
 129:                                              ; preds = %.lr.ph.i.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i.i.i, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.i.i, i64 1
   %.not.i14.i.i = icmp eq ptr %130, %123
   br i1 %.not.i14.i.i, label %131, label %.lr.ph.i.i.i
 
@@ -3367,8 +3367,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
   br label %.lr.ph.i16.i.i
 
 .lr.ph.i16.i.i:                                   ; preds = %137, %131
-  %.sroa.01.09.i17.i.i = phi ptr [ %138, %137 ], [ %122, %131 ]
-  %136 = load i8, ptr %.sroa.01.09.i17.i.i, align 1, !tbaa !122
+  %.sroa.01.08.i17.i.i = phi ptr [ %138, %137 ], [ %122, %131 ]
+  %136 = load i8, ptr %.sroa.01.08.i17.i.i, align 1, !tbaa !122
   switch i8 %136, label %137 [
     i8 60, label %.thread.loopexit.i19.i.i
     i8 62, label %.critedge.i.i
@@ -3376,7 +3376,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
   ]
 
 137:                                              ; preds = %.lr.ph.i16.i.i
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i17.i.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i17.i.i, i64 1
   %.not.i20.i.i = icmp eq ptr %138, %123
   br i1 %.not.i20.i.i, label %.thread.loopexit.i19.i.i, label %.lr.ph.i16.i.i
 

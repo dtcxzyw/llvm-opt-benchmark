@@ -3138,12 +3138,12 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit: ; preds = %28, %_
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph, %257
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %257 ]
-  %.03371 = phi i32 [ 0, %.lr.ph ], [ %258, %257 ]
-  %.03570 = phi double [ 0.000000e+00, %.lr.ph ], [ %.136, %257 ]
-  %.037.in69 = phi i1 [ true, %.lr.ph ], [ %79, %257 ]
-  %.03967 = phi i32 [ 1, %.lr.ph ], [ %78, %257 ]
+38:                                               ; preds = %.lr.ph, %258
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %258 ]
+  %.03371 = phi i32 [ 0, %.lr.ph ], [ %259, %258 ]
+  %.03570 = phi double [ 0.000000e+00, %.lr.ph ], [ %.136, %258 ]
+  %.037.in69 = phi i1 [ true, %.lr.ph ], [ %80, %258 ]
+  %.03967 = phi i32 [ 1, %.lr.ph ], [ %79, %258 ]
   %39 = load ptr, ptr %31, align 8, !tbaa !6
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZN3g2o15SparseOptimizer9terminateEv.exit, label %40
@@ -3152,371 +3152,370 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit: ; preds = %28, %_
   %41 = load i8, ptr %39, align 1, !tbaa !208, !range !138, !noundef !139
   %42 = trunc nuw i8 %41 to i1
   %43 = xor i1 %42, true
-  br label %_ZN3g2o15SparseOptimizer9terminateEv.exit
+  %44 = and i1 %.037.in69, %43
+  br i1 %44, label %47, label %.critedge.loopexit
 
-_ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38, %40
-  %.not = phi i1 [ %43, %40 ], [ true, %38 ]
-  %or.cond = and i1 %.037.in69, %.not
-  br i1 %or.cond, label %46, label %.critedge.loopexit
+_ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38
+  br i1 %.037.in69, label %47, label %.critedge.loopexit
 
-.critedge.loopexit:                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit, %257
-  %.039.lcssa.ph = phi i32 [ %78, %257 ], [ %.03967, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
-  %.033.lcssa.ph = phi i32 [ %1, %257 ], [ %.03371, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
-  %44 = icmp eq i32 %.039.lcssa.ph, -1
-  %45 = select i1 %44, i32 0, i32 %.033.lcssa.ph
+.critedge.loopexit:                               ; preds = %40, %_ZN3g2o15SparseOptimizer9terminateEv.exit, %258
+  %.039.lcssa.ph = phi i32 [ %79, %258 ], [ %.03967, %_ZN3g2o15SparseOptimizer9terminateEv.exit ], [ %.03967, %40 ]
+  %.033.lcssa.ph = phi i32 [ %1, %258 ], [ %.03371, %_ZN3g2o15SparseOptimizer9terminateEv.exit ], [ %.03371, %40 ]
+  %45 = icmp eq i32 %.039.lcssa.ph, -1
+  %46 = select i1 %45, i32 0, i32 %.033.lcssa.ph
   br label %.critedge
 
-46:                                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit
-  %47 = load ptr, ptr %0, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
-  %49 = load ptr, ptr %48, align 8
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
-  call void %49(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %50)
-  %51 = load i8, ptr %24, align 8, !tbaa !207, !range !138, !noundef !139
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %72
+47:                                               ; preds = %40, %_ZN3g2o15SparseOptimizer9terminateEv.exit
+  %48 = load ptr, ptr %0, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 104
+  %50 = load ptr, ptr %49, align 8
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
+  call void %50(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %51)
+  %52 = load i8, ptr %24, align 8, !tbaa !207, !range !138, !noundef !139
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %73
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %19, align 8, !tbaa !77
-  %55 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %54, i64 %indvars.iv
-  call void @_ZN3g2o18G2OBatchStatistics14setGlobalStatsEPS0_(ptr noundef nonnull %55)
-  store i32 %50, ptr %55, align 8, !tbaa !209
-  %56 = load ptr, ptr %33, align 8, !tbaa !89
-  %57 = load ptr, ptr %32, align 8, !tbaa !79
-  %58 = ptrtoint ptr %56 to i64
+54:                                               ; preds = %47
+  %55 = load ptr, ptr %19, align 8, !tbaa !77
+  %56 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %55, i64 %indvars.iv
+  call void @_ZN3g2o18G2OBatchStatistics14setGlobalStatsEPS0_(ptr noundef nonnull %56)
+  store i32 %51, ptr %56, align 8, !tbaa !209
+  %57 = load ptr, ptr %33, align 8, !tbaa !89
+  %58 = load ptr, ptr %32, align 8, !tbaa !79
   %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = lshr exact i64 %60, 3
-  %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i32 %62, ptr %63, align 8, !tbaa !211
-  %64 = load ptr, ptr %35, align 8, !tbaa !147
-  %65 = load ptr, ptr %34, align 8, !tbaa !81
-  %66 = ptrtoint ptr %64 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = lshr exact i64 %61, 3
+  %63 = trunc i64 %62 to i32
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 %63, ptr %64, align 8, !tbaa !211
+  %65 = load ptr, ptr %35, align 8, !tbaa !147
+  %66 = load ptr, ptr %34, align 8, !tbaa !81
   %67 = ptrtoint ptr %65 to i64
-  %68 = sub i64 %66, %67
-  %69 = lshr exact i64 %68, 3
-  %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %70, ptr %71, align 4, !tbaa !212
-  br label %72
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  %70 = lshr exact i64 %69, 3
+  %71 = trunc i64 %70 to i32
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i32 %71, ptr %72, align 4, !tbaa !212
+  br label %73
 
-72:                                               ; preds = %53, %46
-  %73 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %74 = load ptr, ptr %12, align 8, !tbaa !83
-  %75 = load ptr, ptr %74, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef i32 %77(ptr noundef nonnull align 8 dereferenceable(64) %74, i32 noundef %50, i1 noundef zeroext %2)
-  %79 = icmp eq i32 %78, 1
-  %80 = load i8, ptr %24, align 8, !tbaa !207, !range !138, !noundef !139
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %82, label %143
+73:                                               ; preds = %54, %47
+  %74 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  %75 = load ptr, ptr %12, align 8, !tbaa !83
+  %76 = load ptr, ptr %75, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(64) %75, i32 noundef %51, i1 noundef zeroext %2)
+  %80 = icmp eq i32 %79, 1
+  %81 = load i8, ptr %24, align 8, !tbaa !207, !range !138, !noundef !139
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %144
 
-82:                                               ; preds = %72
-  %83 = load ptr, ptr %36, align 8, !tbaa !73
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
-  %85 = load i64, ptr %84, align 8, !tbaa !84
-  %.not.i41 = icmp eq i64 %85, 0
-  br i1 %.not.i41, label %.loopexit.i, label %86
+83:                                               ; preds = %73
+  %84 = load ptr, ptr %36, align 8, !tbaa !73
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 136
+  %86 = load i64, ptr %85, align 8, !tbaa !84
+  %.not.i41 = icmp eq i64 %86, 0
+  br i1 %.not.i41, label %.loopexit.i, label %87
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 120
-  %88 = load ptr, ptr %87, align 8, !tbaa !85
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 104
-  %.not1011.i = icmp eq ptr %88, %89
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 120
+  %89 = load ptr, ptr %88, align 8, !tbaa !85
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 104
+  %.not1011.i = icmp eq ptr %89, %90
   br i1 %.not1011.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %86, %.lr.ph.i
-  %.sroa.07.012.i = phi ptr [ %96, %.lr.ph.i ], [ %88, %86 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !86
-  %92 = load ptr, ptr %91, align 8, !tbaa !3
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = call noundef ptr %94(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
-  %96 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i) #27
-  %.not10.i = icmp eq ptr %96, %89
+.lr.ph.i:                                         ; preds = %87, %.lr.ph.i
+  %.sroa.07.012.i = phi ptr [ %97, %.lr.ph.i ], [ %89, %87 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i, i64 32
+  %92 = load ptr, ptr %91, align 8, !tbaa !86
+  %93 = load ptr, ptr %92, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = call noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
+  %97 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i) #27
+  %.not10.i = icmp eq ptr %97, %90
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !88
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %86, %82
-  %97 = load ptr, ptr %33, align 8, !tbaa !89
-  %98 = load ptr, ptr %32, align 8, !tbaa !79
-  %99 = ptrtoint ptr %97 to i64
+.loopexit.i:                                      ; preds = %.lr.ph.i, %87, %83
+  %98 = load ptr, ptr %33, align 8, !tbaa !89
+  %99 = load ptr, ptr %32, align 8, !tbaa !79
   %100 = ptrtoint ptr %98 to i64
-  %101 = sub i64 %99, %100
-  %102 = lshr exact i64 %101, 3
-  %103 = trunc i64 %102 to i32
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph14.i, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
+  %101 = ptrtoint ptr %99 to i64
+  %102 = sub i64 %100, %101
+  %103 = lshr exact i64 %102, 3
+  %104 = trunc i64 %103 to i32
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %.lr.ph14.i, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
 
 .lr.ph14.i:                                       ; preds = %.loopexit.i, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph14.i ], [ 0, %.loopexit.i ]
-  %105 = phi ptr [ %112, %.lr.ph14.i ], [ %98, %.loopexit.i ]
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.i
-  %107 = load ptr, ptr %106, align 8, !tbaa !90
-  %108 = load ptr, ptr %107, align 8, !tbaa !3
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(176) %107)
+  %106 = phi ptr [ %113, %.lr.ph14.i ], [ %99, %.loopexit.i ]
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i
+  %108 = load ptr, ptr %107, align 8, !tbaa !90
+  %109 = load ptr, ptr %108, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(176) %108)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %111 = load ptr, ptr %33, align 8, !tbaa !89
-  %112 = load ptr, ptr %32, align 8, !tbaa !79
-  %113 = ptrtoint ptr %111 to i64
+  %112 = load ptr, ptr %33, align 8, !tbaa !89
+  %113 = load ptr, ptr %32, align 8, !tbaa !79
   %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %sext.i = shl i64 %115, 29
-  %116 = ashr i64 %sext.i, 32
-  %117 = icmp slt i64 %indvars.iv.next.i, %116
-  br i1 %117, label %.lr.ph14.i, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, !llvm.loop !92
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %sext.i = shl i64 %116, 29
+  %117 = ashr i64 %sext.i, 32
+  %118 = icmp slt i64 %indvars.iv.next.i, %117
+  br i1 %118, label %.lr.ph14.i, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, !llvm.loop !92
 
 _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit: ; preds = %.lr.ph14.i, %.loopexit.i
-  %118 = phi ptr [ %97, %.loopexit.i ], [ %111, %.lr.ph14.i ]
   %119 = phi ptr [ %98, %.loopexit.i ], [ %112, %.lr.ph14.i ]
+  %120 = phi ptr [ %99, %.loopexit.i ], [ %113, %.lr.ph14.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not1112.i = icmp eq ptr %119, %118
+  %.not1112.i = icmp eq ptr %120, %119
   br i1 %.not1112.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, %132
-  %.014.i = phi double [ %.1.i, %132 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
-  %.sroa.08.013.i = phi ptr [ %133, %132 ], [ %119, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
-  %120 = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !90
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
-  %122 = load ptr, ptr %121, align 8, !tbaa !95
-  %.not.i43 = icmp eq ptr %122, null
-  %123 = load ptr, ptr %120, align 8, !tbaa !3
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 112
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noundef double %125(ptr noundef nonnull align 8 dereferenceable(176) %120)
-  br i1 %.not.i43, label %132, label %127
+.lr.ph.i42:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, %133
+  %.014.i = phi double [ %.1.i, %133 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
+  %.sroa.08.013.i = phi ptr [ %134, %133 ], [ %120, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
+  %121 = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !90
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 64
+  %123 = load ptr, ptr %122, align 8, !tbaa !95
+  %.not.i43 = icmp eq ptr %123, null
+  %124 = load ptr, ptr %121, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
+  %126 = load ptr, ptr %125, align 8
+  %127 = call noundef double %126(ptr noundef nonnull align 8 dereferenceable(176) %121)
+  br i1 %.not.i43, label %133, label %128
 
-127:                                              ; preds = %.lr.ph.i42
-  %128 = load ptr, ptr %122, align 8, !tbaa !3
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %122, double noundef %126, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %131 = load double, ptr %5, align 8, !tbaa !122
-  br label %132
+128:                                              ; preds = %.lr.ph.i42
+  %129 = load ptr, ptr %123, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %131 = load ptr, ptr %130, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %123, double noundef %127, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %132 = load double, ptr %5, align 8, !tbaa !122
+  br label %133
 
-132:                                              ; preds = %127, %.lr.ph.i42
-  %.pn.i = phi double [ %131, %127 ], [ %126, %.lr.ph.i42 ]
+133:                                              ; preds = %128, %.lr.ph.i42
+  %.pn.i = phi double [ %132, %128 ], [ %127, %.lr.ph.i42 ]
   %.1.i = fadd double %.014.i, %.pn.i
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
-  %134 = load ptr, ptr %33, align 8, !tbaa !93
-  %.not11.i = icmp eq ptr %133, %134
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
+  %135 = load ptr, ptr %33, align 8, !tbaa !93
+  %.not11.i = icmp eq ptr %134, %135
   br i1 %.not11.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i42, !llvm.loop !124
 
-_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %132, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
-  %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ], [ %.1.i, %132 ]
+_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %133, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
+  %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ], [ %.1.i, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %135 = load ptr, ptr %19, align 8, !tbaa !77
-  %136 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %135, i64 %indvars.iv
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store double %.0.lcssa.i, ptr %137, align 8, !tbaa !213
-  %138 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %139 = fsub double %138, %73
-  %140 = load ptr, ptr %19, align 8, !tbaa !77
-  %141 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %140, i64 %indvars.iv
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 112
-  store double %139, ptr %142, align 8, !tbaa !214
-  br label %143
+  %136 = load ptr, ptr %19, align 8, !tbaa !77
+  %137 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %136, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store double %.0.lcssa.i, ptr %138, align 8, !tbaa !213
+  %139 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  %140 = fsub double %139, %74
+  %141 = load ptr, ptr %19, align 8, !tbaa !77
+  %142 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %141, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 112
+  store double %140, ptr %143, align 8, !tbaa !214
+  br label %144
 
-143:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, %72
-  %144 = load i8, ptr %37, align 8, !tbaa !71, !range !138, !noundef !139
-  %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %146, label %257
+144:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, %73
+  %145 = load i8, ptr %37, align 8, !tbaa !71, !range !138, !noundef !139
+  %146 = trunc nuw i8 %145 to i1
+  br i1 %146, label %147, label %258
 
-146:                                              ; preds = %143
-  %147 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %148 = fsub double %147, %73
-  %149 = fadd double %.03570, %148
-  br i1 %81, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, label %150
+147:                                              ; preds = %144
+  %148 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  %149 = fsub double %148, %74
+  %150 = fadd double %.03570, %149
+  br i1 %82, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, label %151
 
-150:                                              ; preds = %146
-  %151 = load ptr, ptr %36, align 8, !tbaa !73
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 136
-  %153 = load i64, ptr %152, align 8, !tbaa !84
-  %.not.i44 = icmp eq i64 %153, 0
-  br i1 %.not.i44, label %.loopexit.i49, label %154
+151:                                              ; preds = %147
+  %152 = load ptr, ptr %36, align 8, !tbaa !73
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 136
+  %154 = load i64, ptr %153, align 8, !tbaa !84
+  %.not.i44 = icmp eq i64 %154, 0
+  br i1 %.not.i44, label %.loopexit.i49, label %155
 
-154:                                              ; preds = %150
-  %155 = getelementptr inbounds nuw i8, ptr %151, i64 120
-  %156 = load ptr, ptr %155, align 8, !tbaa !85
-  %157 = getelementptr inbounds nuw i8, ptr %151, i64 104
-  %.not1011.i45 = icmp eq ptr %156, %157
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 120
+  %157 = load ptr, ptr %156, align 8, !tbaa !85
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 104
+  %.not1011.i45 = icmp eq ptr %157, %158
   br i1 %.not1011.i45, label %.loopexit.i49, label %.lr.ph.i46
 
-.lr.ph.i46:                                       ; preds = %154, %.lr.ph.i46
-  %.sroa.07.012.i47 = phi ptr [ %164, %.lr.ph.i46 ], [ %156, %154 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i47, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !86
-  %160 = load ptr, ptr %159, align 8, !tbaa !3
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %162 = load ptr, ptr %161, align 8
-  %163 = call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
-  %164 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i47) #27
-  %.not10.i48 = icmp eq ptr %164, %157
+.lr.ph.i46:                                       ; preds = %155, %.lr.ph.i46
+  %.sroa.07.012.i47 = phi ptr [ %165, %.lr.ph.i46 ], [ %157, %155 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i47, i64 32
+  %160 = load ptr, ptr %159, align 8, !tbaa !86
+  %161 = load ptr, ptr %160, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  %163 = load ptr, ptr %162, align 8
+  %164 = call noundef ptr %163(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
+  %165 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i47) #27
+  %.not10.i48 = icmp eq ptr %165, %158
   br i1 %.not10.i48, label %.loopexit.i49, label %.lr.ph.i46, !llvm.loop !88
 
-.loopexit.i49:                                    ; preds = %.lr.ph.i46, %154, %150
-  %165 = load ptr, ptr %33, align 8, !tbaa !89
-  %166 = load ptr, ptr %32, align 8, !tbaa !79
-  %167 = ptrtoint ptr %165 to i64
+.loopexit.i49:                                    ; preds = %.lr.ph.i46, %155, %151
+  %166 = load ptr, ptr %33, align 8, !tbaa !89
+  %167 = load ptr, ptr %32, align 8, !tbaa !79
   %168 = ptrtoint ptr %166 to i64
-  %169 = sub i64 %167, %168
-  %170 = lshr exact i64 %169, 3
-  %171 = trunc i64 %170 to i32
-  %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = lshr exact i64 %170, 3
+  %172 = trunc i64 %171 to i32
+  %173 = icmp sgt i32 %172, 0
+  br i1 %173, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
 
 .lr.ph14.i50:                                     ; preds = %.loopexit.i49, %.lr.ph14.i50
   %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %.lr.ph14.i50 ], [ 0, %.loopexit.i49 ]
-  %173 = phi ptr [ %180, %.lr.ph14.i50 ], [ %166, %.loopexit.i49 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv.i51
-  %175 = load ptr, ptr %174, align 8, !tbaa !90
-  %176 = load ptr, ptr %175, align 8, !tbaa !3
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(176) %175)
+  %174 = phi ptr [ %181, %.lr.ph14.i50 ], [ %167, %.loopexit.i49 ]
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv.i51
+  %176 = load ptr, ptr %175, align 8, !tbaa !90
+  %177 = load ptr, ptr %176, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
+  %179 = load ptr, ptr %178, align 8
+  call void %179(ptr noundef nonnull align 8 dereferenceable(176) %176)
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
-  %179 = load ptr, ptr %33, align 8, !tbaa !89
-  %180 = load ptr, ptr %32, align 8, !tbaa !79
-  %181 = ptrtoint ptr %179 to i64
+  %180 = load ptr, ptr %33, align 8, !tbaa !89
+  %181 = load ptr, ptr %32, align 8, !tbaa !79
   %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %sext.i53 = shl i64 %183, 29
-  %184 = ashr i64 %sext.i53, 32
-  %185 = icmp slt i64 %indvars.iv.next.i52, %184
-  br i1 %185, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, !llvm.loop !92
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %sext.i53 = shl i64 %184, 29
+  %185 = ashr i64 %sext.i53, 32
+  %186 = icmp slt i64 %indvars.iv.next.i52, %185
+  br i1 %186, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, !llvm.loop !92
 
-_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50, %.loopexit.i49, %146
-  %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 11)
-  %187 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef %50)
-  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %187, ptr noundef nonnull @.str.9, i64 noundef 8)
-  %189 = load ptr, ptr %187, align 8, !tbaa !3
-  %190 = getelementptr i8, ptr %189, i64 -24
-  %191 = load i64, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %187, i64 %191
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %194 = load i32, ptr %193, align 8, !tbaa !215
-  %195 = and i32 %194, -261
-  %196 = or disjoint i32 %195, 4
-  store i32 %196, ptr %193, align 8, !tbaa !216
+_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50, %.loopexit.i49, %147
+  %187 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 11)
+  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef %51)
+  %189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull @.str.9, i64 noundef 8)
+  %190 = load ptr, ptr %188, align 8, !tbaa !3
+  %191 = getelementptr i8, ptr %190, i64 -24
+  %192 = load i64, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %188, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  %195 = load i32, ptr %194, align 8, !tbaa !215
+  %196 = and i32 %195, -261
+  %197 = or disjoint i32 %196, 4
+  store i32 %197, ptr %194, align 8, !tbaa !216
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %197 = load ptr, ptr %32, align 8, !tbaa !93
-  %198 = load ptr, ptr %33, align 8, !tbaa !93
-  %.not1112.i55 = icmp eq ptr %197, %198
+  %198 = load ptr, ptr %32, align 8, !tbaa !93
+  %199 = load ptr, ptr %33, align 8, !tbaa !93
+  %.not1112.i55 = icmp eq ptr %198, %199
   br i1 %.not1112.i55, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64, label %.lr.ph.i56
 
-.lr.ph.i56:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, %211
-  %.014.i57 = phi double [ %.1.i61, %211 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
-  %.sroa.08.013.i58 = phi ptr [ %212, %211 ], [ %197, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
-  %199 = load ptr, ptr %.sroa.08.013.i58, align 8, !tbaa !90
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 64
-  %201 = load ptr, ptr %200, align 8, !tbaa !95
-  %.not.i59 = icmp eq ptr %201, null
-  %202 = load ptr, ptr %199, align 8, !tbaa !3
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 112
-  %204 = load ptr, ptr %203, align 8
-  %205 = call noundef double %204(ptr noundef nonnull align 8 dereferenceable(176) %199)
-  br i1 %.not.i59, label %211, label %206
+.lr.ph.i56:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, %212
+  %.014.i57 = phi double [ %.1.i61, %212 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
+  %.sroa.08.013.i58 = phi ptr [ %213, %212 ], [ %198, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
+  %200 = load ptr, ptr %.sroa.08.013.i58, align 8, !tbaa !90
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 64
+  %202 = load ptr, ptr %201, align 8, !tbaa !95
+  %.not.i59 = icmp eq ptr %202, null
+  %203 = load ptr, ptr %200, align 8, !tbaa !3
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 112
+  %205 = load ptr, ptr %204, align 8
+  %206 = call noundef double %205(ptr noundef nonnull align 8 dereferenceable(176) %200)
+  br i1 %.not.i59, label %212, label %207
 
-206:                                              ; preds = %.lr.ph.i56
-  %207 = load ptr, ptr %201, align 8, !tbaa !3
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = load ptr, ptr %208, align 8
-  call void %209(ptr noundef nonnull align 8 dereferenceable(16) %201, double noundef %205, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %210 = load double, ptr %4, align 8, !tbaa !122
-  br label %211
+207:                                              ; preds = %.lr.ph.i56
+  %208 = load ptr, ptr %202, align 8, !tbaa !3
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %202, double noundef %206, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %211 = load double, ptr %4, align 8, !tbaa !122
+  br label %212
 
-211:                                              ; preds = %206, %.lr.ph.i56
-  %.pn.i60 = phi double [ %210, %206 ], [ %205, %.lr.ph.i56 ]
+212:                                              ; preds = %207, %.lr.ph.i56
+  %.pn.i60 = phi double [ %211, %207 ], [ %206, %.lr.ph.i56 ]
   %.1.i61 = fadd double %.014.i57, %.pn.i60
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i58, i64 8
-  %213 = load ptr, ptr %33, align 8, !tbaa !93
-  %.not11.i62 = icmp eq ptr %212, %213
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i58, i64 8
+  %214 = load ptr, ptr %33, align 8, !tbaa !93
+  %.not11.i62 = icmp eq ptr %213, %214
   br i1 %.not11.i62, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64, label %.lr.ph.i56, !llvm.loop !124
 
-_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64: ; preds = %211, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
-  %.0.lcssa.i63 = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ], [ %.1.i61, %211 ]
+_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64: ; preds = %212, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
+  %.0.lcssa.i63 = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ], [ %.1.i61, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %187, double noundef %.0.lcssa.i63)
-  %215 = load ptr, ptr %214, align 8, !tbaa !3
-  %216 = getelementptr i8, ptr %215, i64 -24
-  %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %214, i64 %217
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
-  %220 = load i32, ptr %219, align 8, !tbaa !215
-  %221 = and i32 %220, -5
-  store i32 %221, ptr %219, align 8, !tbaa !216
-  %222 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef nonnull @.str.10, i64 noundef 8)
-  %223 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %214, double noundef %148)
-  %224 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull @.str.11, i64 noundef 11)
-  %225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %223, double noundef %149)
-  %226 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull @.str.12, i64 noundef 9)
-  %227 = load ptr, ptr %33, align 8, !tbaa !89
-  %228 = load ptr, ptr %32, align 8, !tbaa !79
-  %229 = ptrtoint ptr %227 to i64
+  %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %188, double noundef %.0.lcssa.i63)
+  %216 = load ptr, ptr %215, align 8, !tbaa !3
+  %217 = getelementptr i8, ptr %216, i64 -24
+  %218 = load i64, ptr %217, align 8
+  %219 = getelementptr inbounds i8, ptr %215, i64 %218
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %221 = load i32, ptr %220, align 8, !tbaa !215
+  %222 = and i32 %221, -5
+  store i32 %222, ptr %220, align 8, !tbaa !216
+  %223 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %215, ptr noundef nonnull @.str.10, i64 noundef 8)
+  %224 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %215, double noundef %149)
+  %225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %224, ptr noundef nonnull @.str.11, i64 noundef 11)
+  %226 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %224, double noundef %150)
+  %227 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %226, ptr noundef nonnull @.str.12, i64 noundef 9)
+  %228 = load ptr, ptr %33, align 8, !tbaa !89
+  %229 = load ptr, ptr %32, align 8, !tbaa !79
   %230 = ptrtoint ptr %228 to i64
-  %231 = sub i64 %229, %230
-  %232 = ashr exact i64 %231, 3
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %225, i64 noundef %232)
-  %234 = load ptr, ptr %12, align 8, !tbaa !83
-  %235 = load ptr, ptr %234, align 8, !tbaa !3
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 48
-  %237 = load ptr, ptr %236, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(64) %234, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
-  %238 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !3
-  %239 = getelementptr i8, ptr %238, i64 -24
-  %240 = load i64, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %240
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 240
-  %243 = load ptr, ptr %242, align 8, !tbaa !180
-  %.not.i.i.i = icmp eq ptr %243, null
-  br i1 %.not.i.i.i, label %244, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %231 = ptrtoint ptr %229 to i64
+  %232 = sub i64 %230, %231
+  %233 = ashr exact i64 %232, 3
+  %234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %226, i64 noundef %233)
+  %235 = load ptr, ptr %12, align 8, !tbaa !83
+  %236 = load ptr, ptr %235, align 8, !tbaa !3
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
+  %238 = load ptr, ptr %237, align 8
+  call void %238(ptr noundef nonnull align 8 dereferenceable(64) %235, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
+  %239 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !3
+  %240 = getelementptr i8, ptr %239, i64 -24
+  %241 = load i64, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %241
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 240
+  %244 = load ptr, ptr %243, align 8, !tbaa !180
+  %.not.i.i.i = icmp eq ptr %244, null
+  br i1 %.not.i.i.i, label %245, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-244:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64
+245:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64
   call void @_ZSt16__throw_bad_castv() #29
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64
-  %245 = getelementptr inbounds nuw i8, ptr %243, i64 56
-  %246 = load i8, ptr %245, align 8, !tbaa !195
-  %.not.i1.i.i = icmp eq i8 %246, 0
-  br i1 %.not.i1.i.i, label %250, label %247
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 56
+  %247 = load i8, ptr %246, align 8, !tbaa !195
+  %.not.i1.i.i = icmp eq i8 %247, 0
+  br i1 %.not.i1.i.i, label %251, label %248
 
-247:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %248 = getelementptr inbounds nuw i8, ptr %243, i64 67
-  %249 = load i8, ptr %248, align 1, !tbaa !200
+248:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 67
+  %250 = load i8, ptr %249, align 1, !tbaa !200
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-250:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %243)
-  %251 = load ptr, ptr %243, align 8, !tbaa !3
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 48
-  %253 = load ptr, ptr %252, align 8
-  %254 = call noundef signext i8 %253(ptr noundef nonnull align 8 dereferenceable(570) %243, i8 noundef signext 10)
+251:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %244)
+  %252 = load ptr, ptr %244, align 8, !tbaa !3
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 48
+  %254 = load ptr, ptr %253, align 8
+  %255 = call noundef signext i8 %254(ptr noundef nonnull align 8 dereferenceable(570) %244, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %247, %250
-  %.0.i.i.i = phi i8 [ %249, %247 ], [ %254, %250 ]
-  %255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
-  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %255)
-  br label %257
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %248, %251
+  %.0.i.i.i = phi i8 [ %250, %248 ], [ %255, %251 ]
+  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
+  %257 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %256)
+  br label %258
 
-257:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %143
-  %.136 = phi double [ %149, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %.03570, %143 ]
-  %258 = add nuw nsw i32 %.03371, 1
-  %259 = load ptr, ptr %0, align 8, !tbaa !3
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 112
-  %261 = load ptr, ptr %260, align 8
-  call void %261(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %50)
+258:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %144
+  %.136 = phi double [ %150, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %.03570, %144 ]
+  %259 = add nuw nsw i32 %.03371, 1
+  %260 = load ptr, ptr %0, align 8, !tbaa !3
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 112
+  %262 = load ptr, ptr %261, align 8
+  call void %262(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %51)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %38, !llvm.loop !217
 
 .critedge:                                        ; preds = %27, %_ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit, %.critedge.loopexit, %11, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %11 ], [ 0, %_ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit ], [ %45, %.critedge.loopexit ], [ 0, %27 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %11 ], [ 0, %_ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit ], [ %46, %.critedge.loopexit ], [ 0, %27 ]
   ret i32 %.0
 }
 

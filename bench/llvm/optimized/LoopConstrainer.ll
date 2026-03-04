@@ -557,7 +557,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %157
 
 191:                                              ; preds = %160, %170, %172, %181, %187, %185, %173, %_ZNK4llvm11ConstantInt5isOneEv.exit
   %.1262 = phi ptr [ %.0261, %170 ], [ %.0261, %172 ], [ %.0261, %173 ], [ %190, %187 ], [ %.0261, %185 ], [ %184, %181 ], [ %.0261, %_ZNK4llvm11ConstantInt5isOneEv.exit ], [ %.0261, %160 ]
-  %.0195 = phi i1 [ false, %170 ], [ false, %172 ], [ false, %173 ], [ true, %187 ], [ false, %185 ], [ true, %181 ], [ false, %_ZNK4llvm11ConstantInt5isOneEv.exit ], [ false, %160 ]
+  %.0195 = phi i1 [ true, %170 ], [ true, %172 ], [ %56, %173 ], [ true, %187 ], [ false, %185 ], [ true, %181 ], [ %56, %_ZNK4llvm11ConstantInt5isOneEv.exit ], [ %56, %160 ]
   %.1188 = phi i32 [ 36, %170 ], [ 40, %172 ], [ %.0187, %173 ], [ 38, %187 ], [ 32, %185 ], [ 34, %181 ], [ %.0187, %_ZNK4llvm11ConstantInt5isOneEv.exit ], [ %.0187, %160 ]
   %192 = icmp eq i32 %.1188, 40
   %193 = icmp eq i32 %.1188, 36
@@ -599,8 +599,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %157
   br label %.thread
 
 207:                                              ; preds = %203
-  %or.cond18 = or i1 %56, %.0195
-  br i1 %or.cond18, label %253, label %208
+  br i1 %.0195, label %253, label %208
 
 208:                                              ; preds = %207
   %209 = tail call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.1262) #16
@@ -646,7 +645,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %157
 
 229:                                              ; preds = %.sink.split, %214, %224, %216, %212
   %.2263 = phi ptr [ %.0261, %214 ], [ %.0261, %216 ], [ %.0261, %212 ], [ %.0261, %224 ], [ %228, %.sink.split ]
-  %.0196 = phi i1 [ false, %214 ], [ false, %216 ], [ false, %212 ], [ false, %224 ], [ true, %.sink.split ]
+  %.0196 = phi i1 [ true, %214 ], [ %56, %216 ], [ %56, %212 ], [ false, %224 ], [ true, %.sink.split ]
   %.2 = phi i32 [ 38, %214 ], [ %.0187, %216 ], [ %.0187, %212 ], [ 32, %224 ], [ %.2.ph, %.sink.split ]
   %230 = icmp eq i32 %.2, 40
   %231 = icmp eq i32 %.2, 38
@@ -695,8 +694,7 @@ switch.early.test:                                ; preds = %.critedge215
   br label %.thread
 
 248:                                              ; preds = %244
-  %or.cond20 = or i1 %56, %.0196
-  br i1 %or.cond20, label %253, label %249
+  br i1 %.0196, label %253, label %249
 
 249:                                              ; preds = %248
   %250 = tail call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.2263) #16

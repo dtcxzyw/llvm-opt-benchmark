@@ -9463,7 +9463,7 @@ sub_1416:                                         ; preds = %sub_0415
   br label %.thread386
 
 .thread386:                                       ; preds = %1244, %1249, %1247
-  %or.cond5390 = phi i1 [ false, %1247 ], [ true, %1249 ], [ false, %1244 ]
+  %or.cond5390 = phi i1 [ %.not250, %1247 ], [ true, %1249 ], [ %.not250, %1244 ]
   %.2368389 = phi i32 [ %.0366.lcssa, %1247 ], [ 0, %1249 ], [ 1, %1244 ]
   %.not311 = icmp eq i32 %.2368389, 0
   %1250 = select i1 %.not311, ptr %3, ptr %2
@@ -9521,8 +9521,7 @@ hwloc__xml_verbose.exit361:                       ; preds = %1260, %1266
   br label %.critedge327
 
 .critedge327:                                     ; preds = %1255, %1268, %hwloc__xml_verbose.exit361
-  %or.cond409 = or i1 %.not250, %or.cond5390
-  br i1 %or.cond409, label %.thread, label %.thread402
+  br i1 %or.cond5390, label %.thread, label %.thread402
 
 1275:                                             ; preds = %1255
   %1276 = load ptr, ptr %40, align 8, !tbaa !15
@@ -9538,8 +9537,7 @@ hwloc__xml_verbose.exit361:                       ; preds = %1260, %1266
   br i1 %1283, label %1284, label %1285
 
 1284:                                             ; preds = %1275
-  %or.cond407 = or i1 %.not250, %or.cond5390
-  br i1 %or.cond407, label %.thread, label %.thread402
+  br i1 %or.cond5390, label %.thread, label %.thread402
 
 1285:                                             ; preds = %1275
   %.not314 = icmp eq i32 %1282, 0

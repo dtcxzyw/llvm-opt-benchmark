@@ -412,8 +412,8 @@ _ZL6_pow10j.exit105.i:                            ; preds = %110
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %87, %91, %93, %95, %_ZL6_pow10j.exit98.i, %_ZL6_pow10j.exit105.i
-  %.010 = phi ptr [ %1, %.critedge.i ], [ %.1.i, %87 ], [ %.1.i, %91 ], [ %.1.i, %93 ], [ %.1.i, %95 ], [ %.1.i, %_ZL6_pow10j.exit98.i ], [ %.1.i, %_ZL6_pow10j.exit105.i ]
-  %.0.i = phi double [ 0.000000e+00, %.critedge.i ], [ %.4.i, %87 ], [ %92, %91 ], [ %94, %93 ], [ %.4.i, %95 ], [ %105, %_ZL6_pow10j.exit98.i ], [ %113, %_ZL6_pow10j.exit105.i ]
+  %.010 = phi ptr [ %.1.i, %_ZL6_pow10j.exit105.i ], [ %.1.i, %87 ], [ %.1.i, %91 ], [ %.1.i, %93 ], [ %.1.i, %95 ], [ %.1.i, %_ZL6_pow10j.exit98.i ], [ %.058.lcssa.i, %.critedge.i ]
+  %.0.i = phi double [ %113, %_ZL6_pow10j.exit105.i ], [ %.4.i, %87 ], [ %92, %91 ], [ %94, %93 ], [ %.4.i, %95 ], [ %105, %_ZL6_pow10j.exit98.i ], [ 0.000000e+00, %.critedge.i ]
   store double %.0.i, ptr %2, align 8, !tbaa !18
   %114 = icmp eq ptr %5, %.010
   br i1 %114, label %118, label %115, !prof !17

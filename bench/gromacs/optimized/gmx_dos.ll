@@ -2020,14 +2020,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462: ; preds = %_Z
   %903 = fmul float %897, %897
   %904 = fmul float %903, %900
   %905 = fdiv float %904, %902
+  %906 = fmul float %892, %905
   br label %_ZL7wCsolidff.exit
 
 _ZL7wCsolidff.exit:                               ; preds = %899, %888
-  %.0.i463 = phi float [ %905, %899 ], [ 1.000000e+00, %888 ]
-  %906 = fpext float %890 to double
-  %907 = fmul float %892, %.0.i463
-  %908 = fpext float %907 to double
-  %909 = call double @llvm.fmuladd.f64(double %906, double 5.000000e-01, double %908)
+  %.0.i463 = phi float [ %906, %899 ], [ %892, %888 ]
+  %907 = fpext float %890 to double
+  %908 = fpext float %.0.i463 to double
+  %909 = call double @llvm.fmuladd.f64(double %907, double 5.000000e-01, double %908)
   %910 = fptrunc double %909 to float
   %911 = getelementptr inbounds nuw float, ptr %880, i64 %indvars.iv698
   store float %910, ptr %911, align 4, !tbaa !28
@@ -2048,14 +2048,14 @@ _ZL7wCsolidff.exit:                               ; preds = %899, %888
   %924 = fneg float %923
   %925 = call noundef float @log1pf(float noundef %924) #17, !tbaa !4
   %926 = fsub float %921, %925
+  %927 = fmul float %913, %926
   br label %_ZL7wSsolidff.exit
 
 _ZL7wSsolidff.exit:                               ; preds = %919, %_ZL7wCsolidff.exit
-  %.0.i464 = phi float [ %926, %919 ], [ 1.000000e+00, %_ZL7wCsolidff.exit ]
-  %927 = fpext float %912 to double
-  %928 = fmul float %913, %.0.i464
-  %929 = fpext float %928 to double
-  %930 = call double @llvm.fmuladd.f64(double %927, double %872, double %929)
+  %.0.i464 = phi float [ %927, %919 ], [ %913, %_ZL7wCsolidff.exit ]
+  %928 = fpext float %912 to double
+  %929 = fpext float %.0.i464 to double
+  %930 = call double @llvm.fmuladd.f64(double %928, double %872, double %929)
   %931 = fptrunc double %930 to float
   %932 = getelementptr inbounds nuw float, ptr %882, i64 %indvars.iv698
   store float %931, ptr %932, align 4, !tbaa !28
@@ -2105,12 +2105,12 @@ _ZL7wAsolidff.exit:                               ; preds = %940, %_ZL7wSsolidff
   %967 = fdiv float %962, %966
   %968 = fadd float %965, %967
   %969 = fadd float %968, -1.000000e+00
+  %970 = fmul float %958, %969
   br label %_ZL7wEsolidff.exit
 
 _ZL7wEsolidff.exit:                               ; preds = %_ZL7wAsolidff.exit, %964
-  %.0.i466 = phi float [ %969, %964 ], [ 1.000000e+00, %_ZL7wAsolidff.exit ]
-  %970 = fmul float %958, %.0.i466
-  %971 = fpext float %970 to double
+  %.0.i466 = phi float [ %970, %964 ], [ %958, %_ZL7wAsolidff.exit ]
+  %971 = fpext float %.0.i466 to double
   %972 = call double @llvm.fmuladd.f64(double %957, double 5.000000e-01, double %971)
   %973 = fptrunc double %972 to float
   %974 = getelementptr inbounds nuw float, ptr %886, i64 %indvars.iv698

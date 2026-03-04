@@ -2538,15 +2538,15 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 172
   br label %24
 
-24:                                               ; preds = %.lr.ph80, %72
-  %.pre8384 = phi i64 [ %16, %.lr.ph80 ], [ %.pre8385, %72 ]
-  %25 = phi i64 [ %16, %.lr.ph80 ], [ %73, %72 ]
-  %.04979 = phi i64 [ 0, %.lr.ph80 ], [ %74, %72 ]
-  %.05478 = phi i32 [ 3, %.lr.ph80 ], [ %.256, %72 ]
+24:                                               ; preds = %.lr.ph80, %70
+  %.pre8384 = phi i64 [ %16, %.lr.ph80 ], [ %.pre8385, %70 ]
+  %25 = phi i64 [ %16, %.lr.ph80 ], [ %71, %70 ]
+  %.04979 = phi i64 [ 0, %.lr.ph80 ], [ %72, %70 ]
+  %.05478 = phi i32 [ 3, %.lr.ph80 ], [ %.256, %70 ]
   %26 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %17, i64 %.04979
   %27 = load i8, ptr %26, align 8
   %.not = icmp eq i8 %27, 6
-  br i1 %.not, label %28, label %72
+  br i1 %.not, label %28, label %70
 
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2621,7 +2621,7 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
 Dot11DecryptGetKckLen.exit.i:                     ; preds = %47, %46, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42
   %48 = phi i1 [ true, %47 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %42 ], [ false, %46 ], [ false, %42 ]
   %.0.i.i = phi i32 [ 65535, %47 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 128, %42 ], [ 192, %46 ], [ 128, %42 ]
-  switch i32 %.pre, label %Dot11DecryptGetTkLen.exit.i.thread [
+  switch i32 %.pre, label %Dot11DecryptGetTkLen.exit.i.thread113 [
     i32 1, label %Dot11DecryptGetTkLen.exit.i
     i32 2, label %Dot11DecryptGetTkLen.exit.i
     i32 3, label %Dot11DecryptGetTkLen.exit.i
@@ -2637,9 +2637,9 @@ Dot11DecryptGetKckLen.exit.i:                     ; preds = %47, %46, %42, %42, 
   ]
 
 49:                                               ; preds = %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i
-  br label %Dot11DecryptGetTkLen.exit.i
+  br i1 %48, label %Dot11DecryptGetTkLen.exit.thread.i, label %Dot11DecryptGetTkLen.exit.i.thread
 
-Dot11DecryptGetTkLen.exit.i.thread:               ; preds = %Dot11DecryptGetKckLen.exit.i
+Dot11DecryptGetTkLen.exit.i.thread113:            ; preds = %Dot11DecryptGetKckLen.exit.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2408, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49)
   br label %Dot11DecryptGetTkLen.exit.thread.i
 
@@ -2650,7 +2650,7 @@ Dot11DecryptGetKekLen.exit.i:                     ; preds = %.lr.ph
   %52 = tail call ptr @__memcpy_chk(ptr noundef %22, ptr noundef nonnull %29, i64 noundef %51, i64 noundef 60) #15, !alias.scope !38
   store i8 2, ptr %12, align 4
   switch i32 %40, label %56 [
-    i32 1, label %Dot11DecryptGetTkLen.exit.i
+    i32 1, label %Dot11DecryptGetTkLen.exit.i.thread
     i32 13, label %53
     i32 3, label %Dot11DecryptGetTkLen.exit.thread.i
     i32 4, label %54
@@ -2665,63 +2665,62 @@ Dot11DecryptGetKekLen.exit.i:                     ; preds = %.lr.ph
   ]
 
 53:                                               ; preds = %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i
-  br label %Dot11DecryptGetTkLen.exit.i
+  br label %Dot11DecryptGetTkLen.exit.i.thread
 
 54:                                               ; preds = %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i
-  br label %Dot11DecryptGetTkLen.exit.i
+  br label %Dot11DecryptGetTkLen.exit.i.thread
 
 55:                                               ; preds = %Dot11DecryptGetKekLen.exit.i
-  br label %Dot11DecryptGetTkLen.exit.i
+  br label %Dot11DecryptGetTkLen.exit.i.thread
 
 56:                                               ; preds = %Dot11DecryptGetKekLen.exit.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2362, ptr noundef nonnull @__func__.Dot11DecryptGetTkLen, ptr noundef nonnull @.str.48)
   br label %Dot11DecryptGetTkLen.exit.thread.i
 
-Dot11DecryptGetTkLen.exit.i:                      ; preds = %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %49, %55, %54, %53, %Dot11DecryptGetKekLen.exit.i
-  %.0.i16.i102 = phi i32 [ 128, %54 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %55 ], [ 128, %53 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ]
-  %57 = phi i1 [ false, %54 ], [ false, %Dot11DecryptGetKekLen.exit.i ], [ false, %55 ], [ false, %53 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %49 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ]
-  %.0.i.i96100 = phi i32 [ 128, %54 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %55 ], [ 128, %53 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %49 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ]
-  %.0.i17.i = phi i32 [ 128, %54 ], [ 40, %Dot11DecryptGetKekLen.exit.i ], [ 104, %55 ], [ 256, %53 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ]
-  br i1 %57, label %Dot11DecryptGetTkLen.exit.thread.i, label %58
+Dot11DecryptGetTkLen.exit.i:                      ; preds = %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i
+  br i1 %48, label %Dot11DecryptGetTkLen.exit.thread.i, label %Dot11DecryptGetTkLen.exit.i.thread
 
-Dot11DecryptGetTkLen.exit.thread.i:               ; preds = %Dot11DecryptGetTkLen.exit.i.thread, %Dot11DecryptGetTkLen.exit.i, %56, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i
+Dot11DecryptGetTkLen.exit.thread.i:               ; preds = %49, %Dot11DecryptGetTkLen.exit.i.thread113, %Dot11DecryptGetTkLen.exit.i, %56, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2422, ptr noundef nonnull @__func__.Dot11DecryptGetPtkLen, ptr noundef nonnull @.str.35)
   br label %Dot11DecryptGetPtkLen.exit
 
-58:                                               ; preds = %Dot11DecryptGetTkLen.exit.i
-  %59 = add nuw nsw i32 %.0.i16.i102, %.0.i.i96100
-  %60 = add nuw nsw i32 %59, %.0.i17.i
-  %61 = lshr i32 %60, 3
-  %62 = and i32 %61, 8191
+Dot11DecryptGetTkLen.exit.i.thread:               ; preds = %53, %55, %Dot11DecryptGetKekLen.exit.i, %54, %49, %Dot11DecryptGetTkLen.exit.i
+  %.0.i17.i112 = phi i32 [ 256, %49 ], [ 256, %Dot11DecryptGetTkLen.exit.i ], [ 256, %53 ], [ 104, %55 ], [ 40, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ]
+  %.0.i.i96101111 = phi i32 [ %.0.i.i, %49 ], [ %.0.i.i, %Dot11DecryptGetTkLen.exit.i ], [ 128, %53 ], [ 128, %55 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ]
+  %.0.i16.i105110 = phi i32 [ 256, %49 ], [ 128, %Dot11DecryptGetTkLen.exit.i ], [ 128, %53 ], [ 128, %55 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ]
+  %57 = add nuw nsw i32 %.0.i16.i105110, %.0.i.i96101111
+  %58 = add nuw nsw i32 %57, %.0.i17.i112
+  %59 = lshr i32 %58, 3
+  %60 = and i32 %59, 8191
   br label %Dot11DecryptGetPtkLen.exit
 
-Dot11DecryptGetPtkLen.exit:                       ; preds = %Dot11DecryptGetTkLen.exit.thread.i, %58
-  %.0.i66 = phi i32 [ 0, %Dot11DecryptGetTkLen.exit.thread.i ], [ %62, %58 ]
+Dot11DecryptGetPtkLen.exit:                       ; preds = %Dot11DecryptGetTkLen.exit.thread.i, %Dot11DecryptGetTkLen.exit.i.thread
+  %.0.i66 = phi i32 [ 0, %Dot11DecryptGetTkLen.exit.thread.i ], [ %60, %Dot11DecryptGetTkLen.exit.i.thread ]
   store i32 %.0.i66, ptr %23, align 4
-  %63 = tail call fastcc i32 @Dot11DecryptRsnaMng(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9)
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %35
+  %61 = tail call fastcc i32 @Dot11DecryptRsnaMng(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9)
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %35
 
-65:                                               ; preds = %Dot11DecryptGetPtkLen.exit
+63:                                               ; preds = %Dot11DecryptGetPtkLen.exit
   %.val.i = load ptr, ptr %0, align 8
-  %66 = tail call ptr @g_hash_table_lookup(ptr noundef %.val.i, ptr noundef %4)
-  %.not.i67 = icmp eq ptr %66, null
-  br i1 %.not.i67, label %68, label %67
+  %64 = tail call ptr @g_hash_table_lookup(ptr noundef %.val.i, ptr noundef %4)
+  %.not.i67 = icmp eq ptr %64, null
+  br i1 %.not.i67, label %66, label %65
 
-67:                                               ; preds = %65
+65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %66, i64 176, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %66, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %64, i64 176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %64, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
-  store ptr %9, ptr %66, align 8
+  store ptr %9, ptr %64, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %75
+  br label %73
 
-68:                                               ; preds = %65
-  %69 = tail call dereferenceable_or_null(12) ptr @g_memdup2(ptr noundef %4, i64 noundef 12) #16
-  %70 = load ptr, ptr %0, align 8
-  %71 = tail call i32 @g_hash_table_insert(ptr noundef %70, ptr noundef %69, ptr noundef nonnull %9)
-  br label %75
+66:                                               ; preds = %63
+  %67 = tail call dereferenceable_or_null(12) ptr @g_memdup2(ptr noundef %4, i64 noundef 12) #16
+  %68 = load ptr, ptr %0, align 8
+  %69 = tail call i32 @g_hash_table_insert(ptr noundef %68, ptr noundef %67, ptr noundef nonnull %9)
+  br label %73
 
 Dot11DecryptAddSa.exit.loopexit:                  ; preds = %35
   %.pre83.pre = load i64, ptr %15, align 8
@@ -2729,29 +2728,29 @@ Dot11DecryptAddSa.exit.loopexit:                  ; preds = %35
 
 Dot11DecryptAddSa.exit:                           ; preds = %Dot11DecryptAddSa.exit.loopexit, %28
   %.pre83 = phi i64 [ %.pre8384, %28 ], [ %.pre83.pre, %Dot11DecryptAddSa.exit.loopexit ]
-  %.357 = phi i32 [ %.05478, %28 ], [ %63, %Dot11DecryptAddSa.exit.loopexit ]
+  %.357 = phi i32 [ %.05478, %28 ], [ %61, %Dot11DecryptAddSa.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %72
+  br label %70
 
-72:                                               ; preds = %Dot11DecryptAddSa.exit, %24
+70:                                               ; preds = %Dot11DecryptAddSa.exit, %24
   %.pre8385 = phi i64 [ %.pre8384, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
-  %73 = phi i64 [ %25, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
+  %71 = phi i64 [ %25, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
   %.256 = phi i32 [ %.05478, %24 ], [ %.357, %Dot11DecryptAddSa.exit ]
-  %74 = add nuw i64 %.04979, 1
-  %.not65 = icmp ult i64 %74, %73
+  %72 = add nuw i64 %.04979, 1
+  %.not65 = icmp ult i64 %72, %71
   br i1 %.not65, label %24, label %.thread, !llvm.loop !42
 
-75:                                               ; preds = %67, %68
+73:                                               ; preds = %65, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Dot11DecryptNewSa.exit.thread
 
-.thread:                                          ; preds = %72, %10
-  %.054.lcssa = phi i32 [ 3, %10 ], [ %.256, %72 ]
+.thread:                                          ; preds = %70, %10
+  %.054.lcssa = phi i32 [ 3, %10 ], [ %.256, %70 ]
   tail call void @g_free(ptr noundef nonnull %9)
   br label %Dot11DecryptNewSa.exit.thread
 
-Dot11DecryptNewSa.exit.thread:                    ; preds = %75, %6, %.thread
-  %.051 = phi i32 [ 0, %75 ], [ %.054.lcssa, %.thread ], [ 3, %6 ]
+Dot11DecryptNewSa.exit.thread:                    ; preds = %73, %6, %.thread
+  %.051 = phi i32 [ 0, %73 ], [ %.054.lcssa, %.thread ], [ 3, %6 ]
   ret i32 %.051
 }
 
@@ -4333,53 +4332,52 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %2, %2, %2, %2, %2, 
   br label %Dot11DecryptGetKekLen.exit
 
 Dot11DecryptGetKekLen.exit:                       ; preds = %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %Dot11DecryptGetKckLen.exit, %6, %7
-  %8 = phi i1 [ true, %7 ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %Dot11DecryptGetKckLen.exit ], [ false, %6 ], [ false, %Dot11DecryptGetKckLen.exit ]
+  %or.cond = phi i1 [ true, %7 ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %Dot11DecryptGetKckLen.exit ], [ %5, %6 ], [ %5, %Dot11DecryptGetKckLen.exit ]
   %.0.i16 = phi i32 [ -1, %7 ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 128, %Dot11DecryptGetKckLen.exit ], [ 256, %6 ], [ 128, %Dot11DecryptGetKckLen.exit ]
-  switch i32 %1, label %12 [
+  switch i32 %1, label %11 [
     i32 1, label %Dot11DecryptGetTkLen.exit
-    i32 2, label %9
+    i32 2, label %8
     i32 3, label %Dot11DecryptGetTkLen.exit.thread
-    i32 4, label %10
-    i32 5, label %11
-    i32 6, label %10
+    i32 4, label %9
+    i32 5, label %10
+    i32 6, label %9
     i32 7, label %Dot11DecryptGetTkLen.exit.thread
-    i32 8, label %10
-    i32 9, label %9
-    i32 10, label %9
-    i32 11, label %10
-    i32 12, label %9
-    i32 13, label %9
+    i32 8, label %9
+    i32 9, label %8
+    i32 10, label %8
+    i32 11, label %9
+    i32 12, label %8
+    i32 13, label %8
   ]
 
-9:                                                ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit
+8:                                                ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit
   br label %Dot11DecryptGetTkLen.exit
 
-10:                                               ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit
+9:                                                ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit
+  br label %Dot11DecryptGetTkLen.exit
+
+10:                                               ; preds = %Dot11DecryptGetKekLen.exit
   br label %Dot11DecryptGetTkLen.exit
 
 11:                                               ; preds = %Dot11DecryptGetKekLen.exit
-  br label %Dot11DecryptGetTkLen.exit
-
-12:                                               ; preds = %Dot11DecryptGetKekLen.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2362, ptr noundef nonnull @__func__.Dot11DecryptGetTkLen, ptr noundef nonnull @.str.48)
   br label %Dot11DecryptGetTkLen.exit.thread
 
-Dot11DecryptGetTkLen.exit:                        ; preds = %Dot11DecryptGetKekLen.exit, %9, %10, %11
-  %.0.i17 = phi i32 [ 128, %10 ], [ 40, %Dot11DecryptGetKekLen.exit ], [ 256, %9 ], [ 104, %11 ]
-  %or.cond = or i1 %5, %8
-  br i1 %or.cond, label %Dot11DecryptGetTkLen.exit.thread, label %13
+Dot11DecryptGetTkLen.exit:                        ; preds = %Dot11DecryptGetKekLen.exit, %8, %9, %10
+  %.0.i17 = phi i32 [ 128, %9 ], [ 40, %Dot11DecryptGetKekLen.exit ], [ 256, %8 ], [ 104, %10 ]
+  br i1 %or.cond, label %Dot11DecryptGetTkLen.exit.thread, label %12
 
-Dot11DecryptGetTkLen.exit.thread:                 ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %12, %Dot11DecryptGetTkLen.exit
+Dot11DecryptGetTkLen.exit.thread:                 ; preds = %Dot11DecryptGetKekLen.exit, %Dot11DecryptGetKekLen.exit, %11, %Dot11DecryptGetTkLen.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2422, ptr noundef nonnull @__func__.Dot11DecryptGetPtkLen, ptr noundef nonnull @.str.35)
-  br label %16
+  br label %15
 
-13:                                               ; preds = %Dot11DecryptGetTkLen.exit
-  %14 = add nuw nsw i32 %.0.i16, %.0.i
-  %15 = add nuw nsw i32 %14, %.0.i17
-  br label %16
+12:                                               ; preds = %Dot11DecryptGetTkLen.exit
+  %13 = add nuw nsw i32 %.0.i16, %.0.i
+  %14 = add nuw nsw i32 %13, %.0.i17
+  br label %15
 
-16:                                               ; preds = %13, %Dot11DecryptGetTkLen.exit.thread
-  %.0 = phi i32 [ -1, %Dot11DecryptGetTkLen.exit.thread ], [ %15, %13 ]
+15:                                               ; preds = %12, %Dot11DecryptGetTkLen.exit.thread
+  %.0 = phi i32 [ -1, %Dot11DecryptGetTkLen.exit.thread ], [ %14, %12 ]
   ret i32 %.0
 }
 

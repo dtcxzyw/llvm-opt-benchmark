@@ -12094,8 +12094,8 @@ _ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit:         ; preds = %13
   %54 = fmul float %53, 5.000000e-01
   %55 = call noundef float @tanf(float noundef %54) #38
   %56 = fcmp oeq float %51, 0.000000e+00
-  %57 = select i1 %56, float 1.000000e+00, float %51
-  %58 = fmul float %57, %55
+  %57 = fmul float %51, %55
+  %58 = select i1 %56, float %55, float %57
   %59 = call noundef float @atanf(float noundef %58) #38
   %60 = fmul float %59, 2.000000e+00
   store float %60, ptr %37, align 4

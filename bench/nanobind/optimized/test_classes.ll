@@ -16513,6 +16513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %36, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %34, ptr %37, align 8, !tbaa !282
+  store ptr %12, ptr %8, align 8, !tbaa !291
   store i64 0, ptr %13, align 8, !tbaa !282
   store i8 0, ptr %12, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -16716,6 +16717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %22, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %20, ptr %23, align 8, !tbaa !282
+  store ptr %8, ptr %6, align 8, !tbaa !291
   store i64 0, ptr %9, align 8, !tbaa !282
   store i8 0, ptr %8, align 8, !tbaa !61
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

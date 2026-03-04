@@ -10883,127 +10883,127 @@ _ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit: ; preds = %.lr.ph.i2
   br label %13
 
 13:                                               ; preds = %13, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit
-  %.01316.i = phi i64 [ 0, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %26, %13 ]
-  %.01415.i = phi i64 [ 1, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %25, %13 ]
+  %.01316.i = phi i64 [ 0, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %25, %13 ]
+  %.01415.i = phi i64 [ 1, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %24, %13 ]
   %14 = getelementptr inbounds nuw i64, ptr %11, i64 %.01316.i
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   %19 = sub nsw i64 0, %.01415.i
-  %20 = select i1 %18, i64 %.01415.i, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %10, i64 %15
-  store i64 %20, ptr %21, align 8
-  %22 = load i64, ptr %14, align 8
-  %23 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %22
-  %24 = load i64, ptr %23, align 8
-  %25 = mul i64 %24, %.01415.i
-  %26 = add nuw nsw i64 %.01316.i, 1
-  %.not.i4 = icmp eq i64 %26, 2
+  %spec.select.i = select i1 %18, i64 %.01415.i, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %10, i64 %15
+  store i64 %spec.select.i, ptr %20, align 8
+  %21 = load i64, ptr %14, align 8
+  %22 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %21
+  %23 = load i64, ptr %22, align 8
+  %24 = mul i64 %23, %.01415.i
+  %25 = add nuw nsw i64 %.01316.i, 1
+  %.not.i4 = icmp eq i64 %25, 2
   br i1 %.not.i4, label %.lr.ph.i.i.i.i, label %13, !llvm.loop !289
 
 .lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
   %.08.i.idx.i.i.i = phi i64 [ %.08.i.add.i.i.i, %.lr.ph.i.i.i.i ], [ 16, %13 ]
-  %.05.in7.i.i.i.i = phi i1 [ %29, %.lr.ph.i.i.i.i ], [ true, %13 ]
+  %.05.in7.i.i.i.i = phi i1 [ %28, %.lr.ph.i.i.i.i ], [ true, %13 ]
   %.08.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.08.i.idx.i.i.i
-  %27 = load i8, ptr %.08.i.ptr.i.i.i, align 1, !range !5
-  %28 = trunc nuw i8 %27 to i1
-  %29 = select i1 %.05.in7.i.i.i.i, i1 %28, i1 false
+  %26 = load i8, ptr %.08.i.ptr.i.i.i, align 1, !range !5
+  %27 = trunc nuw i8 %26 to i1
+  %28 = select i1 %.05.in7.i.i.i.i, i1 %27, i1 false
   %.08.i.add.i.i.i = add nuw nsw i64 %.08.i.idx.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %.08.i.add.i.i.i, 18
   br i1 %.not.i.i.i.i, label %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !290
 
 _ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %29, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i, label %.preheader.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br i1 %28, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i, %42
-  %.not.i.i = phi i1 [ true, %42 ], [ false, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
-  %.012.i.i = phi i64 [ 1, %42 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
-  %.111.i.i = phi i64 [ %.2.i.i, %42 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i.i
-  %32 = load i8, ptr %31, align 1, !range !5, !noundef !6
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %42, label %34
+.preheader.i.i:                                   ; preds = %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i, %41
+  %.not.i.i = phi i1 [ true, %41 ], [ false, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
+  %.012.i.i = phi i64 [ 1, %41 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
+  %.111.i.i = phi i64 [ %.2.i.i, %41 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i.i
+  %31 = load i8, ptr %30, align 1, !range !5, !noundef !6
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %41, label %33
 
-34:                                               ; preds = %.preheader.i.i
-  %35 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %.012.i.i
-  %36 = load i64, ptr %35, align 8
-  %37 = add i64 %36, -1
-  %38 = getelementptr inbounds nuw i64, ptr %10, i64 %.012.i.i
-  %39 = load i64, ptr %38, align 8
-  %40 = mul i64 %37, %39
-  %41 = sub i64 %.111.i.i, %40
-  br label %42
+33:                                               ; preds = %.preheader.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %.012.i.i
+  %35 = load i64, ptr %34, align 8
+  %36 = add i64 %35, -1
+  %37 = getelementptr inbounds nuw i64, ptr %10, i64 %.012.i.i
+  %38 = load i64, ptr %37, align 8
+  %39 = mul i64 %36, %38
+  %40 = sub i64 %.111.i.i, %39
+  br label %41
 
-42:                                               ; preds = %34, %.preheader.i.i
-  %.2.i.i = phi i64 [ %.111.i.i, %.preheader.i.i ], [ %41, %34 ]
+41:                                               ; preds = %33, %.preheader.i.i
+  %.2.i.i = phi i64 [ %.111.i.i, %.preheader.i.i ], [ %40, %33 ]
   br i1 %.not.i.i, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i, label %.preheader.i.i, !llvm.loop !291
 
-_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i: ; preds = %42, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i
-  %.010.i.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ], [ %.2.i.i, %42 ]
-  br label %43
+_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i: ; preds = %41, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i
+  %.010.i.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i.i ], [ %.2.i.i, %41 ]
+  br label %42
 
-43:                                               ; preds = %43, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i
-  %.09.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i ], [ %50, %43 ]
-  %.078.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %10, i64 %.09.i.i
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %30, i64 %.09.i.i
-  %47 = load i64, ptr %46, align 8
-  %48 = mul nsw i64 %47, %45
-  %49 = sub nsw i64 %.078.i.i, %48
-  %50 = add nuw nsw i64 %.09.i.i, 1
-  %.not.i6.i = icmp eq i64 %50, 2
-  br i1 %.not.i6.i, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit, label %43, !llvm.loop !292
+42:                                               ; preds = %42, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i
+  %.09.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i ], [ %49, %42 ]
+  %.078.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit.i ], [ %48, %42 ]
+  %43 = getelementptr inbounds nuw i64, ptr %10, i64 %.09.i.i
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i64, ptr %29, i64 %.09.i.i
+  %46 = load i64, ptr %45, align 8
+  %47 = mul nsw i64 %46, %44
+  %48 = sub nsw i64 %.078.i.i, %47
+  %49 = add nuw nsw i64 %.09.i.i, 1
+  %.not.i6.i = icmp eq i64 %49, 2
+  br i1 %.not.i6.i, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit, label %42, !llvm.loop !292
 
-_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit: ; preds = %43
-  %51 = add nsw i64 %49, %.010.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %51, ptr %52, align 8
+_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit: ; preds = %42
+  %50 = add nsw i64 %48, %.010.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %50, ptr %51, align 8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit
   %.08.i.idx.i.i = phi i64 [ %.08.i.add.i.i, %.lr.ph.i.i.i ], [ 16, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit ]
-  %.05.in7.i.i.i = phi i1 [ %55, %.lr.ph.i.i.i ], [ true, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit ]
+  %.05.in7.i.i.i = phi i1 [ %54, %.lr.ph.i.i.i ], [ true, %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE23calculate_origin_offsetINS_5arrayIlLm2EEENS7_ImLm2EEES8_EElRKT_RKT0_RKNS_21general_storage_orderILm2EEERKT1_.exit ]
   %.08.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.08.i.idx.i.i
-  %53 = load i8, ptr %.08.i.ptr.i.i, align 1, !range !5
-  %54 = trunc nuw i8 %53 to i1
-  %55 = select i1 %.05.in7.i.i.i, i1 %54, i1 false
+  %52 = load i8, ptr %.08.i.ptr.i.i, align 1, !range !5
+  %53 = trunc nuw i8 %52 to i1
+  %54 = select i1 %.05.in7.i.i.i, i1 %53, i1 false
   %.08.i.add.i.i = add nuw nsw i64 %.08.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.08.i.add.i.i, 18
   br i1 %.not.i.i.i, label %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !290
 
 _ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i: ; preds = %.lr.ph.i.i.i
-  br i1 %55, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit, label %.preheader.i
+  br i1 %54, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i, %67
-  %.not.i5 = phi i1 [ true, %67 ], [ false, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
-  %.012.i = phi i64 [ 1, %67 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
-  %.111.i = phi i64 [ %.2.i, %67 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i
-  %57 = load i8, ptr %56, align 1, !range !5, !noundef !6
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %67, label %59
+.preheader.i:                                     ; preds = %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i, %66
+  %.not.i5 = phi i1 [ true, %66 ], [ false, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
+  %.012.i = phi i64 [ 1, %66 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
+  %.111.i = phi i64 [ %.2.i, %66 ], [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i
+  %56 = load i8, ptr %55, align 1, !range !5, !noundef !6
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %66, label %58
 
-59:                                               ; preds = %.preheader.i
-  %60 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %.012.i
-  %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -1
-  %63 = getelementptr inbounds nuw i64, ptr %10, i64 %.012.i
-  %64 = load i64, ptr %63, align 8
-  %65 = mul i64 %62, %64
-  %66 = sub i64 %.111.i, %65
-  br label %67
+58:                                               ; preds = %.preheader.i
+  %59 = getelementptr inbounds nuw i64, ptr %.ptr6, i64 %.012.i
+  %60 = load i64, ptr %59, align 8
+  %61 = add i64 %60, -1
+  %62 = getelementptr inbounds nuw i64, ptr %10, i64 %.012.i
+  %63 = load i64, ptr %62, align 8
+  %64 = mul i64 %61, %63
+  %65 = sub i64 %.111.i, %64
+  br label %66
 
-67:                                               ; preds = %59, %.preheader.i
-  %.2.i = phi i64 [ %.111.i, %.preheader.i ], [ %66, %59 ]
+66:                                               ; preds = %58, %.preheader.i
+  %.2.i = phi i64 [ %.111.i, %.preheader.i ], [ %65, %58 ]
   br i1 %.not.i5, label %_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit, label %.preheader.i, !llvm.loop !291
 
-_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit: ; preds = %67, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i
-  %.010.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ], [ %.2.i, %67 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.010.i, ptr %68, align 8
+_ZN5boost6detail11multi_array21multi_array_impl_baseISt4pairIdjELm2EE37calculate_descending_dimension_offsetINS_5arrayIlLm2EEENS7_ImLm2EEEEElRKT_RKT0_RKNS_21general_storage_orderILm2EEE.exit: ; preds = %66, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i
+  %.010.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm2EE18all_dims_ascendingEv.exit.i ], [ %.2.i, %66 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %.010.i, ptr %67, align 8
   ret void
 }
 

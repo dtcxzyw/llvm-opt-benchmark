@@ -3444,15 +3444,14 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
   br label %6
 
 6:                                                ; preds = %4, %1
-  %.0 = phi i1 [ %.not37, %4 ], [ false, %1 ]
+  %.0 = phi i1 [ %.not37, %4 ], [ true, %1 ]
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   %8 = tail call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %7) #19
   store ptr %8, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -2, ptr %9, align 8
-  %or.cond = or i1 %.not, %.0
-  br i1 %or.cond, label %14, label %10
+  br i1 %.0, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
@@ -3473,7 +3472,7 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 
 19:                                               ; preds = %14
   %20 = call ptr @list_iterator_create(ptr noundef nonnull %16) #19
-  br i1 %or.cond, label %.preheader, label %28
+  br i1 %.0, label %.preheader, label %28
 
 .preheader:                                       ; preds = %19
   %21 = call ptr @list_next(ptr noundef %20) #19

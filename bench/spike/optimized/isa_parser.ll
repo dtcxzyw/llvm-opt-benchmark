@@ -1155,6 +1155,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   %358 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %359 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %355, ptr %359, align 8, !tbaa !9, !alias.scope !66
+  store ptr %352, ptr %349, align 8, !tbaa !25
   store i64 0, ptr %358, align 8, !tbaa !9
   store i8 0, ptr %352, align 8, !tbaa !12
   %360 = add nuw nsw i64 %355, 1

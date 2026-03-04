@@ -45379,7 +45379,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   br label %.split11
 
 27:                                               ; preds = %.split
-  %28 = add nuw nsw i64 %47, 1
+  %28 = add nuw nsw i64 %48, 1
   %29 = icmp eq i64 %28, 10
   br i1 %29, label %.split11, label %.split, !llvm.loop !694
 
@@ -45415,93 +45415,93 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
 
 .split16.us:                                      ; preds = %42
   %46 = icmp ne i32 %43, 0
+  %47 = or i32 %.us-phi, %43
   br label %.split16
 
 .split:                                           ; preds = %9, %27
-  %47 = phi i64 [ %28, %27 ], [ 0, %9 ]
-  %48 = getelementptr i8, ptr %10, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %50) #29, !srcloc !254
-  %52 = icmp ult i32 %51, 2
-  %.not = icmp eq i8 %49, 0
-  %or.cond = select i1 %52, i1 %.not, i1 false
+  %48 = phi i64 [ %28, %27 ], [ 0, %9 ]
+  %49 = getelementptr i8, ptr %10, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %51) #29, !srcloc !254
+  %53 = icmp ult i32 %52, 2
+  %.not = icmp eq i8 %50, 0
+  %or.cond = select i1 %53, i1 %.not, i1 false
   br i1 %or.cond, label %27, label %.loopexit
 
-53:                                               ; preds = %.split14
-  %54 = add nuw nsw i64 %72, 1
-  %55 = icmp eq i64 %54, 8
-  br i1 %55, label %.split16, label %.split14, !llvm.loop !695
+54:                                               ; preds = %.split14
+  %55 = add nuw nsw i64 %73, 1
+  %56 = icmp eq i64 %55, 8
+  br i1 %56, label %.split16, label %.split14, !llvm.loop !695
 
-.split16:                                         ; preds = %53, %.split16.us
-  %.us-phi17 = phi i32 [ %43, %.split16.us ], [ 0, %53 ]
-  %.us-phi18 = phi i1 [ %46, %.split16.us ], [ false, %53 ]
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 30
+.split16:                                         ; preds = %54, %.split16.us
+  %.us-phi17 = phi i32 [ %47, %.split16.us ], [ %.us-phi, %54 ]
+  %.us-phi18 = phi i1 [ %46, %.split16.us ], [ false, %54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 30
   br i1 %.not32, label %.split21.us, label %.split21
 
-.split21.us:                                      ; preds = %.split16, %68
-  %57 = phi i64 [ %70, %68 ], [ 0, %.split16 ]
-  %58 = phi i32 [ %69, %68 ], [ 0, %.split16 ]
-  %59 = getelementptr i16, ptr %56, i64 %57
-  %60 = load i16, ptr %59, align 2
-  %61 = zext i16 %60 to i32
-  %62 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %61) #29, !srcloc !254
-  %63 = icmp ugt i32 %62, 1
-  br i1 %63, label %.loopexit, label %64
+.split21.us:                                      ; preds = %.split16, %69
+  %58 = phi i64 [ %71, %69 ], [ 0, %.split16 ]
+  %59 = phi i32 [ %70, %69 ], [ 0, %.split16 ]
+  %60 = getelementptr i16, ptr %57, i64 %58
+  %61 = load i16, ptr %60, align 2
+  %62 = zext i16 %61 to i32
+  %63 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %62) #29, !srcloc !254
+  %64 = icmp ugt i32 %63, 1
+  br i1 %64, label %.loopexit, label %65
 
-64:                                               ; preds = %.split21.us
-  %65 = icmp eq i16 %60, 0
-  br i1 %65, label %68, label %66
+65:                                               ; preds = %.split21.us
+  %66 = icmp eq i16 %61, 0
+  br i1 %66, label %69, label %67
 
-66:                                               ; preds = %64
-  %67 = icmp eq i32 %58, 0
-  br i1 %67, label %68, label %.loopexit
+67:                                               ; preds = %65
+  %68 = icmp eq i32 %59, 0
+  br i1 %68, label %69, label %.loopexit
 
-68:                                               ; preds = %66, %64
-  %69 = phi i32 [ 1, %66 ], [ %58, %64 ]
-  %70 = add nuw nsw i64 %57, 1
-  %71 = icmp eq i64 %70, 8
-  br i1 %71, label %.split23, label %.split21.us, !llvm.loop !696
+69:                                               ; preds = %67, %65
+  %70 = phi i32 [ 1, %67 ], [ %59, %65 ]
+  %71 = add nuw nsw i64 %58, 1
+  %72 = icmp eq i64 %71, 8
+  br i1 %72, label %.split23, label %.split21.us, !llvm.loop !696
 
-.split14:                                         ; preds = %.split11, %53
-  %72 = phi i64 [ %54, %53 ], [ 0, %.split11 ]
-  %73 = getelementptr i16, ptr %30, i64 %72
-  %74 = load i16, ptr %73, align 2
-  %75 = zext i16 %74 to i32
-  %76 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %75) #29, !srcloc !254
-  %77 = icmp ult i32 %76, 2
-  %.not31 = icmp eq i16 %74, 0
-  %or.cond57 = select i1 %77, i1 %.not31, i1 false
-  br i1 %or.cond57, label %53, label %.loopexit
+.split14:                                         ; preds = %.split11, %54
+  %73 = phi i64 [ %55, %54 ], [ 0, %.split11 ]
+  %74 = getelementptr i16, ptr %30, i64 %73
+  %75 = load i16, ptr %74, align 2
+  %76 = zext i16 %75 to i32
+  %77 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %76) #29, !srcloc !254
+  %78 = icmp ult i32 %77, 2
+  %.not31 = icmp eq i16 %75, 0
+  %or.cond57 = select i1 %78, i1 %.not31, i1 false
+  br i1 %or.cond57, label %54, label %.loopexit
 
-78:                                               ; preds = %.split21
-  %79 = add nuw nsw i64 %81, 1
-  %80 = icmp eq i64 %79, 8
-  br i1 %80, label %.split23.thread, label %.split21, !llvm.loop !696
+79:                                               ; preds = %.split21
+  %80 = add nuw nsw i64 %82, 1
+  %81 = icmp eq i64 %80, 8
+  br i1 %81, label %.split23.thread, label %.split21, !llvm.loop !696
 
-.split21:                                         ; preds = %.split16, %78
-  %81 = phi i64 [ %79, %78 ], [ 0, %.split16 ]
-  %82 = getelementptr i16, ptr %56, i64 %81
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i32
-  %85 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %84) #29, !srcloc !254
-  %86 = icmp ult i32 %85, 2
-  %.not33 = icmp eq i16 %83, 0
-  %or.cond58 = select i1 %86, i1 %.not33, i1 false
-  br i1 %or.cond58, label %78, label %.loopexit
+.split21:                                         ; preds = %.split16, %79
+  %82 = phi i64 [ %80, %79 ], [ 0, %.split16 ]
+  %83 = getelementptr i16, ptr %57, i64 %82
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i32
+  %86 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %85) #29, !srcloc !254
+  %87 = icmp ult i32 %86, 2
+  %.not33 = icmp eq i16 %84, 0
+  %or.cond58 = select i1 %87, i1 %.not33, i1 false
+  br i1 %or.cond58, label %79, label %.loopexit
 
-.split23:                                         ; preds = %68
-  %87 = icmp ne i32 %69, 0
-  %88 = and i1 %.us-phi12, %.us-phi18
-  %89 = and i1 %88, %87
-  br i1 %89, label %.loopexit, label %.split23.thread
+.split23:                                         ; preds = %69
+  %88 = icmp ne i32 %70, 0
+  %89 = or i32 %.us-phi17, %70
+  %90 = and i1 %.us-phi12, %.us-phi18
+  %91 = and i1 %90, %88
+  br i1 %91, label %.loopexit, label %.split23.thread
 
-.split23.thread:                                  ; preds = %78, %.split23
-  %.us-phi2549 = phi i1 [ %87, %.split23 ], [ false, %78 ]
-  %.us-phi2448 = phi i32 [ %69, %.split23 ], [ 0, %78 ]
-  %90 = or i32 %.us-phi, %.us-phi17
-  %91 = or i32 %90, %.us-phi2448
-  %92 = icmp eq i32 %91, 0
+.split23.thread:                                  ; preds = %79, %.split23
+  %.us-phi2549 = phi i1 [ %88, %.split23 ], [ false, %79 ]
+  %.us-phi2448 = phi i32 [ %89, %.split23 ], [ %.us-phi17, %79 ]
+  %92 = icmp eq i32 %.us-phi2448, 0
   br i1 %92, label %.loopexit, label %93
 
 93:                                               ; preds = %.split23.thread
@@ -45546,8 +45546,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
 116:                                              ; preds = %111, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split, %20, %.split.us, %.split14, %40, %.split14.us, %.split21, %66, %.split21.us, %116, %111, %105, %100, %94, %.split23.thread, %.split23, %3
-  %117 = phi i32 [ 0, %116 ], [ -22, %3 ], [ -22, %.split23.thread ], [ -22, %.split23 ], [ -22, %94 ], [ -22, %100 ], [ -22, %105 ], [ -22, %111 ], [ -22, %.split21 ], [ -22, %20 ], [ -22, %66 ], [ -22, %.split14 ], [ -22, %40 ], [ -22, %.split21.us ], [ -22, %.split14.us ], [ -22, %.split.us ], [ -22, %.split ]
+.loopexit:                                        ; preds = %.split, %20, %.split.us, %.split14, %40, %.split14.us, %.split21, %67, %.split21.us, %116, %111, %105, %100, %94, %.split23.thread, %.split23, %3
+  %117 = phi i32 [ 0, %116 ], [ -22, %3 ], [ -22, %.split23.thread ], [ -22, %.split23 ], [ -22, %94 ], [ -22, %100 ], [ -22, %105 ], [ -22, %111 ], [ -22, %.split21 ], [ -22, %20 ], [ -22, %67 ], [ -22, %.split14 ], [ -22, %40 ], [ -22, %.split21.us ], [ -22, %.split14.us ], [ -22, %.split.us ], [ -22, %.split ]
   ret i32 %117
 }
 
@@ -49858,20 +49858,19 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
 .critedge84.loopexit:                             ; preds = %424, %484
   %.lcssa.ph = phi i32 [ %485, %484 ], [ %426, %424 ]
   %494 = icmp eq i32 %.lcssa.ph, 0
-  br label %.critedge84
-
-.critedge84:                                      ; preds = %.critedge84.loopexit, %412
-  %.lcssa = phi i1 [ true, %412 ], [ %494, %.critedge84.loopexit ]
-  %495 = and i1 %256, %.lcssa
+  %495 = and i1 %256, %494
   br i1 %495, label %496, label %499
 
-496:                                              ; preds = %.critedge84
+.critedge84:                                      ; preds = %412
+  br i1 %256, label %496, label %499
+
+496:                                              ; preds = %.critedge84.loopexit, %.critedge84
   %497 = load ptr, ptr %417, align 8
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 40
   store i32 %145, ptr %498, align 4
   br label %499
 
-499:                                              ; preds = %496, %.critedge84
+499:                                              ; preds = %.critedge84.loopexit, %496, %.critedge84
   %500 = getelementptr inbounds nuw i8, ptr %234, i64 60
   store i32 2147483647, ptr %500, align 4
   %501 = icmp sgt i32 %150, 0

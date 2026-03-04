@@ -6682,9 +6682,9 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   %130 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1532, !noalias !1535, !noundef !5
   %131 = add i8 %130, -65
   %132 = icmp ult i8 %131, 26
-  %.0.i.i = select i1 %132, i8 32, i8 0
-  %133 = or i8 %.0.i.i, %130
-  store i8 %133, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1532, !noalias !1535
+  %133 = select i1 %132, i8 32, i8 0
+  %.0.i.i = or i8 %133, %130
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1532, !noalias !1535
   %134 = icmp eq ptr %129, %127
   br i1 %134, label %.loopexit, label %.lr.ph.i.i
 

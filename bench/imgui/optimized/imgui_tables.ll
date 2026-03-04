@@ -914,16 +914,16 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %236, %238
   %413 = and i32 %.6.i, 1024
   %.not352 = icmp eq i32 %413, 0
   %414 = select i1 %.not352, float 0.000000e+00, float 1.000000e+00
-  br i1 %397, label %415, label %418
+  br i1 %397, label %415, label %419
 
 415:                                              ; preds = %406
   %416 = getelementptr inbounds nuw i8, ptr %14, i64 3192
   %417 = load float, ptr %416, align 8, !tbaa !244
-  br label %418
+  %418 = fadd float %414, %417
+  br label %419
 
-418:                                              ; preds = %406, %415
-  %419 = phi float [ %417, %415 ], [ 0.000000e+00, %406 ]
-  %420 = fadd float %414, %419
+419:                                              ; preds = %406, %415
+  %420 = phi float [ %418, %415 ], [ %414, %406 ]
   %421 = fsub float %420, %408
   %422 = getelementptr inbounds nuw i8, ptr %71, i64 188
   store float %421, ptr %422, align 4, !tbaa !248
@@ -996,15 +996,15 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %236, %238
   %.not353 = icmp eq i32 %457, 0
   br i1 %.not353, label %463, label %458
 
-458:                                              ; preds = %418
+458:                                              ; preds = %419
   %459 = getelementptr inbounds nuw i8, ptr %329, i64 580
   %460 = load float, ptr %459, align 4, !tbaa !252
   %461 = fcmp olt float %456, %460
   %462 = select i1 %461, float %456, float %460
   br label %463
 
-463:                                              ; preds = %418, %458
-  %464 = phi float [ %462, %458 ], [ %.val10.i390, %418 ]
+463:                                              ; preds = %419, %458
+  %464 = phi float [ %462, %458 ], [ %.val10.i390, %419 ]
   store float %464, ptr %437, align 4, !tbaa !253
   %465 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store float %.val6.i, ptr %465, align 8, !tbaa !254

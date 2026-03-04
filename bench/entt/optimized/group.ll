@@ -147443,18 +147443,15 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i4: ; 
   %92 = sub i64 %90, %91
   %93 = ashr exact i64 %92, 3
   %94 = icmp ult i64 %6, %93
-  br i1 %94, label %95, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm
+  br i1 %94, label %95, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
 
 95:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i4
   %96 = getelementptr inbounds nuw ptr, ptr %89, i64 %6
   %97 = load ptr, ptr %96, align 8, !tbaa !44
   %.not.i.i3.i.i.i.i.i5 = icmp eq ptr %97, null
-  br i1 %.not.i.i3.i.i.i.i.i5, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+  br i1 %.not.i.i3.i.i.i.i.i5, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i6
 
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm: ; preds = %95, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i4
-  br i1 %85, label %103, label %.critedge
-
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %95
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i6: ; preds = %95
   %98 = getelementptr inbounds nuw i32, ptr %97, i64 %41
   %99 = load i32, ptr %98, align 4, !tbaa !95
   %100 = xor i32 %99, %43
@@ -147462,14 +147459,17 @@ _ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESa
   %102 = xor i1 %85, %101
   br i1 %102, label %103, label %.critedge
 
-103:                                              ; preds = %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i4, %95
+  br i1 %85, label %103, label %.critedge
+
+103:                                              ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i6, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   %104 = load ptr, ptr %3, align 8, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %106 = load ptr, ptr %105, align 8
   %107 = tail call { ptr, i64 } %106(ptr noundef nonnull align 8 dereferenceable(80) %3, i32 noundef %1, i1 noundef zeroext false, ptr noundef null)
   br label %.critedge
 
-.critedge:                                        ; preds = %38, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.thread, %47, %57, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %103, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+.critedge:                                        ; preds = %38, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.thread, %47, %57, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i6, %103, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm0ELm2ELm2EE15push_on_destroyES4_EUlDpPT_E0_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   ret void
 }
 
@@ -171694,18 +171694,15 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3: ; 
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
   %61 = icmp ult i64 %9, %60
-  br i1 %61, label %62, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm
+  br i1 %61, label %62, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
 
 62:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3
   %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %9
   %64 = load ptr, ptr %63, align 8, !tbaa !44
   %.not.i.i3.i.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i3.i.i.i.i.i, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+  br i1 %.not.i.i3.i.i.i.i.i, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i
 
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm: ; preds = %62, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3
-  br i1 %52, label %70, label %.critedge
-
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %62
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i: ; preds = %62
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %22
   %66 = load i32, ptr %65, align 4, !tbaa !95
   %67 = xor i32 %66, %24
@@ -171713,7 +171710,10 @@ _ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESa
   %69 = xor i1 %52, %68
   br i1 %69, label %70, label %.critedge
 
-70:                                               ; preds = %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3, %62
+  br i1 %52, label %70, label %.critedge
+
+70:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   %71 = add nuw nsw i64 %4, 1
   store i64 %71, ptr %3, align 8, !tbaa !2487
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -171766,7 +171766,7 @@ _ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESa
   store i32 %113, ptr %91, align 4, !tbaa !95
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %2, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %70, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+.critedge:                                        ; preds = %19, %2, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i, %70, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm0ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   ret void
 }
 
@@ -178825,18 +178825,15 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3: ; 
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
   %80 = icmp ult i64 %11, %79
-  br i1 %80, label %81, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm
+  br i1 %80, label %81, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
 
 81:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3
   %82 = getelementptr inbounds nuw ptr, ptr %75, i64 %11
   %83 = load ptr, ptr %82, align 8, !tbaa !44
   %.not.i.i3.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i3.i.i.i.i.i, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+  br i1 %.not.i.i3.i.i.i.i.i, label %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i
 
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm: ; preds = %81, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3
-  br i1 %71, label %89, label %.critedge
-
-_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %81
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i: ; preds = %81
   %84 = getelementptr inbounds nuw i32, ptr %83, i64 %24
   %85 = load i32, ptr %84, align 4, !tbaa !95
   %86 = xor i32 %85, %26
@@ -178844,7 +178841,10 @@ _ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESa
   %88 = xor i1 %71, %87
   br i1 %88, label %89, label %.critedge
 
-89:                                               ; preds = %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i3, %81
+  br i1 %71, label %89, label %.critedge
+
+89:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   %90 = add nuw nsw i64 %4, 1
   store i64 %90, ptr %3, align 8, !tbaa !2924
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -178897,7 +178897,7 @@ _ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESa
   store i32 %132, ptr %110, align 4, !tbaa !95
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %2, %33, %43, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlPT_DpPT0_E_RSt5arrayIPS6_Lm2EEEDcOS8_OT0_.exit, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit.thr_comm, %89, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
+.critedge:                                        ; preds = %21, %2, %33, %43, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlPT_DpPT0_E_RSt5arrayIPS6_Lm2EEEDcOS8_OT0_.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i4.i.i.i.i.i, %89, %_ZSt5applyIZN4entt8internal13group_handlerINS0_16basic_sparse_setINS0_6entityESaIS4_EEELm1ELm1ELm2EE15push_on_destroyES4_EUlDpPT_E_RSt5arrayIPS6_Lm2EEEDcOT_OT0_.exit
   ret void
 }
 

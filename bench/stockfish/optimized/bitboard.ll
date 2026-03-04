@@ -305,11 +305,11 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
   %50 = icmp ult i8 %49, 3
   %51 = shl nuw i64 1, %47
   %spec.select.i = select i1 %50, i64 %51, i64 0
+  %52 = or i64 %42, %spec.select.i
   br label %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit
 
 _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit: ; preds = %41, %46
-  %52 = phi i64 [ 0, %41 ], [ %spec.select.i, %46 ]
-  %53 = or i64 %42, %52
+  %53 = phi i64 [ %42, %41 ], [ %52, %46 ]
   %.028.add = add nuw nsw i64 %.028.idx128, 4
   %.not = icmp eq i64 %.028.add, 32
   br i1 %.not, label %.preheader, label %41
@@ -330,11 +330,11 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit: ; preds = %41, 
   %63 = icmp ult i8 %62, 3
   %64 = shl nuw i64 1, %60
   %spec.select.i37 = select i1 %63, i64 %64, i64 0
+  %65 = or i64 %55, %spec.select.i37
   br label %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38
 
 _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38: ; preds = %54, %59
-  %65 = phi i64 [ 0, %54 ], [ %spec.select.i37, %59 ]
-  %66 = or i64 %55, %65
+  %66 = phi i64 [ %55, %54 ], [ %65, %59 ]
   %.030.add = add nuw nsw i64 %.030.idx131, 4
   %.not34 = icmp eq i64 %.030.add, 32
   br i1 %.not34, label %67, label %54

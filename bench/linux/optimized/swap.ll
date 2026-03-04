@@ -310,21 +310,21 @@ define internal void @trace_event_raw_event_mm_lru_insertion(ptr noundef %0, ptr
   %62 = load volatile i64, ptr %1, align 8
   %63 = and i64 %62, 524288
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %69, label %65
+  br i1 %64, label %70, label %65
 
 65:                                               ; preds = %59
   %66 = load volatile i64, ptr %1, align 8
   %67 = lshr i64 %66, 9
   %68 = and i64 %67, 8
-  br label %69
+  %69 = or disjoint i64 %68, %61
+  br label %70
 
-69:                                               ; preds = %65, %59
-  %70 = phi i64 [ 0, %59 ], [ %68, %65 ]
-  %71 = or disjoint i64 %61, %70
+70:                                               ; preds = %65, %59
+  %71 = phi i64 [ %61, %59 ], [ %69, %65 ]
   %72 = load volatile i64, ptr %1, align 8
   %73 = lshr i64 %72, 15
   %74 = and i64 %73, 16
-  %75 = or disjoint i64 %71, %74
+  %75 = or disjoint i64 %74, %71
   %76 = load volatile i64, ptr %1, align 8
   %77 = lshr i64 %76, 12
   %78 = and i64 %77, 32
@@ -338,7 +338,7 @@ define internal void @trace_event_raw_event_mm_lru_insertion(ptr noundef %0, ptr
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #12
   br label %85
 
-85:                                               ; preds = %69, %13, %11
+85:                                               ; preds = %70, %13, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -445,21 +445,21 @@ define internal void @perf_trace_mm_lru_insertion(ptr noundef %0, ptr noundef %1
   %73 = load volatile i64, ptr %1, align 8
   %74 = and i64 %73, 524288
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %80, label %76
+  br i1 %75, label %81, label %76
 
 76:                                               ; preds = %70
   %77 = load volatile i64, ptr %1, align 8
   %78 = lshr i64 %77, 9
   %79 = and i64 %78, 8
-  br label %80
+  %80 = or disjoint i64 %79, %72
+  br label %81
 
-80:                                               ; preds = %76, %70
-  %81 = phi i64 [ 0, %70 ], [ %79, %76 ]
-  %82 = or disjoint i64 %72, %81
+81:                                               ; preds = %76, %70
+  %82 = phi i64 [ %72, %70 ], [ %80, %76 ]
   %83 = load volatile i64, ptr %1, align 8
   %84 = lshr i64 %83, 15
   %85 = and i64 %84, 16
-  %86 = or disjoint i64 %82, %85
+  %86 = or disjoint i64 %85, %82
   %87 = load volatile i64, ptr %1, align 8
   %88 = lshr i64 %87, 12
   %89 = and i64 %88, 32
@@ -474,7 +474,7 @@ define internal void @perf_trace_mm_lru_insertion(ptr noundef %0, ptr noundef %1
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %16, i32 noundef 44, i32 noundef %96, ptr noundef %0, i64 noundef 1, ptr noundef %19, ptr noundef %8, ptr noundef null) #12
   br label %97
 
-97:                                               ; preds = %80, %15, %12
+97:                                               ; preds = %81, %15, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

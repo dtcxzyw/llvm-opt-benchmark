@@ -21061,9 +21061,9 @@ define noundef zeroext i1 @_ZN10tokenizers5utils11parallelism15get_parallelism17
   %13 = load i8, ptr %.sroa.0.07.i, align 1, !alias.scope !4778, !noundef !7
   %14 = add i8 %13, -65
   %15 = icmp ult i8 %14, 26
-  %.0.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.0.i, %13
-  store i8 %16, ptr %.sroa.0.07.i, align 1, !alias.scope !4778
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i = or i8 %16, %13
+  store i8 %.0.i, ptr %.sroa.0.07.i, align 1, !alias.scope !4778
   %17 = icmp eq ptr %12, %10
   br i1 %17, label %.loopexit, label %.lr.ph.i
 

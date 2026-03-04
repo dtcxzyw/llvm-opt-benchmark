@@ -4503,7 +4503,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %229
+  br label %230
 
 62:                                               ; preds = %28
   %63 = and i8 %19, 127
@@ -4526,7 +4526,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
 
 79:                                               ; preds = %62
   %80 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %77, ptr noundef nonnull @ei_rlc_he)
-  br label %229
+  br label %230
 
 81:                                               ; preds = %62
   %82 = icmp ne ptr %15, null
@@ -4536,7 +4536,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
 
 84:                                               ; preds = %81
   %85 = call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @ei_rlc_no_per_frame_data, ptr noundef %1, i32 noundef 0, i32 noundef -1)
-  br label %229
+  br label %230
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 692
@@ -4620,7 +4620,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106,
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @col_append_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.195)
-  br label %229
+  br label %230
 
 141:                                              ; preds = %is_ciphered_according_to_rrc.exit
   %142 = load i32, ptr @global_rlc_li_size, align 4
@@ -4651,7 +4651,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106,
   %.0128.in = phi i1 [ %151, %149 ], [ %153, %152 ], [ %155, %154 ]
   %157 = call fastcc signext i16 @rlc_decode_li(i32 noundef 2, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef nonnull %10, i1 noundef zeroext %.0128.in)
   %158 = icmp eq i16 %157, -1
-  br i1 %158, label %229, label %159
+  br i1 %158, label %230, label %159
 
 159:                                              ; preds = %156
   %160 = zext i1 %.0128.in to i16
@@ -4689,7 +4689,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106,
 
 proto_item_set_generated.exit:                    ; preds = %172, %173, %176
   %180 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %171, ptr noundef nonnull @ei_rlc_header_only)
-  br label %229
+  br label %230
 
 181:                                              ; preds = %165
   br i1 %.not.i143, label %proto_item_set_hidden.exit, label %182
@@ -4711,7 +4711,7 @@ proto_item_set_hidden.exit:                       ; preds = %185, %182, %181, %1
   %189 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %190 = load i32, ptr %189, align 4
   %191 = icmp eq i32 %190, 0
-  br i1 %191, label %229, label %192
+  br i1 %191, label %230, label %192
 
 192:                                              ; preds = %proto_item_set_hidden.exit
   %193 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -4720,11 +4720,11 @@ proto_item_set_hidden.exit:                       ; preds = %185, %182, %181, %1
   %196 = load i16, ptr %195, align 1
   %197 = and i16 %196, 8
   %.not139 = icmp eq i16 %197, 0
-  br i1 %.not139, label %198, label %210
+  br i1 %.not139, label %198, label %211
 
 198:                                              ; preds = %192
   %199 = call fastcc zeroext i1 @rlc_is_duplicate(i32 noundef 2, ptr noundef %2, i16 noundef zeroext %70, ptr noundef nonnull %11, ptr noundef %5)
-  br i1 %199, label %201, label %._crit_edge
+  br i1 %199, label %202, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %198
   %.pre = load ptr, ptr %193, align 8
@@ -4732,54 +4732,53 @@ proto_item_set_hidden.exit:                       ; preds = %185, %182, %181, %1
   %.pre146 = load i16, ptr %.phi.trans.insert, align 1
   %.pre147 = and i16 %.pre146, 8
   %200 = icmp ne i16 %.pre147, 0
-  br label %210
+  %201 = and i1 %20, %200
+  br i1 %201, label %212, label %.critedge
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr @duplicate_table, align 8
-  %203 = load i32, ptr %189, align 4
-  %204 = zext i32 %203 to i64
-  %205 = inttoptr i64 %204 to ptr
-  %206 = load i32, ptr %11, align 4
-  %207 = zext i32 %206 to i64
-  %208 = inttoptr i64 %207 to ptr
-  %209 = call i32 @g_hash_table_insert(ptr noundef %202, ptr noundef %205, ptr noundef %208)
-  br label %229
+202:                                              ; preds = %198
+  %203 = load ptr, ptr @duplicate_table, align 8
+  %204 = load i32, ptr %189, align 4
+  %205 = zext i32 %204 to i64
+  %206 = inttoptr i64 %205 to ptr
+  %207 = load i32, ptr %11, align 4
+  %208 = zext i32 %207 to i64
+  %209 = inttoptr i64 %208 to ptr
+  %210 = call i32 @g_hash_table_insert(ptr noundef %203, ptr noundef %206, ptr noundef %209)
+  br label %230
 
-210:                                              ; preds = %._crit_edge, %192
-  %.pre-phi = phi i1 [ %200, %._crit_edge ], [ true, %192 ]
-  %or.cond11 = and i1 %20, %.pre-phi
-  br i1 %or.cond11, label %211, label %.critedge
+211:                                              ; preds = %192
+  br i1 %20, label %212, label %.critedge
 
-211:                                              ; preds = %210
-  %212 = load ptr, ptr @duplicate_table, align 8
-  %213 = load i32, ptr %189, align 4
-  %214 = zext i32 %213 to i64
-  %215 = inttoptr i64 %214 to ptr
-  %216 = call ptr @g_hash_table_lookup(ptr noundef %212, ptr noundef %215)
-  %.not140 = icmp eq ptr %216, null
-  br i1 %.not140, label %.critedge, label %217
+212:                                              ; preds = %._crit_edge, %211
+  %213 = load ptr, ptr @duplicate_table, align 8
+  %214 = load i32, ptr %189, align 4
+  %215 = zext i32 %214 to i64
+  %216 = inttoptr i64 %215 to ptr
+  %217 = call ptr @g_hash_table_lookup(ptr noundef %213, ptr noundef %216)
+  %.not140 = icmp eq ptr %217, null
+  br i1 %.not140, label %.critedge, label %218
 
-217:                                              ; preds = %211
-  %218 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = load i64, ptr %12, align 8
-  %.not141 = icmp eq i64 %220, 0
-  %221 = select i1 %.not141, ptr @.str.229, ptr @.str.228
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %219, i32 noundef 25, ptr noundef nonnull @.str.227, i32 noundef %69, ptr noundef nonnull %221)
-  %222 = load i32, ptr @hf_rlc_duplicate_of, align 4
-  %223 = ptrtoint ptr %216 to i64
-  %224 = trunc i64 %223 to i32
-  %225 = call ptr @proto_tree_add_uint(ptr noundef nonnull %4, i32 noundef %222, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %224)
-  br label %229
+218:                                              ; preds = %212
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = load i64, ptr %12, align 8
+  %.not141 = icmp eq i64 %221, 0
+  %222 = select i1 %.not141, ptr @.str.229, ptr @.str.228
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %220, i32 noundef 25, ptr noundef nonnull @.str.227, i32 noundef %69, ptr noundef nonnull %222)
+  %223 = load i32, ptr @hf_rlc_duplicate_of, align 4
+  %224 = ptrtoint ptr %217 to i64
+  %225 = trunc i64 %224 to i32
+  %226 = call ptr @proto_tree_add_uint(ptr noundef nonnull %4, i32 noundef %223, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %225)
+  br label %230
 
-.critedge:                                        ; preds = %211, %210
-  %226 = load i64, ptr %12, align 8
-  %227 = icmp ne i64 %226, 0
-  %228 = icmp eq i8 %71, 2
-  call fastcc void @rlc_am_reassemble(ptr noundef %1, i16 noundef zeroext %162, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef %0, i16 noundef zeroext %70, i1 noundef zeroext %227, ptr noundef nonnull %10, i16 noundef zeroext %157, i1 noundef zeroext %228, i1 noundef zeroext %.0128.in, ptr noundef %5)
-  br label %229
+.critedge:                                        ; preds = %._crit_edge, %212, %211
+  %227 = load i64, ptr %12, align 8
+  %228 = icmp ne i64 %227, 0
+  %229 = icmp eq i8 %71, 2
+  call fastcc void @rlc_am_reassemble(ptr noundef %1, i16 noundef zeroext %162, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef %0, i16 noundef zeroext %70, i1 noundef zeroext %228, ptr noundef nonnull %10, i16 noundef zeroext %157, i1 noundef zeroext %229, i1 noundef zeroext %.0128.in, ptr noundef %5)
+  br label %230
 
-229:                                              ; preds = %217, %proto_item_set_hidden.exit, %156, %.critedge, %201, %proto_item_set_generated.exit, %132, %84, %79, %dissect_rlc_control.exit
+230:                                              ; preds = %218, %proto_item_set_hidden.exit, %156, %.critedge, %202, %proto_item_set_generated.exit, %132, %84, %79, %dissect_rlc_control.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

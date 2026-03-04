@@ -8598,12 +8598,12 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %27, %1
 
 .lr.ph.preheader.i:                               ; preds = %54, %51
   %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %51 ], [ %storemerge.i.i.i.i.i, %54 ]
-  %.phi.trans.insert120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
-  %.pre121 = load ptr, ptr %.phi.trans.insert120, align 8, !tbaa !665
+  %.phi.trans.insert119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %.pre120 = load ptr, ptr %.phi.trans.insert119, align 8, !tbaa !665
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i, %.lr.ph.preheader.i
-  %57 = phi ptr [ %.pre121, %.lr.ph.preheader.i ], [ %65, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i ]
+  %57 = phi ptr [ %.pre120, %.lr.ph.preheader.i ], [ %65, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i ]
   %.sroa.01.010.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.preheader.i ], [ %storemerge.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i ]
   %.not.i = icmp eq ptr %57, %1
   br i1 %.not.i, label %.critedge.i.preheader, label %58
@@ -8706,14 +8706,14 @@ _ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i: ;
   %98 = tail call noundef zeroext i1 @_ZN4llvm13LiveIntervals22computeVirtRegIntervalERNS_12LiveIntervalE(ptr noundef nonnull align 8 dereferenceable(440) %70, ptr noundef nonnull align 8 dereferenceable(120) %97) #26
   %.pre = load ptr, ptr %40, align 8, !tbaa !336
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre117 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.pre, i64 296
-  %.pre119 = load ptr, ptr %.phi.trans.insert118, align 8
+  %.pre116 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert117 = getelementptr inbounds nuw i8, ptr %.pre, i64 296
+  %.pre118 = load ptr, ptr %.phi.trans.insert117, align 8
   br label %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit
 
 _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i
-  %99 = phi ptr [ %.pre119, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i ], [ %.val27, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
-  %100 = phi ptr [ %.pre117, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i ], [ %.val, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
+  %99 = phi ptr [ %.pre118, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i ], [ %.val27, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
+  %100 = phi ptr [ %.pre116, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i ], [ %.val, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
   %.0.i31 = phi ptr [ %97, %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i ], [ %77, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
   %101 = icmp slt i32 %storemerge24.i, 0
   %102 = and i32 %storemerge24.i, 2147483647
@@ -8751,8 +8751,8 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   br label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EEppEv.exit
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EEppEv.exit: ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i, %.lr.ph
-  %.sroa.058.0102 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102, i64 8
+  %.sroa.058.0103 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.058.0103, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !665
   %118 = icmp eq ptr %117, %1
   br i1 %118, label %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit48.thread81, label %119
@@ -8850,7 +8850,7 @@ _ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES
   br label %166
 
 166:                                              ; preds = %.backedge, %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit48.thread81
-  %.pn.i.i = phi ptr [ %.sroa.058.0102, %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit48.thread81 ], [ %storemerge.i.i, %.backedge ]
+  %.pn.i.i = phi ptr [ %.sroa.058.0103, %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit48.thread81 ], [ %storemerge.i.i, %.backedge ]
   %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8, !tbaa !117
   %.not.i.i51 = icmp eq ptr %storemerge.i.i, null
@@ -8871,7 +8871,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb
   br i1 %172, label %.backedge, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EEppEv.exit, !llvm.loop !667
 
 _ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit: ; preds = %58, %58, %.preheader.i.i.i, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit, %125, %166, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %34, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %5 ], [ false, %166 ], [ false, %.preheader.i.i.i ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %125 ], [ false, %58 ], [ false, %58 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %166 ], [ false, %5 ], [ false, %.preheader.i.i.i ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %125 ], [ false, %58 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -25724,7 +25724,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.pre42 = phi ptr [ %31, %.lr.ph.lr.ph ], [ %.pre43, %.outer ]
-  %36 = phi ptr [ %31, %.lr.ph.lr.ph ], [ %126, %.outer ]
+  %36 = phi ptr [ %31, %.lr.ph.lr.ph ], [ %127, %.outer ]
   %.017.ph35 = phi ptr [ %32, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.sroa.05.0.ph34 = phi ptr [ %29, %.lr.ph.lr.ph ], [ %.sroa.05.1, %.outer ]
   %.sroa.0.0.ph33 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.sroa.0.4, %.outer ]
@@ -25734,10 +25734,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   br label %39
 
 39:                                               ; preds = %.lr.ph, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit
-  %.pre41 = phi ptr [ %.pre42, %.lr.ph ], [ %122, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
-  %40 = phi ptr [ %36, %.lr.ph ], [ %122, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
-  %.sroa.0.029 = phi i64 [ %.sroa.0.0.ph33, %.lr.ph ], [ %.sroa.0.2, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
-  %.01828 = phi i1 [ %.018.ph32, %.lr.ph ], [ %.2, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
+  %.pre41 = phi ptr [ %.pre42, %.lr.ph ], [ %123, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
+  %40 = phi ptr [ %36, %.lr.ph ], [ %123, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
+  %.sroa.0.029 = phi i64 [ %.sroa.0.0.ph33, %.lr.ph ], [ %.sroa.0.256, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
+  %.01828 = phi i1 [ %.018.ph32, %.lr.ph ], [ %.254, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit ]
   %41 = load ptr, ptr %1, align 8, !tbaa !25
   %42 = load i32, ptr %33, align 8, !tbaa !26
   %43 = zext i32 %42 to i64
@@ -25765,7 +25765,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   %60 = and i32 %59, 3
   %61 = or i32 %57, %60
   %62 = icmp ult i32 %53, %61
-  br i1 %62, label %63, label %124
+  br i1 %62, label %63, label %125
 
 63:                                               ; preds = %45
   %.sroa.04.0.copyload = load i64, ptr %.017.ph35, align 8, !tbaa !117
@@ -25799,7 +25799,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   %85 = icmp ne ptr %.pn4.i.i, %84
   %.sroa.0.0.copyload = load i64, ptr %.sroa.05.0.ph34, align 8, !tbaa !117
   %86 = icmp eq i64 %.sroa.0.029, %.sroa.0.0.copyload
-  br i1 %86, label %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit", label %87
+  br i1 %86, label %.sink.split.i, label %87
 
 87:                                               ; preds = %72
   %88 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 %.sroa.0.0.copyload) #26
@@ -25819,80 +25819,86 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   %99 = getelementptr inbounds nuw %"struct.(anonymous namespace)::JoinVals::Val", ptr %.val.i, i64 %98
   %100 = load i32, ptr %99, align 8, !tbaa !812
   %101 = icmp ugt i32 %100, 1
-  br label %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit"
+  br label %.sink.split.i
 
-"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit": ; preds = %94, %72, %87
-  %.2 = phi i1 [ %.01828, %87 ], [ %101, %94 ], [ %.01828, %72 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.029, %87 ], [ %.sroa.0.0.copyload, %94 ], [ %.sroa.0.029, %72 ]
-  %.0.i = phi i1 [ true, %87 ], [ %101, %94 ], [ %.01828, %72 ]
-  %or.cond = and i1 %85, %.0.i
-  br i1 %or.cond, label %102, label %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge"
+.sink.split.i:                                    ; preds = %72, %94
+  %.119 = phi i1 [ %101, %94 ], [ %.01828, %72 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload, %94 ], [ %.sroa.0.029, %72 ]
+  %102 = and i1 %85, %.119
+  br i1 %102, label %103, label %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge"
 
-"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge": ; preds = %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit"
+"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit": ; preds = %87
+  br i1 %85, label %103, label %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge"
+
+"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge": ; preds = %.sink.split.i, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit"
+  %.sroa.0.257 = phi i64 [ %.sroa.0.1, %.sink.split.i ], [ %.sroa.0.029, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit" ]
+  %.255 = phi i1 [ %.119, %.sink.split.i ], [ %.01828, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit" ]
   %.pre.pre = load ptr, ptr %30, align 8, !tbaa !460
   br label %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread
 
-102:                                              ; preds = %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit"
-  %103 = load ptr, ptr %38, align 8, !tbaa !643
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 68
-  %105 = load i16, ptr %104, align 4, !tbaa !97
-  %106 = icmp eq i16 %105, 14
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %111 = load i24, ptr %110, align 8
-  %112 = zext i24 %111 to i64
-  %113 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %108, i64 %112
-  %.pn6.idx.i.i19 = select i1 %106, i64 0, i64 64
-  %.pn6.i.i20 = getelementptr inbounds nuw i8, ptr %108, i64 %.pn6.idx.i.i19
-  %.pn4.i.i21 = select i1 %106, ptr %109, ptr %113
+103:                                              ; preds = %.sink.split.i, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit"
+  %.sroa.0.256 = phi i64 [ %.sroa.0.1, %.sink.split.i ], [ %.sroa.0.029, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit" ]
+  %.254 = phi i1 [ %.119, %.sink.split.i ], [ %.01828, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit" ]
+  %104 = load ptr, ptr %38, align 8, !tbaa !643
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 68
+  %106 = load i16, ptr %105, align 4, !tbaa !97
+  %107 = icmp eq i16 %106, 14
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %112 = load i24, ptr %111, align 8
+  %113 = zext i24 %112 to i64
+  %114 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %109, i64 %113
+  %.pn6.idx.i.i19 = select i1 %107, i64 0, i64 64
+  %.pn6.i.i20 = getelementptr inbounds nuw i8, ptr %109, i64 %.pn6.idx.i.i19
+  %.pn4.i.i21 = select i1 %107, ptr %110, ptr %114
   %.not11.i = icmp eq ptr %.pn6.i.i20, %.pn4.i.i21
   br i1 %.not11.i, label %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit, label %.lr.ph.i, !llvm.loop !1007
 
-.lr.ph.i:                                         ; preds = %102, %120
-  %.012.i = phi ptr [ %121, %120 ], [ %.pn6.i.i20, %102 ]
-  %114 = load i32, ptr %.012.i, align 8
-  %115 = and i32 %114, 255
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %120
+.lr.ph.i:                                         ; preds = %103, %121
+  %.012.i = phi ptr [ %122, %121 ], [ %.pn6.i.i20, %103 ]
+  %115 = load i32, ptr %.012.i, align 8
+  %116 = and i32 %115, 255
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %121
 
-117:                                              ; preds = %.lr.ph.i
+118:                                              ; preds = %.lr.ph.i
   tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.012.i, i32 0) #26
-  %118 = load i32, ptr %.012.i, align 8
-  %119 = and i32 %118, -1048321
-  store i32 %119, ptr %.012.i, align 8
-  br label %120
+  %119 = load i32, ptr %.012.i, align 8
+  %120 = and i32 %119, -1048321
+  store i32 %120, ptr %.012.i, align 8
+  br label %121
 
-120:                                              ; preds = %117, %.lr.ph.i
-  %121 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
-  %.not.i = icmp eq ptr %121, %.pn4.i.i21
+121:                                              ; preds = %118, %.lr.ph.i
+  %122 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
+  %.not.i = icmp eq ptr %122, %.pn4.i.i21
   br i1 %.not.i, label %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit, label %.lr.ph.i, !llvm.loop !1007
 
-_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit: ; preds = %120, %102
-  %122 = load ptr, ptr %30, align 8, !tbaa !460
-  %.not21 = icmp eq ptr %.sroa.05.0.ph34, %122
+_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit: ; preds = %121, %103
+  %123 = load ptr, ptr %30, align 8, !tbaa !460
+  %.not21 = icmp eq ptr %.sroa.05.0.ph34, %123
   br i1 %.not21, label %.critedge, label %39
 
 _ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread: ; preds = %63, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge"
   %.pre = phi ptr [ %.pre.pre, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge" ], [ %.pre41, %63 ]
-  %.3 = phi i1 [ %.2, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge" ], [ %.01828, %63 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.2, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge" ], [ %.sroa.0.029, %63 ]
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.ph34, i64 16
+  %.3 = phi i1 [ %.255, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge" ], [ %.01828, %63 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.257, %"_ZZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsEENK3$_0clENS1_9SlotIndexE.exit._ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread_crit_edge" ], [ %.sroa.0.029, %63 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.ph34, i64 16
   br label %.outer
 
-124:                                              ; preds = %45
-  %125 = getelementptr inbounds nuw i8, ptr %.017.ph35, i64 24
+125:                                              ; preds = %45
+  %126 = getelementptr inbounds nuw i8, ptr %.017.ph35, i64 24
   br label %.outer
 
-.outer:                                           ; preds = %124, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread
-  %.pre43 = phi ptr [ %.pre, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.pre41, %124 ]
-  %126 = phi ptr [ %.pre, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %40, %124 ]
-  %.4 = phi i1 [ %.3, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.01828, %124 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.sroa.0.029, %124 ]
-  %.sroa.05.1 = phi ptr [ %123, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.sroa.05.0.ph34, %124 ]
-  %.1 = phi ptr [ %.017.ph35, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %125, %124 ]
-  %.not2127 = icmp eq ptr %.sroa.05.1, %126
+.outer:                                           ; preds = %125, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread
+  %.pre43 = phi ptr [ %.pre, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.pre41, %125 ]
+  %127 = phi ptr [ %.pre, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %40, %125 ]
+  %.4 = phi i1 [ %.3, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.01828, %125 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.sroa.0.029, %125 ]
+  %.sroa.05.1 = phi ptr [ %124, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %.sroa.05.0.ph34, %125 ]
+  %.1 = phi ptr [ %.017.ph35, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit.thread ], [ %126, %125 ]
+  %.not2127 = icmp eq ptr %.sroa.05.1, %127
   br i1 %.not2127, label %.critedge, label %.lr.ph, !llvm.loop !1007
 
 .critedge:                                        ; preds = %.outer, %_ZN4llvm12MachineInstr18setDebugValueUndefEv.exit, %39, %27, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndexEPNS_12MachineInstrEESaIS8_EENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E4findERKS2_.exit

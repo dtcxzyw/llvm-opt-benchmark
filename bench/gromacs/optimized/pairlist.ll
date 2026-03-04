@@ -4062,37 +4062,37 @@ _ZN3gmxL17get_ci_block_sizeERKNS_4GridEbi.exit:   ; preds = %451, %453
   %544 = getelementptr inbounds nuw i8, ptr %541, i64 68
   %545 = load i32, ptr %544, align 4, !tbaa !30
   %546 = mul nsw i32 %545, %543
-  br label %551
+  %547 = mul nsw i32 %546, %.094.lcssa452
+  %548 = sdiv i32 %547, 2
+  br label %553
 
 ._crit_edge283.thread459:                         ; preds = %.lr.ph282.split.split.us, %._crit_edge283.split.split, %._crit_edge283
   %.091.lcssa466 = phi i32 [ 0, %._crit_edge283 ], [ %.1, %._crit_edge283.split.split ], [ %.1.us292, %.lr.ph282.split.split.us ]
-  %547 = load ptr, ptr %268, align 8, !tbaa !155
-  %548 = getelementptr inbounds nuw i8, ptr %547, i64 64
-  %549 = load i32, ptr %548, align 8, !tbaa !57
-  %550 = mul nsw i32 %549, %549
-  br label %551
+  %549 = load ptr, ptr %268, align 8, !tbaa !155
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 64
+  %551 = load i32, ptr %550, align 8, !tbaa !57
+  %552 = mul nsw i32 %551, %551
+  br label %553
 
-551:                                              ; preds = %._crit_edge283.thread459, %._crit_edge283.thread
+553:                                              ; preds = %._crit_edge283.thread459, %._crit_edge283.thread
   %.091.lcssa455 = phi i32 [ %.091.lcssa456, %._crit_edge283.thread ], [ %.091.lcssa466, %._crit_edge283.thread459 ]
   %.092.lcssa453 = phi i32 [ %.092.lcssa454, %._crit_edge283.thread ], [ 0, %._crit_edge283.thread459 ]
-  %.094.lcssa451 = phi i32 [ %.094.lcssa452, %._crit_edge283.thread ], [ 0, %._crit_edge283.thread459 ]
-  %552 = phi i32 [ %546, %._crit_edge283.thread ], [ %550, %._crit_edge283.thread459 ]
-  %553 = sub nsw i32 %.091.lcssa455, %.092.lcssa453
-  %554 = mul nsw i32 %552, %553
-  %555 = mul nsw i32 %552, %.094.lcssa451
-  %556 = sdiv i32 %555, 2
-  %557 = sub nsw i32 %554, %556
+  %.094.lcssa451 = phi i32 [ %548, %._crit_edge283.thread ], [ 0, %._crit_edge283.thread459 ]
+  %554 = phi i32 [ %546, %._crit_edge283.thread ], [ %552, %._crit_edge283.thread459 ]
+  %555 = sub nsw i32 %.091.lcssa455, %.092.lcssa453
+  %556 = mul nsw i32 %554, %555
+  %557 = sub nsw i32 %556, %.094.lcssa451
   store i32 %557, ptr %269, align 4, !tbaa !392
-  %558 = mul nsw i32 %552, %.092.lcssa453
+  %558 = mul nsw i32 %554, %.092.lcssa453
   store i32 %558, ptr %270, align 8, !tbaa !393
-  store i32 %556, ptr %271, align 4, !tbaa !394
+  store i32 %.094.lcssa451, ptr %271, align 4, !tbaa !394
   %559 = load i8, ptr %272, align 8, !tbaa !122, !range !120, !noundef !121
   %560 = trunc nuw i8 %559 to i1
   %561 = icmp sgt i32 %478, 1
   %or.cond5 = and i1 %561, %560
   br i1 %or.cond5, label %562, label %595
 
-562:                                              ; preds = %551
+562:                                              ; preds = %553
   br i1 %.not108, label %.critedge, label %563
 
 563:                                              ; preds = %562
@@ -4137,7 +4137,7 @@ _ZN3gmxL17get_ci_block_sizeERKNS_4GridEbi.exit:   ; preds = %451, %453
   call fastcc void @_ZN3gmxL15combine_nblistsILNS_12PairlistTypeE3EEEvNS_8ArrayRefIKNS_16NbnxnPairlistGpuEEEPS3_(ptr nonnull %591, ptr nonnull %594, ptr noundef %590)
   br label %595
 
-595:                                              ; preds = %.critedge, %563, %551
+595:                                              ; preds = %.critedge, %563, %553
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)

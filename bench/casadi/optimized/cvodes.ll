@@ -8151,21 +8151,24 @@ cvAltSum.exit28.i.i:                              ; preds = %.preheader.i21.i.i
   store double %314, ptr %315, align 8, !tbaa !49
   %indvars.iv.next.i31.i.i = add nuw nsw i64 %indvars.iv.i30.i.i, 1
   %exitcond.not.i32.i.i = icmp eq i64 %indvars.iv.next.i31.i.i, %wide.trip.count.i29.i.i
-  br i1 %exitcond.not.i32.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !288
+  br i1 %exitcond.not.i32.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !288
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %cvAltSum.exit28.thread.i.i
-  %.034.lcssa.i57.i.i = phi double [ %252, %cvAltSum.exit28.thread.i.i ], [ %287, %.lr.ph.i.i.i ]
-  %316 = phi double [ 0x7FF0000000000000, %cvAltSum.exit28.thread.i.i ], [ %306, %.lr.ph.i.i.i ]
-  %.014.i2747.i.i = phi double [ 0.000000e+00, %cvAltSum.exit28.thread.i.i ], [ %304, %.lr.ph.i.i.i ]
-  %317 = fdiv double %.034.lcssa.i57.i.i, %252
-  %318 = fdiv double 1.000000e+00, %317
-  %319 = fmul double %316, %.014.i2747.i.i
-  %320 = fdiv double %319, %317
+._crit_edge.i.loopexit.i.i:                       ; preds = %.lr.ph.i.i.i
+  %316 = fmul double %306, %304
+  br label %._crit_edge.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %cvAltSum.exit28.thread.i.i
+  %.034.lcssa.i57.i.i = phi double [ %252, %cvAltSum.exit28.thread.i.i ], [ %287, %._crit_edge.i.loopexit.i.i ]
+  %317 = phi double [ 0x7FF0000000000000, %cvAltSum.exit28.thread.i.i ], [ %306, %._crit_edge.i.loopexit.i.i ]
+  %.014.i2747.i.i = phi double [ 0x7FF8000000000000, %cvAltSum.exit28.thread.i.i ], [ %316, %._crit_edge.i.loopexit.i.i ]
+  %318 = fdiv double %.034.lcssa.i57.i.i, %252
+  %319 = fdiv double 1.000000e+00, %318
+  %320 = fdiv double %.014.i2747.i.i, %318
   store double %320, ptr %81, align 8, !tbaa !49
   %321 = sext i32 %244 to i64
   %322 = getelementptr inbounds double, ptr %79, i64 %321
   %323 = load double, ptr %322, align 8, !tbaa !49
-  %324 = fdiv double %317, %323
+  %324 = fdiv double %318, %323
   store double %324, ptr %82, align 8, !tbaa !49
   %325 = load i32, ptr %83, align 4, !tbaa !87
   %326 = icmp eq i32 %325, 1
@@ -8185,7 +8188,7 @@ cvAltSum.exit28.i.i:                              ; preds = %.preheader.i21.i.i
   %330 = getelementptr i8, ptr %329, i64 -8
   %331 = load double, ptr %330, align 8, !tbaa !49
   %332 = load double, ptr %329, align 8, !tbaa !49
-  %333 = tail call double @llvm.fmuladd.f64(double %331, double %318, double %332)
+  %333 = tail call double @llvm.fmuladd.f64(double %331, double %319, double %332)
   store double %333, ptr %329, align 8, !tbaa !49
   %indvars.iv.next48.i42.i.i = add nsw i64 %indvars.iv47.i41.i.i, -1
   %334 = icmp samesign ugt i64 %indvars.iv47.i41.i.i, 1
@@ -8219,7 +8222,7 @@ cvAltSum.exit28.i.i:                              ; preds = %.preheader.i21.i.i
 
 cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i35.i.i, %._crit_edge45.i.i.i
   %.014.i.i.i.i = phi double [ 0.000000e+00, %._crit_edge45.i.i.i ], [ %344, %.preheader.i.i35.i.i ]
-  %346 = fmul double %316, %.014.i.i.i.i
+  %346 = fmul double %317, %.014.i.i.i.i
   %347 = load i32, ptr %89, align 8, !tbaa !86
   %348 = sitofp i32 %347 to double
   %349 = fdiv double %346, %348
@@ -8723,8 +8726,8 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i205, %4
 
 621:                                              ; preds = %.loopexit.i.i198
   %622 = fcmp ogt double %.pre.i.i199, 1.000000e+00
-  %623 = select i1 %622, double 1.000000e+00, double %.pre.i.i199
-  %624 = fmul double %620, %623
+  %623 = fmul double %620, %.pre.i.i199
+  %624 = select i1 %622, double %620, double %623
   %625 = load double, ptr %88, align 8, !tbaa !49
   %626 = fdiv double %624, %625
   %627 = fcmp ugt double %626, 1.000000e+00
@@ -8737,8 +8740,8 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i205, %4
   %..i.i = select i1 %630, double %628, double %629
   store double %..i.i, ptr %102, align 8, !tbaa !297
   %631 = fcmp ogt double %..i.i, 1.000000e+00
-  %632 = select i1 %631, double 1.000000e+00, double %..i.i
-  %633 = fmul double %620, %632
+  %632 = fmul double %620, %..i.i
+  %633 = select i1 %631, double %620, double %632
   %634 = load double, ptr %88, align 8, !tbaa !49
   %635 = fdiv double %633, %634
   %636 = fcmp ugt double %635, 1.000000e+00
@@ -9312,8 +9315,8 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
 
 944:                                              ; preds = %.loopexit.i.i.i
   %945 = fcmp ogt double %.pre.i.i.i194, 1.000000e+00
-  %946 = select i1 %945, double 1.000000e+00, double %.pre.i.i.i194
-  %947 = fmul double %943, %946
+  %946 = fmul double %943, %.pre.i.i.i194
+  %947 = select i1 %945, double %943, double %946
   %948 = load double, ptr %88, align 8, !tbaa !49
   %949 = fdiv double %947, %948
   %950 = fcmp ugt double %949, 1.000000e+00
@@ -9326,8 +9329,8 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %..i.i8.i = select i1 %953, double %951, double %952
   store double %..i.i8.i, ptr %102, align 8, !tbaa !297
   %954 = fcmp ogt double %..i.i8.i, 1.000000e+00
-  %955 = select i1 %954, double 1.000000e+00, double %..i.i8.i
-  %956 = fmul double %943, %955
+  %955 = fmul double %943, %..i.i8.i
+  %956 = select i1 %954, double %943, double %955
   %957 = load double, ptr %88, align 8, !tbaa !49
   %958 = fdiv double %956, %957
   %959 = fcmp ugt double %958, 1.000000e+00
@@ -9902,8 +9905,8 @@ cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %.
 1243:                                             ; preds = %1239, %._crit_edge146.i.i
   %1244 = phi double [ %..i.i230, %1239 ], [ %.pre.i.i229, %._crit_edge146.i.i ]
   %1245 = fcmp ogt double %1244, 1.000000e+00
-  %1246 = select i1 %1245, double 1.000000e+00, double %1244
-  %1247 = fmul double %.012.lcssa.i.i.i, %1246
+  %1246 = fmul double %.012.lcssa.i.i.i, %1244
+  %1247 = select i1 %1245, double %.012.lcssa.i.i.i, double %1246
   %1248 = load double, ptr %88, align 8, !tbaa !49
   %1249 = fdiv double %1247, %1248
   %1250 = fcmp ugt double %1249, 1.000000e+00
@@ -10245,8 +10248,8 @@ cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i221, 
 1436:                                             ; preds = %1432, %._crit_edge142.i.i.i
   %1437 = phi double [ %..i.i.i214, %1432 ], [ %.pre.i.i.i213, %._crit_edge142.i.i.i ]
   %1438 = fcmp ogt double %1437, 1.000000e+00
-  %1439 = select i1 %1438, double 1.000000e+00, double %1437
-  %1440 = fmul double %.012.lcssa.i.i.i.i212, %1439
+  %1439 = fmul double %.012.lcssa.i.i.i.i212, %1437
+  %1440 = select i1 %1438, double %.012.lcssa.i.i.i.i212, double %1439
   %1441 = load double, ptr %88, align 8, !tbaa !49
   %1442 = fdiv double %1440, %1441
   %1443 = fcmp ugt double %1442, 1.000000e+00
@@ -10542,8 +10545,8 @@ cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.ex
 1612:                                             ; preds = %1608, %1564
   %1613 = phi double [ %..i.i253, %1608 ], [ %.pre.i.i252, %1564 ]
   %1614 = fcmp ogt double %1613, 1.000000e+00
-  %1615 = select i1 %1614, double 1.000000e+00, double %1613
-  %1616 = fmul double %1601, %1615
+  %1615 = fmul double %1601, %1613
+  %1616 = select i1 %1614, double %1601, double %1615
   %1617 = load double, ptr %88, align 8, !tbaa !49
   %1618 = fdiv double %1616, %1617
   %1619 = fcmp ugt double %1618, 1.000000e+00
@@ -10721,8 +10724,8 @@ cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.ex
 1740:                                             ; preds = %1736, %1717
   %1741 = phi double [ %..i.i.i249, %1736 ], [ %.pre.i.i.i248, %1717 ]
   %1742 = fcmp ogt double %1741, 1.000000e+00
-  %1743 = select i1 %1742, double 1.000000e+00, double %1741
-  %1744 = fmul double %1722, %1743
+  %1743 = fmul double %1722, %1741
+  %1744 = select i1 %1742, double %1722, double %1743
   %1745 = load double, ptr %88, align 8, !tbaa !49
   %1746 = fdiv double %1744, %1745
   %1747 = fcmp ugt double %1746, 1.000000e+00

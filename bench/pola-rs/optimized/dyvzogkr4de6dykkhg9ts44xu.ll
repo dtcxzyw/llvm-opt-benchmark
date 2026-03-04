@@ -53927,30 +53927,30 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
   %22 = load ptr, ptr %21, align 8, !nonnull !6
   br label %23
 
-23:                                               ; preds = %.lr.ph, %93
-  %.sroa.010.077 = phi i8 [ 0, %.lr.ph ], [ %.sroa.010.1, %93 ]
-  %.sroa.012.076 = phi i1 [ false, %.lr.ph ], [ %94, %93 ]
-  %.sroa.014.075 = phi i8 [ 1, %.lr.ph ], [ %.sroa.014.1, %93 ]
-  %.sroa.016.074 = phi i1 [ true, %.lr.ph ], [ %88, %93 ]
-  %.sroa.0.073 = phi ptr [ %2, %.lr.ph ], [ %24, %93 ]
-  %.sroa.7.072 = phi i64 [ 0, %.lr.ph ], [ %25, %93 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 1
-  %25 = add nuw nsw i64 %.sroa.7.072, 1
-  %exitcond.not = icmp eq i64 %.sroa.7.072, %3
+23:                                               ; preds = %.lr.ph, %.thread63
+  %.sroa.010.081 = phi i8 [ 0, %.lr.ph ], [ %.sroa.010.1121, %.thread63 ]
+  %.sroa.012.080 = phi i1 [ false, %.lr.ph ], [ %.sroa.09.0, %.thread63 ]
+  %.sroa.014.079 = phi i8 [ 1, %.lr.ph ], [ %.sroa.014.1119, %.thread63 ]
+  %.sroa.016.078 = phi i1 [ true, %.lr.ph ], [ %.sroa.08.066, %.thread63 ]
+  %.sroa.0.077 = phi ptr [ %2, %.lr.ph ], [ %24, %.thread63 ]
+  %.sroa.7.076 = phi i64 [ 0, %.lr.ph ], [ %25, %.thread63 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 1
+  %25 = add nuw nsw i64 %.sroa.7.076, 1
+  %exitcond.not = icmp eq i64 %.sroa.7.076, %3
   br i1 %exitcond.not, label %64, label %58
 
-._crit_edge:                                      ; preds = %93
-  %26 = trunc nuw i8 %.sroa.010.1 to i1
+._crit_edge:                                      ; preds = %.thread63
+  %26 = trunc nuw i8 %.sroa.010.1121 to i1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i8, ptr %27, align 8, !range !300, !noundef !6
   %29 = trunc nuw i8 %28 to i1
   %.not = xor i1 %29, true
   %or.cond = select i1 %.not, i1 %26, i1 false
-  %or.cond3 = select i1 %or.cond, i1 %94, i1 false, !prof !2992
+  %or.cond3 = select i1 %or.cond, i1 %.sroa.09.0, i1 false, !prof !2992
   br i1 %or.cond3, label %32, label %30, !prof !4983
 
 30:                                               ; preds = %._crit_edge
-  %31 = trunc nuw i8 %.sroa.014.1 to i1
+  %31 = trunc nuw i8 %.sroa.014.1119 to i1
   br i1 %31, label %.thread, label %37
 
 32:                                               ; preds = %._crit_edge
@@ -53968,10 +53968,10 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h6384ee6877258dcdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.454.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-  br label %._crit_edge88
+  br label %._crit_edge92
 
-._crit_edge88:                                    ; preds = %.lr.ph87, %.lr.ph.preheader.i, %._crit_edge84.thread, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64eac35e19035130E.exit.thread", %32
-  %.sink = phi i64 [ 17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64eac35e19035130E.exit.thread" ], [ 10, %32 ], [ 17, %.lr.ph.preheader.i ], [ 17, %._crit_edge84.thread ], [ 17, %.lr.ph87 ]
+._crit_edge92:                                    ; preds = %.lr.ph91, %.lr.ph.preheader.i, %._crit_edge88.thread, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64eac35e19035130E.exit.thread", %32
+  %.sink = phi i64 [ 17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64eac35e19035130E.exit.thread" ], [ 10, %32 ], [ 17, %.lr.ph.preheader.i ], [ 17, %._crit_edge88.thread ], [ 17, %.lr.ph91 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -53985,7 +53985,7 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64eac35e19035130E.exit.thread": ; preds = %40
   store i8 1, ptr %4, align 1
-  br label %._crit_edge88
+  br label %._crit_edge92
 
 .preheader:                                       ; preds = %40, %.preheader
   %.sroa.07.0.i = phi i64 [ %44, %.preheader ], [ 0, %40 ]
@@ -53997,22 +53997,22 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
   %44 = add i64 %.sroa.07.0.i, %43
   %45 = add nuw i64 %.sroa.09.0.i, 1
   %46 = icmp eq i64 %45, %3
-  br i1 %46, label %.lr.ph87.preheader, label %.preheader
+  br i1 %46, label %.lr.ph91.preheader, label %.preheader
 
-.lr.ph87.preheader:                               ; preds = %.preheader
+.lr.ph91.preheader:                               ; preds = %.preheader
   %.not41 = icmp ne i64 %44, 0
   %not..not41 = xor i1 %.not41, true
   %. = zext i1 %not..not41 to i8
   store i8 %., ptr %4, align 1
   %47 = zext i1 %.not41 to i64
   %48 = add i64 %44, %47
-  br label %.lr.ph87
+  br label %.lr.ph91
 
 .thread:                                          ; preds = %18, %30
-  %.sroa.016.0.lcssa102106 = phi i1 [ %88, %30 ], [ true, %18 ]
+  %.sroa.016.0.lcssa105109 = phi i1 [ %.sroa.08.066, %30 ], [ true, %18 ]
   %49 = load i8, ptr %4, align 1, !range !298, !noundef !6
   %50 = icmp ne i8 %49, 2
-  %brmerge.not = select i1 %50, i1 %.sroa.016.0.lcssa102106, i1 false
+  %brmerge.not = select i1 %50, i1 %.sroa.016.0.lcssa105109, i1 false
   br i1 %brmerge.not, label %40, label %51
 
 51:                                               ; preds = %.thread, %37
@@ -54020,50 +54020,50 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
   %53 = load ptr, ptr %52, align 8, !nonnull !6, !noundef !6
   %.idx = mul nuw nsw i64 %3, 56
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  br i1 %20, label %._crit_edge84.thread, label %.lr.ph83
+  br i1 %20, label %._crit_edge88.thread, label %.lr.ph87
 
-._crit_edge84.thread:                             ; preds = %51
+._crit_edge88.thread:                             ; preds = %51
   store i8 2, ptr %4, align 1
-  br label %._crit_edge88
+  br label %._crit_edge92
 
-.lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
-  %.sroa.036.086 = phi ptr [ %.sroa.036.1, %.lr.ph87 ], [ %2, %.lr.ph87.preheader ]
-  %.sroa.036.1 = getelementptr inbounds nuw i8, ptr %.sroa.036.086, i64 1
-  %55 = load i8, ptr %.sroa.036.086, align 1, !range !298, !noundef !6
+.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
+  %.sroa.036.090 = phi ptr [ %.sroa.036.1, %.lr.ph91 ], [ %2, %.lr.ph91.preheader ]
+  %.sroa.036.1 = getelementptr inbounds nuw i8, ptr %.sroa.036.090, i64 1
+  %55 = load i8, ptr %.sroa.036.090, align 1, !range !298, !noundef !6
   %56 = icmp eq i8 %55, 0
   %.neg.neg = zext i1 %56 to i64
   %.not43 = icmp eq i64 %48, %.neg.neg
   %.49 = zext i1 %.not43 to i8
-  store i8 %.49, ptr %.sroa.036.086, align 1
-  %.not65 = icmp eq ptr %.sroa.036.1, %19
-  br i1 %.not65, label %._crit_edge88, label %.lr.ph87
+  store i8 %.49, ptr %.sroa.036.090, align 1
+  %.not69 = icmp eq ptr %.sroa.036.1, %19
+  br i1 %.not69, label %._crit_edge92, label %.lr.ph91
 
-.lr.ph83:                                         ; preds = %51, %.lr.ph83
-  %.sroa.035.081 = phi ptr [ %.sroa.035.1, %.lr.ph83 ], [ %53, %51 ]
-  %.sroa.035.1 = getelementptr inbounds nuw i8, ptr %.sroa.035.081, i64 56
-  tail call fastcc void @_ZN13polars_stream5nodes3zip9InputHead5clear17h4bac9cb205fc66a0E(ptr noalias noundef align 8 dereferenceable(56) %.sroa.035.081)
+.lr.ph87:                                         ; preds = %51, %.lr.ph87
+  %.sroa.035.085 = phi ptr [ %.sroa.035.1, %.lr.ph87 ], [ %53, %51 ]
+  %.sroa.035.1 = getelementptr inbounds nuw i8, ptr %.sroa.035.085, i64 56
+  tail call fastcc void @_ZN13polars_stream5nodes3zip9InputHead5clear17h4bac9cb205fc66a0E(ptr noalias noundef align 8 dereferenceable(56) %.sroa.035.085)
   %57 = icmp eq ptr %.sroa.035.1, %54
-  br i1 %57, label %.lr.ph.preheader.i, label %.lr.ph83
+  br i1 %57, label %.lr.ph.preheader.i, label %.lr.ph87
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph83
+.lr.ph.preheader.i:                               ; preds = %.lr.ph87
   store i8 2, ptr %4, align 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 2, i64 range(i64 0, 164703072086692426) %3, i1 false), !alias.scope !4987
-  br label %._crit_edge88
+  br label %._crit_edge92
 
 58:                                               ; preds = %23
-  %59 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64, i64 }, ptr, i64, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.7.072
-  %60 = load i8, ptr %.sroa.0.073, align 1, !range !298, !noundef !6
+  %59 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64, i64 }, ptr, i64, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.7.076
+  %60 = load i8, ptr %.sroa.0.077, align 1, !range !298, !noundef !6
   %61 = icmp eq i8 %60, 2
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 49
   %63 = load i8, ptr %62, align 1, !range !298
-  br i1 %61, label %65, label %._crit_edge92
+  %.not.i = icmp eq i8 %63, 2
+  br i1 %61, label %65, label %85
 
 64:                                               ; preds = %23
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %3, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2c539399ca9dbf45b2754f59c0fc31b0.713) #45
   unreachable
 
 65:                                               ; preds = %58
-  %.not.i = icmp eq i8 %63, 2
   br i1 %.not.i, label %66, label %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit
 
 66:                                               ; preds = %65
@@ -54079,43 +54079,49 @@ _ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd2
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store i8 1, ptr %72, align 8, !alias.scope !4990
   %73 = icmp eq i8 %71, 1
-  br i1 %73, label %81, label %74
+  br i1 %73, label %.thread114, label %74
 
 74:                                               ; preds = %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %76 = load i64, ptr %75, align 8, !noundef !6
   %77 = icmp eq i64 %76, 0
-  %78 = trunc nuw i8 %.sroa.014.075 to i1
+  %78 = trunc nuw i8 %.sroa.014.079 to i1
   %79 = and i1 %77, %78
   %80 = zext i1 %79 to i8
-  br label %81
+  br label %.thread114
 
-81:                                               ; preds = %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit, %74
-  %82 = phi i8 [ %80, %74 ], [ %.sroa.014.075, %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit ]
+.thread114:                                       ; preds = %74, %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit
+  %81 = phi i8 [ %80, %74 ], [ %.sroa.014.079, %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit ]
   %.sroa.07.0 = phi i1 [ %77, %74 ], [ false, %_ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd22E.exit ]
-  %83 = trunc nuw i8 %.sroa.010.077 to i1
-  %84 = or i1 %.sroa.07.0, %83
-  %85 = zext i1 %84 to i8
-  br label %._crit_edge92
+  %82 = trunc nuw i8 %.sroa.010.081 to i1
+  %83 = or i1 %.sroa.07.0, %82
+  %84 = zext i1 %83 to i8
+  br label %86
 
-._crit_edge92:                                    ; preds = %58, %81
-  %86 = phi i8 [ %71, %81 ], [ %63, %58 ]
-  %.sroa.014.1 = phi i8 [ %82, %81 ], [ 0, %58 ]
-  %.sroa.010.1 = phi i8 [ %85, %81 ], [ %.sroa.010.077, %58 ]
-  %87 = trunc i8 %86 to i1
-  %88 = and i1 %.sroa.016.074, %87
-  %cond50 = icmp eq i8 %86, 0
-  br i1 %cond50, label %89, label %93
+85:                                               ; preds = %58
+  br i1 %.not.i, label %.thread63, label %86
 
-89:                                               ; preds = %._crit_edge92
-  %90 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %91 = load i64, ptr %90, align 8, !noundef !6
-  %92 = icmp ne i64 %91, 0
-  br label %93
+86:                                               ; preds = %.thread114, %85
+  %.sroa.010.1120 = phi i8 [ %84, %.thread114 ], [ %.sroa.010.081, %85 ]
+  %.sroa.014.1118 = phi i8 [ %81, %.thread114 ], [ 0, %85 ]
+  %87 = phi i8 [ %71, %.thread114 ], [ %63, %85 ]
+  %88 = trunc nuw i8 %87 to i1
+  %89 = and i1 %.sroa.016.078, %88
+  %cond50 = icmp eq i8 %87, 0
+  br i1 %cond50, label %90, label %.thread63
 
-93:                                               ; preds = %._crit_edge92, %89
-  %.sroa.09.0 = phi i1 [ %92, %89 ], [ false, %._crit_edge92 ]
-  %94 = or i1 %.sroa.012.076, %.sroa.09.0
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %92 = load i64, ptr %91, align 8, !noundef !6
+  %93 = icmp ne i64 %92, 0
+  %94 = or i1 %.sroa.012.080, %93
+  br label %.thread63
+
+.thread63:                                        ; preds = %85, %86, %90
+  %.sroa.010.1121 = phi i8 [ %.sroa.010.1120, %90 ], [ %.sroa.010.1120, %86 ], [ %.sroa.010.081, %85 ]
+  %.sroa.014.1119 = phi i8 [ %.sroa.014.1118, %90 ], [ %.sroa.014.1118, %86 ], [ 0, %85 ]
+  %.sroa.08.066 = phi i1 [ %89, %90 ], [ %89, %86 ], [ false, %85 ]
+  %.sroa.09.0 = phi i1 [ %94, %90 ], [ %.sroa.012.080, %86 ], [ %.sroa.012.080, %85 ]
   %95 = icmp eq ptr %24, %19
   br i1 %95, label %._crit_edge, label %23
 }

@@ -889,7 +889,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeEN
   br i1 %.not51.i, label %.loopexit.i, label %.lr.ph102.i
 
 .loopexit.i:                                      ; preds = %.lr.ph102.i, %._crit_edge98.i, %._crit_edge.i6, %_ZN12_GLOBAL__N_117WasmEHPrepareImpl13prepareThrowsERN4llvm8FunctionE.exit
-  %.not.i115.i = phi i1 [ false, %_ZN12_GLOBAL__N_117WasmEHPrepareImpl13prepareThrowsERN4llvm8FunctionE.exit ], [ false, %._crit_edge.i6 ], [ true, %._crit_edge98.i ], [ true, %.lr.ph102.i ]
+  %.not.i115.i = phi i1 [ %.0.lcssa.i, %_ZN12_GLOBAL__N_117WasmEHPrepareImpl13prepareThrowsERN4llvm8FunctionE.exit ], [ %.0.lcssa.i, %._crit_edge.i6 ], [ true, %._crit_edge98.i ], [ true, %.lr.ph102.i ]
   %301 = load ptr, ptr %6, align 8, !tbaa !46
   %302 = icmp eq ptr %301, %168
   br i1 %302, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit.i, label %303
@@ -922,8 +922,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit61.i: ; preds = %306, %_ZN
 
 _ZN12_GLOBAL__N_117WasmEHPrepareImpl13prepareEHPadsERN4llvm8FunctionE.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit61.i, %309
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %310 = or i1 %.0.lcssa.i, %.not.i115.i
-  ret i1 %310
+  ret i1 %.not.i115.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

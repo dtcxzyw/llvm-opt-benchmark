@@ -6160,7 +6160,7 @@ sub_02448:                                        ; preds = %2697, %2700
 2711:                                             ; preds = %2708, %.tail2447.thread, %.tail2447, %2700
   %2712 = phi i1 [ false, %.tail2447.thread ], [ true, %2700 ], [ false, %.tail2447 ], [ false, %2708 ]
   %2713 = phi i1 [ false, %.tail2447.thread ], [ false, %2700 ], [ true, %.tail2447 ], [ false, %2708 ]
-  %or.cond48 = phi i1 [ true, %.tail2447.thread ], [ false, %2700 ], [ true, %.tail2447 ], [ %2710, %2708 ]
+  %or.cond46 = phi i1 [ true, %.tail2447.thread ], [ false, %2700 ], [ true, %.tail2447 ], [ %2710, %2708 ]
   %2714 = call i64 @ERR_peek_error() #14
   %.not1735 = icmp eq i64 %2714, 0
   br i1 %.not1735, label %2719, label %2715
@@ -6253,7 +6253,7 @@ sub_02448:                                        ; preds = %2697, %2700
   br i1 %2757, label %2765, label %2758
 
 2758:                                             ; preds = %2755, %2754
-  br i1 %or.cond48, label %2759, label %2762
+  br i1 %or.cond46, label %2759, label %2762
 
 2759:                                             ; preds = %2758
   %2760 = call i32 @EVP_PKEY_CTX_set_kem_op(ptr noundef nonnull %2749, ptr noundef nonnull @.str.254) #14
@@ -6317,7 +6317,7 @@ sub_02448:                                        ; preds = %2697, %2700
   br i1 %2796, label %2805, label %2797
 
 2797:                                             ; preds = %2794, %2793
-  br i1 %or.cond48, label %2798, label %2801
+  br i1 %or.cond46, label %2798, label %2801
 
 2798:                                             ; preds = %2797
   %2799 = call i32 @EVP_PKEY_CTX_set_kem_op(ptr noundef nonnull %2788, ptr noundef nonnull @.str.254) #14

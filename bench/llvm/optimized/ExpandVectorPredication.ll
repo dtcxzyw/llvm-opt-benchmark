@@ -478,8 +478,8 @@ _ZNK12_GLOBAL__N_117CachingVPExpander25getVPLegalizationStrategyERKN4llvm11VPInt
   %55 = load i32, ptr %54, align 4, !tbaa !60
   %56 = tail call i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %55) #18
   %57 = and i64 %56, 4294967296
-  %.not17.i.not.i.i = icmp eq i64 %57, 0
-  br i1 %.not17.i.not.i.i, label %_ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.thread.i.i, label %_ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.i.i
+  %.not17.not.i.i.i = icmp eq i64 %57, 0
+  br i1 %.not17.not.i.i.i, label %_ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.thread.i.i, label %_ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.i.i
 
 _ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.i.i: ; preds = %52
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %56 to i32

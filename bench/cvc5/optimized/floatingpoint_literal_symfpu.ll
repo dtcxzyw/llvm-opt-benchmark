@@ -29644,165 +29644,168 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
 57:                                               ; preds = %.thread119
   %58 = trunc nuw i8 %49 to i1
   %or.cond = select i1 %56, i1 true, i1 %58
-  br i1 %or.cond, label %.thread114, label %64
+  br i1 %or.cond, label %59, label %65
+
+59:                                               ; preds = %57
+  %spec.select = and i1 %3, %56
+  %60 = or i1 %50, %spec.select
+  br label %.thread114
 
 .thread111:                                       ; preds = %.thread119
-  %59 = select i1 %56, i1 %18, i1 false
-  br i1 %59, label %.thread, label %.thread114
+  %61 = select i1 %56, i1 %18, i1 false
+  br i1 %61, label %.thread, label %.thread114
 
 .thread:                                          ; preds = %.thread111
-  %60 = trunc nuw i8 %12 to i1
+  %62 = trunc nuw i8 %12 to i1
   br label %..critedge_crit_edge
 
-.thread114:                                       ; preds = %57, %.thread111
-  %61 = phi i1 [ false, %.thread111 ], [ %56, %57 ]
-  %62 = and i1 %3, %61
-  %63 = trunc nuw i8 %55 to i1
-  br label %64
+.thread114:                                       ; preds = %59, %.thread111
+  %63 = phi i1 [ %50, %.thread111 ], [ %60, %59 ]
+  %64 = trunc nuw i8 %55 to i1
+  br label %65
 
-64:                                               ; preds = %57, %.thread114
-  %65 = phi i1 [ %63, %.thread114 ], [ false, %57 ]
-  %66 = phi i1 [ %62, %.thread114 ], [ true, %57 ]
-  %67 = trunc nuw i8 %12 to i1
-  %68 = or i8 %11, %48
-  %69 = or i8 %68, %14
-  %70 = or i8 %69, %52
-  %71 = icmp ne i8 %70, 0
-  %brmerge134.not = select i1 %71, i1 true, i1 %67
-  %or.cond138.not = select i1 %brmerge134.not, i1 true, i1 %65
-  br i1 %or.cond138.not, label %..critedge_crit_edge, label %74
+65:                                               ; preds = %57, %.thread114
+  %66 = phi i1 [ %64, %.thread114 ], [ false, %57 ]
+  %67 = phi i1 [ %63, %.thread114 ], [ true, %57 ]
+  %68 = trunc nuw i8 %12 to i1
+  %69 = or i8 %11, %48
+  %70 = or i8 %69, %14
+  %71 = or i8 %70, %52
+  %72 = icmp ne i8 %71, 0
+  %brmerge134.not = select i1 %72, i1 true, i1 %68
+  %or.cond138.not = select i1 %brmerge134.not, i1 true, i1 %66
+  br i1 %or.cond138.not, label %..critedge_crit_edge, label %75
 
-..critedge_crit_edge:                             ; preds = %.thread, %64
-  %72 = phi i1 [ %60, %.thread ], [ %67, %64 ]
-  %73 = phi i1 [ true, %.thread ], [ %66, %64 ]
+..critedge_crit_edge:                             ; preds = %.thread, %65
+  %73 = phi i1 [ %62, %.thread ], [ %68, %65 ]
+  %74 = phi i1 [ true, %.thread ], [ %67, %65 ]
   %.pre168 = trunc nuw i8 %49 to i1
   br label %.critedge
 
-74:                                               ; preds = %64
-  %75 = icmp eq i8 %17, %49
-  %76 = trunc nuw i8 %49 to i1
-  %77 = xor i1 %76, true
-  %78 = select i1 %18, i1 %77, i1 false
+75:                                               ; preds = %65
+  %76 = icmp eq i8 %17, %49
+  %77 = trunc nuw i8 %49 to i1
+  %78 = xor i1 %77, true
+  %79 = select i1 %18, i1 %78, i1 false
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %74
-  %or.cond138.not171 = phi i1 [ true, %..critedge_crit_edge ], [ false, %74 ]
-  %79 = phi i1 [ %72, %..critedge_crit_edge ], [ false, %74 ]
-  %80 = phi i1 [ %73, %..critedge_crit_edge ], [ %66, %74 ]
-  %.pre-phi = phi i1 [ %.pre168, %..critedge_crit_edge ], [ %76, %74 ]
-  %.0 = phi i1 [ false, %..critedge_crit_edge ], [ %78, %74 ]
-  %81 = phi i1 [ false, %..critedge_crit_edge ], [ %75, %74 ]
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 3
+.critedge:                                        ; preds = %..critedge_crit_edge, %75
+  %or.cond138.not171 = phi i1 [ true, %..critedge_crit_edge ], [ false, %75 ]
+  %80 = phi i1 [ %73, %..critedge_crit_edge ], [ false, %75 ]
+  %81 = phi i1 [ %74, %..critedge_crit_edge ], [ %67, %75 ]
+  %.pre-phi = phi i1 [ %.pre168, %..critedge_crit_edge ], [ %77, %75 ]
+  %.0 = phi i1 [ false, %..critedge_crit_edge ], [ %79, %75 ]
+  %82 = phi i1 [ false, %..critedge_crit_edge ], [ %76, %75 ]
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %or.cond141 = select i1 %18, i1 true, i1 %.pre-phi
-  br i1 %or.cond141, label %87, label %83
+  br i1 %or.cond141, label %88, label %84
 
-83:                                               ; preds = %.critedge
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %85)
+84:                                               ; preds = %.critedge
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %87 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %86)
   %.pre = load i8, ptr %16, align 1, !tbaa !13, !range !21
-  %.pre161 = load i8, ptr %82, align 1, !range !21
-  br label %87
+  %.pre161 = load i8, ptr %83, align 1, !range !21
+  br label %88
 
-87:                                               ; preds = %83, %.critedge
-  %88 = phi i8 [ %.pre161, %83 ], [ %49, %.critedge ]
-  %89 = phi i8 [ %.pre, %83 ], [ %17, %.critedge ]
-  %90 = phi i1 [ %86, %83 ], [ false, %.critedge ]
-  %91 = trunc nuw i8 %89 to i1
-  %92 = trunc nuw i8 %88 to i1
-  %or.cond144 = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond144, label %93, label %97
+88:                                               ; preds = %84, %.critedge
+  %89 = phi i8 [ %.pre161, %84 ], [ %49, %.critedge ]
+  %90 = phi i8 [ %.pre, %84 ], [ %17, %.critedge ]
+  %91 = phi i1 [ %87, %84 ], [ false, %.critedge ]
+  %92 = trunc nuw i8 %90 to i1
+  %93 = trunc nuw i8 %89 to i1
+  %or.cond144 = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond144, label %94, label %99
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %96 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %95)
-  br label %97
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %97 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %96)
+  %98 = or i1 %91, %97
+  br label %99
 
-97:                                               ; preds = %93, %87
-  %98 = phi i1 [ %96, %93 ], [ false, %87 ]
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %101 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %100)
-  %102 = load i8, ptr %16, align 1, !tbaa !13, !range !21, !noundef !22
-  %103 = trunc nuw i8 %102 to i1
-  %104 = load i8, ptr %82, align 1, !range !21
+99:                                               ; preds = %94, %88
+  %100 = phi i1 [ %98, %94 ], [ %91, %88 ]
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %103 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %102)
+  %104 = load i8, ptr %16, align 1, !tbaa !13, !range !21, !noundef !22
   %105 = trunc nuw i8 %104 to i1
-  %or.cond147 = select i1 %103, i1 true, i1 %105
-  br i1 %or.cond147, label %110, label %106
+  %106 = load i8, ptr %83, align 1, !range !21
+  %107 = trunc nuw i8 %106 to i1
+  %or.cond147 = select i1 %105, i1 true, i1 %107
+  br i1 %or.cond147, label %112, label %108
 
-106:                                              ; preds = %97
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %109 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %108)
+108:                                              ; preds = %99
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %111 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %110)
   %.pre162 = load i8, ptr %16, align 1, !tbaa !13, !range !21
-  %.pre163 = load i8, ptr %82, align 1, !range !21
-  br label %110
+  %.pre163 = load i8, ptr %83, align 1, !range !21
+  br label %112
 
-110:                                              ; preds = %106, %97
-  %111 = phi i8 [ %.pre163, %106 ], [ %104, %97 ]
-  %112 = phi i8 [ %.pre162, %106 ], [ %102, %97 ]
-  %113 = phi i1 [ %109, %106 ], [ false, %97 ]
-  %114 = trunc nuw i8 %112 to i1
-  %115 = trunc nuw i8 %111 to i1
-  %or.cond150 = select i1 %114, i1 %115, i1 false
-  br i1 %or.cond150, label %116, label %120
+112:                                              ; preds = %108, %99
+  %113 = phi i8 [ %.pre163, %108 ], [ %106, %99 ]
+  %114 = phi i8 [ %.pre162, %108 ], [ %104, %99 ]
+  %115 = phi i1 [ %111, %108 ], [ false, %99 ]
+  %116 = trunc nuw i8 %114 to i1
+  %117 = trunc nuw i8 %113 to i1
+  %or.cond150 = select i1 %116, i1 %117, i1 false
+  br i1 %or.cond150, label %118, label %123
 
-116:                                              ; preds = %110
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %119 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %118)
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %121 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %120)
+  %122 = or i1 %115, %121
   %.pre164 = load i8, ptr %16, align 1, !tbaa !13, !range !21
-  %.pre165 = load i8, ptr %82, align 1, !range !21
-  br label %120
+  %.pre165 = load i8, ptr %83, align 1, !range !21
+  br label %123
 
-120:                                              ; preds = %116, %110
-  %121 = phi i8 [ %.pre165, %116 ], [ %111, %110 ]
-  %122 = phi i8 [ %.pre164, %116 ], [ %112, %110 ]
-  %123 = phi i1 [ %119, %116 ], [ false, %110 ]
-  %124 = trunc nuw i8 %122 to i1
-  %125 = trunc nuw i8 %121 to i1
-  %or.cond153 = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond153, label %130, label %126
+123:                                              ; preds = %118, %112
+  %124 = phi i8 [ %.pre165, %118 ], [ %113, %112 ]
+  %125 = phi i8 [ %.pre164, %118 ], [ %114, %112 ]
+  %126 = phi i1 [ %122, %118 ], [ %115, %112 ]
+  %127 = trunc nuw i8 %125 to i1
+  %128 = trunc nuw i8 %124 to i1
+  %or.cond153 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond153, label %133, label %129
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %129 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %128)
+129:                                              ; preds = %123
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %132 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %131)
   %.pre166 = load i8, ptr %16, align 1, !tbaa !13, !range !21
-  %.pre167 = load i8, ptr %82, align 1, !range !21
-  br label %130
+  %.pre167 = load i8, ptr %83, align 1, !range !21
+  br label %133
 
-130:                                              ; preds = %126, %120
-  %131 = phi i8 [ %.pre167, %126 ], [ %121, %120 ]
-  %132 = phi i8 [ %.pre166, %126 ], [ %122, %120 ]
-  %133 = phi i1 [ %129, %126 ], [ false, %120 ]
-  %134 = trunc nuw i8 %132 to i1
-  %135 = trunc nuw i8 %131 to i1
-  %or.cond156 = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond156, label %136, label %140
+133:                                              ; preds = %129, %123
+  %134 = phi i8 [ %.pre167, %129 ], [ %124, %123 ]
+  %135 = phi i8 [ %.pre166, %129 ], [ %125, %123 ]
+  %136 = phi i1 [ %132, %129 ], [ false, %123 ]
+  %137 = trunc nuw i8 %135 to i1
+  %138 = trunc nuw i8 %134 to i1
+  %or.cond156 = select i1 %137, i1 %138, i1 false
+  br i1 %or.cond156, label %139, label %144
 
-136:                                              ; preds = %130
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %139 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %138)
-  br label %140
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %142 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %141)
+  %143 = or i1 %136, %142
+  br label %144
 
-140:                                              ; preds = %136, %130
-  %141 = phi i1 [ %139, %136 ], [ false, %130 ]
-  %142 = trunc nuw i8 %11 to i1
-  %143 = select i1 %142, i1 true, i1 %79
-  %144 = xor i1 %143, true
-  %145 = or i1 %50, %80
-  %narrow = select i1 %144, i1 %145, i1 false
-  %146 = or i1 %90, %98
-  %147 = or i1 %133, %141
-  %148 = or i1 %113, %123
-  %.v = select i1 %3, i1 %147, i1 %148
-  %.v159 = select i1 %101, i1 %.v, i1 %146
-  %149 = select i1 %81, i1 %.v159, i1 %.0
-  %.v160 = select i1 %or.cond138.not171, i1 %narrow, i1 %149
-  ret i1 %.v160
+144:                                              ; preds = %139, %133
+  %145 = phi i1 [ %143, %139 ], [ %136, %133 ]
+  %146 = trunc nuw i8 %11 to i1
+  %147 = select i1 %146, i1 true, i1 %80
+  %.v = select i1 %3, i1 %145, i1 %126
+  %.v159 = select i1 %103, i1 %.v, i1 %100
+  %148 = select i1 %82, i1 %.v159, i1 %.0
+  %not.160 = xor i1 %147, true
+  %149 = select i1 %not.160, i1 %81, i1 false
+  %150 = select i1 %or.cond138.not171, i1 %149, i1 %148
+  ret i1 %150
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0

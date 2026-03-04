@@ -6777,6 +6777,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %860, ptr noundef nonnull align 8 dereferenceable(1) %862, i64 %867, i1 false), !noalias !412
   %868 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %865, ptr %868, align 8, !tbaa !69, !alias.scope !443, !noalias !412
+  store ptr %862, ptr %859, align 8, !tbaa !66, !noalias !412
   store i64 0, ptr %864, align 8, !tbaa !69, !noalias !412
   store i8 0, ptr %862, align 8, !tbaa !65, !noalias !412
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i34.i

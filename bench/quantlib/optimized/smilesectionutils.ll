@@ -2540,7 +2540,7 @@ if.end657.loopexit:                               ; preds = %land.rhs631.backedg
 
 if.end657:                                        ; preds = %if.end657.loopexit, %if.end628, %if.then654
   %.pre119012061325 = phi i64 [ %.pre119012061331, %if.then654 ], [ %.pre11901207, %if.end628 ], [ %dec637, %if.end657.loopexit ]
-  %cmp6331323 = phi i1 [ true, %if.then654 ], [ false, %if.end628 ], [ false, %if.end657.loopexit ]
+  %cmp6331323 = phi i1 [ %deleteArbitragePoints, %if.then654 ], [ false, %if.end628 ], [ false, %if.end657.loopexit ]
   %cmp660 = icmp ult i64 %235, %.pre119012061325
   br i1 %cmp660, label %if.then661, label %if.end664
 
@@ -2550,8 +2550,7 @@ if.then661:                                       ; preds = %if.end657
 
 if.end664:                                        ; preds = %if.then661, %if.end657
   %247 = phi i64 [ %.pre119012061325, %if.then661 ], [ %235, %if.end657 ]
-  %or.cond121 = and i1 %deleteArbitragePoints, %cmp6331323
-  br i1 %or.cond121, label %if.then669, label %if.end739
+  br i1 %cmp6331323, label %if.then669, label %if.end739
 
 if.then669:                                       ; preds = %if.end664
   %248 = load ptr, ptr %this, align 8, !tbaa !18
@@ -2717,7 +2716,7 @@ invoke.cont807:                                   ; preds = %_ZSt4moveIN9__gnu_c
   br label %while.cond597.preheader.backedge
 
 if.end816:                                        ; preds = %land.lhs.true741
-  br i1 %or.cond121, label %while.cond597.preheader.backedge, label %do.body819
+  br i1 %cmp6331323, label %while.cond597.preheader.backedge, label %do.body819
 
 while.cond597.preheader.backedge:                 ; preds = %if.end816, %invoke.cont807
   %.pre1190 = phi i64 [ %.pre11901204, %if.end816 ], [ %.pre1190.pre, %invoke.cont807 ]

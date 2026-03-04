@@ -4922,10 +4922,10 @@ _ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread: ; preds = %.prehe
   %91 = phi i16 [ 0, %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread270 ], [ 2048, %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit ], [ 2048, %._crit_edge.i ], [ 2048, %.preheader14.i ]
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 166
   %93 = load i8, ptr %92, align 2, !range !819, !noundef !8
-  %.sroa.023.0 = zext nneg i8 %93 to i16
-  %94 = or disjoint i16 %91, %.sroa.023.0
+  %94 = zext nneg i8 %93 to i16
+  %.sroa.023.0 = or disjoint i16 %91, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1140
-  store i16 %94, ptr %17, align 2, !alias.scope !1143, !noalias !1149
+  store i16 %.sroa.023.0, ptr %17, align 2, !alias.scope !1143, !noalias !1149
   %95 = call noundef ptr @"_ZN95_$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$C$A$GT$$GT$$u20$as$u20$std..io..Write$GT$9write_all17h06962b6b283df5bdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1140
   %.not208 = icmp eq ptr %95, null
@@ -5341,10 +5341,10 @@ _ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread: ; preds = %.prehe
   %91 = phi i16 [ 0, %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread290 ], [ 2048, %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit ], [ 2048, %._crit_edge.i ], [ 2048, %.preheader14.i ]
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 166
   %93 = load i8, ptr %92, align 2, !range !819, !noundef !8
-  %.sroa.023.0 = zext nneg i8 %93 to i16
-  %94 = or disjoint i16 %91, %.sroa.023.0
+  %94 = zext nneg i8 %93 to i16
+  %.sroa.023.0 = or disjoint i16 %91, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i16 %94, ptr %17, align 2, !alias.scope !1396, !noalias !1402
+  store i16 %.sroa.023.0, ptr %17, align 2, !alias.scope !1396, !noalias !1402
   %95 = call noundef ptr @"_ZN107_$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha567365b406ce11aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val262, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not208 = icmp eq ptr %95, null

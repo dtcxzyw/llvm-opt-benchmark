@@ -27043,6 +27043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %26 = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %19, align 8, !tbaa !63
   store i64 0, ptr %27, align 8, !tbaa !81
   store i8 0, ptr %21, align 8, !tbaa !66
   store ptr %16, ptr %5, align 8, !tbaa !123
@@ -29453,6 +29454,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %24, ptr %28, align 8, !tbaa !81, !alias.scope !1135
+  store ptr %21, ptr %18, align 8, !tbaa !63
   store i64 0, ptr %27, align 8, !tbaa !81
   store i8 0, ptr %21, align 8, !tbaa !66
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -40090,6 +40092,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %469 = add nuw nsw i64 %467, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %274, ptr noundef nonnull align 8 dereferenceable(1) %464, i64 %469, i1 false)
   store i64 %467, ptr %275, align 8, !tbaa !81, !alias.scope !1854
+  store ptr %464, ptr %462, align 8, !tbaa !63
   store i64 0, ptr %466, align 8, !tbaa !81
   store i8 0, ptr %464, align 8, !tbaa !66
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
@@ -40649,6 +40652,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %661, ptr noundef nonnull align 8 dereferenceable(1) %663, i64 %668, i1 false)
   %669 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %666, ptr %669, align 8, !tbaa !81, !alias.scope !1881
+  store ptr %663, ptr %660, align 8, !tbaa !63
   store i64 0, ptr %665, align 8, !tbaa !81
   store i8 0, ptr %663, align 8, !tbaa !66
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i351

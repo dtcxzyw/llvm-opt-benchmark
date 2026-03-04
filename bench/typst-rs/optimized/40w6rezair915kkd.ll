@@ -95604,9 +95604,9 @@ _ZN4core3str7pattern8Searcher11next_reject17hf85cb06f6718a080E.llvm.169787098148
   %102 = load i8, ptr %.sroa.0.06.i.i.i.i.i, align 1, !alias.scope !24974, !noalias !24977, !noundef !4
   %103 = add i8 %102, -65
   %104 = icmp ult i8 %103, 26
-  %.0.i.i.i.i.i = select i1 %104, i8 32, i8 0
-  %105 = or i8 %.0.i.i.i.i.i, %102
-  store i8 %105, ptr %.sroa.0.06.i.i.i.i.i, align 1, !alias.scope !24974, !noalias !24977
+  %105 = select i1 %104, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %105, %102
+  store i8 %.0.i.i.i.i.i, ptr %.sroa.0.06.i.i.i.i.i, align 1, !alias.scope !24974, !noalias !24977
   %106 = icmp eq ptr %101, %98
   br i1 %106, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h4bf15b674a589984E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
@@ -96159,9 +96159,9 @@ _ZN4core3str7pattern8Searcher11next_reject17hf85cb06f6718a080E.llvm.169787098148
   %282 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25113, !noalias !25098, !noundef !4
   %283 = add i8 %282, -65
   %284 = icmp ult i8 %283, 26
-  %.0.i.i = select i1 %284, i8 32, i8 0
-  %285 = or i8 %.0.i.i, %282
-  store i8 %285, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25113, !noalias !25098
+  %285 = select i1 %284, i8 32, i8 0
+  %.0.i.i = or i8 %285, %282
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25113, !noalias !25098
   %286 = icmp eq ptr %281, %279
   br i1 %286, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_lowercase17h9bc6c58b2f89260fE.exit.i", label %.lr.ph.i.i
 

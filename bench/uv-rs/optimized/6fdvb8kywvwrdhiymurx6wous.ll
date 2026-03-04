@@ -3385,9 +3385,9 @@ define hidden void @"_ZN165_$LT$uv_client..httpcache..control..CacheControl$u20$
   %148 = load i8, ptr %147, align 1, !alias.scope !1099, !noalias !1091, !noundef !25
   %149 = add i8 %148, -65
   %150 = icmp ult i8 %149, 26
-  %.sroa.03.0.i.i = select i1 %150, i8 32, i8 0
-  %151 = or i8 %.sroa.03.0.i.i, %148
-  store i8 %151, ptr %147, align 1, !alias.scope !1099, !noalias !1091
+  %151 = select i1 %150, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %151, %148
+  store i8 %.sroa.03.0.i.i, ptr %147, align 1, !alias.scope !1099, !noalias !1091
   %152 = add nuw i64 %.sroa.0.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %152, %146
   br i1 %exitcond.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_lowercase17h3032e33d37af1d5fE.exit.i", label %.lr.ph.i13.i

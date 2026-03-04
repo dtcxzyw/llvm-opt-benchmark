@@ -253,9 +253,9 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   %96 = phi i1 [ true, %._crit_edge149 ], [ %49, %._crit_edge ], [ false, %.thread ], [ %49, %._crit_edge.thread ]
   %97 = phi i1 [ true, %._crit_edge149 ], [ %83, %._crit_edge ], [ %68, %.thread ], [ %84, %._crit_edge.thread ]
   %.0113140 = phi i64 [ %70, %._crit_edge149 ], [ %70, %._crit_edge ], [ 0, %.thread ], [ %70, %._crit_edge.thread ]
-  %.0107 = phi i1 [ %.1108.lcssa, %._crit_edge149 ], [ false, %._crit_edge ], [ false, %.thread ], [ false, %._crit_edge.thread ]
+  %.2112 = phi i1 [ %.1108.lcssa, %._crit_edge149 ], [ false, %._crit_edge ], [ false, %.thread ], [ false, %._crit_edge.thread ]
   %98 = icmp ne i64 %.0114, %.0113140
-  %or.cond5 = select i1 %98, i1 true, i1 %.0107
+  %or.cond5 = select i1 %98, i1 true, i1 %.2112
   br i1 %or.cond5, label %101, label %99
 
 99:                                               ; preds = %95
@@ -318,7 +318,7 @@ test_string_null_empty.exit137:                   ; preds = %116
   br label %123
 
 123:                                              ; preds = %.split122, %test_string_null_empty.exit137, %120, %121
-  br i1 %.0107, label %124, label %126
+  br i1 %.2112, label %124, label %126
 
 124:                                              ; preds = %123
   %125 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #8
@@ -1041,9 +1041,9 @@ hex_convert_memory.exit:                          ; preds = %66
 111:                                              ; preds = %.thread, %109, %92
   %112 = phi i1 [ true, %109 ], [ false, %92 ], [ %69, %.thread ]
   %.0105143 = phi i64 [ %70, %109 ], [ %70, %92 ], [ 0, %.thread ]
-  %.0100 = phi i1 [ %110, %109 ], [ false, %92 ], [ false, %.thread ]
+  %.0103 = phi i1 [ %110, %109 ], [ false, %92 ], [ false, %.thread ]
   %113 = icmp ne i64 %.0106, %.0105143
-  %or.cond5 = select i1 %113, i1 true, i1 %.0100
+  %or.cond5 = select i1 %113, i1 true, i1 %.0103
   br i1 %or.cond5, label %116, label %114
 
 114:                                              ; preds = %111
@@ -1106,7 +1106,7 @@ test_memory_null_empty.exit139.thread:            ; preds = %122, %124, %test_me
   br label %test_memory_null_empty.exit140
 
 test_memory_null_empty.exit140:                   ; preds = %134, %132, %136, %137
-  br i1 %.0100, label %139, label %141
+  br i1 %.0103, label %139, label %141
 
 139:                                              ; preds = %test_memory_null_empty.exit140
   %140 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #8

@@ -3281,20 +3281,16 @@ _ZN4pbrt4SincEf.exit.i:                           ; preds = %60, %55
   %65 = fmul float %64, %64
   %66 = fsub float 1.000000e+00, %65
   %67 = fcmp oeq float %66, 1.000000e+00
-  br i1 %67, label %_ZN4pbrt4SincEf.exit7.i, label %68
+  br i1 %67, label %_ZN4pbrt12WindowedSincEfff.exit, label %68
 
 68:                                               ; preds = %_ZN4pbrt4SincEf.exit.i
   %69 = tail call noundef float @sinf(float noundef %64) #38, !tbaa !13
   %70 = fdiv float %69, %64
-  br label %_ZN4pbrt4SincEf.exit7.i
-
-_ZN4pbrt4SincEf.exit7.i:                          ; preds = %68, %_ZN4pbrt4SincEf.exit.i
-  %.0.i.i6.i = phi float [ %70, %68 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i ]
-  %71 = fmul float %.0.i.i.i, %.0.i.i6.i
+  %71 = fmul float %.0.i.i.i, %70
   br label %_ZN4pbrt12WindowedSincEfff.exit
 
-_ZN4pbrt12WindowedSincEfff.exit:                  ; preds = %_ZN4pbrt4SincEf.exit7.i, %47
-  %.0.i = phi float [ %71, %_ZN4pbrt4SincEf.exit7.i ], [ 0.000000e+00, %47 ]
+_ZN4pbrt12WindowedSincEfff.exit:                  ; preds = %68, %_ZN4pbrt4SincEf.exit.i, %47
+  %.0.i = phi float [ 0.000000e+00, %47 ], [ %71, %68 ], [ %.0.i.i.i, %_ZN4pbrt4SincEf.exit.i ]
   %72 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   store float %.0.i, ptr %72, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

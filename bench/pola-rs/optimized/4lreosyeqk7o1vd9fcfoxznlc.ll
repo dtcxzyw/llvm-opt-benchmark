@@ -166916,11 +166916,11 @@ define noundef zeroext i1 @"_ZN11polars_plan3dsl9file_scan18_file_scan_eq_hash88
 12:                                               ; preds = %2
   switch i64 %9, label %default.unreachable [
     i64 0, label %13
-    i64 1, label %277
-    i64 2, label %345
-    i64 3, label %376
-    i64 4, label %383
-    i64 5, label %389
+    i64 1, label %276
+    i64 2, label %344
+    i64 3, label %375
+    i64 4, label %382
+    i64 5, label %388
     i64 6, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
   ]
 
@@ -166946,7 +166946,7 @@ default.unreachable:                              ; preds = %12
   br i1 %20, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %23
 
 22:                                               ; preds = %13
-  br i1 %20, label %76, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+  br i1 %20, label %75, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 80
@@ -166991,12 +166991,12 @@ default.unreachable:                              ; preds = %12
   %or.cond7.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i1 %46, i1 false
   br i1 %or.cond7.i.i.i.i.i, label %50, label %47
 
-47:                                               ; preds = %56, %50, %35, %23
+47:                                               ; preds = %55, %50, %35, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26657
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = load i8, ptr %48, align 8, !range !2801, !alias.scope !26650, !noalias !26655, !noundef !8
   %.not32.i.i.i.i.i = icmp eq i8 %49, 6
-  br i1 %.not32.i.i.i.i.i, label %59, label %58
+  br i1 %.not32.i.i.i.i.i, label %58, label %57
 
 50:                                               ; preds = %35
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -167005,32 +167005,32 @@ default.unreachable:                              ; preds = %12
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i8, ptr %53, align 8, !range !2801, !alias.scope !26653, !noalias !26656, !noundef !8
   %switch34.i.i.i.i.i = icmp samesign ult i8 %54, 3
-  %55 = xor i1 %switch.i.i.i.i.i, %switch34.i.i.i.i.i
-  br i1 %55, label %47, label %56
+  %spec.select35.i.i.i.i.i = xor i1 %switch.i.i.i.i.i, %switch34.i.i.i.i.i
+  br i1 %spec.select35.i.i.i.i.i, label %47, label %55
 
-56:                                               ; preds = %50
-  %57 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %30, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %30), !noalias !26658
-  br i1 %57, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i", label %47
+55:                                               ; preds = %50
+  %56 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %30, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %30), !noalias !26658
+  br i1 %56, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i", label %47
 
-"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i": ; preds = %56
+"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i": ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.526.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26648
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !26648
-  br label %76
+  br label %75
 
-58:                                               ; preds = %47
+57:                                               ; preds = %47
   %.sroa.526.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.526.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(39) %.sroa.526.0..sroa_idx.i.i.i.i.i, i64 39, i1 false), !noalias !26655
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %47
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 58
-  %61 = load i8, ptr %60, align 2, !range !430, !alias.scope !26650, !noalias !26655, !noundef !8
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %63 = load i8, ptr %62, align 8, !range !481, !alias.scope !26650, !noalias !26655, !noundef !8
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 57
-  %65 = load i8, ptr %64, align 1, !range !481, !alias.scope !26650, !noalias !26655, !noundef !8
+58:                                               ; preds = %57, %47
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 58
+  %60 = load i8, ptr %59, align 2, !range !430, !alias.scope !26650, !noalias !26655, !noundef !8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %62 = load i8, ptr %61, align 8, !range !481, !alias.scope !26650, !noalias !26655, !noundef !8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 57
+  %64 = load i8, ptr %63, align 1, !range !481, !alias.scope !26650, !noalias !26655, !noundef !8
   store ptr %28, ptr %4, align 8, !noalias !26657
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %30, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
@@ -167039,653 +167039,653 @@ default.unreachable:                              ; preds = %12
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.526.i.i.i.i.i, i64 39, i1 false), !noalias !26657
   %.sroa.6.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i8 %63, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
+  store i8 %62, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
   %.sroa.7.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 57
-  store i8 %65, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i, align 1, !noalias !26657
+  store i8 %64, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i, align 1, !noalias !26657
   %.sroa.8.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 58
-  store i8 %61, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i, align 2, !noalias !26657
+  store i8 %60, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i, align 2, !noalias !26657
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !26657
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %67 = load i8, ptr %66, align 8, !range !2801, !alias.scope !26653, !noalias !26656, !noundef !8
-  %.not33.i.i.i.i.i = icmp eq i8 %67, 6
-  br i1 %.not33.i.i.i.i.i, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", label %68
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %66 = load i8, ptr %65, align 8, !range !2801, !alias.scope !26653, !noalias !26656, !noundef !8
+  %.not33.i.i.i.i.i = icmp eq i8 %66, 6
+  br i1 %.not33.i.i.i.i.i, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", label %67
 
-68:                                               ; preds = %59
+67:                                               ; preds = %58
   %.sroa.5.0..sroa_idx29.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(39) %.sroa.5.0..sroa_idx29.i.i.i.i.i, i64 39, i1 false), !noalias !26656
   br label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i"
 
-"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i": ; preds = %68, %59
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 58
-  %70 = load i8, ptr %69, align 2, !range !430, !alias.scope !26653, !noalias !26656, !noundef !8
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %72 = load i8, ptr %71, align 8, !range !481, !alias.scope !26653, !noalias !26656, !noundef !8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 57
-  %74 = load i8, ptr %73, align 1, !range !481, !alias.scope !26653, !noalias !26656, !noundef !8
+"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i": ; preds = %67, %58
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 58
+  %69 = load i8, ptr %68, align 2, !range !430, !alias.scope !26653, !noalias !26656, !noundef !8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %71 = load i8, ptr %70, align 8, !range !481, !alias.scope !26653, !noalias !26656, !noundef !8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 57
+  %73 = load i8, ptr %72, align 1, !range !481, !alias.scope !26653, !noalias !26656, !noundef !8
   store ptr %31, ptr %3, align 8, !noalias !26657
   %.sroa.412.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %33, ptr %.sroa.412.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
   %.sroa.513.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 %67, ptr %.sroa.513.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
+  store i8 %66, ptr %.sroa.513.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
   %.sroa.513.sroa.4.0..sroa.513.0..sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.513.sroa.4.0..sroa.513.0..sroa_idx.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i.i.i.i, i64 39, i1 false), !noalias !26657
   %.sroa.614.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 %72, ptr %.sroa.614.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
+  store i8 %71, ptr %.sroa.614.0..sroa_idx.i.i.i.i.i, align 8, !noalias !26657
   %.sroa.715.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 57
-  store i8 %74, ptr %.sroa.715.0..sroa_idx.i.i.i.i.i, align 1, !noalias !26657
+  store i8 %73, ptr %.sroa.715.0..sroa_idx.i.i.i.i.i, align 1, !noalias !26657
   %.sroa.816.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 58
-  store i8 %70, ptr %.sroa.816.0..sroa_idx.i.i.i.i.i, align 2, !noalias !26657
-  %75 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h948ab867efc1452aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !26658
+  store i8 %69, ptr %.sroa.816.0..sroa_idx.i.i.i.i.i, align 2, !noalias !26657
+  %74 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h948ab867efc1452aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !26658
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !26657
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26657
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.526.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26648
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !26648
-  br i1 %75, label %76, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+  br i1 %74, label %75, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-76:                                               ; preds = %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i", %22
-  %77 = getelementptr inbounds nuw i8, ptr %.val.i, i64 216
-  %78 = load i8, ptr %77, align 8, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
-  %79 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 216
-  %80 = load i8, ptr %79, align 8, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
-  %81 = icmp eq i8 %78, %80
-  br i1 %81, label %82, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+75:                                               ; preds = %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.thread.i.i.i", %22
+  %76 = getelementptr inbounds nuw i8, ptr %.val.i, i64 216
+  %77 = load i8, ptr %76, align 8, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
+  %78 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 216
+  %79 = load i8, ptr %78, align 8, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
+  %80 = icmp eq i8 %77, %79
+  br i1 %80, label %81, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-82:                                               ; preds = %76
-  %83 = load i64, ptr %.val.i, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
-  %84 = trunc nuw i64 %83 to i1
-  %85 = load i64, ptr %.val2.i, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
-  %86 = trunc nuw i64 %85 to i1
-  br i1 %84, label %87, label %88
+81:                                               ; preds = %75
+  %82 = load i64, ptr %.val.i, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
+  %83 = trunc nuw i64 %82 to i1
+  %84 = load i64, ptr %.val2.i, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
+  %85 = trunc nuw i64 %84 to i1
+  br i1 %83, label %86, label %87
 
-87:                                               ; preds = %82
-  br i1 %86, label %89, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+86:                                               ; preds = %81
+  br i1 %85, label %88, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-88:                                               ; preds = %82
-  br i1 %86, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %95
+87:                                               ; preds = %81
+  br i1 %85, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %94
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %91 = load i64, ptr %90, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %92 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 8
-  %93 = load i64, ptr %92, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %94 = icmp eq i64 %91, %93
-  br i1 %94, label %95, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %90 = load i64, ptr %89, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %91 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 8
+  %92 = load i64, ptr %91, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %93 = icmp eq i64 %90, %92
+  br i1 %93, label %94, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-95:                                               ; preds = %89, %88
-  %96 = getelementptr inbounds nuw i8, ptr %.val.i, i64 217
-  %97 = load i8, ptr %96, align 1, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
-  %98 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 217
-  %99 = load i8, ptr %98, align 1, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
-  %100 = icmp eq i8 %97, %99
-  br i1 %100, label %101, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+94:                                               ; preds = %88, %87
+  %95 = getelementptr inbounds nuw i8, ptr %.val.i, i64 217
+  %96 = load i8, ptr %95, align 1, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
+  %97 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 217
+  %98 = load i8, ptr %97, align 1, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
+  %99 = icmp eq i8 %96, %98
+  br i1 %99, label %100, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %103 = load i64, ptr %102, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
-  %104 = trunc nuw i64 %103 to i1
-  %105 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 16
-  %106 = load i64, ptr %105, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
-  %107 = trunc nuw i64 %106 to i1
-  br i1 %104, label %108, label %109
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %102 = load i64, ptr %101, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
+  %103 = trunc nuw i64 %102 to i1
+  %104 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 16
+  %105 = load i64, ptr %104, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
+  %106 = trunc nuw i64 %105 to i1
+  br i1 %103, label %107, label %108
 
-108:                                              ; preds = %101
-  br i1 %107, label %110, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+107:                                              ; preds = %100
+  br i1 %106, label %109, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-109:                                              ; preds = %101
-  br i1 %107, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %116
+108:                                              ; preds = %100
+  br i1 %106, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %115
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %112 = load i64, ptr %111, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %113 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 24
-  %114 = load i64, ptr %113, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %115 = icmp eq i64 %112, %114
-  br i1 %115, label %116, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %111 = load i64, ptr %110, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %112 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 24
+  %113 = load i64, ptr %112, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %114 = icmp eq i64 %111, %113
+  br i1 %114, label %115, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-116:                                              ; preds = %110, %109
-  %117 = getelementptr inbounds nuw i8, ptr %.val.i, i64 96
-  %118 = getelementptr inbounds nuw i8, ptr %.val.i, i64 119
-  %119 = load i8, ptr %118, align 1, !range !2700, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not21.i.i.i = icmp eq i8 %119, -38
-  %120 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 119
-  %121 = load i8, ptr %120, align 1, !range !2700, !alias.scope !26644, !noalias !26647, !noundef !8
-  %122 = icmp eq i8 %121, -38
-  br i1 %.not21.i.i.i, label %124, label %123
+115:                                              ; preds = %109, %108
+  %116 = getelementptr inbounds nuw i8, ptr %.val.i, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %.val.i, i64 119
+  %118 = load i8, ptr %117, align 1, !range !2700, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not21.i.i.i = icmp eq i8 %118, -38
+  %119 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 119
+  %120 = load i8, ptr %119, align 1, !range !2700, !alias.scope !26644, !noalias !26647, !noundef !8
+  %121 = icmp eq i8 %120, -38
+  br i1 %.not21.i.i.i, label %123, label %122
 
-123:                                              ; preds = %116
-  br i1 %122, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %125
+122:                                              ; preds = %115
+  br i1 %121, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %124
 
-124:                                              ; preds = %116
-  br i1 %122, label %128, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+123:                                              ; preds = %115
+  br i1 %121, label %127, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 96
-  %127 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$polars_io..options..RowIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85789c63ab067871E"(ptr noalias noundef readonly align 8 dereferenceable(32) %117, ptr noalias noundef readonly align 8 dereferenceable(32) %126), !noalias !26649
-  br i1 %127, label %128, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 96
+  %126 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$polars_io..options..RowIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85789c63ab067871E"(ptr noalias noundef readonly align 8 dereferenceable(32) %116, ptr noalias noundef readonly align 8 dereferenceable(32) %125), !noalias !26649
+  br i1 %126, label %127, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-128:                                              ; preds = %125, %124
-  %129 = getelementptr inbounds nuw i8, ptr %.val.i, i64 136
-  %130 = load ptr, ptr %129, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not23.i.i.i = icmp eq ptr %130, null
-  %131 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 136
-  %132 = load ptr, ptr %131, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %133 = icmp eq ptr %132, null
-  br i1 %.not23.i.i.i, label %135, label %134
+127:                                              ; preds = %124, %123
+  %128 = getelementptr inbounds nuw i8, ptr %.val.i, i64 136
+  %129 = load ptr, ptr %128, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not23.i.i.i = icmp eq ptr %129, null
+  %130 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 136
+  %131 = load ptr, ptr %130, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %132 = icmp eq ptr %131, null
+  br i1 %.not23.i.i.i, label %134, label %133
 
-134:                                              ; preds = %128
-  br i1 %133, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %136
+133:                                              ; preds = %127
+  br i1 %132, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %135
 
-135:                                              ; preds = %128
-  br i1 %133, label %144, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+134:                                              ; preds = %127
+  br i1 %132, label %143, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %.val.i, i64 144
-  %138 = load i64, ptr %137, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %139 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %140 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 144
-  %141 = load i64, ptr %140, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %142 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %143 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99ff86a66ae74c8bE"(ptr noalias noundef nonnull readonly align 8 %139, i64 noundef %138, ptr noalias noundef nonnull readonly align 8 %142, i64 noundef %141), !noalias !26649
-  br i1 %143, label %144, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+135:                                              ; preds = %133
+  %136 = getelementptr inbounds nuw i8, ptr %.val.i, i64 144
+  %137 = load i64, ptr %136, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 144
+  %140 = load i64, ptr %139, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %142 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99ff86a66ae74c8bE"(ptr noalias noundef nonnull readonly align 8 %138, i64 noundef %137, ptr noalias noundef nonnull readonly align 8 %141, i64 noundef %140), !noalias !26649
+  br i1 %142, label %143, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-144:                                              ; preds = %136, %135
-  %145 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
-  %146 = load ptr, ptr %145, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not25.i.i.i = icmp eq ptr %146, null
-  %147 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 152
-  %148 = load ptr, ptr %147, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %149 = icmp eq ptr %148, null
-  br i1 %.not25.i.i.i, label %151, label %150
+143:                                              ; preds = %135, %134
+  %144 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
+  %145 = load ptr, ptr %144, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not25.i.i.i = icmp eq ptr %145, null
+  %146 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 152
+  %147 = load ptr, ptr %146, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %148 = icmp eq ptr %147, null
+  br i1 %.not25.i.i.i, label %150, label %149
 
-150:                                              ; preds = %144
-  br i1 %149, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %152
+149:                                              ; preds = %143
+  br i1 %148, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %151
 
-151:                                              ; preds = %144
-  br i1 %149, label %160, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+150:                                              ; preds = %143
+  br i1 %148, label %159, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-152:                                              ; preds = %150
-  %153 = icmp eq ptr %146, %148
-  br i1 %153, label %160, label %154
+151:                                              ; preds = %149
+  %152 = icmp eq ptr %145, %147
+  br i1 %152, label %159, label %153
 
-154:                                              ; preds = %152
-  %155 = getelementptr i8, ptr %146, i64 24
-  %.val36.i.i.i = load ptr, ptr %155, align 8, !noalias !26649, !nonnull !8, !noundef !8
-  %156 = getelementptr i8, ptr %146, i64 32
-  %.val37.i.i.i = load i64, ptr %156, align 8, !noalias !26649, !noundef !8
-  %157 = getelementptr i8, ptr %148, i64 24
-  %.val38.i.i.i = load ptr, ptr %157, align 8, !noalias !26649, !nonnull !8, !noundef !8
-  %158 = getelementptr i8, ptr %148, i64 32
-  %.val39.i.i.i = load i64, ptr %158, align 8, !noalias !26649, !noundef !8
-  %159 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d6d7c0915c7100aE"(ptr noalias noundef nonnull readonly align 8 %.val36.i.i.i, i64 noundef %.val37.i.i.i, ptr noalias noundef nonnull readonly align 8 %.val38.i.i.i, i64 noundef %.val39.i.i.i), !noalias !26649
-  br i1 %159, label %160, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+153:                                              ; preds = %151
+  %154 = getelementptr i8, ptr %145, i64 24
+  %.val36.i.i.i = load ptr, ptr %154, align 8, !noalias !26649, !nonnull !8, !noundef !8
+  %155 = getelementptr i8, ptr %145, i64 32
+  %.val37.i.i.i = load i64, ptr %155, align 8, !noalias !26649, !noundef !8
+  %156 = getelementptr i8, ptr %147, i64 24
+  %.val38.i.i.i = load ptr, ptr %156, align 8, !noalias !26649, !nonnull !8, !noundef !8
+  %157 = getelementptr i8, ptr %147, i64 32
+  %.val39.i.i.i = load i64, ptr %157, align 8, !noalias !26649, !noundef !8
+  %158 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d6d7c0915c7100aE"(ptr noalias noundef nonnull readonly align 8 %.val36.i.i.i, i64 noundef %.val37.i.i.i, ptr noalias noundef nonnull readonly align 8 %.val38.i.i.i, i64 noundef %.val39.i.i.i), !noalias !26649
+  br i1 %158, label %159, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-160:                                              ; preds = %154, %152, %151
-  %161 = getelementptr inbounds nuw i8, ptr %.val.i, i64 160
-  %162 = load ptr, ptr %161, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not27.i.i.i = icmp eq ptr %162, null
-  %163 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 160
-  %164 = load ptr, ptr %163, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %165 = icmp eq ptr %164, null
-  br i1 %.not27.i.i.i, label %167, label %166
+159:                                              ; preds = %153, %151, %150
+  %160 = getelementptr inbounds nuw i8, ptr %.val.i, i64 160
+  %161 = load ptr, ptr %160, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not27.i.i.i = icmp eq ptr %161, null
+  %162 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 160
+  %163 = load ptr, ptr %162, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %164 = icmp eq ptr %163, null
+  br i1 %.not27.i.i.i, label %166, label %165
 
-166:                                              ; preds = %160
-  br i1 %165, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %168
+165:                                              ; preds = %159
+  br i1 %164, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %167
 
-167:                                              ; preds = %160
-  br i1 %165, label %174, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+166:                                              ; preds = %159
+  br i1 %164, label %173, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-168:                                              ; preds = %166
-  %169 = icmp eq ptr %162, %164
-  br i1 %169, label %174, label %170
+167:                                              ; preds = %165
+  %168 = icmp eq ptr %161, %163
+  br i1 %168, label %173, label %169
 
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %172 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %173 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %171, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %172), !noalias !26649
-  br i1 %173, label %174, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+169:                                              ; preds = %167
+  %170 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %163, i64 16
+  %172 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %171), !noalias !26649
+  br i1 %172, label %173, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-174:                                              ; preds = %170, %168, %167
-  %175 = getelementptr inbounds nuw i8, ptr %.val.i, i64 168
-  %176 = load ptr, ptr %175, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not29.i.i.i = icmp eq ptr %176, null
-  %177 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 168
-  %178 = load ptr, ptr %177, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %179 = icmp eq ptr %178, null
-  br i1 %.not29.i.i.i, label %181, label %180
+173:                                              ; preds = %169, %167, %166
+  %174 = getelementptr inbounds nuw i8, ptr %.val.i, i64 168
+  %175 = load ptr, ptr %174, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not29.i.i.i = icmp eq ptr %175, null
+  %176 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 168
+  %177 = load ptr, ptr %176, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %178 = icmp eq ptr %177, null
+  br i1 %.not29.i.i.i, label %180, label %179
 
-180:                                              ; preds = %174
-  br i1 %179, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %182
+179:                                              ; preds = %173
+  br i1 %178, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %181
 
-181:                                              ; preds = %174
-  br i1 %179, label %188, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+180:                                              ; preds = %173
+  br i1 %178, label %187, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-182:                                              ; preds = %180
-  %183 = icmp eq ptr %176, %178
-  br i1 %183, label %188, label %184
+181:                                              ; preds = %179
+  %182 = icmp eq ptr %175, %177
+  br i1 %182, label %187, label %183
 
-184:                                              ; preds = %182
-  %185 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %186 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %187 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %185, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %186), !noalias !26649
-  br i1 %187, label %188, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %186 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %185), !noalias !26649
+  br i1 %186, label %187, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-188:                                              ; preds = %184, %182, %181
-  %189 = getelementptr inbounds nuw i8, ptr %.val.i, i64 176
-  %190 = load ptr, ptr %189, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %.not31.i.i.i = icmp eq ptr %190, null
-  %191 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 176
-  %192 = load ptr, ptr %191, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %193 = icmp eq ptr %192, null
-  br i1 %.not31.i.i.i, label %195, label %194
+187:                                              ; preds = %183, %181, %180
+  %188 = getelementptr inbounds nuw i8, ptr %.val.i, i64 176
+  %189 = load ptr, ptr %188, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %.not31.i.i.i = icmp eq ptr %189, null
+  %190 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 176
+  %191 = load ptr, ptr %190, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %192 = icmp eq ptr %191, null
+  br i1 %.not31.i.i.i, label %194, label %193
 
-194:                                              ; preds = %188
-  br i1 %193, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %196
+193:                                              ; preds = %187
+  br i1 %192, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %195
 
-195:                                              ; preds = %188
-  br i1 %193, label %204, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+194:                                              ; preds = %187
+  br i1 %192, label %203, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-196:                                              ; preds = %194
-  %197 = icmp eq ptr %190, %192
-  br i1 %197, label %204, label %198
+195:                                              ; preds = %193
+  %196 = icmp eq ptr %189, %191
+  br i1 %196, label %203, label %197
 
-198:                                              ; preds = %196
-  %199 = getelementptr i8, ptr %190, i64 24
-  %.val40.i.i.i = load ptr, ptr %199, align 8, !noalias !26649, !nonnull !8, !noundef !8
-  %200 = getelementptr i8, ptr %190, i64 32
-  %.val41.i.i.i = load i64, ptr %200, align 8, !noalias !26649, !noundef !8
-  %201 = getelementptr i8, ptr %192, i64 24
-  %.val42.i.i.i = load ptr, ptr %201, align 8, !noalias !26649, !nonnull !8, !noundef !8
-  %202 = getelementptr i8, ptr %192, i64 32
-  %.val43.i.i.i = load i64, ptr %202, align 8, !noalias !26649, !noundef !8
-  %203 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdc30e3994fb0b5c9E"(ptr noalias noundef nonnull readonly align 16 %.val40.i.i.i, i64 noundef %.val41.i.i.i, ptr noalias noundef nonnull readonly align 16 %.val42.i.i.i, i64 noundef %.val43.i.i.i), !noalias !26649
-  br i1 %203, label %204, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+197:                                              ; preds = %195
+  %198 = getelementptr i8, ptr %189, i64 24
+  %.val40.i.i.i = load ptr, ptr %198, align 8, !noalias !26649, !nonnull !8, !noundef !8
+  %199 = getelementptr i8, ptr %189, i64 32
+  %.val41.i.i.i = load i64, ptr %199, align 8, !noalias !26649, !noundef !8
+  %200 = getelementptr i8, ptr %191, i64 24
+  %.val42.i.i.i = load ptr, ptr %200, align 8, !noalias !26649, !nonnull !8, !noundef !8
+  %201 = getelementptr i8, ptr %191, i64 32
+  %.val43.i.i.i = load i64, ptr %201, align 8, !noalias !26649, !noundef !8
+  %202 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdc30e3994fb0b5c9E"(ptr noalias noundef nonnull readonly align 16 %.val40.i.i.i, i64 noundef %.val41.i.i.i, ptr noalias noundef nonnull readonly align 16 %.val42.i.i.i, i64 noundef %.val43.i.i.i), !noalias !26649
+  br i1 %202, label %203, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-204:                                              ; preds = %198, %196, %195
-  %205 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
-  %206 = load ptr, ptr %205, align 8, !alias.scope !26641, !noalias !26646, !nonnull !8, !noundef !8
-  %207 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 128
-  %208 = load ptr, ptr %207, align 8, !alias.scope !26644, !noalias !26647, !nonnull !8, !noundef !8
-  %209 = icmp eq ptr %206, %208
-  br i1 %209, label %214, label %210
+203:                                              ; preds = %197, %195, %194
+  %204 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
+  %205 = load ptr, ptr %204, align 8, !alias.scope !26641, !noalias !26646, !nonnull !8, !noundef !8
+  %206 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 128
+  %207 = load ptr, ptr %206, align 8, !alias.scope !26644, !noalias !26647, !nonnull !8, !noundef !8
+  %208 = icmp eq ptr %205, %207
+  br i1 %208, label %213, label %209
 
-210:                                              ; preds = %204
-  %211 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %212 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %213 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$polars_io..csv..read..options..CsvParseOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h392062b65b22740eE"(ptr noalias noundef readonly align 8 dereferenceable(72) %211, ptr noalias noundef readonly align 8 dereferenceable(72) %212), !noalias !26649
-  br i1 %213, label %214, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+209:                                              ; preds = %203
+  %210 = getelementptr inbounds nuw i8, ptr %205, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  %212 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$polars_io..csv..read..options..CsvParseOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h392062b65b22740eE"(ptr noalias noundef readonly align 8 dereferenceable(72) %210, ptr noalias noundef readonly align 8 dereferenceable(72) %211), !noalias !26649
+  br i1 %212, label %213, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-214:                                              ; preds = %210, %204
-  %215 = getelementptr inbounds nuw i8, ptr %.val.i, i64 218
-  %216 = load i8, ptr %215, align 2, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
-  %217 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 218
-  %218 = load i8, ptr %217, align 2, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
-  %219 = icmp eq i8 %216, %218
-  br i1 %219, label %220, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+213:                                              ; preds = %209, %203
+  %214 = getelementptr inbounds nuw i8, ptr %.val.i, i64 218
+  %215 = load i8, ptr %214, align 2, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
+  %216 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 218
+  %217 = load i8, ptr %216, align 2, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
+  %218 = icmp eq i8 %215, %217
+  br i1 %218, label %219, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-220:                                              ; preds = %214
-  %221 = getelementptr inbounds nuw i8, ptr %.val.i, i64 184
-  %222 = load i64, ptr %221, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %223 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 184
-  %224 = load i64, ptr %223, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %225 = icmp eq i64 %222, %224
-  br i1 %225, label %226, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+219:                                              ; preds = %213
+  %220 = getelementptr inbounds nuw i8, ptr %.val.i, i64 184
+  %221 = load i64, ptr %220, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %222 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 184
+  %223 = load i64, ptr %222, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %224 = icmp eq i64 %221, %223
+  br i1 %224, label %225, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-226:                                              ; preds = %220
-  %227 = getelementptr inbounds nuw i8, ptr %.val.i, i64 192
-  %228 = load i64, ptr %227, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %229 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 192
-  %230 = load i64, ptr %229, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %231 = icmp eq i64 %228, %230
-  br i1 %231, label %232, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+225:                                              ; preds = %219
+  %226 = getelementptr inbounds nuw i8, ptr %.val.i, i64 192
+  %227 = load i64, ptr %226, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %228 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 192
+  %229 = load i64, ptr %228, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %230 = icmp eq i64 %227, %229
+  br i1 %230, label %231, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-232:                                              ; preds = %226
-  %233 = getelementptr inbounds nuw i8, ptr %.val.i, i64 200
-  %234 = load i64, ptr %233, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %235 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 200
-  %236 = load i64, ptr %235, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %237 = icmp eq i64 %234, %236
-  br i1 %237, label %238, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+231:                                              ; preds = %225
+  %232 = getelementptr inbounds nuw i8, ptr %.val.i, i64 200
+  %233 = load i64, ptr %232, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %234 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 200
+  %235 = load i64, ptr %234, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %236 = icmp eq i64 %233, %235
+  br i1 %236, label %237, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-238:                                              ; preds = %232
-  %239 = getelementptr inbounds nuw i8, ptr %.val.i, i64 208
-  %240 = load i64, ptr %239, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %241 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 208
-  %242 = load i64, ptr %241, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %243 = icmp eq i64 %240, %242
-  br i1 %243, label %244, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+237:                                              ; preds = %231
+  %238 = getelementptr inbounds nuw i8, ptr %.val.i, i64 208
+  %239 = load i64, ptr %238, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %240 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 208
+  %241 = load i64, ptr %240, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %242 = icmp eq i64 %239, %241
+  br i1 %242, label %243, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-244:                                              ; preds = %238
-  %245 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %246 = load i64, ptr %245, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
-  %247 = trunc nuw i64 %246 to i1
-  %248 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 32
-  %249 = load i64, ptr %248, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
-  %250 = trunc nuw i64 %249 to i1
-  br i1 %247, label %251, label %252
+243:                                              ; preds = %237
+  %244 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %245 = load i64, ptr %244, align 8, !range !50, !alias.scope !26641, !noalias !26646, !noundef !8
+  %246 = trunc nuw i64 %245 to i1
+  %247 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 32
+  %248 = load i64, ptr %247, align 8, !range !50, !alias.scope !26644, !noalias !26647, !noundef !8
+  %249 = trunc nuw i64 %248 to i1
+  br i1 %246, label %250, label %251
 
-251:                                              ; preds = %244
-  br i1 %250, label %253, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+250:                                              ; preds = %243
+  br i1 %249, label %252, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-252:                                              ; preds = %244
-  br i1 %250, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %259
+251:                                              ; preds = %243
+  br i1 %249, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %258
 
-253:                                              ; preds = %251
-  %254 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
-  %255 = load i64, ptr %254, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %256 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 40
-  %257 = load i64, ptr %256, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %258 = icmp eq i64 %255, %257
-  br i1 %258, label %259, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+252:                                              ; preds = %250
+  %253 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
+  %254 = load i64, ptr %253, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %255 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 40
+  %256 = load i64, ptr %255, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %257 = icmp eq i64 %254, %256
+  br i1 %257, label %258, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-259:                                              ; preds = %253, %252
-  %260 = getelementptr inbounds nuw i8, ptr %.val.i, i64 219
-  %261 = load i8, ptr %260, align 1, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
-  %262 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 219
-  %263 = load i8, ptr %262, align 1, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
-  %264 = icmp eq i8 %261, %263
-  br i1 %264, label %265, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+258:                                              ; preds = %252, %251
+  %259 = getelementptr inbounds nuw i8, ptr %.val.i, i64 219
+  %260 = load i8, ptr %259, align 1, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
+  %261 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 219
+  %262 = load i8, ptr %261, align 1, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
+  %263 = icmp eq i8 %260, %262
+  br i1 %263, label %264, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-265:                                              ; preds = %259
-  %266 = getelementptr inbounds nuw i8, ptr %.val.i, i64 220
-  %267 = load i8, ptr %266, align 4, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
-  %268 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 220
-  %269 = load i8, ptr %268, align 4, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
-  %270 = icmp eq i8 %267, %269
-  br i1 %270, label %271, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+264:                                              ; preds = %258
+  %265 = getelementptr inbounds nuw i8, ptr %.val.i, i64 220
+  %266 = load i8, ptr %265, align 4, !range !430, !alias.scope !26641, !noalias !26646, !noundef !8
+  %267 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 220
+  %268 = load i8, ptr %267, align 4, !range !430, !alias.scope !26644, !noalias !26647, !noundef !8
+  %269 = icmp eq i8 %266, %268
+  br i1 %269, label %270, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-271:                                              ; preds = %265
-  %272 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
-  %.val44.i.i.i = load ptr, ptr %272, align 8, !alias.scope !26641, !noalias !26646, !nonnull !8, !noundef !8
-  %273 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
-  %.val45.i.i.i = load i64, ptr %273, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
-  %274 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 56
-  %.val46.i.i.i = load ptr, ptr %274, align 8, !alias.scope !26644, !noalias !26647, !nonnull !8, !noundef !8
-  %275 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 64
-  %.val47.i.i.i = load i64, ptr %275, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
-  %276 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8d56d2b6fd961f4bE"(ptr noalias noundef nonnull readonly align 16 %.val44.i.i.i, i64 noundef %.val45.i.i.i, ptr noalias noundef nonnull readonly align 16 %.val46.i.i.i, i64 noundef %.val47.i.i.i), !noalias !26649
+270:                                              ; preds = %264
+  %271 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
+  %.val44.i.i.i = load ptr, ptr %271, align 8, !alias.scope !26641, !noalias !26646, !nonnull !8, !noundef !8
+  %272 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
+  %.val45.i.i.i = load i64, ptr %272, align 8, !alias.scope !26641, !noalias !26646, !noundef !8
+  %273 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 56
+  %.val46.i.i.i = load ptr, ptr %273, align 8, !alias.scope !26644, !noalias !26647, !nonnull !8, !noundef !8
+  %274 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 64
+  %.val47.i.i.i = load i64, ptr %274, align 8, !alias.scope !26644, !noalias !26647, !noundef !8
+  %275 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8d56d2b6fd961f4bE"(ptr noalias noundef nonnull readonly align 16 %.val44.i.i.i, i64 noundef %.val45.i.i.i, ptr noalias noundef nonnull readonly align 16 %.val46.i.i.i, i64 noundef %.val47.i.i.i), !noalias !26649
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-277:                                              ; preds = %12
-  %278 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %279 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val3.i = load ptr, ptr %278, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
-  %.val4.i = load ptr, ptr %279, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
+276:                                              ; preds = %12
+  %277 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val3.i = load ptr, ptr %277, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
+  %.val4.i = load ptr, ptr %278, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26659)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26662)
-  %280 = load i64, ptr %.val3.i, align 8, !range !50, !alias.scope !26659, !noalias !26664, !noundef !8
-  %281 = trunc nuw i64 %280 to i1
-  %282 = load i64, ptr %.val4.i, align 8, !range !50, !alias.scope !26662, !noalias !26665, !noundef !8
-  %283 = trunc nuw i64 %282 to i1
-  br i1 %281, label %284, label %285
+  %279 = load i64, ptr %.val3.i, align 8, !range !50, !alias.scope !26659, !noalias !26664, !noundef !8
+  %280 = trunc nuw i64 %279 to i1
+  %281 = load i64, ptr %.val4.i, align 8, !range !50, !alias.scope !26662, !noalias !26665, !noundef !8
+  %282 = trunc nuw i64 %281 to i1
+  br i1 %280, label %283, label %284
 
-284:                                              ; preds = %277
-  br i1 %283, label %286, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+283:                                              ; preds = %276
+  br i1 %282, label %285, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-285:                                              ; preds = %277
-  br i1 %283, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %292
+284:                                              ; preds = %276
+  br i1 %282, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %291
 
-286:                                              ; preds = %284
-  %287 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 8
-  %288 = load i64, ptr %287, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
-  %289 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
-  %290 = load i64, ptr %289, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
-  %291 = icmp eq i64 %288, %290
-  br i1 %291, label %292, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+285:                                              ; preds = %283
+  %286 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 8
+  %287 = load i64, ptr %286, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
+  %288 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
+  %289 = load i64, ptr %288, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
+  %290 = icmp eq i64 %287, %289
+  br i1 %290, label %291, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-292:                                              ; preds = %286, %285
-  %293 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 24
-  %294 = load i64, ptr %293, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
-  %.not.i.i9.i = icmp eq i64 %294, 0
-  %295 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 24
-  %296 = load i64, ptr %295, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
-  br i1 %.not.i.i9.i, label %299, label %297
+291:                                              ; preds = %285, %284
+  %292 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 24
+  %293 = load i64, ptr %292, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
+  %.not.i.i9.i = icmp eq i64 %293, 0
+  %294 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 24
+  %295 = load i64, ptr %294, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
+  br i1 %.not.i.i9.i, label %298, label %296
 
-297:                                              ; preds = %292
-  %298 = icmp eq i64 %294, %296
-  br i1 %298, label %301, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+296:                                              ; preds = %291
+  %297 = icmp eq i64 %293, %295
+  br i1 %297, label %300, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-299:                                              ; preds = %292
-  %300 = icmp eq i64 %296, 0
-  br i1 %300, label %301, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+298:                                              ; preds = %291
+  %299 = icmp eq i64 %295, 0
+  br i1 %299, label %300, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-301:                                              ; preds = %299, %297
-  %302 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 16
-  %303 = load i64, ptr %302, align 8, !range !501, !alias.scope !26659, !noalias !26664, !noundef !8
-  %304 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
-  %305 = load i64, ptr %304, align 8, !range !501, !alias.scope !26662, !noalias !26665, !noundef !8
-  %306 = icmp eq i64 %303, %305
-  br i1 %306, label %307, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+300:                                              ; preds = %298, %296
+  %301 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 16
+  %302 = load i64, ptr %301, align 8, !range !501, !alias.scope !26659, !noalias !26664, !noundef !8
+  %303 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
+  %304 = load i64, ptr %303, align 8, !range !501, !alias.scope !26662, !noalias !26665, !noundef !8
+  %305 = icmp eq i64 %302, %304
+  br i1 %305, label %306, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-307:                                              ; preds = %301
-  %308 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 48
-  %309 = load i8, ptr %308, align 8, !range !430, !alias.scope !26659, !noalias !26664, !noundef !8
-  %310 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 48
-  %311 = load i8, ptr %310, align 8, !range !430, !alias.scope !26662, !noalias !26665, !noundef !8
-  %312 = icmp eq i8 %309, %311
-  br i1 %312, label %313, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+306:                                              ; preds = %300
+  %307 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 48
+  %308 = load i8, ptr %307, align 8, !range !430, !alias.scope !26659, !noalias !26664, !noundef !8
+  %309 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 48
+  %310 = load i8, ptr %309, align 8, !range !430, !alias.scope !26662, !noalias !26665, !noundef !8
+  %311 = icmp eq i8 %308, %310
+  br i1 %311, label %312, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-313:                                              ; preds = %307
-  %314 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 49
-  %315 = load i8, ptr %314, align 1, !range !430, !alias.scope !26659, !noalias !26664, !noundef !8
-  %316 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 49
-  %317 = load i8, ptr %316, align 1, !range !430, !alias.scope !26662, !noalias !26665, !noundef !8
-  %318 = icmp eq i8 %315, %317
-  br i1 %318, label %319, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+312:                                              ; preds = %306
+  %313 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 49
+  %314 = load i8, ptr %313, align 1, !range !430, !alias.scope !26659, !noalias !26664, !noundef !8
+  %315 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 49
+  %316 = load i8, ptr %315, align 1, !range !430, !alias.scope !26662, !noalias !26665, !noundef !8
+  %317 = icmp eq i8 %314, %316
+  br i1 %317, label %318, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-319:                                              ; preds = %313
-  %320 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 32
-  %321 = load ptr, ptr %320, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
-  %.not8.i.i.i = icmp eq ptr %321, null
-  %322 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 32
-  %323 = load ptr, ptr %322, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
-  %324 = icmp eq ptr %323, null
-  br i1 %.not8.i.i.i, label %326, label %325
+318:                                              ; preds = %312
+  %319 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 32
+  %320 = load ptr, ptr %319, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
+  %.not8.i.i.i = icmp eq ptr %320, null
+  %321 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 32
+  %322 = load ptr, ptr %321, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
+  %323 = icmp eq ptr %322, null
+  br i1 %.not8.i.i.i, label %325, label %324
 
-325:                                              ; preds = %319
-  br i1 %324, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %327
+324:                                              ; preds = %318
+  br i1 %323, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %326
 
-326:                                              ; preds = %319
-  br i1 %324, label %333, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+325:                                              ; preds = %318
+  br i1 %323, label %332, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-327:                                              ; preds = %325
-  %328 = icmp eq ptr %321, %323
-  br i1 %328, label %333, label %329
+326:                                              ; preds = %324
+  %327 = icmp eq ptr %320, %322
+  br i1 %327, label %332, label %328
 
-329:                                              ; preds = %327
-  %330 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  %331 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %332 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %330, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %331), !noalias !26666
-  br i1 %332, label %333, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+328:                                              ; preds = %326
+  %329 = getelementptr inbounds nuw i8, ptr %320, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  %331 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %329, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %330), !noalias !26666
+  br i1 %331, label %332, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-333:                                              ; preds = %329, %327, %326
-  %334 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 40
-  %335 = load ptr, ptr %334, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
-  %.not10.i.i.i = icmp eq ptr %335, null
-  %336 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 40
-  %337 = load ptr, ptr %336, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
-  %338 = icmp eq ptr %337, null
-  %brmerge.i.i.i = or i1 %.not10.i.i.i, %338
-  %.mux.i.i.i = and i1 %.not10.i.i.i, %338
-  br i1 %brmerge.i.i.i, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %339
+332:                                              ; preds = %328, %326, %325
+  %333 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 40
+  %334 = load ptr, ptr %333, align 8, !alias.scope !26659, !noalias !26664, !noundef !8
+  %.not10.i.i.i = icmp eq ptr %334, null
+  %335 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 40
+  %336 = load ptr, ptr %335, align 8, !alias.scope !26662, !noalias !26665, !noundef !8
+  %337 = icmp eq ptr %336, null
+  %brmerge.i.i.i = or i1 %.not10.i.i.i, %337
+  %.mux.i.i.i = and i1 %.not10.i.i.i, %337
+  br i1 %brmerge.i.i.i, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %338
 
-339:                                              ; preds = %333
-  %340 = icmp eq ptr %335, %337
-  br i1 %340, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %341
+338:                                              ; preds = %332
+  %339 = icmp eq ptr %334, %336
+  br i1 %339, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %340
 
-341:                                              ; preds = %339
-  %342 = getelementptr inbounds nuw i8, ptr %335, i64 16
-  %343 = getelementptr inbounds nuw i8, ptr %337, i64 16
-  %344 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %342, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %343), !noalias !26666
+340:                                              ; preds = %338
+  %341 = getelementptr inbounds nuw i8, ptr %334, i64 16
+  %342 = getelementptr inbounds nuw i8, ptr %336, i64 16
+  %343 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %341, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %342), !noalias !26666
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-345:                                              ; preds = %12
-  %346 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %347 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val5.i = load ptr, ptr %346, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
-  %.val6.i = load ptr, ptr %347, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
+344:                                              ; preds = %12
+  %345 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val5.i = load ptr, ptr %345, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
+  %.val6.i = load ptr, ptr %346, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26667)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26670)
-  %348 = load ptr, ptr %.val5.i, align 8, !alias.scope !26667, !noalias !26672, !noundef !8
-  %.not.i.i10.i = icmp eq ptr %348, null
-  %349 = load ptr, ptr %.val6.i, align 8, !alias.scope !26670, !noalias !26673, !noundef !8
-  %350 = icmp eq ptr %349, null
-  br i1 %.not.i.i10.i, label %352, label %351
+  %347 = load ptr, ptr %.val5.i, align 8, !alias.scope !26667, !noalias !26672, !noundef !8
+  %.not.i.i10.i = icmp eq ptr %347, null
+  %348 = load ptr, ptr %.val6.i, align 8, !alias.scope !26670, !noalias !26673, !noundef !8
+  %349 = icmp eq ptr %348, null
+  br i1 %.not.i.i10.i, label %351, label %350
 
-351:                                              ; preds = %345
-  br i1 %350, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %353
+350:                                              ; preds = %344
+  br i1 %349, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %352
 
-352:                                              ; preds = %345
-  br i1 %350, label %359, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+351:                                              ; preds = %344
+  br i1 %349, label %358, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-353:                                              ; preds = %351
-  %354 = icmp eq ptr %348, %349
-  br i1 %354, label %359, label %355
+352:                                              ; preds = %350
+  %353 = icmp eq ptr %347, %348
+  br i1 %353, label %358, label %354
 
-355:                                              ; preds = %353
+354:                                              ; preds = %352
+  %355 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %356 = getelementptr inbounds nuw i8, ptr %348, i64 16
-  %357 = getelementptr inbounds nuw i8, ptr %349, i64 16
-  %358 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %356, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %357), !noalias !26674
-  br i1 %358, label %359, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+  %357 = tail call noundef zeroext i1 @"_ZN79_$LT$polars_schema..schema..Schema$LT$D$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1d51af35cb2066fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %355, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %356), !noalias !26674
+  br i1 %357, label %358, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-359:                                              ; preds = %355, %353, %352
-  %360 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 8
-  %361 = load i8, ptr %360, align 8, !range !950, !alias.scope !26667, !noalias !26672, !noundef !8
-  %362 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 8
-  %363 = load i8, ptr %362, align 8, !range !950, !alias.scope !26670, !noalias !26673, !noundef !8
-  %364 = icmp eq i8 %361, %363
-  br i1 %364, label %365, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+358:                                              ; preds = %354, %352, %351
+  %359 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 8
+  %360 = load i8, ptr %359, align 8, !range !950, !alias.scope !26667, !noalias !26672, !noundef !8
+  %361 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 8
+  %362 = load i8, ptr %361, align 8, !range !950, !alias.scope !26670, !noalias !26673, !noundef !8
+  %363 = icmp eq i8 %360, %362
+  br i1 %363, label %364, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-365:                                              ; preds = %359
-  %366 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 9
-  %367 = load i8, ptr %366, align 1, !range !430, !alias.scope !26667, !noalias !26672, !noundef !8
-  %368 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 9
-  %369 = load i8, ptr %368, align 1, !range !430, !alias.scope !26670, !noalias !26673, !noundef !8
-  %370 = icmp eq i8 %367, %369
-  br i1 %370, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i", label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+364:                                              ; preds = %358
+  %365 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 9
+  %366 = load i8, ptr %365, align 1, !range !430, !alias.scope !26667, !noalias !26672, !noundef !8
+  %367 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 9
+  %368 = load i8, ptr %367, align 1, !range !430, !alias.scope !26670, !noalias !26673, !noundef !8
+  %369 = icmp eq i8 %366, %368
+  br i1 %369, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i", label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i": ; preds = %365
-  %371 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 10
-  %372 = load i8, ptr %371, align 2, !range !430, !alias.scope !26667, !noalias !26672, !noundef !8
-  %373 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 10
-  %374 = load i8, ptr %373, align 2, !range !430, !alias.scope !26670, !noalias !26673, !noundef !8
-  %375 = icmp eq i8 %372, %374
-  br i1 %375, label %413, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i": ; preds = %364
+  %370 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 10
+  %371 = load i8, ptr %370, align 2, !range !430, !alias.scope !26667, !noalias !26672, !noundef !8
+  %372 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 10
+  %373 = load i8, ptr %372, align 2, !range !430, !alias.scope !26670, !noalias !26673, !noundef !8
+  %374 = icmp eq i8 %371, %373
+  br i1 %374, label %412, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-376:                                              ; preds = %12
-  %377 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %378 = load i64, ptr %377, align 8, !range !50, !alias.scope !26636, !noalias !26639, !noundef !8
-  %379 = trunc nuw i64 %378 to i1
-  %380 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %381 = load i64, ptr %380, align 8, !range !50, !alias.scope !26639, !noalias !26636, !noundef !8
-  %382 = trunc nuw i64 %381 to i1
-  br i1 %379, label %429, label %430
+375:                                              ; preds = %12
+  %376 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %377 = load i64, ptr %376, align 8, !range !50, !alias.scope !26636, !noalias !26639, !noundef !8
+  %378 = trunc nuw i64 %377 to i1
+  %379 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %380 = load i64, ptr %379, align 8, !range !50, !alias.scope !26639, !noalias !26636, !noundef !8
+  %381 = trunc nuw i64 %380 to i1
+  br i1 %378, label %428, label %429
 
-383:                                              ; preds = %12
-  %384 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %385 = load i64, ptr %384, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
-  %386 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %387 = load i64, ptr %386, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
-  %388 = icmp eq i64 %385, %387
-  br i1 %388, label %438, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+382:                                              ; preds = %12
+  %383 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %384 = load i64, ptr %383, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
+  %385 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %386 = load i64, ptr %385, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
+  %387 = icmp eq i64 %384, %386
+  br i1 %387, label %437, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-389:                                              ; preds = %12
-  %390 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %391 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val7.i = load ptr, ptr %390, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
-  %.val8.i = load ptr, ptr %391, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
+388:                                              ; preds = %12
+  %389 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val7.i = load ptr, ptr %389, align 8, !alias.scope !26636, !noalias !26639, !nonnull !8, !align !46, !noundef !8
+  %.val8.i = load ptr, ptr %390, align 8, !alias.scope !26639, !noalias !26636, !nonnull !8, !align !46, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26675)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26678)
-  %392 = load i64, ptr %.val7.i, align 8, !range !50, !alias.scope !26675, !noalias !26680, !noundef !8
-  %393 = trunc nuw i64 %392 to i1
-  %394 = load i64, ptr %.val8.i, align 8, !range !50, !alias.scope !26678, !noalias !26681, !noundef !8
-  %395 = trunc nuw i64 %394 to i1
-  br i1 %393, label %396, label %397
+  %391 = load i64, ptr %.val7.i, align 8, !range !50, !alias.scope !26675, !noalias !26680, !noundef !8
+  %392 = trunc nuw i64 %391 to i1
+  %393 = load i64, ptr %.val8.i, align 8, !range !50, !alias.scope !26678, !noalias !26681, !noundef !8
+  %394 = trunc nuw i64 %393 to i1
+  br i1 %392, label %395, label %396
 
-396:                                              ; preds = %389
-  br i1 %395, label %398, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+395:                                              ; preds = %388
+  br i1 %394, label %397, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-397:                                              ; preds = %389
-  br i1 %395, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i"
+396:                                              ; preds = %388
+  br i1 %394, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i"
 
-398:                                              ; preds = %396
-  %399 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 8
-  %400 = load i64, ptr %399, align 8, !alias.scope !26675, !noalias !26680, !noundef !8
-  %401 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 8
-  %402 = load i64, ptr %401, align 8, !alias.scope !26678, !noalias !26681, !noundef !8
-  %403 = icmp eq i64 %400, %402
-  br i1 %403, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i", label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+397:                                              ; preds = %395
+  %398 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 8
+  %399 = load i64, ptr %398, align 8, !alias.scope !26675, !noalias !26680, !noundef !8
+  %400 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 8
+  %401 = load i64, ptr %400, align 8, !alias.scope !26678, !noalias !26681, !noundef !8
+  %402 = icmp eq i64 %399, %401
+  br i1 %402, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i", label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i": ; preds = %398, %397
-  %404 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 16
-  %405 = load ptr, ptr %404, align 8, !alias.scope !26675, !noalias !26680, !nonnull !8, !align !51, !noundef !8
-  %406 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
-  %407 = load i64, ptr %406, align 8, !alias.scope !26675, !noalias !26680, !noundef !8
-  %408 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 16
-  %409 = load ptr, ptr %408, align 8, !alias.scope !26678, !noalias !26681, !nonnull !8, !align !51, !noundef !8
-  %410 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 24
-  %411 = load i64, ptr %410, align 8, !alias.scope !26678, !noalias !26681, !noundef !8
-  %412 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %405, i64 noundef %407, ptr noalias noundef nonnull readonly align 1 %409, i64 noundef %411), !noalias !26682
-  br i1 %412, label %444, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i": ; preds = %397, %396
+  %403 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 16
+  %404 = load ptr, ptr %403, align 8, !alias.scope !26675, !noalias !26680, !nonnull !8, !align !51, !noundef !8
+  %405 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 24
+  %406 = load i64, ptr %405, align 8, !alias.scope !26675, !noalias !26680, !noundef !8
+  %407 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 16
+  %408 = load ptr, ptr %407, align 8, !alias.scope !26678, !noalias !26681, !nonnull !8, !align !51, !noundef !8
+  %409 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 24
+  %410 = load i64, ptr %409, align 8, !alias.scope !26678, !noalias !26681, !noundef !8
+  %411 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %404, i64 noundef %406, ptr noalias noundef nonnull readonly align 1 %408, i64 noundef %410), !noalias !26682
+  br i1 %411, label %443, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-413:                                              ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i"
-  %414 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %415 = load i64, ptr %414, align 8, !range !50, !alias.scope !26636, !noalias !26639, !noundef !8
-  %416 = trunc nuw i64 %415 to i1
-  %417 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %418 = load i64, ptr %417, align 8, !range !50, !alias.scope !26639, !noalias !26636, !noundef !8
-  %419 = trunc nuw i64 %418 to i1
-  br i1 %416, label %420, label %421
+412:                                              ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i"
+  %413 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %414 = load i64, ptr %413, align 8, !range !50, !alias.scope !26636, !noalias !26639, !noundef !8
+  %415 = trunc nuw i64 %414 to i1
+  %416 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %417 = load i64, ptr %416, align 8, !range !50, !alias.scope !26639, !noalias !26636, !noundef !8
+  %418 = trunc nuw i64 %417 to i1
+  br i1 %415, label %419, label %420
 
-420:                                              ; preds = %413
-  br i1 %419, label %423, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+419:                                              ; preds = %412
+  br i1 %418, label %422, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-421:                                              ; preds = %413
-  %422 = xor i1 %419, true
+420:                                              ; preds = %412
+  %421 = xor i1 %418, true
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-423:                                              ; preds = %420
-  %424 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %425 = load i64, ptr %424, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
-  %426 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %427 = load i64, ptr %426, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
-  %428 = icmp eq i64 %425, %427
+422:                                              ; preds = %419
+  %423 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %424 = load i64, ptr %423, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
+  %425 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %426 = load i64, ptr %425, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
+  %427 = icmp eq i64 %424, %426
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-429:                                              ; preds = %376
-  br i1 %382, label %432, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
+428:                                              ; preds = %375
+  br i1 %381, label %431, label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-430:                                              ; preds = %376
-  %431 = xor i1 %382, true
+429:                                              ; preds = %375
+  %430 = xor i1 %381, true
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-432:                                              ; preds = %429
-  %433 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %434 = load i64, ptr %433, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
-  %435 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %436 = load i64, ptr %435, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
-  %437 = icmp eq i64 %434, %436
+431:                                              ; preds = %428
+  %432 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %433 = load i64, ptr %432, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
+  %434 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %435 = load i64, ptr %434, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
+  %436 = icmp eq i64 %433, %435
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-438:                                              ; preds = %383
-  %439 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %440 = load i64, ptr %439, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
-  %441 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %442 = load i64, ptr %441, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
-  %443 = icmp eq i64 %440, %442
+437:                                              ; preds = %382
+  %438 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %439 = load i64, ptr %438, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
+  %440 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %441 = load i64, ptr %440, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
+  %442 = icmp eq i64 %439, %441
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-444:                                              ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i"
-  %445 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %446 = load i64, ptr %445, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
-  %447 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %448 = load i64, ptr %447, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
-  %449 = icmp eq i64 %446, %448
+443:                                              ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i"
+  %444 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %445 = load i64, ptr %444, align 8, !alias.scope !26636, !noalias !26639, !noundef !8
+  %446 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %447 = load i64, ptr %446, align 8, !alias.scope !26639, !noalias !26636, !noundef !8
+  %448 = icmp eq i64 %445, %447
   br label %"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit"
 
-"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit": ; preds = %2, %12, %21, %22, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", %76, %87, %88, %89, %95, %108, %109, %110, %123, %124, %125, %134, %135, %136, %150, %151, %154, %166, %167, %170, %180, %181, %184, %194, %195, %198, %210, %214, %220, %226, %232, %238, %251, %252, %253, %259, %265, %271, %284, %285, %286, %297, %299, %301, %307, %313, %325, %326, %329, %333, %339, %341, %351, %352, %355, %359, %365, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i", %383, %396, %397, %398, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i", %420, %421, %423, %429, %430, %432, %438, %444
-  %.sroa.0.0.i = phi i1 [ false, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i" ], [ false, %253 ], [ %428, %423 ], [ false, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i" ], [ %422, %421 ], [ false, %2 ], [ %437, %432 ], [ false, %420 ], [ %431, %430 ], [ false, %398 ], [ %443, %438 ], [ false, %429 ], [ %449, %444 ], [ false, %383 ], [ %276, %271 ], [ false, %265 ], [ false, %259 ], [ false, %251 ], [ false, %238 ], [ false, %232 ], [ false, %226 ], [ false, %220 ], [ false, %214 ], [ false, %194 ], [ false, %180 ], [ false, %166 ], [ false, %150 ], [ false, %134 ], [ false, %123 ], [ false, %108 ], [ false, %95 ], [ false, %87 ], [ false, %76 ], [ false, %21 ], [ false, %252 ], [ false, %210 ], [ false, %195 ], [ false, %181 ], [ false, %167 ], [ false, %151 ], [ false, %135 ], [ false, %124 ], [ false, %109 ], [ false, %88 ], [ false, %22 ], [ false, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i" ], [ false, %89 ], [ false, %110 ], [ false, %125 ], [ false, %136 ], [ false, %154 ], [ false, %170 ], [ false, %184 ], [ false, %198 ], [ %.mux.i.i.i, %333 ], [ %344, %341 ], [ false, %285 ], [ false, %329 ], [ false, %325 ], [ false, %313 ], [ false, %307 ], [ false, %297 ], [ false, %284 ], [ false, %326 ], [ false, %301 ], [ false, %299 ], [ true, %339 ], [ false, %286 ], [ false, %355 ], [ false, %365 ], [ false, %351 ], [ false, %359 ], [ false, %352 ], [ false, %396 ], [ false, %397 ], [ true, %12 ]
+"_ZN108_$LT$polars_plan..dsl..file_scan.._file_scan_eq_hash..FileScanEqHashWrap$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789fa42567f2a59eE.exit": ; preds = %2, %12, %21, %22, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i", %75, %86, %87, %88, %94, %107, %108, %109, %122, %123, %124, %133, %134, %135, %149, %150, %153, %165, %166, %169, %179, %180, %183, %193, %194, %197, %209, %213, %219, %225, %231, %237, %250, %251, %252, %258, %264, %270, %283, %284, %285, %296, %298, %300, %306, %312, %324, %325, %328, %332, %338, %340, %350, %351, %354, %358, %364, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i", %382, %395, %396, %397, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i", %419, %420, %422, %428, %429, %431, %437, %443
+  %.sroa.0.0.i = phi i1 [ false, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4d405b495e6cc8a8E.exit.i" ], [ false, %252 ], [ %427, %422 ], [ false, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5d61a8e605703265E.exit.i" ], [ %421, %420 ], [ false, %2 ], [ %436, %431 ], [ false, %419 ], [ %430, %429 ], [ false, %397 ], [ %442, %437 ], [ false, %428 ], [ %448, %443 ], [ false, %382 ], [ %275, %270 ], [ false, %264 ], [ false, %258 ], [ false, %250 ], [ false, %237 ], [ false, %231 ], [ false, %225 ], [ false, %219 ], [ false, %213 ], [ false, %193 ], [ false, %179 ], [ false, %165 ], [ false, %149 ], [ false, %133 ], [ false, %122 ], [ false, %107 ], [ false, %94 ], [ false, %86 ], [ false, %75 ], [ false, %21 ], [ false, %251 ], [ false, %209 ], [ false, %194 ], [ false, %180 ], [ false, %166 ], [ false, %150 ], [ false, %134 ], [ false, %123 ], [ false, %108 ], [ false, %87 ], [ false, %22 ], [ false, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd5f03d5d8b86cfbdE.exit.i.i.i" ], [ false, %88 ], [ false, %109 ], [ false, %124 ], [ false, %135 ], [ false, %153 ], [ false, %169 ], [ false, %183 ], [ false, %197 ], [ %.mux.i.i.i, %332 ], [ %343, %340 ], [ false, %284 ], [ false, %328 ], [ false, %324 ], [ false, %312 ], [ false, %306 ], [ false, %296 ], [ false, %283 ], [ false, %325 ], [ false, %300 ], [ false, %298 ], [ true, %338 ], [ false, %285 ], [ false, %354 ], [ false, %364 ], [ false, %350 ], [ false, %358 ], [ false, %351 ], [ false, %395 ], [ false, %396 ], [ true, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.sroa.0.0.i

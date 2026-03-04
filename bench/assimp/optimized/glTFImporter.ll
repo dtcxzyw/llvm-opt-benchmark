@@ -8213,8 +8213,8 @@ define hidden void @_ZN6Assimp12glTFImporter13ImportCamerasERN4glTF5AssetE(ptr n
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %56 = load float, ptr %55, align 4
   %57 = fcmp oeq float %54, 0.000000e+00
-  %58 = select i1 %57, float 1.000000e+00, float %54
-  %59 = fmul float %56, %58
+  %58 = fmul float %54, %56
+  %59 = select i1 %57, float %56, float %58
   store float %59, ptr %40, align 4
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 84
   %61 = load float, ptr %60, align 4

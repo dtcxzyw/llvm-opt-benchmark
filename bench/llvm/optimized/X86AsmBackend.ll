@@ -4889,7 +4889,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_19MCRelaxableFragmentELb1EE9push_backES2_.
   br label %124
 
 124:                                              ; preds = %417, %121
-  %.0 = phi i32 [ %123, %121 ], [ %.589, %417 ]
+  %.0 = phi i32 [ %123, %121 ], [ %.491, %417 ]
   %125 = load i32, ptr %31, align 8, !tbaa !26
   %.not.i49 = icmp eq i32 %125, 0
   %126 = icmp eq i32 %.0, 0
@@ -5159,7 +5159,7 @@ _ZN4llvm15SmallVectorImplINS_7MCFixupEEaSERKS2_.exit.i.i: ; preds = %.sink.split
   br label %239
 
 239:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_7MCFixupEEaSERKS2_.exit.i.i, %_ZN4llvm6MCInstC2ERKS0_.exit.i.i
-  %.4 = phi i32 [ %238, %_ZN4llvm15SmallVectorImplINS_7MCFixupEEaSERKS2_.exit.i.i ], [ %.0, %_ZN4llvm6MCInstC2ERKS0_.exit.i.i ]
+  %.3 = phi i32 [ %238, %_ZN4llvm15SmallVectorImplINS_7MCFixupEEaSERKS2_.exit.i.i ], [ %.0, %_ZN4llvm6MCInstC2ERKS0_.exit.i.i ]
   %240 = load ptr, ptr %7, align 8, !tbaa !258
   %241 = icmp eq ptr %240, %42
   br i1 %241, label %_ZN4llvm11SmallVectorIcLj15EED2Ev.exit.i.i, label %242
@@ -5190,17 +5190,17 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit.i.i: ; preds = %245, %_ZN4llvm1
 
 _ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i: ; preds = %_ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit.i.i, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not11.i = icmp eq i32 %.4, 0
+  %.not11.i = icmp eq i32 %.3, 0
   br i1 %.not11.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit, label %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread
 
 _ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread: ; preds = %127, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i
   %.0.ph.i87 = phi i1 [ %169, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ false, %127 ]
-  %.286 = phi i32 [ %.4, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ %.0, %127 ]
+  %.286 = phi i32 [ %.3, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ %.0, %127 ]
   %249 = getelementptr inbounds nuw i8, ptr %132, i64 29
   %250 = load i8, ptr %249, align 1
   %251 = and i8 %250, 8
   %.not45.i.i = icmp eq i8 %251, 0
-  br i1 %.not45.i.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, label %252
+  br i1 %.not45.i.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit, label %252
 
 252:                                              ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread
   %253 = load ptr, ptr %136, align 8, !tbaa !257
@@ -5208,7 +5208,7 @@ _ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxa
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 120
   %256 = load ptr, ptr %255, align 8
   %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(128) %135, ptr noundef nonnull align 8 dereferenceable(304) %253) #26
-  br i1 %257, label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, label %258
+  br i1 %257, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit, label %258
 
 258:                                              ; preds = %252
   %259 = getelementptr inbounds nuw i8, ptr %132, i64 40
@@ -5216,7 +5216,7 @@ _ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxa
   %261 = load i64, ptr %260, align 8, !tbaa !169
   %262 = trunc i64 %261 to i32
   %263 = icmp eq i32 %262, 15
-  br i1 %263, label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, label %264
+  br i1 %263, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit, label %264
 
 264:                                              ; preds = %258
   %265 = sub i32 15, %262
@@ -5243,7 +5243,7 @@ _ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxa
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %.sroa.speculated38.i.i)
   %.not46.i.i = icmp eq i32 %.sroa.speculated.i.i, 0
-  br i1 %.not46.i.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, label %273
+  br i1 %.not46.i.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit, label %273
 
 273:                                              ; preds = %"_ZZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERjENK3$_0clEv.exit.i.i"
   %274 = load ptr, ptr %50, align 8, !tbaa !85
@@ -5542,13 +5542,13 @@ _ZN4llvm27MCEncodedFragmentWithFixupsILj8ELj1EE11setContentsENS_8ArrayRefIcEE.ex
   %406 = sub i32 %.286, %.sroa.speculated.i.i
   %407 = load ptr, ptr %4, align 8, !tbaa !258
   %408 = icmp eq ptr %407, %51
-  br i1 %408, label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread, label %409
+  br i1 %408, label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.thread, label %409
 
 409:                                              ; preds = %._crit_edge.i.i
   call void @free(ptr noundef %407) #26
-  br label %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread
+  br label %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.thread
 
-_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread: ; preds = %._crit_edge.i.i, %409
+_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.thread: ; preds = %._crit_edge.i.i, %409
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %414
 
@@ -5562,21 +5562,20 @@ _ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableF
   %.not.i.i = icmp eq ptr %413, %405
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i: ; preds = %"_ZZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERjENK3$_0clEv.exit.i.i", %258, %252, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread
-  br i1 %.0.ph.i87, label %414, label %417
+_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit: ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread, %252, %258, %"_ZZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERjENK3$_0clEv.exit.i.i"
+  %.4 = phi i32 [ %.286, %"_ZZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERjENK3$_0clEv.exit.i.i" ], [ 0, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ %.286, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread ], [ %.286, %252 ], [ %.286, %258 ]
+  %.1.i = phi i1 [ %.0.ph.i87, %"_ZZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERjENK3$_0clEv.exit.i.i" ], [ %169, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ %.0.ph.i87, %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread ], [ %.0.ph.i87, %252 ], [ %.0.ph.i87, %258 ]
+  br i1 %.1.i, label %414, label %417
 
-_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit: ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend27padInstructionViaRelaxationERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i
-  br i1 %169, label %414, label %417
-
-414:                                              ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread, %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit
-  %.590 = phi i32 [ %.286, %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ 0, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit ], [ %406, %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i.thread ]
+414:                                              ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.thread, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit
+  %.492 = phi i32 [ %406, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.thread ], [ %.4, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit ]
   %415 = load i8, ptr %69, align 8
   %416 = and i8 %415, -5
   store i8 %416, ptr %69, align 8
   br label %417
 
-417:                                              ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i, %414, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit
-  %.589 = phi i32 [ %.286, %_ZNK12_GLOBAL__N_113X86AsmBackend23padInstructionViaPrefixERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit.i ], [ %.590, %414 ], [ 0, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit ]
+417:                                              ; preds = %414, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit
+  %.491 = phi i32 [ %.492, %414 ], [ %.4, %_ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFragmentERNS1_13MCCodeEmitterERj.exit ]
   %418 = load ptr, ptr %136, align 8, !tbaa !257
   %419 = load ptr, ptr %0, align 8, !tbaa !3
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 120
@@ -5585,7 +5584,7 @@ _ZNK12_GLOBAL__N_113X86AsmBackend22padInstructionEncodingERN4llvm19MCRelaxableFr
   br i1 %422, label %423, label %124
 
 423:                                              ; preds = %417, %124
-  %.1 = phi i32 [ %.0, %124 ], [ %.589, %417 ]
+  %.1 = phi i32 [ %.0, %124 ], [ %.491, %417 ]
   store i32 0, ptr %31, align 8, !tbaa !26
   %424 = load i8, ptr %102, align 4, !tbaa !165
   %425 = icmp eq i8 %424, 9

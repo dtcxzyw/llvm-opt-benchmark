@@ -3509,12 +3509,11 @@ define internal range(i32 0, 2) i32 @opj_jp2_default_validation(ptr noundef read
   %.027.lcssa = phi i32 [ %33, %3 ], [ %44, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4, !tbaa !99
-  %47 = add i32 %46, -1
-  %narrow = icmp ult i32 %47, 2
-  %48 = tail call i32 @opj_stream_has_seek(ptr noundef %1) #6
-  %49 = and i32 %48, 1
-  %50 = select i1 %narrow, i32 %49, i32 0
-  %51 = and i32 %50, %.027.lcssa
+  %47 = add i32 %46, -3
+  %48 = icmp ult i32 %47, -2
+  %49 = select i1 %48, i32 0, i32 %.027.lcssa
+  %50 = tail call i32 @opj_stream_has_seek(ptr noundef %1) #6
+  %51 = and i32 %49, %50
   ret i32 %51
 }
 

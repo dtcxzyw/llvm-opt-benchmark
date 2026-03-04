@@ -3452,7 +3452,7 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.thread
-  %34 = phi ptr [ %26, %.lr.ph ], [ %76, %.thread ]
+  %34 = phi ptr [ %26, %.lr.ph ], [ %75, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = load ptr, ptr %34, align 8, !tbaa !166
   %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 58) #16
@@ -3470,7 +3470,7 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @av_dict_free(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %78
+  br label %77
 
 41:                                               ; preds = %37
   %42 = call i32 @stream_specifier_match(ptr noundef nonnull %8, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef null)
@@ -3535,26 +3535,25 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %69
 
 69:                                               ; preds = %.sink.split, %55, %60
-  %70 = phi i1 [ false, %60 ], [ false, %55 ], [ true, %.sink.split ]
-  br i1 %.not56, label %72, label %71
+  %or.cond3 = phi i1 [ false, %60 ], [ false, %55 ], [ %32, %.sink.split ]
+  br i1 %.not56, label %71, label %70
 
-71:                                               ; preds = %69
+70:                                               ; preds = %69
   store i8 58, ptr %36, align 1, !tbaa !11
-  br label %72
+  br label %71
 
-72:                                               ; preds = %71, %69
-  %or.cond3 = and i1 %32, %70
-  br i1 %or.cond3, label %73, label %.thread
+71:                                               ; preds = %70, %69
+  br i1 %or.cond3, label %72, label %.thread
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %34, align 8, !tbaa !166
-  %75 = call i32 @av_dict_set(ptr noundef nonnull %6, ptr noundef %74, ptr noundef nonnull @.str.52, i32 noundef 0) #15
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %34, align 8, !tbaa !166
+  %74 = call i32 @av_dict_set(ptr noundef nonnull %6, ptr noundef %73, ptr noundef nonnull @.str.52, i32 noundef 0) #15
   br label %.thread
 
-.thread:                                          ; preds = %41, %72, %73
+.thread:                                          ; preds = %41, %71, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %76 = call ptr @av_dict_iterate(ptr noundef %0, ptr noundef nonnull %34) #15
-  %.not55 = icmp eq ptr %76, null
+  %75 = call ptr @av_dict_iterate(ptr noundef %0, ptr noundef nonnull %34) #15
+  %.not55 = icmp eq ptr %75, null
   br i1 %.not55, label %._crit_edge.loopexit, label %33
 
 ._crit_edge.loopexit:                             ; preds = %.thread
@@ -3562,11 +3561,11 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %77 = phi ptr [ %.pre69, %._crit_edge.loopexit ], [ null, %25 ]
-  store ptr %77, ptr %5, align 8, !tbaa !88
-  br label %78
+  %76 = phi ptr [ %.pre69, %._crit_edge.loopexit ], [ null, %25 ]
+  store ptr %76, ptr %5, align 8, !tbaa !88
+  br label %77
 
-78:                                               ; preds = %.thread.thread, %._crit_edge
+77:                                               ; preds = %.thread.thread, %._crit_edge
   %.4 = phi i32 [ %39, %.thread.thread ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

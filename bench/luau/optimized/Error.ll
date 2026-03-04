@@ -17336,6 +17336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %163, ptr %167, align 8, !tbaa !45, !alias.scope !464
+  store ptr %160, ptr %157, align 8, !tbaa !19
   store i64 0, ptr %166, align 8, !tbaa !45
   store i8 0, ptr %160, align 8, !tbaa !23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i61
@@ -17488,6 +17489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %223 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %219, ptr %223, align 8, !tbaa !45, !alias.scope !470
+  store ptr %216, ptr %213, align 8, !tbaa !19
   store i64 0, ptr %222, align 8, !tbaa !45
   store i8 0, ptr %216, align 8, !tbaa !23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i87
@@ -17659,6 +17661,7 @@ define linkonce_odr dso_local void @_ZNK4Luau14ErrorConverterclB5cxx11ERKNS_24On
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %13, ptr %17, align 8, !tbaa !45, !alias.scope !476
+  store ptr %10, ptr %7, align 8, !tbaa !19
   store i64 0, ptr %16, align 8, !tbaa !45
   store i8 0, ptr %10, align 8, !tbaa !23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

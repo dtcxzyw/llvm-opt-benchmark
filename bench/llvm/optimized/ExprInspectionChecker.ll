@@ -6577,6 +6577,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %42, ptr %46, align 8, !tbaa !17, !alias.scope !840
+  store ptr %39, ptr %36, align 8, !tbaa !14
   store i64 0, ptr %45, align 8, !tbaa !17
   store i8 0, ptr %39, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -8816,6 +8817,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %29, ptr %33, align 8, !tbaa !17, !alias.scope !947
+  store ptr %26, ptr %23, align 8, !tbaa !14
   store i64 0, ptr %32, align 8, !tbaa !17
   store i8 0, ptr %26, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -9174,6 +9176,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %42, ptr %46, align 8, !tbaa !17, !alias.scope !956
+  store ptr %39, ptr %36, align 8, !tbaa !14
   store i64 0, ptr %45, align 8, !tbaa !17
   store i8 0, ptr %39, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -9392,6 +9395,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !17, !alias.scope !969
+  store ptr %11, ptr %8, align 8, !tbaa !14
   store i64 0, ptr %17, align 8, !tbaa !17
   store i8 0, ptr %11, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -9889,6 +9893,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !17, !alias.scope !993
+  store ptr %11, ptr %8, align 8, !tbaa !14
   store i64 0, ptr %17, align 8, !tbaa !17
   store i8 0, ptr %11, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -11687,6 +11692,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %42, ptr %46, align 8, !tbaa !17, !alias.scope !1040
+  store ptr %39, ptr %36, align 8, !tbaa !14
   store i64 0, ptr %45, align 8, !tbaa !17
   store i8 0, ptr %39, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

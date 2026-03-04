@@ -24396,6 +24396,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8164, ptr noundef nonnull align 8 dereferenceable(1) %8152, i64 %8169, i1 false)
   %8170 = getelementptr inbounds nuw i8, ptr %674, i64 8
   store i64 %8167, ptr %8170, align 8, !tbaa !19, !alias.scope !206
+  store ptr %8152, ptr %675, align 8, !tbaa !27, !noalias !206
   store i64 0, ptr %8154, align 8, !tbaa !19, !noalias !206
   store i8 0, ptr %8152, align 8, !tbaa !22, !noalias !206
   %8171 = add nuw nsw i64 %8167, 1

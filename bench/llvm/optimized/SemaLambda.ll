@@ -9529,13 +9529,13 @@ _ZL23mapImplicitCaptureStyleN5clang4sema18CapturingScopeInfo20ImplicitCaptureSty
   %101 = load ptr, ptr %73, align 8, !tbaa !166
   %102 = call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %101) #18
   %or.cond = select i1 %102, i1 true, i1 %98
-  br i1 %or.cond, label %126, label %103
+  br i1 %or.cond, label %127, label %103
 
 103:                                              ; preds = %96
   %104 = load i8, ptr %93, align 8
   %105 = and i8 %104, 16
   %.not208 = icmp eq i8 %105, 0
-  br i1 %.not208, label %106, label %126
+  br i1 %.not208, label %106, label %127
 
 106:                                              ; preds = %103
   %107 = and i8 %104, 32
@@ -9545,7 +9545,7 @@ _ZL23mapImplicitCaptureStyleN5clang4sema18CapturingScopeInfo20ImplicitCaptureSty
 
 109:                                              ; preds = %106
   %110 = call noundef zeroext i1 @_ZNK5clang4sema7Capture13isInitCaptureEv(ptr noundef nonnull align 8 dereferenceable(25) %92) #18
-  br i1 %110, label %126, label %.critedge110
+  br i1 %110, label %127, label %.critedge110
 
 .critedge110:                                     ; preds = %106, %109
   %111 = icmp ne i32 %.sroa.0159.0.extract.trunc, 0
@@ -9578,16 +9578,16 @@ _ZL23mapImplicitCaptureStyleN5clang4sema18CapturingScopeInfo20ImplicitCaptureSty
   %.sroa.0155.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0155.0.insert.ext
   %124 = call noundef zeroext i1 @_ZN5clang4Sema27DiagnoseUnusedLambdaCaptureENS_11SourceRangeERKNS_4sema7CaptureE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %.sroa.0155.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(25) %92)
   %125 = xor i1 %124, true
-  br label %126
+  %126 = or i1 %.0216, %125
+  br label %127
 
-126:                                              ; preds = %109, %123, %103, %96
-  %.0102 = phi i1 [ true, %96 ], [ true, %103 ], [ true, %109 ], [ %125, %123 ]
-  %127 = icmp ne i32 %.sroa.0159.0.extract.trunc, 0
-  %128 = icmp ne i64 %.sroa.6161.0.extract.shift, 0
-  %129 = and i1 %127, %128
-  %.sroa.044.3 = select i1 %129, i32 %.sroa.6161.0.extract.trunc, i32 %.sroa.044.1215
-  %130 = and i1 %129, %.0102
-  %.2 = or i1 %.0216, %130
+127:                                              ; preds = %109, %123, %103, %96
+  %.0102 = phi i1 [ true, %96 ], [ true, %103 ], [ true, %109 ], [ %126, %123 ]
+  %128 = icmp ne i32 %.sroa.0159.0.extract.trunc, 0
+  %129 = icmp ne i64 %.sroa.6161.0.extract.shift, 0
+  %130 = and i1 %128, %129
+  %.sroa.044.3 = select i1 %130, i32 %.sroa.6161.0.extract.trunc, i32 %.sroa.044.1215
+  %.2 = select i1 %130, i1 %.0102, i1 %.0216
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %131 = load i8, ptr %93, align 8
@@ -9595,7 +9595,7 @@ _ZL23mapImplicitCaptureStyleN5clang4sema18CapturingScopeInfo20ImplicitCaptureSty
   %.not15.i = icmp eq i8 %132, 0
   br i1 %.not15.i, label %169, label %133
 
-133:                                              ; preds = %126
+133:                                              ; preds = %127
   %134 = load ptr, ptr %74, align 8, !tbaa !992
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 32768
@@ -9691,7 +9691,7 @@ _ZN5clang9FixItHintD2Ev.exit.i:                   ; preds = %_ZNK5clang8SemaBase
   call void @_ZN5clang13LambdaCaptureC1ENS_14SourceLocationEbNS_17LambdaCaptureKindEPNS_9ValueDeclES1_(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 %.sroa.0.0.copyload.i9.i, i1 noundef zeroext %98, i32 noundef %168, ptr noundef null, i32 0) #18
   br label %"_ZZN5clang4Sema15BuildLambdaExprENS_14SourceLocationES1_PNS_4sema15LambdaScopeInfoEENK3$_0clEv.exit"
 
-169:                                              ; preds = %126
+169:                                              ; preds = %127
   %170 = and i8 %131, 3
   %171 = icmp eq i8 %170, 3
   br i1 %171, label %172, label %174

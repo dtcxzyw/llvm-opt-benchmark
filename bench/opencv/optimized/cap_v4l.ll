@@ -3532,13 +3532,13 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %100
 
 98:                                               ; preds = %108
-  %99 = add nuw nsw i64 %.02174, 1
+  %99 = add nuw nsw i64 %.02173, 1
   %exitcond.not = icmp eq i64 %99, 22
   br i1 %exitcond.not, label %.loopexit, label %100, !llvm.loop !181
 
 100:                                              ; preds = %92, %98
-  %.02174 = phi i64 [ 0, %92 ], [ %99, %98 ]
-  %101 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev.try_order, i64 %.02174
+  %.02173 = phi i64 [ 0, %92 ], [ %99, %98 ]
+  %101 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev.try_order, i64 %.02173
   %102 = load i32, ptr %101, align 4, !tbaa !67
   store i32 %102, ptr %6, align 8, !tbaa !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %93, i8 0, i64 208, i1 false)
@@ -3709,9 +3709,9 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit69: ; preds 
   br i1 %179, label %.body61, label %.body61.sink.split
 
 .body61.sink.split:                               ; preds = %176, %145
-  %.sink89 = phi ptr [ %147, %145 ], [ %178, %176 ]
+  %.sink86 = phi ptr [ %147, %145 ], [ %178, %176 ]
   %.pn.ph = phi { ptr, i32 } [ %146, %145 ], [ %177, %176 ]
-  call void @_ZdlPv(ptr noundef %.sink89) #30
+  call void @_ZdlPv(ptr noundef %.sink86) #30
   br label %.body61
 
 .body61:                                          ; preds = %.body61.sink.split, %176, %145

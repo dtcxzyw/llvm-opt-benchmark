@@ -34290,7 +34290,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel18m
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.413.0.copyload = load i32, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !464
   %8 = tail call noundef zeroext i1 @_ZN4llvm14isNullConstantENS_7SDValueE(ptr %.sroa.012.0.copyload, i32 %.sroa.413.0.copyload) #27
-  br i1 %8, label %9, label %36
+  br i1 %8, label %9, label %37
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -34300,7 +34300,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel18m
   %14 = load i8, ptr %13, align 1, !range !48
   %15 = trunc nuw i8 %14 to i1
   %or.cond23 = select i1 %12, i1 true, i1 %15
-  br i1 %or.cond23, label %36, label %16
+  br i1 %or.cond23, label %37, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -34319,7 +34319,7 @@ _ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread: ; preds = %16
   %21 = icmp eq i32 %.pre, 17
   %22 = icmp eq i32 %20, 4
   %or.cond30 = or i1 %22, %21
-  br i1 %or.cond30, label %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread, label %36
+  br i1 %or.cond30, label %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread, label %37
 
 _ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread: ; preds = %16, %16, %16, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 477
@@ -34335,39 +34335,38 @@ _ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread: ; preds = %16, %16,
 
 27:                                               ; preds = %26
   %28 = icmp ne i32 %20, 18
-  br label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
+  %29 = or i1 %3, %28
+  br i1 %29, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, label %37
 
-_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit: ; preds = %26, %26, %27
-  %.not = phi i1 [ false, %26 ], [ false, %26 ], [ %28, %27 ]
-  %or.cond = or i1 %3, %.not
-  br i1 %or.cond, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, label %36
+_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit: ; preds = %26, %26
+  br i1 %3, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, label %37
 
-_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread: ; preds = %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %30 = load ptr, ptr %29, align 8, !tbaa !612
-  %31 = tail call noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(21) %30) #27
-  switch i32 %31, label %36 [
+_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread: ; preds = %27, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread.thread, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %31 = load ptr, ptr %30, align 8, !tbaa !612
+  %32 = tail call noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(21) %31) #27
+  switch i32 %32, label %37 [
     i32 256, label %.sink.split
-    i32 257, label %32
+    i32 257, label %33
   ]
 
-32:                                               ; preds = %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread
+33:                                               ; preds = %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, %32
-  %.sink36 = phi i32 [ 36, %32 ], [ 38, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !341
-  %35 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %34, i32 %.sink36, i16 6, ptr null) #27
-  %.fca.0.extract = extractvalue { ptr, i32 } %35, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %35, 1
+.sink.split:                                      ; preds = %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, %33
+  %.sink36 = phi i32 [ 36, %33 ], [ 38, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %35 = load ptr, ptr %34, align 8, !tbaa !341
+  %36 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %35, i32 %.sink36, i16 6, ptr null) #27
+  %.fca.0.extract = extractvalue { ptr, i32 } %36, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %36, 1
   store ptr %.fca.0.extract, ptr %10, align 8, !tbaa !463
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !464
-  br label %36
+  br label %37
 
-36:                                               ; preds = %.sink.split, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread, %4, %9, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit ], [ true, %9 ], [ true, %4 ], [ true, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread ], [ true, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread ], [ false, %.sink.split ]
+37:                                               ; preds = %.sink.split, %27, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread, %4, %9, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
+  %.0 = phi i1 [ true, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit ], [ true, %4 ], [ true, %27 ], [ true, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread ], [ true, %_ZNK4llvm12X86Subtarget13isTargetGlibcEv.exit.thread ], [ true, %9 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

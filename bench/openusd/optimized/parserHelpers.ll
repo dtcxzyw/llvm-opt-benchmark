@@ -4583,19 +4583,18 @@ sub_116:                                          ; preds = %sub_015
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
-  br label %.tail14
+  %42 = or i1 %.not, %41
+  br i1 %42, label %44, label %43
 
-.tail14:                                          ; preds = %sub_015, %sub_116
-  %42 = phi i1 [ false, %sub_015 ], [ %41, %sub_116 ]
-  %brmerge = or i1 %.not, %42
-  br i1 %brmerge, label %44, label %43
+.tail14:                                          ; preds = %sub_015
+  br i1 %.not, label %44, label %43
 
-43:                                               ; preds = %.tail14
+43:                                               ; preds = %sub_116, %.tail14
   store i8 0, ptr %1, align 1
   br label %44
 
-44:                                               ; preds = %.tail14, %43, %.tail10, %.tail.thread, %.tail, %18, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
-  %.0 = phi i1 [ true, %.tail14 ], [ false, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit ], [ true, %18 ], [ false, %.tail ], [ true, %.tail.thread ], [ false, %.tail10 ], [ true, %43 ]
+44:                                               ; preds = %sub_116, %.tail14, %43, %.tail10, %.tail.thread, %.tail, %18, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
+  %.0 = phi i1 [ true, %.tail14 ], [ false, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit ], [ true, %18 ], [ false, %.tail ], [ true, %.tail.thread ], [ false, %.tail10 ], [ true, %43 ], [ true, %sub_116 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   ret i1 %.0
 }

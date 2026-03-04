@@ -3573,7 +3573,7 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadEdgeListEPNS0_4Me
 
 .lr.ph79:                                         ; preds = %14, %189
   %27 = phi ptr [ %.pre93, %189 ], [ %20, %14 ]
-  %28 = phi ptr [ %193, %189 ], [ %19, %14 ]
+  %28 = phi ptr [ %194, %189 ], [ %19, %14 ]
   %29 = phi ptr [ %.pre, %189 ], [ %16, %14 ]
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store ptr %30, ptr %28, align 8
@@ -3591,9 +3591,9 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadEdgeListEPNS0_4Me
   tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %116, %129, %202, %177, %160, %148, %135, %104, %88, %75, %63, %49, %37
-  %.sink = phi ptr [ %200, %202 ], [ %175, %177 ], [ %158, %160 ], [ %146, %148 ], [ %133, %135 ], [ %35, %37 ], [ %102, %104 ], [ %86, %88 ], [ %73, %75 ], [ %61, %63 ], [ %47, %49 ], [ %127, %129 ], [ %114, %116 ]
-  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %178, %177 ], [ %161, %160 ], [ %149, %148 ], [ %136, %135 ], [ %38, %37 ], [ %105, %104 ], [ %89, %88 ], [ %76, %75 ], [ %64, %63 ], [ %50, %49 ], [ %130, %129 ], [ %117, %116 ]
+common.resume:                                    ; preds = %116, %129, %203, %177, %160, %148, %135, %104, %88, %75, %63, %49, %37
+  %.sink = phi ptr [ %201, %203 ], [ %175, %177 ], [ %158, %160 ], [ %146, %148 ], [ %133, %135 ], [ %35, %37 ], [ %102, %104 ], [ %86, %88 ], [ %73, %75 ], [ %61, %63 ], [ %47, %49 ], [ %127, %129 ], [ %114, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %204, %203 ], [ %178, %177 ], [ %161, %160 ], [ %149, %148 ], [ %136, %135 ], [ %38, %37 ], [ %105, %104 ], [ %89, %88 ], [ %76, %75 ], [ %64, %63 ], [ %50, %49 ], [ %130, %129 ], [ %117, %116 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -3931,40 +3931,40 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit21: ; preds = %_ZN6Assimp4Ogre20
   %.pre99 = and i64 %.pre97, 4294967295
   %191 = icmp eq i64 %.pre99, 0
   %192 = icmp ne i16 %190, -20224
-  %193 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %.not15 = or i1 %191, %192
-  br i1 %.not15, label %._crit_edge80, label %.lr.ph79, !llvm.loop !16
+  %193 = or i1 %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  br i1 %193, label %._crit_edge80, label %.lr.ph79, !llvm.loop !16
 
 ._crit_edge80:                                    ; preds = %189, %14
   %.lcssa61 = phi ptr [ %16, %14 ], [ %.pre, %189 ]
-  %.lcssa48 = phi ptr [ %19, %14 ], [ %193, %189 ]
+  %.lcssa48 = phi ptr [ %19, %14 ], [ %194, %189 ]
   %.lcssa35 = phi ptr [ %20, %14 ], [ %.pre93, %189 ]
   %.lcssa = phi i1 [ %25, %14 ], [ %191, %189 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %194
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %195
 
-194:                                              ; preds = %._crit_edge80
-  %195 = getelementptr inbounds i8, ptr %.lcssa35, i64 -6
-  store ptr %195, ptr %.lcssa48, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %.lcssa61, i64 40
-  %197 = load ptr, ptr %196, align 8
-  %198 = icmp ugt ptr %195, %197
-  br i1 %198, label %199, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+195:                                              ; preds = %._crit_edge80
+  %196 = getelementptr inbounds i8, ptr %.lcssa35, i64 -6
+  store ptr %196, ptr %.lcssa48, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %.lcssa61, i64 40
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ugt ptr %196, %198
+  br i1 %199, label %200, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-199:                                              ; preds = %194
-  %200 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull @.str.71)
-          to label %201 unwind label %202
+200:                                              ; preds = %195
+  %201 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull @.str.71)
+          to label %202 unwind label %203
 
-201:                                              ; preds = %199
-  tail call void @__cxa_throw(ptr nonnull %200, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+202:                                              ; preds = %200
+  tail call void @__cxa_throw(ptr nonnull %201, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-202:                                              ; preds = %199
-  %203 = landingpad { ptr, i32 }
+203:                                              ; preds = %200
+  %204 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.loopexit, %194, %._crit_edge80, %2
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.loopexit, %195, %._crit_edge80, %2
   ret void
 }
 

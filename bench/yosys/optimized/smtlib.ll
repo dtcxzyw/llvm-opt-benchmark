@@ -28050,6 +28050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %57, ptr %61, align 8, !tbaa !64
+  store ptr %54, ptr %3, align 8, !tbaa !15
   store i64 0, ptr %60, align 8, !tbaa !64
   store i8 0, ptr %54, align 8, !tbaa !20
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -28735,6 +28736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %57, ptr %61, align 8, !tbaa !64
+  store ptr %54, ptr %3, align 8, !tbaa !15
   store i64 0, ptr %60, align 8, !tbaa !64
   store i8 0, ptr %54, align 8, !tbaa !20
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 96

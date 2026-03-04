@@ -1525,20 +1525,23 @@ _Z8lm_enormiPKd.exit.i726:                        ; preds = %.thread.i.i725, %62
   %649 = tail call double @llvm.fmuladd.f64(double %646, double %648, double %.0382.i)
   %indvars.iv.next432.i = add nuw nsw i64 %indvars.iv431.i, 1
   %exitcond435.not.i = icmp eq i64 %indvars.iv.next432.i, %indvars.iv436.i
-  br i1 %exitcond435.not.i, label %._crit_edge.i728, label %645, !llvm.loop !62
+  br i1 %exitcond435.not.i, label %._crit_edge.i728.loopexit, label %645, !llvm.loop !62
 
-._crit_edge.i728:                                 ; preds = %645, %.preheader365.i
-  %.pre-phi1220 = phi i32 [ 0, %.preheader365.i ], [ %642, %645 ]
-  %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader365.i ], [ %649, %645 ]
-  %650 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv436.i
-  %651 = load double, ptr %650, align 8, !tbaa !25
-  %652 = fsub double %651, %.0.lcssa.i
-  %653 = mul i32 %147, %.pre-phi1220
-  %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds double, ptr %89, i64 %654
+._crit_edge.i728.loopexit:                        ; preds = %645
+  %650 = mul i32 %147, %642
+  %651 = sext i32 %650 to i64
+  br label %._crit_edge.i728
+
+._crit_edge.i728:                                 ; preds = %.preheader365.i, %._crit_edge.i728.loopexit
+  %.pre-phi1220 = phi i64 [ %651, %._crit_edge.i728.loopexit ], [ 0, %.preheader365.i ]
+  %.0.lcssa.i = phi double [ %649, %._crit_edge.i728.loopexit ], [ 0.000000e+00, %.preheader365.i ]
+  %652 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv436.i
+  %653 = load double, ptr %652, align 8, !tbaa !25
+  %654 = fsub double %653, %.0.lcssa.i
+  %655 = getelementptr inbounds double, ptr %89, i64 %.pre-phi1220
   %656 = load double, ptr %655, align 8, !tbaa !25
-  %657 = fdiv double %652, %656
-  store double %657, ptr %650, align 8, !tbaa !25
+  %657 = fdiv double %654, %656
+  store double %657, ptr %652, align 8, !tbaa !25
   %indvars.iv.next437.i = add nuw nsw i64 %indvars.iv436.i, 1
   %exitcond440.not.i = icmp eq i64 %indvars.iv.next437.i, %77
   br i1 %exitcond440.not.i, label %.lr.ph.i283.i, label %.preheader365.i, !llvm.loop !63

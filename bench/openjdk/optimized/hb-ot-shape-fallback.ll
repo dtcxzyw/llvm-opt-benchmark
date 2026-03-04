@@ -5697,12 +5697,12 @@ _ZN28hb_set_digest_bits_pattern_tImLj0EE9add_rangeEjj.exit.i.i: ; preds = %.sink
 .sink.split.i4.i.i:                               ; preds = %61, %56
   %.sink.i5.i.i = phi i64 [ %71, %61 ], [ -1, %56 ]
   store i64 %.sink.i5.i.i, ptr %53, align 8
+  %72 = or i1 %60, %.0.i.i.i
   br label %_ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EES0_ImLj9EEEE9add_rangeEjj.exit
 
 _ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EES0_ImLj9EEEE9add_rangeEjj.exit: ; preds = %_ZN28hb_set_digest_bits_pattern_tImLj0EE9add_rangeEjj.exit.i.i, %.sink.split.i4.i.i
-  %.0.i6.i.i = phi i1 [ false, %_ZN28hb_set_digest_bits_pattern_tImLj0EE9add_rangeEjj.exit.i.i ], [ %60, %.sink.split.i4.i.i ]
-  %72 = or i1 %.0.i.i.i, %.0.i6.i.i
-  %73 = or i1 %.0.i.i, %72
+  %.0.i6.i.i = phi i1 [ %.0.i.i.i, %_ZN28hb_set_digest_bits_pattern_tImLj0EE9add_rangeEjj.exit.i.i ], [ %72, %.sink.split.i4.i.i ]
+  %73 = or i1 %.0.i.i, %.0.i6.i.i
   ret i1 %73
 }
 

@@ -17726,8 +17726,8 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i.backedge
 
-.lr.ph.i.i.i.backedge:                            ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i, %64, %58, %52, %55, %67, %96, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
-  %.068.i.i.i.be = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i ], [ %54, %52 ], [ %57, %55 ], [ %135, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %69, %67 ], [ %98, %96 ], [ %66, %64 ], [ %63, %58 ]
+.lr.ph.i.i.i.backedge:                            ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i, %64, %58, %52, %55, %67, %95, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+  %.068.i.i.i.be = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i ], [ %54, %52 ], [ %57, %55 ], [ %134, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %69, %67 ], [ %97, %95 ], [ %66, %64 ], [ %63, %58 ]
   br label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
@@ -17753,8 +17753,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
     i16 50, label %58
     i16 89, label %67
     i16 73, label %70
-    i16 48, label %96
-    i16 125, label %99
+    i16 48, label %95
+    i16 125, label %98
   ]
 
 52:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
@@ -17796,11 +17796,11 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
   %77 = icmp ult i32 %76, 7
   %.not26 = icmp ne ptr %72, null
   %.not.not = and i1 %.not26, %77
-  br i1 %.not.not, label %78, label %95
+  br i1 %.not.not, label %78, label %.loopexit
 
 78:                                               ; preds = %70
   %79 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %72)
-  br i1 %79, label %80, label %95
+  br i1 %79, label %80, label %.loopexit
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 48
@@ -17816,92 +17816,87 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i8, ptr %89, align 16
   %91 = icmp eq i8 %90, 41
-  br i1 %91, label %92, label %95
+  br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %80
   %93 = tail call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.0.0.copyload.i) #32
   %94 = icmp ne i32 %93, 1
-  br label %95
-
-95:                                               ; preds = %80, %92, %70, %78
-  %.1 = phi i1 [ true, %78 ], [ undef, %70 ], [ false, %80 ], [ %94, %92 ]
-  %spec.select = and i1 %.not.not, %.1
   br label %.loopexit
 
-96:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
-  %97 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !60
+95:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %96 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !60
   br label %.lr.ph.i.i.i.backedge
 
-99:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
-  %100 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %102, align 8, !tbaa !25
-  %103 = and i64 %.sroa.0.0.copyload.i.i.i, -16
-  %104 = inttoptr i64 %103 to ptr
-  %105 = load ptr, ptr %104, align 16, !tbaa !26
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %106, align 8, !tbaa !25
-  %107 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
-  %108 = inttoptr i64 %107 to ptr
-  %109 = load ptr, ptr %108, align 16, !tbaa !26
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %111 = load i8, ptr %110, align 16
-  %112 = icmp ne i8 %111, 13
-  %.not.not21.i.i.i = icmp eq ptr %109, null
-  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %112
-  br i1 %.not.not.i.i.i, label %118, label %113
+98:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %99 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %101, align 8, !tbaa !25
+  %102 = and i64 %.sroa.0.0.copyload.i.i.i, -16
+  %103 = inttoptr i64 %102 to ptr
+  %104 = load ptr, ptr %103, align 16, !tbaa !26
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %105, align 8, !tbaa !25
+  %106 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
+  %107 = inttoptr i64 %106 to ptr
+  %108 = load ptr, ptr %107, align 16, !tbaa !26
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load i8, ptr %109, align 16
+  %111 = icmp ne i8 %110, 13
+  %.not.not21.i.i.i = icmp eq ptr %108, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %111
+  br i1 %.not.not.i.i.i, label %117, label %112
 
-113:                                              ; preds = %99
-  %114 = load i32, ptr %110, align 16
-  %115 = lshr i32 %114, 19
-  %116 = and i32 %115, 511
-  %117 = add nsw i32 %116, -435
-  %spec.select.i.i.i24 = icmp ult i32 %117, 20
-  br i1 %spec.select.i.i.i24, label %133, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+112:                                              ; preds = %98
+  %113 = load i32, ptr %109, align 16
+  %114 = lshr i32 %113, 19
+  %115 = and i32 %114, 511
+  %116 = add nsw i32 %115, -435
+  %spec.select.i.i.i24 = icmp ult i32 %116, 20
+  br i1 %spec.select.i.i.i24, label %132, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
 
-118:                                              ; preds = %99
-  %119 = icmp ne i8 %111, 46
-  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %119
-  br i1 %.not13.not.i.i.i, label %127, label %120
+117:                                              ; preds = %98
+  %118 = icmp ne i8 %110, 46
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %118
+  br i1 %.not13.not.i.i.i, label %126, label %119
 
-120:                                              ; preds = %118
-  %121 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %109) #32
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 74
-  %123 = load i8, ptr %122, align 2
-  %124 = trunc i8 %123 to i1
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %125, align 8
+119:                                              ; preds = %117
+  %120 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %108) #32
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 74
+  %122 = load i8, ptr %121, align 2
+  %123 = trunc i8 %122 to i1
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %124, align 8
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 7
-  %126 = select i1 %124, i1 true, i1 %.not.i.i.i.i.i.i.i
-  br i1 %126, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+  %125 = select i1 %123, i1 true, i1 %.not.i.i.i.i.i.i.i
+  br i1 %125, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
 
-127:                                              ; preds = %118
-  %128 = icmp eq i8 %111, 10
-  br i1 %128, label %133, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+126:                                              ; preds = %117
+  %127 = icmp eq i8 %110, 10
+  br i1 %127, label %132, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
 
-_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %120
-  %129 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %109) #32
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 72
-  %131 = load i40, ptr %130, align 8
-  %132 = icmp sgt i40 %131, -1
-  br i1 %132, label %133, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %119
+  %128 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %108) #32
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
+  %130 = load i40, ptr %129, align 8
+  %131 = icmp sgt i40 %130, -1
+  br i1 %131, label %132, label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
 
-133:                                              ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %127, %113
-  %134 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 16
+132:                                              ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %126, %112
+  %133 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 16
   br label %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
 
-_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %113, %120, %127, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %133
-  %.in.i = phi ptr [ %134, %133 ], [ %100, %120 ], [ %100, %113 ], [ %100, %127 ], [ %100, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
-  %135 = load ptr, ptr %.in.i, align 8, !tbaa !3
+_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %112, %119, %126, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %132
+  %.in.i = phi ptr [ %133, %132 ], [ %99, %119 ], [ %99, %112 ], [ %99, %126 ], [ %99, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
+  %134 = load ptr, ptr %.in.i, align 8, !tbaa !3
   br label %.lr.ph.i.i.i.backedge
 
 .loopexit.loopexit:                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %.loopexit.loopexit, %95
-  %.0 = phi i1 [ %spec.select, %95 ], [ false, %.loopexit.loopexit ], [ true, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
+.loopexit:                                        ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %.loopexit.loopexit, %78, %70, %92, %80
+  %.0 = phi i1 [ %94, %92 ], [ false, %.loopexit.loopexit ], [ true, %78 ], [ false, %70 ], [ false, %80 ], [ true, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
   ret i1 %.0
 }
 
@@ -18750,7 +18745,7 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
 
 80:                                               ; preds = %52
   %81 = tail call noundef zeroext i1 @_ZNK5clang4Type14isIntegralTypeERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(23216) %1) #32
-  br i1 %81, label %._crit_edge.i.i.i.i, label %105
+  br i1 %81, label %._crit_edge.i.i.i.i, label %106
 
 ._crit_edge.i.i.i.i:                              ; preds = %80
   %.sroa.0.0.copyload.i36.pre.i.i.i.i = load i64, ptr %56, align 8, !tbaa !25
@@ -18773,7 +18768,7 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
 
 91:                                               ; preds = %82
   %92 = tail call noundef zeroext i1 @_ZNK5clang4Type14isIntegralTypeERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(23216) %1) #32
-  br i1 %92, label %93, label %105
+  br i1 %92, label %93, label %106
 
 93:                                               ; preds = %91, %82
   %.sroa.0.0.copyload.i41.i.i.i.i = load i64, ptr %55, align 8, !tbaa !25
@@ -18789,13 +18784,11 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
   %102 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %101) #32
   %103 = extractvalue { i64, i64 } %102, 0
   %104 = icmp eq i64 %98, %103
-  br label %105
+  %105 = or i1 %71, %104
+  br i1 %105, label %.thread48.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
-105:                                              ; preds = %93, %91, %80
-  %106 = phi i1 [ false, %91 ], [ false, %80 ], [ %104, %93 ]
-  %or.cond.i.i.i.i = or i1 %71, %106
-  %spec.select.i.i.i.i = select i1 %or.cond.i.i.i.i, ptr %54, ptr %.1.i.i.i
-  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
+106:                                              ; preds = %91, %80
+  br i1 %71, label %.thread48.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
 107:                                              ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
   %.not.i.i.i.i = icmp eq i16 %50, 9
@@ -18804,10 +18797,14 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
 108:                                              ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !761
+  br label %.thread48.i.i.i.i
+
+.thread48.i.i.i.i:                                ; preds = %108, %106, %93
+  %.1.ph.i.i.i.i = phi ptr [ %54, %93 ], [ %110, %108 ], [ %54, %106 ]
   br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
-"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i": ; preds = %108, %107, %105
-  %111 = phi ptr [ %spec.select.i.i.i.i, %105 ], [ %110, %108 ], [ %.1.i.i.i, %107 ]
+"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i": ; preds = %.thread48.i.i.i.i, %107, %106, %93
+  %111 = phi ptr [ %.1.ph.i.i.i.i, %.thread48.i.i.i.i ], [ %.1.i.i.i, %106 ], [ %.1.i.i.i, %93 ], [ %.1.i.i.i, %107 ]
   %.not.i = icmp eq ptr %111, %.071.i
   br i1 %.not.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.exit", label %3, !llvm.loop !899
 
@@ -20114,11 +20111,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTC
   %4 = alloca %"class.llvm::iterator_range.874", align 8
   %5 = alloca %"class.(anonymous namespace)::SideEffectFinder", align 8
   %6 = alloca %"struct.clang::ConstStmtIterator", align 8
-  br i1 %2, label %tailrecurse.us, label %.split
+  br i1 %2, label %tailrecurse.us.us, label %tailrecurse
 
-tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.backedge
-  %.tr.us = phi ptr [ %.tr.us.be, %tailrecurse.us.backedge ], [ %0, %3 ]
-  %7 = load i16, ptr %.tr.us, align 8
+tailrecurse.us.us:                                ; preds = %3, %tailrecurse.us.us.backedge
+  %.tr.us.us = phi ptr [ %.tr.us.us.be, %tailrecurse.us.us.backedge ], [ %0, %3 ]
+  %7 = load i16, ptr %.tr.us.us, align 8
   %8 = and i16 %7, 511
   switch i16 %8, label %.critedge146 [
     i16 34, label %.split211.us
@@ -20147,24 +20144,24 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
     i16 89, label %.thread159
     i16 81, label %.thread159
     i16 85, label %.split230.us
-    i16 113, label %.split233.us
+    i16 113, label %.split233.us.loopexit.us
     i16 114, label %32
     i16 79, label %23
     i16 59, label %12
     i16 55, label %.split236.us
     i16 120, label %.split239.us
     i16 4, label %.split242.us
-    i16 71, label %.critedge142.loopexit677
-    i16 97, label %.critedge142.loopexit677
-    i16 111, label %.critedge142.loopexit677
-    i16 26, label %.critedge142.loopexit677
-    i16 25, label %.critedge142.loopexit677
-    i16 24, label %.critedge142.loopexit677
-    i16 8, label %.critedge142.loopexit677
-    i16 61, label %.critedge142.loopexit677
-    i16 6, label %.critedge142.loopexit677
-    i16 18, label %.critedge142.loopexit677
-    i16 110, label %.critedge142.loopexit677
+    i16 71, label %.critedge142.loopexit707
+    i16 97, label %.critedge142.loopexit707
+    i16 111, label %.critedge142.loopexit707
+    i16 26, label %.critedge142.loopexit707
+    i16 25, label %.critedge142.loopexit707
+    i16 24, label %.critedge142.loopexit707
+    i16 8, label %.critedge142.loopexit707
+    i16 61, label %.critedge142.loopexit707
+    i16 6, label %.critedge142.loopexit707
+    i16 18, label %.critedge142.loopexit707
+    i16 110, label %.critedge142.loopexit707
     i16 73, label %.critedge142
     i16 36, label %.critedge142
     i16 20, label %.critedge142
@@ -20180,17 +20177,17 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
     i16 129, label %.critedge142
     i16 62, label %.split247.us
     i16 11, label %.split250.us
-    i16 74, label %.critedge142.loopexit677
-    i16 72, label %.critedge142.loopexit677
-    i16 75, label %.critedge142.loopexit677
-    i16 112, label %.critedge142.loopexit677
-    i16 108, label %.critedge142.loopexit677
-    i16 99, label %.critedge142.loopexit677
-    i16 122, label %.critedge142.loopexit677
-    i16 3, label %.critedge142.loopexit677
-    i16 121, label %.critedge142.loopexit677
-    i16 51, label %.critedge142.loopexit677
-    i16 52, label %.critedge142.loopexit677
+    i16 74, label %.critedge142.loopexit707
+    i16 72, label %.critedge142.loopexit707
+    i16 75, label %.critedge142.loopexit707
+    i16 112, label %.critedge142.loopexit707
+    i16 108, label %.critedge142.loopexit707
+    i16 99, label %.critedge142.loopexit707
+    i16 122, label %.critedge142.loopexit707
+    i16 3, label %.critedge142.loopexit707
+    i16 121, label %.critedge142.loopexit707
+    i16 51, label %.critedge142.loopexit707
+    i16 52, label %.critedge142.loopexit707
     i16 118, label %.split255.us
     i16 119, label %.split255.us
     i16 92, label %.split258.us
@@ -20228,54 +20225,62 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
     i16 60, label %.critedge142
   ]
 
-9:                                                ; preds = %tailrecurse.us
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
+9:                                                ; preds = %tailrecurse.us.us
+  %10 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !96
-  br label %tailrecurse.us.backedge
+  br label %tailrecurse.us.us.backedge
 
-12:                                               ; preds = %tailrecurse.us
-  %13 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 32
-  %14 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
+12:                                               ; preds = %tailrecurse.us.us
+  %13 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 30
-  %.lobit.i.i.us = and i32 %16, 1
+  %.lobit.i.i.us.us = and i32 %16, 1
   %17 = lshr i32 %15, 15
   %18 = and i32 %17, 32767
-  %19 = add nuw nsw i32 %.lobit.i.i.us, %18
+  %19 = add nuw nsw i32 %.lobit.i.i.us.us, %18
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !3
-  br label %tailrecurse.us.backedge
+  br label %tailrecurse.us.us.backedge
 
-23:                                               ; preds = %tailrecurse.us
-  %24 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 48
+23:                                               ; preds = %tailrecurse.us.us
+  %24 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 48
   %25 = load i8, ptr %24, align 8, !tbaa !39, !range !42, !noundef !43
   %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = select i1 %26, ptr %28, ptr %30
-  br label %tailrecurse.us.backedge
+  br label %tailrecurse.us.us.backedge
 
-32:                                               ; preds = %tailrecurse.us
-  %33 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr.us) #32
-  br label %tailrecurse.us.backedge
+32:                                               ; preds = %tailrecurse.us.us
+  %33 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr.us.us) #32
+  br label %tailrecurse.us.us.backedge
 
-tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
-  %.tr.us.be = phi ptr [ %33, %32 ], [ %11, %9 ], [ %22, %12 ], [ %31, %23 ]
-  br label %tailrecurse.us
+.split233.us.loopexit.us:                         ; preds = %tailrecurse.us.us
+  %34 = getelementptr inbounds nuw i8, ptr %.tr.us.us, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !917
+  %36 = tail call noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80) %35) #32
+  %.not126.us = icmp eq ptr %36, null
+  br i1 %.not126.us, label %.critedge142.loopexit707, label %tailrecurse.us.us.backedge
 
-.split:                                           ; preds = %3
-  %34 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %.critedge142, label %.critedge
+tailrecurse.us.us.backedge:                       ; preds = %.split233.us.loopexit.us, %32, %23, %12, %9
+  %.tr.us.us.be = phi ptr [ %33, %32 ], [ %36, %.split233.us.loopexit.us ], [ %11, %9 ], [ %22, %12 ], [ %31, %23 ]
+  br label %tailrecurse.us.us
 
-.critedge:                                        ; preds = %.split, %tailrecurse.backedge
-  %.tr260 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %.split ]
-  %36 = load i16, ptr %.tr260, align 8
-  %37 = and i16 %36, 511
-  switch i16 %37, label %.critedge146 [
+tailrecurse:                                      ; preds = %3, %.split233.us.loopexit447
+  %.tr = phi ptr [ %130, %.split233.us.loopexit447 ], [ %0, %3 ]
+  %37 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #31
+  %38 = icmp sgt i32 %37, -1
+  br i1 %38, label %.critedge, label %.critedge142
+
+.critedge:                                        ; preds = %tailrecurse, %tailrecurse.backedge
+  %.tr260 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %.tr, %tailrecurse ]
+  %39 = load i16, ptr %.tr260, align 8
+  %40 = and i16 %39, 511
+  switch i16 %40, label %.critedge146 [
     i16 34, label %.split211.us
     i16 35, label %.split211.us
     i16 82, label %.split211.us
@@ -20302,37 +20307,37 @@ tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
     i16 89, label %.thread159
     i16 81, label %.thread159
     i16 85, label %.split230.us
-    i16 113, label %.split233.us
-    i16 114, label %124
-    i16 79, label %115
-    i16 59, label %104
+    i16 113, label %.split233.us.loopexit447
+    i16 114, label %126
+    i16 79, label %117
+    i16 59, label %106
     i16 55, label %.split236.us
     i16 120, label %.split239.us
     i16 4, label %.split242.us
-    i16 71, label %.critedge142.loopexit709
-    i16 97, label %.critedge142.loopexit709
-    i16 111, label %.critedge142.loopexit709
-    i16 26, label %.critedge142.loopexit709
-    i16 25, label %.critedge142.loopexit709
-    i16 24, label %.critedge142.loopexit709
-    i16 8, label %.critedge142.loopexit709
-    i16 61, label %.critedge142.loopexit709
-    i16 6, label %.critedge142.loopexit709
-    i16 18, label %.critedge142.loopexit709
-    i16 110, label %.critedge142.loopexit709
-    i16 73, label %.critedge142.loopexit709
-    i16 36, label %.critedge142.loopexit709
-    i16 20, label %.critedge142.loopexit709
-    i16 54, label %.critedge142.loopexit709
-    i16 65, label %.critedge142.loopexit709
-    i16 64, label %.critedge142.loopexit709
-    i16 57, label %.critedge142.loopexit709
-    i16 10, label %.critedge142.loopexit709
-    i16 80, label %.critedge142.loopexit709
-    i16 29, label %.critedge142.loopexit709
-    i16 56, label %.critedge142.loopexit709
-    i16 5, label %.critedge142.loopexit709
-    i16 129, label %.critedge142.loopexit709
+    i16 71, label %.critedge142.loopexit737
+    i16 97, label %.critedge142.loopexit737
+    i16 111, label %.critedge142.loopexit737
+    i16 26, label %.critedge142.loopexit737
+    i16 25, label %.critedge142.loopexit737
+    i16 24, label %.critedge142.loopexit737
+    i16 8, label %.critedge142.loopexit737
+    i16 61, label %.critedge142.loopexit737
+    i16 6, label %.critedge142.loopexit737
+    i16 18, label %.critedge142.loopexit737
+    i16 110, label %.critedge142.loopexit737
+    i16 73, label %.critedge142.loopexit737
+    i16 36, label %.critedge142.loopexit737
+    i16 20, label %.critedge142.loopexit737
+    i16 54, label %.critedge142.loopexit737
+    i16 65, label %.critedge142.loopexit737
+    i16 64, label %.critedge142.loopexit737
+    i16 57, label %.critedge142.loopexit737
+    i16 10, label %.critedge142.loopexit737
+    i16 80, label %.critedge142.loopexit737
+    i16 29, label %.critedge142.loopexit737
+    i16 56, label %.critedge142.loopexit737
+    i16 5, label %.critedge142.loopexit737
+    i16 129, label %.critedge142.loopexit737
     i16 62, label %.split247.us
     i16 11, label %.split250.us
     i16 74, label %.critedge142
@@ -20353,465 +20358,454 @@ tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
     i16 94, label %.split258.us
     i16 93, label %.split258.us
     i16 91, label %.split258.us
-    i16 63, label %38
-    i16 16, label %.critedge142.loopexit709
-    i16 27, label %.critedge142.loopexit709
-    i16 58, label %.critedge142.loopexit709
-    i16 23, label %.critedge142.loopexit709
-    i16 15, label %.critedge142.loopexit709
-    i16 17, label %.critedge142.loopexit709
-    i16 77, label %.critedge142.loopexit709
-    i16 68, label %.critedge142.loopexit709
-    i16 12, label %.critedge142.loopexit709
-    i16 28, label %.critedge142.loopexit709
-    i16 96, label %.critedge142.loopexit709
-    i16 43, label %.critedge142.loopexit709
-    i16 42, label %.critedge142.loopexit709
-    i16 39, label %.critedge142.loopexit709
-    i16 31, label %.critedge142.loopexit709
-    i16 13, label %.critedge142.loopexit709
-    i16 107, label %.critedge142.loopexit709
-    i16 67, label %.critedge142.loopexit709
-    i16 124, label %.critedge142.loopexit709
-    i16 7, label %.critedge142.loopexit709
-    i16 102, label %.critedge142.loopexit709
-    i16 100, label %.critedge142.loopexit709
-    i16 106, label %.critedge142.loopexit709
-    i16 117, label %.critedge142.loopexit709
-    i16 47, label %.critedge142.loopexit709
-    i16 128, label %.critedge142.loopexit709
-    i16 60, label %.critedge142.loopexit709
+    i16 63, label %41
+    i16 16, label %.critedge142.loopexit737
+    i16 27, label %.critedge142.loopexit737
+    i16 58, label %.critedge142.loopexit737
+    i16 23, label %.critedge142.loopexit737
+    i16 15, label %.critedge142.loopexit737
+    i16 17, label %.critedge142.loopexit737
+    i16 77, label %.critedge142.loopexit737
+    i16 68, label %.critedge142.loopexit737
+    i16 12, label %.critedge142.loopexit737
+    i16 28, label %.critedge142.loopexit737
+    i16 96, label %.critedge142.loopexit737
+    i16 43, label %.critedge142.loopexit737
+    i16 42, label %.critedge142.loopexit737
+    i16 39, label %.critedge142.loopexit737
+    i16 31, label %.critedge142.loopexit737
+    i16 13, label %.critedge142.loopexit737
+    i16 107, label %.critedge142.loopexit737
+    i16 67, label %.critedge142.loopexit737
+    i16 124, label %.critedge142.loopexit737
+    i16 7, label %.critedge142.loopexit737
+    i16 102, label %.critedge142.loopexit737
+    i16 100, label %.critedge142.loopexit737
+    i16 106, label %.critedge142.loopexit737
+    i16 117, label %.critedge142.loopexit737
+    i16 47, label %.critedge142.loopexit737
+    i16 128, label %.critedge142.loopexit737
+    i16 60, label %.critedge142.loopexit737
   ]
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %.tr260, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !96
+41:                                               ; preds = %.critedge
+  %42 = getelementptr inbounds nuw i8, ptr %.tr260, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !96
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %38, %104, %115, %124
-  %.tr.be = phi ptr [ %40, %38 ], [ %114, %104 ], [ %123, %115 ], [ %125, %124 ]
-  %41 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr.be) #31
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.critedge142.loopexit709, label %.critedge
+tailrecurse.backedge:                             ; preds = %41, %106, %117, %126
+  %.tr.be = phi ptr [ %43, %41 ], [ %116, %106 ], [ %125, %117 ], [ %127, %126 ]
+  %44 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr.be) #31
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %.critedge142.loopexit737, label %.critedge
 
-.split258.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
-  %.us-phi259 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
-  %43 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.us-phi259)
-  %.not124 = icmp eq ptr %43, null
-  br i1 %.not124, label %79, label %44
+.split258.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us
+  %.us-phi259 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+  %46 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.us-phi259)
+  %.not124 = icmp eq ptr %46, null
+  br i1 %.not124, label %81, label %47
 
-44:                                               ; preds = %.split258.us
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 256
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, label %48
+47:                                               ; preds = %.split258.us
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 256
+  %.not.i = icmp eq i32 %50, 0
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, label %51
 
-48:                                               ; preds = %44
-  %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #32
-  %50 = load ptr, ptr %49, align 8, !tbaa !54
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !51
-  %53 = zext i32 %52 to i64
-  %.idx.i.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i
-  %.not.i.i = icmp eq i32 %52, 0
+51:                                               ; preds = %47
+  %52 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %46) #32
+  %53 = load ptr, ptr %52, align 8, !tbaa !54
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !51
+  %56 = zext i32 %55 to i64
+  %.idx.i.i = shl nuw nsw i64 %56, 3
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i
+  %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %59
-  %.sroa.07.1.i.i.i.i = phi ptr [ %60, %59 ], [ %50, %48 ]
-  %55 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !208
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %57 = load i16, ptr %56, align 8
-  %58 = icmp eq i16 %57, 175
-  br i1 %58, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, label %59
+.lr.ph.i.i.i.i.i:                                 ; preds = %51, %62
+  %.sroa.07.1.i.i.i.i = phi ptr [ %63, %62 ], [ %53, %51 ]
+  %58 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !208
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load i16, ptr %59, align 8
+  %61 = icmp eq i16 %60, 175
+  br i1 %61, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, label %62
 
-59:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %60, %54
+62:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %63, %57
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, label %.lr.ph.i.i.i.i.i, !llvm.loop !897
 
 _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit:  ; preds = %.lr.ph.i.i.i.i.i
-  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %54
+  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %57
   br i1 %.not, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, label %.critedge146
 
-_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156: ; preds = %59, %48, %44, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
-  %61 = load i32, ptr %45, align 4
-  %62 = and i32 %61, 256
-  %.not.i427 = icmp eq i32 %62, 0
-  br i1 %.not.i427, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %63
+_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156: ; preds = %62, %51, %47, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
+  %64 = load i32, ptr %48, align 4
+  %65 = and i32 %64, 256
+  %.not.i427 = icmp eq i32 %65, 0
+  br i1 %.not.i427, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %66
 
-63:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156
-  %64 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #32
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !51
-  %68 = zext i32 %67 to i64
-  %.idx.i.i428 = shl nuw nsw i64 %68, 3
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i428
-  %.not.i.i429 = icmp eq i32 %67, 0
+66:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156
+  %67 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %46) #32
+  %68 = load ptr, ptr %67, align 8, !tbaa !54
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !51
+  %71 = zext i32 %70 to i64
+  %.idx.i.i428 = shl nuw nsw i64 %71, 3
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i428
+  %.not.i.i429 = icmp eq i32 %70, 0
   br i1 %.not.i.i429, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i430
 
-.lr.ph.i.i.i.i.i430:                              ; preds = %63, %74
-  %.sroa.07.1.i.i.i.i431 = phi ptr [ %75, %74 ], [ %65, %63 ]
-  %70 = load ptr, ptr %.sroa.07.1.i.i.i.i431, align 8, !tbaa !208
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = load i16, ptr %71, align 8
-  %73 = icmp eq i16 %72, 329
-  br i1 %73, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %74
+.lr.ph.i.i.i.i.i430:                              ; preds = %66, %77
+  %.sroa.07.1.i.i.i.i431 = phi ptr [ %78, %77 ], [ %68, %66 ]
+  %73 = load ptr, ptr %.sroa.07.1.i.i.i.i431, align 8, !tbaa !208
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %75 = load i16, ptr %74, align 8
+  %76 = icmp eq i16 %75, 329
+  br i1 %76, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %77
 
-74:                                               ; preds = %.lr.ph.i.i.i.i.i430
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i431, i64 8
-  %.not.i.i.i.i.i432 = icmp eq ptr %75, %69
+77:                                               ; preds = %.lr.ph.i.i.i.i.i430
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i431, i64 8
+  %.not.i.i.i.i.i432 = icmp eq ptr %78, %72
   br i1 %.not.i.i.i.i.i432, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i430, !llvm.loop !896
 
-_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i430
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %69, %74 ], [ %.sroa.07.1.i.i.i.i431, %.lr.ph.i.i.i.i.i430 ]
-  %76 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %69
-  br label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit
+_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %77, %.lr.ph.i.i.i.i.i430
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %72, %77 ], [ %.sroa.07.1.i.i.i.i431, %.lr.ph.i.i.i.i.i430 ]
+  %79 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %72
+  %80 = and i1 %2, %79
+  br i1 %80, label %.critedge142, label %.critedge146
 
-_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, %63, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i
-  %77 = phi i1 [ true, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156 ], [ true, %63 ], [ %76, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
-  %78 = and i1 %2, %77
-  br i1 %78, label %.critedge142, label %.critedge146
-
-79:                                               ; preds = %.split258.us
+_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156, %66
   br i1 %2, label %.critedge142, label %.critedge146
 
-.split255.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
-  %.us-phi256 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+81:                                               ; preds = %.split258.us
   br i1 %2, label %.critedge142, label %.critedge146
 
-.split250.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi251 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
+.split255.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us
+  %.us-phi256 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+  br i1 %2, label %.critedge142, label %.critedge146
+
+.split250.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi251 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %80 = zext i1 %2 to i8
-  store ptr %1, ptr %5, align 8, !tbaa !917
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %80, ptr %81, align 8, !tbaa !918
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 0, ptr %82, align 1, !tbaa !922
-  %83 = getelementptr inbounds nuw i8, ptr %.us-phi251, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !891
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %84)
-  %.val = load i8, ptr %82, align 1, !tbaa !922, !range !42, !noundef !43
-  %85 = trunc nuw i8 %.val to i1
+  %82 = zext i1 %2 to i8
+  store ptr %1, ptr %5, align 8, !tbaa !920
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %82, ptr %83, align 8, !tbaa !921
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  store i8 0, ptr %84, align 1, !tbaa !925
+  %85 = getelementptr inbounds nuw i8, ptr %.us-phi251, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !891
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %86)
+  %.val = load i8, ptr %84, align 1, !tbaa !925, !range !42, !noundef !43
+  %87 = trunc nuw i8 %.val to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge142
 
-.split247.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi248 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  br i1 %2, label %86, label %.critedge146
+.split247.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi248 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  br i1 %2, label %88, label %.critedge146
 
-86:                                               ; preds = %.split247.us
-  %87 = load i32, ptr %.us-phi248, align 8
-  %88 = and i32 %87, 524288
-  %.not174 = icmp eq i32 %88, 0
+88:                                               ; preds = %.split247.us
+  %89 = load i32, ptr %.us-phi248, align 8
+  %90 = and i32 %89, 524288
+  %.not174 = icmp eq i32 %90, 0
   br i1 %.not174, label %.critedge146, label %.critedge142
 
-.split242.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi243 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %89 = load i32, ptr %.us-phi243, align 8
-  %90 = and i32 %89, 14680064
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %.critedge142, label %.critedge146
+.split242.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi243 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %91 = load i32, ptr %.us-phi243, align 8
+  %92 = and i32 %91, 14680064
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %.critedge142, label %.critedge146
 
-.split239.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi240 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %92 = load i32, ptr %.us-phi240, align 8
-  %93 = lshr i32 %92, 19
-  %94 = and i32 %93, 63
-  %95 = add nsw i32 %94, -21
-  %96 = icmp ult i32 %95, 11
-  br i1 %96, label %.critedge142, label %.critedge146
+.split239.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi240 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %94 = load i32, ptr %.us-phi240, align 8
+  %95 = lshr i32 %94, 19
+  %96 = and i32 %95, 63
+  %97 = add nsw i32 %96, -21
+  %98 = icmp ult i32 %97, 11
+  br i1 %98, label %.critedge142, label %.critedge146
 
-.split236.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi237 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %97 = getelementptr inbounds nuw i8, ptr %.us-phi237, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %97, align 8
-  %98 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 2
-  %99 = icmp ne i64 %98, 0
-  %100 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -4
-  %.not125175 = icmp eq i64 %100, 0
-  %.not125 = or i1 %99, %.not125175
-  br i1 %.not125, label %.critedge146, label %101
+.split236.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi237 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %99 = getelementptr inbounds nuw i8, ptr %.us-phi237, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %99, align 8
+  %100 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 2
+  %101 = icmp ne i64 %100, 0
+  %102 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -4
+  %.not125175 = icmp eq i64 %102, 0
+  %.not125 = or i1 %101, %.not125175
+  br i1 %.not125, label %.critedge146, label %103
 
-101:                                              ; preds = %.split236.us
-  %102 = inttoptr i64 %100 to ptr
-  %103 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %103, label %.critedge142, label %.critedge146
+103:                                              ; preds = %.split236.us
+  %104 = inttoptr i64 %102 to ptr
+  %105 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  br i1 %105, label %.critedge142, label %.critedge146
 
-104:                                              ; preds = %.critedge
-  %105 = getelementptr inbounds nuw i8, ptr %.tr260, i64 32
-  %106 = getelementptr inbounds nuw i8, ptr %.tr260, i64 16
-  %107 = load i32, ptr %106, align 8
-  %108 = lshr i32 %107, 30
-  %.lobit.i.i = and i32 %108, 1
-  %109 = lshr i32 %107, 15
-  %110 = and i32 %109, 32767
-  %111 = add nuw nsw i32 %.lobit.i.i, %110
-  %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %105, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !3
+106:                                              ; preds = %.critedge
+  %107 = getelementptr inbounds nuw i8, ptr %.tr260, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %.tr260, i64 16
+  %109 = load i32, ptr %108, align 8
+  %110 = lshr i32 %109, 30
+  %.lobit.i.i = and i32 %110, 1
+  %111 = lshr i32 %109, 15
+  %112 = and i32 %111, 32767
+  %113 = add nuw nsw i32 %.lobit.i.i, %112
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds nuw ptr, ptr %107, i64 %114
+  %116 = load ptr, ptr %115, align 8, !tbaa !3
   br label %tailrecurse.backedge
 
-115:                                              ; preds = %.critedge
-  %116 = getelementptr inbounds nuw i8, ptr %.tr260, i64 48
-  %117 = load i8, ptr %116, align 8, !tbaa !39, !range !42, !noundef !43
-  %118 = trunc nuw i8 %117 to i1
-  %119 = getelementptr inbounds nuw i8, ptr %.tr260, i64 24
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.tr260, i64 32
+117:                                              ; preds = %.critedge
+  %118 = getelementptr inbounds nuw i8, ptr %.tr260, i64 48
+  %119 = load i8, ptr %118, align 8, !tbaa !39, !range !42, !noundef !43
+  %120 = trunc nuw i8 %119 to i1
+  %121 = getelementptr inbounds nuw i8, ptr %.tr260, i64 24
   %122 = load ptr, ptr %121, align 8
-  %123 = select i1 %118, ptr %120, ptr %122
+  %123 = getelementptr inbounds nuw i8, ptr %.tr260, i64 32
+  %124 = load ptr, ptr %123, align 8
+  %125 = select i1 %120, ptr %122, ptr %124
   br label %tailrecurse.backedge
 
-124:                                              ; preds = %.critedge
-  %125 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr260) #32
+126:                                              ; preds = %.critedge
+  %127 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr260) #32
   br label %tailrecurse.backedge
 
-.split233.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi234 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %126 = getelementptr inbounds nuw i8, ptr %.us-phi234, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !923
-  %128 = tail call noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #32
-  %.not126 = icmp eq ptr %128, null
-  br i1 %.not126, label %131, label %129
+.split233.us.loopexit447:                         ; preds = %.critedge
+  %128 = getelementptr inbounds nuw i8, ptr %.tr260, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !917
+  %130 = tail call noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #32
+  %.not126 = icmp eq ptr %130, null
+  br i1 %.not126, label %.critedge142, label %tailrecurse
 
-129:                                              ; preds = %.split233.us
-  %130 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br label %131
+.split230.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi231 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %131 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 24
+  %132 = load ptr, ptr %131, align 8, !tbaa !810
+  %.sroa.0.0.copyload.i.i = load i64, ptr %132, align 8, !tbaa !25
+  %133 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %134 = inttoptr i64 %133 to ptr
+  %135 = load ptr, ptr %134, align 16, !tbaa !26
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %136, align 8, !tbaa !25
+  %137 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
+  %138 = inttoptr i64 %137 to ptr
+  %139 = load ptr, ptr %138, align 16, !tbaa !26
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %141 = load i8, ptr %140, align 16
+  %142 = and i8 %141, -2
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %142, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %143, label %.thread159
 
-131:                                              ; preds = %.split233.us, %129
-  %.5 = phi i1 [ %130, %129 ], [ undef, %.split233.us ]
-  %spec.select = or i1 %.not126, %.5
-  br label %.critedge142
+143:                                              ; preds = %.split230.us
+  %144 = load i32, ptr %.us-phi231, align 8
+  %145 = and i32 %144, 66584576
+  %146 = icmp eq i32 %145, 4718592
+  br i1 %146, label %.critedge142, label %.thread159
 
-.split230.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi231 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %132 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !810
-  %.sroa.0.0.copyload.i.i = load i64, ptr %133, align 8, !tbaa !25
-  %134 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %135 = inttoptr i64 %134 to ptr
-  %136 = load ptr, ptr %135, align 16, !tbaa !26
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %137, align 8, !tbaa !25
-  %138 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
-  %139 = inttoptr i64 %138 to ptr
-  %140 = load ptr, ptr %139, align 16, !tbaa !26
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %142 = load i8, ptr %141, align 16
-  %143 = and i8 %142, -2
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %143, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %144, label %.thread159
+.thread159:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %.split230.us, %143
+  %.tr207 = phi ptr [ %.us-phi231, %143 ], [ %.us-phi231, %.split230.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+  br i1 %2, label %147, label %.critedge146
 
-144:                                              ; preds = %.split230.us
-  %145 = load i32, ptr %.us-phi231, align 8
-  %146 = and i32 %145, 66584576
-  %147 = icmp eq i32 %146, 4718592
-  br i1 %147, label %.critedge142, label %.thread159
+147:                                              ; preds = %.thread159
+  %148 = load i32, ptr %.tr207, align 8
+  %149 = and i32 %148, 66584576
+  %150 = icmp eq i32 %149, 2097152
+  br i1 %150, label %151, label %.critedge146
 
-.thread159:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.split230.us, %144
-  %.tr207 = phi ptr [ %.us-phi231, %144 ], [ %.us-phi231, %.split230.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
-  br i1 %2, label %148, label %.critedge146
-
-148:                                              ; preds = %.thread159
-  %149 = load i32, ptr %.tr207, align 8
-  %150 = and i32 %149, 66584576
-  %151 = icmp eq i32 %150, 2097152
-  br i1 %151, label %152, label %.critedge146
-
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %.tr207, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !46
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %155, align 8, !tbaa !25
-  %156 = and i64 %.sroa.0.0.copyload.i, 4
-  %.not.i147 = icmp eq i64 %156, 0
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds nuw i8, ptr %.tr207, i64 16
+  %153 = load ptr, ptr %152, align 8, !tbaa !46
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %154, align 8, !tbaa !25
+  %155 = and i64 %.sroa.0.0.copyload.i, 4
+  %.not.i147 = icmp eq i64 %155, 0
   br i1 %.not.i147, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, label %.critedge142
 
-_ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %152
-  %157 = and i64 %.sroa.0.0.copyload.i, -16
-  %158 = inttoptr i64 %157 to ptr
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %.0.copyload.i.i.i.i.i1.i = load i64, ptr %159, align 8
-  %160 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
-  %.not176 = icmp eq i64 %160, 0
+_ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %151
+  %156 = and i64 %.sroa.0.0.copyload.i, -16
+  %157 = inttoptr i64 %156 to ptr
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %.0.copyload.i.i.i.i.i1.i = load i64, ptr %158, align 8
+  %159 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
+  %.not176 = icmp eq i64 %159, 0
   br i1 %.not176, label %.critedge146, label %.critedge142
 
-.split226.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi227 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %161 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi227) #32
-  br i1 %161, label %162, label %.critedge142
+.split226.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi227 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %160 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi227) #32
+  br i1 %160, label %161, label %.critedge142
 
-162:                                              ; preds = %.split226.us
-  br i1 %2, label %163, label %.critedge146
+161:                                              ; preds = %.split226.us
+  br i1 %2, label %162, label %.critedge146
 
-163:                                              ; preds = %162
-  %164 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi227) #32
-  br i1 %164, label %.critedge142, label %.critedge146
+162:                                              ; preds = %161
+  %163 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi227) #32
+  br i1 %163, label %.critedge142, label %.critedge146
 
-.split223.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
-  %.us-phi224 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
-  %165 = getelementptr inbounds nuw i8, ptr %.us-phi224, i64 16
-  %166 = load ptr, ptr %165, align 8, !tbaa !805
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 82
-  %168 = load i32, ptr %167, align 2
-  %169 = and i32 %168, 128
-  %.not177 = icmp eq i32 %169, 0
+.split223.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us
+  %.us-phi224 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+  %164 = getelementptr inbounds nuw i8, ptr %.us-phi224, i64 16
+  %165 = load ptr, ptr %164, align 8, !tbaa !805
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 82
+  %167 = load i32, ptr %166, align 2
+  %168 = and i32 %167, 128
+  %.not177 = icmp eq i32 %168, 0
   %or.cond13 = and i1 %2, %.not177
   br i1 %or.cond13, label %.critedge142, label %.critedge146
 
-.split220.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi221 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %170 = getelementptr inbounds nuw i8, ptr %.us-phi221, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !926
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 82
-  %173 = load i32, ptr %172, align 2
-  %174 = and i32 %173, 128
-  %.not178 = icmp eq i32 %174, 0
+.split220.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi221 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %169 = getelementptr inbounds nuw i8, ptr %.us-phi221, i64 16
+  %170 = load ptr, ptr %169, align 8, !tbaa !926
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 82
+  %172 = load i32, ptr %171, align 2
+  %173 = and i32 %172, 128
+  %.not178 = icmp eq i32 %173, 0
   %or.cond16 = and i1 %2, %.not178
   br i1 %or.cond16, label %.critedge142, label %.critedge146
 
-.split217.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi218 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %175 = getelementptr inbounds nuw i8, ptr %.us-phi218, i64 32
-  %176 = getelementptr inbounds nuw i8, ptr %.us-phi218, i64 4
-  %177 = load i16, ptr %176, align 4
-  %178 = zext i16 %177 to i64
-  %.idx = shl nuw nsw i64 %178, 3
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx
-  %.not127.not282 = icmp eq i16 %177, 0
+.split217.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi218 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %174 = getelementptr inbounds nuw i8, ptr %.us-phi218, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %.us-phi218, i64 4
+  %176 = load i16, ptr %175, align 4
+  %177 = zext i16 %176 to i64
+  %.idx = shl nuw nsw i64 %177, 3
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx
+  %.not127.not282 = icmp eq i16 %176, 0
   br i1 %.not127.not282, label %.critedge142, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split217.us, %.critedge138
-  %.0115283 = phi ptr [ %183, %.critedge138 ], [ %175, %.split217.us ]
-  %180 = load ptr, ptr %.0115283, align 8, !tbaa !146
-  %.not128 = icmp eq ptr %180, null
-  br i1 %.not128, label %.critedge138, label %181
+  %.0115283 = phi ptr [ %182, %.critedge138 ], [ %174, %.split217.us ]
+  %179 = load ptr, ptr %.0115283, align 8, !tbaa !146
+  %.not128 = icmp eq ptr %179, null
+  br i1 %.not128, label %.critedge138, label %180
 
-181:                                              ; preds = %.lr.ph
-  %182 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %182, label %.critedge142, label %.critedge138
+180:                                              ; preds = %.lr.ph
+  %181 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  br i1 %181, label %.critedge142, label %.critedge138
 
-.critedge138:                                     ; preds = %181, %.lr.ph
-  %183 = getelementptr inbounds nuw i8, ptr %.0115283, i64 8
-  %.not127.not = icmp eq ptr %183, %179
+.critedge138:                                     ; preds = %180, %.lr.ph
+  %182 = getelementptr inbounds nuw i8, ptr %.0115283, i64 8
+  %.not127.not = icmp eq ptr %182, %178
   br i1 %.not127.not, label %.critedge142, label %.lr.ph
 
-.split214.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi215 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
-  %184 = load i64, ptr %.us-phi215, align 8
-  %185 = lshr i64 %184, 29
-  %.idx295 = and i64 %185, 524280
-  %186 = add nuw nsw i64 %.idx295, 16
-  %187 = getelementptr inbounds nuw i8, ptr %.us-phi215, i64 %186
-  %.not129.not287 = icmp samesign eq i64 %186, 24
+.split214.us:                                     ; preds = %.critedge, %tailrecurse.us.us
+  %.us-phi215 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
+  %183 = load i64, ptr %.us-phi215, align 8
+  %184 = lshr i64 %183, 29
+  %.idx295 = and i64 %184, 524280
+  %185 = add nuw nsw i64 %.idx295, 16
+  %186 = getelementptr inbounds nuw i8, ptr %.us-phi215, i64 %185
+  %.not129.not287 = icmp samesign eq i64 %185, 24
   br i1 %.not129.not287, label %.critedge142, label %.lr.ph289.preheader
 
 .lr.ph289.preheader:                              ; preds = %.split214.us
-  %188 = getelementptr inbounds nuw i8, ptr %.us-phi215, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %.us-phi215, i64 24
   br label %.lr.ph289
 
-.lr.ph289:                                        ; preds = %195, %.lr.ph289.preheader
-  %.0117288 = phi ptr [ %197, %195 ], [ %188, %.lr.ph289.preheader ]
-  %189 = load ptr, ptr %.0117288, align 8, !tbaa !146
-  %190 = load i16, ptr %189, align 8
-  %191 = and i16 %190, 511
-  %.not180 = icmp eq i16 %191, 28
-  br i1 %.not180, label %192, label %195
+.lr.ph289:                                        ; preds = %194, %.lr.ph289.preheader
+  %.0117288 = phi ptr [ %196, %194 ], [ %187, %.lr.ph289.preheader ]
+  %188 = load ptr, ptr %.0117288, align 8, !tbaa !146
+  %189 = load i16, ptr %188, align 8
+  %190 = and i16 %189, 511
+  %.not180 = icmp eq i16 %190, 28
+  br i1 %.not180, label %191, label %194
 
-192:                                              ; preds = %.lr.ph289
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %194 = load ptr, ptr %193, align 8, !tbaa !88
-  br label %195
+191:                                              ; preds = %.lr.ph289
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %193 = load ptr, ptr %192, align 8, !tbaa !88
+  br label %194
 
-195:                                              ; preds = %192, %.lr.ph289
-  %.0116 = phi ptr [ %194, %192 ], [ %189, %.lr.ph289 ]
-  %196 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.0116, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  %197 = getelementptr inbounds nuw i8, ptr %.0117288, i64 8
-  %.not129.not = icmp eq ptr %197, %187
-  %or.cond = select i1 %196, i1 true, i1 %.not129.not
+194:                                              ; preds = %191, %.lr.ph289
+  %.0116 = phi ptr [ %193, %191 ], [ %188, %.lr.ph289 ]
+  %195 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.0116, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  %196 = getelementptr inbounds nuw i8, ptr %.0117288, i64 8
+  %.not129.not = icmp eq ptr %196, %186
+  %or.cond = select i1 %195, i1 true, i1 %.not129.not
   br i1 %or.cond, label %.critedge142, label %.lr.ph289, !llvm.loop !928
 
-.split211.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
-  %.us-phi212 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
+.split211.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us
+  %.us-phi212 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ], [ %.tr260, %.critedge ]
   br i1 %2, label %.critedge142, label %.critedge146
 
-.critedge146:                                     ; preds = %.critedge, %tailrecurse.us, %101, %.split236.us, %163, %162, %148, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, %.split220.us, %.split223.us, %79, %.split211.us, %.thread159, %.split239.us, %.split242.us, %.split247.us, %86, %.split255.us
-  %.tr208 = phi ptr [ %.us-phi256, %.split255.us ], [ %.us-phi237, %101 ], [ %.us-phi237, %.split236.us ], [ %.us-phi227, %163 ], [ %.us-phi227, %162 ], [ %.tr207, %148 ], [ %.tr207, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %.us-phi259, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ %.us-phi259, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit ], [ %.us-phi221, %.split220.us ], [ %.us-phi224, %.split223.us ], [ %.us-phi259, %79 ], [ %.us-phi212, %.split211.us ], [ %.tr207, %.thread159 ], [ %.us-phi240, %.split239.us ], [ %.us-phi243, %.split242.us ], [ %.us-phi248, %.split247.us ], [ %.us-phi248, %86 ], [ %.tr.us, %tailrecurse.us ], [ %.tr260, %.critedge ]
+.critedge146:                                     ; preds = %.critedge, %tailrecurse.us.us, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %103, %.split236.us, %162, %161, %147, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, %.split220.us, %.split223.us, %81, %.split211.us, %.thread159, %.split239.us, %.split242.us, %.split247.us, %88, %.split255.us
+  %.tr208 = phi ptr [ %.us-phi256, %.split255.us ], [ %.us-phi237, %103 ], [ %.us-phi237, %.split236.us ], [ %.us-phi227, %162 ], [ %.us-phi227, %161 ], [ %.tr207, %147 ], [ %.tr207, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %.us-phi259, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ %.us-phi259, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit ], [ %.us-phi221, %.split220.us ], [ %.us-phi224, %.split223.us ], [ %.us-phi259, %81 ], [ %.us-phi212, %.split211.us ], [ %.tr207, %.thread159 ], [ %.us-phi240, %.split239.us ], [ %.us-phi243, %.split242.us ], [ %.us-phi248, %.split247.us ], [ %.us-phi248, %88 ], [ %.us-phi259, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ], [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr260, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !929
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.tr208) #32, !noalias !929
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %198 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.4150.24.copyload = load ptr, ptr %198, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.4150.24.copyload = load ptr, ptr %197, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !929
-  %199 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %200 = load ptr, ptr %6, align 8, !tbaa !25
-  %201 = icmp ne ptr %200, %.sroa.4150.24.copyload
-  %202 = load i64, ptr %199, align 8
-  %203 = icmp ne i64 %202, %.sroa.6.24.copyload
-  %.not3.i293 = select i1 %201, i1 true, i1 %203
+  %198 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %199 = load ptr, ptr %6, align 8, !tbaa !25
+  %200 = icmp ne ptr %199, %.sroa.4150.24.copyload
+  %201 = load i64, ptr %198, align 8
+  %202 = icmp ne i64 %201, %.sroa.6.24.copyload
+  %.not3.i293 = select i1 %200, i1 true, i1 %202
   br i1 %.not3.i293, label %.lr.ph294, label %._crit_edge
 
 .lr.ph294:                                        ; preds = %.critedge146, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %204 = phi i64 [ %225, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %202, %.critedge146 ]
-  %205 = phi ptr [ %223, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %200, %.critedge146 ]
-  %206 = and i64 %204, 3
-  %207 = icmp eq i64 %206, 0
-  br i1 %207, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %208
+  %203 = phi i64 [ %224, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %201, %.critedge146 ]
+  %204 = phi ptr [ %222, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %199, %.critedge146 ]
+  %205 = and i64 %203, 3
+  %206 = icmp eq i64 %205, 0
+  br i1 %206, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %207
 
-208:                                              ; preds = %.lr.ph294
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
+207:                                              ; preds = %.lr.ph294
+  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph294, %208
-  %.in.i = phi ptr [ %209, %208 ], [ %205, %.lr.ph294 ]
-  %210 = load ptr, ptr %.in.i, align 8, !tbaa !3
-  %.not131 = icmp eq ptr %210, null
-  br i1 %.not131, label %213, label %211
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph294, %207
+  %.in.i = phi ptr [ %208, %207 ], [ %204, %.lr.ph294 ]
+  %209 = load ptr, ptr %.in.i, align 8, !tbaa !3
+  %.not131 = icmp eq ptr %209, null
+  br i1 %.not131, label %212, label %210
 
-211:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %212 = call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %212, label %227, label %213
+210:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %211 = call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  br i1 %211, label %226, label %212
 
-213:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %211
-  %214 = load i64, ptr %199, align 8, !tbaa !932
-  %215 = and i64 %214, 3
-  %216 = icmp eq i64 %215, 0
-  br i1 %216, label %217, label %220
+212:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %210
+  %213 = load i64, ptr %198, align 8, !tbaa !932
+  %214 = and i64 %213, 3
+  %215 = icmp eq i64 %214, 0
+  br i1 %215, label %216, label %219
 
-217:                                              ; preds = %213
-  %218 = load ptr, ptr %6, align 8, !tbaa !25
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  store ptr %219, ptr %6, align 8, !tbaa !25
+216:                                              ; preds = %212
+  %217 = load ptr, ptr %6, align 8, !tbaa !25
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  store ptr %218, ptr %6, align 8, !tbaa !25
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-220:                                              ; preds = %213
-  %.not.i148 = icmp ult i64 %214, 4
-  br i1 %.not.i148, label %222, label %221
+219:                                              ; preds = %212
+  %.not.i148 = icmp ult i64 %213, 4
+  br i1 %.not.i148, label %221, label %220
 
-221:                                              ; preds = %220
+220:                                              ; preds = %219
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-222:                                              ; preds = %220
+221:                                              ; preds = %219
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true) #32
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %217, %221, %222
-  %223 = load ptr, ptr %6, align 8, !tbaa !25
-  %224 = icmp ne ptr %223, %.sroa.4150.24.copyload
-  %225 = load i64, ptr %199, align 8
-  %226 = icmp ne i64 %225, %.sroa.6.24.copyload
-  %.not3.i = select i1 %224, i1 true, i1 %226
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %216, %220, %221
+  %222 = load ptr, ptr %6, align 8, !tbaa !25
+  %223 = icmp ne ptr %222, %.sroa.4150.24.copyload
+  %224 = load i64, ptr %198, align 8
+  %225 = icmp ne i64 %224, %.sroa.6.24.copyload
+  %.not3.i = select i1 %223, i1 true, i1 %225
   br i1 %.not3.i, label %.lr.ph294, label %._crit_edge
 
-227:                                              ; preds = %211
+226:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge142
 
@@ -20819,14 +20813,14 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge142
 
-.critedge142.loopexit677:                         ; preds = %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
+.critedge142.loopexit707:                         ; preds = %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %.split233.us.loopexit.us
   br label %.critedge142
 
-.critedge142.loopexit709:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+.critedge142.loopexit737:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   br label %.critedge142
 
-.critedge142:                                     ; preds = %181, %.critedge138, %195, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge142.loopexit709, %.critedge142.loopexit677, %.split, %.split217.us, %.split214.us, %163, %.split226.us, %152, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %._crit_edge, %227, %144, %101, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split220.us, %.split223.us, %79, %.split211.us, %.split239.us, %.split242.us, %86, %.split255.us, %131, %.split250.us
-  %.0 = phi i1 [ true, %.split211.us ], [ true, %144 ], [ false, %.split226.us ], [ false, %.split ], [ true, %.split239.us ], [ true, %.split220.us ], [ true, %.split223.us ], [ true, %152 ], [ true, %227 ], [ true, %101 ], [ %spec.select, %131 ], [ false, %._crit_edge ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %163 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split242.us ], [ true, %86 ], [ %196, %195 ], [ true, %.split255.us ], [ %85, %.split250.us ], [ false, %.critedge142.loopexit709 ], [ false, %.split217.us ], [ true, %79 ], [ true, %.critedge142.loopexit677 ], [ false, %.split214.us ], [ true, %.critedge ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %181 ], [ false, %.critedge138 ]
+.critedge142:                                     ; preds = %.split233.us.loopexit447, %tailrecurse, %180, %.critedge138, %194, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %tailrecurse.us.us, %.critedge142.loopexit737, %.critedge142.loopexit707, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %.split217.us, %.split214.us, %162, %.split226.us, %151, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %._crit_edge, %226, %143, %103, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split220.us, %.split223.us, %81, %.split211.us, %.split239.us, %.split242.us, %88, %.split255.us, %.split250.us
+  %.0 = phi i1 [ true, %.split211.us ], [ %195, %194 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ], [ true, %143 ], [ true, %.split239.us ], [ true, %.split220.us ], [ true, %.split223.us ], [ true, %151 ], [ true, %226 ], [ true, %103 ], [ true, %.critedge142.loopexit707 ], [ false, %._crit_edge ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %162 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split242.us ], [ true, %88 ], [ true, %.critedge ], [ true, %.split255.us ], [ %87, %.split250.us ], [ false, %tailrecurse.us.us ], [ false, %.split217.us ], [ true, %81 ], [ false, %.split226.us ], [ false, %.critedge138 ], [ false, %.split214.us ], [ false, %.critedge142.loopexit737 ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ false, %tailrecurse.us.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %180 ], [ %38, %tailrecurse ], [ %38, %.split233.us.loopexit447 ]
   ret i1 %.0
 }
 
@@ -20889,596 +20883,596 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %15 = load i8, ptr %14, align 1, !tbaa !922, !range !42, !noundef !43
+  %15 = load i8, ptr %14, align 1, !tbaa !925, !range !42, !noundef !43
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8, !tbaa !934
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i8, ptr %19, align 8, !tbaa !918, !range !42, !noundef !43
+  %20 = load i8, ptr %19, align 8, !tbaa !921, !range !42, !noundef !43
   %21 = trunc nuw i8 %20 to i1
   %22 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %18, i1 noundef zeroext %21)
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 23:                                               ; preds = %17
-  store i8 1, ptr %14, align 1, !tbaa !922
+  store i8 1, ptr %14, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 24:                                               ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %26 = load i8, ptr %25, align 1, !tbaa !922, !range !42, !noundef !43
+  %26 = load i8, ptr %25, align 1, !tbaa !925, !range !42, !noundef !43
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8, !tbaa !934
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i8, ptr %30, align 8, !tbaa !918, !range !42, !noundef !43
+  %31 = load i8, ptr %30, align 8, !tbaa !921, !range !42, !noundef !43
   %32 = trunc nuw i8 %31 to i1
   %33 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %29, i1 noundef zeroext %32)
   br i1 %33, label %34, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 34:                                               ; preds = %28
-  store i8 1, ptr %25, align 1, !tbaa !922
+  store i8 1, ptr %25, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 35:                                               ; preds = %8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %37 = load i8, ptr %36, align 1, !tbaa !922, !range !42, !noundef !43
+  %37 = load i8, ptr %36, align 1, !tbaa !925, !range !42, !noundef !43
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %0, align 8, !tbaa !934
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !918, !range !42, !noundef !43
+  %42 = load i8, ptr %41, align 8, !tbaa !921, !range !42, !noundef !43
   %43 = trunc nuw i8 %42 to i1
   %44 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %40, i1 noundef zeroext %43)
   br i1 %44, label %45, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 45:                                               ; preds = %39
-  store i8 1, ptr %36, align 1, !tbaa !922
+  store i8 1, ptr %36, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 46:                                               ; preds = %8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %48 = load i8, ptr %47, align 1, !tbaa !922, !range !42, !noundef !43
+  %48 = load i8, ptr %47, align 1, !tbaa !925, !range !42, !noundef !43
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %50
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %0, align 8, !tbaa !934
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !918, !range !42, !noundef !43
+  %53 = load i8, ptr %52, align 8, !tbaa !921, !range !42, !noundef !43
   %54 = trunc nuw i8 %53 to i1
   %55 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %51, i1 noundef zeroext %54)
   br i1 %55, label %56, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 56:                                               ; preds = %50
-  store i8 1, ptr %47, align 1, !tbaa !922
+  store i8 1, ptr %47, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 57:                                               ; preds = %8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %59 = load i8, ptr %58, align 1, !tbaa !922, !range !42, !noundef !43
+  %59 = load i8, ptr %58, align 1, !tbaa !925, !range !42, !noundef !43
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %61
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %0, align 8, !tbaa !934
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load i8, ptr %63, align 8, !tbaa !918, !range !42, !noundef !43
+  %64 = load i8, ptr %63, align 8, !tbaa !921, !range !42, !noundef !43
   %65 = trunc nuw i8 %64 to i1
   %66 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %62, i1 noundef zeroext %65)
   br i1 %66, label %67, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 67:                                               ; preds = %61
-  store i8 1, ptr %58, align 1, !tbaa !922
+  store i8 1, ptr %58, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 68:                                               ; preds = %8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %70 = load i8, ptr %69, align 1, !tbaa !922, !range !42, !noundef !43
+  %70 = load i8, ptr %69, align 1, !tbaa !925, !range !42, !noundef !43
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %72
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %0, align 8, !tbaa !934
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = load i8, ptr %74, align 8, !tbaa !918, !range !42, !noundef !43
+  %75 = load i8, ptr %74, align 8, !tbaa !921, !range !42, !noundef !43
   %76 = trunc nuw i8 %75 to i1
   %77 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %73, i1 noundef zeroext %76)
   br i1 %77, label %78, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 78:                                               ; preds = %72
-  store i8 1, ptr %69, align 1, !tbaa !922
+  store i8 1, ptr %69, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %81 = load i8, ptr %80, align 1, !tbaa !922, !range !42, !noundef !43
+  %81 = load i8, ptr %80, align 1, !tbaa !925, !range !42, !noundef !43
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %83
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %0, align 8, !tbaa !934
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %86 = load i8, ptr %85, align 8, !tbaa !918, !range !42, !noundef !43
+  %86 = load i8, ptr %85, align 8, !tbaa !921, !range !42, !noundef !43
   %87 = trunc nuw i8 %86 to i1
   %88 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %84, i1 noundef zeroext %87)
   br i1 %88, label %89, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 89:                                               ; preds = %83
-  store i8 1, ptr %80, align 1, !tbaa !922
+  store i8 1, ptr %80, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 90:                                               ; preds = %8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %92 = load i8, ptr %91, align 1, !tbaa !922, !range !42, !noundef !43
+  %92 = load i8, ptr %91, align 1, !tbaa !925, !range !42, !noundef !43
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %0, align 8, !tbaa !934
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load i8, ptr %96, align 8, !tbaa !918, !range !42, !noundef !43
+  %97 = load i8, ptr %96, align 8, !tbaa !921, !range !42, !noundef !43
   %98 = trunc nuw i8 %97 to i1
   %99 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %95, i1 noundef zeroext %98)
   br i1 %99, label %100, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 100:                                              ; preds = %94
-  store i8 1, ptr %91, align 1, !tbaa !922
+  store i8 1, ptr %91, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 101:                                              ; preds = %8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %103 = load i8, ptr %102, align 1, !tbaa !922, !range !42, !noundef !43
+  %103 = load i8, ptr %102, align 1, !tbaa !925, !range !42, !noundef !43
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %105
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %0, align 8, !tbaa !934
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %108 = load i8, ptr %107, align 8, !tbaa !918, !range !42, !noundef !43
+  %108 = load i8, ptr %107, align 8, !tbaa !921, !range !42, !noundef !43
   %109 = trunc nuw i8 %108 to i1
   %110 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %106, i1 noundef zeroext %109)
   br i1 %110, label %111, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 111:                                              ; preds = %105
-  store i8 1, ptr %102, align 1, !tbaa !922
+  store i8 1, ptr %102, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 112:                                              ; preds = %8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %114 = load i8, ptr %113, align 1, !tbaa !922, !range !42, !noundef !43
+  %114 = load i8, ptr %113, align 1, !tbaa !925, !range !42, !noundef !43
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %116
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %0, align 8, !tbaa !934
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %119 = load i8, ptr %118, align 8, !tbaa !918, !range !42, !noundef !43
+  %119 = load i8, ptr %118, align 8, !tbaa !921, !range !42, !noundef !43
   %120 = trunc nuw i8 %119 to i1
   %121 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %117, i1 noundef zeroext %120)
   br i1 %121, label %122, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 122:                                              ; preds = %116
-  store i8 1, ptr %113, align 1, !tbaa !922
+  store i8 1, ptr %113, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 123:                                              ; preds = %8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %125 = load i8, ptr %124, align 1, !tbaa !922, !range !42, !noundef !43
+  %125 = load i8, ptr %124, align 1, !tbaa !925, !range !42, !noundef !43
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %127
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %0, align 8, !tbaa !934
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %130 = load i8, ptr %129, align 8, !tbaa !918, !range !42, !noundef !43
+  %130 = load i8, ptr %129, align 8, !tbaa !921, !range !42, !noundef !43
   %131 = trunc nuw i8 %130 to i1
   %132 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %128, i1 noundef zeroext %131)
   br i1 %132, label %133, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 133:                                              ; preds = %127
-  store i8 1, ptr %124, align 1, !tbaa !922
+  store i8 1, ptr %124, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 134:                                              ; preds = %8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %136 = load i8, ptr %135, align 1, !tbaa !922, !range !42, !noundef !43
+  %136 = load i8, ptr %135, align 1, !tbaa !925, !range !42, !noundef !43
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %138
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %0, align 8, !tbaa !934
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %141 = load i8, ptr %140, align 8, !tbaa !918, !range !42, !noundef !43
+  %141 = load i8, ptr %140, align 8, !tbaa !921, !range !42, !noundef !43
   %142 = trunc nuw i8 %141 to i1
   %143 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %139, i1 noundef zeroext %142)
   br i1 %143, label %144, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 144:                                              ; preds = %138
-  store i8 1, ptr %135, align 1, !tbaa !922
+  store i8 1, ptr %135, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 145:                                              ; preds = %8
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %147 = load i8, ptr %146, align 1, !tbaa !922, !range !42, !noundef !43
+  %147 = load i8, ptr %146, align 1, !tbaa !925, !range !42, !noundef !43
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %149
 
 149:                                              ; preds = %145
   %150 = load ptr, ptr %0, align 8, !tbaa !934
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %152 = load i8, ptr %151, align 8, !tbaa !918, !range !42, !noundef !43
+  %152 = load i8, ptr %151, align 8, !tbaa !921, !range !42, !noundef !43
   %153 = trunc nuw i8 %152 to i1
   %154 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %150, i1 noundef zeroext %153)
   br i1 %154, label %155, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 155:                                              ; preds = %149
-  store i8 1, ptr %146, align 1, !tbaa !922
+  store i8 1, ptr %146, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 156:                                              ; preds = %8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %158 = load i8, ptr %157, align 1, !tbaa !922, !range !42, !noundef !43
+  %158 = load i8, ptr %157, align 1, !tbaa !925, !range !42, !noundef !43
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %160
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %0, align 8, !tbaa !934
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %163 = load i8, ptr %162, align 8, !tbaa !918, !range !42, !noundef !43
+  %163 = load i8, ptr %162, align 8, !tbaa !921, !range !42, !noundef !43
   %164 = trunc nuw i8 %163 to i1
   %165 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %161, i1 noundef zeroext %164)
   br i1 %165, label %166, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 166:                                              ; preds = %160
-  store i8 1, ptr %157, align 1, !tbaa !922
+  store i8 1, ptr %157, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 167:                                              ; preds = %8
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %169 = load i8, ptr %168, align 1, !tbaa !922, !range !42, !noundef !43
+  %169 = load i8, ptr %168, align 1, !tbaa !925, !range !42, !noundef !43
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %171
 
 171:                                              ; preds = %167
   %172 = load ptr, ptr %0, align 8, !tbaa !934
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %174 = load i8, ptr %173, align 8, !tbaa !918, !range !42, !noundef !43
+  %174 = load i8, ptr %173, align 8, !tbaa !921, !range !42, !noundef !43
   %175 = trunc nuw i8 %174 to i1
   %176 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %172, i1 noundef zeroext %175)
   br i1 %176, label %177, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 177:                                              ; preds = %171
-  store i8 1, ptr %168, align 1, !tbaa !922
+  store i8 1, ptr %168, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 178:                                              ; preds = %8
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %180 = load i8, ptr %179, align 1, !tbaa !922, !range !42, !noundef !43
+  %180 = load i8, ptr %179, align 1, !tbaa !925, !range !42, !noundef !43
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %182
 
 182:                                              ; preds = %178
   %183 = load ptr, ptr %0, align 8, !tbaa !934
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %185 = load i8, ptr %184, align 8, !tbaa !918, !range !42, !noundef !43
+  %185 = load i8, ptr %184, align 8, !tbaa !921, !range !42, !noundef !43
   %186 = trunc nuw i8 %185 to i1
   %187 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %183, i1 noundef zeroext %186)
   br i1 %187, label %188, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 188:                                              ; preds = %182
-  store i8 1, ptr %179, align 1, !tbaa !922
+  store i8 1, ptr %179, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 189:                                              ; preds = %8
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %191 = load i8, ptr %190, align 1, !tbaa !922, !range !42, !noundef !43
+  %191 = load i8, ptr %190, align 1, !tbaa !925, !range !42, !noundef !43
   %192 = trunc nuw i8 %191 to i1
   br i1 %192, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %193
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %0, align 8, !tbaa !934
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %196 = load i8, ptr %195, align 8, !tbaa !918, !range !42, !noundef !43
+  %196 = load i8, ptr %195, align 8, !tbaa !921, !range !42, !noundef !43
   %197 = trunc nuw i8 %196 to i1
   %198 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %194, i1 noundef zeroext %197)
   br i1 %198, label %199, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 199:                                              ; preds = %193
-  store i8 1, ptr %190, align 1, !tbaa !922
+  store i8 1, ptr %190, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 200:                                              ; preds = %8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %202 = load i8, ptr %201, align 1, !tbaa !922, !range !42, !noundef !43
+  %202 = load i8, ptr %201, align 1, !tbaa !925, !range !42, !noundef !43
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %204
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr %0, align 8, !tbaa !934
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %207 = load i8, ptr %206, align 8, !tbaa !918, !range !42, !noundef !43
+  %207 = load i8, ptr %206, align 8, !tbaa !921, !range !42, !noundef !43
   %208 = trunc nuw i8 %207 to i1
   %209 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %205, i1 noundef zeroext %208)
   br i1 %209, label %210, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 210:                                              ; preds = %204
-  store i8 1, ptr %201, align 1, !tbaa !922
+  store i8 1, ptr %201, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 211:                                              ; preds = %8
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %213 = load i8, ptr %212, align 1, !tbaa !922, !range !42, !noundef !43
+  %213 = load i8, ptr %212, align 1, !tbaa !925, !range !42, !noundef !43
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %215
 
 215:                                              ; preds = %211
   %216 = load ptr, ptr %0, align 8, !tbaa !934
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %218 = load i8, ptr %217, align 8, !tbaa !918, !range !42, !noundef !43
+  %218 = load i8, ptr %217, align 8, !tbaa !921, !range !42, !noundef !43
   %219 = trunc nuw i8 %218 to i1
   %220 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %216, i1 noundef zeroext %219)
   br i1 %220, label %221, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 221:                                              ; preds = %215
-  store i8 1, ptr %212, align 1, !tbaa !922
+  store i8 1, ptr %212, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 222:                                              ; preds = %8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %224 = load i8, ptr %223, align 1, !tbaa !922, !range !42, !noundef !43
+  %224 = load i8, ptr %223, align 1, !tbaa !925, !range !42, !noundef !43
   %225 = trunc nuw i8 %224 to i1
   br i1 %225, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %226
 
 226:                                              ; preds = %222
   %227 = load ptr, ptr %0, align 8, !tbaa !934
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %229 = load i8, ptr %228, align 8, !tbaa !918, !range !42, !noundef !43
+  %229 = load i8, ptr %228, align 8, !tbaa !921, !range !42, !noundef !43
   %230 = trunc nuw i8 %229 to i1
   %231 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %227, i1 noundef zeroext %230)
   br i1 %231, label %232, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 232:                                              ; preds = %226
-  store i8 1, ptr %223, align 1, !tbaa !922
+  store i8 1, ptr %223, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 233:                                              ; preds = %8
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %235 = load i8, ptr %234, align 1, !tbaa !922, !range !42, !noundef !43
+  %235 = load i8, ptr %234, align 1, !tbaa !925, !range !42, !noundef !43
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %237
 
 237:                                              ; preds = %233
   %238 = load ptr, ptr %0, align 8, !tbaa !934
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %240 = load i8, ptr %239, align 8, !tbaa !918, !range !42, !noundef !43
+  %240 = load i8, ptr %239, align 8, !tbaa !921, !range !42, !noundef !43
   %241 = trunc nuw i8 %240 to i1
   %242 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %238, i1 noundef zeroext %241)
   br i1 %242, label %243, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 243:                                              ; preds = %237
-  store i8 1, ptr %234, align 1, !tbaa !922
+  store i8 1, ptr %234, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 244:                                              ; preds = %8
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %246 = load i8, ptr %245, align 1, !tbaa !922, !range !42, !noundef !43
+  %246 = load i8, ptr %245, align 1, !tbaa !925, !range !42, !noundef !43
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %248
 
 248:                                              ; preds = %244
   %249 = load ptr, ptr %0, align 8, !tbaa !934
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %251 = load i8, ptr %250, align 8, !tbaa !918, !range !42, !noundef !43
+  %251 = load i8, ptr %250, align 8, !tbaa !921, !range !42, !noundef !43
   %252 = trunc nuw i8 %251 to i1
   %253 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %249, i1 noundef zeroext %252)
   br i1 %253, label %254, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 254:                                              ; preds = %248
-  store i8 1, ptr %245, align 1, !tbaa !922
+  store i8 1, ptr %245, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 255:                                              ; preds = %8
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %257 = load i8, ptr %256, align 1, !tbaa !922, !range !42, !noundef !43
+  %257 = load i8, ptr %256, align 1, !tbaa !925, !range !42, !noundef !43
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %259
 
 259:                                              ; preds = %255
   %260 = load ptr, ptr %0, align 8, !tbaa !934
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %262 = load i8, ptr %261, align 8, !tbaa !918, !range !42, !noundef !43
+  %262 = load i8, ptr %261, align 8, !tbaa !921, !range !42, !noundef !43
   %263 = trunc nuw i8 %262 to i1
   %264 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %260, i1 noundef zeroext %263)
   br i1 %264, label %265, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 265:                                              ; preds = %259
-  store i8 1, ptr %256, align 1, !tbaa !922
+  store i8 1, ptr %256, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 266:                                              ; preds = %8
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %268 = load i8, ptr %267, align 1, !tbaa !922, !range !42, !noundef !43
+  %268 = load i8, ptr %267, align 1, !tbaa !925, !range !42, !noundef !43
   %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %270
 
 270:                                              ; preds = %266
   %271 = load ptr, ptr %0, align 8, !tbaa !934
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %273 = load i8, ptr %272, align 8, !tbaa !918, !range !42, !noundef !43
+  %273 = load i8, ptr %272, align 8, !tbaa !921, !range !42, !noundef !43
   %274 = trunc nuw i8 %273 to i1
   %275 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %271, i1 noundef zeroext %274)
   br i1 %275, label %276, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 276:                                              ; preds = %270
-  store i8 1, ptr %267, align 1, !tbaa !922
+  store i8 1, ptr %267, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 277:                                              ; preds = %8
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %279 = load i8, ptr %278, align 1, !tbaa !922, !range !42, !noundef !43
+  %279 = load i8, ptr %278, align 1, !tbaa !925, !range !42, !noundef !43
   %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %281
 
 281:                                              ; preds = %277
   %282 = load ptr, ptr %0, align 8, !tbaa !934
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %284 = load i8, ptr %283, align 8, !tbaa !918, !range !42, !noundef !43
+  %284 = load i8, ptr %283, align 8, !tbaa !921, !range !42, !noundef !43
   %285 = trunc nuw i8 %284 to i1
   %286 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %282, i1 noundef zeroext %285)
   br i1 %286, label %287, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 287:                                              ; preds = %281
-  store i8 1, ptr %278, align 1, !tbaa !922
+  store i8 1, ptr %278, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 288:                                              ; preds = %8
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %290 = load i8, ptr %289, align 1, !tbaa !922, !range !42, !noundef !43
+  %290 = load i8, ptr %289, align 1, !tbaa !925, !range !42, !noundef !43
   %291 = trunc nuw i8 %290 to i1
   br i1 %291, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %292
 
 292:                                              ; preds = %288
   %293 = load ptr, ptr %0, align 8, !tbaa !934
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %295 = load i8, ptr %294, align 8, !tbaa !918, !range !42, !noundef !43
+  %295 = load i8, ptr %294, align 8, !tbaa !921, !range !42, !noundef !43
   %296 = trunc nuw i8 %295 to i1
   %297 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %293, i1 noundef zeroext %296)
   br i1 %297, label %298, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 298:                                              ; preds = %292
-  store i8 1, ptr %289, align 1, !tbaa !922
+  store i8 1, ptr %289, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 299:                                              ; preds = %8
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %301 = load i8, ptr %300, align 1, !tbaa !922, !range !42, !noundef !43
+  %301 = load i8, ptr %300, align 1, !tbaa !925, !range !42, !noundef !43
   %302 = trunc nuw i8 %301 to i1
   br i1 %302, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %303
 
 303:                                              ; preds = %299
   %304 = load ptr, ptr %0, align 8, !tbaa !934
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %306 = load i8, ptr %305, align 8, !tbaa !918, !range !42, !noundef !43
+  %306 = load i8, ptr %305, align 8, !tbaa !921, !range !42, !noundef !43
   %307 = trunc nuw i8 %306 to i1
   %308 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %304, i1 noundef zeroext %307)
   br i1 %308, label %309, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 309:                                              ; preds = %303
-  store i8 1, ptr %300, align 1, !tbaa !922
+  store i8 1, ptr %300, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 310:                                              ; preds = %8
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %312 = load i8, ptr %311, align 1, !tbaa !922, !range !42, !noundef !43
+  %312 = load i8, ptr %311, align 1, !tbaa !925, !range !42, !noundef !43
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %314
 
 314:                                              ; preds = %310
   %315 = load ptr, ptr %0, align 8, !tbaa !934
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %317 = load i8, ptr %316, align 8, !tbaa !918, !range !42, !noundef !43
+  %317 = load i8, ptr %316, align 8, !tbaa !921, !range !42, !noundef !43
   %318 = trunc nuw i8 %317 to i1
   %319 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %315, i1 noundef zeroext %318)
   br i1 %319, label %320, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 320:                                              ; preds = %314
-  store i8 1, ptr %311, align 1, !tbaa !922
+  store i8 1, ptr %311, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 321:                                              ; preds = %8
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %323 = load i8, ptr %322, align 1, !tbaa !922, !range !42, !noundef !43
+  %323 = load i8, ptr %322, align 1, !tbaa !925, !range !42, !noundef !43
   %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %325
 
 325:                                              ; preds = %321
   %326 = load ptr, ptr %0, align 8, !tbaa !934
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %328 = load i8, ptr %327, align 8, !tbaa !918, !range !42, !noundef !43
+  %328 = load i8, ptr %327, align 8, !tbaa !921, !range !42, !noundef !43
   %329 = trunc nuw i8 %328 to i1
   %330 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %326, i1 noundef zeroext %329)
   br i1 %330, label %331, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 331:                                              ; preds = %325
-  store i8 1, ptr %322, align 1, !tbaa !922
+  store i8 1, ptr %322, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 332:                                              ; preds = %8
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %334 = load i8, ptr %333, align 1, !tbaa !922, !range !42, !noundef !43
+  %334 = load i8, ptr %333, align 1, !tbaa !925, !range !42, !noundef !43
   %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %336
 
 336:                                              ; preds = %332
   %337 = load ptr, ptr %0, align 8, !tbaa !934
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %339 = load i8, ptr %338, align 8, !tbaa !918, !range !42, !noundef !43
+  %339 = load i8, ptr %338, align 8, !tbaa !921, !range !42, !noundef !43
   %340 = trunc nuw i8 %339 to i1
   %341 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %337, i1 noundef zeroext %340)
   br i1 %341, label %342, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 342:                                              ; preds = %336
-  store i8 1, ptr %333, align 1, !tbaa !922
+  store i8 1, ptr %333, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 343:                                              ; preds = %8
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %345 = load i8, ptr %344, align 1, !tbaa !922, !range !42, !noundef !43
+  %345 = load i8, ptr %344, align 1, !tbaa !925, !range !42, !noundef !43
   %346 = trunc nuw i8 %345 to i1
   br i1 %346, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %347
 
 347:                                              ; preds = %343
   %348 = load ptr, ptr %0, align 8, !tbaa !934
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %350 = load i8, ptr %349, align 8, !tbaa !918, !range !42, !noundef !43
+  %350 = load i8, ptr %349, align 8, !tbaa !921, !range !42, !noundef !43
   %351 = trunc nuw i8 %350 to i1
   %352 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %348, i1 noundef zeroext %351)
   br i1 %352, label %353, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 353:                                              ; preds = %347
-  store i8 1, ptr %344, align 1, !tbaa !922
+  store i8 1, ptr %344, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 354:                                              ; preds = %8
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %356 = load i8, ptr %355, align 1, !tbaa !922, !range !42, !noundef !43
+  %356 = load i8, ptr %355, align 1, !tbaa !925, !range !42, !noundef !43
   %357 = trunc nuw i8 %356 to i1
   br i1 %357, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %358
 
 358:                                              ; preds = %354
   %359 = load ptr, ptr %0, align 8, !tbaa !934
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %361 = load i8, ptr %360, align 8, !tbaa !918, !range !42, !noundef !43
+  %361 = load i8, ptr %360, align 8, !tbaa !921, !range !42, !noundef !43
   %362 = trunc nuw i8 %361 to i1
   %363 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %359, i1 noundef zeroext %362)
   br i1 %363, label %364, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 364:                                              ; preds = %358
-  store i8 1, ptr %355, align 1, !tbaa !922
+  store i8 1, ptr %355, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 365:                                              ; preds = %8
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %367 = load i8, ptr %366, align 1, !tbaa !922, !range !42, !noundef !43
+  %367 = load i8, ptr %366, align 1, !tbaa !925, !range !42, !noundef !43
   %368 = trunc nuw i8 %367 to i1
   br i1 %368, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %369
 
 369:                                              ; preds = %365
   %370 = load ptr, ptr %0, align 8, !tbaa !934
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %372 = load i8, ptr %371, align 8, !tbaa !918, !range !42, !noundef !43
+  %372 = load i8, ptr %371, align 8, !tbaa !921, !range !42, !noundef !43
   %373 = trunc nuw i8 %372 to i1
   %374 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %370, i1 noundef zeroext %373)
   br i1 %374, label %375, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 375:                                              ; preds = %369
-  store i8 1, ptr %366, align 1, !tbaa !922
+  store i8 1, ptr %366, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 376:                                              ; preds = %tailrecurse
@@ -21511,254 +21505,254 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 384:                                              ; preds = %379
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %386 = load i8, ptr %385, align 1, !tbaa !922, !range !42, !noundef !43
+  %386 = load i8, ptr %385, align 1, !tbaa !925, !range !42, !noundef !43
   %387 = trunc nuw i8 %386 to i1
   br i1 %387, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %388
 
 388:                                              ; preds = %384
   %389 = load ptr, ptr %0, align 8, !tbaa !934
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %391 = load i8, ptr %390, align 8, !tbaa !918, !range !42, !noundef !43
+  %391 = load i8, ptr %390, align 8, !tbaa !921, !range !42, !noundef !43
   %392 = trunc nuw i8 %391 to i1
   %393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %389, i1 noundef zeroext %392)
   br i1 %393, label %394, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 394:                                              ; preds = %388
-  store i8 1, ptr %385, align 1, !tbaa !922
+  store i8 1, ptr %385, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 395:                                              ; preds = %379
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %397 = load i8, ptr %396, align 1, !tbaa !922, !range !42, !noundef !43
+  %397 = load i8, ptr %396, align 1, !tbaa !925, !range !42, !noundef !43
   %398 = trunc nuw i8 %397 to i1
   br i1 %398, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %399
 
 399:                                              ; preds = %395
   %400 = load ptr, ptr %0, align 8, !tbaa !934
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %402 = load i8, ptr %401, align 8, !tbaa !918, !range !42, !noundef !43
+  %402 = load i8, ptr %401, align 8, !tbaa !921, !range !42, !noundef !43
   %403 = trunc nuw i8 %402 to i1
   %404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %400, i1 noundef zeroext %403)
   br i1 %404, label %405, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 405:                                              ; preds = %399
-  store i8 1, ptr %396, align 1, !tbaa !922
+  store i8 1, ptr %396, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 406:                                              ; preds = %379
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %408 = load i8, ptr %407, align 1, !tbaa !922, !range !42, !noundef !43
+  %408 = load i8, ptr %407, align 1, !tbaa !925, !range !42, !noundef !43
   %409 = trunc nuw i8 %408 to i1
   br i1 %409, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %410
 
 410:                                              ; preds = %406
   %411 = load ptr, ptr %0, align 8, !tbaa !934
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %413 = load i8, ptr %412, align 8, !tbaa !918, !range !42, !noundef !43
+  %413 = load i8, ptr %412, align 8, !tbaa !921, !range !42, !noundef !43
   %414 = trunc nuw i8 %413 to i1
   %415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %411, i1 noundef zeroext %414)
   br i1 %415, label %416, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 416:                                              ; preds = %410
-  store i8 1, ptr %407, align 1, !tbaa !922
+  store i8 1, ptr %407, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 417:                                              ; preds = %379
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %419 = load i8, ptr %418, align 1, !tbaa !922, !range !42, !noundef !43
+  %419 = load i8, ptr %418, align 1, !tbaa !925, !range !42, !noundef !43
   %420 = trunc nuw i8 %419 to i1
   br i1 %420, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %421
 
 421:                                              ; preds = %417
   %422 = load ptr, ptr %0, align 8, !tbaa !934
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %424 = load i8, ptr %423, align 8, !tbaa !918, !range !42, !noundef !43
+  %424 = load i8, ptr %423, align 8, !tbaa !921, !range !42, !noundef !43
   %425 = trunc nuw i8 %424 to i1
   %426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %422, i1 noundef zeroext %425)
   br i1 %426, label %427, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 427:                                              ; preds = %421
-  store i8 1, ptr %418, align 1, !tbaa !922
+  store i8 1, ptr %418, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 428:                                              ; preds = %379
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %430 = load i8, ptr %429, align 1, !tbaa !922, !range !42, !noundef !43
+  %430 = load i8, ptr %429, align 1, !tbaa !925, !range !42, !noundef !43
   %431 = trunc nuw i8 %430 to i1
   br i1 %431, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %432
 
 432:                                              ; preds = %428
   %433 = load ptr, ptr %0, align 8, !tbaa !934
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %435 = load i8, ptr %434, align 8, !tbaa !918, !range !42, !noundef !43
+  %435 = load i8, ptr %434, align 8, !tbaa !921, !range !42, !noundef !43
   %436 = trunc nuw i8 %435 to i1
   %437 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %433, i1 noundef zeroext %436)
   br i1 %437, label %438, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 438:                                              ; preds = %432
-  store i8 1, ptr %429, align 1, !tbaa !922
+  store i8 1, ptr %429, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 439:                                              ; preds = %379
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %441 = load i8, ptr %440, align 1, !tbaa !922, !range !42, !noundef !43
+  %441 = load i8, ptr %440, align 1, !tbaa !925, !range !42, !noundef !43
   %442 = trunc nuw i8 %441 to i1
   br i1 %442, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %443
 
 443:                                              ; preds = %439
   %444 = load ptr, ptr %0, align 8, !tbaa !934
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %446 = load i8, ptr %445, align 8, !tbaa !918, !range !42, !noundef !43
+  %446 = load i8, ptr %445, align 8, !tbaa !921, !range !42, !noundef !43
   %447 = trunc nuw i8 %446 to i1
   %448 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %444, i1 noundef zeroext %447)
   br i1 %448, label %449, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 449:                                              ; preds = %443
-  store i8 1, ptr %440, align 1, !tbaa !922
+  store i8 1, ptr %440, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 450:                                              ; preds = %379
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %452 = load i8, ptr %451, align 1, !tbaa !922, !range !42, !noundef !43
+  %452 = load i8, ptr %451, align 1, !tbaa !925, !range !42, !noundef !43
   %453 = trunc nuw i8 %452 to i1
   br i1 %453, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %454
 
 454:                                              ; preds = %450
   %455 = load ptr, ptr %0, align 8, !tbaa !934
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %457 = load i8, ptr %456, align 8, !tbaa !918, !range !42, !noundef !43
+  %457 = load i8, ptr %456, align 8, !tbaa !921, !range !42, !noundef !43
   %458 = trunc nuw i8 %457 to i1
   %459 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %455, i1 noundef zeroext %458)
   br i1 %459, label %460, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 460:                                              ; preds = %454
-  store i8 1, ptr %451, align 1, !tbaa !922
+  store i8 1, ptr %451, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 461:                                              ; preds = %379
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %463 = load i8, ptr %462, align 1, !tbaa !922, !range !42, !noundef !43
+  %463 = load i8, ptr %462, align 1, !tbaa !925, !range !42, !noundef !43
   %464 = trunc nuw i8 %463 to i1
   br i1 %464, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %465
 
 465:                                              ; preds = %461
   %466 = load ptr, ptr %0, align 8, !tbaa !934
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %468 = load i8, ptr %467, align 8, !tbaa !918, !range !42, !noundef !43
+  %468 = load i8, ptr %467, align 8, !tbaa !921, !range !42, !noundef !43
   %469 = trunc nuw i8 %468 to i1
   %470 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %466, i1 noundef zeroext %469)
   br i1 %470, label %471, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 471:                                              ; preds = %465
-  store i8 1, ptr %462, align 1, !tbaa !922
+  store i8 1, ptr %462, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 472:                                              ; preds = %379
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %474 = load i8, ptr %473, align 1, !tbaa !922, !range !42, !noundef !43
+  %474 = load i8, ptr %473, align 1, !tbaa !925, !range !42, !noundef !43
   %475 = trunc nuw i8 %474 to i1
   br i1 %475, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %476
 
 476:                                              ; preds = %472
   %477 = load ptr, ptr %0, align 8, !tbaa !934
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %479 = load i8, ptr %478, align 8, !tbaa !918, !range !42, !noundef !43
+  %479 = load i8, ptr %478, align 8, !tbaa !921, !range !42, !noundef !43
   %480 = trunc nuw i8 %479 to i1
   %481 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %477, i1 noundef zeroext %480)
   br i1 %481, label %482, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 482:                                              ; preds = %476
-  store i8 1, ptr %473, align 1, !tbaa !922
+  store i8 1, ptr %473, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 483:                                              ; preds = %379
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %485 = load i8, ptr %484, align 1, !tbaa !922, !range !42, !noundef !43
+  %485 = load i8, ptr %484, align 1, !tbaa !925, !range !42, !noundef !43
   %486 = trunc nuw i8 %485 to i1
   br i1 %486, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %487
 
 487:                                              ; preds = %483
   %488 = load ptr, ptr %0, align 8, !tbaa !934
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %490 = load i8, ptr %489, align 8, !tbaa !918, !range !42, !noundef !43
+  %490 = load i8, ptr %489, align 8, !tbaa !921, !range !42, !noundef !43
   %491 = trunc nuw i8 %490 to i1
   %492 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %488, i1 noundef zeroext %491)
   br i1 %492, label %493, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 493:                                              ; preds = %487
-  store i8 1, ptr %484, align 1, !tbaa !922
+  store i8 1, ptr %484, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 494:                                              ; preds = %379
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %496 = load i8, ptr %495, align 1, !tbaa !922, !range !42, !noundef !43
+  %496 = load i8, ptr %495, align 1, !tbaa !925, !range !42, !noundef !43
   %497 = trunc nuw i8 %496 to i1
   br i1 %497, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %498
 
 498:                                              ; preds = %494
   %499 = load ptr, ptr %0, align 8, !tbaa !934
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %501 = load i8, ptr %500, align 8, !tbaa !918, !range !42, !noundef !43
+  %501 = load i8, ptr %500, align 8, !tbaa !921, !range !42, !noundef !43
   %502 = trunc nuw i8 %501 to i1
   %503 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %499, i1 noundef zeroext %502)
   br i1 %503, label %504, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 504:                                              ; preds = %498
-  store i8 1, ptr %495, align 1, !tbaa !922
+  store i8 1, ptr %495, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 505:                                              ; preds = %379
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %507 = load i8, ptr %506, align 1, !tbaa !922, !range !42, !noundef !43
+  %507 = load i8, ptr %506, align 1, !tbaa !925, !range !42, !noundef !43
   %508 = trunc nuw i8 %507 to i1
   br i1 %508, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %509
 
 509:                                              ; preds = %505
   %510 = load ptr, ptr %0, align 8, !tbaa !934
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %512 = load i8, ptr %511, align 8, !tbaa !918, !range !42, !noundef !43
+  %512 = load i8, ptr %511, align 8, !tbaa !921, !range !42, !noundef !43
   %513 = trunc nuw i8 %512 to i1
   %514 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %510, i1 noundef zeroext %513)
   br i1 %514, label %515, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 515:                                              ; preds = %509
-  store i8 1, ptr %506, align 1, !tbaa !922
+  store i8 1, ptr %506, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 516:                                              ; preds = %379
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %518 = load i8, ptr %517, align 1, !tbaa !922, !range !42, !noundef !43
+  %518 = load i8, ptr %517, align 1, !tbaa !925, !range !42, !noundef !43
   %519 = trunc nuw i8 %518 to i1
   br i1 %519, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %520
 
 520:                                              ; preds = %516
   %521 = load ptr, ptr %0, align 8, !tbaa !934
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %523 = load i8, ptr %522, align 8, !tbaa !918, !range !42, !noundef !43
+  %523 = load i8, ptr %522, align 8, !tbaa !921, !range !42, !noundef !43
   %524 = trunc nuw i8 %523 to i1
   %525 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %521, i1 noundef zeroext %524)
   br i1 %525, label %526, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 526:                                              ; preds = %520
-  store i8 1, ptr %517, align 1, !tbaa !922
+  store i8 1, ptr %517, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 527:                                              ; preds = %379
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %529 = load i8, ptr %528, align 1, !tbaa !922, !range !42, !noundef !43
+  %529 = load i8, ptr %528, align 1, !tbaa !925, !range !42, !noundef !43
   %530 = trunc nuw i8 %529 to i1
   br i1 %530, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %531
 
 531:                                              ; preds = %527
   %532 = load ptr, ptr %0, align 8, !tbaa !934
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %534 = load i8, ptr %533, align 8, !tbaa !918, !range !42, !noundef !43
+  %534 = load i8, ptr %533, align 8, !tbaa !921, !range !42, !noundef !43
   %535 = trunc nuw i8 %534 to i1
   %536 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %532, i1 noundef zeroext %535)
   br i1 %536, label %537, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 537:                                              ; preds = %531
-  store i8 1, ptr %528, align 1, !tbaa !922
+  store i8 1, ptr %528, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 .critedge:                                        ; preds = %379, %376, %8
@@ -22036,776 +22030,776 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 543:                                              ; preds = %.critedge
   %544 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %545 = load i8, ptr %544, align 1, !tbaa !922, !range !42, !noundef !43
+  %545 = load i8, ptr %544, align 1, !tbaa !925, !range !42, !noundef !43
   %546 = trunc nuw i8 %545 to i1
   br i1 %546, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %547
 
 547:                                              ; preds = %543
   %548 = load ptr, ptr %0, align 8, !tbaa !934
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %550 = load i8, ptr %549, align 8, !tbaa !918, !range !42, !noundef !43
+  %550 = load i8, ptr %549, align 8, !tbaa !921, !range !42, !noundef !43
   %551 = trunc nuw i8 %550 to i1
   %552 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %548, i1 noundef zeroext %551)
   br i1 %552, label %553, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 553:                                              ; preds = %547
-  store i8 1, ptr %544, align 1, !tbaa !922
+  store i8 1, ptr %544, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 554:                                              ; preds = %.critedge
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %556 = load i8, ptr %555, align 1, !tbaa !922, !range !42, !noundef !43
+  %556 = load i8, ptr %555, align 1, !tbaa !925, !range !42, !noundef !43
   %557 = trunc nuw i8 %556 to i1
   br i1 %557, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %558
 
 558:                                              ; preds = %554
   %559 = load ptr, ptr %0, align 8, !tbaa !934
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %561 = load i8, ptr %560, align 8, !tbaa !918, !range !42, !noundef !43
+  %561 = load i8, ptr %560, align 8, !tbaa !921, !range !42, !noundef !43
   %562 = trunc nuw i8 %561 to i1
   %563 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %559, i1 noundef zeroext %562)
   br i1 %563, label %564, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 564:                                              ; preds = %558
-  store i8 1, ptr %555, align 1, !tbaa !922
+  store i8 1, ptr %555, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 565:                                              ; preds = %.critedge
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %567 = load i8, ptr %566, align 1, !tbaa !922, !range !42, !noundef !43
+  %567 = load i8, ptr %566, align 1, !tbaa !925, !range !42, !noundef !43
   %568 = trunc nuw i8 %567 to i1
   br i1 %568, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %569
 
 569:                                              ; preds = %565
   %570 = load ptr, ptr %0, align 8, !tbaa !934
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %572 = load i8, ptr %571, align 8, !tbaa !918, !range !42, !noundef !43
+  %572 = load i8, ptr %571, align 8, !tbaa !921, !range !42, !noundef !43
   %573 = trunc nuw i8 %572 to i1
   %574 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %570, i1 noundef zeroext %573)
   br i1 %574, label %575, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 575:                                              ; preds = %569
-  store i8 1, ptr %566, align 1, !tbaa !922
+  store i8 1, ptr %566, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 576:                                              ; preds = %.critedge
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %578 = load i8, ptr %577, align 1, !tbaa !922, !range !42, !noundef !43
+  %578 = load i8, ptr %577, align 1, !tbaa !925, !range !42, !noundef !43
   %579 = trunc nuw i8 %578 to i1
   br i1 %579, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %580
 
 580:                                              ; preds = %576
   %581 = load ptr, ptr %0, align 8, !tbaa !934
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %583 = load i8, ptr %582, align 8, !tbaa !918, !range !42, !noundef !43
+  %583 = load i8, ptr %582, align 8, !tbaa !921, !range !42, !noundef !43
   %584 = trunc nuw i8 %583 to i1
   %585 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %581, i1 noundef zeroext %584)
   br i1 %585, label %586, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 586:                                              ; preds = %580
-  store i8 1, ptr %577, align 1, !tbaa !922
+  store i8 1, ptr %577, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 587:                                              ; preds = %.critedge
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %589 = load i8, ptr %588, align 1, !tbaa !922, !range !42, !noundef !43
+  %589 = load i8, ptr %588, align 1, !tbaa !925, !range !42, !noundef !43
   %590 = trunc nuw i8 %589 to i1
   br i1 %590, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %591
 
 591:                                              ; preds = %587
   %592 = load ptr, ptr %0, align 8, !tbaa !934
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %594 = load i8, ptr %593, align 8, !tbaa !918, !range !42, !noundef !43
+  %594 = load i8, ptr %593, align 8, !tbaa !921, !range !42, !noundef !43
   %595 = trunc nuw i8 %594 to i1
   %596 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %592, i1 noundef zeroext %595)
   br i1 %596, label %597, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 597:                                              ; preds = %591
-  store i8 1, ptr %588, align 1, !tbaa !922
+  store i8 1, ptr %588, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 598:                                              ; preds = %.critedge
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %600 = load i8, ptr %599, align 1, !tbaa !922, !range !42, !noundef !43
+  %600 = load i8, ptr %599, align 1, !tbaa !925, !range !42, !noundef !43
   %601 = trunc nuw i8 %600 to i1
   br i1 %601, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %602
 
 602:                                              ; preds = %598
   %603 = load ptr, ptr %0, align 8, !tbaa !934
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %605 = load i8, ptr %604, align 8, !tbaa !918, !range !42, !noundef !43
+  %605 = load i8, ptr %604, align 8, !tbaa !921, !range !42, !noundef !43
   %606 = trunc nuw i8 %605 to i1
   %607 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %603, i1 noundef zeroext %606)
   br i1 %607, label %608, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 608:                                              ; preds = %602
-  store i8 1, ptr %599, align 1, !tbaa !922
+  store i8 1, ptr %599, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 609:                                              ; preds = %.critedge
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %611 = load i8, ptr %610, align 1, !tbaa !922, !range !42, !noundef !43
+  %611 = load i8, ptr %610, align 1, !tbaa !925, !range !42, !noundef !43
   %612 = trunc nuw i8 %611 to i1
   br i1 %612, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %613
 
 613:                                              ; preds = %609
   %614 = load ptr, ptr %0, align 8, !tbaa !934
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %616 = load i8, ptr %615, align 8, !tbaa !918, !range !42, !noundef !43
+  %616 = load i8, ptr %615, align 8, !tbaa !921, !range !42, !noundef !43
   %617 = trunc nuw i8 %616 to i1
   %618 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %614, i1 noundef zeroext %617)
   br i1 %618, label %619, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 619:                                              ; preds = %613
-  store i8 1, ptr %610, align 1, !tbaa !922
+  store i8 1, ptr %610, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 620:                                              ; preds = %.critedge
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %622 = load i8, ptr %621, align 1, !tbaa !922, !range !42, !noundef !43
+  %622 = load i8, ptr %621, align 1, !tbaa !925, !range !42, !noundef !43
   %623 = trunc nuw i8 %622 to i1
   br i1 %623, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %624
 
 624:                                              ; preds = %620
   %625 = load ptr, ptr %0, align 8, !tbaa !934
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %627 = load i8, ptr %626, align 8, !tbaa !918, !range !42, !noundef !43
+  %627 = load i8, ptr %626, align 8, !tbaa !921, !range !42, !noundef !43
   %628 = trunc nuw i8 %627 to i1
   %629 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %625, i1 noundef zeroext %628)
   br i1 %629, label %630, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 630:                                              ; preds = %624
-  store i8 1, ptr %621, align 1, !tbaa !922
+  store i8 1, ptr %621, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 631:                                              ; preds = %.critedge
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %633 = load i8, ptr %632, align 1, !tbaa !922, !range !42, !noundef !43
+  %633 = load i8, ptr %632, align 1, !tbaa !925, !range !42, !noundef !43
   %634 = trunc nuw i8 %633 to i1
   br i1 %634, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %635
 
 635:                                              ; preds = %631
   %636 = load ptr, ptr %0, align 8, !tbaa !934
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %638 = load i8, ptr %637, align 8, !tbaa !918, !range !42, !noundef !43
+  %638 = load i8, ptr %637, align 8, !tbaa !921, !range !42, !noundef !43
   %639 = trunc nuw i8 %638 to i1
   %640 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %636, i1 noundef zeroext %639)
   br i1 %640, label %641, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 641:                                              ; preds = %635
-  store i8 1, ptr %632, align 1, !tbaa !922
+  store i8 1, ptr %632, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 642:                                              ; preds = %.critedge
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %644 = load i8, ptr %643, align 1, !tbaa !922, !range !42, !noundef !43
+  %644 = load i8, ptr %643, align 1, !tbaa !925, !range !42, !noundef !43
   %645 = trunc nuw i8 %644 to i1
   br i1 %645, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %646
 
 646:                                              ; preds = %642
   %647 = load ptr, ptr %0, align 8, !tbaa !934
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %649 = load i8, ptr %648, align 8, !tbaa !918, !range !42, !noundef !43
+  %649 = load i8, ptr %648, align 8, !tbaa !921, !range !42, !noundef !43
   %650 = trunc nuw i8 %649 to i1
   %651 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %647, i1 noundef zeroext %650)
   br i1 %651, label %652, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 652:                                              ; preds = %646
-  store i8 1, ptr %643, align 1, !tbaa !922
+  store i8 1, ptr %643, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 653:                                              ; preds = %.critedge
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %655 = load i8, ptr %654, align 1, !tbaa !922, !range !42, !noundef !43
+  %655 = load i8, ptr %654, align 1, !tbaa !925, !range !42, !noundef !43
   %656 = trunc nuw i8 %655 to i1
   br i1 %656, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %657
 
 657:                                              ; preds = %653
   %658 = load ptr, ptr %0, align 8, !tbaa !934
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %660 = load i8, ptr %659, align 8, !tbaa !918, !range !42, !noundef !43
+  %660 = load i8, ptr %659, align 8, !tbaa !921, !range !42, !noundef !43
   %661 = trunc nuw i8 %660 to i1
   %662 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %658, i1 noundef zeroext %661)
   br i1 %662, label %663, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 663:                                              ; preds = %657
-  store i8 1, ptr %654, align 1, !tbaa !922
+  store i8 1, ptr %654, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 664:                                              ; preds = %.critedge
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %666 = load i8, ptr %665, align 1, !tbaa !922, !range !42, !noundef !43
+  %666 = load i8, ptr %665, align 1, !tbaa !925, !range !42, !noundef !43
   %667 = trunc nuw i8 %666 to i1
   br i1 %667, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %668
 
 668:                                              ; preds = %664
   %669 = load ptr, ptr %0, align 8, !tbaa !934
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %671 = load i8, ptr %670, align 8, !tbaa !918, !range !42, !noundef !43
+  %671 = load i8, ptr %670, align 8, !tbaa !921, !range !42, !noundef !43
   %672 = trunc nuw i8 %671 to i1
   %673 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %669, i1 noundef zeroext %672)
   br i1 %673, label %674, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 674:                                              ; preds = %668
-  store i8 1, ptr %665, align 1, !tbaa !922
+  store i8 1, ptr %665, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 675:                                              ; preds = %.critedge
   %676 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %677 = load i8, ptr %676, align 1, !tbaa !922, !range !42, !noundef !43
+  %677 = load i8, ptr %676, align 1, !tbaa !925, !range !42, !noundef !43
   %678 = trunc nuw i8 %677 to i1
   br i1 %678, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %679
 
 679:                                              ; preds = %675
   %680 = load ptr, ptr %0, align 8, !tbaa !934
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %682 = load i8, ptr %681, align 8, !tbaa !918, !range !42, !noundef !43
+  %682 = load i8, ptr %681, align 8, !tbaa !921, !range !42, !noundef !43
   %683 = trunc nuw i8 %682 to i1
   %684 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %680, i1 noundef zeroext %683)
   br i1 %684, label %685, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 685:                                              ; preds = %679
-  store i8 1, ptr %676, align 1, !tbaa !922
+  store i8 1, ptr %676, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 686:                                              ; preds = %.critedge
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %688 = load i8, ptr %687, align 1, !tbaa !922, !range !42, !noundef !43
+  %688 = load i8, ptr %687, align 1, !tbaa !925, !range !42, !noundef !43
   %689 = trunc nuw i8 %688 to i1
   br i1 %689, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %690
 
 690:                                              ; preds = %686
   %691 = load ptr, ptr %0, align 8, !tbaa !934
   %692 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %693 = load i8, ptr %692, align 8, !tbaa !918, !range !42, !noundef !43
+  %693 = load i8, ptr %692, align 8, !tbaa !921, !range !42, !noundef !43
   %694 = trunc nuw i8 %693 to i1
   %695 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %691, i1 noundef zeroext %694)
   br i1 %695, label %696, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 696:                                              ; preds = %690
-  store i8 1, ptr %687, align 1, !tbaa !922
+  store i8 1, ptr %687, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 697:                                              ; preds = %.critedge
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %699 = load i8, ptr %698, align 1, !tbaa !922, !range !42, !noundef !43
+  %699 = load i8, ptr %698, align 1, !tbaa !925, !range !42, !noundef !43
   %700 = trunc nuw i8 %699 to i1
   br i1 %700, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %701
 
 701:                                              ; preds = %697
   %702 = load ptr, ptr %0, align 8, !tbaa !934
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %704 = load i8, ptr %703, align 8, !tbaa !918, !range !42, !noundef !43
+  %704 = load i8, ptr %703, align 8, !tbaa !921, !range !42, !noundef !43
   %705 = trunc nuw i8 %704 to i1
   %706 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %702, i1 noundef zeroext %705)
   br i1 %706, label %707, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 707:                                              ; preds = %701
-  store i8 1, ptr %698, align 1, !tbaa !922
+  store i8 1, ptr %698, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 708:                                              ; preds = %.critedge
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %710 = load i8, ptr %709, align 1, !tbaa !922, !range !42, !noundef !43
+  %710 = load i8, ptr %709, align 1, !tbaa !925, !range !42, !noundef !43
   %711 = trunc nuw i8 %710 to i1
   br i1 %711, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %712
 
 712:                                              ; preds = %708
   %713 = load ptr, ptr %0, align 8, !tbaa !934
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %715 = load i8, ptr %714, align 8, !tbaa !918, !range !42, !noundef !43
+  %715 = load i8, ptr %714, align 8, !tbaa !921, !range !42, !noundef !43
   %716 = trunc nuw i8 %715 to i1
   %717 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %713, i1 noundef zeroext %716)
   br i1 %717, label %718, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 718:                                              ; preds = %712
-  store i8 1, ptr %709, align 1, !tbaa !922
+  store i8 1, ptr %709, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 719:                                              ; preds = %.critedge
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %721 = load i8, ptr %720, align 1, !tbaa !922, !range !42, !noundef !43
+  %721 = load i8, ptr %720, align 1, !tbaa !925, !range !42, !noundef !43
   %722 = trunc nuw i8 %721 to i1
   br i1 %722, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %723
 
 723:                                              ; preds = %719
   %724 = load ptr, ptr %0, align 8, !tbaa !934
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %726 = load i8, ptr %725, align 8, !tbaa !918, !range !42, !noundef !43
+  %726 = load i8, ptr %725, align 8, !tbaa !921, !range !42, !noundef !43
   %727 = trunc nuw i8 %726 to i1
   %728 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %724, i1 noundef zeroext %727)
   br i1 %728, label %729, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 729:                                              ; preds = %723
-  store i8 1, ptr %720, align 1, !tbaa !922
+  store i8 1, ptr %720, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 730:                                              ; preds = %.critedge
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %732 = load i8, ptr %731, align 1, !tbaa !922, !range !42, !noundef !43
+  %732 = load i8, ptr %731, align 1, !tbaa !925, !range !42, !noundef !43
   %733 = trunc nuw i8 %732 to i1
   br i1 %733, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %734
 
 734:                                              ; preds = %730
   %735 = load ptr, ptr %0, align 8, !tbaa !934
   %736 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %737 = load i8, ptr %736, align 8, !tbaa !918, !range !42, !noundef !43
+  %737 = load i8, ptr %736, align 8, !tbaa !921, !range !42, !noundef !43
   %738 = trunc nuw i8 %737 to i1
   %739 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %735, i1 noundef zeroext %738)
   br i1 %739, label %740, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 740:                                              ; preds = %734
-  store i8 1, ptr %731, align 1, !tbaa !922
+  store i8 1, ptr %731, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 741:                                              ; preds = %.critedge
   %742 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %743 = load i8, ptr %742, align 1, !tbaa !922, !range !42, !noundef !43
+  %743 = load i8, ptr %742, align 1, !tbaa !925, !range !42, !noundef !43
   %744 = trunc nuw i8 %743 to i1
   br i1 %744, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %745
 
 745:                                              ; preds = %741
   %746 = load ptr, ptr %0, align 8, !tbaa !934
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %748 = load i8, ptr %747, align 8, !tbaa !918, !range !42, !noundef !43
+  %748 = load i8, ptr %747, align 8, !tbaa !921, !range !42, !noundef !43
   %749 = trunc nuw i8 %748 to i1
   %750 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %746, i1 noundef zeroext %749)
   br i1 %750, label %751, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 751:                                              ; preds = %745
-  store i8 1, ptr %742, align 1, !tbaa !922
+  store i8 1, ptr %742, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 752:                                              ; preds = %.critedge
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %754 = load i8, ptr %753, align 1, !tbaa !922, !range !42, !noundef !43
+  %754 = load i8, ptr %753, align 1, !tbaa !925, !range !42, !noundef !43
   %755 = trunc nuw i8 %754 to i1
   br i1 %755, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %756
 
 756:                                              ; preds = %752
   %757 = load ptr, ptr %0, align 8, !tbaa !934
   %758 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %759 = load i8, ptr %758, align 8, !tbaa !918, !range !42, !noundef !43
+  %759 = load i8, ptr %758, align 8, !tbaa !921, !range !42, !noundef !43
   %760 = trunc nuw i8 %759 to i1
   %761 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %757, i1 noundef zeroext %760)
   br i1 %761, label %762, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 762:                                              ; preds = %756
-  store i8 1, ptr %753, align 1, !tbaa !922
+  store i8 1, ptr %753, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 763:                                              ; preds = %.critedge
   %764 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %765 = load i8, ptr %764, align 1, !tbaa !922, !range !42, !noundef !43
+  %765 = load i8, ptr %764, align 1, !tbaa !925, !range !42, !noundef !43
   %766 = trunc nuw i8 %765 to i1
   br i1 %766, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %767
 
 767:                                              ; preds = %763
   %768 = load ptr, ptr %0, align 8, !tbaa !934
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %770 = load i8, ptr %769, align 8, !tbaa !918, !range !42, !noundef !43
+  %770 = load i8, ptr %769, align 8, !tbaa !921, !range !42, !noundef !43
   %771 = trunc nuw i8 %770 to i1
   %772 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %768, i1 noundef zeroext %771)
   br i1 %772, label %773, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 773:                                              ; preds = %767
-  store i8 1, ptr %764, align 1, !tbaa !922
+  store i8 1, ptr %764, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 774:                                              ; preds = %.critedge
   %775 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %776 = load i8, ptr %775, align 1, !tbaa !922, !range !42, !noundef !43
+  %776 = load i8, ptr %775, align 1, !tbaa !925, !range !42, !noundef !43
   %777 = trunc nuw i8 %776 to i1
   br i1 %777, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %778
 
 778:                                              ; preds = %774
   %779 = load ptr, ptr %0, align 8, !tbaa !934
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %781 = load i8, ptr %780, align 8, !tbaa !918, !range !42, !noundef !43
+  %781 = load i8, ptr %780, align 8, !tbaa !921, !range !42, !noundef !43
   %782 = trunc nuw i8 %781 to i1
   %783 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %779, i1 noundef zeroext %782)
   br i1 %783, label %784, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 784:                                              ; preds = %778
-  store i8 1, ptr %775, align 1, !tbaa !922
+  store i8 1, ptr %775, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 785:                                              ; preds = %.critedge
   %786 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %787 = load i8, ptr %786, align 1, !tbaa !922, !range !42, !noundef !43
+  %787 = load i8, ptr %786, align 1, !tbaa !925, !range !42, !noundef !43
   %788 = trunc nuw i8 %787 to i1
   br i1 %788, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %789
 
 789:                                              ; preds = %785
   %790 = load ptr, ptr %0, align 8, !tbaa !934
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %792 = load i8, ptr %791, align 8, !tbaa !918, !range !42, !noundef !43
+  %792 = load i8, ptr %791, align 8, !tbaa !921, !range !42, !noundef !43
   %793 = trunc nuw i8 %792 to i1
   %794 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %790, i1 noundef zeroext %793)
   br i1 %794, label %795, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 795:                                              ; preds = %789
-  store i8 1, ptr %786, align 1, !tbaa !922
+  store i8 1, ptr %786, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 796:                                              ; preds = %.critedge
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %798 = load i8, ptr %797, align 1, !tbaa !922, !range !42, !noundef !43
+  %798 = load i8, ptr %797, align 1, !tbaa !925, !range !42, !noundef !43
   %799 = trunc nuw i8 %798 to i1
   br i1 %799, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %800
 
 800:                                              ; preds = %796
   %801 = load ptr, ptr %0, align 8, !tbaa !934
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %803 = load i8, ptr %802, align 8, !tbaa !918, !range !42, !noundef !43
+  %803 = load i8, ptr %802, align 8, !tbaa !921, !range !42, !noundef !43
   %804 = trunc nuw i8 %803 to i1
   %805 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %801, i1 noundef zeroext %804)
   br i1 %805, label %806, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 806:                                              ; preds = %800
-  store i8 1, ptr %797, align 1, !tbaa !922
+  store i8 1, ptr %797, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 807:                                              ; preds = %.critedge
   %808 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %809 = load i8, ptr %808, align 1, !tbaa !922, !range !42, !noundef !43
+  %809 = load i8, ptr %808, align 1, !tbaa !925, !range !42, !noundef !43
   %810 = trunc nuw i8 %809 to i1
   br i1 %810, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %811
 
 811:                                              ; preds = %807
   %812 = load ptr, ptr %0, align 8, !tbaa !934
   %813 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %814 = load i8, ptr %813, align 8, !tbaa !918, !range !42, !noundef !43
+  %814 = load i8, ptr %813, align 8, !tbaa !921, !range !42, !noundef !43
   %815 = trunc nuw i8 %814 to i1
   %816 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %812, i1 noundef zeroext %815)
   br i1 %816, label %817, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 817:                                              ; preds = %811
-  store i8 1, ptr %808, align 1, !tbaa !922
+  store i8 1, ptr %808, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 818:                                              ; preds = %.critedge
   %819 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %820 = load i8, ptr %819, align 1, !tbaa !922, !range !42, !noundef !43
+  %820 = load i8, ptr %819, align 1, !tbaa !925, !range !42, !noundef !43
   %821 = trunc nuw i8 %820 to i1
   br i1 %821, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %822
 
 822:                                              ; preds = %818
   %823 = load ptr, ptr %0, align 8, !tbaa !934
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %825 = load i8, ptr %824, align 8, !tbaa !918, !range !42, !noundef !43
+  %825 = load i8, ptr %824, align 8, !tbaa !921, !range !42, !noundef !43
   %826 = trunc nuw i8 %825 to i1
   %827 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %823, i1 noundef zeroext %826)
   br i1 %827, label %828, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 828:                                              ; preds = %822
-  store i8 1, ptr %819, align 1, !tbaa !922
+  store i8 1, ptr %819, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 829:                                              ; preds = %.critedge
   %830 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %831 = load i8, ptr %830, align 1, !tbaa !922, !range !42, !noundef !43
+  %831 = load i8, ptr %830, align 1, !tbaa !925, !range !42, !noundef !43
   %832 = trunc nuw i8 %831 to i1
   br i1 %832, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %833
 
 833:                                              ; preds = %829
   %834 = load ptr, ptr %0, align 8, !tbaa !934
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %836 = load i8, ptr %835, align 8, !tbaa !918, !range !42, !noundef !43
+  %836 = load i8, ptr %835, align 8, !tbaa !921, !range !42, !noundef !43
   %837 = trunc nuw i8 %836 to i1
   %838 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %834, i1 noundef zeroext %837)
   br i1 %838, label %839, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 839:                                              ; preds = %833
-  store i8 1, ptr %830, align 1, !tbaa !922
+  store i8 1, ptr %830, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 840:                                              ; preds = %.critedge
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %842 = load i8, ptr %841, align 1, !tbaa !922, !range !42, !noundef !43
+  %842 = load i8, ptr %841, align 1, !tbaa !925, !range !42, !noundef !43
   %843 = trunc nuw i8 %842 to i1
   br i1 %843, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %844
 
 844:                                              ; preds = %840
   %845 = load ptr, ptr %0, align 8, !tbaa !934
   %846 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %847 = load i8, ptr %846, align 8, !tbaa !918, !range !42, !noundef !43
+  %847 = load i8, ptr %846, align 8, !tbaa !921, !range !42, !noundef !43
   %848 = trunc nuw i8 %847 to i1
   %849 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %845, i1 noundef zeroext %848)
   br i1 %849, label %850, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 850:                                              ; preds = %844
-  store i8 1, ptr %841, align 1, !tbaa !922
+  store i8 1, ptr %841, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 851:                                              ; preds = %.critedge
   %852 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %853 = load i8, ptr %852, align 1, !tbaa !922, !range !42, !noundef !43
+  %853 = load i8, ptr %852, align 1, !tbaa !925, !range !42, !noundef !43
   %854 = trunc nuw i8 %853 to i1
   br i1 %854, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %855
 
 855:                                              ; preds = %851
   %856 = load ptr, ptr %0, align 8, !tbaa !934
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %858 = load i8, ptr %857, align 8, !tbaa !918, !range !42, !noundef !43
+  %858 = load i8, ptr %857, align 8, !tbaa !921, !range !42, !noundef !43
   %859 = trunc nuw i8 %858 to i1
   %860 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %856, i1 noundef zeroext %859)
   br i1 %860, label %861, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 861:                                              ; preds = %855
-  store i8 1, ptr %852, align 1, !tbaa !922
+  store i8 1, ptr %852, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 862:                                              ; preds = %.critedge
   %863 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %864 = load i8, ptr %863, align 1, !tbaa !922, !range !42, !noundef !43
+  %864 = load i8, ptr %863, align 1, !tbaa !925, !range !42, !noundef !43
   %865 = trunc nuw i8 %864 to i1
   br i1 %865, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %866
 
 866:                                              ; preds = %862
   %867 = load ptr, ptr %0, align 8, !tbaa !934
   %868 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %869 = load i8, ptr %868, align 8, !tbaa !918, !range !42, !noundef !43
+  %869 = load i8, ptr %868, align 8, !tbaa !921, !range !42, !noundef !43
   %870 = trunc nuw i8 %869 to i1
   %871 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %867, i1 noundef zeroext %870)
   br i1 %871, label %872, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 872:                                              ; preds = %866
-  store i8 1, ptr %863, align 1, !tbaa !922
+  store i8 1, ptr %863, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 873:                                              ; preds = %.critedge
   %874 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %875 = load i8, ptr %874, align 1, !tbaa !922, !range !42, !noundef !43
+  %875 = load i8, ptr %874, align 1, !tbaa !925, !range !42, !noundef !43
   %876 = trunc nuw i8 %875 to i1
   br i1 %876, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %877
 
 877:                                              ; preds = %873
   %878 = load ptr, ptr %0, align 8, !tbaa !934
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %880 = load i8, ptr %879, align 8, !tbaa !918, !range !42, !noundef !43
+  %880 = load i8, ptr %879, align 8, !tbaa !921, !range !42, !noundef !43
   %881 = trunc nuw i8 %880 to i1
   %882 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %878, i1 noundef zeroext %881)
   br i1 %882, label %883, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 883:                                              ; preds = %877
-  store i8 1, ptr %874, align 1, !tbaa !922
+  store i8 1, ptr %874, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 884:                                              ; preds = %.critedge
   %885 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %886 = load i8, ptr %885, align 1, !tbaa !922, !range !42, !noundef !43
+  %886 = load i8, ptr %885, align 1, !tbaa !925, !range !42, !noundef !43
   %887 = trunc nuw i8 %886 to i1
   br i1 %887, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %888
 
 888:                                              ; preds = %884
   %889 = load ptr, ptr %0, align 8, !tbaa !934
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %891 = load i8, ptr %890, align 8, !tbaa !918, !range !42, !noundef !43
+  %891 = load i8, ptr %890, align 8, !tbaa !921, !range !42, !noundef !43
   %892 = trunc nuw i8 %891 to i1
   %893 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %889, i1 noundef zeroext %892)
   br i1 %893, label %894, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 894:                                              ; preds = %888
-  store i8 1, ptr %885, align 1, !tbaa !922
+  store i8 1, ptr %885, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 895:                                              ; preds = %.critedge
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %897 = load i8, ptr %896, align 1, !tbaa !922, !range !42, !noundef !43
+  %897 = load i8, ptr %896, align 1, !tbaa !925, !range !42, !noundef !43
   %898 = trunc nuw i8 %897 to i1
   br i1 %898, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %899
 
 899:                                              ; preds = %895
   %900 = load ptr, ptr %0, align 8, !tbaa !934
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %902 = load i8, ptr %901, align 8, !tbaa !918, !range !42, !noundef !43
+  %902 = load i8, ptr %901, align 8, !tbaa !921, !range !42, !noundef !43
   %903 = trunc nuw i8 %902 to i1
   %904 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %900, i1 noundef zeroext %903)
   br i1 %904, label %905, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 905:                                              ; preds = %899
-  store i8 1, ptr %896, align 1, !tbaa !922
+  store i8 1, ptr %896, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 906:                                              ; preds = %.critedge
   %907 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %908 = load i8, ptr %907, align 1, !tbaa !922, !range !42, !noundef !43
+  %908 = load i8, ptr %907, align 1, !tbaa !925, !range !42, !noundef !43
   %909 = trunc nuw i8 %908 to i1
   br i1 %909, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %910
 
 910:                                              ; preds = %906
   %911 = load ptr, ptr %0, align 8, !tbaa !934
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %913 = load i8, ptr %912, align 8, !tbaa !918, !range !42, !noundef !43
+  %913 = load i8, ptr %912, align 8, !tbaa !921, !range !42, !noundef !43
   %914 = trunc nuw i8 %913 to i1
   %915 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %911, i1 noundef zeroext %914)
   br i1 %915, label %916, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 916:                                              ; preds = %910
-  store i8 1, ptr %907, align 1, !tbaa !922
+  store i8 1, ptr %907, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 917:                                              ; preds = %.critedge
   %918 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %919 = load i8, ptr %918, align 1, !tbaa !922, !range !42, !noundef !43
+  %919 = load i8, ptr %918, align 1, !tbaa !925, !range !42, !noundef !43
   %920 = trunc nuw i8 %919 to i1
   br i1 %920, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %921
 
 921:                                              ; preds = %917
   %922 = load ptr, ptr %0, align 8, !tbaa !934
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %924 = load i8, ptr %923, align 8, !tbaa !918, !range !42, !noundef !43
+  %924 = load i8, ptr %923, align 8, !tbaa !921, !range !42, !noundef !43
   %925 = trunc nuw i8 %924 to i1
   %926 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %922, i1 noundef zeroext %925)
   br i1 %926, label %927, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 927:                                              ; preds = %921
-  store i8 1, ptr %918, align 1, !tbaa !922
+  store i8 1, ptr %918, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 928:                                              ; preds = %.critedge
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %930 = load i8, ptr %929, align 1, !tbaa !922, !range !42, !noundef !43
+  %930 = load i8, ptr %929, align 1, !tbaa !925, !range !42, !noundef !43
   %931 = trunc nuw i8 %930 to i1
   br i1 %931, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %932
 
 932:                                              ; preds = %928
   %933 = load ptr, ptr %0, align 8, !tbaa !934
   %934 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %935 = load i8, ptr %934, align 8, !tbaa !918, !range !42, !noundef !43
+  %935 = load i8, ptr %934, align 8, !tbaa !921, !range !42, !noundef !43
   %936 = trunc nuw i8 %935 to i1
   %937 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %933, i1 noundef zeroext %936)
   br i1 %937, label %938, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 938:                                              ; preds = %932
-  store i8 1, ptr %929, align 1, !tbaa !922
+  store i8 1, ptr %929, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 939:                                              ; preds = %.critedge
   %940 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %941 = load i8, ptr %940, align 1, !tbaa !922, !range !42, !noundef !43
+  %941 = load i8, ptr %940, align 1, !tbaa !925, !range !42, !noundef !43
   %942 = trunc nuw i8 %941 to i1
   br i1 %942, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %943
 
 943:                                              ; preds = %939
   %944 = load ptr, ptr %0, align 8, !tbaa !934
   %945 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %946 = load i8, ptr %945, align 8, !tbaa !918, !range !42, !noundef !43
+  %946 = load i8, ptr %945, align 8, !tbaa !921, !range !42, !noundef !43
   %947 = trunc nuw i8 %946 to i1
   %948 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %944, i1 noundef zeroext %947)
   br i1 %948, label %949, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 949:                                              ; preds = %943
-  store i8 1, ptr %940, align 1, !tbaa !922
+  store i8 1, ptr %940, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 950:                                              ; preds = %.critedge
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %952 = load i8, ptr %951, align 1, !tbaa !922, !range !42, !noundef !43
+  %952 = load i8, ptr %951, align 1, !tbaa !925, !range !42, !noundef !43
   %953 = trunc nuw i8 %952 to i1
   br i1 %953, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %954
 
 954:                                              ; preds = %950
   %955 = load ptr, ptr %0, align 8, !tbaa !934
   %956 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %957 = load i8, ptr %956, align 8, !tbaa !918, !range !42, !noundef !43
+  %957 = load i8, ptr %956, align 8, !tbaa !921, !range !42, !noundef !43
   %958 = trunc nuw i8 %957 to i1
   %959 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %955, i1 noundef zeroext %958)
   br i1 %959, label %960, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 960:                                              ; preds = %954
-  store i8 1, ptr %951, align 1, !tbaa !922
+  store i8 1, ptr %951, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 961:                                              ; preds = %.critedge
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %963 = load i8, ptr %962, align 1, !tbaa !922, !range !42, !noundef !43
+  %963 = load i8, ptr %962, align 1, !tbaa !925, !range !42, !noundef !43
   %964 = trunc nuw i8 %963 to i1
   br i1 %964, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %965
 
 965:                                              ; preds = %961
   %966 = load ptr, ptr %0, align 8, !tbaa !934
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %968 = load i8, ptr %967, align 8, !tbaa !918, !range !42, !noundef !43
+  %968 = load i8, ptr %967, align 8, !tbaa !921, !range !42, !noundef !43
   %969 = trunc nuw i8 %968 to i1
   %970 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %966, i1 noundef zeroext %969)
   br i1 %970, label %971, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 971:                                              ; preds = %965
-  store i8 1, ptr %962, align 1, !tbaa !922
+  store i8 1, ptr %962, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 972:                                              ; preds = %.critedge
   %973 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %974 = load i8, ptr %973, align 1, !tbaa !922, !range !42, !noundef !43
+  %974 = load i8, ptr %973, align 1, !tbaa !925, !range !42, !noundef !43
   %975 = trunc nuw i8 %974 to i1
   br i1 %975, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %976
 
 976:                                              ; preds = %972
   %977 = load ptr, ptr %0, align 8, !tbaa !934
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %979 = load i8, ptr %978, align 8, !tbaa !918, !range !42, !noundef !43
+  %979 = load i8, ptr %978, align 8, !tbaa !921, !range !42, !noundef !43
   %980 = trunc nuw i8 %979 to i1
   %981 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %977, i1 noundef zeroext %980)
   br i1 %981, label %982, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 982:                                              ; preds = %976
-  store i8 1, ptr %973, align 1, !tbaa !922
+  store i8 1, ptr %973, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 983:                                              ; preds = %.critedge
   %984 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %985 = load i8, ptr %984, align 1, !tbaa !922, !range !42, !noundef !43
+  %985 = load i8, ptr %984, align 1, !tbaa !925, !range !42, !noundef !43
   %986 = trunc nuw i8 %985 to i1
   br i1 %986, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %987
 
 987:                                              ; preds = %983
   %988 = load ptr, ptr %0, align 8, !tbaa !934
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %990 = load i8, ptr %989, align 8, !tbaa !918, !range !42, !noundef !43
+  %990 = load i8, ptr %989, align 8, !tbaa !921, !range !42, !noundef !43
   %991 = trunc nuw i8 %990 to i1
   %992 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %988, i1 noundef zeroext %991)
   br i1 %992, label %993, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 993:                                              ; preds = %987
-  store i8 1, ptr %984, align 1, !tbaa !922
+  store i8 1, ptr %984, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 994:                                              ; preds = %.critedge
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %996 = load i8, ptr %995, align 1, !tbaa !922, !range !42, !noundef !43
+  %996 = load i8, ptr %995, align 1, !tbaa !925, !range !42, !noundef !43
   %997 = trunc nuw i8 %996 to i1
   br i1 %997, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %998
 
 998:                                              ; preds = %994
   %999 = load ptr, ptr %0, align 8, !tbaa !934
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1001 = load i8, ptr %1000, align 8, !tbaa !918, !range !42, !noundef !43
+  %1001 = load i8, ptr %1000, align 8, !tbaa !921, !range !42, !noundef !43
   %1002 = trunc nuw i8 %1001 to i1
   %1003 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %999, i1 noundef zeroext %1002)
   br i1 %1003, label %1004, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1004:                                             ; preds = %998
-  store i8 1, ptr %995, align 1, !tbaa !922
+  store i8 1, ptr %995, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1005:                                             ; preds = %.critedge
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1007 = load i8, ptr %1006, align 1, !tbaa !922, !range !42, !noundef !43
+  %1007 = load i8, ptr %1006, align 1, !tbaa !925, !range !42, !noundef !43
   %1008 = trunc nuw i8 %1007 to i1
   br i1 %1008, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1009
 
 1009:                                             ; preds = %1005
   %1010 = load ptr, ptr %0, align 8, !tbaa !934
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1012 = load i8, ptr %1011, align 8, !tbaa !918, !range !42, !noundef !43
+  %1012 = load i8, ptr %1011, align 8, !tbaa !921, !range !42, !noundef !43
   %1013 = trunc nuw i8 %1012 to i1
   %1014 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1010, i1 noundef zeroext %1013)
   br i1 %1014, label %1015, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1015:                                             ; preds = %1009
-  store i8 1, ptr %1006, align 1, !tbaa !922
+  store i8 1, ptr %1006, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1016:                                             ; preds = %.critedge
@@ -22819,74 +22813,74 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
 
 1019:                                             ; preds = %.critedge
   %1020 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1021 = load i8, ptr %1020, align 1, !tbaa !922, !range !42, !noundef !43
+  %1021 = load i8, ptr %1020, align 1, !tbaa !925, !range !42, !noundef !43
   %1022 = trunc nuw i8 %1021 to i1
   br i1 %1022, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1023
 
 1023:                                             ; preds = %1019
   %1024 = load ptr, ptr %0, align 8, !tbaa !934
   %1025 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1026 = load i8, ptr %1025, align 8, !tbaa !918, !range !42, !noundef !43
+  %1026 = load i8, ptr %1025, align 8, !tbaa !921, !range !42, !noundef !43
   %1027 = trunc nuw i8 %1026 to i1
   %1028 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1024, i1 noundef zeroext %1027)
   br i1 %1028, label %1029, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1029:                                             ; preds = %1023
-  store i8 1, ptr %1020, align 1, !tbaa !922
+  store i8 1, ptr %1020, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1030:                                             ; preds = %.critedge
   %1031 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1032 = load i8, ptr %1031, align 1, !tbaa !922, !range !42, !noundef !43
+  %1032 = load i8, ptr %1031, align 1, !tbaa !925, !range !42, !noundef !43
   %1033 = trunc nuw i8 %1032 to i1
   br i1 %1033, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1034
 
 1034:                                             ; preds = %1030
   %1035 = load ptr, ptr %0, align 8, !tbaa !934
   %1036 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1037 = load i8, ptr %1036, align 8, !tbaa !918, !range !42, !noundef !43
+  %1037 = load i8, ptr %1036, align 8, !tbaa !921, !range !42, !noundef !43
   %1038 = trunc nuw i8 %1037 to i1
   %1039 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1035, i1 noundef zeroext %1038)
   br i1 %1039, label %1040, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1040:                                             ; preds = %1034
-  store i8 1, ptr %1031, align 1, !tbaa !922
+  store i8 1, ptr %1031, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1041:                                             ; preds = %.critedge
   %1042 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1043 = load i8, ptr %1042, align 1, !tbaa !922, !range !42, !noundef !43
+  %1043 = load i8, ptr %1042, align 1, !tbaa !925, !range !42, !noundef !43
   %1044 = trunc nuw i8 %1043 to i1
   br i1 %1044, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1045
 
 1045:                                             ; preds = %1041
   %1046 = load ptr, ptr %0, align 8, !tbaa !934
   %1047 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1048 = load i8, ptr %1047, align 8, !tbaa !918, !range !42, !noundef !43
+  %1048 = load i8, ptr %1047, align 8, !tbaa !921, !range !42, !noundef !43
   %1049 = trunc nuw i8 %1048 to i1
   %1050 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1046, i1 noundef zeroext %1049)
   br i1 %1050, label %1051, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1051:                                             ; preds = %1045
-  store i8 1, ptr %1042, align 1, !tbaa !922
+  store i8 1, ptr %1042, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1052:                                             ; preds = %.critedge
   %1053 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1054 = load i8, ptr %1053, align 1, !tbaa !922, !range !42, !noundef !43
+  %1054 = load i8, ptr %1053, align 1, !tbaa !925, !range !42, !noundef !43
   %1055 = trunc nuw i8 %1054 to i1
   br i1 %1055, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1056
 
 1056:                                             ; preds = %1052
   %1057 = load ptr, ptr %0, align 8, !tbaa !934
   %1058 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1059 = load i8, ptr %1058, align 8, !tbaa !918, !range !42, !noundef !43
+  %1059 = load i8, ptr %1058, align 8, !tbaa !921, !range !42, !noundef !43
   %1060 = trunc nuw i8 %1059 to i1
   %1061 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1057, i1 noundef zeroext %1060)
   br i1 %1061, label %1062, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1062:                                             ; preds = %1056
-  store i8 1, ptr %1053, align 1, !tbaa !922
+  store i8 1, ptr %1053, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1063:                                             ; preds = %.critedge
@@ -22895,92 +22889,92 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
 
 1064:                                             ; preds = %.critedge
   %1065 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1066 = load i8, ptr %1065, align 1, !tbaa !922, !range !42, !noundef !43
+  %1066 = load i8, ptr %1065, align 1, !tbaa !925, !range !42, !noundef !43
   %1067 = trunc nuw i8 %1066 to i1
   br i1 %1067, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1068
 
 1068:                                             ; preds = %1064
   %1069 = load ptr, ptr %0, align 8, !tbaa !934
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1071 = load i8, ptr %1070, align 8, !tbaa !918, !range !42, !noundef !43
+  %1071 = load i8, ptr %1070, align 8, !tbaa !921, !range !42, !noundef !43
   %1072 = trunc nuw i8 %1071 to i1
   %1073 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1069, i1 noundef zeroext %1072)
   br i1 %1073, label %1074, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1074:                                             ; preds = %1068
-  store i8 1, ptr %1065, align 1, !tbaa !922
+  store i8 1, ptr %1065, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1075:                                             ; preds = %.critedge
   %1076 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1077 = load i8, ptr %1076, align 1, !tbaa !922, !range !42, !noundef !43
+  %1077 = load i8, ptr %1076, align 1, !tbaa !925, !range !42, !noundef !43
   %1078 = trunc nuw i8 %1077 to i1
   br i1 %1078, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1079
 
 1079:                                             ; preds = %1075
   %1080 = load ptr, ptr %0, align 8, !tbaa !934
   %1081 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1082 = load i8, ptr %1081, align 8, !tbaa !918, !range !42, !noundef !43
+  %1082 = load i8, ptr %1081, align 8, !tbaa !921, !range !42, !noundef !43
   %1083 = trunc nuw i8 %1082 to i1
   %1084 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1080, i1 noundef zeroext %1083)
   br i1 %1084, label %1085, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1085:                                             ; preds = %1079
-  store i8 1, ptr %1076, align 1, !tbaa !922
+  store i8 1, ptr %1076, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1086:                                             ; preds = %.critedge
   %1087 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1088 = load i8, ptr %1087, align 1, !tbaa !922, !range !42, !noundef !43
+  %1088 = load i8, ptr %1087, align 1, !tbaa !925, !range !42, !noundef !43
   %1089 = trunc nuw i8 %1088 to i1
   br i1 %1089, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1090
 
 1090:                                             ; preds = %1086
   %1091 = load ptr, ptr %0, align 8, !tbaa !934
   %1092 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1093 = load i8, ptr %1092, align 8, !tbaa !918, !range !42, !noundef !43
+  %1093 = load i8, ptr %1092, align 8, !tbaa !921, !range !42, !noundef !43
   %1094 = trunc nuw i8 %1093 to i1
   %1095 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1091, i1 noundef zeroext %1094)
   br i1 %1095, label %1096, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1096:                                             ; preds = %1090
-  store i8 1, ptr %1087, align 1, !tbaa !922
+  store i8 1, ptr %1087, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1097:                                             ; preds = %.critedge
   %1098 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1099 = load i8, ptr %1098, align 1, !tbaa !922, !range !42, !noundef !43
+  %1099 = load i8, ptr %1098, align 1, !tbaa !925, !range !42, !noundef !43
   %1100 = trunc nuw i8 %1099 to i1
   br i1 %1100, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1101
 
 1101:                                             ; preds = %1097
   %1102 = load ptr, ptr %0, align 8, !tbaa !934
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1104 = load i8, ptr %1103, align 8, !tbaa !918, !range !42, !noundef !43
+  %1104 = load i8, ptr %1103, align 8, !tbaa !921, !range !42, !noundef !43
   %1105 = trunc nuw i8 %1104 to i1
   %1106 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1102, i1 noundef zeroext %1105)
   br i1 %1106, label %1107, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1107:                                             ; preds = %1101
-  store i8 1, ptr %1098, align 1, !tbaa !922
+  store i8 1, ptr %1098, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1108:                                             ; preds = %.critedge
   %1109 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1110 = load i8, ptr %1109, align 1, !tbaa !922, !range !42, !noundef !43
+  %1110 = load i8, ptr %1109, align 1, !tbaa !925, !range !42, !noundef !43
   %1111 = trunc nuw i8 %1110 to i1
   br i1 %1111, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1112
 
 1112:                                             ; preds = %1108
   %1113 = load ptr, ptr %0, align 8, !tbaa !934
   %1114 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1115 = load i8, ptr %1114, align 8, !tbaa !918, !range !42, !noundef !43
+  %1115 = load i8, ptr %1114, align 8, !tbaa !921, !range !42, !noundef !43
   %1116 = trunc nuw i8 %1115 to i1
   %1117 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1113, i1 noundef zeroext %1116)
   br i1 %1117, label %1118, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1118:                                             ; preds = %1112
-  store i8 1, ptr %1109, align 1, !tbaa !922
+  store i8 1, ptr %1109, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1119:                                             ; preds = %.critedge
@@ -22989,164 +22983,164 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
 
 1120:                                             ; preds = %.critedge
   %1121 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1122 = load i8, ptr %1121, align 1, !tbaa !922, !range !42, !noundef !43
+  %1122 = load i8, ptr %1121, align 1, !tbaa !925, !range !42, !noundef !43
   %1123 = trunc nuw i8 %1122 to i1
   br i1 %1123, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1124
 
 1124:                                             ; preds = %1120
   %1125 = load ptr, ptr %0, align 8, !tbaa !934
   %1126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1127 = load i8, ptr %1126, align 8, !tbaa !918, !range !42, !noundef !43
+  %1127 = load i8, ptr %1126, align 8, !tbaa !921, !range !42, !noundef !43
   %1128 = trunc nuw i8 %1127 to i1
   %1129 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1125, i1 noundef zeroext %1128)
   br i1 %1129, label %1130, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1130:                                             ; preds = %1124
-  store i8 1, ptr %1121, align 1, !tbaa !922
+  store i8 1, ptr %1121, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1131:                                             ; preds = %.critedge
   %1132 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1133 = load i8, ptr %1132, align 1, !tbaa !922, !range !42, !noundef !43
+  %1133 = load i8, ptr %1132, align 1, !tbaa !925, !range !42, !noundef !43
   %1134 = trunc nuw i8 %1133 to i1
   br i1 %1134, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1135
 
 1135:                                             ; preds = %1131
   %1136 = load ptr, ptr %0, align 8, !tbaa !934
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1138 = load i8, ptr %1137, align 8, !tbaa !918, !range !42, !noundef !43
+  %1138 = load i8, ptr %1137, align 8, !tbaa !921, !range !42, !noundef !43
   %1139 = trunc nuw i8 %1138 to i1
   %1140 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1136, i1 noundef zeroext %1139)
   br i1 %1140, label %1141, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1141:                                             ; preds = %1135
-  store i8 1, ptr %1132, align 1, !tbaa !922
+  store i8 1, ptr %1132, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1142:                                             ; preds = %.critedge
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1144 = load i8, ptr %1143, align 1, !tbaa !922, !range !42, !noundef !43
+  %1144 = load i8, ptr %1143, align 1, !tbaa !925, !range !42, !noundef !43
   %1145 = trunc nuw i8 %1144 to i1
   br i1 %1145, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1146
 
 1146:                                             ; preds = %1142
   %1147 = load ptr, ptr %0, align 8, !tbaa !934
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1149 = load i8, ptr %1148, align 8, !tbaa !918, !range !42, !noundef !43
+  %1149 = load i8, ptr %1148, align 8, !tbaa !921, !range !42, !noundef !43
   %1150 = trunc nuw i8 %1149 to i1
   %1151 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1147, i1 noundef zeroext %1150)
   br i1 %1151, label %1152, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1152:                                             ; preds = %1146
-  store i8 1, ptr %1143, align 1, !tbaa !922
+  store i8 1, ptr %1143, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1153:                                             ; preds = %.critedge
   %1154 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1155 = load i8, ptr %1154, align 1, !tbaa !922, !range !42, !noundef !43
+  %1155 = load i8, ptr %1154, align 1, !tbaa !925, !range !42, !noundef !43
   %1156 = trunc nuw i8 %1155 to i1
   br i1 %1156, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1157
 
 1157:                                             ; preds = %1153
   %1158 = load ptr, ptr %0, align 8, !tbaa !934
   %1159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1160 = load i8, ptr %1159, align 8, !tbaa !918, !range !42, !noundef !43
+  %1160 = load i8, ptr %1159, align 8, !tbaa !921, !range !42, !noundef !43
   %1161 = trunc nuw i8 %1160 to i1
   %1162 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1158, i1 noundef zeroext %1161)
   br i1 %1162, label %1163, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1163:                                             ; preds = %1157
-  store i8 1, ptr %1154, align 1, !tbaa !922
+  store i8 1, ptr %1154, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1164:                                             ; preds = %.critedge
   %1165 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1166 = load i8, ptr %1165, align 1, !tbaa !922, !range !42, !noundef !43
+  %1166 = load i8, ptr %1165, align 1, !tbaa !925, !range !42, !noundef !43
   %1167 = trunc nuw i8 %1166 to i1
   br i1 %1167, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1168
 
 1168:                                             ; preds = %1164
   %1169 = load ptr, ptr %0, align 8, !tbaa !934
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1171 = load i8, ptr %1170, align 8, !tbaa !918, !range !42, !noundef !43
+  %1171 = load i8, ptr %1170, align 8, !tbaa !921, !range !42, !noundef !43
   %1172 = trunc nuw i8 %1171 to i1
   %1173 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1169, i1 noundef zeroext %1172)
   br i1 %1173, label %1174, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1174:                                             ; preds = %1168
-  store i8 1, ptr %1165, align 1, !tbaa !922
+  store i8 1, ptr %1165, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1175:                                             ; preds = %.critedge
   %1176 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1177 = load i8, ptr %1176, align 1, !tbaa !922, !range !42, !noundef !43
+  %1177 = load i8, ptr %1176, align 1, !tbaa !925, !range !42, !noundef !43
   %1178 = trunc nuw i8 %1177 to i1
   br i1 %1178, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1179
 
 1179:                                             ; preds = %1175
   %1180 = load ptr, ptr %0, align 8, !tbaa !934
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1182 = load i8, ptr %1181, align 8, !tbaa !918, !range !42, !noundef !43
+  %1182 = load i8, ptr %1181, align 8, !tbaa !921, !range !42, !noundef !43
   %1183 = trunc nuw i8 %1182 to i1
   %1184 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1180, i1 noundef zeroext %1183)
   br i1 %1184, label %1185, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1185:                                             ; preds = %1179
-  store i8 1, ptr %1176, align 1, !tbaa !922
+  store i8 1, ptr %1176, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1186:                                             ; preds = %.critedge
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1188 = load i8, ptr %1187, align 1, !tbaa !922, !range !42, !noundef !43
+  %1188 = load i8, ptr %1187, align 1, !tbaa !925, !range !42, !noundef !43
   %1189 = trunc nuw i8 %1188 to i1
   br i1 %1189, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1190
 
 1190:                                             ; preds = %1186
   %1191 = load ptr, ptr %0, align 8, !tbaa !934
   %1192 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1193 = load i8, ptr %1192, align 8, !tbaa !918, !range !42, !noundef !43
+  %1193 = load i8, ptr %1192, align 8, !tbaa !921, !range !42, !noundef !43
   %1194 = trunc nuw i8 %1193 to i1
   %1195 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1191, i1 noundef zeroext %1194)
   br i1 %1195, label %1196, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1196:                                             ; preds = %1190
-  store i8 1, ptr %1187, align 1, !tbaa !922
+  store i8 1, ptr %1187, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1197:                                             ; preds = %.critedge
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1199 = load i8, ptr %1198, align 1, !tbaa !922, !range !42, !noundef !43
+  %1199 = load i8, ptr %1198, align 1, !tbaa !925, !range !42, !noundef !43
   %1200 = trunc nuw i8 %1199 to i1
   br i1 %1200, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1201
 
 1201:                                             ; preds = %1197
   %1202 = load ptr, ptr %0, align 8, !tbaa !934
   %1203 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1204 = load i8, ptr %1203, align 8, !tbaa !918, !range !42, !noundef !43
+  %1204 = load i8, ptr %1203, align 8, !tbaa !921, !range !42, !noundef !43
   %1205 = trunc nuw i8 %1204 to i1
   %1206 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1202, i1 noundef zeroext %1205)
   br i1 %1206, label %1207, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1207:                                             ; preds = %1201
-  store i8 1, ptr %1198, align 1, !tbaa !922
+  store i8 1, ptr %1198, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1208:                                             ; preds = %.critedge
   %1209 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1210 = load i8, ptr %1209, align 1, !tbaa !922, !range !42, !noundef !43
+  %1210 = load i8, ptr %1209, align 1, !tbaa !925, !range !42, !noundef !43
   %1211 = trunc nuw i8 %1210 to i1
   br i1 %1211, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1212
 
 1212:                                             ; preds = %1208
   %1213 = load ptr, ptr %0, align 8, !tbaa !934
   %1214 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1215 = load i8, ptr %1214, align 8, !tbaa !918, !range !42, !noundef !43
+  %1215 = load i8, ptr %1214, align 8, !tbaa !921, !range !42, !noundef !43
   %1216 = trunc nuw i8 %1215 to i1
   %1217 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1213, i1 noundef zeroext %1216)
   br i1 %1217, label %1218, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1218:                                             ; preds = %1212
-  store i8 1, ptr %1209, align 1, !tbaa !922
+  store i8 1, ptr %1209, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1219:                                             ; preds = %.critedge
@@ -23176,128 +23170,128 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
 
 1229:                                             ; preds = %.critedge
   %1230 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1231 = load i8, ptr %1230, align 1, !tbaa !922, !range !42, !noundef !43
+  %1231 = load i8, ptr %1230, align 1, !tbaa !925, !range !42, !noundef !43
   %1232 = trunc nuw i8 %1231 to i1
   br i1 %1232, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1233
 
 1233:                                             ; preds = %1229
   %1234 = load ptr, ptr %0, align 8, !tbaa !934
   %1235 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1236 = load i8, ptr %1235, align 8, !tbaa !918, !range !42, !noundef !43
+  %1236 = load i8, ptr %1235, align 8, !tbaa !921, !range !42, !noundef !43
   %1237 = trunc nuw i8 %1236 to i1
   %1238 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1234, i1 noundef zeroext %1237)
   br i1 %1238, label %1239, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1239:                                             ; preds = %1233
-  store i8 1, ptr %1230, align 1, !tbaa !922
+  store i8 1, ptr %1230, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1240:                                             ; preds = %.critedge
   %1241 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1242 = load i8, ptr %1241, align 1, !tbaa !922, !range !42, !noundef !43
+  %1242 = load i8, ptr %1241, align 1, !tbaa !925, !range !42, !noundef !43
   %1243 = trunc nuw i8 %1242 to i1
   br i1 %1243, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1244
 
 1244:                                             ; preds = %1240
   %1245 = load ptr, ptr %0, align 8, !tbaa !934
   %1246 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1247 = load i8, ptr %1246, align 8, !tbaa !918, !range !42, !noundef !43
+  %1247 = load i8, ptr %1246, align 8, !tbaa !921, !range !42, !noundef !43
   %1248 = trunc nuw i8 %1247 to i1
   %1249 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1245, i1 noundef zeroext %1248)
   br i1 %1249, label %1250, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1250:                                             ; preds = %1244
-  store i8 1, ptr %1241, align 1, !tbaa !922
+  store i8 1, ptr %1241, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1251:                                             ; preds = %.critedge
   %1252 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1253 = load i8, ptr %1252, align 1, !tbaa !922, !range !42, !noundef !43
+  %1253 = load i8, ptr %1252, align 1, !tbaa !925, !range !42, !noundef !43
   %1254 = trunc nuw i8 %1253 to i1
   br i1 %1254, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1255
 
 1255:                                             ; preds = %1251
   %1256 = load ptr, ptr %0, align 8, !tbaa !934
   %1257 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1258 = load i8, ptr %1257, align 8, !tbaa !918, !range !42, !noundef !43
+  %1258 = load i8, ptr %1257, align 8, !tbaa !921, !range !42, !noundef !43
   %1259 = trunc nuw i8 %1258 to i1
   %1260 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1256, i1 noundef zeroext %1259)
   br i1 %1260, label %1261, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1261:                                             ; preds = %1255
-  store i8 1, ptr %1252, align 1, !tbaa !922
+  store i8 1, ptr %1252, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1262:                                             ; preds = %.critedge
   %1263 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1264 = load i8, ptr %1263, align 1, !tbaa !922, !range !42, !noundef !43
+  %1264 = load i8, ptr %1263, align 1, !tbaa !925, !range !42, !noundef !43
   %1265 = trunc nuw i8 %1264 to i1
   br i1 %1265, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1266
 
 1266:                                             ; preds = %1262
   %1267 = load ptr, ptr %0, align 8, !tbaa !934
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1269 = load i8, ptr %1268, align 8, !tbaa !918, !range !42, !noundef !43
+  %1269 = load i8, ptr %1268, align 8, !tbaa !921, !range !42, !noundef !43
   %1270 = trunc nuw i8 %1269 to i1
   %1271 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1267, i1 noundef zeroext %1270)
   br i1 %1271, label %1272, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1272:                                             ; preds = %1266
-  store i8 1, ptr %1263, align 1, !tbaa !922
+  store i8 1, ptr %1263, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1273:                                             ; preds = %.critedge
   %1274 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1275 = load i8, ptr %1274, align 1, !tbaa !922, !range !42, !noundef !43
+  %1275 = load i8, ptr %1274, align 1, !tbaa !925, !range !42, !noundef !43
   %1276 = trunc nuw i8 %1275 to i1
   br i1 %1276, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1277
 
 1277:                                             ; preds = %1273
   %1278 = load ptr, ptr %0, align 8, !tbaa !934
   %1279 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1280 = load i8, ptr %1279, align 8, !tbaa !918, !range !42, !noundef !43
+  %1280 = load i8, ptr %1279, align 8, !tbaa !921, !range !42, !noundef !43
   %1281 = trunc nuw i8 %1280 to i1
   %1282 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1278, i1 noundef zeroext %1281)
   br i1 %1282, label %1283, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1283:                                             ; preds = %1277
-  store i8 1, ptr %1274, align 1, !tbaa !922
+  store i8 1, ptr %1274, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1284:                                             ; preds = %.critedge
   %1285 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1286 = load i8, ptr %1285, align 1, !tbaa !922, !range !42, !noundef !43
+  %1286 = load i8, ptr %1285, align 1, !tbaa !925, !range !42, !noundef !43
   %1287 = trunc nuw i8 %1286 to i1
   br i1 %1287, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1288
 
 1288:                                             ; preds = %1284
   %1289 = load ptr, ptr %0, align 8, !tbaa !934
   %1290 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1291 = load i8, ptr %1290, align 8, !tbaa !918, !range !42, !noundef !43
+  %1291 = load i8, ptr %1290, align 8, !tbaa !921, !range !42, !noundef !43
   %1292 = trunc nuw i8 %1291 to i1
   %1293 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1289, i1 noundef zeroext %1292)
   br i1 %1293, label %1294, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1294:                                             ; preds = %1288
-  store i8 1, ptr %1285, align 1, !tbaa !922
+  store i8 1, ptr %1285, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1295:                                             ; preds = %.critedge
   %1296 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1297 = load i8, ptr %1296, align 1, !tbaa !922, !range !42, !noundef !43
+  %1297 = load i8, ptr %1296, align 1, !tbaa !925, !range !42, !noundef !43
   %1298 = trunc nuw i8 %1297 to i1
   br i1 %1298, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1299
 
 1299:                                             ; preds = %1295
   %1300 = load ptr, ptr %0, align 8, !tbaa !934
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1302 = load i8, ptr %1301, align 8, !tbaa !918, !range !42, !noundef !43
+  %1302 = load i8, ptr %1301, align 8, !tbaa !921, !range !42, !noundef !43
   %1303 = trunc nuw i8 %1302 to i1
   %1304 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1300, i1 noundef zeroext %1303)
   br i1 %1304, label %1305, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1305:                                             ; preds = %1299
-  store i8 1, ptr %1296, align 1, !tbaa !922
+  store i8 1, ptr %1296, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1306:                                             ; preds = %.critedge
@@ -23306,200 +23300,200 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
 
 1307:                                             ; preds = %.critedge
   %1308 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1309 = load i8, ptr %1308, align 1, !tbaa !922, !range !42, !noundef !43
+  %1309 = load i8, ptr %1308, align 1, !tbaa !925, !range !42, !noundef !43
   %1310 = trunc nuw i8 %1309 to i1
   br i1 %1310, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1311
 
 1311:                                             ; preds = %1307
   %1312 = load ptr, ptr %0, align 8, !tbaa !934
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1314 = load i8, ptr %1313, align 8, !tbaa !918, !range !42, !noundef !43
+  %1314 = load i8, ptr %1313, align 8, !tbaa !921, !range !42, !noundef !43
   %1315 = trunc nuw i8 %1314 to i1
   %1316 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1312, i1 noundef zeroext %1315)
   br i1 %1316, label %1317, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1317:                                             ; preds = %1311
-  store i8 1, ptr %1308, align 1, !tbaa !922
+  store i8 1, ptr %1308, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1318:                                             ; preds = %.critedge
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1320 = load i8, ptr %1319, align 1, !tbaa !922, !range !42, !noundef !43
+  %1320 = load i8, ptr %1319, align 1, !tbaa !925, !range !42, !noundef !43
   %1321 = trunc nuw i8 %1320 to i1
   br i1 %1321, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1322
 
 1322:                                             ; preds = %1318
   %1323 = load ptr, ptr %0, align 8, !tbaa !934
   %1324 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1325 = load i8, ptr %1324, align 8, !tbaa !918, !range !42, !noundef !43
+  %1325 = load i8, ptr %1324, align 8, !tbaa !921, !range !42, !noundef !43
   %1326 = trunc nuw i8 %1325 to i1
   %1327 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1323, i1 noundef zeroext %1326)
   br i1 %1327, label %1328, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1328:                                             ; preds = %1322
-  store i8 1, ptr %1319, align 1, !tbaa !922
+  store i8 1, ptr %1319, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1329:                                             ; preds = %.critedge
   %1330 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1331 = load i8, ptr %1330, align 1, !tbaa !922, !range !42, !noundef !43
+  %1331 = load i8, ptr %1330, align 1, !tbaa !925, !range !42, !noundef !43
   %1332 = trunc nuw i8 %1331 to i1
   br i1 %1332, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1333
 
 1333:                                             ; preds = %1329
   %1334 = load ptr, ptr %0, align 8, !tbaa !934
   %1335 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1336 = load i8, ptr %1335, align 8, !tbaa !918, !range !42, !noundef !43
+  %1336 = load i8, ptr %1335, align 8, !tbaa !921, !range !42, !noundef !43
   %1337 = trunc nuw i8 %1336 to i1
   %1338 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1334, i1 noundef zeroext %1337)
   br i1 %1338, label %1339, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1339:                                             ; preds = %1333
-  store i8 1, ptr %1330, align 1, !tbaa !922
+  store i8 1, ptr %1330, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1340:                                             ; preds = %.critedge
   %1341 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1342 = load i8, ptr %1341, align 1, !tbaa !922, !range !42, !noundef !43
+  %1342 = load i8, ptr %1341, align 1, !tbaa !925, !range !42, !noundef !43
   %1343 = trunc nuw i8 %1342 to i1
   br i1 %1343, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1344
 
 1344:                                             ; preds = %1340
   %1345 = load ptr, ptr %0, align 8, !tbaa !934
   %1346 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1347 = load i8, ptr %1346, align 8, !tbaa !918, !range !42, !noundef !43
+  %1347 = load i8, ptr %1346, align 8, !tbaa !921, !range !42, !noundef !43
   %1348 = trunc nuw i8 %1347 to i1
   %1349 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1345, i1 noundef zeroext %1348)
   br i1 %1349, label %1350, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1350:                                             ; preds = %1344
-  store i8 1, ptr %1341, align 1, !tbaa !922
+  store i8 1, ptr %1341, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1351:                                             ; preds = %.critedge
   %1352 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1353 = load i8, ptr %1352, align 1, !tbaa !922, !range !42, !noundef !43
+  %1353 = load i8, ptr %1352, align 1, !tbaa !925, !range !42, !noundef !43
   %1354 = trunc nuw i8 %1353 to i1
   br i1 %1354, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1355
 
 1355:                                             ; preds = %1351
   %1356 = load ptr, ptr %0, align 8, !tbaa !934
   %1357 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1358 = load i8, ptr %1357, align 8, !tbaa !918, !range !42, !noundef !43
+  %1358 = load i8, ptr %1357, align 8, !tbaa !921, !range !42, !noundef !43
   %1359 = trunc nuw i8 %1358 to i1
   %1360 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1356, i1 noundef zeroext %1359)
   br i1 %1360, label %1361, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1361:                                             ; preds = %1355
-  store i8 1, ptr %1352, align 1, !tbaa !922
+  store i8 1, ptr %1352, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1362:                                             ; preds = %.critedge
   %1363 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1364 = load i8, ptr %1363, align 1, !tbaa !922, !range !42, !noundef !43
+  %1364 = load i8, ptr %1363, align 1, !tbaa !925, !range !42, !noundef !43
   %1365 = trunc nuw i8 %1364 to i1
   br i1 %1365, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1366
 
 1366:                                             ; preds = %1362
   %1367 = load ptr, ptr %0, align 8, !tbaa !934
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1369 = load i8, ptr %1368, align 8, !tbaa !918, !range !42, !noundef !43
+  %1369 = load i8, ptr %1368, align 8, !tbaa !921, !range !42, !noundef !43
   %1370 = trunc nuw i8 %1369 to i1
   %1371 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1367, i1 noundef zeroext %1370)
   br i1 %1371, label %1372, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1372:                                             ; preds = %1366
-  store i8 1, ptr %1363, align 1, !tbaa !922
+  store i8 1, ptr %1363, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1373:                                             ; preds = %.critedge
   %1374 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1375 = load i8, ptr %1374, align 1, !tbaa !922, !range !42, !noundef !43
+  %1375 = load i8, ptr %1374, align 1, !tbaa !925, !range !42, !noundef !43
   %1376 = trunc nuw i8 %1375 to i1
   br i1 %1376, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1377
 
 1377:                                             ; preds = %1373
   %1378 = load ptr, ptr %0, align 8, !tbaa !934
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1380 = load i8, ptr %1379, align 8, !tbaa !918, !range !42, !noundef !43
+  %1380 = load i8, ptr %1379, align 8, !tbaa !921, !range !42, !noundef !43
   %1381 = trunc nuw i8 %1380 to i1
   %1382 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1378, i1 noundef zeroext %1381)
   br i1 %1382, label %1383, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1383:                                             ; preds = %1377
-  store i8 1, ptr %1374, align 1, !tbaa !922
+  store i8 1, ptr %1374, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1384:                                             ; preds = %.critedge
   %1385 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1386 = load i8, ptr %1385, align 1, !tbaa !922, !range !42, !noundef !43
+  %1386 = load i8, ptr %1385, align 1, !tbaa !925, !range !42, !noundef !43
   %1387 = trunc nuw i8 %1386 to i1
   br i1 %1387, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1388
 
 1388:                                             ; preds = %1384
   %1389 = load ptr, ptr %0, align 8, !tbaa !934
   %1390 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1391 = load i8, ptr %1390, align 8, !tbaa !918, !range !42, !noundef !43
+  %1391 = load i8, ptr %1390, align 8, !tbaa !921, !range !42, !noundef !43
   %1392 = trunc nuw i8 %1391 to i1
   %1393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1389, i1 noundef zeroext %1392)
   br i1 %1393, label %1394, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1394:                                             ; preds = %1388
-  store i8 1, ptr %1385, align 1, !tbaa !922
+  store i8 1, ptr %1385, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1395:                                             ; preds = %.critedge
   %1396 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1397 = load i8, ptr %1396, align 1, !tbaa !922, !range !42, !noundef !43
+  %1397 = load i8, ptr %1396, align 1, !tbaa !925, !range !42, !noundef !43
   %1398 = trunc nuw i8 %1397 to i1
   br i1 %1398, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1399
 
 1399:                                             ; preds = %1395
   %1400 = load ptr, ptr %0, align 8, !tbaa !934
   %1401 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1402 = load i8, ptr %1401, align 8, !tbaa !918, !range !42, !noundef !43
+  %1402 = load i8, ptr %1401, align 8, !tbaa !921, !range !42, !noundef !43
   %1403 = trunc nuw i8 %1402 to i1
   %1404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1400, i1 noundef zeroext %1403)
   br i1 %1404, label %1405, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1405:                                             ; preds = %1399
-  store i8 1, ptr %1396, align 1, !tbaa !922
+  store i8 1, ptr %1396, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1406:                                             ; preds = %.critedge
   %1407 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1408 = load i8, ptr %1407, align 1, !tbaa !922, !range !42, !noundef !43
+  %1408 = load i8, ptr %1407, align 1, !tbaa !925, !range !42, !noundef !43
   %1409 = trunc nuw i8 %1408 to i1
   br i1 %1409, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1410
 
 1410:                                             ; preds = %1406
   %1411 = load ptr, ptr %0, align 8, !tbaa !934
   %1412 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1413 = load i8, ptr %1412, align 8, !tbaa !918, !range !42, !noundef !43
+  %1413 = load i8, ptr %1412, align 8, !tbaa !921, !range !42, !noundef !43
   %1414 = trunc nuw i8 %1413 to i1
   %1415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1411, i1 noundef zeroext %1414)
   br i1 %1415, label %1416, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1416:                                             ; preds = %1410
-  store i8 1, ptr %1407, align 1, !tbaa !922
+  store i8 1, ptr %1407, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1417:                                             ; preds = %.critedge
   %1418 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1419 = load i8, ptr %1418, align 1, !tbaa !922, !range !42, !noundef !43
+  %1419 = load i8, ptr %1418, align 1, !tbaa !925, !range !42, !noundef !43
   %1420 = trunc nuw i8 %1419 to i1
   br i1 %1420, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1421
 
 1421:                                             ; preds = %1417
   %1422 = load ptr, ptr %0, align 8, !tbaa !934
   %1423 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1424 = load i8, ptr %1423, align 8, !tbaa !918, !range !42, !noundef !43
+  %1424 = load i8, ptr %1423, align 8, !tbaa !921, !range !42, !noundef !43
   %1425 = trunc nuw i8 %1424 to i1
   %1426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1422, i1 noundef zeroext %1425)
   br i1 %1426, label %1427, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1427:                                             ; preds = %1421
-  store i8 1, ptr %1418, align 1, !tbaa !922
+  store i8 1, ptr %1418, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1428:                                             ; preds = %.critedge
@@ -23524,20 +23518,20 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
 
 1433:                                             ; preds = %.critedge
   %1434 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1435 = load i8, ptr %1434, align 1, !tbaa !922, !range !42, !noundef !43
+  %1435 = load i8, ptr %1434, align 1, !tbaa !925, !range !42, !noundef !43
   %1436 = trunc nuw i8 %1435 to i1
   br i1 %1436, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1437
 
 1437:                                             ; preds = %1433
   %1438 = load ptr, ptr %0, align 8, !tbaa !934
   %1439 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1440 = load i8, ptr %1439, align 8, !tbaa !918, !range !42, !noundef !43
+  %1440 = load i8, ptr %1439, align 8, !tbaa !921, !range !42, !noundef !43
   %1441 = trunc nuw i8 %1440 to i1
   %1442 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1438, i1 noundef zeroext %1441)
   br i1 %1442, label %1443, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1443:                                             ; preds = %1437
-  store i8 1, ptr %1434, align 1, !tbaa !922
+  store i8 1, ptr %1434, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1444:                                             ; preds = %.critedge
@@ -23546,560 +23540,560 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
 
 1445:                                             ; preds = %.critedge
   %1446 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1447 = load i8, ptr %1446, align 1, !tbaa !922, !range !42, !noundef !43
+  %1447 = load i8, ptr %1446, align 1, !tbaa !925, !range !42, !noundef !43
   %1448 = trunc nuw i8 %1447 to i1
   br i1 %1448, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1449
 
 1449:                                             ; preds = %1445
   %1450 = load ptr, ptr %0, align 8, !tbaa !934
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1452 = load i8, ptr %1451, align 8, !tbaa !918, !range !42, !noundef !43
+  %1452 = load i8, ptr %1451, align 8, !tbaa !921, !range !42, !noundef !43
   %1453 = trunc nuw i8 %1452 to i1
   %1454 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1450, i1 noundef zeroext %1453)
   br i1 %1454, label %1455, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1455:                                             ; preds = %1449
-  store i8 1, ptr %1446, align 1, !tbaa !922
+  store i8 1, ptr %1446, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1456:                                             ; preds = %.critedge
   %1457 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1458 = load i8, ptr %1457, align 1, !tbaa !922, !range !42, !noundef !43
+  %1458 = load i8, ptr %1457, align 1, !tbaa !925, !range !42, !noundef !43
   %1459 = trunc nuw i8 %1458 to i1
   br i1 %1459, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1460
 
 1460:                                             ; preds = %1456
   %1461 = load ptr, ptr %0, align 8, !tbaa !934
   %1462 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1463 = load i8, ptr %1462, align 8, !tbaa !918, !range !42, !noundef !43
+  %1463 = load i8, ptr %1462, align 8, !tbaa !921, !range !42, !noundef !43
   %1464 = trunc nuw i8 %1463 to i1
   %1465 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1461, i1 noundef zeroext %1464)
   br i1 %1465, label %1466, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1466:                                             ; preds = %1460
-  store i8 1, ptr %1457, align 1, !tbaa !922
+  store i8 1, ptr %1457, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1467:                                             ; preds = %.critedge
   %1468 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1469 = load i8, ptr %1468, align 1, !tbaa !922, !range !42, !noundef !43
+  %1469 = load i8, ptr %1468, align 1, !tbaa !925, !range !42, !noundef !43
   %1470 = trunc nuw i8 %1469 to i1
   br i1 %1470, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1471
 
 1471:                                             ; preds = %1467
   %1472 = load ptr, ptr %0, align 8, !tbaa !934
   %1473 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1474 = load i8, ptr %1473, align 8, !tbaa !918, !range !42, !noundef !43
+  %1474 = load i8, ptr %1473, align 8, !tbaa !921, !range !42, !noundef !43
   %1475 = trunc nuw i8 %1474 to i1
   %1476 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1472, i1 noundef zeroext %1475)
   br i1 %1476, label %1477, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1477:                                             ; preds = %1471
-  store i8 1, ptr %1468, align 1, !tbaa !922
+  store i8 1, ptr %1468, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1478:                                             ; preds = %.critedge
   %1479 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1480 = load i8, ptr %1479, align 1, !tbaa !922, !range !42, !noundef !43
+  %1480 = load i8, ptr %1479, align 1, !tbaa !925, !range !42, !noundef !43
   %1481 = trunc nuw i8 %1480 to i1
   br i1 %1481, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1482
 
 1482:                                             ; preds = %1478
   %1483 = load ptr, ptr %0, align 8, !tbaa !934
   %1484 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1485 = load i8, ptr %1484, align 8, !tbaa !918, !range !42, !noundef !43
+  %1485 = load i8, ptr %1484, align 8, !tbaa !921, !range !42, !noundef !43
   %1486 = trunc nuw i8 %1485 to i1
   %1487 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1483, i1 noundef zeroext %1486)
   br i1 %1487, label %1488, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1488:                                             ; preds = %1482
-  store i8 1, ptr %1479, align 1, !tbaa !922
+  store i8 1, ptr %1479, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1489:                                             ; preds = %.critedge
   %1490 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1491 = load i8, ptr %1490, align 1, !tbaa !922, !range !42, !noundef !43
+  %1491 = load i8, ptr %1490, align 1, !tbaa !925, !range !42, !noundef !43
   %1492 = trunc nuw i8 %1491 to i1
   br i1 %1492, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1493
 
 1493:                                             ; preds = %1489
   %1494 = load ptr, ptr %0, align 8, !tbaa !934
   %1495 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1496 = load i8, ptr %1495, align 8, !tbaa !918, !range !42, !noundef !43
+  %1496 = load i8, ptr %1495, align 8, !tbaa !921, !range !42, !noundef !43
   %1497 = trunc nuw i8 %1496 to i1
   %1498 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1494, i1 noundef zeroext %1497)
   br i1 %1498, label %1499, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1499:                                             ; preds = %1493
-  store i8 1, ptr %1490, align 1, !tbaa !922
+  store i8 1, ptr %1490, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1500:                                             ; preds = %.critedge
   %1501 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1502 = load i8, ptr %1501, align 1, !tbaa !922, !range !42, !noundef !43
+  %1502 = load i8, ptr %1501, align 1, !tbaa !925, !range !42, !noundef !43
   %1503 = trunc nuw i8 %1502 to i1
   br i1 %1503, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1504
 
 1504:                                             ; preds = %1500
   %1505 = load ptr, ptr %0, align 8, !tbaa !934
   %1506 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1507 = load i8, ptr %1506, align 8, !tbaa !918, !range !42, !noundef !43
+  %1507 = load i8, ptr %1506, align 8, !tbaa !921, !range !42, !noundef !43
   %1508 = trunc nuw i8 %1507 to i1
   %1509 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1505, i1 noundef zeroext %1508)
   br i1 %1509, label %1510, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1510:                                             ; preds = %1504
-  store i8 1, ptr %1501, align 1, !tbaa !922
+  store i8 1, ptr %1501, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1511:                                             ; preds = %.critedge
   %1512 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1513 = load i8, ptr %1512, align 1, !tbaa !922, !range !42, !noundef !43
+  %1513 = load i8, ptr %1512, align 1, !tbaa !925, !range !42, !noundef !43
   %1514 = trunc nuw i8 %1513 to i1
   br i1 %1514, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1515
 
 1515:                                             ; preds = %1511
   %1516 = load ptr, ptr %0, align 8, !tbaa !934
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1518 = load i8, ptr %1517, align 8, !tbaa !918, !range !42, !noundef !43
+  %1518 = load i8, ptr %1517, align 8, !tbaa !921, !range !42, !noundef !43
   %1519 = trunc nuw i8 %1518 to i1
   %1520 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1516, i1 noundef zeroext %1519)
   br i1 %1520, label %1521, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1521:                                             ; preds = %1515
-  store i8 1, ptr %1512, align 1, !tbaa !922
+  store i8 1, ptr %1512, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1522:                                             ; preds = %.critedge
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1524 = load i8, ptr %1523, align 1, !tbaa !922, !range !42, !noundef !43
+  %1524 = load i8, ptr %1523, align 1, !tbaa !925, !range !42, !noundef !43
   %1525 = trunc nuw i8 %1524 to i1
   br i1 %1525, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1526
 
 1526:                                             ; preds = %1522
   %1527 = load ptr, ptr %0, align 8, !tbaa !934
   %1528 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1529 = load i8, ptr %1528, align 8, !tbaa !918, !range !42, !noundef !43
+  %1529 = load i8, ptr %1528, align 8, !tbaa !921, !range !42, !noundef !43
   %1530 = trunc nuw i8 %1529 to i1
   %1531 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1527, i1 noundef zeroext %1530)
   br i1 %1531, label %1532, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1532:                                             ; preds = %1526
-  store i8 1, ptr %1523, align 1, !tbaa !922
+  store i8 1, ptr %1523, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1533:                                             ; preds = %.critedge
   %1534 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1535 = load i8, ptr %1534, align 1, !tbaa !922, !range !42, !noundef !43
+  %1535 = load i8, ptr %1534, align 1, !tbaa !925, !range !42, !noundef !43
   %1536 = trunc nuw i8 %1535 to i1
   br i1 %1536, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1537
 
 1537:                                             ; preds = %1533
   %1538 = load ptr, ptr %0, align 8, !tbaa !934
   %1539 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1540 = load i8, ptr %1539, align 8, !tbaa !918, !range !42, !noundef !43
+  %1540 = load i8, ptr %1539, align 8, !tbaa !921, !range !42, !noundef !43
   %1541 = trunc nuw i8 %1540 to i1
   %1542 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1538, i1 noundef zeroext %1541)
   br i1 %1542, label %1543, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1543:                                             ; preds = %1537
-  store i8 1, ptr %1534, align 1, !tbaa !922
+  store i8 1, ptr %1534, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1544:                                             ; preds = %.critedge
   %1545 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1546 = load i8, ptr %1545, align 1, !tbaa !922, !range !42, !noundef !43
+  %1546 = load i8, ptr %1545, align 1, !tbaa !925, !range !42, !noundef !43
   %1547 = trunc nuw i8 %1546 to i1
   br i1 %1547, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1548
 
 1548:                                             ; preds = %1544
   %1549 = load ptr, ptr %0, align 8, !tbaa !934
   %1550 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1551 = load i8, ptr %1550, align 8, !tbaa !918, !range !42, !noundef !43
+  %1551 = load i8, ptr %1550, align 8, !tbaa !921, !range !42, !noundef !43
   %1552 = trunc nuw i8 %1551 to i1
   %1553 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1549, i1 noundef zeroext %1552)
   br i1 %1553, label %1554, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1554:                                             ; preds = %1548
-  store i8 1, ptr %1545, align 1, !tbaa !922
+  store i8 1, ptr %1545, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1555:                                             ; preds = %.critedge
   %1556 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1557 = load i8, ptr %1556, align 1, !tbaa !922, !range !42, !noundef !43
+  %1557 = load i8, ptr %1556, align 1, !tbaa !925, !range !42, !noundef !43
   %1558 = trunc nuw i8 %1557 to i1
   br i1 %1558, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1559
 
 1559:                                             ; preds = %1555
   %1560 = load ptr, ptr %0, align 8, !tbaa !934
   %1561 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1562 = load i8, ptr %1561, align 8, !tbaa !918, !range !42, !noundef !43
+  %1562 = load i8, ptr %1561, align 8, !tbaa !921, !range !42, !noundef !43
   %1563 = trunc nuw i8 %1562 to i1
   %1564 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1560, i1 noundef zeroext %1563)
   br i1 %1564, label %1565, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1565:                                             ; preds = %1559
-  store i8 1, ptr %1556, align 1, !tbaa !922
+  store i8 1, ptr %1556, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1566:                                             ; preds = %.critedge
   %1567 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1568 = load i8, ptr %1567, align 1, !tbaa !922, !range !42, !noundef !43
+  %1568 = load i8, ptr %1567, align 1, !tbaa !925, !range !42, !noundef !43
   %1569 = trunc nuw i8 %1568 to i1
   br i1 %1569, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1570
 
 1570:                                             ; preds = %1566
   %1571 = load ptr, ptr %0, align 8, !tbaa !934
   %1572 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1573 = load i8, ptr %1572, align 8, !tbaa !918, !range !42, !noundef !43
+  %1573 = load i8, ptr %1572, align 8, !tbaa !921, !range !42, !noundef !43
   %1574 = trunc nuw i8 %1573 to i1
   %1575 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1571, i1 noundef zeroext %1574)
   br i1 %1575, label %1576, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1576:                                             ; preds = %1570
-  store i8 1, ptr %1567, align 1, !tbaa !922
+  store i8 1, ptr %1567, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1577:                                             ; preds = %.critedge
   %1578 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1579 = load i8, ptr %1578, align 1, !tbaa !922, !range !42, !noundef !43
+  %1579 = load i8, ptr %1578, align 1, !tbaa !925, !range !42, !noundef !43
   %1580 = trunc nuw i8 %1579 to i1
   br i1 %1580, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1581
 
 1581:                                             ; preds = %1577
   %1582 = load ptr, ptr %0, align 8, !tbaa !934
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1584 = load i8, ptr %1583, align 8, !tbaa !918, !range !42, !noundef !43
+  %1584 = load i8, ptr %1583, align 8, !tbaa !921, !range !42, !noundef !43
   %1585 = trunc nuw i8 %1584 to i1
   %1586 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1582, i1 noundef zeroext %1585)
   br i1 %1586, label %1587, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1587:                                             ; preds = %1581
-  store i8 1, ptr %1578, align 1, !tbaa !922
+  store i8 1, ptr %1578, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1588:                                             ; preds = %.critedge
   %1589 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1590 = load i8, ptr %1589, align 1, !tbaa !922, !range !42, !noundef !43
+  %1590 = load i8, ptr %1589, align 1, !tbaa !925, !range !42, !noundef !43
   %1591 = trunc nuw i8 %1590 to i1
   br i1 %1591, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1592
 
 1592:                                             ; preds = %1588
   %1593 = load ptr, ptr %0, align 8, !tbaa !934
   %1594 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1595 = load i8, ptr %1594, align 8, !tbaa !918, !range !42, !noundef !43
+  %1595 = load i8, ptr %1594, align 8, !tbaa !921, !range !42, !noundef !43
   %1596 = trunc nuw i8 %1595 to i1
   %1597 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1593, i1 noundef zeroext %1596)
   br i1 %1597, label %1598, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1598:                                             ; preds = %1592
-  store i8 1, ptr %1589, align 1, !tbaa !922
+  store i8 1, ptr %1589, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1599:                                             ; preds = %.critedge
   %1600 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1601 = load i8, ptr %1600, align 1, !tbaa !922, !range !42, !noundef !43
+  %1601 = load i8, ptr %1600, align 1, !tbaa !925, !range !42, !noundef !43
   %1602 = trunc nuw i8 %1601 to i1
   br i1 %1602, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1603
 
 1603:                                             ; preds = %1599
   %1604 = load ptr, ptr %0, align 8, !tbaa !934
   %1605 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1606 = load i8, ptr %1605, align 8, !tbaa !918, !range !42, !noundef !43
+  %1606 = load i8, ptr %1605, align 8, !tbaa !921, !range !42, !noundef !43
   %1607 = trunc nuw i8 %1606 to i1
   %1608 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1604, i1 noundef zeroext %1607)
   br i1 %1608, label %1609, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1609:                                             ; preds = %1603
-  store i8 1, ptr %1600, align 1, !tbaa !922
+  store i8 1, ptr %1600, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1610:                                             ; preds = %.critedge
   %1611 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1612 = load i8, ptr %1611, align 1, !tbaa !922, !range !42, !noundef !43
+  %1612 = load i8, ptr %1611, align 1, !tbaa !925, !range !42, !noundef !43
   %1613 = trunc nuw i8 %1612 to i1
   br i1 %1613, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1614
 
 1614:                                             ; preds = %1610
   %1615 = load ptr, ptr %0, align 8, !tbaa !934
   %1616 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1617 = load i8, ptr %1616, align 8, !tbaa !918, !range !42, !noundef !43
+  %1617 = load i8, ptr %1616, align 8, !tbaa !921, !range !42, !noundef !43
   %1618 = trunc nuw i8 %1617 to i1
   %1619 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1615, i1 noundef zeroext %1618)
   br i1 %1619, label %1620, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1620:                                             ; preds = %1614
-  store i8 1, ptr %1611, align 1, !tbaa !922
+  store i8 1, ptr %1611, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1621:                                             ; preds = %.critedge
   %1622 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1623 = load i8, ptr %1622, align 1, !tbaa !922, !range !42, !noundef !43
+  %1623 = load i8, ptr %1622, align 1, !tbaa !925, !range !42, !noundef !43
   %1624 = trunc nuw i8 %1623 to i1
   br i1 %1624, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1625
 
 1625:                                             ; preds = %1621
   %1626 = load ptr, ptr %0, align 8, !tbaa !934
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1628 = load i8, ptr %1627, align 8, !tbaa !918, !range !42, !noundef !43
+  %1628 = load i8, ptr %1627, align 8, !tbaa !921, !range !42, !noundef !43
   %1629 = trunc nuw i8 %1628 to i1
   %1630 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1626, i1 noundef zeroext %1629)
   br i1 %1630, label %1631, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1631:                                             ; preds = %1625
-  store i8 1, ptr %1622, align 1, !tbaa !922
+  store i8 1, ptr %1622, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1632:                                             ; preds = %.critedge
   %1633 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1634 = load i8, ptr %1633, align 1, !tbaa !922, !range !42, !noundef !43
+  %1634 = load i8, ptr %1633, align 1, !tbaa !925, !range !42, !noundef !43
   %1635 = trunc nuw i8 %1634 to i1
   br i1 %1635, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1636
 
 1636:                                             ; preds = %1632
   %1637 = load ptr, ptr %0, align 8, !tbaa !934
   %1638 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1639 = load i8, ptr %1638, align 8, !tbaa !918, !range !42, !noundef !43
+  %1639 = load i8, ptr %1638, align 8, !tbaa !921, !range !42, !noundef !43
   %1640 = trunc nuw i8 %1639 to i1
   %1641 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1637, i1 noundef zeroext %1640)
   br i1 %1641, label %1642, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1642:                                             ; preds = %1636
-  store i8 1, ptr %1633, align 1, !tbaa !922
+  store i8 1, ptr %1633, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1643:                                             ; preds = %.critedge
   %1644 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1645 = load i8, ptr %1644, align 1, !tbaa !922, !range !42, !noundef !43
+  %1645 = load i8, ptr %1644, align 1, !tbaa !925, !range !42, !noundef !43
   %1646 = trunc nuw i8 %1645 to i1
   br i1 %1646, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1647
 
 1647:                                             ; preds = %1643
   %1648 = load ptr, ptr %0, align 8, !tbaa !934
   %1649 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1650 = load i8, ptr %1649, align 8, !tbaa !918, !range !42, !noundef !43
+  %1650 = load i8, ptr %1649, align 8, !tbaa !921, !range !42, !noundef !43
   %1651 = trunc nuw i8 %1650 to i1
   %1652 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1648, i1 noundef zeroext %1651)
   br i1 %1652, label %1653, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1653:                                             ; preds = %1647
-  store i8 1, ptr %1644, align 1, !tbaa !922
+  store i8 1, ptr %1644, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1654:                                             ; preds = %.critedge
   %1655 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1656 = load i8, ptr %1655, align 1, !tbaa !922, !range !42, !noundef !43
+  %1656 = load i8, ptr %1655, align 1, !tbaa !925, !range !42, !noundef !43
   %1657 = trunc nuw i8 %1656 to i1
   br i1 %1657, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1658
 
 1658:                                             ; preds = %1654
   %1659 = load ptr, ptr %0, align 8, !tbaa !934
   %1660 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1661 = load i8, ptr %1660, align 8, !tbaa !918, !range !42, !noundef !43
+  %1661 = load i8, ptr %1660, align 8, !tbaa !921, !range !42, !noundef !43
   %1662 = trunc nuw i8 %1661 to i1
   %1663 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1659, i1 noundef zeroext %1662)
   br i1 %1663, label %1664, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1664:                                             ; preds = %1658
-  store i8 1, ptr %1655, align 1, !tbaa !922
+  store i8 1, ptr %1655, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1665:                                             ; preds = %.critedge
   %1666 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1667 = load i8, ptr %1666, align 1, !tbaa !922, !range !42, !noundef !43
+  %1667 = load i8, ptr %1666, align 1, !tbaa !925, !range !42, !noundef !43
   %1668 = trunc nuw i8 %1667 to i1
   br i1 %1668, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1669
 
 1669:                                             ; preds = %1665
   %1670 = load ptr, ptr %0, align 8, !tbaa !934
   %1671 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1672 = load i8, ptr %1671, align 8, !tbaa !918, !range !42, !noundef !43
+  %1672 = load i8, ptr %1671, align 8, !tbaa !921, !range !42, !noundef !43
   %1673 = trunc nuw i8 %1672 to i1
   %1674 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1670, i1 noundef zeroext %1673)
   br i1 %1674, label %1675, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1675:                                             ; preds = %1669
-  store i8 1, ptr %1666, align 1, !tbaa !922
+  store i8 1, ptr %1666, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1676:                                             ; preds = %.critedge
   %1677 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1678 = load i8, ptr %1677, align 1, !tbaa !922, !range !42, !noundef !43
+  %1678 = load i8, ptr %1677, align 1, !tbaa !925, !range !42, !noundef !43
   %1679 = trunc nuw i8 %1678 to i1
   br i1 %1679, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1680
 
 1680:                                             ; preds = %1676
   %1681 = load ptr, ptr %0, align 8, !tbaa !934
   %1682 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1683 = load i8, ptr %1682, align 8, !tbaa !918, !range !42, !noundef !43
+  %1683 = load i8, ptr %1682, align 8, !tbaa !921, !range !42, !noundef !43
   %1684 = trunc nuw i8 %1683 to i1
   %1685 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1681, i1 noundef zeroext %1684)
   br i1 %1685, label %1686, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1686:                                             ; preds = %1680
-  store i8 1, ptr %1677, align 1, !tbaa !922
+  store i8 1, ptr %1677, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1687:                                             ; preds = %.critedge
   %1688 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1689 = load i8, ptr %1688, align 1, !tbaa !922, !range !42, !noundef !43
+  %1689 = load i8, ptr %1688, align 1, !tbaa !925, !range !42, !noundef !43
   %1690 = trunc nuw i8 %1689 to i1
   br i1 %1690, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1691
 
 1691:                                             ; preds = %1687
   %1692 = load ptr, ptr %0, align 8, !tbaa !934
   %1693 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1694 = load i8, ptr %1693, align 8, !tbaa !918, !range !42, !noundef !43
+  %1694 = load i8, ptr %1693, align 8, !tbaa !921, !range !42, !noundef !43
   %1695 = trunc nuw i8 %1694 to i1
   %1696 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1692, i1 noundef zeroext %1695)
   br i1 %1696, label %1697, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1697:                                             ; preds = %1691
-  store i8 1, ptr %1688, align 1, !tbaa !922
+  store i8 1, ptr %1688, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1698:                                             ; preds = %.critedge
   %1699 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1700 = load i8, ptr %1699, align 1, !tbaa !922, !range !42, !noundef !43
+  %1700 = load i8, ptr %1699, align 1, !tbaa !925, !range !42, !noundef !43
   %1701 = trunc nuw i8 %1700 to i1
   br i1 %1701, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1702
 
 1702:                                             ; preds = %1698
   %1703 = load ptr, ptr %0, align 8, !tbaa !934
   %1704 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1705 = load i8, ptr %1704, align 8, !tbaa !918, !range !42, !noundef !43
+  %1705 = load i8, ptr %1704, align 8, !tbaa !921, !range !42, !noundef !43
   %1706 = trunc nuw i8 %1705 to i1
   %1707 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1703, i1 noundef zeroext %1706)
   br i1 %1707, label %1708, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1708:                                             ; preds = %1702
-  store i8 1, ptr %1699, align 1, !tbaa !922
+  store i8 1, ptr %1699, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1709:                                             ; preds = %.critedge
   %1710 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1711 = load i8, ptr %1710, align 1, !tbaa !922, !range !42, !noundef !43
+  %1711 = load i8, ptr %1710, align 1, !tbaa !925, !range !42, !noundef !43
   %1712 = trunc nuw i8 %1711 to i1
   br i1 %1712, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1713
 
 1713:                                             ; preds = %1709
   %1714 = load ptr, ptr %0, align 8, !tbaa !934
   %1715 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1716 = load i8, ptr %1715, align 8, !tbaa !918, !range !42, !noundef !43
+  %1716 = load i8, ptr %1715, align 8, !tbaa !921, !range !42, !noundef !43
   %1717 = trunc nuw i8 %1716 to i1
   %1718 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1714, i1 noundef zeroext %1717)
   br i1 %1718, label %1719, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1719:                                             ; preds = %1713
-  store i8 1, ptr %1710, align 1, !tbaa !922
+  store i8 1, ptr %1710, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1720:                                             ; preds = %.critedge
   %1721 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1722 = load i8, ptr %1721, align 1, !tbaa !922, !range !42, !noundef !43
+  %1722 = load i8, ptr %1721, align 1, !tbaa !925, !range !42, !noundef !43
   %1723 = trunc nuw i8 %1722 to i1
   br i1 %1723, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1724
 
 1724:                                             ; preds = %1720
   %1725 = load ptr, ptr %0, align 8, !tbaa !934
   %1726 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1727 = load i8, ptr %1726, align 8, !tbaa !918, !range !42, !noundef !43
+  %1727 = load i8, ptr %1726, align 8, !tbaa !921, !range !42, !noundef !43
   %1728 = trunc nuw i8 %1727 to i1
   %1729 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1725, i1 noundef zeroext %1728)
   br i1 %1729, label %1730, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1730:                                             ; preds = %1724
-  store i8 1, ptr %1721, align 1, !tbaa !922
+  store i8 1, ptr %1721, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1731:                                             ; preds = %.critedge
   %1732 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1733 = load i8, ptr %1732, align 1, !tbaa !922, !range !42, !noundef !43
+  %1733 = load i8, ptr %1732, align 1, !tbaa !925, !range !42, !noundef !43
   %1734 = trunc nuw i8 %1733 to i1
   br i1 %1734, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1735
 
 1735:                                             ; preds = %1731
   %1736 = load ptr, ptr %0, align 8, !tbaa !934
   %1737 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1738 = load i8, ptr %1737, align 8, !tbaa !918, !range !42, !noundef !43
+  %1738 = load i8, ptr %1737, align 8, !tbaa !921, !range !42, !noundef !43
   %1739 = trunc nuw i8 %1738 to i1
   %1740 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1736, i1 noundef zeroext %1739)
   br i1 %1740, label %1741, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1741:                                             ; preds = %1735
-  store i8 1, ptr %1732, align 1, !tbaa !922
+  store i8 1, ptr %1732, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1742:                                             ; preds = %.critedge
   %1743 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1744 = load i8, ptr %1743, align 1, !tbaa !922, !range !42, !noundef !43
+  %1744 = load i8, ptr %1743, align 1, !tbaa !925, !range !42, !noundef !43
   %1745 = trunc nuw i8 %1744 to i1
   br i1 %1745, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1746
 
 1746:                                             ; preds = %1742
   %1747 = load ptr, ptr %0, align 8, !tbaa !934
   %1748 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1749 = load i8, ptr %1748, align 8, !tbaa !918, !range !42, !noundef !43
+  %1749 = load i8, ptr %1748, align 8, !tbaa !921, !range !42, !noundef !43
   %1750 = trunc nuw i8 %1749 to i1
   %1751 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1747, i1 noundef zeroext %1750)
   br i1 %1751, label %1752, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1752:                                             ; preds = %1746
-  store i8 1, ptr %1743, align 1, !tbaa !922
+  store i8 1, ptr %1743, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1753:                                             ; preds = %.critedge
   %1754 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1755 = load i8, ptr %1754, align 1, !tbaa !922, !range !42, !noundef !43
+  %1755 = load i8, ptr %1754, align 1, !tbaa !925, !range !42, !noundef !43
   %1756 = trunc nuw i8 %1755 to i1
   br i1 %1756, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1757
 
 1757:                                             ; preds = %1753
   %1758 = load ptr, ptr %0, align 8, !tbaa !934
   %1759 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1760 = load i8, ptr %1759, align 8, !tbaa !918, !range !42, !noundef !43
+  %1760 = load i8, ptr %1759, align 8, !tbaa !921, !range !42, !noundef !43
   %1761 = trunc nuw i8 %1760 to i1
   %1762 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1758, i1 noundef zeroext %1761)
   br i1 %1762, label %1763, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1763:                                             ; preds = %1757
-  store i8 1, ptr %1754, align 1, !tbaa !922
+  store i8 1, ptr %1754, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1764:                                             ; preds = %.critedge
   %1765 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1766 = load i8, ptr %1765, align 1, !tbaa !922, !range !42, !noundef !43
+  %1766 = load i8, ptr %1765, align 1, !tbaa !925, !range !42, !noundef !43
   %1767 = trunc nuw i8 %1766 to i1
   br i1 %1767, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1768
 
 1768:                                             ; preds = %1764
   %1769 = load ptr, ptr %0, align 8, !tbaa !934
   %1770 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1771 = load i8, ptr %1770, align 8, !tbaa !918, !range !42, !noundef !43
+  %1771 = load i8, ptr %1770, align 8, !tbaa !921, !range !42, !noundef !43
   %1772 = trunc nuw i8 %1771 to i1
   %1773 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1769, i1 noundef zeroext %1772)
   br i1 %1773, label %1774, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1774:                                             ; preds = %1768
-  store i8 1, ptr %1765, align 1, !tbaa !922
+  store i8 1, ptr %1765, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1775:                                             ; preds = %.critedge
   %1776 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1777 = load i8, ptr %1776, align 1, !tbaa !922, !range !42, !noundef !43
+  %1777 = load i8, ptr %1776, align 1, !tbaa !925, !range !42, !noundef !43
   %1778 = trunc nuw i8 %1777 to i1
   br i1 %1778, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %1779
 
 1779:                                             ; preds = %1775
   %1780 = load ptr, ptr %0, align 8, !tbaa !934
   %1781 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1782 = load i8, ptr %1781, align 8, !tbaa !918, !range !42, !noundef !43
+  %1782 = load i8, ptr %1781, align 8, !tbaa !921, !range !42, !noundef !43
   %1783 = trunc nuw i8 %1782 to i1
   %1784 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1780, i1 noundef zeroext %1783)
   br i1 %1784, label %1785, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1785:                                             ; preds = %1779
-  store i8 1, ptr %1776, align 1, !tbaa !922
+  store i8 1, ptr %1776, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1786:                                             ; preds = %.critedge
@@ -24911,7 +24905,7 @@ declare i32 @_ZN5clang9FPOptions29defaultWithoutTrailingStorageERKNS_11LangOptio
 define dso_local noundef zeroext i1 @_ZNK5clang4Expr17hasNonTrivialCallERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::NonTrivialCallFinder", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %1, ptr %3, align 8, !tbaa !917
+  store ptr %1, ptr %3, align 8, !tbaa !920
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %4, align 8, !tbaa !938
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %0)
@@ -35691,20 +35685,20 @@ _ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit: ; preds =
 
 _ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit.thread: ; preds = %2, %5, %_ZNK5clang8CallExpr16getBuiltinCalleeEv.exit.i, %_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %19 = load i8, ptr %18, align 1, !tbaa !922, !range !42, !noundef !43
+  %19 = load i8, ptr %18, align 1, !tbaa !925, !range !42, !noundef !43
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit, label %21
 
 21:                                               ; preds = %_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !934
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i8, ptr %23, align 8, !tbaa !918, !range !42, !noundef !43
+  %24 = load i8, ptr %23, align 8, !tbaa !921, !range !42, !noundef !43
   %25 = trunc nuw i8 %24 to i1
   %26 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(23216) %22, i1 noundef zeroext %25)
   br i1 %26, label %27, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 27:                                               ; preds = %21
-  store i8 1, ptr %18, align 1, !tbaa !922
+  store i8 1, ptr %18, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit: ; preds = %27, %21, %_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit.thread, %_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE.exit
@@ -35798,7 +35792,7 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %8, %12
   br i1 %.not9.i, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitDeclEPKN5clang4DeclE.exit, label %37
 
 37:                                               ; preds = %34
-  store i8 1, ptr %20, align 1, !tbaa !922
+  store i8 1, ptr %20, align 1, !tbaa !925
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitDeclEPKN5clang4DeclE.exit
 
 _ZN12_GLOBAL__N_116SideEffectFinder9VisitDeclEPKN5clang4DeclE.exit: ; preds = %21, %23, %31, %34, %37
@@ -37110,15 +37104,15 @@ attributes #36 = { nounwind willreturn memory(none) }
 !914 = !{!"p1 _ZTSN5clang13CXXRecordDeclE", !5, i64 0}
 !915 = !{!"_ZTSN5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSource15GetExternalDeclES2_EEEE", !6, i64 0}
 !916 = distinct !{!916, !9}
-!917 = !{!254, !254, i64 0}
-!918 = !{!919, !41, i64 8}
-!919 = !{!"_ZTSN12_GLOBAL__N_116SideEffectFinderE", !920, i64 0, !41, i64 8, !41, i64 9}
-!920 = !{!"_ZTSN5clang25ConstEvaluatedExprVisitorIN12_GLOBAL__N_116SideEffectFinderEEE", !921, i64 0}
-!921 = !{!"_ZTSN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEEE", !254, i64 0}
-!922 = !{!919, !41, i64 9}
-!923 = !{!924, !925, i64 16}
-!924 = !{!"_ZTSN5clang18CXXDefaultInitExprE", !34, i64 0, !925, i64 16, !78, i64 24}
-!925 = !{!"p1 _ZTSN5clang9FieldDeclE", !5, i64 0}
+!917 = !{!918, !919, i64 16}
+!918 = !{!"_ZTSN5clang18CXXDefaultInitExprE", !34, i64 0, !919, i64 16, !78, i64 24}
+!919 = !{!"p1 _ZTSN5clang9FieldDeclE", !5, i64 0}
+!920 = !{!254, !254, i64 0}
+!921 = !{!922, !41, i64 8}
+!922 = !{!"_ZTSN12_GLOBAL__N_116SideEffectFinderE", !923, i64 0, !41, i64 8, !41, i64 9}
+!923 = !{!"_ZTSN5clang25ConstEvaluatedExprVisitorIN12_GLOBAL__N_116SideEffectFinderEEE", !924, i64 0}
+!924 = !{!"_ZTSN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEEE", !254, i64 0}
+!925 = !{!922, !41, i64 9}
 !926 = !{!927, !807, i64 16}
 !927 = !{!"_ZTSN5clang24CXXInheritedCtorInitExprE", !34, i64 0, !807, i64 16, !21, i64 24, !22, i64 28, !22, i64 28}
 !928 = distinct !{!928, !9}
@@ -37127,7 +37121,7 @@ attributes #36 = { nounwind willreturn memory(none) }
 !931 = distinct !{!931, !"_ZNK5clang4Stmt8childrenEv"}
 !932 = !{!933, !73, i64 8}
 !933 = !{!"_ZTSN5clang16StmtIteratorBaseE", !6, i64 0, !73, i64 8, !551, i64 16}
-!934 = !{!921, !254, i64 0}
+!934 = !{!924, !254, i64 0}
 !935 = !{!936}
 !936 = distinct !{!936, !937, !"_ZN5clang4Stmt11child_beginEv: argument 0"}
 !937 = distinct !{!937, !"_ZN5clang4Stmt11child_beginEv"}

@@ -6582,8 +6582,8 @@ define internal noundef i32 @calc_channel_magnitudes(ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %10 = load i32, ptr %9, align 4, !tbaa !196
   %11 = icmp eq i32 %10, 3
-  %12 = select nsz i1 %11, double %8, double 1.000000e+00
-  %13 = fmul nsz double %8, %12
+  %12 = fmul nsz double %8, %8
+  %13 = select i1 %11, double %12, double %8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %15 = load i32, ptr %14, align 4, !tbaa !73
   %16 = icmp eq i32 %15, 0
@@ -8053,8 +8053,8 @@ define internal i32 @showspectrumpic_request_frame(ptr noundef %0) #1 {
   %90 = load double, ptr %51, align 8, !tbaa !127
   %91 = load i32, ptr %52, align 4, !tbaa !196
   %92 = icmp eq i32 %91, 3
-  %93 = select nsz i1 %92, double %90, double 1.000000e+00
-  %94 = fmul nsz double %90, %93
+  %93 = fmul nsz double %90, %90
+  %94 = select i1 %92, double %93, double %90
   %95 = load i32, ptr %18, align 4, !tbaa !73
   %96 = icmp eq i32 %95, 0
   %.in.v.i = select i1 %96, i64 12, i64 8

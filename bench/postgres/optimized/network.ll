@@ -1220,8 +1220,8 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr noundef readonly
   %39 = zext nneg i32 %38 to i64
   %40 = select i1 %37, i64 %39, i64 0
   %.056 = lshr i64 %.059, %40
-  %41 = or i64 %35, %36
-  %42 = or i64 %41, %.056
+  %41 = or i64 %.056, %36
+  %42 = or i64 %41, %35
   br label %45
 
 43:                                               ; preds = %32

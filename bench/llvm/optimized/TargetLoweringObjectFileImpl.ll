@@ -6571,8 +6571,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 .critedge.thread:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %44 = trunc i32 %38 to i8
   %.pre = load ptr, ptr %7, align 8, !tbaa !394
+  %44 = trunc i32 %38 to i8
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %_ZN4llvmeqENS_9StringRefES0_.exit70, %.critedge.thread

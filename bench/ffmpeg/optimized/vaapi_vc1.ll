@@ -826,17 +826,17 @@ switch.lookup442:                                 ; preds = %465
   %492 = zext nneg i32 %switch.tableidx to i64
   %switch.gep443 = getelementptr inbounds nuw i16, ptr @switch.table.vaapi_vc1_start_frame.5, i64 %492
   %switch.load444 = load i16, ptr %switch.gep443, align 2
+  %493 = or disjoint i16 %489, %switch.load444
   br label %vc1_get_TTFRM.exit
 
 vc1_get_TTFRM.exit:                               ; preds = %465, %switch.lookup442
-  %.0.i298 = phi i16 [ %switch.load444, %switch.lookup442 ], [ 0, %465 ]
-  %493 = or disjoint i16 %489, %.0.i298
+  %.0.i298 = phi i16 [ %493, %switch.lookup442 ], [ %489, %465 ]
   %494 = getelementptr inbounds nuw i8, ptr %7, i64 6840
   %495 = load i32, ptr %494, align 8, !tbaa !139
   %496 = trunc i32 %495 to i16
   %497 = shl i16 %496, 4
   %498 = and i16 %497, 48
-  %499 = or disjoint i16 %493, %498
+  %499 = or disjoint i16 %.0.i298, %498
   %500 = getelementptr inbounds nuw i8, ptr %7, i64 6844
   %501 = load i32, ptr %500, align 4, !tbaa !140
   %502 = trunc i32 %501 to i16

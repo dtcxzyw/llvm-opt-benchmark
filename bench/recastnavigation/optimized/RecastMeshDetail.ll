@@ -6345,17 +6345,21 @@ _ZL6onHulliiiPi.exit40:                           ; preds = %_ZL6onHulliiiPi.exi
   %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i49
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %18, %65
-  br i1 %66, label %_ZL6onHulliiiPi.exit53, label %67
+  br i1 %66, label %_ZL6onHulliiiPi.exit53.loopexit, label %67
 
 67:                                               ; preds = %63, %.lr.ph.i48
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %68 = trunc nuw nsw i64 %indvars.iv.i49 to i32
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i
-  br i1 %exitcond.not.i52, label %_ZL6onHulliiiPi.exit53, label %.lr.ph.i48, !llvm.loop !59
+  br i1 %exitcond.not.i52, label %_ZL6onHulliiiPi.exit53.loopexit, label %.lr.ph.i48, !llvm.loop !59
 
-_ZL6onHulliiiPi.exit53:                           ; preds = %67, %63, %_ZL6onHulliiiPi.exit40
-  %69 = phi i32 [ 0, %_ZL6onHulliiiPi.exit40 ], [ 0, %67 ], [ 16, %63 ]
-  %70 = or disjoint i32 %58, %69
+_ZL6onHulliiiPi.exit53.loopexit:                  ; preds = %63, %67
+  %.ph = phi i32 [ 16, %63 ], [ 0, %67 ]
+  %69 = or disjoint i32 %58, %.ph
+  br label %_ZL6onHulliiiPi.exit53
+
+_ZL6onHulliiiPi.exit53:                           ; preds = %_ZL6onHulliiiPi.exit53.loopexit, %_ZL6onHulliiiPi.exit40
+  %70 = phi i32 [ %58, %_ZL6onHulliiiPi.exit40 ], [ %69, %_ZL6onHulliiiPi.exit53.loopexit ]
   %71 = or disjoint i64 %indvars.iv, 3
   %72 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %73 = icmp eq ptr %72, null

@@ -1257,24 +1257,24 @@ if.end:                                           ; preds = %entry
   %bf.load7 = load i8, ptr %flags_, align 8
   %5 = and i8 %bf.load7, 8
   %tobool10.not = icmp eq i8 %5, 0
-  br i1 %tobool10.not, label %if.end16, label %if.end16.thread
+  br i1 %tobool10.not, label %land.lhs.true, label %if.end16
 
-if.end16:                                         ; preds = %if.end
+land.lhs.true:                                    ; preds = %if.end
   %NumEntries.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %6 = load i32, ptr %NumEntries.i.i.i, align 8
   %cmp12.not = icmp ne i32 %6, 0
   %sawNamedBackrefBeforeGroup_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %7 = load i8, ptr %sawNamedBackrefBeforeGroup_, align 8
   %tobool14 = trunc i8 %7 to i1
-  %or.cond5 = select i1 %cmp12.not, i1 %tobool14, i1 false
-  %or.cond = or i1 %4, %or.cond5
-  br i1 %or.cond, label %if.end26, label %return
+  %or.cond = select i1 %cmp12.not, i1 %tobool14, i1 false
+  %spec.select5 = select i1 %or.cond, i1 true, i1 %4
+  br i1 %spec.select5, label %if.end26, label %return
 
-if.end16.thread:                                  ; preds = %if.end
-  %spec.select13 = select i1 %4, i32 3, i32 %call
+if.end16:                                         ; preds = %if.end
+  %spec.select10 = select i1 %4, i32 3, i32 %call
   br label %return
 
-if.end26:                                         ; preds = %if.end16
+if.end26:                                         ; preds = %land.lhs.true
   store i32 0, ptr %reparsedMaxBackRef, align 4
   store i32 0, ptr %loopCount_, align 4
   store i16 0, ptr %markedCount_, align 2
@@ -1285,8 +1285,8 @@ if.end26:                                         ; preds = %if.end16
   %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 292
   %8 = load i32, ptr %NumTombstones.i.i.i, align 4
   %cmp3.i = icmp eq i32 %8, 0
-  %or.cond14 = select i1 %cmp.i, i1 %cmp3.i, i1 false
-  br i1 %or.cond14, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit, label %if.end.i
+  %or.cond11 = select i1 %cmp.i, i1 %cmp3.i, i1 false
+  br i1 %or.cond11, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end26
   %mul.i = shl i32 %6, 2
@@ -1377,12 +1377,12 @@ _ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE5clearEv.exit: ; preds = %for.bo
   store ptr %12, ptr %_M_first3.i.i.i.i, align 8
   store ptr %13, ptr %_M_last4.i.i.i.i, align 8
   store ptr %14, ptr %_M_node5.i.i.i.i, align 8
-  %tobool32 = or i1 %tobool, %or.cond5
+  %tobool32 = or i1 %tobool, %or.cond
   %call33 = call noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE21parseWithBackRefLimitIPKDsEENS0_9constants9ErrorTypeET_S9_jbPj(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %first, ptr noundef %last, i32 noundef %conv, i1 noundef zeroext %tobool32, ptr noundef nonnull %reparsedMaxBackRef)
   br label %return
 
-return:                                           ; preds = %if.end16.thread, %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE5clearEv.exit, %if.end16, %entry
-  %retval.0 = phi i32 [ %spec.select13, %if.end16.thread ], [ 10, %entry ], [ %call33, %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE5clearEv.exit ], [ %call, %if.end16 ]
+return:                                           ; preds = %if.end16, %land.lhs.true, %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE5clearEv.exit, %entry
+  %retval.0 = phi i32 [ %call, %land.lhs.true ], [ 10, %entry ], [ %call33, %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE5clearEv.exit ], [ %spec.select10, %if.end16 ]
   ret i32 %retval.0
 }
 

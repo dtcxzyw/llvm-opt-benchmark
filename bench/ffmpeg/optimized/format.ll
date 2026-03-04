@@ -719,7 +719,7 @@ infer_prim_ref.exit23.thread:                     ; preds = %infer_prim_ref.exit
 
 infer_trc_ref.exit:                               ; preds = %23, %30, %32
   %38 = phi i32 [ %25, %23 ], [ %28, %32 ], [ 1, %30 ]
-  %.0.i25 = phi i32 [ 0, %23 ], [ 1, %32 ], [ 1, %30 ]
+  %.0.i25 = phi i32 [ %.0.i2031, %23 ], [ 1, %32 ], [ 1, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !40
   %.not.i26 = icmp eq i32 %40, 2
@@ -752,7 +752,7 @@ infer_trc_ref.exit28:                             ; preds = %41
   br label %infer_trc_ref.exit28.thread
 
 infer_trc_ref.exit28.thread:                      ; preds = %infer_trc_ref.exit28, %43, %infer_trc_ref.exit
-  %.0.i2735 = phi i32 [ 1, %infer_trc_ref.exit28 ], [ 1, %43 ], [ 0, %infer_trc_ref.exit ]
+  %.0.i2735 = phi i32 [ 1, %infer_trc_ref.exit28 ], [ 1, %43 ], [ %.0.i25, %infer_trc_ref.exit ]
   %50 = load i32, ptr %24, align 4, !tbaa !40
   %.not18 = icmp eq i32 %50, 2
   br i1 %.not18, label %51, label %52
@@ -763,10 +763,8 @@ infer_trc_ref.exit28.thread:                      ; preds = %infer_trc_ref.exit2
   unreachable
 
 52:                                               ; preds = %infer_trc_ref.exit28.thread
-  %53 = or i32 %.0.i2031, %.0.i25
-  %54 = or i32 %53, %.0.i2735
-  %55 = icmp ne i32 %54, 0
-  ret i1 %55
+  %53 = icmp ne i32 %.0.i2735, 0
+  ret i1 %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

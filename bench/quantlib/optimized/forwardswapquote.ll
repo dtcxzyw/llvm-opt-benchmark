@@ -3060,12 +3060,12 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %cond.false, %cond
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %18 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %19 = and i1 %swapIndexIsValid.0, %call7
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit
-  %cond = phi i1 [ %call7, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ], [ true, %_ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit ]
-  %19 = and i1 %swapIndexIsValid.0, %cond
-  ret i1 %19
+  %cond = phi i1 [ %19, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ], [ %swapIndexIsValid.0, %_ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit ]
+  ret i1 %cond
 }
 
 declare void @__cxa_end_catch() local_unnamed_addr

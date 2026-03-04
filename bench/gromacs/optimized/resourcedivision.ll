@@ -1244,11 +1244,11 @@ define void @_Z34check_resource_division_efficiencyPK13gmx_hw_info_tbP9t_commrec
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %14, align 8, !tbaa !280
   %28 = icmp sgt i32 %.pre, 1
-  %or.cond.not51 = and i1 %27, %28
+  %.not51 = and i1 %27, %28
   %29 = add i32 %24, -9
   %or.cond3 = icmp ult i32 %29, -8
-  %or.cond49 = select i1 %or.cond.not51, i1 %or.cond3, i1 false
-  br i1 %or.cond49, label %30, label %.thread
+  %or.cond = select i1 %.not51, i1 %or.cond3, i1 false
+  br i1 %or.cond, label %30, label %.thread
 
 30:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

@@ -3066,22 +3066,24 @@ proto_item_set_generated.exit:                    ; preds = %529, %530, %533
   %552 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.179.i)
   %553 = and i32 %552, 65535
   %.not86.i = icmp eq i32 %553, 0
-  br i1 %.not86.i, label %._crit_edge, label %226, !llvm.loop !11
+  br i1 %.not86.i, label %._crit_edge.loopexit, label %226, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %551, %200
-  %.080.i.lcssa = phi i32 [ 0, %200 ], [ %.181.i, %551 ]
-  %.078.i.lcssa = phi i32 [ 12, %200 ], [ %.179.i, %551 ]
-  %.076.i.lcssa = phi i1 [ false, %200 ], [ %.177.i, %551 ]
-  %.0.i120.lcssa = phi ptr [ %.1, %200 ], [ %.1.i, %551 ]
-  %or.cond3.not.i = or i1 %.not115, %.076.i.lcssa
-  br i1 %or.cond3.not.i, label %dissect_sctp_chunks.exit, label %554
+._crit_edge.loopexit:                             ; preds = %551
+  %554 = or i1 %.not115, %.177.i
+  br i1 %554, label %dissect_sctp_chunks.exit, label %555
 
-554:                                              ; preds = %._crit_edge
-  %555 = sub i32 %.078.i.lcssa, %.080.i.lcssa
-  call void @proto_item_set_len(ptr noundef %.0.i120.lcssa, i32 noundef %555)
+._crit_edge:                                      ; preds = %200
+  br i1 %.not115, label %dissect_sctp_chunks.exit, label %555
+
+555:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
+  %.0.i120.lcssa176 = phi ptr [ %.1.i, %._crit_edge.loopexit ], [ %.1, %._crit_edge ]
+  %.078.i.lcssa175 = phi i32 [ %.179.i, %._crit_edge.loopexit ], [ 12, %._crit_edge ]
+  %.080.i.lcssa174 = phi i32 [ %.181.i, %._crit_edge.loopexit ], [ 0, %._crit_edge ]
+  %556 = sub i32 %.078.i.lcssa175, %.080.i.lcssa174
+  call void @proto_item_set_len(ptr noundef %.0.i120.lcssa176, i32 noundef %556)
   br label %dissect_sctp_chunks.exit
 
-dissect_sctp_chunks.exit:                         ; preds = %._crit_edge, %554
+dissect_sctp_chunks.exit:                         ; preds = %._crit_edge.loopexit, %._crit_edge, %555
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

@@ -35913,13 +35913,13 @@ _ZN11ide_assists5utils10has_any_fn17h8c221ef0dd9fc3e7E.exit.thread37: ; preds = 
   %.val6.i.i.i.i.i = load i8, ptr %190, align 1, !noalias !10913, !noundef !4
   %191 = add i8 %.val.i.i.i.i.i, -65
   %192 = icmp ult i8 %191, 26
-  %.0.i.i.i.i.i.i.i.i = select i1 %192, i8 32, i8 0
-  %193 = add i8 %.val6.i.i.i.i.i, -65
-  %194 = icmp ult i8 %193, 26
-  %.02.i.i.i.i.i.i.i.i = select i1 %194, i8 32, i8 0
-  %195 = or i8 %.0.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i
-  %196 = or i8 %.02.i.i.i.i.i.i.i.i, %.val6.i.i.i.i.i
-  %.not.i.i5.i.i.i = icmp eq i8 %195, %196
+  %193 = select i1 %192, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i.i = or i8 %193, %.val.i.i.i.i.i
+  %194 = add i8 %.val6.i.i.i.i.i, -65
+  %195 = icmp ult i8 %194, 26
+  %196 = select i1 %195, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i.i = or i8 %196, %.val6.i.i.i.i.i
+  %.not.i.i5.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i.i
   br i1 %.not.i.i5.i.i.i, label %185, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i.i.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i.i.i": ; preds = %187, %185, %173

@@ -2418,9 +2418,9 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %117 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !635, !noalias !638, !noundef !16
   %118 = add i8 %117, -65
   %119 = icmp ult i8 %118, 26
-  %.0.i.i = select i1 %119, i8 32, i8 0
-  %120 = or i8 %.0.i.i, %117
-  store i8 %120, ptr %.sroa.0.06.i.i, align 1, !alias.scope !635, !noalias !638
+  %120 = select i1 %119, i8 32, i8 0
+  %.0.i.i = or i8 %120, %117
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !635, !noalias !638
   %121 = icmp eq ptr %116, %115
   br i1 %121, label %122, label %.lr.ph.i.i
 

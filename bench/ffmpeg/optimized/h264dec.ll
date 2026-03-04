@@ -265,10 +265,10 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %8 = mul nsw i32 %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 730736
   %10 = load i32, ptr %9, align 8, !tbaa !91
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %11 = add nsw i32 %8, %4
-  %12 = shl i32 %4, 4
-  %13 = mul i32 %12, %spec.select
+  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
+  %12 = add nsw i32 %8, %4
+  %spec.select = shl i32 %4, 4
+  %13 = mul i32 %spec.select, %11
   %14 = sext i32 %13 to i64
   %15 = tail call noalias ptr @av_calloc(i64 noundef %14, i64 noundef 1) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 730864
@@ -285,7 +285,7 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   br i1 %.not137, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = sext i32 %11 to i64
+  %22 = sext i32 %12 to i64
   %23 = tail call noalias ptr @av_calloc(i64 noundef %22, i64 noundef 2) #11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 734800
   store ptr %23, ptr %24, align 8, !tbaa !99

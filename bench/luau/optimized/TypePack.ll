@@ -2461,7 +2461,7 @@ _ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEE
   %137 = icmp eq i32 %113, 5
   %138 = icmp eq i32 %115, 5
   %or.cond14.not.not = and i1 %137, %138
-  br i1 %or.cond14.not.not, label %139, label %145
+  br i1 %or.cond14.not.not, label %139, label %.critedge.thread
 
 139:                                              ; preds = %_ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS2_5ErrorIS6_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackES1_NS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit114
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.0160.0.lcssa, i64 8
@@ -2469,19 +2469,14 @@ _ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEE
   %142 = load ptr, ptr %141, align 8, !tbaa !90
   %143 = load ptr, ptr %140, align 8, !tbaa !90
   %144 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(400) %142, ptr noundef nonnull align 8 dereferenceable(400) %143)
-  br label %145
-
-145:                                              ; preds = %_ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS2_5ErrorIS6_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackES1_NS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit114, %139
-  %.5 = phi i1 [ %144, %139 ], [ undef, %_ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS2_5ErrorIS6_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackES1_NS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit114 ]
-  %spec.select = and i1 %or.cond14.not.not, %.5
   br label %.critedge.thread
 
 .critedge.thread.loopexit320.split.loop.exit339:  ; preds = %112
   %.not.i83.not.mux.le = select i1 %.not.i.not, i1 %.not.i83.not, i1 false
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit320.split.loop.exit339, %.critedge, %.lr.ph273, %54, %131, %117, %145
-  %.0 = phi i1 [ %136, %131 ], [ %122, %117 ], [ false, %.lr.ph273 ], [ %spec.select, %145 ], [ false, %54 ], [ %.not.i83.not.mux.le, %.critedge.thread.loopexit320.split.loop.exit339 ], [ false, %.critedge ]
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit320.split.loop.exit339, %.critedge, %.lr.ph273, %54, %139, %_ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS2_5ErrorIS6_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackES1_NS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit114, %131, %117
+  %.0 = phi i1 [ %136, %131 ], [ %144, %139 ], [ false, %_ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS2_5ErrorIS6_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackES1_NS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit114 ], [ %122, %117 ], [ false, %.lr.ph273 ], [ false, %54 ], [ %.not.i83.not.mux.le, %.critedge.thread.loopexit320.split.loop.exit339 ], [ false, %.critedge ]
   ret i1 %.0
 }
 

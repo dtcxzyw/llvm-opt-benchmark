@@ -318,9 +318,9 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
   %96 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !47, !noalias !50, !noundef !5
   %97 = add i8 %96, -65
   %98 = icmp ult i8 %97, 26
-  %.0.i.i.i = select i1 %98, i8 32, i8 0
-  %99 = or i8 %.0.i.i.i, %96
-  store i8 %99, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !47, !noalias !50
+  %99 = select i1 %98, i8 32, i8 0
+  %.0.i.i.i = or i8 %99, %96
+  store i8 %.0.i.i.i, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !47, !noalias !50
   %100 = icmp eq ptr %95, %93
   br i1 %100, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i", label %.lr.ph.i.i.i
 
@@ -368,9 +368,9 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %112 = load i8, ptr %.sroa.0.06.i.i.i141, align 1, !alias.scope !64, !noalias !67, !noundef !5
   %113 = add i8 %112, -65
   %114 = icmp ult i8 %113, 26
-  %.0.i.i.i142 = select i1 %114, i8 32, i8 0
-  %115 = or i8 %.0.i.i.i142, %112
-  store i8 %115, ptr %.sroa.0.06.i.i.i141, align 1, !alias.scope !64, !noalias !67
+  %115 = select i1 %114, i8 32, i8 0
+  %.0.i.i.i142 = or i8 %115, %112
+  store i8 %.0.i.i.i142, ptr %.sroa.0.06.i.i.i141, align 1, !alias.scope !64, !noalias !67
   %116 = icmp eq ptr %111, %109
   br i1 %116, label %.loopexit325, label %.lr.ph.i.i.i140
 

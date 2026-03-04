@@ -150,7 +150,7 @@ define dso_local nonnull ptr @get_sigframe(ptr noundef readonly captures(none) %
   br label %69
 
 69:                                               ; preds = %63, %56, %54, %.thread, %49
-  %70 = phi i1 [ true, %.thread ], [ false, %49 ], [ false, %56 ], [ false, %54 ], [ %66, %63 ]
+  %70 = phi i1 [ true, %.thread ], [ %29, %49 ], [ false, %56 ], [ %29, %54 ], [ %66, %63 ]
   %71 = phi i64 [ %53, %.thread ], [ %32, %49 ], [ %32, %56 ], [ %32, %54 ], [ %68, %63 ]
   %72 = call i64 @fpu__alloc_mathframe(i64 noundef %71, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %73 = inttoptr i64 %72 to ptr
@@ -161,54 +161,53 @@ define dso_local nonnull ptr @get_sigframe(ptr noundef readonly captures(none) %
   %77 = select i1 %30, i64 -8, i64 -4
   %78 = and i64 %76, -16
   %79 = add i64 %78, %77
-  %80 = or i1 %29, %70
-  br i1 %80, label %81, label %101
+  br i1 %70, label %80, label %100
 
-81:                                               ; preds = %69
-  %82 = getelementptr inbounds nuw i8, ptr %15, i64 1944
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp ult i64 %83, %79
-  br i1 %84, label %85, label %90
+80:                                               ; preds = %69
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 1944
+  %82 = load i64, ptr %81, align 8
+  %83 = icmp ult i64 %82, %79
+  br i1 %83, label %84, label %89
 
-85:                                               ; preds = %81
-  %86 = sub nuw i64 %79, %83
-  %87 = getelementptr inbounds nuw i8, ptr %15, i64 1952
-  %88 = load i64, ptr %87, align 32
-  %89 = icmp ugt i64 %86, %88
-  br i1 %89, label %90, label %101, !prof !7
+84:                                               ; preds = %80
+  %85 = sub nuw i64 %79, %82
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 1952
+  %87 = load i64, ptr %86, align 32
+  %88 = icmp ugt i64 %85, %87
+  br i1 %88, label %89, label %100, !prof !7
 
-90:                                               ; preds = %85, %81
-  %91 = load i32, ptr @show_unhandled_signals, align 4
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %108, label %93
+89:                                               ; preds = %84, %80
+  %90 = load i32, ptr @show_unhandled_signals, align 4
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %107, label %92
 
-93:                                               ; preds = %90
-  %94 = call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.get_sigframe) #11
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %108, label %96
+92:                                               ; preds = %89
+  %93 = call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.get_sigframe) #11
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %107, label %95
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %15, i64 1800
-  %98 = getelementptr inbounds nuw i8, ptr %15, i64 1320
-  %99 = load i32, ptr %98, align 8
-  %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %97, i32 noundef %99) #12
-  br label %108
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %15, i64 1800
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 1320
+  %98 = load i32, ptr %97, align 8
+  %99 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %96, i32 noundef %98) #12
+  br label %107
 
-101:                                              ; preds = %85, %69
-  %102 = load i64, ptr %6, align 8
-  %103 = inttoptr i64 %102 to ptr
-  %104 = load i64, ptr %5, align 8
-  %105 = trunc i64 %104 to i32
-  %106 = call zeroext i1 @copy_fpstate_to_sigframe(ptr noundef %73, ptr noundef %103, i32 noundef %105) #11
-  %107 = inttoptr i64 %79 to ptr
-  %spec.select = select i1 %106, ptr %107, ptr inttoptr (i64 -1 to ptr)
-  br label %108
+100:                                              ; preds = %84, %69
+  %101 = load i64, ptr %6, align 8
+  %102 = inttoptr i64 %101 to ptr
+  %103 = load i64, ptr %5, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = call zeroext i1 @copy_fpstate_to_sigframe(ptr noundef %73, ptr noundef %102, i32 noundef %104) #11
+  %106 = inttoptr i64 %79 to ptr
+  %spec.select = select i1 %105, ptr %106, ptr inttoptr (i64 -1 to ptr)
+  br label %107
 
-108:                                              ; preds = %101, %96, %93, %90
-  %109 = phi ptr [ %spec.select, %101 ], [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %93 ], [ inttoptr (i64 -1 to ptr), %90 ]
+107:                                              ; preds = %100, %95, %92, %89
+  %108 = phi ptr [ %spec.select, %100 ], [ inttoptr (i64 -1 to ptr), %95 ], [ inttoptr (i64 -1 to ptr), %92 ], [ inttoptr (i64 -1 to ptr), %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %109
+  ret ptr %108
 }
 
 ; Function Attrs: null_pointer_is_valid

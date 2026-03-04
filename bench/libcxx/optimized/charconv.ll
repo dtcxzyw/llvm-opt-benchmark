@@ -3531,7 +3531,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_co
   %sh.diff = lshr i64 %.fca.0.extract, 9
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %56 = and i32 %tr.sh.diff, 2139095040
-  %57 = or disjoint i32 %55, %56
+  %57 = or disjoint i32 %56, %55
   %58 = icmp ne i32 %56, 0
   br label %59
 
@@ -5591,7 +5591,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_co
   %.029 = phi i32 [ %.0.i, %43 ], [ %.0.i36, %.thread ]
   %.0 = phi i64 [ %.0.lcssa.i, %43 ], [ %.fca.0.extract, %.thread ]
   %.not = icmp eq i64 %.lcssa.i, 0
-  br i1 %.not, label %65, label %56
+  br i1 %.not, label %67, label %56
 
 56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5609,20 +5609,20 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_co
   %62 = zext i32 %.sroa.5.0.copyload to i64
   %63 = shl i64 %62, 52
   %64 = and i64 %63, 9218868437227405312
-  br label %65
+  %65 = or disjoint i64 %64, %61
+  %66 = icmp ne i64 %64, 0
+  br label %67
 
-65:                                               ; preds = %56, %55
+67:                                               ; preds = %56, %55
   %.sroa.55.0 = phi i32 [ %spec.select, %56 ], [ 0, %55 ]
-  %.sroa.03.0 = phi i64 [ %61, %56 ], [ 0, %55 ]
-  %.sroa.5.0 = phi i64 [ %64, %56 ], [ 0, %55 ]
-  %66 = or disjoint i64 %.sroa.5.0, %.sroa.03.0
-  %67 = icmp ne i32 %.sroa.55.0, 34
-  %68 = icmp ne i64 %.sroa.5.0, 0
-  %or.cond.not9.i = or i1 %67, %68
-  %69 = icmp eq i64 %66, 0
+  %.sroa.03.0 = phi i64 [ %65, %56 ], [ 0, %55 ]
+  %.sroa.5.0 = phi i1 [ %66, %56 ], [ false, %55 ]
+  %68 = icmp ne i32 %.sroa.55.0, 34
+  %or.cond.not9.i = or i1 %68, %.sroa.5.0
+  %69 = icmp eq i64 %.sroa.03.0, 0
   %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %69
   %spec.store.select.i = select i1 %or.cond7.i, i32 %.sroa.55.0, i32 0
-  %70 = bitcast i64 %66 to double
+  %70 = bitcast i64 %.sroa.03.0 to double
   %71 = fneg double %70
   %storemerge.i = select i1 %5, double %71, double %70
   store double %storemerge.i, ptr %0, align 8, !tbaa !102
@@ -5632,7 +5632,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_co
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !61
   br label %72
 
-72:                                               ; preds = %53, %65, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
+72:                                               ; preds = %53, %67, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
   ret void
 }
 

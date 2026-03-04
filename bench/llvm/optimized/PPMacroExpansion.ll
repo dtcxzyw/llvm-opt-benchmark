@@ -2568,11 +2568,11 @@ _ZN4llvm11SmallVectorIPN5clang11ModuleMacroELj16EED2Ev.exit: ; preds = %._crit_e
   %342 = icmp ne i32 %341, 0
   %343 = icmp ne i32 %341, 3
   %344 = and i1 %342, %343
+  %345 = and i1 %.263181, %344
   br label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit123
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit123: ; preds = %339, %337, %331
-  %345 = phi i1 [ true, %331 ], [ %344, %339 ], [ false, %337 ]
-  %346 = and i1 %.263181, %345
+  %346 = phi i1 [ %.263181, %331 ], [ %345, %339 ], [ false, %337 ]
   %347 = getelementptr inbounds nuw i8, ptr %.059183, i64 8
   %.not71 = icmp eq ptr %347, %.0.i117
   br i1 %.not71, label %._crit_edge185, label %325

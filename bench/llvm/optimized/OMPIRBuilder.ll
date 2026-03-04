@@ -68282,10 +68282,10 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %_ZL26emitTargetOutl
   store i32 2, ptr %78, align 4, !tbaa !27
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !26
-  %.not.i.i13 = icmp ne i32 %80, 0
-  %81 = icmp ne ptr %36, %14
-  %or.cond.i.not = and i1 %81, %.not.i.i13
-  br i1 %or.cond.i.not, label %82, label %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit
+  %.not.i.i13 = icmp eq i32 %80, 0
+  %81 = icmp eq ptr %36, %14
+  %or.cond.i = or i1 %81, %.not.i.i13
+  br i1 %or.cond.i, label %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit, label %82
 
 82:                                               ; preds = %73
   %83 = icmp ugt i32 %80, 2
@@ -68316,6 +68316,7 @@ _ZSt4copyIPKN4llvm15OpenMPIRBuilder10DependDataEPS2_ET0_T_S7_S6_.exit31.i.thread
   br label %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit
 
 _ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit: ; preds = %73, %.sink.split.i.i
+  %89 = phi i1 [ %15, %73 ], [ true, %.sink.split.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -68327,17 +68328,16 @@ _ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   store ptr %74, ptr %17, align 8, !tbaa !620
   store ptr %75, ptr %18, align 8, !tbaa !700
-  %89 = zext i1 %15 to i8
-  store i8 %89, ptr %19, align 1, !tbaa !51
+  %90 = zext i1 %15 to i8
+  store i8 %90, ptr %19, align 1, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %43, ptr %20, align 8, !tbaa !874
-  %90 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %17, ptr %90, align 8, !tbaa !2165
-  %91 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %10, ptr %91, align 8, !tbaa !2156
+  %91 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %17, ptr %91, align 8, !tbaa !2165
+  %92 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %10, ptr %92, align 8, !tbaa !2156
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %92 = or i1 %15, %or.cond.i.not
-  %93 = zext i1 %92 to i8
+  %93 = zext i1 %89 to i8
   store i8 %93, ptr %21, align 1, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 8, !tbaa !224

@@ -18768,6 +18768,7 @@ _ZNK16AstIfaceRefDType9ifaceNameB5cxx11Ev.exit:   ; preds = %._crit_edge.i.i.i, 
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %30, ptr %34, align 8, !tbaa !29, !alias.scope !586
+  store ptr %27, ptr %24, align 8, !tbaa !23
   store i64 0, ptr %33, align 8, !tbaa !29
   store i8 0, ptr %27, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -20252,6 +20253,7 @@ _ZNK16AstPackageExport7pkgNameB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %30, ptr %34, align 8, !tbaa !29, !alias.scope !657
+  store ptr %27, ptr %24, align 8, !tbaa !23
   store i64 0, ptr %33, align 8, !tbaa !29
   store i8 0, ptr %27, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -20534,6 +20536,7 @@ _ZNK16AstPackageImport7pkgNameB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %30, ptr %34, align 8, !tbaa !29, !alias.scope !666
+  store ptr %27, ptr %24, align 8, !tbaa !23
   store i64 0, ptr %33, align 8, !tbaa !29
   store i8 0, ptr %27, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

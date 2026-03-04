@@ -2396,12 +2396,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_112USRGenerator9VisitTypeEN5clang8Q
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %26, align 8, !tbaa !8
+  %27 = or i64 %.sroa.0.0.copyload.i.i.i, %18
   br label %_ZNK5clang8QualType13getQualifiersEv.exit
 
 _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %12, %23
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %23 ], [ 0, %12 ]
-  %27 = or i64 %18, %.sroa.0.0.i.i
-  %28 = or i64 %27, %.0.copyload.i.i.i.i.i.i
+  %.sroa.0.0.i.i = phi i64 [ %27, %23 ], [ %18, %12 ]
+  %28 = or i64 %.sroa.0.0.i.i, %.0.copyload.i.i.i.i.i.i
   %29 = trunc i64 %28 to i32
   %spec.select = and i32 %29, 1
   %30 = lshr i32 %29, 1

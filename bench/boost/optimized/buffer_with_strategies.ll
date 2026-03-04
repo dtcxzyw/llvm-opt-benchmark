@@ -168794,54 +168794,54 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail6buffer1
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %9 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.011.i, ptr noundef nonnull align 4 dereferenceable(5) %1)
-  br i1 %9, label %.lr.ph73, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit
+  br i1 %9, label %.lr.ph61, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit
 
-10:                                               ; preds = %.lr.ph73
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.us.us.pn, i64 16
+10:                                               ; preds = %.lr.ph61
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.036.us.us.pn, i64 16
   %12 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.0.us.us, ptr noundef nonnull align 4 dereferenceable(5) %1)
-  br i1 %12, label %.lr.ph73, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, !llvm.loop !3148
+  br i1 %12, label %.lr.ph61, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, !llvm.loop !3148
 
-.lr.ph73:                                         ; preds = %.lr.ph.split.us.split.us, %10
-  %.sroa.0.034.us.us.pn = phi ptr [ %11, %10 ], [ %4, %.lr.ph.split.us.split.us ]
-  %.sroa.025.035.us.us72 = phi ptr [ %.sroa.025.0.us.us, %10 ], [ %.sroa.06.011.i, %.lr.ph.split.us.split.us ]
-  %.sroa.025.0.us.us = getelementptr inbounds nuw i8, ptr %.sroa.025.035.us.us72, i64 16
+.lr.ph61:                                         ; preds = %.lr.ph.split.us.split.us, %10
+  %.sroa.0.036.us.us.pn = phi ptr [ %11, %10 ], [ %4, %.lr.ph.split.us.split.us ]
+  %.sroa.025.037.us.us60 = phi ptr [ %.sroa.025.0.us.us, %10 ], [ %.sroa.06.011.i, %.lr.ph.split.us.split.us ]
+  %.sroa.025.0.us.us = getelementptr inbounds nuw i8, ptr %.sroa.025.037.us.us60, i64 16
   %.not.us.us = icmp eq ptr %.sroa.025.0.us.us, %5
   br i1 %.not.us.us, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %10, !llvm.loop !3148
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %16
-  %.sroa.025.035.us = phi ptr [ %.sroa.025.0.us, %16 ], [ %.sroa.06.011.i, %.lr.ph ]
-  %.sroa.0.034.us = phi ptr [ %17, %16 ], [ %4, %.lr.ph ]
-  %13 = load double, ptr %.sroa.0.034.us, align 8, !tbaa !2338
+  %.sroa.025.037.us = phi ptr [ %.sroa.025.0.us, %16 ], [ %.sroa.06.011.i, %.lr.ph ]
+  %.sroa.0.036.us = phi ptr [ %17, %16 ], [ %4, %.lr.ph ]
+  %13 = load double, ptr %.sroa.0.036.us, align 8, !tbaa !2338
   %14 = load double, ptr %3, align 8
   %15 = fcmp ogt double %14, %13
   br i1 %15, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %18
 
 16:                                               ; preds = %18
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.us, i64 16
-  %.sroa.025.0.us = getelementptr inbounds nuw i8, ptr %.sroa.025.035.us, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.036.us, i64 16
+  %.sroa.025.0.us = getelementptr inbounds nuw i8, ptr %.sroa.025.037.us, i64 16
   %.not.us = icmp eq ptr %.sroa.025.0.us, %5
   br i1 %.not.us, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %.lr.ph.split.us.split, !llvm.loop !3148
 
 18:                                               ; preds = %.lr.ph.split.us.split
-  %19 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.034.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.035.us, ptr noundef nonnull align 4 dereferenceable(5) %1)
+  %19 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.036.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.037.us, ptr noundef nonnull align 4 dereferenceable(5) %1)
   br i1 %19, label %16, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %23
-  %.sroa.025.035.us53 = phi ptr [ %.sroa.025.0.us55, %23 ], [ %.sroa.06.011.i, %.lr.ph ]
-  %.sroa.0.034.us54 = phi ptr [ %24, %23 ], [ %4, %.lr.ph ]
-  %20 = load double, ptr %.sroa.0.034.us54, align 8, !tbaa !2338
+  %.sroa.025.037.us48 = phi ptr [ %.sroa.025.0.us50, %23 ], [ %.sroa.06.011.i, %.lr.ph ]
+  %.sroa.0.036.us49 = phi ptr [ %24, %23 ], [ %4, %.lr.ph ]
+  %20 = load double, ptr %.sroa.0.036.us49, align 8, !tbaa !2338
   %21 = load double, ptr %3, align 8
   %22 = fcmp olt double %21, %20
   br i1 %22, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %25
 
 23:                                               ; preds = %25
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.us54, i64 16
-  %.sroa.025.0.us55 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.us53, i64 16
-  %.not.us56 = icmp eq ptr %.sroa.025.0.us55, %5
-  br i1 %.not.us56, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %.lr.ph.split.split.us, !llvm.loop !3148
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.036.us49, i64 16
+  %.sroa.025.0.us50 = getelementptr inbounds nuw i8, ptr %.sroa.025.037.us48, i64 16
+  %.not.us51 = icmp eq ptr %.sroa.025.0.us50, %5
+  br i1 %.not.us51, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, label %.lr.ph.split.split.us, !llvm.loop !3148
 
 25:                                               ; preds = %.lr.ph.split.split.us
-  %26 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.034.us54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.035.us53, ptr noundef nonnull align 4 dereferenceable(5) %1)
+  %26 = tail call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESE_EEbRKT_RKT0_SK_RNS8_7counterE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.036.us49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.037.us48, ptr noundef nonnull align 4 dereferenceable(5) %1)
   br i1 %26, label %23, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit
 
 27:                                               ; preds = %7
@@ -168857,8 +168857,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail6buffer1
   %or.cond.not = select i1 %28, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit, !llvm.loop !3145
 
-_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit: ; preds = %.lr.ph.split.us.split, %16, %18, %.lr.ph.split.split.us, %23, %25, %.lr.ph73, %10, %.lr.ph.i, %.preheader, %.lr.ph.split.us.split.us, %27
-  %.0 = phi i1 [ true, %23 ], [ true, %27 ], [ true, %.preheader ], [ %.not.us.us, %.lr.ph73 ], [ false, %.lr.ph.split.us.split.us ], [ %28, %.lr.ph.i ], [ %.not.us.us, %10 ], [ false, %25 ], [ true, %.lr.ph.split.split.us ], [ true, %16 ], [ false, %18 ], [ true, %.lr.ph.split.us.split ]
+_ZN5boost8geometry6detail6buffer14point_in_rangeIKNS0_8strategy6within17cartesian_windingIvvvEENS5_6detail22cartesian_winding_baseINS4_4side16side_by_triangleIvEEvE7counterENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEN9__gnu_cxx17__normal_iteratorIPKSK_St6vectorISK_SaISK_EEEEEEbRT_RT0_RKT1_T2_S10_.exit: ; preds = %.lr.ph.split.us.split, %16, %18, %.lr.ph.split.split.us, %23, %25, %.lr.ph61, %10, %.lr.ph.i, %.preheader, %.lr.ph.split.us.split.us, %27
+  %.0 = phi i1 [ true, %23 ], [ true, %27 ], [ %28, %.lr.ph.i ], [ false, %.lr.ph.split.us.split.us ], [ %.not.us.us, %.lr.ph61 ], [ true, %.preheader ], [ %.not.us.us, %10 ], [ false, %25 ], [ true, %.lr.ph.split.split.us ], [ true, %16 ], [ false, %18 ], [ true, %.lr.ph.split.us.split ]
   ret i1 %.0
 }
 
@@ -195917,28 +195917,27 @@ _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit: ; preds = %_ZNSt3mapIN5boost
   %.sroa.speculated.i.i.i.i56 = select i1 %132, double 1.000000e+00, double %127
   %133 = fmul nnan double %.sroa.speculated.i.i.i.i56, 0x3CB0000000000000
   %134 = fcmp ugt double %127, %133
-  br label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+  %135 = and i1 %.0.i.i54, %134
+  br i1 %135, label %136, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57: ; preds = %129, %131
-  %.0.i.i55 = phi i1 [ %134, %131 ], [ true, %129 ]
-  %or.cond = and i1 %.0.i.i54, %.0.i.i55
-  br i1 %or.cond, label %135, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57: ; preds = %129
+  br i1 %.0.i.i54, label %136, label %.critedge
 
-135:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 89
-  store i8 1, ptr %136, align 1, !tbaa !3709
+136:                                              ; preds = %131, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 89
+  store i8 1, ptr %137, align 1, !tbaa !3709
   br label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread: ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %135, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
-  br i1 %.0.i.i54, label %141, label %137
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread: ; preds = %131, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %136
+  br i1 %.0.i.i54, label %141, label %.critedge
 
-137:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+.critedge:                                        ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 89
   %139 = load i8, ptr %138, align 1, !tbaa !3709, !range !17, !noundef !18
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %141, label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
-141:                                              ; preds = %137, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+141:                                              ; preds = %.critedge, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
   store i64 -1, ptr %79, align 8, !tbaa !3734
   br label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
@@ -195961,7 +195960,7 @@ _ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread: ; preds = %144, %_ZN
   store i8 1, ptr %64, align 8, !tbaa !3703
   br label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
-_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105: ; preds = %142, %137, %141, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105: ; preds = %142, %.critedge, %141, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
   %149 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.094.0111) #65
   %.not = icmp eq ptr %149, %30
   br i1 %.not, label %._crit_edge.loopexit, label %63

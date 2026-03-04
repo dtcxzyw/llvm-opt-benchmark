@@ -287,7 +287,7 @@ _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %
   %71 = extractvalue { ptr, i64 } %70, 0
   %72 = load i8, ptr %7, align 1, !tbaa !7, !range !9, !noundef !10
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %85, label %.preheader
+  br i1 %73, label %_ZL26onlyWhitespaceOnLineBeforePKcj.exit, label %.preheader
 
 .preheader:                                       ; preds = %69, %82
   %indvars.iv.i = phi i64 [ %75, %82 ], [ %.sroa.431.0.extract.shift, %69 ]
@@ -310,91 +310,85 @@ _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %
   %.not15.i = icmp eq i16 %83, 0
   br i1 %.not15.i, label %_ZL26onlyWhitespaceOnLineBeforePKcj.exit, label %.preheader, !llvm.loop !26
 
-_ZL26onlyWhitespaceOnLineBeforePKcj.exit:         ; preds = %.preheader, %74, %82
-  %.1.i = phi i1 [ undef, %.preheader ], [ true, %74 ], [ false, %82 ]
-  %spec.select.i = or i1 %.not.i20, %.1.i
-  %84 = select i1 %spec.select.i, i8 0, i8 64
-  br label %85
-
-85:                                               ; preds = %_ZL26onlyWhitespaceOnLineBeforePKcj.exit, %69
-  %86 = phi i8 [ 0, %69 ], [ %84, %_ZL26onlyWhitespaceOnLineBeforePKcj.exit ]
-  %87 = load i8, ptr %9, align 8
-  %88 = or i8 %87, %86
-  store i8 %88, ptr %9, align 8
+_ZL26onlyWhitespaceOnLineBeforePKcj.exit:         ; preds = %82, %.preheader, %74, %69
+  %84 = phi i8 [ 0, %69 ], [ 0, %74 ], [ 0, %.preheader ], [ 64, %82 ]
+  %85 = load i8, ptr %9, align 8
+  %86 = or i8 %85, %84
+  store i8 %86, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
 
-_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread: ; preds = %47, %51, %39, %37, %29, %67, %85, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
-  %.sroa.0.0.in.i55 = phi i64 [ %.sroa.0.0.in.i, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit ], [ %.sroa.0.0.in.i, %67 ], [ %.sroa.0.0.in.i, %85 ], [ 0, %29 ], [ 0, %37 ], [ 0, %39 ], [ 0, %51 ], [ 0, %47 ]
-  br i1 %4, label %107, label %89
+_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread: ; preds = %47, %51, %39, %37, %29, %67, %_ZL26onlyWhitespaceOnLineBeforePKcj.exit, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
+  %.sroa.0.0.in.i56 = phi i64 [ %.sroa.0.0.in.i, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit ], [ %.sroa.0.0.in.i, %67 ], [ %.sroa.0.0.in.i, %_ZL26onlyWhitespaceOnLineBeforePKcj.exit ], [ 0, %29 ], [ 0, %37 ], [ 0, %39 ], [ 0, %51 ], [ 0, %47 ]
+  br i1 %4, label %105, label %87
 
-89:                                               ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
-  %90 = trunc i64 %.sroa.0.0.in.i55 to i8
-  %91 = load i8, ptr %9, align 8
-  %92 = shl i8 %90, 2
-  %93 = and i8 %92, 28
-  %94 = and i8 %91, -93
-  %95 = or disjoint i8 %94, %93
-  %sh.diff = lshr i64 %.sroa.0.0.in.i55, 26
+87:                                               ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
+  %88 = trunc i64 %.sroa.0.0.in.i56 to i8
+  %89 = load i8, ptr %9, align 8
+  %90 = shl i8 %88, 2
+  %91 = and i8 %90, 28
+  %92 = and i8 %89, -93
+  %93 = or disjoint i8 %92, %91
+  %sh.diff = lshr i64 %.sroa.0.0.in.i56, 26
   %tr.sh.diff = trunc nuw nsw i64 %sh.diff to i8
-  %96 = or i8 %91, %tr.sh.diff
-  %97 = and i8 %96, 64
-  %98 = or disjoint i8 %95, %97
-  store i8 %98, ptr %9, align 8
-  %99 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !28
-  %.not.i21 = icmp ult i64 %99, 3
+  %94 = or i8 %89, %tr.sh.diff
+  %95 = and i8 %94, 64
+  %96 = or disjoint i8 %93, %95
+  store i8 %96, ptr %9, align 8
+  %97 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !28
+  %.not.i21 = icmp ult i64 %97, 3
   br i1 %.not.i21, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %89
-  %100 = load ptr, ptr %8, align 8, !tbaa !30
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %100, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
-  %101 = icmp eq i32 %bcmp.i, 0
-  br i1 %101, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit24
+_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %87
+  %98 = load ptr, ptr %8, align 8, !tbaa !30
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %98, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
+  %99 = icmp eq i32 %bcmp.i, 0
+  br i1 %99, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit24
 
 _ZNK4llvm9StringRef11starts_withES0_.exit24:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %102 = load ptr, ptr %8, align 8, !tbaa !30
-  %bcmp.i23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %102, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
+  %100 = load ptr, ptr %8, align 8, !tbaa !30
+  %bcmp.i23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %100, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %bcmp.i23.fr = freeze i32 %bcmp.i23
-  %103 = icmp eq i32 %bcmp.i23.fr, 0
-  %spec.select48 = select i1 %103, i8 -128, i8 0
+  %101 = icmp eq i32 %bcmp.i23.fr, 0
+  %spec.select49 = select i1 %101, i8 -128, i8 0
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %89, %_ZNK4llvm9StringRef11starts_withES0_.exit24, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %104 = phi i8 [ -128, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %spec.select48, %_ZNK4llvm9StringRef11starts_withES0_.exit24 ], [ 0, %89 ]
-  %105 = and i8 %98, 127
-  %106 = or disjoint i8 %104, %105
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %87, %_ZNK4llvm9StringRef11starts_withES0_.exit24, %_ZNK4llvm9StringRef11starts_withES0_.exit
+  %102 = phi i8 [ -128, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %spec.select49, %_ZNK4llvm9StringRef11starts_withES0_.exit24 ], [ 0, %87 ]
+  %103 = and i8 %96, 127
+  %104 = or disjoint i8 %102, %103
   br label %.critedge
 
-107:                                              ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
-  %108 = load i8, ptr %9, align 8
-  %109 = or i8 %108, 28
-  store i8 %109, ptr %9, align 8
-  %110 = and i8 %108, 64
-  %.not15 = icmp eq i8 %110, 0
-  br i1 %.not15, label %111, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
+105:                                              ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
+  %106 = load i8, ptr %9, align 8
+  %107 = or i8 %106, 28
+  store i8 %107, ptr %9, align 8
+  %108 = and i8 %106, 64
+  %.not15 = icmp eq i8 %108, 0
+  br i1 %.not15, label %109, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
 
-111:                                              ; preds = %107
+109:                                              ; preds = %105
   %.sroa.2.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !14
-  %112 = icmp ugt i64 %.sroa.2.0.copyload, 3
-  br i1 %112, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
+  %110 = icmp ugt i64 %.sroa.2.0.copyload, 3
+  br i1 %110, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit, label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
 
-_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit: ; preds = %111
+_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit: ; preds = %109
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !11
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 3
-  %114 = load i8, ptr %113, align 1, !tbaa !23
-  %.fr = freeze i8 %114
-  %115 = icmp eq i8 %.fr, 60
-  %spec.select47 = select i1 %115, i8 64, i8 0
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 3
+  %112 = load i8, ptr %111, align 1, !tbaa !23
+  %.fr = freeze i8 %112
+  %113 = icmp eq i8 %.fr, 60
+  %spec.select48 = select i1 %113, i8 64, i8 0
   br label %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
 
-_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread: ; preds = %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit, %111, %107
-  %116 = phi i8 [ 64, %107 ], [ 0, %111 ], [ %spec.select47, %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit ]
-  %117 = and i8 %109, -65
-  %118 = or disjoint i8 %116, %117
+_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread: ; preds = %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit, %109, %105
+  %114 = phi i8 [ 64, %105 ], [ 0, %109 ], [ %spec.select48, %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit ]
+  %115 = and i8 %107, -65
+  %116 = or disjoint i8 %114, %115
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread
-  %storemerge16 = phi i8 [ %118, %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread ], [ %106, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %5 ], [ %28, %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit.thread ]
+  %storemerge16 = phi i8 [ %116, %_ZN12_GLOBAL__N_130mergedCommentIsTrailingCommentEN4llvm9StringRefE.exit.thread ], [ %104, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %5 ], [ %28, %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit.thread ]
   store i8 %storemerge16, ptr %9, align 8
   ret void
 }

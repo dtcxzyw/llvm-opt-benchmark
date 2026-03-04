@@ -1538,7 +1538,7 @@ declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i
 define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %4 = load i16, ptr %3, align 8
-  switch i16 %4, label %.thread14 [
+  switch i16 %4, label %.thread13 [
     i16 8, label %5
     i16 -8826, label %201
   ]
@@ -1565,11 +1565,11 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
 20:                                               ; preds = %9
   %21 = tail call i32 @net_ratelimit() #8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread14, label %23
+  br i1 %22, label %.thread13, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #9
-  br label %.thread14
+  br label %.thread13
 
 25:                                               ; preds = %9, %5
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -1681,7 +1681,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %106 = and i32 %105, 1
   %107 = icmp eq i32 %106, 0
   %or.cond = select i1 %103, i1 %107, i1 false
-  br i1 %or.cond, label %108, label %.thread
+  br i1 %or.cond, label %108, label %.critedge
 
 108:                                              ; preds = %93
   %109 = trunc i16 %94 to i1
@@ -1692,16 +1692,16 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 4
   %116 = icmp eq i32 %115, 0
-  %.not28 = and i1 %116, %109
+  %.not27 = and i1 %116, %109
   %117 = icmp ult i32 %105, 2
-  %or.cond25 = select i1 %.not28, i1 true, i1 %117
-  br i1 %or.cond25, label %125, label %118
+  %or.cond24 = select i1 %.not27, i1 true, i1 %117
+  br i1 %or.cond24, label %125, label %118
 
-.thread:                                          ; preds = %93
+.critedge:                                        ; preds = %93
   %.old = icmp ult i32 %105, 2
   br i1 %.old, label %125, label %118
 
-118:                                              ; preds = %108, %.thread
+118:                                              ; preds = %108, %.critedge
   %119 = lshr i32 %105, 1
   %120 = load volatile i64, ptr @jiffies, align 64
   %121 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -1710,7 +1710,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %124 = icmp slt i64 %123, 0
   br i1 %124, label %155, label %125
 
-125:                                              ; preds = %118, %.thread, %108
+125:                                              ; preds = %118, %.critedge, %108
   %126 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = and i64 %127, -4
@@ -1766,20 +1766,20 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
 163:                                              ; preds = %159
   %164 = tail call ptr @xfrm_state_get_afinfo(i32 noundef 2) #8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %.thread14, label %166
+  br i1 %165, label %.thread13, label %166
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 88
   %168 = load ptr, ptr %167, align 8
   tail call void %168(ptr noundef %1, i32 noundef %65) #8
   tail call void @__rcu_read_unlock() #8
-  br label %.thread14
+  br label %.thread13
 
 169:                                              ; preds = %159
   %170 = tail call i32 @llvm.bswap.i32(i32 %65)
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 44
   tail call void @__icmp_send(ptr noundef %1, i32 noundef 3, i32 noundef 4, i32 noundef %170, ptr noundef nonnull %171) #8
-  br label %.thread14
+  br label %.thread13
 
 172:                                              ; preds = %25, %41, %155, %30, %74
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -1818,7 +1818,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   store i8 %198, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 81
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %200, i8 0, i64 3, i1 false)
-  br label %.thread14
+  br label %.thread13
 
 201:                                              ; preds = %2
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1879,12 +1879,12 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
-  br i1 %243, label %.thread12, label %244
+  br i1 %243, label %.thread11, label %244
 
 244:                                              ; preds = %240
   %245 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 96)) #8, !srcloc !36
   %246 = icmp eq i16 %245, 0
-  br i1 %246, label %247, label %.thread12
+  br i1 %246, label %247, label %.thread11
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr %241, align 8
@@ -1894,9 +1894,9 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %252 = shl nuw i32 1, %251
   %253 = and i32 %252, -4161
   %254 = icmp eq i32 %253, 0
-  br i1 %254, label %.thread12, label %258
+  br i1 %254, label %.thread11, label %258
 
-.thread12:                                        ; preds = %244, %240, %247
+.thread11:                                        ; preds = %244, %240, %247
   %255 = load i64, ptr %202, align 8
   %256 = and i64 %255, -2
   %257 = inttoptr i64 %256 to ptr
@@ -1923,8 +1923,8 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %272 = load volatile i32, ptr %271, align 8
   br label %288
 
-273:                                              ; preds = %.thread12, %265, %258
-  %274 = phi ptr [ %257, %.thread12 ], [ %263, %265 ], [ %263, %258 ]
+273:                                              ; preds = %.thread11, %265, %258
+  %274 = phi ptr [ %257, %.thread11 ], [ %263, %265 ], [ %263, %258 ]
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 32
@@ -1967,7 +1967,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %299 = load i16, ptr %298, align 8
   %300 = icmp eq i16 %299, 10
-  br i1 %300, label %301, label %.thread14
+  br i1 %300, label %301, label %.thread13
 
 301:                                              ; preds = %297
   %302 = getelementptr inbounds nuw i8, ptr %295, i64 516
@@ -1989,24 +1989,24 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 136
   %312 = load ptr, ptr %311, align 8
   tail call void %312(ptr noundef %1, i32 noundef %226) #8
-  br label %.thread14
+  br label %.thread13
 
 313:                                              ; preds = %304, %301
   %314 = tail call ptr @xfrm_state_get_afinfo(i32 noundef 10) #8
   %315 = icmp eq ptr %314, null
-  br i1 %315, label %.thread14, label %316
+  br i1 %315, label %.thread13, label %316
 
 316:                                              ; preds = %313
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 88
   %318 = load ptr, ptr %317, align 8
   tail call void %318(ptr noundef %1, i32 noundef %226) #8
   tail call void @__rcu_read_unlock() #8
-  br label %.thread14
+  br label %.thread13
 
 319:                                              ; preds = %291
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @icmp6_send(ptr noundef %1, i8 noundef zeroext 2, i8 noundef zeroext 0, i32 noundef %226, ptr noundef null, ptr noundef nonnull %320) #8
-  br label %.thread14
+  br label %.thread13
 
 321:                                              ; preds = %201, %236, %288
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -2040,9 +2040,9 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %344 = getelementptr inbounds nuw i8, ptr %327, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %343, ptr noundef nonnull align 1 dereferenceable(3) %344, i64 3, i1 false)
-  br label %.thread14
+  br label %.thread13
 
-.thread14:                                        ; preds = %297, %316, %313, %309, %319, %163, %166, %169, %321, %172, %23, %20, %2
+.thread13:                                        ; preds = %297, %316, %313, %309, %319, %163, %166, %169, %321, %172, %23, %20, %2
   %345 = phi i32 [ -97, %2 ], [ 0, %172 ], [ -97, %23 ], [ -97, %20 ], [ -90, %163 ], [ 0, %321 ], [ -90, %166 ], [ -90, %169 ], [ -90, %319 ], [ -90, %309 ], [ -90, %313 ], [ -90, %316 ], [ -90, %297 ]
   ret i32 %345
 }

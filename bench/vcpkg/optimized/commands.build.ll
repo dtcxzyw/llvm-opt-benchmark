@@ -11462,6 +11462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i.i.i.i:
   %931 = add nuw nsw i64 %929, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %890, ptr noundef nonnull align 8 dereferenceable(1) %926, i64 %931, i1 false), !noalias !462
   store i64 %929, ptr %891, align 8, !tbaa !19, !alias.scope !470, !noalias !465
+  store ptr %926, ptr %924, align 8, !tbaa !16, !noalias !462
   store i64 0, ptr %928, align 8, !tbaa !19, !noalias !462
   store i8 0, ptr %926, align 8, !tbaa !21, !noalias !462
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i.i.i
@@ -28545,6 +28546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %26 = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %19, align 8, !tbaa !16
   store i64 0, ptr %27, align 8, !tbaa !19
   store i8 0, ptr %21, align 8, !tbaa !21
   store ptr %16, ptr %5, align 8, !tbaa !14

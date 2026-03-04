@@ -5692,34 +5692,20 @@ if.then8:                                         ; preds = %_ZN12_GLOBAL__N_19D
   store ptr %retval.0.i22, ptr %Variable.i6.i, align 8
   %33 = load ptr, ptr %Last.i.i.i, align 8
   %MangledName.promoted = load ptr, ptr %MangledName, align 8
-  br i1 %11, label %for.body, label %for.body.us
-
-for.body.us:                                      ; preds = %if.then8
-  %cmp.i.i.i28.us = icmp eq ptr %MangledName.promoted, %33
-  br i1 %cmp.i.i.i28.us, label %if.end13, label %_ZNK10StringView10startsWithEc.exit.i29.us
-
-_ZNK10StringView10startsWithEc.exit.i29.us:       ; preds = %for.body.us
-  %34 = load i8, ptr %MangledName.promoted, align 1
-  %cmp.i.i30.us = icmp eq i8 %34, 64
-  br i1 %cmp.i.i30.us, label %for.inc.us, label %if.end13
-
-for.inc.us:                                       ; preds = %_ZNK10StringView10startsWithEc.exit.i29.us
-  %add.ptr.i.i32.us = getelementptr inbounds nuw i8, ptr %MangledName.promoted, i64 1
-  store ptr %add.ptr.i.i32.us, ptr %MangledName, align 8
-  br label %for.end
+  br label %for.body
 
 for.body:                                         ; preds = %if.then8, %for.inc
-  %cmp1046 = phi i1 [ false, %for.inc ], [ true, %if.then8 ]
-  %add.ptr.i.i324344 = phi ptr [ %add.ptr.i.i32, %for.inc ], [ %MangledName.promoted, %if.then8 ]
+  %cmp1046 = phi i1 [ %11, %if.then8 ], [ false, %for.inc ]
+  %add.ptr.i.i324344 = phi ptr [ %MangledName.promoted, %if.then8 ], [ %add.ptr.i.i32, %for.inc ]
   %cmp.i.i.i28 = icmp eq ptr %add.ptr.i.i324344, %33
   br i1 %cmp.i.i.i28, label %if.end13, label %_ZNK10StringView10startsWithEc.exit.i29
 
 _ZNK10StringView10startsWithEc.exit.i29:          ; preds = %for.body
-  %35 = load i8, ptr %add.ptr.i.i324344, align 1
-  %cmp.i.i30 = icmp eq i8 %35, 64
+  %34 = load i8, ptr %add.ptr.i.i324344, align 1
+  %cmp.i.i30 = icmp eq i8 %34, 64
   br i1 %cmp.i.i30, label %for.inc, label %if.end13
 
-if.end13:                                         ; preds = %for.body, %_ZNK10StringView10startsWithEc.exit.i29, %for.body.us, %_ZNK10StringView10startsWithEc.exit.i29.us
+if.end13:                                         ; preds = %_ZNK10StringView10startsWithEc.exit.i29, %for.body
   store i8 1, ptr %Error.i, align 8
   br label %return
 
@@ -5728,7 +5714,7 @@ for.inc:                                          ; preds = %_ZNK10StringView10s
   store ptr %add.ptr.i.i32, ptr %MangledName, align 8
   br i1 %cmp1046, label %for.body, label %for.end, !llvm.loop !15
 
-for.end:                                          ; preds = %for.inc, %for.inc.us
+for.end:                                          ; preds = %for.inc
   %call14 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleFunctionEncodingER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   %call16 = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %call2.i.sink9.i)
   %Name17 = getelementptr inbounds nuw i8, ptr %call14, i64 16

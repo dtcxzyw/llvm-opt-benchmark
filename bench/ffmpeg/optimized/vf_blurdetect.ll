@@ -363,19 +363,19 @@ switch.lookup:                                    ; preds = %128
   %171 = sub nsw i32 %166, %170
   %172 = mul nsw i32 %171, %144
   %173 = icmp slt i32 %172, 1
-  br i1 %173, label %._crit_edge.split.loop.exit30.i.us.us.us.us.us.us.i, label %174
+  br i1 %173, label %._crit_edge.split.loop.exit29.i.us.us.us.us.us.us.i, label %174
 
 174:                                              ; preds = %162
   %indvars.iv.next.i.us.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.i, 1
   %exitcond.not.i.us.us.us.us.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.us.us.us.us.i, %wide.trip.count.i.us.us.us.us.us.us.i
   br i1 %exitcond.not.i.us.us.us.us.us.us.i, label %._crit_edge.i.us.us.us.us.us.us.i, label %.lr.ph.i.us.us.us.us.us.us.i, !llvm.loop !67
 
-._crit_edge.split.loop.exit30.i.us.us.us.us.us.us.i: ; preds = %162
+._crit_edge.split.loop.exit29.i.us.us.us.us.us.us.i: ; preds = %162
   %175 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.i to i32
   br label %._crit_edge.i.us.us.us.us.us.us.i
 
-._crit_edge.i.us.us.us.us.us.us.i:                ; preds = %174, %._crit_edge.split.loop.exit30.i.us.us.us.us.us.us.i
-  %.088.lcssa.ph.i.us.us.us.us.us.us.i = phi i32 [ %175, %._crit_edge.split.loop.exit30.i.us.us.us.us.us.us.i ], [ %.val.us.us.us.us.us.us.i, %174 ]
+._crit_edge.i.us.us.us.us.us.us.i:                ; preds = %174, %._crit_edge.split.loop.exit29.i.us.us.us.us.us.us.i
+  %.088.lcssa.ph.i.us.us.us.us.us.us.i = phi i32 [ %175, %._crit_edge.split.loop.exit29.i.us.us.us.us.us.us.i ], [ %.val.us.us.us.us.us.us.i, %174 ]
   %176 = uitofp nneg i32 %.088.lcssa.ph.i.us.us.us.us.us.us.i to float
   %177 = add i32 %.091.i.us.us.us.us.us.us.i, %.fr335.i
   %178 = icmp slt i32 %177, 0
@@ -428,12 +428,12 @@ switch.lookup:                                    ; preds = %128
   br label %._crit_edge16.i.us.us.us.us.us.us.i
 
 ._crit_edge16.i.us.us.us.us.us.us.i:              ; preds = %._crit_edge16.loopexit.i.us.us.us.us.us.us.i, %134
-  %.088.lcssa28.i.us.us.us.us.us.us.i = phi float [ 0.000000e+00, %134 ], [ %205, %._crit_edge16.loopexit.i.us.us.us.us.us.us.i ]
+  %.1.lcssa.i.us.us.us.us.us.us.i = phi float [ 0.000000e+00, %134 ], [ %205, %._crit_edge16.loopexit.i.us.us.us.us.us.us.i ]
   %or.cond6.i.us.us.us.us.us.us.i = icmp ult i8 %130, 2
-  %206 = fpext nnan nsz float %.088.lcssa28.i.us.us.us.us.us.us.i to double
+  %206 = fpext nnan nsz float %.1.lcssa.i.us.us.us.us.us.us.i to double
   %207 = fmul nnan nsz double %206, 0x3FE6666666666666
   %208 = fptrunc nsz double %207 to float
-  %.089.i.us.us.us.us.us.us.i = select nsz i1 %or.cond6.i.us.us.us.us.us.us.i, float %208, float %.088.lcssa28.i.us.us.us.us.us.us.i
+  %.089.i.us.us.us.us.us.us.i = select nsz i1 %or.cond6.i.us.us.us.us.us.us.i, float %208, float %.1.lcssa.i.us.us.us.us.us.us.i
   %209 = fpext nsz float %.089.i.us.us.us.us.us.us.i to double
   br label %edge_width.exit.us.us.us.us.us.us.i
 

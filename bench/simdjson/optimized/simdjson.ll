@@ -4099,15 +4099,16 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 ._crit_edge.i:                                    ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i
+  %646 = or <4 x i64> %.sroa.41541.3.i, %.sroa.79.3.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %646 = icmp eq i64 %.013.i, %644
-  br i1 %646, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %647 = icmp eq i64 %.013.i, %644
+  br i1 %647, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %.sroa.32.0.lcssa6415.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %157, %._crit_edge.i ]
   %.sroa.41541.0.lcssa6414.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.41541.3.i, %._crit_edge.i ]
   %.sroa.70.0.lcssa6413.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.70.2.i, %._crit_edge.i ]
-  %.sroa.79.0.lcssa6412.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.79.3.i, %._crit_edge.i ]
+  %.sroa.79.0.lcssa6412.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %646, %._crit_edge.i ]
   %.sroa.89.0.lcssa6411.i = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %.sroa.89.2.i, %._crit_edge.i ]
   %.sroa.226.0.lcssa6410.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %640, %._crit_edge.i ]
   %.sroa.236.0.lcssa6409.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %643, %._crit_edge.i ]
@@ -4115,11 +4116,11 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   %.sroa.0.0.lcssa6407.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %187, %._crit_edge.i ]
   %.sroa.11.0.lcssa6406.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %644, %._crit_edge.i ]
   %.01363916405.i = phi i64 [ %.0136391.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
-  %647 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %47, %._crit_edge.i ]
+  %648 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %47, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 32, i64 128, i1 false)
-  %648 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa6406.i
-  %649 = sub i64 %.01363916405.i, %.sroa.11.0.lcssa6406.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %648, i64 %649, i1 false)
+  %649 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa6406.i
+  %650 = sub i64 %.01363916405.i, %.sroa.11.0.lcssa6406.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %649, i64 %650, i1 false)
   %.0..0..0..0..0..i = load <4 x i64>, ptr %5, align 16, !tbaa !4, !noalias !145
   %.32..32..32..32..32..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.32..32..32..32..32..i = load <4 x i64>, ptr %.32..32..32..32..32..sroa_idx, align 16, !tbaa !4, !noalias !148
@@ -4127,1328 +4128,1332 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   %.64..64..64..64..64..i = load <4 x i64>, ptr %.64..64..64..64..64..sroa_idx, align 16, !tbaa !4, !noalias !151
   %.96..96..96..96..96..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
   %.96..96..96..96..96..i = load <4 x i64>, ptr %.96..96..96..96..96..sroa_idx, align 16, !tbaa !4, !noalias !154
-  %650 = bitcast <4 x i64> %.0..0..0..0..0..i to <32 x i8>
-  %651 = icmp eq <32 x i8> %650, splat (i8 92)
-  %652 = bitcast <4 x i64> %.32..32..32..32..32..i to <32 x i8>
-  %653 = icmp eq <32 x i8> %652, splat (i8 92)
-  %654 = bitcast <32 x i1> %651 to i32
-  %655 = zext i32 %654 to i64
-  %656 = bitcast <32 x i1> %653 to i32
-  %657 = sext i32 %656 to i64
-  %658 = shl nsw i64 %657, 32
-  %659 = or disjoint i64 %658, %655
-  %.not.i62.i17.i = icmp eq i64 %659, 0
-  br i1 %.not.i62.i17.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i, label %660
+  %651 = bitcast <4 x i64> %.0..0..0..0..0..i to <32 x i8>
+  %652 = icmp eq <32 x i8> %651, splat (i8 92)
+  %653 = bitcast <4 x i64> %.32..32..32..32..32..i to <32 x i8>
+  %654 = icmp eq <32 x i8> %653, splat (i8 92)
+  %655 = bitcast <32 x i1> %652 to i32
+  %656 = zext i32 %655 to i64
+  %657 = bitcast <32 x i1> %654 to i32
+  %658 = sext i32 %657 to i64
+  %659 = shl nsw i64 %658, 32
+  %660 = or disjoint i64 %659, %656
+  %.not.i62.i17.i = icmp eq i64 %660, 0
+  br i1 %.not.i62.i17.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i, label %661
 
-660:                                              ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %661 = xor i64 %.sroa.12.0.lcssa6408.i, -1
-  %662 = and i64 %659, %661
-  %663 = shl i64 %662, 1
-  %664 = or i64 %663, -6148914691236517206
-  %665 = sub i64 %664, %662
-  %666 = xor i64 %665, -6148914691236517206
-  %667 = or i64 %659, %.sroa.12.0.lcssa6408.i
-  %668 = xor i64 %666, %667
-  %669 = and i64 %666, %658
-  %670 = lshr i64 %669, 63
+661:                                              ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %662 = xor i64 %.sroa.12.0.lcssa6408.i, -1
+  %663 = and i64 %660, %662
+  %664 = shl i64 %663, 1
+  %665 = or i64 %664, -6148914691236517206
+  %666 = sub i64 %665, %663
+  %667 = xor i64 %666, -6148914691236517206
+  %668 = or i64 %660, %.sroa.12.0.lcssa6408.i
+  %669 = xor i64 %667, %668
+  %670 = and i64 %667, %659
+  %671 = lshr i64 %670, 63
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i: ; preds = %660, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %.sroa.12.3.i = phi i64 [ %670, %660 ], [ 0, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %.sroa.0.0.i63.i19.i = phi i64 [ %668, %660 ], [ %.sroa.12.0.lcssa6408.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %671 = icmp eq <32 x i8> %650, splat (i8 34)
-  %672 = icmp eq <32 x i8> %652, splat (i8 34)
-  %673 = bitcast <32 x i1> %671 to i32
-  %674 = zext i32 %673 to i64
-  %675 = bitcast <32 x i1> %672 to i32
-  %676 = sext i32 %675 to i64
-  %677 = shl nsw i64 %676, 32
-  %678 = or disjoint i64 %677, %674
-  %679 = xor i64 %.sroa.0.0.i63.i19.i, -1
-  %680 = and i64 %678, %679
-  %681 = insertelement <2 x i64> poison, i64 %680, i64 0
-  %682 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %681, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %683 = extractelement <2 x i64> %682, i64 0
-  %684 = xor i64 %683, %.sroa.32.0.lcssa6415.i
-  %685 = ashr i64 %684, 63
-  %686 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %650)
-  %687 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %652)
-  %688 = icmp eq <32 x i8> %686, %650
-  %689 = icmp eq <32 x i8> %687, %652
-  %690 = bitcast <32 x i1> %688 to i32
-  %691 = zext i32 %690 to i64
-  %692 = bitcast <32 x i1> %689 to i32
-  %693 = sext i32 %692 to i64
-  %694 = shl nsw i64 %693, 32
-  %695 = or disjoint i64 %694, %691
-  %696 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %650)
-  %697 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %652)
-  %698 = bitcast <4 x i64> %.0..0..0..0..0..i to <32 x i8>
-  %699 = or <32 x i8> %698, splat (i8 32)
-  %700 = icmp eq <32 x i8> %699, %696
-  %701 = bitcast <4 x i64> %.32..32..32..32..32..i to <32 x i8>
-  %702 = or <32 x i8> %701, splat (i8 32)
-  %703 = icmp eq <32 x i8> %702, %697
-  %704 = bitcast <32 x i1> %700 to i32
-  %705 = zext i32 %704 to i64
-  %706 = bitcast <32 x i1> %703 to i32
-  %707 = sext i32 %706 to i64
-  %708 = shl nsw i64 %707, 32
-  %709 = or disjoint i64 %708, %705
-  %710 = or i64 %709, %695
-  %711 = xor i64 %710, -1
-  %712 = xor i64 %680, -1
-  %713 = and i64 %711, %712
-  %714 = shl i64 %713, 1
-  %715 = or disjoint i64 %714, %.sroa.0.0.lcssa6407.i
-  %716 = bitcast <4 x i64> %.64..64..64..64..64..i to <32 x i8>
-  %717 = icmp eq <32 x i8> %716, splat (i8 92)
-  %718 = bitcast <4 x i64> %.96..96..96..96..96..i to <32 x i8>
-  %719 = icmp eq <32 x i8> %718, splat (i8 92)
-  %720 = bitcast <32 x i1> %717 to i32
-  %721 = zext i32 %720 to i64
-  %722 = bitcast <32 x i1> %719 to i32
-  %723 = sext i32 %722 to i64
-  %724 = shl nsw i64 %723, 32
-  %725 = or disjoint i64 %724, %721
-  %.not.i.i28.i = icmp eq i64 %725, 0
-  br i1 %.not.i.i28.i, label %.noexc45.i, label %726
+_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i: ; preds = %661, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %.sroa.12.3.i = phi i64 [ %671, %661 ], [ 0, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %.sroa.0.0.i63.i19.i = phi i64 [ %669, %661 ], [ %.sroa.12.0.lcssa6408.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %672 = icmp eq <32 x i8> %651, splat (i8 34)
+  %673 = icmp eq <32 x i8> %653, splat (i8 34)
+  %674 = bitcast <32 x i1> %672 to i32
+  %675 = zext i32 %674 to i64
+  %676 = bitcast <32 x i1> %673 to i32
+  %677 = sext i32 %676 to i64
+  %678 = shl nsw i64 %677, 32
+  %679 = or disjoint i64 %678, %675
+  %680 = xor i64 %.sroa.0.0.i63.i19.i, -1
+  %681 = and i64 %679, %680
+  %682 = insertelement <2 x i64> poison, i64 %681, i64 0
+  %683 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %682, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %684 = extractelement <2 x i64> %683, i64 0
+  %685 = xor i64 %684, %.sroa.32.0.lcssa6415.i
+  %686 = ashr i64 %685, 63
+  %687 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %651)
+  %688 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %653)
+  %689 = icmp eq <32 x i8> %687, %651
+  %690 = icmp eq <32 x i8> %688, %653
+  %691 = bitcast <32 x i1> %689 to i32
+  %692 = zext i32 %691 to i64
+  %693 = bitcast <32 x i1> %690 to i32
+  %694 = sext i32 %693 to i64
+  %695 = shl nsw i64 %694, 32
+  %696 = or disjoint i64 %695, %692
+  %697 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %651)
+  %698 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %653)
+  %699 = bitcast <4 x i64> %.0..0..0..0..0..i to <32 x i8>
+  %700 = or <32 x i8> %699, splat (i8 32)
+  %701 = icmp eq <32 x i8> %700, %697
+  %702 = bitcast <4 x i64> %.32..32..32..32..32..i to <32 x i8>
+  %703 = or <32 x i8> %702, splat (i8 32)
+  %704 = icmp eq <32 x i8> %703, %698
+  %705 = bitcast <32 x i1> %701 to i32
+  %706 = zext i32 %705 to i64
+  %707 = bitcast <32 x i1> %704 to i32
+  %708 = sext i32 %707 to i64
+  %709 = shl nsw i64 %708, 32
+  %710 = or disjoint i64 %709, %706
+  %711 = or i64 %710, %696
+  %712 = xor i64 %711, -1
+  %713 = xor i64 %681, -1
+  %714 = and i64 %712, %713
+  %715 = shl i64 %714, 1
+  %716 = or disjoint i64 %715, %.sroa.0.0.lcssa6407.i
+  %717 = bitcast <4 x i64> %.64..64..64..64..64..i to <32 x i8>
+  %718 = icmp eq <32 x i8> %717, splat (i8 92)
+  %719 = bitcast <4 x i64> %.96..96..96..96..96..i to <32 x i8>
+  %720 = icmp eq <32 x i8> %719, splat (i8 92)
+  %721 = bitcast <32 x i1> %718 to i32
+  %722 = zext i32 %721 to i64
+  %723 = bitcast <32 x i1> %720 to i32
+  %724 = sext i32 %723 to i64
+  %725 = shl nsw i64 %724, 32
+  %726 = or disjoint i64 %725, %722
+  %.not.i.i28.i = icmp eq i64 %726, 0
+  br i1 %.not.i.i28.i, label %.noexc45.i, label %727
 
-726:                                              ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i
-  %727 = xor i64 %.sroa.12.3.i, -1
-  %728 = and i64 %725, %727
-  %729 = shl i64 %725, 1
-  %730 = or i64 %729, -6148914691236517206
-  %731 = sub i64 %730, %728
-  %732 = or i64 %.sroa.12.3.i, %725
-  %733 = xor i64 %732, %731
-  %734 = xor i64 %733, -6148914691236517206
+727:                                              ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i
+  %728 = xor i64 %.sroa.12.3.i, -1
+  %729 = and i64 %726, %728
+  %730 = shl i64 %726, 1
+  %731 = or i64 %730, -6148914691236517206
+  %732 = sub i64 %731, %729
+  %733 = or i64 %.sroa.12.3.i, %726
+  %734 = xor i64 %733, %732
+  %735 = xor i64 %734, -6148914691236517206
   br label %.noexc45.i
 
-.noexc45.i:                                       ; preds = %726, %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i
-  %.sroa.0.0.i.i30.i = phi i64 [ %734, %726 ], [ %.sroa.12.3.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i ]
-  %735 = icmp eq <32 x i8> %716, splat (i8 34)
-  %736 = icmp eq <32 x i8> %718, splat (i8 34)
-  %737 = bitcast <32 x i1> %735 to i32
-  %738 = zext i32 %737 to i64
-  %739 = bitcast <32 x i1> %736 to i32
-  %740 = sext i32 %739 to i64
-  %741 = shl nsw i64 %740, 32
-  %742 = or disjoint i64 %741, %738
-  %743 = xor i64 %.sroa.0.0.i.i30.i, -1
-  %744 = and i64 %742, %743
-  %745 = insertelement <2 x i64> poison, i64 %744, i64 0
-  %746 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %745, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %747 = extractelement <2 x i64> %746, i64 0
-  %748 = xor i64 %747, %685
-  %749 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %716)
-  %750 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %718)
-  %751 = icmp eq <32 x i8> %749, %716
-  %752 = icmp eq <32 x i8> %750, %718
-  %753 = bitcast <32 x i1> %751 to i32
-  %754 = zext i32 %753 to i64
-  %755 = bitcast <32 x i1> %752 to i32
-  %756 = sext i32 %755 to i64
-  %757 = shl nsw i64 %756, 32
-  %758 = or disjoint i64 %757, %754
-  %759 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %716)
-  %760 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %718)
-  %761 = bitcast <4 x i64> %.64..64..64..64..64..i to <32 x i8>
-  %762 = or <32 x i8> %761, splat (i8 32)
-  %763 = icmp eq <32 x i8> %762, %759
-  %764 = bitcast <4 x i64> %.96..96..96..96..96..i to <32 x i8>
-  %765 = or <32 x i8> %764, splat (i8 32)
-  %766 = icmp eq <32 x i8> %765, %760
-  %767 = bitcast <32 x i1> %763 to i32
-  %768 = zext i32 %767 to i64
-  %769 = bitcast <32 x i1> %766 to i32
-  %770 = sext i32 %769 to i64
-  %771 = shl nsw i64 %770, 32
-  %772 = or disjoint i64 %771, %768
-  %773 = or i64 %772, %758
-  %774 = xor i64 %773, -1
-  %775 = xor i64 %744, -1
-  %776 = and i64 %774, %775
-  %777 = tail call i64 @llvm.fshl.i64(i64 %776, i64 %713, i64 1)
-  %778 = icmp ult <32 x i8> %650, splat (i8 32)
-  %779 = icmp ult <32 x i8> %652, splat (i8 32)
-  %780 = bitcast <32 x i1> %778 to i32
-  %781 = zext i32 %780 to i64
-  %782 = bitcast <32 x i1> %779 to i32
-  %783 = sext i32 %782 to i64
-  %784 = shl nsw i64 %783, 32
-  %785 = or disjoint i64 %784, %781
-  %786 = or <4 x i64> %.32..32..32..32..32..i, %.0..0..0..0..0..i
-  %787 = bitcast <4 x i64> %786 to <32 x i8>
-  %788 = icmp slt <32 x i8> %787, zeroinitializer
-  %789 = bitcast <32 x i1> %788 to i32
-  %790 = icmp eq i32 %789, 0
-  br i1 %790, label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i, label %791, !prof !141
+.noexc45.i:                                       ; preds = %727, %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i
+  %.sroa.0.0.i.i30.i = phi i64 [ %735, %727 ], [ %.sroa.12.3.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i ]
+  %736 = icmp eq <32 x i8> %717, splat (i8 34)
+  %737 = icmp eq <32 x i8> %719, splat (i8 34)
+  %738 = bitcast <32 x i1> %736 to i32
+  %739 = zext i32 %738 to i64
+  %740 = bitcast <32 x i1> %737 to i32
+  %741 = sext i32 %740 to i64
+  %742 = shl nsw i64 %741, 32
+  %743 = or disjoint i64 %742, %739
+  %744 = xor i64 %.sroa.0.0.i.i30.i, -1
+  %745 = and i64 %743, %744
+  %746 = insertelement <2 x i64> poison, i64 %745, i64 0
+  %747 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %746, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %748 = extractelement <2 x i64> %747, i64 0
+  %749 = xor i64 %748, %686
+  %750 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %717)
+  %751 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %719)
+  %752 = icmp eq <32 x i8> %750, %717
+  %753 = icmp eq <32 x i8> %751, %719
+  %754 = bitcast <32 x i1> %752 to i32
+  %755 = zext i32 %754 to i64
+  %756 = bitcast <32 x i1> %753 to i32
+  %757 = sext i32 %756 to i64
+  %758 = shl nsw i64 %757, 32
+  %759 = or disjoint i64 %758, %755
+  %760 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %717)
+  %761 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <32 x i8> %719)
+  %762 = bitcast <4 x i64> %.64..64..64..64..64..i to <32 x i8>
+  %763 = or <32 x i8> %762, splat (i8 32)
+  %764 = icmp eq <32 x i8> %763, %760
+  %765 = bitcast <4 x i64> %.96..96..96..96..96..i to <32 x i8>
+  %766 = or <32 x i8> %765, splat (i8 32)
+  %767 = icmp eq <32 x i8> %766, %761
+  %768 = bitcast <32 x i1> %764 to i32
+  %769 = zext i32 %768 to i64
+  %770 = bitcast <32 x i1> %767 to i32
+  %771 = sext i32 %770 to i64
+  %772 = shl nsw i64 %771, 32
+  %773 = or disjoint i64 %772, %769
+  %774 = or i64 %773, %759
+  %775 = xor i64 %774, -1
+  %776 = xor i64 %745, -1
+  %777 = and i64 %775, %776
+  %778 = tail call i64 @llvm.fshl.i64(i64 %777, i64 %714, i64 1)
+  %779 = icmp ult <32 x i8> %651, splat (i8 32)
+  %780 = icmp ult <32 x i8> %653, splat (i8 32)
+  %781 = bitcast <32 x i1> %779 to i32
+  %782 = zext i32 %781 to i64
+  %783 = bitcast <32 x i1> %780 to i32
+  %784 = sext i32 %783 to i64
+  %785 = shl nsw i64 %784, 32
+  %786 = or disjoint i64 %785, %782
+  %787 = or <4 x i64> %.32..32..32..32..32..i, %.0..0..0..0..0..i
+  %788 = bitcast <4 x i64> %787 to <32 x i8>
+  %789 = icmp slt <32 x i8> %788, zeroinitializer
+  %790 = bitcast <32 x i1> %789 to i32
+  %791 = icmp eq i32 %790, 0
+  br i1 %791, label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i, label %792, !prof !141
 
-791:                                              ; preds = %.noexc45.i
-  %792 = shufflevector <4 x i64> %.sroa.70.0.lcssa6413.i, <4 x i64> %.0..0..0..0..0..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %793 = bitcast <4 x i64> %792 to <32 x i8>
-  %794 = shufflevector <32 x i8> %793, <32 x i8> %650, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %795 = bitcast <32 x i8> %794 to <16 x i16>
-  %796 = lshr <16 x i16> %795, splat (i16 4)
-  %797 = bitcast <16 x i16> %796 to <32 x i8>
-  %798 = and <32 x i8> %797, splat (i8 15)
-  %799 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %798)
-  %800 = and <32 x i8> %794, splat (i8 15)
-  %801 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %800)
-  %802 = bitcast <4 x i64> %.0..0..0..0..0..i to <16 x i16>
-  %803 = lshr <16 x i16> %802, splat (i16 4)
-  %804 = bitcast <16 x i16> %803 to <32 x i8>
-  %805 = and <32 x i8> %804, splat (i8 15)
-  %806 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %805)
-  %807 = and <32 x i8> %801, %799
-  %808 = and <32 x i8> %807, %806
-  %809 = shufflevector <32 x i8> %793, <32 x i8> %650, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %810 = shufflevector <32 x i8> %793, <32 x i8> %650, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %811 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %809, <32 x i8> splat (i8 96))
-  %812 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %810, <32 x i8> splat (i8 112))
-  %813 = or <32 x i8> %811, %812
-  %.inner75 = and <32 x i8> %813, splat (i8 -128)
-  %.inner76 = xor <32 x i8> %.inner75, %808
-  %814 = shufflevector <4 x i64> %.0..0..0..0..0..i, <4 x i64> %.32..32..32..32..32..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %815 = bitcast <4 x i64> %814 to <32 x i8>
-  %816 = shufflevector <32 x i8> %815, <32 x i8> %652, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %817 = bitcast <32 x i8> %816 to <16 x i16>
-  %818 = lshr <16 x i16> %817, splat (i16 4)
-  %819 = bitcast <16 x i16> %818 to <32 x i8>
-  %820 = and <32 x i8> %819, splat (i8 15)
-  %821 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %820)
-  %822 = and <32 x i8> %816, splat (i8 15)
-  %823 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %822)
-  %824 = bitcast <4 x i64> %.32..32..32..32..32..i to <16 x i16>
-  %825 = lshr <16 x i16> %824, splat (i16 4)
-  %826 = bitcast <16 x i16> %825 to <32 x i8>
-  %827 = and <32 x i8> %826, splat (i8 15)
-  %828 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %827)
-  %829 = and <32 x i8> %823, %821
-  %830 = and <32 x i8> %829, %828
-  %831 = shufflevector <32 x i8> %815, <32 x i8> %652, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %832 = shufflevector <32 x i8> %815, <32 x i8> %652, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %833 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %831, <32 x i8> splat (i8 96))
-  %834 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %832, <32 x i8> splat (i8 112))
-  %835 = or <32 x i8> %833, %834
-  %.inner79 = and <32 x i8> %835, splat (i8 -128)
-  %.inner80 = xor <32 x i8> %.inner79, %830
-  %.inner81 = or <32 x i8> %.inner76, %.inner80
-  %836 = bitcast <32 x i8> %.inner81 to <4 x i64>
-  %837 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %652, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %838 = bitcast <32 x i8> %837 to <4 x i64>
+792:                                              ; preds = %.noexc45.i
+  %793 = shufflevector <4 x i64> %.sroa.70.0.lcssa6413.i, <4 x i64> %.0..0..0..0..0..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %794 = bitcast <4 x i64> %793 to <32 x i8>
+  %795 = shufflevector <32 x i8> %794, <32 x i8> %651, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %796 = bitcast <32 x i8> %795 to <16 x i16>
+  %797 = lshr <16 x i16> %796, splat (i16 4)
+  %798 = bitcast <16 x i16> %797 to <32 x i8>
+  %799 = and <32 x i8> %798, splat (i8 15)
+  %800 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %799)
+  %801 = and <32 x i8> %795, splat (i8 15)
+  %802 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %801)
+  %803 = bitcast <4 x i64> %.0..0..0..0..0..i to <16 x i16>
+  %804 = lshr <16 x i16> %803, splat (i16 4)
+  %805 = bitcast <16 x i16> %804 to <32 x i8>
+  %806 = and <32 x i8> %805, splat (i8 15)
+  %807 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %806)
+  %808 = and <32 x i8> %802, %800
+  %809 = and <32 x i8> %808, %807
+  %810 = shufflevector <32 x i8> %794, <32 x i8> %651, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %811 = shufflevector <32 x i8> %794, <32 x i8> %651, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %812 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %810, <32 x i8> splat (i8 96))
+  %813 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %811, <32 x i8> splat (i8 112))
+  %814 = or <32 x i8> %812, %813
+  %.inner75 = and <32 x i8> %814, splat (i8 -128)
+  %.inner76 = xor <32 x i8> %.inner75, %809
+  %815 = bitcast <32 x i8> %.inner76 to <4 x i64>
+  %816 = shufflevector <4 x i64> %.0..0..0..0..0..i, <4 x i64> %.32..32..32..32..32..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %817 = bitcast <4 x i64> %816 to <32 x i8>
+  %818 = shufflevector <32 x i8> %817, <32 x i8> %653, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %819 = bitcast <32 x i8> %818 to <16 x i16>
+  %820 = lshr <16 x i16> %819, splat (i16 4)
+  %821 = bitcast <16 x i16> %820 to <32 x i8>
+  %822 = and <32 x i8> %821, splat (i8 15)
+  %823 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %822)
+  %824 = and <32 x i8> %818, splat (i8 15)
+  %825 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %824)
+  %826 = bitcast <4 x i64> %.32..32..32..32..32..i to <16 x i16>
+  %827 = lshr <16 x i16> %826, splat (i16 4)
+  %828 = bitcast <16 x i16> %827 to <32 x i8>
+  %829 = and <32 x i8> %828, splat (i8 15)
+  %830 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %829)
+  %831 = and <32 x i8> %825, %823
+  %832 = and <32 x i8> %831, %830
+  %833 = shufflevector <32 x i8> %817, <32 x i8> %653, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %834 = shufflevector <32 x i8> %817, <32 x i8> %653, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %835 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %833, <32 x i8> splat (i8 96))
+  %836 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %834, <32 x i8> splat (i8 112))
+  %837 = or <32 x i8> %835, %836
+  %.inner79 = and <32 x i8> %837, splat (i8 -128)
+  %.inner80 = xor <32 x i8> %.inner79, %832
+  %838 = bitcast <32 x i8> %.inner80 to <4 x i64>
+  %839 = or <4 x i64> %.sroa.41541.0.lcssa6414.i, %815
+  %840 = or <4 x i64> %839, %838
+  %841 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %653, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %842 = bitcast <32 x i8> %841 to <4 x i64>
+  %843 = or <4 x i64> %840, %842
   br label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i: ; preds = %.noexc45.i, %791
-  %.sroa.79.2.i = phi <4 x i64> [ %838, %791 ], [ %.sroa.79.0.lcssa6412.i, %.noexc45.i ]
-  %.sroa.70.1.i = phi <4 x i64> [ %.32..32..32..32..32..i, %791 ], [ %.sroa.70.0.lcssa6413.i, %.noexc45.i ]
-  %.sroa.79.0.lcssa6412.i.pn = phi <4 x i64> [ %836, %791 ], [ %.sroa.79.0.lcssa6412.i, %.noexc45.i ]
-  %.sroa.41541.2.i = or <4 x i64> %.sroa.79.0.lcssa6412.i.pn, %.sroa.41541.0.lcssa6414.i
-  %839 = trunc i64 %.sroa.11.0.lcssa6406.i to i32
-  %840 = add i32 %839, -64
-  %841 = icmp eq i64 %.sroa.226.0.lcssa6410.i, 0
-  br i1 %841, label %.noexc42.i, label %.noexc106.i
+_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i: ; preds = %792, %.noexc45.i
+  %.sroa.79.2.i = phi <4 x i64> [ %843, %792 ], [ %.sroa.79.0.lcssa6412.i, %.noexc45.i ]
+  %.sroa.70.1.i = phi <4 x i64> [ %.32..32..32..32..32..i, %792 ], [ %.sroa.70.0.lcssa6413.i, %.noexc45.i ]
+  %.sroa.41541.2.i = phi <4 x i64> [ %840, %792 ], [ %.sroa.79.0.lcssa6412.i, %.noexc45.i ]
+  %844 = trunc i64 %.sroa.11.0.lcssa6406.i to i32
+  %845 = add i32 %844, -64
+  %846 = icmp eq i64 %.sroa.226.0.lcssa6410.i, 0
+  br i1 %846, label %.noexc42.i, label %.noexc106.i
 
 .noexc106.i:                                      ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %842 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.226.0.lcssa6410.i)
-  %843 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.226.0.lcssa6410.i, i1 true)
-  %844 = trunc nuw nsw i64 %843 to i32
-  %845 = or disjoint i32 %840, %844
-  store i32 %845, ptr %.sroa.89.0.lcssa6411.i, align 4, !tbaa !7
-  %846 = add i64 %.sroa.226.0.lcssa6410.i, -1
-  %847 = and i64 %846, %.sroa.226.0.lcssa6410.i
-  %848 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %847, i1 true)
+  %847 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.226.0.lcssa6410.i)
+  %848 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.226.0.lcssa6410.i, i1 true)
   %849 = trunc nuw nsw i64 %848 to i32
-  %850 = or disjoint i32 %840, %849
-  %851 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 4
-  store i32 %850, ptr %851, align 4, !tbaa !7
-  %852 = add i64 %847, -2
-  %853 = and i64 %852, %847
-  %854 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %853, i1 true)
-  %855 = trunc nuw nsw i64 %854 to i32
-  %856 = or disjoint i32 %840, %855
-  %857 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 8
-  store i32 %856, ptr %857, align 4, !tbaa !7
-  %858 = add i64 %853, -2
-  %859 = and i64 %858, %853
-  %860 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %859, i1 true)
-  %861 = trunc nuw nsw i64 %860 to i32
-  %862 = or disjoint i32 %840, %861
-  %863 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 12
-  store i32 %862, ptr %863, align 4, !tbaa !7
-  %864 = icmp samesign ugt i64 %842, 4
-  br i1 %864, label %.noexc143.i, label %.loopexit6270.i, !prof !127
+  %850 = or disjoint i32 %845, %849
+  store i32 %850, ptr %.sroa.89.0.lcssa6411.i, align 4, !tbaa !7
+  %851 = add i64 %.sroa.226.0.lcssa6410.i, -1
+  %852 = and i64 %851, %.sroa.226.0.lcssa6410.i
+  %853 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %852, i1 true)
+  %854 = trunc nuw nsw i64 %853 to i32
+  %855 = or disjoint i32 %845, %854
+  %856 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 4
+  store i32 %855, ptr %856, align 4, !tbaa !7
+  %857 = add i64 %852, -2
+  %858 = and i64 %857, %852
+  %859 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %858, i1 true)
+  %860 = trunc nuw nsw i64 %859 to i32
+  %861 = or disjoint i32 %845, %860
+  %862 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 8
+  store i32 %861, ptr %862, align 4, !tbaa !7
+  %863 = add i64 %858, -2
+  %864 = and i64 %863, %858
+  %865 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %864, i1 true)
+  %866 = trunc nuw nsw i64 %865 to i32
+  %867 = or disjoint i32 %845, %866
+  %868 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 12
+  store i32 %867, ptr %868, align 4, !tbaa !7
+  %869 = icmp samesign ugt i64 %847, 4
+  br i1 %869, label %.noexc143.i, label %.loopexit6270.i, !prof !127
 
 .noexc143.i:                                      ; preds = %.noexc106.i
-  %865 = add i64 %859, -2
-  %866 = and i64 %865, %859
-  %867 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %866, i1 true)
-  %868 = trunc nuw nsw i64 %867 to i32
-  %869 = or disjoint i32 %840, %868
-  %870 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 16
-  store i32 %869, ptr %870, align 4, !tbaa !7
-  %871 = add i64 %866, -2
-  %872 = and i64 %871, %866
-  %873 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %872, i1 true)
-  %874 = trunc nuw nsw i64 %873 to i32
-  %875 = or disjoint i32 %840, %874
-  %876 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 20
-  store i32 %875, ptr %876, align 4, !tbaa !7
-  %877 = add i64 %872, -1
-  %878 = and i64 %877, %872
-  %879 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %878, i1 true)
-  %880 = trunc nuw nsw i64 %879 to i32
-  %881 = or disjoint i32 %840, %880
-  %882 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 24
-  store i32 %881, ptr %882, align 4, !tbaa !7
-  %883 = add i64 %878, -2
-  %884 = and i64 %883, %878
-  %885 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %884, i1 true)
-  %886 = trunc nuw nsw i64 %885 to i32
-  %887 = or disjoint i32 %840, %886
-  %888 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 28
-  store i32 %887, ptr %888, align 4, !tbaa !7
-  %889 = icmp samesign ugt i64 %842, 8
-  br i1 %889, label %.noexc208.i, label %.loopexit6270.i, !prof !127
+  %870 = add i64 %864, -2
+  %871 = and i64 %870, %864
+  %872 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %871, i1 true)
+  %873 = trunc nuw nsw i64 %872 to i32
+  %874 = or disjoint i32 %845, %873
+  %875 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 16
+  store i32 %874, ptr %875, align 4, !tbaa !7
+  %876 = add i64 %871, -2
+  %877 = and i64 %876, %871
+  %878 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %877, i1 true)
+  %879 = trunc nuw nsw i64 %878 to i32
+  %880 = or disjoint i32 %845, %879
+  %881 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 20
+  store i32 %880, ptr %881, align 4, !tbaa !7
+  %882 = add i64 %877, -1
+  %883 = and i64 %882, %877
+  %884 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %883, i1 true)
+  %885 = trunc nuw nsw i64 %884 to i32
+  %886 = or disjoint i32 %845, %885
+  %887 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 24
+  store i32 %886, ptr %887, align 4, !tbaa !7
+  %888 = add i64 %883, -2
+  %889 = and i64 %888, %883
+  %890 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %889, i1 true)
+  %891 = trunc nuw nsw i64 %890 to i32
+  %892 = or disjoint i32 %845, %891
+  %893 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 28
+  store i32 %892, ptr %893, align 4, !tbaa !7
+  %894 = icmp samesign ugt i64 %847, 8
+  br i1 %894, label %.noexc208.i, label %.loopexit6270.i, !prof !127
 
 .noexc208.i:                                      ; preds = %.noexc143.i
-  %890 = add i64 %884, -2
-  %891 = and i64 %890, %884
-  %892 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %891, i1 true)
-  %893 = trunc nuw nsw i64 %892 to i32
-  %894 = or disjoint i32 %840, %893
-  %895 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 32
-  store i32 %894, ptr %895, align 4, !tbaa !7
-  %896 = add i64 %891, -2
-  %897 = and i64 %896, %891
-  %898 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %897, i1 true)
-  %899 = trunc nuw nsw i64 %898 to i32
-  %900 = or disjoint i32 %840, %899
-  %901 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 36
-  store i32 %900, ptr %901, align 4, !tbaa !7
-  %902 = add i64 %897, -2
-  %903 = and i64 %902, %897
-  %904 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %903, i1 true)
-  %905 = trunc nuw nsw i64 %904 to i32
-  %906 = or disjoint i32 %840, %905
-  %907 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 40
-  store i32 %906, ptr %907, align 4, !tbaa !7
-  %908 = add i64 %903, -1
-  %909 = and i64 %908, %903
-  %910 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %909, i1 true)
-  %911 = trunc nuw nsw i64 %910 to i32
-  %912 = or disjoint i32 %840, %911
-  %913 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 44
-  store i32 %912, ptr %913, align 4, !tbaa !7
-  %914 = icmp samesign ugt i64 %842, 12
-  br i1 %914, label %.noexc273.i, label %.loopexit6270.i, !prof !127
+  %895 = add i64 %889, -2
+  %896 = and i64 %895, %889
+  %897 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %896, i1 true)
+  %898 = trunc nuw nsw i64 %897 to i32
+  %899 = or disjoint i32 %845, %898
+  %900 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 32
+  store i32 %899, ptr %900, align 4, !tbaa !7
+  %901 = add i64 %896, -2
+  %902 = and i64 %901, %896
+  %903 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %902, i1 true)
+  %904 = trunc nuw nsw i64 %903 to i32
+  %905 = or disjoint i32 %845, %904
+  %906 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 36
+  store i32 %905, ptr %906, align 4, !tbaa !7
+  %907 = add i64 %902, -2
+  %908 = and i64 %907, %902
+  %909 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %908, i1 true)
+  %910 = trunc nuw nsw i64 %909 to i32
+  %911 = or disjoint i32 %845, %910
+  %912 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 40
+  store i32 %911, ptr %912, align 4, !tbaa !7
+  %913 = add i64 %908, -1
+  %914 = and i64 %913, %908
+  %915 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %914, i1 true)
+  %916 = trunc nuw nsw i64 %915 to i32
+  %917 = or disjoint i32 %845, %916
+  %918 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 44
+  store i32 %917, ptr %918, align 4, !tbaa !7
+  %919 = icmp samesign ugt i64 %847, 12
+  br i1 %919, label %.noexc273.i, label %.loopexit6270.i, !prof !127
 
 .noexc273.i:                                      ; preds = %.noexc208.i
-  %915 = add i64 %909, -2
-  %916 = and i64 %915, %909
-  %917 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %916, i1 true)
-  %918 = trunc nuw nsw i64 %917 to i32
-  %919 = or disjoint i32 %840, %918
-  %920 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 48
-  store i32 %919, ptr %920, align 4, !tbaa !7
-  %921 = add i64 %916, -2
-  %922 = and i64 %921, %916
-  %923 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %922, i1 true)
-  %924 = trunc nuw nsw i64 %923 to i32
-  %925 = or disjoint i32 %840, %924
-  %926 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 52
-  store i32 %925, ptr %926, align 4, !tbaa !7
-  %927 = add i64 %922, -2
-  %928 = and i64 %927, %922
-  %929 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %928, i1 true)
-  %930 = trunc nuw nsw i64 %929 to i32
-  %931 = or disjoint i32 %840, %930
-  %932 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 56
-  store i32 %931, ptr %932, align 4, !tbaa !7
-  %933 = add i64 %928, -2
-  %934 = and i64 %933, %928
-  %935 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %934, i1 true)
-  %936 = trunc nuw nsw i64 %935 to i32
-  %937 = or disjoint i32 %840, %936
-  %938 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 60
-  store i32 %937, ptr %938, align 4, !tbaa !7
-  %939 = icmp samesign ugt i64 %842, 16
-  br i1 %939, label %.noexc338.i, label %.loopexit6270.i, !prof !127
+  %920 = add i64 %914, -2
+  %921 = and i64 %920, %914
+  %922 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %921, i1 true)
+  %923 = trunc nuw nsw i64 %922 to i32
+  %924 = or disjoint i32 %845, %923
+  %925 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 48
+  store i32 %924, ptr %925, align 4, !tbaa !7
+  %926 = add i64 %921, -2
+  %927 = and i64 %926, %921
+  %928 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %927, i1 true)
+  %929 = trunc nuw nsw i64 %928 to i32
+  %930 = or disjoint i32 %845, %929
+  %931 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 52
+  store i32 %930, ptr %931, align 4, !tbaa !7
+  %932 = add i64 %927, -2
+  %933 = and i64 %932, %927
+  %934 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %933, i1 true)
+  %935 = trunc nuw nsw i64 %934 to i32
+  %936 = or disjoint i32 %845, %935
+  %937 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 56
+  store i32 %936, ptr %937, align 4, !tbaa !7
+  %938 = add i64 %933, -2
+  %939 = and i64 %938, %933
+  %940 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %939, i1 true)
+  %941 = trunc nuw nsw i64 %940 to i32
+  %942 = or disjoint i32 %845, %941
+  %943 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 60
+  store i32 %942, ptr %943, align 4, !tbaa !7
+  %944 = icmp samesign ugt i64 %847, 16
+  br i1 %944, label %.noexc338.i, label %.loopexit6270.i, !prof !127
 
 .noexc338.i:                                      ; preds = %.noexc273.i
-  %940 = add i64 %934, -1
-  %941 = and i64 %940, %934
-  %942 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %941, i1 true)
-  %943 = trunc nuw nsw i64 %942 to i32
-  %944 = or disjoint i32 %840, %943
-  %945 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 64
-  store i32 %944, ptr %945, align 4, !tbaa !7
-  %946 = add i64 %941, -2
-  %947 = and i64 %946, %941
-  %948 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %947, i1 true)
-  %949 = trunc nuw nsw i64 %948 to i32
-  %950 = or disjoint i32 %840, %949
-  %951 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 68
-  store i32 %950, ptr %951, align 4, !tbaa !7
-  %952 = add i64 %947, -2
-  %953 = and i64 %952, %947
-  %954 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %953, i1 true)
-  %955 = trunc nuw nsw i64 %954 to i32
-  %956 = or disjoint i32 %840, %955
-  %957 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 72
-  store i32 %956, ptr %957, align 4, !tbaa !7
-  %958 = add i64 %953, -2
-  %959 = and i64 %958, %953
-  %960 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %959, i1 true)
-  %961 = trunc nuw nsw i64 %960 to i32
-  %962 = or disjoint i32 %840, %961
-  %963 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 76
-  store i32 %962, ptr %963, align 4, !tbaa !7
-  %964 = icmp samesign ugt i64 %842, 20
-  br i1 %964, label %.noexc75.i, label %.loopexit6270.i, !prof !127
+  %945 = add i64 %939, -1
+  %946 = and i64 %945, %939
+  %947 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %946, i1 true)
+  %948 = trunc nuw nsw i64 %947 to i32
+  %949 = or disjoint i32 %845, %948
+  %950 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 64
+  store i32 %949, ptr %950, align 4, !tbaa !7
+  %951 = add i64 %946, -2
+  %952 = and i64 %951, %946
+  %953 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %952, i1 true)
+  %954 = trunc nuw nsw i64 %953 to i32
+  %955 = or disjoint i32 %845, %954
+  %956 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 68
+  store i32 %955, ptr %956, align 4, !tbaa !7
+  %957 = add i64 %952, -2
+  %958 = and i64 %957, %952
+  %959 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %958, i1 true)
+  %960 = trunc nuw nsw i64 %959 to i32
+  %961 = or disjoint i32 %845, %960
+  %962 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 72
+  store i32 %961, ptr %962, align 4, !tbaa !7
+  %963 = add i64 %958, -2
+  %964 = and i64 %963, %958
+  %965 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %964, i1 true)
+  %966 = trunc nuw nsw i64 %965 to i32
+  %967 = or disjoint i32 %845, %966
+  %968 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 76
+  store i32 %967, ptr %968, align 4, !tbaa !7
+  %969 = icmp samesign ugt i64 %847, 20
+  br i1 %969, label %.noexc75.i, label %.loopexit6270.i, !prof !127
 
 .noexc75.i:                                       ; preds = %.noexc338.i
-  %965 = add i64 %959, -2
-  %966 = and i64 %965, %959
-  %967 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %966, i1 true)
-  %968 = trunc nuw nsw i64 %967 to i32
-  %969 = or disjoint i32 %840, %968
-  %970 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 80
-  store i32 %969, ptr %970, align 4, !tbaa !7
-  %971 = add i64 %966, -1
-  %972 = and i64 %971, %966
-  %973 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %972, i1 true)
-  %974 = trunc nuw nsw i64 %973 to i32
-  %975 = or disjoint i32 %840, %974
-  %976 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 84
-  store i32 %975, ptr %976, align 4, !tbaa !7
-  %977 = add i64 %972, -2
-  %978 = and i64 %977, %972
-  %979 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %978, i1 true)
-  %980 = trunc nuw nsw i64 %979 to i32
-  %981 = or disjoint i32 %840, %980
-  %982 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 88
-  store i32 %981, ptr %982, align 4, !tbaa !7
-  %983 = add i64 %978, -2
-  %984 = and i64 %983, %978
-  %985 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %984, i1 true)
-  %986 = trunc nuw nsw i64 %985 to i32
-  %987 = or disjoint i32 %840, %986
-  %988 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 92
-  store i32 %987, ptr %988, align 4, !tbaa !7
-  %989 = icmp samesign ugt i64 %842, 24
-  br i1 %989, label %.noexc76.i.preheader, label %.loopexit6270.i, !prof !142
+  %970 = add i64 %964, -2
+  %971 = and i64 %970, %964
+  %972 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %971, i1 true)
+  %973 = trunc nuw nsw i64 %972 to i32
+  %974 = or disjoint i32 %845, %973
+  %975 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 80
+  store i32 %974, ptr %975, align 4, !tbaa !7
+  %976 = add i64 %971, -1
+  %977 = and i64 %976, %971
+  %978 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %977, i1 true)
+  %979 = trunc nuw nsw i64 %978 to i32
+  %980 = or disjoint i32 %845, %979
+  %981 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 84
+  store i32 %980, ptr %981, align 4, !tbaa !7
+  %982 = add i64 %977, -2
+  %983 = and i64 %982, %977
+  %984 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %983, i1 true)
+  %985 = trunc nuw nsw i64 %984 to i32
+  %986 = or disjoint i32 %845, %985
+  %987 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 88
+  store i32 %986, ptr %987, align 4, !tbaa !7
+  %988 = add i64 %983, -2
+  %989 = and i64 %988, %983
+  %990 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %989, i1 true)
+  %991 = trunc nuw nsw i64 %990 to i32
+  %992 = or disjoint i32 %845, %991
+  %993 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 92
+  store i32 %992, ptr %993, align 4, !tbaa !7
+  %994 = icmp samesign ugt i64 %847, 24
+  br i1 %994, label %.noexc76.i.preheader, label %.loopexit6270.i, !prof !142
 
 .noexc76.i.preheader:                             ; preds = %.noexc75.i
-  %990 = add i64 %984, -2
-  %991 = and i64 %990, %984
+  %995 = add i64 %989, -2
+  %996 = and i64 %995, %989
   br label %.noexc76.i
 
 .noexc76.i:                                       ; preds = %.noexc76.i.preheader, %.noexc76.i
   %indvars.iv6345.i = phi i64 [ %indvars.iv.next6346.i, %.noexc76.i ], [ 24, %.noexc76.i.preheader ]
-  %.061826306.i = phi i64 [ %997, %.noexc76.i ], [ %991, %.noexc76.i.preheader ]
-  %992 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061826306.i, i1 true)
-  %993 = trunc nuw nsw i64 %992 to i32
-  %994 = or disjoint i32 %840, %993
-  %995 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6411.i, i64 %indvars.iv6345.i
-  store i32 %994, ptr %995, align 4, !tbaa !7
-  %996 = add i64 %.061826306.i, -1
-  %997 = and i64 %996, %.061826306.i
+  %.061826306.i = phi i64 [ %1002, %.noexc76.i ], [ %996, %.noexc76.i.preheader ]
+  %997 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061826306.i, i1 true)
+  %998 = trunc nuw nsw i64 %997 to i32
+  %999 = or disjoint i32 %845, %998
+  %1000 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6411.i, i64 %indvars.iv6345.i
+  store i32 %999, ptr %1000, align 4, !tbaa !7
+  %1001 = add i64 %.061826306.i, -1
+  %1002 = and i64 %1001, %.061826306.i
   %indvars.iv.next6346.i = add nuw nsw i64 %indvars.iv6345.i, 1
-  %exitcond6349.not.i = icmp eq i64 %indvars.iv.next6346.i, %842
+  %exitcond6349.not.i = icmp eq i64 %indvars.iv.next6346.i, %847
   br i1 %exitcond6349.not.i, label %.loopexit6270.i, label %.noexc76.i, !llvm.loop !143
 
 .loopexit6270.i:                                  ; preds = %.noexc76.i, %.noexc75.i, %.noexc338.i, %.noexc273.i, %.noexc208.i, %.noexc143.i, %.noexc106.i
-  %998 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6411.i, i64 %842
+  %1003 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6411.i, i64 %847
   br label %.noexc42.i
 
 .noexc42.i:                                       ; preds = %.loopexit6270.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %.sroa.89.3.i = phi ptr [ %.sroa.89.0.lcssa6411.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %998, %.loopexit6270.i ]
-  %999 = xor i64 %715, -1
-  %1000 = and i64 %999, %711
-  %1001 = or i64 %1000, %709
-  %1002 = xor i64 %680, %684
-  %1003 = xor i64 %1002, -1
-  %1004 = and i64 %1001, %1003
-  %1005 = and i64 %684, %785
-  %1006 = icmp ult <32 x i8> %716, splat (i8 32)
-  %1007 = icmp ult <32 x i8> %718, splat (i8 32)
-  %1008 = bitcast <32 x i1> %1006 to i32
-  %1009 = zext i32 %1008 to i64
-  %1010 = bitcast <32 x i1> %1007 to i32
-  %1011 = sext i32 %1010 to i64
-  %1012 = shl nsw i64 %1011, 32
-  %1013 = or disjoint i64 %1012, %1009
-  %1014 = or <4 x i64> %.96..96..96..96..96..i, %.64..64..64..64..64..i
-  %1015 = bitcast <4 x i64> %1014 to <32 x i8>
-  %1016 = icmp slt <32 x i8> %1015, zeroinitializer
-  %1017 = bitcast <32 x i1> %1016 to i32
-  %1018 = icmp eq i32 %1017, 0
-  br i1 %1018, label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, label %1019, !prof !141
+  %.sroa.89.3.i = phi ptr [ %.sroa.89.0.lcssa6411.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %1003, %.loopexit6270.i ]
+  %1004 = xor i64 %716, -1
+  %1005 = and i64 %1004, %712
+  %1006 = or i64 %1005, %710
+  %1007 = xor i64 %681, %685
+  %1008 = xor i64 %1007, -1
+  %1009 = and i64 %1006, %1008
+  %1010 = and i64 %685, %786
+  %1011 = icmp ult <32 x i8> %717, splat (i8 32)
+  %1012 = icmp ult <32 x i8> %719, splat (i8 32)
+  %1013 = bitcast <32 x i1> %1011 to i32
+  %1014 = zext i32 %1013 to i64
+  %1015 = bitcast <32 x i1> %1012 to i32
+  %1016 = sext i32 %1015 to i64
+  %1017 = shl nsw i64 %1016, 32
+  %1018 = or disjoint i64 %1017, %1014
+  %1019 = or <4 x i64> %.96..96..96..96..96..i, %.64..64..64..64..64..i
+  %1020 = bitcast <4 x i64> %1019 to <32 x i8>
+  %1021 = icmp slt <32 x i8> %1020, zeroinitializer
+  %1022 = bitcast <32 x i1> %1021 to i32
+  %1023 = icmp eq i32 %1022, 0
+  br i1 %1023, label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, label %1024, !prof !141
 
-1019:                                             ; preds = %.noexc42.i
-  %1020 = shufflevector <4 x i64> %.sroa.70.1.i, <4 x i64> %.64..64..64..64..64..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %1021 = bitcast <4 x i64> %1020 to <32 x i8>
-  %1022 = shufflevector <32 x i8> %1021, <32 x i8> %716, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %1023 = bitcast <32 x i8> %1022 to <16 x i16>
-  %1024 = lshr <16 x i16> %1023, splat (i16 4)
-  %1025 = bitcast <16 x i16> %1024 to <32 x i8>
-  %1026 = and <32 x i8> %1025, splat (i8 15)
-  %1027 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %1026)
-  %1028 = and <32 x i8> %1022, splat (i8 15)
-  %1029 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %1028)
-  %1030 = bitcast <4 x i64> %.64..64..64..64..64..i to <16 x i16>
-  %1031 = lshr <16 x i16> %1030, splat (i16 4)
-  %1032 = bitcast <16 x i16> %1031 to <32 x i8>
-  %1033 = and <32 x i8> %1032, splat (i8 15)
-  %1034 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %1033)
-  %1035 = and <32 x i8> %1029, %1027
-  %1036 = and <32 x i8> %1035, %1034
-  %1037 = shufflevector <32 x i8> %1021, <32 x i8> %716, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %1038 = shufflevector <32 x i8> %1021, <32 x i8> %716, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %1039 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1037, <32 x i8> splat (i8 96))
-  %1040 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1038, <32 x i8> splat (i8 112))
-  %1041 = or <32 x i8> %1039, %1040
-  %.inner84 = and <32 x i8> %1041, splat (i8 -128)
-  %.inner85 = xor <32 x i8> %.inner84, %1036
-  %1042 = shufflevector <4 x i64> %.64..64..64..64..64..i, <4 x i64> %.96..96..96..96..96..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %1043 = bitcast <4 x i64> %1042 to <32 x i8>
-  %1044 = shufflevector <32 x i8> %1043, <32 x i8> %718, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %1045 = bitcast <32 x i8> %1044 to <16 x i16>
-  %1046 = lshr <16 x i16> %1045, splat (i16 4)
-  %1047 = bitcast <16 x i16> %1046 to <32 x i8>
-  %1048 = and <32 x i8> %1047, splat (i8 15)
-  %1049 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %1048)
-  %1050 = and <32 x i8> %1044, splat (i8 15)
-  %1051 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %1050)
-  %1052 = bitcast <4 x i64> %.96..96..96..96..96..i to <16 x i16>
-  %1053 = lshr <16 x i16> %1052, splat (i16 4)
-  %1054 = bitcast <16 x i16> %1053 to <32 x i8>
-  %1055 = and <32 x i8> %1054, splat (i8 15)
-  %1056 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %1055)
-  %1057 = and <32 x i8> %1051, %1049
-  %1058 = and <32 x i8> %1057, %1056
-  %1059 = shufflevector <32 x i8> %1043, <32 x i8> %718, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %1060 = shufflevector <32 x i8> %1043, <32 x i8> %718, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %1061 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1059, <32 x i8> splat (i8 96))
-  %1062 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1060, <32 x i8> splat (i8 112))
-  %1063 = or <32 x i8> %1061, %1062
-  %.inner88 = and <32 x i8> %1063, splat (i8 -128)
-  %.inner89 = xor <32 x i8> %.inner88, %1058
-  %1064 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %718, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %.inner90 = or <32 x i8> %.inner85, %1064
-  %.inner91 = or <32 x i8> %.inner90, %.inner89
-  %1065 = bitcast <32 x i8> %.inner91 to <4 x i64>
+1024:                                             ; preds = %.noexc42.i
+  %1025 = shufflevector <4 x i64> %.sroa.70.1.i, <4 x i64> %.64..64..64..64..64..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %1026 = bitcast <4 x i64> %1025 to <32 x i8>
+  %1027 = shufflevector <32 x i8> %1026, <32 x i8> %717, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %1028 = bitcast <32 x i8> %1027 to <16 x i16>
+  %1029 = lshr <16 x i16> %1028, splat (i16 4)
+  %1030 = bitcast <16 x i16> %1029 to <32 x i8>
+  %1031 = and <32 x i8> %1030, splat (i8 15)
+  %1032 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %1031)
+  %1033 = and <32 x i8> %1027, splat (i8 15)
+  %1034 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %1033)
+  %1035 = bitcast <4 x i64> %.64..64..64..64..64..i to <16 x i16>
+  %1036 = lshr <16 x i16> %1035, splat (i16 4)
+  %1037 = bitcast <16 x i16> %1036 to <32 x i8>
+  %1038 = and <32 x i8> %1037, splat (i8 15)
+  %1039 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %1038)
+  %1040 = and <32 x i8> %1034, %1032
+  %1041 = and <32 x i8> %1040, %1039
+  %1042 = shufflevector <32 x i8> %1026, <32 x i8> %717, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %1043 = shufflevector <32 x i8> %1026, <32 x i8> %717, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %1044 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1042, <32 x i8> splat (i8 96))
+  %1045 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1043, <32 x i8> splat (i8 112))
+  %1046 = or <32 x i8> %1044, %1045
+  %.inner83 = and <32 x i8> %1046, splat (i8 -128)
+  %.inner84 = xor <32 x i8> %.inner83, %1041
+  %1047 = bitcast <32 x i8> %.inner84 to <4 x i64>
+  %1048 = shufflevector <4 x i64> %.64..64..64..64..64..i, <4 x i64> %.96..96..96..96..96..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %1049 = bitcast <4 x i64> %1048 to <32 x i8>
+  %1050 = shufflevector <32 x i8> %1049, <32 x i8> %719, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %1051 = bitcast <32 x i8> %1050 to <16 x i16>
+  %1052 = lshr <16 x i16> %1051, splat (i16 4)
+  %1053 = bitcast <16 x i16> %1052 to <32 x i8>
+  %1054 = and <32 x i8> %1053, splat (i8 15)
+  %1055 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %1054)
+  %1056 = and <32 x i8> %1050, splat (i8 15)
+  %1057 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %1056)
+  %1058 = bitcast <4 x i64> %.96..96..96..96..96..i to <16 x i16>
+  %1059 = lshr <16 x i16> %1058, splat (i16 4)
+  %1060 = bitcast <16 x i16> %1059 to <32 x i8>
+  %1061 = and <32 x i8> %1060, splat (i8 15)
+  %1062 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %1061)
+  %1063 = and <32 x i8> %1057, %1055
+  %1064 = and <32 x i8> %1063, %1062
+  %1065 = shufflevector <32 x i8> %1049, <32 x i8> %719, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %1066 = shufflevector <32 x i8> %1049, <32 x i8> %719, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %1067 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1065, <32 x i8> splat (i8 96))
+  %1068 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %1066, <32 x i8> splat (i8 112))
+  %1069 = or <32 x i8> %1067, %1068
+  %.inner87 = and <32 x i8> %1069, splat (i8 -128)
+  %.inner88 = xor <32 x i8> %.inner87, %1064
+  %1070 = bitcast <32 x i8> %.inner88 to <4 x i64>
+  %1071 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %719, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %1072 = bitcast <32 x i8> %1071 to <4 x i64>
+  %1073 = or <4 x i64> %.sroa.41541.2.i, %1072
+  %1074 = or <4 x i64> %1073, %1047
+  %1075 = or <4 x i64> %1074, %1070
   br label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i: ; preds = %.noexc42.i, %1019
-  %.sroa.79.2.i.pn = phi <4 x i64> [ %1065, %1019 ], [ %.sroa.79.2.i, %.noexc42.i ]
-  %.sroa.41541.1.i = or <4 x i64> %.sroa.41541.2.i, %.sroa.79.2.i.pn
-  %1066 = icmp eq i64 %1004, 0
-  br i1 %1066, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i, label %.noexc103.i
+_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i: ; preds = %1024, %.noexc42.i
+  %.sroa.41541.1.i = phi <4 x i64> [ %1075, %1024 ], [ %.sroa.79.2.i, %.noexc42.i ]
+  %1076 = icmp eq i64 %1009, 0
+  br i1 %1076, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i, label %.noexc103.i
 
 .noexc103.i:                                      ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %1067 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1004)
-  %1068 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1004, i1 true)
-  %1069 = or disjoint i64 %1068, %.sroa.11.0.lcssa6406.i
-  %1070 = trunc i64 %1069 to i32
-  store i32 %1070, ptr %.sroa.89.3.i, align 4, !tbaa !7
-  %1071 = add i64 %1004, -1
-  %1072 = and i64 %1071, %1004
-  %1073 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1072, i1 true)
-  %1074 = or disjoint i64 %1073, %.sroa.11.0.lcssa6406.i
-  %1075 = trunc i64 %1074 to i32
-  %1076 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 4
-  store i32 %1075, ptr %1076, align 4, !tbaa !7
-  %1077 = add i64 %1072, -2
-  %1078 = and i64 %1077, %1072
-  %1079 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1078, i1 true)
-  %1080 = or disjoint i64 %1079, %.sroa.11.0.lcssa6406.i
-  %1081 = trunc i64 %1080 to i32
-  %1082 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 8
-  store i32 %1081, ptr %1082, align 4, !tbaa !7
-  %1083 = add i64 %1078, -2
-  %1084 = and i64 %1083, %1078
-  %1085 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1084, i1 true)
-  %1086 = or disjoint i64 %1085, %.sroa.11.0.lcssa6406.i
-  %1087 = trunc i64 %1086 to i32
-  %1088 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 12
-  store i32 %1087, ptr %1088, align 4, !tbaa !7
-  %1089 = icmp samesign ugt i64 %1067, 4
-  br i1 %1089, label %.noexc146.i, label %.loopexit6268.i, !prof !127
+  %1077 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1009)
+  %1078 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1009, i1 true)
+  %1079 = or disjoint i64 %1078, %.sroa.11.0.lcssa6406.i
+  %1080 = trunc i64 %1079 to i32
+  store i32 %1080, ptr %.sroa.89.3.i, align 4, !tbaa !7
+  %1081 = add i64 %1009, -1
+  %1082 = and i64 %1081, %1009
+  %1083 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1082, i1 true)
+  %1084 = or disjoint i64 %1083, %.sroa.11.0.lcssa6406.i
+  %1085 = trunc i64 %1084 to i32
+  %1086 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 4
+  store i32 %1085, ptr %1086, align 4, !tbaa !7
+  %1087 = add i64 %1082, -2
+  %1088 = and i64 %1087, %1082
+  %1089 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1088, i1 true)
+  %1090 = or disjoint i64 %1089, %.sroa.11.0.lcssa6406.i
+  %1091 = trunc i64 %1090 to i32
+  %1092 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 8
+  store i32 %1091, ptr %1092, align 4, !tbaa !7
+  %1093 = add i64 %1088, -2
+  %1094 = and i64 %1093, %1088
+  %1095 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1094, i1 true)
+  %1096 = or disjoint i64 %1095, %.sroa.11.0.lcssa6406.i
+  %1097 = trunc i64 %1096 to i32
+  %1098 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 12
+  store i32 %1097, ptr %1098, align 4, !tbaa !7
+  %1099 = icmp samesign ugt i64 %1077, 4
+  br i1 %1099, label %.noexc146.i, label %.loopexit6268.i, !prof !127
 
 .noexc146.i:                                      ; preds = %.noexc103.i
-  %1090 = add i64 %1084, -2
-  %1091 = and i64 %1090, %1084
-  %1092 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1091, i1 true)
-  %1093 = or disjoint i64 %1092, %.sroa.11.0.lcssa6406.i
-  %1094 = trunc i64 %1093 to i32
-  %1095 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 16
-  store i32 %1094, ptr %1095, align 4, !tbaa !7
-  %1096 = add i64 %1091, -2
-  %1097 = and i64 %1096, %1091
-  %1098 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1097, i1 true)
-  %1099 = or disjoint i64 %1098, %.sroa.11.0.lcssa6406.i
-  %1100 = trunc i64 %1099 to i32
-  %1101 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 20
-  store i32 %1100, ptr %1101, align 4, !tbaa !7
-  %1102 = add i64 %1097, -1
-  %1103 = and i64 %1102, %1097
-  %1104 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1103, i1 true)
-  %1105 = or disjoint i64 %1104, %.sroa.11.0.lcssa6406.i
-  %1106 = trunc i64 %1105 to i32
-  %1107 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 24
-  store i32 %1106, ptr %1107, align 4, !tbaa !7
-  %1108 = add i64 %1103, -2
-  %1109 = and i64 %1108, %1103
-  %1110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1109, i1 true)
-  %1111 = or disjoint i64 %1110, %.sroa.11.0.lcssa6406.i
-  %1112 = trunc i64 %1111 to i32
-  %1113 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 28
-  store i32 %1112, ptr %1113, align 4, !tbaa !7
-  %1114 = icmp samesign ugt i64 %1067, 8
-  br i1 %1114, label %.noexc205.i, label %.loopexit6268.i, !prof !127
+  %1100 = add i64 %1094, -2
+  %1101 = and i64 %1100, %1094
+  %1102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1101, i1 true)
+  %1103 = or disjoint i64 %1102, %.sroa.11.0.lcssa6406.i
+  %1104 = trunc i64 %1103 to i32
+  %1105 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 16
+  store i32 %1104, ptr %1105, align 4, !tbaa !7
+  %1106 = add i64 %1101, -2
+  %1107 = and i64 %1106, %1101
+  %1108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1107, i1 true)
+  %1109 = or disjoint i64 %1108, %.sroa.11.0.lcssa6406.i
+  %1110 = trunc i64 %1109 to i32
+  %1111 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 20
+  store i32 %1110, ptr %1111, align 4, !tbaa !7
+  %1112 = add i64 %1107, -1
+  %1113 = and i64 %1112, %1107
+  %1114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1113, i1 true)
+  %1115 = or disjoint i64 %1114, %.sroa.11.0.lcssa6406.i
+  %1116 = trunc i64 %1115 to i32
+  %1117 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 24
+  store i32 %1116, ptr %1117, align 4, !tbaa !7
+  %1118 = add i64 %1113, -2
+  %1119 = and i64 %1118, %1113
+  %1120 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1119, i1 true)
+  %1121 = or disjoint i64 %1120, %.sroa.11.0.lcssa6406.i
+  %1122 = trunc i64 %1121 to i32
+  %1123 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 28
+  store i32 %1122, ptr %1123, align 4, !tbaa !7
+  %1124 = icmp samesign ugt i64 %1077, 8
+  br i1 %1124, label %.noexc205.i, label %.loopexit6268.i, !prof !127
 
 .noexc205.i:                                      ; preds = %.noexc146.i
-  %1115 = add i64 %1109, -2
-  %1116 = and i64 %1115, %1109
-  %1117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1116, i1 true)
-  %1118 = or disjoint i64 %1117, %.sroa.11.0.lcssa6406.i
-  %1119 = trunc i64 %1118 to i32
-  %1120 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 32
-  store i32 %1119, ptr %1120, align 4, !tbaa !7
-  %1121 = add i64 %1116, -2
-  %1122 = and i64 %1121, %1116
-  %1123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1122, i1 true)
-  %1124 = or disjoint i64 %1123, %.sroa.11.0.lcssa6406.i
-  %1125 = trunc i64 %1124 to i32
-  %1126 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 36
-  store i32 %1125, ptr %1126, align 4, !tbaa !7
-  %1127 = add i64 %1122, -2
-  %1128 = and i64 %1127, %1122
-  %1129 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1128, i1 true)
-  %1130 = or disjoint i64 %1129, %.sroa.11.0.lcssa6406.i
-  %1131 = trunc i64 %1130 to i32
-  %1132 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 40
-  store i32 %1131, ptr %1132, align 4, !tbaa !7
-  %1133 = add i64 %1128, -1
-  %1134 = and i64 %1133, %1128
-  %1135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1134, i1 true)
-  %1136 = or disjoint i64 %1135, %.sroa.11.0.lcssa6406.i
-  %1137 = trunc i64 %1136 to i32
-  %1138 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 44
-  store i32 %1137, ptr %1138, align 4, !tbaa !7
-  %1139 = icmp samesign ugt i64 %1067, 12
-  br i1 %1139, label %.noexc276.i, label %.loopexit6268.i, !prof !127
+  %1125 = add i64 %1119, -2
+  %1126 = and i64 %1125, %1119
+  %1127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1126, i1 true)
+  %1128 = or disjoint i64 %1127, %.sroa.11.0.lcssa6406.i
+  %1129 = trunc i64 %1128 to i32
+  %1130 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 32
+  store i32 %1129, ptr %1130, align 4, !tbaa !7
+  %1131 = add i64 %1126, -2
+  %1132 = and i64 %1131, %1126
+  %1133 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1132, i1 true)
+  %1134 = or disjoint i64 %1133, %.sroa.11.0.lcssa6406.i
+  %1135 = trunc i64 %1134 to i32
+  %1136 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 36
+  store i32 %1135, ptr %1136, align 4, !tbaa !7
+  %1137 = add i64 %1132, -2
+  %1138 = and i64 %1137, %1132
+  %1139 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1138, i1 true)
+  %1140 = or disjoint i64 %1139, %.sroa.11.0.lcssa6406.i
+  %1141 = trunc i64 %1140 to i32
+  %1142 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 40
+  store i32 %1141, ptr %1142, align 4, !tbaa !7
+  %1143 = add i64 %1138, -1
+  %1144 = and i64 %1143, %1138
+  %1145 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1144, i1 true)
+  %1146 = or disjoint i64 %1145, %.sroa.11.0.lcssa6406.i
+  %1147 = trunc i64 %1146 to i32
+  %1148 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 44
+  store i32 %1147, ptr %1148, align 4, !tbaa !7
+  %1149 = icmp samesign ugt i64 %1077, 12
+  br i1 %1149, label %.noexc276.i, label %.loopexit6268.i, !prof !127
 
 .noexc276.i:                                      ; preds = %.noexc205.i
-  %1140 = add i64 %1134, -2
-  %1141 = and i64 %1140, %1134
-  %1142 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1141, i1 true)
-  %1143 = or disjoint i64 %1142, %.sroa.11.0.lcssa6406.i
-  %1144 = trunc i64 %1143 to i32
-  %1145 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 48
-  store i32 %1144, ptr %1145, align 4, !tbaa !7
-  %1146 = add i64 %1141, -2
-  %1147 = and i64 %1146, %1141
-  %1148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1147, i1 true)
-  %1149 = or disjoint i64 %1148, %.sroa.11.0.lcssa6406.i
-  %1150 = trunc i64 %1149 to i32
-  %1151 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 52
-  store i32 %1150, ptr %1151, align 4, !tbaa !7
-  %1152 = add i64 %1147, -2
-  %1153 = and i64 %1152, %1147
-  %1154 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1153, i1 true)
-  %1155 = or disjoint i64 %1154, %.sroa.11.0.lcssa6406.i
-  %1156 = trunc i64 %1155 to i32
-  %1157 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 56
-  store i32 %1156, ptr %1157, align 4, !tbaa !7
-  %1158 = add i64 %1153, -2
-  %1159 = and i64 %1158, %1153
-  %1160 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1159, i1 true)
-  %1161 = or disjoint i64 %1160, %.sroa.11.0.lcssa6406.i
-  %1162 = trunc i64 %1161 to i32
-  %1163 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 60
-  store i32 %1162, ptr %1163, align 4, !tbaa !7
-  %1164 = icmp samesign ugt i64 %1067, 16
-  br i1 %1164, label %.noexc335.i, label %.loopexit6268.i, !prof !127
+  %1150 = add i64 %1144, -2
+  %1151 = and i64 %1150, %1144
+  %1152 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1151, i1 true)
+  %1153 = or disjoint i64 %1152, %.sroa.11.0.lcssa6406.i
+  %1154 = trunc i64 %1153 to i32
+  %1155 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 48
+  store i32 %1154, ptr %1155, align 4, !tbaa !7
+  %1156 = add i64 %1151, -2
+  %1157 = and i64 %1156, %1151
+  %1158 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1157, i1 true)
+  %1159 = or disjoint i64 %1158, %.sroa.11.0.lcssa6406.i
+  %1160 = trunc i64 %1159 to i32
+  %1161 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 52
+  store i32 %1160, ptr %1161, align 4, !tbaa !7
+  %1162 = add i64 %1157, -2
+  %1163 = and i64 %1162, %1157
+  %1164 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1163, i1 true)
+  %1165 = or disjoint i64 %1164, %.sroa.11.0.lcssa6406.i
+  %1166 = trunc i64 %1165 to i32
+  %1167 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 56
+  store i32 %1166, ptr %1167, align 4, !tbaa !7
+  %1168 = add i64 %1163, -2
+  %1169 = and i64 %1168, %1163
+  %1170 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1169, i1 true)
+  %1171 = or disjoint i64 %1170, %.sroa.11.0.lcssa6406.i
+  %1172 = trunc i64 %1171 to i32
+  %1173 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 60
+  store i32 %1172, ptr %1173, align 4, !tbaa !7
+  %1174 = icmp samesign ugt i64 %1077, 16
+  br i1 %1174, label %.noexc335.i, label %.loopexit6268.i, !prof !127
 
 .noexc335.i:                                      ; preds = %.noexc276.i
-  %1165 = add i64 %1159, -1
-  %1166 = and i64 %1165, %1159
-  %1167 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1166, i1 true)
-  %1168 = or disjoint i64 %1167, %.sroa.11.0.lcssa6406.i
-  %1169 = trunc i64 %1168 to i32
-  %1170 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 64
-  store i32 %1169, ptr %1170, align 4, !tbaa !7
-  %1171 = add i64 %1166, -2
-  %1172 = and i64 %1171, %1166
-  %1173 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1172, i1 true)
-  %1174 = or disjoint i64 %1173, %.sroa.11.0.lcssa6406.i
-  %1175 = trunc i64 %1174 to i32
-  %1176 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 68
-  store i32 %1175, ptr %1176, align 4, !tbaa !7
-  %1177 = add i64 %1172, -2
-  %1178 = and i64 %1177, %1172
-  %1179 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1178, i1 true)
-  %1180 = or disjoint i64 %1179, %.sroa.11.0.lcssa6406.i
-  %1181 = trunc i64 %1180 to i32
-  %1182 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 72
-  store i32 %1181, ptr %1182, align 4, !tbaa !7
-  %1183 = add i64 %1178, -2
-  %1184 = and i64 %1183, %1178
-  %1185 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1184, i1 true)
-  %1186 = or disjoint i64 %1185, %.sroa.11.0.lcssa6406.i
-  %1187 = trunc i64 %1186 to i32
-  %1188 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 76
-  store i32 %1187, ptr %1188, align 4, !tbaa !7
-  %1189 = icmp samesign ugt i64 %1067, 20
-  br i1 %1189, label %.noexc79.i, label %.loopexit6268.i, !prof !127
+  %1175 = add i64 %1169, -1
+  %1176 = and i64 %1175, %1169
+  %1177 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1176, i1 true)
+  %1178 = or disjoint i64 %1177, %.sroa.11.0.lcssa6406.i
+  %1179 = trunc i64 %1178 to i32
+  %1180 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 64
+  store i32 %1179, ptr %1180, align 4, !tbaa !7
+  %1181 = add i64 %1176, -2
+  %1182 = and i64 %1181, %1176
+  %1183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1182, i1 true)
+  %1184 = or disjoint i64 %1183, %.sroa.11.0.lcssa6406.i
+  %1185 = trunc i64 %1184 to i32
+  %1186 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 68
+  store i32 %1185, ptr %1186, align 4, !tbaa !7
+  %1187 = add i64 %1182, -2
+  %1188 = and i64 %1187, %1182
+  %1189 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1188, i1 true)
+  %1190 = or disjoint i64 %1189, %.sroa.11.0.lcssa6406.i
+  %1191 = trunc i64 %1190 to i32
+  %1192 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 72
+  store i32 %1191, ptr %1192, align 4, !tbaa !7
+  %1193 = add i64 %1188, -2
+  %1194 = and i64 %1193, %1188
+  %1195 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1194, i1 true)
+  %1196 = or disjoint i64 %1195, %.sroa.11.0.lcssa6406.i
+  %1197 = trunc i64 %1196 to i32
+  %1198 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 76
+  store i32 %1197, ptr %1198, align 4, !tbaa !7
+  %1199 = icmp samesign ugt i64 %1077, 20
+  br i1 %1199, label %.noexc79.i, label %.loopexit6268.i, !prof !127
 
 .noexc79.i:                                       ; preds = %.noexc335.i
-  %1190 = add i64 %1184, -2
-  %1191 = and i64 %1190, %1184
-  %1192 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1191, i1 true)
-  %1193 = or disjoint i64 %1192, %.sroa.11.0.lcssa6406.i
-  %1194 = trunc i64 %1193 to i32
-  %1195 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 80
-  store i32 %1194, ptr %1195, align 4, !tbaa !7
-  %1196 = add i64 %1191, -1
-  %1197 = and i64 %1196, %1191
-  %1198 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1197, i1 true)
-  %1199 = or disjoint i64 %1198, %.sroa.11.0.lcssa6406.i
-  %1200 = trunc i64 %1199 to i32
-  %1201 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 84
-  store i32 %1200, ptr %1201, align 4, !tbaa !7
-  %1202 = add i64 %1197, -2
-  %1203 = and i64 %1202, %1197
-  %1204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1203, i1 true)
-  %1205 = or disjoint i64 %1204, %.sroa.11.0.lcssa6406.i
-  %1206 = trunc i64 %1205 to i32
-  %1207 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 88
-  store i32 %1206, ptr %1207, align 4, !tbaa !7
-  %1208 = add i64 %1203, -2
-  %1209 = and i64 %1208, %1203
-  %1210 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1209, i1 true)
-  %1211 = or disjoint i64 %1210, %.sroa.11.0.lcssa6406.i
-  %1212 = trunc i64 %1211 to i32
-  %1213 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 92
-  store i32 %1212, ptr %1213, align 4, !tbaa !7
-  %1214 = icmp samesign ugt i64 %1067, 24
-  br i1 %1214, label %.noexc80.i.preheader, label %.loopexit6268.i, !prof !142
+  %1200 = add i64 %1194, -2
+  %1201 = and i64 %1200, %1194
+  %1202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1201, i1 true)
+  %1203 = or disjoint i64 %1202, %.sroa.11.0.lcssa6406.i
+  %1204 = trunc i64 %1203 to i32
+  %1205 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 80
+  store i32 %1204, ptr %1205, align 4, !tbaa !7
+  %1206 = add i64 %1201, -1
+  %1207 = and i64 %1206, %1201
+  %1208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1207, i1 true)
+  %1209 = or disjoint i64 %1208, %.sroa.11.0.lcssa6406.i
+  %1210 = trunc i64 %1209 to i32
+  %1211 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 84
+  store i32 %1210, ptr %1211, align 4, !tbaa !7
+  %1212 = add i64 %1207, -2
+  %1213 = and i64 %1212, %1207
+  %1214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1213, i1 true)
+  %1215 = or disjoint i64 %1214, %.sroa.11.0.lcssa6406.i
+  %1216 = trunc i64 %1215 to i32
+  %1217 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 88
+  store i32 %1216, ptr %1217, align 4, !tbaa !7
+  %1218 = add i64 %1213, -2
+  %1219 = and i64 %1218, %1213
+  %1220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1219, i1 true)
+  %1221 = or disjoint i64 %1220, %.sroa.11.0.lcssa6406.i
+  %1222 = trunc i64 %1221 to i32
+  %1223 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 92
+  store i32 %1222, ptr %1223, align 4, !tbaa !7
+  %1224 = icmp samesign ugt i64 %1077, 24
+  br i1 %1224, label %.noexc80.i.preheader, label %.loopexit6268.i, !prof !142
 
 .noexc80.i.preheader:                             ; preds = %.noexc79.i
-  %1215 = add i64 %1209, -2
-  %1216 = and i64 %1215, %1209
+  %1225 = add i64 %1219, -2
+  %1226 = and i64 %1225, %1219
   br label %.noexc80.i
 
 .noexc80.i:                                       ; preds = %.noexc80.i.preheader, %.noexc80.i
   %indvars.iv6350.i = phi i64 [ %indvars.iv.next6351.i, %.noexc80.i ], [ 24, %.noexc80.i.preheader ]
-  %.061766308.i = phi i64 [ %1222, %.noexc80.i ], [ %1216, %.noexc80.i.preheader ]
-  %1217 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061766308.i, i1 true)
-  %1218 = or disjoint i64 %1217, %.sroa.11.0.lcssa6406.i
-  %1219 = trunc i64 %1218 to i32
-  %1220 = getelementptr inbounds nuw i32, ptr %.sroa.89.3.i, i64 %indvars.iv6350.i
-  store i32 %1219, ptr %1220, align 4, !tbaa !7
-  %1221 = add i64 %.061766308.i, -1
-  %1222 = and i64 %1221, %.061766308.i
+  %.061766308.i = phi i64 [ %1232, %.noexc80.i ], [ %1226, %.noexc80.i.preheader ]
+  %1227 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061766308.i, i1 true)
+  %1228 = or disjoint i64 %1227, %.sroa.11.0.lcssa6406.i
+  %1229 = trunc i64 %1228 to i32
+  %1230 = getelementptr inbounds nuw i32, ptr %.sroa.89.3.i, i64 %indvars.iv6350.i
+  store i32 %1229, ptr %1230, align 4, !tbaa !7
+  %1231 = add i64 %.061766308.i, -1
+  %1232 = and i64 %1231, %.061766308.i
   %indvars.iv.next6351.i = add nuw nsw i64 %indvars.iv6350.i, 1
-  %exitcond6354.not.i = icmp eq i64 %indvars.iv.next6351.i, %1067
+  %exitcond6354.not.i = icmp eq i64 %indvars.iv.next6351.i, %1077
   br i1 %exitcond6354.not.i, label %.loopexit6268.i, label %.noexc80.i, !llvm.loop !143
 
 .loopexit6268.i:                                  ; preds = %.noexc80.i, %.noexc79.i, %.noexc335.i, %.noexc276.i, %.noexc205.i, %.noexc146.i, %.noexc103.i
-  %1223 = getelementptr inbounds nuw i32, ptr %.sroa.89.3.i, i64 %1067
+  %1233 = getelementptr inbounds nuw i32, ptr %.sroa.89.3.i, i64 %1077
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i: ; preds = %.loopexit6268.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %.sroa.89.4.i = phi ptr [ %.sroa.89.3.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %1223, %.loopexit6268.i ]
-  %1224 = xor i64 %777, -1
-  %1225 = and i64 %1224, %774
-  %1226 = or i64 %1225, %772
-  %1227 = xor i64 %744, %748
-  %1228 = xor i64 %1227, -1
-  %1229 = and i64 %1226, %1228
-  %1230 = and i64 %748, %1013
-  %1231 = or i64 %1005, %.sroa.236.0.lcssa6409.i
-  %1232 = or i64 %1231, %1230
-  %1233 = or disjoint i32 %839, 64
-  %1234 = icmp eq i64 %1229, 0
-  br i1 %1234, label %.noexc.i, label %.noexc101.i
+  %.sroa.89.4.i = phi ptr [ %.sroa.89.3.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %1233, %.loopexit6268.i ]
+  %1234 = xor i64 %778, -1
+  %1235 = and i64 %1234, %775
+  %1236 = or i64 %1235, %773
+  %1237 = xor i64 %745, %749
+  %1238 = xor i64 %1237, -1
+  %1239 = and i64 %1236, %1238
+  %1240 = and i64 %749, %1018
+  %1241 = or i64 %1010, %.sroa.236.0.lcssa6409.i
+  %1242 = or i64 %1241, %1240
+  %1243 = or disjoint i32 %844, 64
+  %1244 = icmp eq i64 %1239, 0
+  br i1 %1244, label %.noexc.i, label %.noexc101.i
 
 .noexc101.i:                                      ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i
-  %1235 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1229)
-  %1236 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1229, i1 true)
-  %1237 = trunc nuw nsw i64 %1236 to i32
-  %1238 = or disjoint i32 %1233, %1237
-  store i32 %1238, ptr %.sroa.89.4.i, align 4, !tbaa !7
-  %1239 = add i64 %1229, -1
-  %1240 = and i64 %1239, %1229
-  %1241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1240, i1 true)
-  %1242 = trunc nuw nsw i64 %1241 to i32
-  %1243 = or disjoint i32 %1233, %1242
-  %1244 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 4
-  store i32 %1243, ptr %1244, align 4, !tbaa !7
-  %1245 = add i64 %1240, -2
-  %1246 = and i64 %1245, %1240
-  %1247 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1246, i1 true)
-  %1248 = trunc nuw nsw i64 %1247 to i32
-  %1249 = or disjoint i32 %1233, %1248
-  %1250 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 8
-  store i32 %1249, ptr %1250, align 4, !tbaa !7
-  %1251 = add i64 %1246, -2
-  %1252 = and i64 %1251, %1246
-  %1253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1252, i1 true)
-  %1254 = trunc nuw nsw i64 %1253 to i32
-  %1255 = or disjoint i32 %1233, %1254
-  %1256 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 12
-  store i32 %1255, ptr %1256, align 4, !tbaa !7
-  %1257 = icmp samesign ugt i64 %1235, 4
-  br i1 %1257, label %.noexc149.i, label %.loopexit.i, !prof !127
+  %1245 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1239)
+  %1246 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1239, i1 true)
+  %1247 = trunc nuw nsw i64 %1246 to i32
+  %1248 = or disjoint i32 %1243, %1247
+  store i32 %1248, ptr %.sroa.89.4.i, align 4, !tbaa !7
+  %1249 = add i64 %1239, -1
+  %1250 = and i64 %1249, %1239
+  %1251 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1250, i1 true)
+  %1252 = trunc nuw nsw i64 %1251 to i32
+  %1253 = or disjoint i32 %1243, %1252
+  %1254 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 4
+  store i32 %1253, ptr %1254, align 4, !tbaa !7
+  %1255 = add i64 %1250, -2
+  %1256 = and i64 %1255, %1250
+  %1257 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1256, i1 true)
+  %1258 = trunc nuw nsw i64 %1257 to i32
+  %1259 = or disjoint i32 %1243, %1258
+  %1260 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 8
+  store i32 %1259, ptr %1260, align 4, !tbaa !7
+  %1261 = add i64 %1256, -2
+  %1262 = and i64 %1261, %1256
+  %1263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1262, i1 true)
+  %1264 = trunc nuw nsw i64 %1263 to i32
+  %1265 = or disjoint i32 %1243, %1264
+  %1266 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 12
+  store i32 %1265, ptr %1266, align 4, !tbaa !7
+  %1267 = icmp samesign ugt i64 %1245, 4
+  br i1 %1267, label %.noexc149.i, label %.loopexit.i, !prof !127
 
 .noexc149.i:                                      ; preds = %.noexc101.i
-  %1258 = add i64 %1252, -2
-  %1259 = and i64 %1258, %1252
-  %1260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1259, i1 true)
-  %1261 = trunc nuw nsw i64 %1260 to i32
-  %1262 = or disjoint i32 %1233, %1261
-  %1263 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 16
-  store i32 %1262, ptr %1263, align 4, !tbaa !7
-  %1264 = add i64 %1259, -2
-  %1265 = and i64 %1264, %1259
-  %1266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1265, i1 true)
-  %1267 = trunc nuw nsw i64 %1266 to i32
-  %1268 = or disjoint i32 %1233, %1267
-  %1269 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 20
-  store i32 %1268, ptr %1269, align 4, !tbaa !7
-  %1270 = add i64 %1265, -1
-  %1271 = and i64 %1270, %1265
-  %1272 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1271, i1 true)
-  %1273 = trunc nuw nsw i64 %1272 to i32
-  %1274 = or disjoint i32 %1233, %1273
-  %1275 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 24
-  store i32 %1274, ptr %1275, align 4, !tbaa !7
-  %1276 = add i64 %1271, -2
-  %1277 = and i64 %1276, %1271
-  %1278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1277, i1 true)
-  %1279 = trunc nuw nsw i64 %1278 to i32
-  %1280 = or disjoint i32 %1233, %1279
-  %1281 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 28
-  store i32 %1280, ptr %1281, align 4, !tbaa !7
-  %1282 = icmp samesign ugt i64 %1235, 8
-  br i1 %1282, label %.noexc203.i, label %.loopexit.i, !prof !127
+  %1268 = add i64 %1262, -2
+  %1269 = and i64 %1268, %1262
+  %1270 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1269, i1 true)
+  %1271 = trunc nuw nsw i64 %1270 to i32
+  %1272 = or disjoint i32 %1243, %1271
+  %1273 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 16
+  store i32 %1272, ptr %1273, align 4, !tbaa !7
+  %1274 = add i64 %1269, -2
+  %1275 = and i64 %1274, %1269
+  %1276 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1275, i1 true)
+  %1277 = trunc nuw nsw i64 %1276 to i32
+  %1278 = or disjoint i32 %1243, %1277
+  %1279 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 20
+  store i32 %1278, ptr %1279, align 4, !tbaa !7
+  %1280 = add i64 %1275, -1
+  %1281 = and i64 %1280, %1275
+  %1282 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1281, i1 true)
+  %1283 = trunc nuw nsw i64 %1282 to i32
+  %1284 = or disjoint i32 %1243, %1283
+  %1285 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 24
+  store i32 %1284, ptr %1285, align 4, !tbaa !7
+  %1286 = add i64 %1281, -2
+  %1287 = and i64 %1286, %1281
+  %1288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1287, i1 true)
+  %1289 = trunc nuw nsw i64 %1288 to i32
+  %1290 = or disjoint i32 %1243, %1289
+  %1291 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 28
+  store i32 %1290, ptr %1291, align 4, !tbaa !7
+  %1292 = icmp samesign ugt i64 %1245, 8
+  br i1 %1292, label %.noexc203.i, label %.loopexit.i, !prof !127
 
 .noexc203.i:                                      ; preds = %.noexc149.i
-  %1283 = add i64 %1277, -2
-  %1284 = and i64 %1283, %1277
-  %1285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1284, i1 true)
-  %1286 = trunc nuw nsw i64 %1285 to i32
-  %1287 = or disjoint i32 %1233, %1286
-  %1288 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 32
-  store i32 %1287, ptr %1288, align 4, !tbaa !7
-  %1289 = add i64 %1284, -2
-  %1290 = and i64 %1289, %1284
-  %1291 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1290, i1 true)
-  %1292 = trunc nuw nsw i64 %1291 to i32
-  %1293 = or disjoint i32 %1233, %1292
-  %1294 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 36
-  store i32 %1293, ptr %1294, align 4, !tbaa !7
-  %1295 = add i64 %1290, -2
-  %1296 = and i64 %1295, %1290
-  %1297 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1296, i1 true)
-  %1298 = trunc nuw nsw i64 %1297 to i32
-  %1299 = or disjoint i32 %1233, %1298
-  %1300 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 40
-  store i32 %1299, ptr %1300, align 4, !tbaa !7
-  %1301 = add i64 %1296, -1
-  %1302 = and i64 %1301, %1296
-  %1303 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1302, i1 true)
-  %1304 = trunc nuw nsw i64 %1303 to i32
-  %1305 = or disjoint i32 %1233, %1304
-  %1306 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 44
-  store i32 %1305, ptr %1306, align 4, !tbaa !7
-  %1307 = icmp samesign ugt i64 %1235, 12
-  br i1 %1307, label %.noexc279.i, label %.loopexit.i, !prof !127
+  %1293 = add i64 %1287, -2
+  %1294 = and i64 %1293, %1287
+  %1295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1294, i1 true)
+  %1296 = trunc nuw nsw i64 %1295 to i32
+  %1297 = or disjoint i32 %1243, %1296
+  %1298 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 32
+  store i32 %1297, ptr %1298, align 4, !tbaa !7
+  %1299 = add i64 %1294, -2
+  %1300 = and i64 %1299, %1294
+  %1301 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1300, i1 true)
+  %1302 = trunc nuw nsw i64 %1301 to i32
+  %1303 = or disjoint i32 %1243, %1302
+  %1304 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 36
+  store i32 %1303, ptr %1304, align 4, !tbaa !7
+  %1305 = add i64 %1300, -2
+  %1306 = and i64 %1305, %1300
+  %1307 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1306, i1 true)
+  %1308 = trunc nuw nsw i64 %1307 to i32
+  %1309 = or disjoint i32 %1243, %1308
+  %1310 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 40
+  store i32 %1309, ptr %1310, align 4, !tbaa !7
+  %1311 = add i64 %1306, -1
+  %1312 = and i64 %1311, %1306
+  %1313 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1312, i1 true)
+  %1314 = trunc nuw nsw i64 %1313 to i32
+  %1315 = or disjoint i32 %1243, %1314
+  %1316 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 44
+  store i32 %1315, ptr %1316, align 4, !tbaa !7
+  %1317 = icmp samesign ugt i64 %1245, 12
+  br i1 %1317, label %.noexc279.i, label %.loopexit.i, !prof !127
 
 .noexc279.i:                                      ; preds = %.noexc203.i
-  %1308 = add i64 %1302, -2
-  %1309 = and i64 %1308, %1302
-  %1310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1309, i1 true)
-  %1311 = trunc nuw nsw i64 %1310 to i32
-  %1312 = or disjoint i32 %1233, %1311
-  %1313 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 48
-  store i32 %1312, ptr %1313, align 4, !tbaa !7
-  %1314 = add i64 %1309, -2
-  %1315 = and i64 %1314, %1309
-  %1316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1315, i1 true)
-  %1317 = trunc nuw nsw i64 %1316 to i32
-  %1318 = or disjoint i32 %1233, %1317
-  %1319 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 52
-  store i32 %1318, ptr %1319, align 4, !tbaa !7
-  %1320 = add i64 %1315, -2
-  %1321 = and i64 %1320, %1315
-  %1322 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1321, i1 true)
-  %1323 = trunc nuw nsw i64 %1322 to i32
-  %1324 = or disjoint i32 %1233, %1323
-  %1325 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 56
-  store i32 %1324, ptr %1325, align 4, !tbaa !7
-  %1326 = add i64 %1321, -2
-  %1327 = and i64 %1326, %1321
-  %1328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1327, i1 true)
-  %1329 = trunc nuw nsw i64 %1328 to i32
-  %1330 = or disjoint i32 %1233, %1329
-  %1331 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 60
-  store i32 %1330, ptr %1331, align 4, !tbaa !7
-  %1332 = icmp samesign ugt i64 %1235, 16
-  br i1 %1332, label %.noexc333.i, label %.loopexit.i, !prof !127
+  %1318 = add i64 %1312, -2
+  %1319 = and i64 %1318, %1312
+  %1320 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1319, i1 true)
+  %1321 = trunc nuw nsw i64 %1320 to i32
+  %1322 = or disjoint i32 %1243, %1321
+  %1323 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 48
+  store i32 %1322, ptr %1323, align 4, !tbaa !7
+  %1324 = add i64 %1319, -2
+  %1325 = and i64 %1324, %1319
+  %1326 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1325, i1 true)
+  %1327 = trunc nuw nsw i64 %1326 to i32
+  %1328 = or disjoint i32 %1243, %1327
+  %1329 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 52
+  store i32 %1328, ptr %1329, align 4, !tbaa !7
+  %1330 = add i64 %1325, -2
+  %1331 = and i64 %1330, %1325
+  %1332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1331, i1 true)
+  %1333 = trunc nuw nsw i64 %1332 to i32
+  %1334 = or disjoint i32 %1243, %1333
+  %1335 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 56
+  store i32 %1334, ptr %1335, align 4, !tbaa !7
+  %1336 = add i64 %1331, -2
+  %1337 = and i64 %1336, %1331
+  %1338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1337, i1 true)
+  %1339 = trunc nuw nsw i64 %1338 to i32
+  %1340 = or disjoint i32 %1243, %1339
+  %1341 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 60
+  store i32 %1340, ptr %1341, align 4, !tbaa !7
+  %1342 = icmp samesign ugt i64 %1245, 16
+  br i1 %1342, label %.noexc333.i, label %.loopexit.i, !prof !127
 
 .noexc333.i:                                      ; preds = %.noexc279.i
-  %1333 = add i64 %1327, -1
-  %1334 = and i64 %1333, %1327
-  %1335 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1334, i1 true)
-  %1336 = trunc nuw nsw i64 %1335 to i32
-  %1337 = or disjoint i32 %1233, %1336
-  %1338 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 64
-  store i32 %1337, ptr %1338, align 4, !tbaa !7
-  %1339 = add i64 %1334, -2
-  %1340 = and i64 %1339, %1334
-  %1341 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1340, i1 true)
-  %1342 = trunc nuw nsw i64 %1341 to i32
-  %1343 = or disjoint i32 %1233, %1342
-  %1344 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 68
-  store i32 %1343, ptr %1344, align 4, !tbaa !7
-  %1345 = add i64 %1340, -2
-  %1346 = and i64 %1345, %1340
-  %1347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1346, i1 true)
-  %1348 = trunc nuw nsw i64 %1347 to i32
-  %1349 = or disjoint i32 %1233, %1348
-  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 72
-  store i32 %1349, ptr %1350, align 4, !tbaa !7
-  %1351 = add i64 %1346, -2
-  %1352 = and i64 %1351, %1346
-  %1353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1352, i1 true)
-  %1354 = trunc nuw nsw i64 %1353 to i32
-  %1355 = or disjoint i32 %1233, %1354
-  %1356 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 76
-  store i32 %1355, ptr %1356, align 4, !tbaa !7
-  %1357 = icmp samesign ugt i64 %1235, 20
-  br i1 %1357, label %.noexc83.i, label %.loopexit.i, !prof !127
+  %1343 = add i64 %1337, -1
+  %1344 = and i64 %1343, %1337
+  %1345 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1344, i1 true)
+  %1346 = trunc nuw nsw i64 %1345 to i32
+  %1347 = or disjoint i32 %1243, %1346
+  %1348 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 64
+  store i32 %1347, ptr %1348, align 4, !tbaa !7
+  %1349 = add i64 %1344, -2
+  %1350 = and i64 %1349, %1344
+  %1351 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1350, i1 true)
+  %1352 = trunc nuw nsw i64 %1351 to i32
+  %1353 = or disjoint i32 %1243, %1352
+  %1354 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 68
+  store i32 %1353, ptr %1354, align 4, !tbaa !7
+  %1355 = add i64 %1350, -2
+  %1356 = and i64 %1355, %1350
+  %1357 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1356, i1 true)
+  %1358 = trunc nuw nsw i64 %1357 to i32
+  %1359 = or disjoint i32 %1243, %1358
+  %1360 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 72
+  store i32 %1359, ptr %1360, align 4, !tbaa !7
+  %1361 = add i64 %1356, -2
+  %1362 = and i64 %1361, %1356
+  %1363 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1362, i1 true)
+  %1364 = trunc nuw nsw i64 %1363 to i32
+  %1365 = or disjoint i32 %1243, %1364
+  %1366 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 76
+  store i32 %1365, ptr %1366, align 4, !tbaa !7
+  %1367 = icmp samesign ugt i64 %1245, 20
+  br i1 %1367, label %.noexc83.i, label %.loopexit.i, !prof !127
 
 .noexc83.i:                                       ; preds = %.noexc333.i
-  %1358 = add i64 %1352, -2
-  %1359 = and i64 %1358, %1352
-  %1360 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1359, i1 true)
-  %1361 = trunc nuw nsw i64 %1360 to i32
-  %1362 = or disjoint i32 %1233, %1361
-  %1363 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 80
-  store i32 %1362, ptr %1363, align 4, !tbaa !7
-  %1364 = add i64 %1359, -1
-  %1365 = and i64 %1364, %1359
-  %1366 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1365, i1 true)
-  %1367 = trunc nuw nsw i64 %1366 to i32
-  %1368 = or disjoint i32 %1233, %1367
-  %1369 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 84
-  store i32 %1368, ptr %1369, align 4, !tbaa !7
-  %1370 = add i64 %1365, -2
-  %1371 = and i64 %1370, %1365
-  %1372 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1371, i1 true)
-  %1373 = trunc nuw nsw i64 %1372 to i32
-  %1374 = or disjoint i32 %1233, %1373
-  %1375 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 88
-  store i32 %1374, ptr %1375, align 4, !tbaa !7
-  %1376 = add i64 %1371, -2
-  %1377 = and i64 %1376, %1371
-  %1378 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1377, i1 true)
-  %1379 = trunc nuw nsw i64 %1378 to i32
-  %1380 = or disjoint i32 %1233, %1379
-  %1381 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 92
-  store i32 %1380, ptr %1381, align 4, !tbaa !7
-  %1382 = icmp samesign ugt i64 %1235, 24
-  br i1 %1382, label %.noexc84.i.preheader, label %.loopexit.i, !prof !142
+  %1368 = add i64 %1362, -2
+  %1369 = and i64 %1368, %1362
+  %1370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1369, i1 true)
+  %1371 = trunc nuw nsw i64 %1370 to i32
+  %1372 = or disjoint i32 %1243, %1371
+  %1373 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 80
+  store i32 %1372, ptr %1373, align 4, !tbaa !7
+  %1374 = add i64 %1369, -1
+  %1375 = and i64 %1374, %1369
+  %1376 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1375, i1 true)
+  %1377 = trunc nuw nsw i64 %1376 to i32
+  %1378 = or disjoint i32 %1243, %1377
+  %1379 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 84
+  store i32 %1378, ptr %1379, align 4, !tbaa !7
+  %1380 = add i64 %1375, -2
+  %1381 = and i64 %1380, %1375
+  %1382 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1381, i1 true)
+  %1383 = trunc nuw nsw i64 %1382 to i32
+  %1384 = or disjoint i32 %1243, %1383
+  %1385 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 88
+  store i32 %1384, ptr %1385, align 4, !tbaa !7
+  %1386 = add i64 %1381, -2
+  %1387 = and i64 %1386, %1381
+  %1388 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1387, i1 true)
+  %1389 = trunc nuw nsw i64 %1388 to i32
+  %1390 = or disjoint i32 %1243, %1389
+  %1391 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 92
+  store i32 %1390, ptr %1391, align 4, !tbaa !7
+  %1392 = icmp samesign ugt i64 %1245, 24
+  br i1 %1392, label %.noexc84.i.preheader, label %.loopexit.i, !prof !142
 
 .noexc84.i.preheader:                             ; preds = %.noexc83.i
-  %1383 = add i64 %1377, -2
-  %1384 = and i64 %1383, %1377
+  %1393 = add i64 %1387, -2
+  %1394 = and i64 %1393, %1387
   br label %.noexc84.i
 
 .noexc84.i:                                       ; preds = %.noexc84.i.preheader, %.noexc84.i
   %indvars.iv6355.i = phi i64 [ %indvars.iv.next6356.i, %.noexc84.i ], [ 24, %.noexc84.i.preheader ]
-  %.061746310.i = phi i64 [ %1390, %.noexc84.i ], [ %1384, %.noexc84.i.preheader ]
-  %1385 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061746310.i, i1 true)
-  %1386 = trunc nuw nsw i64 %1385 to i32
-  %1387 = or disjoint i32 %1233, %1386
-  %1388 = getelementptr inbounds nuw i32, ptr %.sroa.89.4.i, i64 %indvars.iv6355.i
-  store i32 %1387, ptr %1388, align 4, !tbaa !7
-  %1389 = add i64 %.061746310.i, -1
-  %1390 = and i64 %1389, %.061746310.i
+  %.061746310.i = phi i64 [ %1400, %.noexc84.i ], [ %1394, %.noexc84.i.preheader ]
+  %1395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061746310.i, i1 true)
+  %1396 = trunc nuw nsw i64 %1395 to i32
+  %1397 = or disjoint i32 %1243, %1396
+  %1398 = getelementptr inbounds nuw i32, ptr %.sroa.89.4.i, i64 %indvars.iv6355.i
+  store i32 %1397, ptr %1398, align 4, !tbaa !7
+  %1399 = add i64 %.061746310.i, -1
+  %1400 = and i64 %1399, %.061746310.i
   %indvars.iv.next6356.i = add nuw nsw i64 %indvars.iv6355.i, 1
-  %exitcond6359.not.i = icmp eq i64 %indvars.iv.next6356.i, %1235
+  %exitcond6359.not.i = icmp eq i64 %indvars.iv.next6356.i, %1245
   br i1 %exitcond6359.not.i, label %.loopexit.i, label %.noexc84.i, !llvm.loop !143
 
 .loopexit.i:                                      ; preds = %.noexc84.i, %.noexc83.i, %.noexc333.i, %.noexc279.i, %.noexc203.i, %.noexc149.i, %.noexc101.i
-  %1391 = getelementptr inbounds nuw i32, ptr %.sroa.89.4.i, i64 %1235
+  %1401 = getelementptr inbounds nuw i32, ptr %.sroa.89.4.i, i64 %1245
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.loopexit.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i
-  %.sroa.89.5.i = phi ptr [ %.sroa.89.4.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i ], [ %1391, %.loopexit.i ]
-  %.not.i.i40.i = icmp sgt i64 %748, -1
+  %.sroa.89.5.i = phi ptr [ %.sroa.89.4.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i ], [ %1401, %.loopexit.i ]
+  %.not.i.i40.i = icmp sgt i64 %749, -1
   %brmerge.i = select i1 %.not.i, i1 true, i1 %.not.i.i40.i, !prof !157
   br i1 %brmerge.i, label %.thread.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, !prof !158
 
 .thread.i:                                        ; preds = %.noexc.i
-  %.not.i.i = icmp eq i64 %1232, 0
-  br i1 %.not.i.i, label %1392, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
+  %.not.i.i = icmp eq i64 %1242, 0
+  br i1 %.not.i.i, label %1402, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-1392:                                             ; preds = %.thread.i
-  %1393 = ptrtoint ptr %.sroa.89.5.i to i64
-  %1394 = ptrtoint ptr %647 to i64
-  %1395 = sub i64 %1393, %1394
-  %1396 = lshr exact i64 %1395, 2
-  %1397 = trunc i64 %1396 to i32
-  %1398 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1397, ptr %1398, align 8, !tbaa !70
-  %1399 = trunc i64 %.01363916405.i to i32
-  %1400 = and i64 %1396, 4294967295
-  %1401 = getelementptr inbounds nuw i32, ptr %647, i64 %1400
-  store i32 %1399, ptr %1401, align 4, !tbaa !7
-  %1402 = load i32, ptr %1398, align 8, !tbaa !70
-  %1403 = add i32 %1402, 1
-  %1404 = zext i32 %1403 to i64
-  %1405 = getelementptr inbounds nuw i32, ptr %647, i64 %1404
-  store i32 %1399, ptr %1405, align 4, !tbaa !7
-  %1406 = load i32, ptr %1398, align 8, !tbaa !70
-  %1407 = add i32 %1406, 2
-  %1408 = zext i32 %1407 to i64
-  %1409 = getelementptr inbounds nuw i32, ptr %647, i64 %1408
-  store i32 0, ptr %1409, align 4, !tbaa !7
-  %1410 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %1410, align 8, !tbaa !80
-  %1411 = load i32, ptr %1398, align 8, !tbaa !70
-  %1412 = icmp eq i32 %1411, 0
-  br i1 %1412, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1413, !prof !127
-
-1413:                                             ; preds = %1392
-  %1414 = add i32 %1411, -1
-  %1415 = zext i32 %1414 to i64
-  %1416 = getelementptr inbounds nuw i32, ptr %647, i64 %1415
-  %1417 = load i32, ptr %1416, align 4, !tbaa !7
+1402:                                             ; preds = %.thread.i
+  %1403 = ptrtoint ptr %.sroa.89.5.i to i64
+  %1404 = ptrtoint ptr %648 to i64
+  %1405 = sub i64 %1403, %1404
+  %1406 = lshr exact i64 %1405, 2
+  %1407 = trunc i64 %1406 to i32
+  %1408 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1407, ptr %1408, align 8, !tbaa !70
+  %1409 = trunc i64 %.01363916405.i to i32
+  %1410 = and i64 %1406, 4294967295
+  %1411 = getelementptr inbounds nuw i32, ptr %648, i64 %1410
+  store i32 %1409, ptr %1411, align 4, !tbaa !7
+  %1412 = load i32, ptr %1408, align 8, !tbaa !70
+  %1413 = add i32 %1412, 1
+  %1414 = zext i32 %1413 to i64
+  %1415 = getelementptr inbounds nuw i32, ptr %648, i64 %1414
+  store i32 %1409, ptr %1415, align 4, !tbaa !7
+  %1416 = load i32, ptr %1408, align 8, !tbaa !70
+  %1417 = add i32 %1416, 2
   %1418 = zext i32 %1417 to i64
-  %1419 = icmp ult i64 %.01363916405.i, %1418
-  br i1 %1419, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1420, !prof !127
+  %1419 = getelementptr inbounds nuw i32, ptr %648, i64 %1418
+  store i32 0, ptr %1419, align 4, !tbaa !7
+  %1420 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %1420, align 8, !tbaa !80
+  %1421 = load i32, ptr %1408, align 8, !tbaa !70
+  %1422 = icmp eq i32 %1421, 0
+  br i1 %1422, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1423, !prof !127
 
-1420:                                             ; preds = %1413
-  switch i32 %3, label %1532 [
-    i32 1, label %1421
-    i32 2, label %1473
+1423:                                             ; preds = %1402
+  %1424 = add i32 %1421, -1
+  %1425 = zext i32 %1424 to i64
+  %1426 = getelementptr inbounds nuw i32, ptr %648, i64 %1425
+  %1427 = load i32, ptr %1426, align 4, !tbaa !7
+  %1428 = zext i32 %1427 to i64
+  %1429 = icmp ult i64 %.01363916405.i, %1428
+  br i1 %1429, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1430, !prof !127
+
+1430:                                             ; preds = %1423
+  switch i32 %3, label %1542 [
+    i32 1, label %1431
+    i32 2, label %1483
   ]
 
-1421:                                             ; preds = %1420
-  br i1 %.not.i.i40.i, label %.preheader.i, label %1422
+1431:                                             ; preds = %1430
+  br i1 %.not.i.i40.i, label %.preheader.i, label %1432
 
-1422:                                             ; preds = %1421
-  store i32 %1414, ptr %1398, align 8, !tbaa !70
-  %1423 = icmp eq i32 %1414, 0
-  br i1 %1423, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %..preheader.i_crit_edge, !prof !127
+1432:                                             ; preds = %1431
+  store i32 %1424, ptr %1408, align 8, !tbaa !70
+  %1433 = icmp eq i32 %1424, 0
+  br i1 %1433, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %..preheader.i_crit_edge, !prof !127
 
-..preheader.i_crit_edge:                          ; preds = %1422
-  %.pre17 = add i32 %1411, -2
+..preheader.i_crit_edge:                          ; preds = %1432
+  %.pre17 = add i32 %1421, -2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %..preheader.i_crit_edge, %1421
-  %.043.i6322.i.pre-phi = phi i32 [ %.pre17, %..preheader.i_crit_edge ], [ %1414, %1421 ]
-  %1424 = phi i32 [ %1414, %..preheader.i_crit_edge ], [ %1411, %1421 ]
+.preheader.i:                                     ; preds = %..preheader.i_crit_edge, %1431
+  %.043.i6322.i.pre-phi = phi i32 [ %.pre17, %..preheader.i_crit_edge ], [ %1424, %1431 ]
+  %1434 = phi i32 [ %1424, %..preheader.i_crit_edge ], [ %1421, %1431 ]
   %.not.i4966323.i = icmp eq i32 %.043.i6322.i.pre-phi, 0
   br i1 %.not.i4966323.i, label %._crit_edge6329.i, label %.lr.ph6328.i
 
 .lr.ph6328.i:                                     ; preds = %.preheader.i
-  %1425 = zext i32 %.043.i6322.i.pre-phi to i64
-  br label %1426
+  %1435 = zext i32 %.043.i6322.i.pre-phi to i64
+  br label %1436
 
-1426:                                             ; preds = %1448, %.lr.ph6328.i
-  %indvars.iv6363.i = phi i64 [ %1425, %.lr.ph6328.i ], [ %indvars.iv.next6364.i, %1448 ]
-  %.035.i6326.i = phi i32 [ 0, %.lr.ph6328.i ], [ %.338.i.i, %1448 ]
-  %.043.in.i6325.i = phi i32 [ %1424, %.lr.ph6328.i ], [ %1450, %1448 ]
-  %.044.i6324.i = phi i32 [ 0, %.lr.ph6328.i ], [ %.347.i.i, %1448 ]
-  %1427 = getelementptr inbounds nuw i32, ptr %647, i64 %indvars.iv6363.i
-  %1428 = load i32, ptr %1427, align 4, !tbaa !7
-  %1429 = zext i32 %1428 to i64
-  %1430 = getelementptr inbounds nuw i8, ptr %1, i64 %1429
-  %1431 = load i8, ptr %1430, align 1, !tbaa !4
-  switch i8 %1431, label %1440 [
-    i8 58, label %1448
-    i8 44, label %1448
-    i8 125, label %1432
-    i8 93, label %1434
-    i8 123, label %1436
-    i8 91, label %1438
-  ]
-
-1432:                                             ; preds = %1426
-  %1433 = add nsw i32 %.044.i6324.i, -1
-  br label %1448
-
-1434:                                             ; preds = %1426
-  %1435 = add nsw i32 %.035.i6326.i, -1
-  br label %1448
-
-1436:                                             ; preds = %1426
-  %1437 = add nsw i32 %.044.i6324.i, 1
-  br label %1440
-
-1438:                                             ; preds = %1426
-  %1439 = add nsw i32 %.035.i6326.i, 1
-  br label %1440
-
-1440:                                             ; preds = %1438, %1436, %1426
-  %.246.i.i = phi i32 [ %.044.i6324.i, %1426 ], [ %1437, %1436 ], [ %.044.i6324.i, %1438 ]
-  %.237.i.i = phi i32 [ %.035.i6326.i, %1426 ], [ %.035.i6326.i, %1436 ], [ %1439, %1438 ]
-  %1441 = add i32 %.043.in.i6325.i, -2
-  %1442 = zext i32 %1441 to i64
-  %1443 = getelementptr inbounds nuw i32, ptr %647, i64 %1442
-  %1444 = load i32, ptr %1443, align 4, !tbaa !7
-  %1445 = zext i32 %1444 to i64
-  %1446 = getelementptr inbounds nuw i8, ptr %1, i64 %1445
-  %1447 = load i8, ptr %1446, align 1, !tbaa !4
-  switch i8 %1447, label %1451 [
-    i8 123, label %1448
+1436:                                             ; preds = %1458, %.lr.ph6328.i
+  %indvars.iv6363.i = phi i64 [ %1435, %.lr.ph6328.i ], [ %indvars.iv.next6364.i, %1458 ]
+  %.035.i6326.i = phi i32 [ 0, %.lr.ph6328.i ], [ %.338.i.i, %1458 ]
+  %.043.in.i6325.i = phi i32 [ %1434, %.lr.ph6328.i ], [ %1460, %1458 ]
+  %.044.i6324.i = phi i32 [ 0, %.lr.ph6328.i ], [ %.347.i.i, %1458 ]
+  %1437 = getelementptr inbounds nuw i32, ptr %648, i64 %indvars.iv6363.i
+  %1438 = load i32, ptr %1437, align 4, !tbaa !7
+  %1439 = zext i32 %1438 to i64
+  %1440 = getelementptr inbounds nuw i8, ptr %1, i64 %1439
+  %1441 = load i8, ptr %1440, align 1, !tbaa !4
+  switch i8 %1441, label %1450 [
+    i8 58, label %1458
+    i8 44, label %1458
+    i8 125, label %1442
+    i8 93, label %1444
+    i8 123, label %1446
     i8 91, label %1448
-    i8 58, label %1448
-    i8 44, label %1448
   ]
 
-1448:                                             ; preds = %1440, %1440, %1440, %1440, %1434, %1432, %1426, %1426
-  %.347.i.i = phi i32 [ %.044.i6324.i, %1426 ], [ %.044.i6324.i, %1434 ], [ %1433, %1432 ], [ %.044.i6324.i, %1426 ], [ %.246.i.i, %1440 ], [ %.246.i.i, %1440 ], [ %.246.i.i, %1440 ], [ %.246.i.i, %1440 ]
-  %.338.i.i = phi i32 [ %.035.i6326.i, %1426 ], [ %1435, %1434 ], [ %.035.i6326.i, %1432 ], [ %.035.i6326.i, %1426 ], [ %.237.i.i, %1440 ], [ %.237.i.i, %1440 ], [ %.237.i.i, %1440 ], [ %.237.i.i, %1440 ]
-  %indvars.iv.next6364.i = add nsw i64 %indvars.iv6363.i, -1
-  %1449 = and i64 %indvars.iv.next6364.i, 4294967295
-  %.not.i496.i = icmp eq i64 %1449, 0
-  %1450 = trunc nuw i64 %indvars.iv6363.i to i32
-  br i1 %.not.i496.i, label %._crit_edge6329.i, label %1426, !llvm.loop !159
+1442:                                             ; preds = %1436
+  %1443 = add nsw i32 %.044.i6324.i, -1
+  br label %1458
 
-1451:                                             ; preds = %1440
-  %1452 = trunc nuw i64 %indvars.iv6363.i to i32
-  %1453 = icmp ne i32 %.237.i.i, 0
-  %1454 = icmp ne i32 %.246.i.i, 0
-  %or.cond.i498.i = select i1 %1453, i1 true, i1 %1454
-  %spec.select.i499.i = select i1 %or.cond.i498.i, i32 %1452, i32 %1424
+1444:                                             ; preds = %1436
+  %1445 = add nsw i32 %.035.i6326.i, -1
+  br label %1458
+
+1446:                                             ; preds = %1436
+  %1447 = add nsw i32 %.044.i6324.i, 1
+  br label %1450
+
+1448:                                             ; preds = %1436
+  %1449 = add nsw i32 %.035.i6326.i, 1
+  br label %1450
+
+1450:                                             ; preds = %1448, %1446, %1436
+  %.246.i.i = phi i32 [ %.044.i6324.i, %1436 ], [ %1447, %1446 ], [ %.044.i6324.i, %1448 ]
+  %.237.i.i = phi i32 [ %.035.i6326.i, %1436 ], [ %.035.i6326.i, %1446 ], [ %1449, %1448 ]
+  %1451 = add i32 %.043.in.i6325.i, -2
+  %1452 = zext i32 %1451 to i64
+  %1453 = getelementptr inbounds nuw i32, ptr %648, i64 %1452
+  %1454 = load i32, ptr %1453, align 4, !tbaa !7
+  %1455 = zext i32 %1454 to i64
+  %1456 = getelementptr inbounds nuw i8, ptr %1, i64 %1455
+  %1457 = load i8, ptr %1456, align 1, !tbaa !4
+  switch i8 %1457, label %1461 [
+    i8 123, label %1458
+    i8 91, label %1458
+    i8 58, label %1458
+    i8 44, label %1458
+  ]
+
+1458:                                             ; preds = %1450, %1450, %1450, %1450, %1444, %1442, %1436, %1436
+  %.347.i.i = phi i32 [ %.044.i6324.i, %1436 ], [ %.044.i6324.i, %1444 ], [ %1443, %1442 ], [ %.044.i6324.i, %1436 ], [ %.246.i.i, %1450 ], [ %.246.i.i, %1450 ], [ %.246.i.i, %1450 ], [ %.246.i.i, %1450 ]
+  %.338.i.i = phi i32 [ %.035.i6326.i, %1436 ], [ %1445, %1444 ], [ %.035.i6326.i, %1442 ], [ %.035.i6326.i, %1436 ], [ %.237.i.i, %1450 ], [ %.237.i.i, %1450 ], [ %.237.i.i, %1450 ], [ %.237.i.i, %1450 ]
+  %indvars.iv.next6364.i = add nsw i64 %indvars.iv6363.i, -1
+  %1459 = and i64 %indvars.iv.next6364.i, 4294967295
+  %.not.i496.i = icmp eq i64 %1459, 0
+  %1460 = trunc nuw i64 %indvars.iv6363.i to i32
+  br i1 %.not.i496.i, label %._crit_edge6329.i, label %1436, !llvm.loop !159
+
+1461:                                             ; preds = %1450
+  %1462 = trunc nuw i64 %indvars.iv6363.i to i32
+  %1463 = icmp ne i32 %.237.i.i, 0
+  %1464 = icmp ne i32 %.246.i.i, 0
+  %or.cond.i498.i = select i1 %1463, i1 true, i1 %1464
+  %spec.select.i499.i = select i1 %or.cond.i498.i, i32 %1462, i32 %1434
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
-._crit_edge6329.i:                                ; preds = %1448, %.preheader.i
-  %.044.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.347.i.i, %1448 ]
-  %.035.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.338.i.i, %1448 ]
-  %1455 = load i32, ptr %647, align 4, !tbaa !7
-  %1456 = zext i32 %1455 to i64
-  %1457 = getelementptr inbounds nuw i8, ptr %1, i64 %1456
-  %1458 = load i8, ptr %1457, align 1, !tbaa !4
-  switch i8 %1458, label %1467 [
-    i8 125, label %1459
-    i8 93, label %1461
-    i8 123, label %1463
-    i8 91, label %1465
+._crit_edge6329.i:                                ; preds = %1458, %.preheader.i
+  %.044.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.347.i.i, %1458 ]
+  %.035.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.338.i.i, %1458 ]
+  %1465 = load i32, ptr %648, align 4, !tbaa !7
+  %1466 = zext i32 %1465 to i64
+  %1467 = getelementptr inbounds nuw i8, ptr %1, i64 %1466
+  %1468 = load i8, ptr %1467, align 1, !tbaa !4
+  switch i8 %1468, label %1477 [
+    i8 125, label %1469
+    i8 93, label %1471
+    i8 123, label %1473
+    i8 91, label %1475
   ]
 
-1459:                                             ; preds = %._crit_edge6329.i
-  %1460 = add nsw i32 %.044.i.lcssa.i, -1
-  br label %1467
+1469:                                             ; preds = %._crit_edge6329.i
+  %1470 = add nsw i32 %.044.i.lcssa.i, -1
+  br label %1477
 
-1461:                                             ; preds = %._crit_edge6329.i
-  %1462 = add nsw i32 %.035.i.lcssa.i, -1
-  br label %1467
+1471:                                             ; preds = %._crit_edge6329.i
+  %1472 = add nsw i32 %.035.i.lcssa.i, -1
+  br label %1477
 
-1463:                                             ; preds = %._crit_edge6329.i
-  %1464 = add nsw i32 %.044.i.lcssa.i, 1
-  br label %1467
+1473:                                             ; preds = %._crit_edge6329.i
+  %1474 = add nsw i32 %.044.i.lcssa.i, 1
+  br label %1477
 
-1465:                                             ; preds = %._crit_edge6329.i
-  %1466 = add nsw i32 %.035.i.lcssa.i, 1
-  br label %1467
+1475:                                             ; preds = %._crit_edge6329.i
+  %1476 = add nsw i32 %.035.i.lcssa.i, 1
+  br label %1477
 
-1467:                                             ; preds = %1465, %1463, %1461, %1459, %._crit_edge6329.i
-  %.448.i.i = phi i32 [ %.044.i.lcssa.i, %._crit_edge6329.i ], [ %1460, %1459 ], [ %.044.i.lcssa.i, %1461 ], [ %1464, %1463 ], [ %.044.i.lcssa.i, %1465 ]
-  %.439.i.i = phi i32 [ %.035.i.lcssa.i, %._crit_edge6329.i ], [ %.035.i.lcssa.i, %1459 ], [ %1462, %1461 ], [ %.035.i.lcssa.i, %1463 ], [ %1466, %1465 ]
-  %1468 = icmp ne i32 %.439.i.i, 0
-  %1469 = icmp ne i32 %.448.i.i, 0
-  %or.cond4.i.i = select i1 %1468, i1 true, i1 %1469
+1477:                                             ; preds = %1475, %1473, %1471, %1469, %._crit_edge6329.i
+  %.448.i.i = phi i32 [ %.044.i.lcssa.i, %._crit_edge6329.i ], [ %1470, %1469 ], [ %.044.i.lcssa.i, %1471 ], [ %1474, %1473 ], [ %.044.i.lcssa.i, %1475 ]
+  %.439.i.i = phi i32 [ %.035.i.lcssa.i, %._crit_edge6329.i ], [ %.035.i.lcssa.i, %1469 ], [ %1472, %1471 ], [ %.035.i.lcssa.i, %1473 ], [ %1476, %1475 ]
+  %1478 = icmp ne i32 %.439.i.i, 0
+  %1479 = icmp ne i32 %.448.i.i, 0
+  %or.cond4.i.i = select i1 %1478, i1 true, i1 %1479
   br i1 %or.cond4.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1467, %1451
-  %.0.i497.i = phi i32 [ %1424, %1467 ], [ %spec.select.i499.i, %1451 ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1477, %1461
+  %.0.i497.i = phi i32 [ %1434, %1477 ], [ %spec.select.i499.i, %1461 ]
   %.not6263.i = icmp eq i32 %.0.i497.i, 0
   br i1 %.not6263.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
-  %.pre = load i32, ptr %647, align 4, !tbaa !7
+  %.pre = load i32, ptr %648, align 4, !tbaa !7
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge, %1467
-  %1470 = phi i32 [ %.pre, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge ], [ %1455, %1467 ]
-  %1471 = icmp eq i32 %1470, 0
-  br i1 %1471, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1472
+_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge, %1477
+  %1480 = phi i32 [ %.pre, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i_crit_edge ], [ %1465, %1477 ]
+  %1481 = icmp eq i32 %1480, 0
+  br i1 %1481, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1482
 
-1472:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i
-  store i32 0, ptr %1398, align 8, !tbaa !70
+1482:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i
+  store i32 0, ptr %1408, align 8, !tbaa !70
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
-  store i32 %.0.i497.i, ptr %1398, align 8, !tbaa !70
-  br label %1532
+  store i32 %.0.i497.i, ptr %1408, align 8, !tbaa !70
+  br label %1542
 
-1473:                                             ; preds = %1420
+1483:                                             ; preds = %1430
   br i1 %.not.i.i40.i, label %.preheader6265.i, label %thread-pre-split6249.i
 
-thread-pre-split6249.i:                           ; preds = %1473
-  store i32 %1414, ptr %1398, align 8, !tbaa !70
-  %1474 = icmp eq i32 %1414, 0
-  br i1 %1474, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, label %thread-pre-split6249.i..preheader6265.i_crit_edge
+thread-pre-split6249.i:                           ; preds = %1483
+  store i32 %1424, ptr %1408, align 8, !tbaa !70
+  %1484 = icmp eq i32 %1424, 0
+  br i1 %1484, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, label %thread-pre-split6249.i..preheader6265.i_crit_edge
 
 thread-pre-split6249.i..preheader6265.i_crit_edge: ; preds = %thread-pre-split6249.i
-  %.pre18 = add i32 %1411, -2
+  %.pre18 = add i32 %1421, -2
   br label %.preheader6265.i
 
-.preheader6265.i:                                 ; preds = %thread-pre-split6249.i..preheader6265.i_crit_edge, %1473
-  %.043.i5046312.i.pre-phi = phi i32 [ %.pre18, %thread-pre-split6249.i..preheader6265.i_crit_edge ], [ %1414, %1473 ]
-  %1475 = phi i32 [ %1414, %thread-pre-split6249.i..preheader6265.i_crit_edge ], [ %1411, %1473 ]
+.preheader6265.i:                                 ; preds = %thread-pre-split6249.i..preheader6265.i_crit_edge, %1483
+  %.043.i5046312.i.pre-phi = phi i32 [ %.pre18, %thread-pre-split6249.i..preheader6265.i_crit_edge ], [ %1424, %1483 ]
+  %1485 = phi i32 [ %1424, %thread-pre-split6249.i..preheader6265.i_crit_edge ], [ %1421, %1483 ]
   %.not.i5056313.i = icmp eq i32 %.043.i5046312.i.pre-phi, 0
   br i1 %.not.i5056313.i, label %._crit_edge6319.i, label %.lr.ph6318.i
 
 .lr.ph6318.i:                                     ; preds = %.preheader6265.i
-  %1476 = zext i32 %.043.i5046312.i.pre-phi to i64
-  br label %1477
+  %1486 = zext i32 %.043.i5046312.i.pre-phi to i64
+  br label %1487
 
-1477:                                             ; preds = %1499, %.lr.ph6318.i
-  %indvars.iv6360.i = phi i64 [ %1476, %.lr.ph6318.i ], [ %indvars.iv.next6361.i, %1499 ]
-  %.035.i5026316.i = phi i32 [ 0, %.lr.ph6318.i ], [ %.338.i510.i, %1499 ]
-  %.043.in.i5016315.i = phi i32 [ %1475, %.lr.ph6318.i ], [ %1501, %1499 ]
-  %.044.i5006314.i = phi i32 [ 0, %.lr.ph6318.i ], [ %.347.i508.i, %1499 ]
-  %1478 = getelementptr inbounds nuw i32, ptr %647, i64 %indvars.iv6360.i
-  %1479 = load i32, ptr %1478, align 4, !tbaa !7
-  %1480 = zext i32 %1479 to i64
-  %1481 = getelementptr inbounds nuw i8, ptr %1, i64 %1480
-  %1482 = load i8, ptr %1481, align 1, !tbaa !4
-  switch i8 %1482, label %1491 [
-    i8 58, label %1499
-    i8 44, label %1499
-    i8 125, label %1483
-    i8 93, label %1485
-    i8 123, label %1487
-    i8 91, label %1489
-  ]
-
-1483:                                             ; preds = %1477
-  %1484 = add nsw i32 %.044.i5006314.i, -1
-  br label %1499
-
-1485:                                             ; preds = %1477
-  %1486 = add nsw i32 %.035.i5026316.i, -1
-  br label %1499
-
-1487:                                             ; preds = %1477
-  %1488 = add nsw i32 %.044.i5006314.i, 1
-  br label %1491
-
-1489:                                             ; preds = %1477
-  %1490 = add nsw i32 %.035.i5026316.i, 1
-  br label %1491
-
-1491:                                             ; preds = %1489, %1487, %1477
-  %.246.i506.i = phi i32 [ %.044.i5006314.i, %1477 ], [ %1488, %1487 ], [ %.044.i5006314.i, %1489 ]
-  %.237.i507.i = phi i32 [ %.035.i5026316.i, %1477 ], [ %.035.i5026316.i, %1487 ], [ %1490, %1489 ]
-  %1492 = add i32 %.043.in.i5016315.i, -2
-  %1493 = zext i32 %1492 to i64
-  %1494 = getelementptr inbounds nuw i32, ptr %647, i64 %1493
-  %1495 = load i32, ptr %1494, align 4, !tbaa !7
-  %1496 = zext i32 %1495 to i64
-  %1497 = getelementptr inbounds nuw i8, ptr %1, i64 %1496
-  %1498 = load i8, ptr %1497, align 1, !tbaa !4
-  switch i8 %1498, label %1502 [
-    i8 123, label %1499
+1487:                                             ; preds = %1509, %.lr.ph6318.i
+  %indvars.iv6360.i = phi i64 [ %1486, %.lr.ph6318.i ], [ %indvars.iv.next6361.i, %1509 ]
+  %.035.i5026316.i = phi i32 [ 0, %.lr.ph6318.i ], [ %.338.i510.i, %1509 ]
+  %.043.in.i5016315.i = phi i32 [ %1485, %.lr.ph6318.i ], [ %1511, %1509 ]
+  %.044.i5006314.i = phi i32 [ 0, %.lr.ph6318.i ], [ %.347.i508.i, %1509 ]
+  %1488 = getelementptr inbounds nuw i32, ptr %648, i64 %indvars.iv6360.i
+  %1489 = load i32, ptr %1488, align 4, !tbaa !7
+  %1490 = zext i32 %1489 to i64
+  %1491 = getelementptr inbounds nuw i8, ptr %1, i64 %1490
+  %1492 = load i8, ptr %1491, align 1, !tbaa !4
+  switch i8 %1492, label %1501 [
+    i8 58, label %1509
+    i8 44, label %1509
+    i8 125, label %1493
+    i8 93, label %1495
+    i8 123, label %1497
     i8 91, label %1499
-    i8 58, label %1499
-    i8 44, label %1499
   ]
 
-1499:                                             ; preds = %1491, %1491, %1491, %1491, %1485, %1483, %1477, %1477
-  %.347.i508.i = phi i32 [ %.044.i5006314.i, %1477 ], [ %.044.i5006314.i, %1485 ], [ %1484, %1483 ], [ %.044.i5006314.i, %1477 ], [ %.246.i506.i, %1491 ], [ %.246.i506.i, %1491 ], [ %.246.i506.i, %1491 ], [ %.246.i506.i, %1491 ]
-  %.338.i510.i = phi i32 [ %.035.i5026316.i, %1477 ], [ %1486, %1485 ], [ %.035.i5026316.i, %1483 ], [ %.035.i5026316.i, %1477 ], [ %.237.i507.i, %1491 ], [ %.237.i507.i, %1491 ], [ %.237.i507.i, %1491 ], [ %.237.i507.i, %1491 ]
+1493:                                             ; preds = %1487
+  %1494 = add nsw i32 %.044.i5006314.i, -1
+  br label %1509
+
+1495:                                             ; preds = %1487
+  %1496 = add nsw i32 %.035.i5026316.i, -1
+  br label %1509
+
+1497:                                             ; preds = %1487
+  %1498 = add nsw i32 %.044.i5006314.i, 1
+  br label %1501
+
+1499:                                             ; preds = %1487
+  %1500 = add nsw i32 %.035.i5026316.i, 1
+  br label %1501
+
+1501:                                             ; preds = %1499, %1497, %1487
+  %.246.i506.i = phi i32 [ %.044.i5006314.i, %1487 ], [ %1498, %1497 ], [ %.044.i5006314.i, %1499 ]
+  %.237.i507.i = phi i32 [ %.035.i5026316.i, %1487 ], [ %.035.i5026316.i, %1497 ], [ %1500, %1499 ]
+  %1502 = add i32 %.043.in.i5016315.i, -2
+  %1503 = zext i32 %1502 to i64
+  %1504 = getelementptr inbounds nuw i32, ptr %648, i64 %1503
+  %1505 = load i32, ptr %1504, align 4, !tbaa !7
+  %1506 = zext i32 %1505 to i64
+  %1507 = getelementptr inbounds nuw i8, ptr %1, i64 %1506
+  %1508 = load i8, ptr %1507, align 1, !tbaa !4
+  switch i8 %1508, label %1512 [
+    i8 123, label %1509
+    i8 91, label %1509
+    i8 58, label %1509
+    i8 44, label %1509
+  ]
+
+1509:                                             ; preds = %1501, %1501, %1501, %1501, %1495, %1493, %1487, %1487
+  %.347.i508.i = phi i32 [ %.044.i5006314.i, %1487 ], [ %.044.i5006314.i, %1495 ], [ %1494, %1493 ], [ %.044.i5006314.i, %1487 ], [ %.246.i506.i, %1501 ], [ %.246.i506.i, %1501 ], [ %.246.i506.i, %1501 ], [ %.246.i506.i, %1501 ]
+  %.338.i510.i = phi i32 [ %.035.i5026316.i, %1487 ], [ %1496, %1495 ], [ %.035.i5026316.i, %1493 ], [ %.035.i5026316.i, %1487 ], [ %.237.i507.i, %1501 ], [ %.237.i507.i, %1501 ], [ %.237.i507.i, %1501 ], [ %.237.i507.i, %1501 ]
   %indvars.iv.next6361.i = add nsw i64 %indvars.iv6360.i, -1
-  %1500 = and i64 %indvars.iv.next6361.i, 4294967295
-  %.not.i505.i = icmp eq i64 %1500, 0
-  %1501 = trunc nuw i64 %indvars.iv6360.i to i32
-  br i1 %.not.i505.i, label %._crit_edge6319.i, label %1477, !llvm.loop !159
+  %1510 = and i64 %indvars.iv.next6361.i, 4294967295
+  %.not.i505.i = icmp eq i64 %1510, 0
+  %1511 = trunc nuw i64 %indvars.iv6360.i to i32
+  br i1 %.not.i505.i, label %._crit_edge6319.i, label %1487, !llvm.loop !159
 
-1502:                                             ; preds = %1491
-  %1503 = trunc nuw i64 %indvars.iv6360.i to i32
-  %1504 = icmp ne i32 %.237.i507.i, 0
-  %1505 = icmp ne i32 %.246.i506.i, 0
-  %or.cond.i520.i = select i1 %1504, i1 true, i1 %1505
-  %spec.select.i521.i = select i1 %or.cond.i520.i, i32 %1503, i32 %1475
+1512:                                             ; preds = %1501
+  %1513 = trunc nuw i64 %indvars.iv6360.i to i32
+  %1514 = icmp ne i32 %.237.i507.i, 0
+  %1515 = icmp ne i32 %.246.i506.i, 0
+  %or.cond.i520.i = select i1 %1514, i1 true, i1 %1515
+  %spec.select.i521.i = select i1 %or.cond.i520.i, i32 %1513, i32 %1485
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i
 
-._crit_edge6319.i:                                ; preds = %1499, %.preheader6265.i
-  %.044.i500.lcssa.i = phi i32 [ 0, %.preheader6265.i ], [ %.347.i508.i, %1499 ]
-  %.035.i502.lcssa.i = phi i32 [ 0, %.preheader6265.i ], [ %.338.i510.i, %1499 ]
-  %1506 = load i32, ptr %647, align 4, !tbaa !7
-  %1507 = zext i32 %1506 to i64
-  %1508 = getelementptr inbounds nuw i8, ptr %1, i64 %1507
-  %1509 = load i8, ptr %1508, align 1, !tbaa !4
-  switch i8 %1509, label %1518 [
-    i8 125, label %1510
-    i8 93, label %1512
-    i8 123, label %1514
-    i8 91, label %1516
+._crit_edge6319.i:                                ; preds = %1509, %.preheader6265.i
+  %.044.i500.lcssa.i = phi i32 [ 0, %.preheader6265.i ], [ %.347.i508.i, %1509 ]
+  %.035.i502.lcssa.i = phi i32 [ 0, %.preheader6265.i ], [ %.338.i510.i, %1509 ]
+  %1516 = load i32, ptr %648, align 4, !tbaa !7
+  %1517 = zext i32 %1516 to i64
+  %1518 = getelementptr inbounds nuw i8, ptr %1, i64 %1517
+  %1519 = load i8, ptr %1518, align 1, !tbaa !4
+  switch i8 %1519, label %1528 [
+    i8 125, label %1520
+    i8 93, label %1522
+    i8 123, label %1524
+    i8 91, label %1526
   ]
 
-1510:                                             ; preds = %._crit_edge6319.i
-  %1511 = add nsw i32 %.044.i500.lcssa.i, -1
-  br label %1518
+1520:                                             ; preds = %._crit_edge6319.i
+  %1521 = add nsw i32 %.044.i500.lcssa.i, -1
+  br label %1528
 
-1512:                                             ; preds = %._crit_edge6319.i
-  %1513 = add nsw i32 %.035.i502.lcssa.i, -1
-  br label %1518
+1522:                                             ; preds = %._crit_edge6319.i
+  %1523 = add nsw i32 %.035.i502.lcssa.i, -1
+  br label %1528
 
-1514:                                             ; preds = %._crit_edge6319.i
-  %1515 = add nsw i32 %.044.i500.lcssa.i, 1
-  br label %1518
+1524:                                             ; preds = %._crit_edge6319.i
+  %1525 = add nsw i32 %.044.i500.lcssa.i, 1
+  br label %1528
 
-1516:                                             ; preds = %._crit_edge6319.i
-  %1517 = add nsw i32 %.035.i502.lcssa.i, 1
-  br label %1518
+1526:                                             ; preds = %._crit_edge6319.i
+  %1527 = add nsw i32 %.035.i502.lcssa.i, 1
+  br label %1528
 
-1518:                                             ; preds = %1516, %1514, %1512, %1510, %._crit_edge6319.i
-  %.448.i516.i = phi i32 [ %.044.i500.lcssa.i, %._crit_edge6319.i ], [ %1511, %1510 ], [ %.044.i500.lcssa.i, %1512 ], [ %1515, %1514 ], [ %.044.i500.lcssa.i, %1516 ]
-  %.439.i517.i = phi i32 [ %.035.i502.lcssa.i, %._crit_edge6319.i ], [ %.035.i502.lcssa.i, %1510 ], [ %1513, %1512 ], [ %.035.i502.lcssa.i, %1514 ], [ %1517, %1516 ]
-  %1519 = icmp ne i32 %.439.i517.i, 0
-  %1520 = icmp ne i32 %.448.i516.i, 0
-  %or.cond4.i518.i = select i1 %1519, i1 true, i1 %1520
-  %spec.select50.i519.i = select i1 %or.cond4.i518.i, i32 0, i32 %1475
+1528:                                             ; preds = %1526, %1524, %1522, %1520, %._crit_edge6319.i
+  %.448.i516.i = phi i32 [ %.044.i500.lcssa.i, %._crit_edge6319.i ], [ %1521, %1520 ], [ %.044.i500.lcssa.i, %1522 ], [ %1525, %1524 ], [ %.044.i500.lcssa.i, %1526 ]
+  %.439.i517.i = phi i32 [ %.035.i502.lcssa.i, %._crit_edge6319.i ], [ %.035.i502.lcssa.i, %1520 ], [ %1523, %1522 ], [ %.035.i502.lcssa.i, %1524 ], [ %1527, %1526 ]
+  %1529 = icmp ne i32 %.439.i517.i, 0
+  %1530 = icmp ne i32 %.448.i516.i, 0
+  %or.cond4.i518.i = select i1 %1529, i1 true, i1 %1530
+  %spec.select50.i519.i = select i1 %or.cond4.i518.i, i32 0, i32 %1485
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i: ; preds = %1518, %1502, %thread-pre-split6249.i
-  %.0.i515.i = phi i32 [ 0, %thread-pre-split6249.i ], [ %spec.select.i521.i, %1502 ], [ %spec.select50.i519.i, %1518 ]
-  store i32 %.0.i515.i, ptr %1398, align 8, !tbaa !70
-  %1521 = zext i32 %.0.i515.i to i64
-  %1522 = getelementptr inbounds nuw i32, ptr %647, i64 %1521
-  %1523 = load i32, ptr %1522, align 4, !tbaa !7
-  %1524 = add i32 %.0.i515.i, 1
-  %1525 = zext i32 %1524 to i64
-  %1526 = getelementptr inbounds nuw i32, ptr %647, i64 %1525
-  store i32 %1523, ptr %1526, align 4, !tbaa !7
-  %1527 = load i32, ptr %1398, align 8, !tbaa !70
-  %1528 = zext i32 %1527 to i64
-  %1529 = getelementptr inbounds nuw i32, ptr %647, i64 %1528
-  store i32 %1399, ptr %1529, align 4, !tbaa !7
-  %1530 = load i32, ptr %1398, align 8, !tbaa !70
-  %1531 = icmp eq i32 %1530, 0
-  br i1 %1531, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1532, !prof !127
+_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i: ; preds = %1528, %1512, %thread-pre-split6249.i
+  %.0.i515.i = phi i32 [ 0, %thread-pre-split6249.i ], [ %spec.select.i521.i, %1512 ], [ %spec.select50.i519.i, %1528 ]
+  store i32 %.0.i515.i, ptr %1408, align 8, !tbaa !70
+  %1531 = zext i32 %.0.i515.i to i64
+  %1532 = getelementptr inbounds nuw i32, ptr %648, i64 %1531
+  %1533 = load i32, ptr %1532, align 4, !tbaa !7
+  %1534 = add i32 %.0.i515.i, 1
+  %1535 = zext i32 %1534 to i64
+  %1536 = getelementptr inbounds nuw i32, ptr %648, i64 %1535
+  store i32 %1533, ptr %1536, align 4, !tbaa !7
+  %1537 = load i32, ptr %1408, align 8, !tbaa !70
+  %1538 = zext i32 %1537 to i64
+  %1539 = getelementptr inbounds nuw i32, ptr %648, i64 %1538
+  store i32 %1409, ptr %1539, align 4, !tbaa !7
+  %1540 = load i32, ptr %1408, align 8, !tbaa !70
+  %1541 = icmp eq i32 %1540, 0
+  br i1 %1541, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1542, !prof !127
 
-1532:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i, %1420
-  %1533 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %.sroa.41541.1.i, <4 x i64> %.sroa.41541.1.i)
-  %.not6264.i = icmp eq i32 %1533, 0
-  %1534 = select i1 %.not6264.i, i32 11, i32 0
+1542:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i, %1430
+  %1543 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %.sroa.41541.1.i, <4 x i64> %.sroa.41541.1.i)
+  %.not6264.i = icmp eq i32 %1543, 0
+  %1544 = select i1 %.not6264.i, i32 11, i32 0
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1532, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %1472, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i, %1422, %1413, %1392, %.thread.i, %.noexc.i, %._crit_edge.i
-  %.1.i = phi i32 [ 13, %1472 ], [ 13, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i ], [ 1, %1422 ], [ 15, %.noexc.i ], [ 14, %.thread.i ], [ 13, %1392 ], [ 24, %1413 ], [ %1534, %1532 ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1542, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %1482, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i, %1432, %1423, %1402, %.thread.i, %.noexc.i, %._crit_edge.i
+  %.1.i = phi i32 [ 13, %1482 ], [ 13, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i ], [ 1, %1432 ], [ 15, %.noexc.i ], [ 14, %.thread.i ], [ 13, %1402 ], [ 24, %1423 ], [ %1544, %1542 ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6419.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
@@ -5544,101 +5549,107 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %.sroa.022.1.i.i = or <4 x i64> %.sroa.24.01775.i.pn.i, %.sroa.022.01777.i.i
   %64 = add nuw i64 %.sroa.11.01778.i.i, 64
   %65 = icmp ult i64 %64, %spec.select.i.i.i
-  br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !166
+  br i1 %65, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !166
 
-._crit_edge.i.i:                                  ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, %3
-  %.sroa.24.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %.sroa.24.1.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ]
-  %.sroa.19.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %.sroa.19.1.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ]
-  %.sroa.022.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %.sroa.022.1.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ]
-  %.sroa.11.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %64, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ]
+._crit_edge.loopexit.i.i:                         ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
+  %66 = or <4 x i64> %.sroa.022.1.i.i, %.sroa.24.1.i.i
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %3
+  %.sroa.24.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %66, %._crit_edge.loopexit.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %.sroa.19.1.i.i, %._crit_edge.loopexit.i.i ]
+  %.sroa.022.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %3 ], [ %.sroa.022.1.i.i, %._crit_edge.loopexit.i.i ]
+  %.sroa.11.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %64, %._crit_edge.loopexit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %66 = icmp eq i64 %2, %.sroa.11.0.lcssa.i.i
-  br i1 %66, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %67
+  %67 = icmp eq i64 %2, %.sroa.11.0.lcssa.i.i
+  br i1 %67, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %68
 
-67:                                               ; preds = %._crit_edge.i.i
+68:                                               ; preds = %._crit_edge.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 32, i64 64, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa.i.i
-  %69 = sub i64 %2, %.sroa.11.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %68, i64 %69, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa.i.i
+  %70 = sub i64 %2, %.sroa.11.0.lcssa.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %69, i64 %70, i1 false)
   %.0..0..0..0..0..0..0..pre.i.i = load <4 x i64>, ptr %4, align 16, !tbaa !4, !noalias !167
   %.32..32..32..32..32..32..32..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.32..32..32..32..32..32..32..pre.i.i = load <4 x i64>, ptr %.32..32..32..32..32..32..32..sroa_idx, align 16, !tbaa !4, !noalias !170
   br label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
 
-_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i: ; preds = %67, %._crit_edge.i.i
-  %.32..32..i.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.i.i ], [ %.32..32..32..32..32..32..32..pre.i.i, %67 ]
-  %.0..0..i.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.i.i ], [ %.0..0..0..0..0..0..0..pre.i.i, %67 ]
-  %70 = or <4 x i64> %.0..0..i.i, %.32..32..i.i
-  %71 = bitcast <4 x i64> %70 to <32 x i8>
-  %72 = icmp slt <32 x i8> %71, zeroinitializer
-  %73 = bitcast <32 x i1> %72 to i32
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %124, label %75, !prof !141
+_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i: ; preds = %68, %._crit_edge.i.i
+  %.32..32..i.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.i.i ], [ %.32..32..32..32..32..32..32..pre.i.i, %68 ]
+  %.0..0..i.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.i.i ], [ %.0..0..0..0..0..0..0..pre.i.i, %68 ]
+  %71 = or <4 x i64> %.0..0..i.i, %.32..32..i.i
+  %72 = bitcast <4 x i64> %71 to <32 x i8>
+  %73 = icmp slt <32 x i8> %72, zeroinitializer
+  %74 = bitcast <32 x i1> %73 to i32
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %130, label %76, !prof !141
 
-75:                                               ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
-  %76 = bitcast <4 x i64> %.0..0..i.i to <32 x i8>
-  %77 = shufflevector <4 x i64> %.sroa.19.0.lcssa.i.i, <4 x i64> %.0..0..i.i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %78 = bitcast <4 x i64> %77 to <32 x i8>
-  %79 = shufflevector <32 x i8> %78, <32 x i8> %76, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %80 = bitcast <32 x i8> %79 to <16 x i16>
-  %81 = lshr <16 x i16> %80, splat (i16 4)
-  %82 = bitcast <16 x i16> %81 to <32 x i8>
-  %83 = and <32 x i8> %82, splat (i8 15)
-  %84 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %83)
-  %85 = and <32 x i8> %79, splat (i8 15)
-  %86 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %85)
-  %87 = bitcast <4 x i64> %.0..0..i.i to <16 x i16>
-  %88 = lshr <16 x i16> %87, splat (i16 4)
-  %89 = bitcast <16 x i16> %88 to <32 x i8>
-  %90 = and <32 x i8> %89, splat (i8 15)
-  %91 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %90)
-  %92 = and <32 x i8> %86, %84
-  %93 = and <32 x i8> %92, %91
-  %94 = shufflevector <32 x i8> %78, <32 x i8> %76, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %95 = shufflevector <32 x i8> %78, <32 x i8> %76, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %96 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %94, <32 x i8> splat (i8 96))
-  %97 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %95, <32 x i8> splat (i8 112))
-  %98 = or <32 x i8> %96, %97
-  %.inner12 = and <32 x i8> %98, splat (i8 -128)
-  %.inner13 = xor <32 x i8> %.inner12, %93
-  %99 = bitcast <4 x i64> %.32..32..i.i to <32 x i8>
-  %100 = shufflevector <4 x i64> %.0..0..i.i, <4 x i64> %.32..32..i.i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
-  %101 = bitcast <4 x i64> %100 to <32 x i8>
-  %102 = shufflevector <32 x i8> %101, <32 x i8> %99, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
-  %103 = bitcast <32 x i8> %102 to <16 x i16>
-  %104 = lshr <16 x i16> %103, splat (i16 4)
-  %105 = bitcast <16 x i16> %104 to <32 x i8>
-  %106 = and <32 x i8> %105, splat (i8 15)
-  %107 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %106)
-  %108 = and <32 x i8> %102, splat (i8 15)
-  %109 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %108)
-  %110 = bitcast <4 x i64> %.32..32..i.i to <16 x i16>
-  %111 = lshr <16 x i16> %110, splat (i16 4)
-  %112 = bitcast <16 x i16> %111 to <32 x i8>
-  %113 = and <32 x i8> %112, splat (i8 15)
-  %114 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %113)
-  %115 = and <32 x i8> %109, %107
-  %116 = and <32 x i8> %115, %114
-  %117 = shufflevector <32 x i8> %101, <32 x i8> %99, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
-  %118 = shufflevector <32 x i8> %101, <32 x i8> %99, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
-  %119 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %117, <32 x i8> splat (i8 96))
-  %120 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %118, <32 x i8> splat (i8 112))
-  %121 = or <32 x i8> %119, %120
-  %.inner16 = and <32 x i8> %121, splat (i8 -128)
-  %.inner17 = xor <32 x i8> %.inner16, %116
-  %122 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %99, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %.inner18 = or <32 x i8> %.inner13, %122
-  %.inner19 = or <32 x i8> %.inner18, %.inner17
-  %123 = bitcast <32 x i8> %.inner19 to <4 x i64>
-  br label %124
+76:                                               ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
+  %77 = bitcast <4 x i64> %.0..0..i.i to <32 x i8>
+  %78 = shufflevector <4 x i64> %.sroa.19.0.lcssa.i.i, <4 x i64> %.0..0..i.i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %79 = bitcast <4 x i64> %78 to <32 x i8>
+  %80 = shufflevector <32 x i8> %79, <32 x i8> %77, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %81 = bitcast <32 x i8> %80 to <16 x i16>
+  %82 = lshr <16 x i16> %81, splat (i16 4)
+  %83 = bitcast <16 x i16> %82 to <32 x i8>
+  %84 = and <32 x i8> %83, splat (i8 15)
+  %85 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %84)
+  %86 = and <32 x i8> %80, splat (i8 15)
+  %87 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %86)
+  %88 = bitcast <4 x i64> %.0..0..i.i to <16 x i16>
+  %89 = lshr <16 x i16> %88, splat (i16 4)
+  %90 = bitcast <16 x i16> %89 to <32 x i8>
+  %91 = and <32 x i8> %90, splat (i8 15)
+  %92 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %91)
+  %93 = and <32 x i8> %87, %85
+  %94 = and <32 x i8> %93, %92
+  %95 = shufflevector <32 x i8> %79, <32 x i8> %77, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %96 = shufflevector <32 x i8> %79, <32 x i8> %77, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %97 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %95, <32 x i8> splat (i8 96))
+  %98 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %96, <32 x i8> splat (i8 112))
+  %99 = or <32 x i8> %97, %98
+  %.inner12 = and <32 x i8> %99, splat (i8 -128)
+  %.inner13 = xor <32 x i8> %.inner12, %94
+  %100 = bitcast <32 x i8> %.inner13 to <4 x i64>
+  %101 = bitcast <4 x i64> %.32..32..i.i to <32 x i8>
+  %102 = shufflevector <4 x i64> %.0..0..i.i, <4 x i64> %.32..32..i.i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %103 = bitcast <4 x i64> %102 to <32 x i8>
+  %104 = shufflevector <32 x i8> %103, <32 x i8> %101, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
+  %105 = bitcast <32 x i8> %104 to <16 x i16>
+  %106 = lshr <16 x i16> %105, splat (i16 4)
+  %107 = bitcast <16 x i16> %106 to <32 x i8>
+  %108 = and <32 x i8> %107, splat (i8 15)
+  %109 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %108)
+  %110 = and <32 x i8> %104, splat (i8 15)
+  %111 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %110)
+  %112 = bitcast <4 x i64> %.32..32..i.i to <16 x i16>
+  %113 = lshr <16 x i16> %112, splat (i16 4)
+  %114 = bitcast <16 x i16> %113 to <32 x i8>
+  %115 = and <32 x i8> %114, splat (i8 15)
+  %116 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <32 x i8> %115)
+  %117 = and <32 x i8> %111, %109
+  %118 = and <32 x i8> %117, %116
+  %119 = shufflevector <32 x i8> %103, <32 x i8> %101, <32 x i32> <i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61>
+  %120 = shufflevector <32 x i8> %103, <32 x i8> %101, <32 x i32> <i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 29, i32 30, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60>
+  %121 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %119, <32 x i8> splat (i8 96))
+  %122 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %120, <32 x i8> splat (i8 112))
+  %123 = or <32 x i8> %121, %122
+  %.inner16 = and <32 x i8> %123, splat (i8 -128)
+  %.inner17 = xor <32 x i8> %.inner16, %118
+  %124 = bitcast <32 x i8> %.inner17 to <4 x i64>
+  %125 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %101, <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %126 = bitcast <32 x i8> %125 to <4 x i64>
+  %127 = or <4 x i64> %.sroa.022.0.lcssa.i.i, %126
+  %128 = or <4 x i64> %127, %100
+  %129 = or <4 x i64> %128, %124
+  br label %130
 
-124:                                              ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, %75
-  %.sroa.24.0.lcssa.i.i.pn = phi <4 x i64> [ %123, %75 ], [ %.sroa.24.0.lcssa.i.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i ]
-  %.sroa.022.2.i.i = or <4 x i64> %.sroa.022.0.lcssa.i.i, %.sroa.24.0.lcssa.i.i.pn
-  %125 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %.sroa.022.2.i.i, <4 x i64> %.sroa.022.2.i.i)
-  %126 = icmp ne i32 %125, 0
+130:                                              ; preds = %76, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
+  %.sroa.022.2.i.i = phi <4 x i64> [ %129, %76 ], [ %.sroa.24.0.lcssa.i.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i.i ]
+  %131 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %.sroa.022.2.i.i, <4 x i64> %.sroa.022.2.i.i)
+  %132 = icmp ne i32 %131, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %126
+  ret i1 %132
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22790,15 +22801,16 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
 
 ._crit_edge.i:                                    ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i
   %439 = bitcast <2 x i64> %.sroa.48.1.i to <16 x i8>
+  %440 = or <2 x i64> %.sroa.23310.2.i, %.sroa.53.2.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %440 = icmp eq i64 %.013.i, %437
-  br i1 %440, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
+  %441 = icmp eq i64 %.013.i, %437
+  br i1 %441, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %.sroa.18.0.lcssa1755.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %107, %._crit_edge.i ]
   %.sroa.23310.0.lcssa1754.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.23310.2.i, %._crit_edge.i ]
   %.sroa.48.0.lcssa1753.i = phi <16 x i8> [ zeroinitializer, %._crit_edge.thread.i ], [ %439, %._crit_edge.i ]
-  %.sroa.53.0.lcssa1752.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.53.2.i, %._crit_edge.i ]
+  %.sroa.53.0.lcssa1752.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %440, %._crit_edge.i ]
   %.sroa.59.0.lcssa1751.i = phi ptr [ %.sroa.59.0.lcssa.ph.i, %._crit_edge.thread.i ], [ %.sroa.59.1.i, %._crit_edge.i ]
   %.sroa.142.0.lcssa1750.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %434, %._crit_edge.i ]
   %.sroa.148.0.lcssa1749.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %436, %._crit_edge.i ]
@@ -22806,11 +22818,11 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %.sroa.0.0.lcssa1747.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %161, %._crit_edge.i ]
   %.sroa.11.0.lcssa1746.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %437, %._crit_edge.i ]
   %.01317321745.i = phi i64 [ %.0131732.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
-  %441 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %46, %._crit_edge.i ]
+  %442 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %46, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 32, i64 64, i1 false)
-  %442 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa1746.i
-  %443 = sub i64 %.01317321745.i, %.sroa.11.0.lcssa1746.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %442, i64 %443, i1 false)
+  %443 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa1746.i
+  %444 = sub i64 %.01317321745.i, %.sroa.11.0.lcssa1746.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %443, i64 %444, i1 false)
   %.0..0..0..0..0..i = load <2 x i64>, ptr %5, align 16, !tbaa !4
   %.16..16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.16..16..16..16..16..i = load <2 x i64>, ptr %.16..16..16..16..16..sroa_idx, align 16, !tbaa !4
@@ -22818,1046 +22830,1050 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %.32..32..32..32..32..i = load <2 x i64>, ptr %.32..32..32..32..32..sroa_idx, align 16, !tbaa !4
   %.48..48..48..48..48..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.48..48..48..48..48..i = load <2 x i64>, ptr %.48..48..48..48..48..sroa_idx, align 16, !tbaa !4
-  %444 = bitcast <2 x i64> %.0..0..0..0..0..i to <16 x i8>
-  %445 = bitcast <2 x i64> %.16..16..16..16..16..i to <16 x i8>
-  %446 = bitcast <2 x i64> %.32..32..32..32..32..i to <16 x i8>
-  %447 = icmp eq <16 x i8> %446, splat (i8 92)
-  %448 = bitcast <2 x i64> %.48..48..48..48..48..i to <16 x i8>
-  %449 = icmp eq <16 x i8> %448, splat (i8 92)
-  %450 = bitcast <16 x i1> %447 to i16
-  %451 = zext i16 %450 to i64
-  %452 = bitcast <16 x i1> %449 to i16
-  %453 = zext i16 %452 to i64
-  %454 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %455 = bitcast <4 x i64> %454 to <32 x i8>
-  %456 = icmp eq <32 x i8> %455, splat (i8 92)
-  %457 = bitcast <32 x i1> %456 to i32
-  %458 = zext i32 %457 to i64
-  %459 = shl nuw nsw i64 %451, 32
-  %460 = or disjoint i64 %459, %458
-  %461 = shl nuw i64 %453, 48
-  %462 = or disjoint i64 %460, %461
-  %.not.i.i21.i = icmp eq i64 %462, 0
-  br i1 %.not.i.i21.i, label %.noexc63.i, label %463
+  %445 = bitcast <2 x i64> %.0..0..0..0..0..i to <16 x i8>
+  %446 = bitcast <2 x i64> %.16..16..16..16..16..i to <16 x i8>
+  %447 = bitcast <2 x i64> %.32..32..32..32..32..i to <16 x i8>
+  %448 = icmp eq <16 x i8> %447, splat (i8 92)
+  %449 = bitcast <2 x i64> %.48..48..48..48..48..i to <16 x i8>
+  %450 = icmp eq <16 x i8> %449, splat (i8 92)
+  %451 = bitcast <16 x i1> %448 to i16
+  %452 = zext i16 %451 to i64
+  %453 = bitcast <16 x i1> %450 to i16
+  %454 = zext i16 %453 to i64
+  %455 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %456 = bitcast <4 x i64> %455 to <32 x i8>
+  %457 = icmp eq <32 x i8> %456, splat (i8 92)
+  %458 = bitcast <32 x i1> %457 to i32
+  %459 = zext i32 %458 to i64
+  %460 = shl nuw nsw i64 %452, 32
+  %461 = or disjoint i64 %460, %459
+  %462 = shl nuw i64 %454, 48
+  %463 = or disjoint i64 %461, %462
+  %.not.i.i21.i = icmp eq i64 %463, 0
+  br i1 %.not.i.i21.i, label %.noexc63.i, label %464
 
-463:                                              ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
-  %464 = xor i64 %.sroa.8.0.lcssa1748.i, -1
-  %465 = and i64 %462, %464
-  %466 = shl i64 %465, 1
-  %467 = or i64 %466, -6148914691236517206
-  %468 = sub i64 %467, %465
-  %469 = or i64 %462, %.sroa.8.0.lcssa1748.i
-  %470 = xor i64 %469, %468
-  %471 = xor i64 %470, -6148914691236517206
+464:                                              ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
+  %465 = xor i64 %.sroa.8.0.lcssa1748.i, -1
+  %466 = and i64 %463, %465
+  %467 = shl i64 %466, 1
+  %468 = or i64 %467, -6148914691236517206
+  %469 = sub i64 %468, %466
+  %470 = or i64 %463, %.sroa.8.0.lcssa1748.i
+  %471 = xor i64 %470, %469
+  %472 = xor i64 %471, -6148914691236517206
   br label %.noexc63.i
 
-.noexc63.i:                                       ; preds = %463, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
-  %.sroa.0.0.i.i23.i = phi i64 [ %471, %463 ], [ %.sroa.8.0.lcssa1748.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ]
-  %472 = icmp eq <16 x i8> %446, splat (i8 34)
-  %473 = icmp eq <16 x i8> %448, splat (i8 34)
-  %474 = bitcast <16 x i1> %472 to i16
-  %475 = zext i16 %474 to i64
-  %476 = bitcast <16 x i1> %473 to i16
-  %477 = zext i16 %476 to i64
-  %478 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %479 = bitcast <4 x i64> %478 to <32 x i8>
-  %480 = icmp eq <32 x i8> %479, splat (i8 34)
-  %481 = bitcast <32 x i1> %480 to i32
-  %482 = zext i32 %481 to i64
-  %483 = shl nuw nsw i64 %475, 32
-  %484 = or disjoint i64 %483, %482
-  %485 = shl nuw i64 %477, 48
-  %486 = or disjoint i64 %484, %485
-  %487 = xor i64 %.sroa.0.0.i.i23.i, -1
-  %488 = and i64 %486, %487
-  %489 = insertelement <2 x i64> poison, i64 %488, i64 0
-  %490 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %489, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %491 = extractelement <2 x i64> %490, i64 0
-  %492 = xor i64 %491, %.sroa.18.0.lcssa1755.i
-  %493 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %444)
+.noexc63.i:                                       ; preds = %464, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
+  %.sroa.0.0.i.i23.i = phi i64 [ %472, %464 ], [ %.sroa.8.0.lcssa1748.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ]
+  %473 = icmp eq <16 x i8> %447, splat (i8 34)
+  %474 = icmp eq <16 x i8> %449, splat (i8 34)
+  %475 = bitcast <16 x i1> %473 to i16
+  %476 = zext i16 %475 to i64
+  %477 = bitcast <16 x i1> %474 to i16
+  %478 = zext i16 %477 to i64
+  %479 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %480 = bitcast <4 x i64> %479 to <32 x i8>
+  %481 = icmp eq <32 x i8> %480, splat (i8 34)
+  %482 = bitcast <32 x i1> %481 to i32
+  %483 = zext i32 %482 to i64
+  %484 = shl nuw nsw i64 %476, 32
+  %485 = or disjoint i64 %484, %483
+  %486 = shl nuw i64 %478, 48
+  %487 = or disjoint i64 %485, %486
+  %488 = xor i64 %.sroa.0.0.i.i23.i, -1
+  %489 = and i64 %487, %488
+  %490 = insertelement <2 x i64> poison, i64 %489, i64 0
+  %491 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %490, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %492 = extractelement <2 x i64> %491, i64 0
+  %493 = xor i64 %492, %.sroa.18.0.lcssa1755.i
   %494 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %445)
   %495 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %446)
-  %496 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %448)
-  %497 = icmp eq <16 x i8> %495, %446
-  %498 = icmp eq <16 x i8> %496, %448
-  %499 = bitcast <16 x i1> %497 to i16
-  %500 = zext i16 %499 to i64
-  %501 = bitcast <16 x i1> %498 to i16
-  %502 = zext i16 %501 to i64
-  %503 = shufflevector <16 x i8> %493, <16 x i8> %494, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %504 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %505 = bitcast <4 x i64> %504 to <32 x i8>
-  %506 = icmp eq <32 x i8> %503, %505
-  %507 = bitcast <32 x i1> %506 to i32
-  %508 = zext i32 %507 to i64
-  %509 = shl nuw nsw i64 %500, 32
-  %510 = or disjoint i64 %509, %508
-  %511 = shl nuw i64 %502, 48
-  %512 = or disjoint i64 %510, %511
-  %513 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %444)
+  %496 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %447)
+  %497 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %449)
+  %498 = icmp eq <16 x i8> %496, %447
+  %499 = icmp eq <16 x i8> %497, %449
+  %500 = bitcast <16 x i1> %498 to i16
+  %501 = zext i16 %500 to i64
+  %502 = bitcast <16 x i1> %499 to i16
+  %503 = zext i16 %502 to i64
+  %504 = shufflevector <16 x i8> %494, <16 x i8> %495, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %505 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %506 = bitcast <4 x i64> %505 to <32 x i8>
+  %507 = icmp eq <32 x i8> %504, %506
+  %508 = bitcast <32 x i1> %507 to i32
+  %509 = zext i32 %508 to i64
+  %510 = shl nuw nsw i64 %501, 32
+  %511 = or disjoint i64 %510, %509
+  %512 = shl nuw i64 %503, 48
+  %513 = or disjoint i64 %511, %512
   %514 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %445)
   %515 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %446)
-  %516 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %448)
-  %517 = bitcast <2 x i64> %.0..0..0..0..0..i to <16 x i8>
-  %518 = or <16 x i8> %517, splat (i8 32)
-  %519 = bitcast <2 x i64> %.16..16..16..16..16..i to <16 x i8>
-  %520 = or <16 x i8> %519, splat (i8 32)
-  %521 = bitcast <2 x i64> %.32..32..32..32..32..i to <16 x i8>
-  %522 = or <16 x i8> %521, splat (i8 32)
-  %523 = icmp eq <16 x i8> %522, %515
-  %524 = bitcast <2 x i64> %.48..48..48..48..48..i to <16 x i8>
-  %525 = or <16 x i8> %524, splat (i8 32)
-  %526 = icmp eq <16 x i8> %525, %516
-  %527 = bitcast <16 x i1> %523 to i16
-  %528 = zext i16 %527 to i64
-  %529 = bitcast <16 x i1> %526 to i16
-  %530 = zext i16 %529 to i64
-  %531 = shufflevector <16 x i8> %518, <16 x i8> %520, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %532 = shufflevector <16 x i8> %513, <16 x i8> %514, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %533 = icmp eq <32 x i8> %531, %532
-  %534 = bitcast <32 x i1> %533 to i32
-  %535 = zext i32 %534 to i64
-  %536 = shl nuw nsw i64 %528, 32
-  %537 = or disjoint i64 %536, %535
-  %538 = shl nuw i64 %530, 48
-  %539 = or disjoint i64 %537, %538
-  %540 = or i64 %539, %512
-  %541 = xor i64 %540, -1
-  %542 = xor i64 %488, -1
-  %543 = and i64 %541, %542
-  %544 = shl i64 %543, 1
-  %545 = or disjoint i64 %544, %.sroa.0.0.lcssa1747.i
-  %546 = icmp ult <16 x i8> %446, splat (i8 32)
-  %547 = icmp ult <16 x i8> %448, splat (i8 32)
-  %548 = bitcast <16 x i1> %546 to i16
-  %549 = zext i16 %548 to i64
-  %550 = bitcast <16 x i1> %547 to i16
-  %551 = zext i16 %550 to i64
-  %552 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %553 = bitcast <4 x i64> %552 to <32 x i8>
-  %554 = icmp ult <32 x i8> %553, splat (i8 32)
-  %555 = bitcast <32 x i1> %554 to i32
-  %556 = zext i32 %555 to i64
-  %557 = shl nuw nsw i64 %549, 32
-  %558 = or disjoint i64 %557, %556
-  %559 = shl nuw i64 %551, 48
-  %560 = or disjoint i64 %558, %559
-  %561 = or <2 x i64> %.16..16..16..16..16..i, %.0..0..0..0..0..i
-  %562 = or <2 x i64> %561, %.32..32..32..32..32..i
-  %563 = or <2 x i64> %562, %.48..48..48..48..48..i
-  %564 = bitcast <2 x i64> %563 to <16 x i8>
-  %565 = icmp slt <16 x i8> %564, zeroinitializer
-  %566 = bitcast <16 x i1> %565 to i16
-  %567 = icmp eq i16 %566, 0
-  br i1 %567, label %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, label %568, !prof !141
+  %516 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %447)
+  %517 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 58, i8 123, i8 44, i8 125, i8 0, i8 0>, <16 x i8> %449)
+  %518 = bitcast <2 x i64> %.0..0..0..0..0..i to <16 x i8>
+  %519 = or <16 x i8> %518, splat (i8 32)
+  %520 = bitcast <2 x i64> %.16..16..16..16..16..i to <16 x i8>
+  %521 = or <16 x i8> %520, splat (i8 32)
+  %522 = bitcast <2 x i64> %.32..32..32..32..32..i to <16 x i8>
+  %523 = or <16 x i8> %522, splat (i8 32)
+  %524 = icmp eq <16 x i8> %523, %516
+  %525 = bitcast <2 x i64> %.48..48..48..48..48..i to <16 x i8>
+  %526 = or <16 x i8> %525, splat (i8 32)
+  %527 = icmp eq <16 x i8> %526, %517
+  %528 = bitcast <16 x i1> %524 to i16
+  %529 = zext i16 %528 to i64
+  %530 = bitcast <16 x i1> %527 to i16
+  %531 = zext i16 %530 to i64
+  %532 = shufflevector <16 x i8> %519, <16 x i8> %521, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %533 = shufflevector <16 x i8> %514, <16 x i8> %515, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %534 = icmp eq <32 x i8> %532, %533
+  %535 = bitcast <32 x i1> %534 to i32
+  %536 = zext i32 %535 to i64
+  %537 = shl nuw nsw i64 %529, 32
+  %538 = or disjoint i64 %537, %536
+  %539 = shl nuw i64 %531, 48
+  %540 = or disjoint i64 %538, %539
+  %541 = or i64 %540, %513
+  %542 = xor i64 %541, -1
+  %543 = xor i64 %489, -1
+  %544 = and i64 %542, %543
+  %545 = shl i64 %544, 1
+  %546 = or disjoint i64 %545, %.sroa.0.0.lcssa1747.i
+  %547 = icmp ult <16 x i8> %447, splat (i8 32)
+  %548 = icmp ult <16 x i8> %449, splat (i8 32)
+  %549 = bitcast <16 x i1> %547 to i16
+  %550 = zext i16 %549 to i64
+  %551 = bitcast <16 x i1> %548 to i16
+  %552 = zext i16 %551 to i64
+  %553 = shufflevector <2 x i64> %.0..0..0..0..0..i, <2 x i64> %.16..16..16..16..16..i, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %554 = bitcast <4 x i64> %553 to <32 x i8>
+  %555 = icmp ult <32 x i8> %554, splat (i8 32)
+  %556 = bitcast <32 x i1> %555 to i32
+  %557 = zext i32 %556 to i64
+  %558 = shl nuw nsw i64 %550, 32
+  %559 = or disjoint i64 %558, %557
+  %560 = shl nuw i64 %552, 48
+  %561 = or disjoint i64 %559, %560
+  %562 = or <2 x i64> %.16..16..16..16..16..i, %.0..0..0..0..0..i
+  %563 = or <2 x i64> %562, %.32..32..32..32..32..i
+  %564 = or <2 x i64> %563, %.48..48..48..48..48..i
+  %565 = bitcast <2 x i64> %564 to <16 x i8>
+  %566 = icmp slt <16 x i8> %565, zeroinitializer
+  %567 = bitcast <16 x i1> %566 to i16
+  %568 = icmp eq i16 %567, 0
+  br i1 %568, label %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, label %569, !prof !141
 
-568:                                              ; preds = %.noexc63.i
-  %569 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %444, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %570 = bitcast <16 x i8> %569 to <8 x i16>
-  %571 = lshr <8 x i16> %570, splat (i16 4)
-  %572 = bitcast <8 x i16> %571 to <16 x i8>
-  %573 = and <16 x i8> %572, splat (i8 15)
-  %574 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %573)
-  %575 = and <16 x i8> %569, splat (i8 15)
-  %576 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %575)
-  %577 = bitcast <2 x i64> %.0..0..0..0..0..i to <8 x i16>
-  %578 = lshr <8 x i16> %577, splat (i16 4)
-  %579 = bitcast <8 x i16> %578 to <16 x i8>
-  %580 = and <16 x i8> %579, splat (i8 15)
-  %581 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %580)
-  %582 = and <16 x i8> %576, %574
-  %583 = and <16 x i8> %582, %581
-  %584 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %444, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
-  %585 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %444, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
-  %586 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %584, <16 x i8> splat (i8 96))
-  %587 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %585, <16 x i8> splat (i8 112))
-  %588 = or <16 x i8> %586, %587
-  %.inner70 = and <16 x i8> %588, splat (i8 -128)
-  %.inner71 = xor <16 x i8> %.inner70, %583
-  %589 = shufflevector <16 x i8> %444, <16 x i8> %445, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %590 = bitcast <16 x i8> %589 to <8 x i16>
-  %591 = lshr <8 x i16> %590, splat (i16 4)
-  %592 = bitcast <8 x i16> %591 to <16 x i8>
-  %593 = and <16 x i8> %592, splat (i8 15)
-  %594 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %593)
-  %595 = and <16 x i8> %589, splat (i8 15)
-  %596 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %595)
-  %597 = bitcast <2 x i64> %.16..16..16..16..16..i to <8 x i16>
-  %598 = lshr <8 x i16> %597, splat (i16 4)
-  %599 = bitcast <8 x i16> %598 to <16 x i8>
-  %600 = and <16 x i8> %599, splat (i8 15)
-  %601 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %600)
-  %602 = and <16 x i8> %596, %594
-  %603 = and <16 x i8> %602, %601
-  %604 = shufflevector <16 x i8> %444, <16 x i8> %445, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
-  %605 = shufflevector <16 x i8> %444, <16 x i8> %445, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
-  %606 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %604, <16 x i8> splat (i8 96))
-  %607 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %605, <16 x i8> splat (i8 112))
-  %608 = or <16 x i8> %606, %607
-  %.inner74 = and <16 x i8> %608, splat (i8 -128)
-  %.inner75 = xor <16 x i8> %.inner74, %603
-  %609 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %610 = bitcast <16 x i8> %609 to <8 x i16>
-  %611 = lshr <8 x i16> %610, splat (i16 4)
-  %612 = bitcast <8 x i16> %611 to <16 x i8>
-  %613 = and <16 x i8> %612, splat (i8 15)
-  %614 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %613)
-  %615 = and <16 x i8> %609, splat (i8 15)
-  %616 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %615)
-  %617 = bitcast <2 x i64> %.32..32..32..32..32..i to <8 x i16>
-  %618 = lshr <8 x i16> %617, splat (i16 4)
-  %619 = bitcast <8 x i16> %618 to <16 x i8>
-  %620 = and <16 x i8> %619, splat (i8 15)
-  %621 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %620)
-  %622 = and <16 x i8> %616, %614
-  %623 = and <16 x i8> %622, %621
-  %624 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
-  %625 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
-  %626 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %624, <16 x i8> splat (i8 96))
-  %627 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %625, <16 x i8> splat (i8 112))
-  %628 = or <16 x i8> %626, %627
-  %.inner78 = and <16 x i8> %628, splat (i8 -128)
-  %.inner79 = xor <16 x i8> %.inner78, %623
-  %629 = shufflevector <16 x i8> %446, <16 x i8> %448, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %630 = bitcast <16 x i8> %629 to <8 x i16>
-  %631 = lshr <8 x i16> %630, splat (i16 4)
-  %632 = bitcast <8 x i16> %631 to <16 x i8>
-  %633 = and <16 x i8> %632, splat (i8 15)
-  %634 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %633)
-  %635 = and <16 x i8> %629, splat (i8 15)
-  %636 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %635)
-  %637 = bitcast <2 x i64> %.48..48..48..48..48..i to <8 x i16>
-  %638 = lshr <8 x i16> %637, splat (i16 4)
-  %639 = bitcast <8 x i16> %638 to <16 x i8>
-  %640 = and <16 x i8> %639, splat (i8 15)
-  %641 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %640)
-  %642 = and <16 x i8> %636, %634
-  %643 = and <16 x i8> %642, %641
-  %644 = shufflevector <16 x i8> %446, <16 x i8> %448, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
-  %645 = shufflevector <16 x i8> %446, <16 x i8> %448, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
-  %646 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %644, <16 x i8> splat (i8 96))
-  %647 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %645, <16 x i8> splat (i8 112))
-  %648 = or <16 x i8> %646, %647
-  %.inner82 = and <16 x i8> %648, splat (i8 -128)
-  %.inner83 = xor <16 x i8> %.inner82, %643
-  %649 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %448, <16 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
-  %.inner84 = or <16 x i8> %.inner71, %649
-  %.inner85 = or <16 x i8> %.inner84, %.inner75
-  %.inner86 = or <16 x i8> %.inner85, %.inner79
-  %.inner87 = or <16 x i8> %.inner86, %.inner83
-  %650 = bitcast <16 x i8> %.inner87 to <2 x i64>
+569:                                              ; preds = %.noexc63.i
+  %570 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %445, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+  %571 = bitcast <16 x i8> %570 to <8 x i16>
+  %572 = lshr <8 x i16> %571, splat (i16 4)
+  %573 = bitcast <8 x i16> %572 to <16 x i8>
+  %574 = and <16 x i8> %573, splat (i8 15)
+  %575 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %574)
+  %576 = and <16 x i8> %570, splat (i8 15)
+  %577 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %576)
+  %578 = bitcast <2 x i64> %.0..0..0..0..0..i to <8 x i16>
+  %579 = lshr <8 x i16> %578, splat (i16 4)
+  %580 = bitcast <8 x i16> %579 to <16 x i8>
+  %581 = and <16 x i8> %580, splat (i8 15)
+  %582 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %581)
+  %583 = and <16 x i8> %577, %575
+  %584 = and <16 x i8> %583, %582
+  %585 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %445, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
+  %586 = shufflevector <16 x i8> %.sroa.48.0.lcssa1753.i, <16 x i8> %445, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
+  %587 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %585, <16 x i8> splat (i8 96))
+  %588 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %586, <16 x i8> splat (i8 112))
+  %589 = or <16 x i8> %587, %588
+  %.inner70 = and <16 x i8> %589, splat (i8 -128)
+  %.inner71 = xor <16 x i8> %.inner70, %584
+  %590 = bitcast <16 x i8> %.inner71 to <2 x i64>
+  %591 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+  %592 = bitcast <16 x i8> %591 to <8 x i16>
+  %593 = lshr <8 x i16> %592, splat (i16 4)
+  %594 = bitcast <8 x i16> %593 to <16 x i8>
+  %595 = and <16 x i8> %594, splat (i8 15)
+  %596 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %595)
+  %597 = and <16 x i8> %591, splat (i8 15)
+  %598 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %597)
+  %599 = bitcast <2 x i64> %.16..16..16..16..16..i to <8 x i16>
+  %600 = lshr <8 x i16> %599, splat (i16 4)
+  %601 = bitcast <8 x i16> %600 to <16 x i8>
+  %602 = and <16 x i8> %601, splat (i8 15)
+  %603 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %602)
+  %604 = and <16 x i8> %598, %596
+  %605 = and <16 x i8> %604, %603
+  %606 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
+  %607 = shufflevector <16 x i8> %445, <16 x i8> %446, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
+  %608 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %606, <16 x i8> splat (i8 96))
+  %609 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %607, <16 x i8> splat (i8 112))
+  %610 = or <16 x i8> %608, %609
+  %.inner74 = and <16 x i8> %610, splat (i8 -128)
+  %.inner75 = xor <16 x i8> %.inner74, %605
+  %611 = bitcast <16 x i8> %.inner75 to <2 x i64>
+  %612 = shufflevector <16 x i8> %446, <16 x i8> %447, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+  %613 = bitcast <16 x i8> %612 to <8 x i16>
+  %614 = lshr <8 x i16> %613, splat (i16 4)
+  %615 = bitcast <8 x i16> %614 to <16 x i8>
+  %616 = and <16 x i8> %615, splat (i8 15)
+  %617 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %616)
+  %618 = and <16 x i8> %612, splat (i8 15)
+  %619 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %618)
+  %620 = bitcast <2 x i64> %.32..32..32..32..32..i to <8 x i16>
+  %621 = lshr <8 x i16> %620, splat (i16 4)
+  %622 = bitcast <8 x i16> %621 to <16 x i8>
+  %623 = and <16 x i8> %622, splat (i8 15)
+  %624 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %623)
+  %625 = and <16 x i8> %619, %617
+  %626 = and <16 x i8> %625, %624
+  %627 = shufflevector <16 x i8> %446, <16 x i8> %447, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
+  %628 = shufflevector <16 x i8> %446, <16 x i8> %447, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
+  %629 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %627, <16 x i8> splat (i8 96))
+  %630 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %628, <16 x i8> splat (i8 112))
+  %631 = or <16 x i8> %629, %630
+  %.inner78 = and <16 x i8> %631, splat (i8 -128)
+  %.inner79 = xor <16 x i8> %.inner78, %626
+  %632 = bitcast <16 x i8> %.inner79 to <2 x i64>
+  %633 = shufflevector <16 x i8> %447, <16 x i8> %449, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+  %634 = bitcast <16 x i8> %633 to <8 x i16>
+  %635 = lshr <8 x i16> %634, splat (i16 4)
+  %636 = bitcast <8 x i16> %635 to <16 x i8>
+  %637 = and <16 x i8> %636, splat (i8 15)
+  %638 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <16 x i8> %637)
+  %639 = and <16 x i8> %633, splat (i8 15)
+  %640 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <16 x i8> %639)
+  %641 = bitcast <2 x i64> %.48..48..48..48..48..i to <8 x i16>
+  %642 = lshr <8 x i16> %641, splat (i16 4)
+  %643 = bitcast <8 x i16> %642 to <16 x i8>
+  %644 = and <16 x i8> %643, splat (i8 15)
+  %645 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <16 x i8> %644)
+  %646 = and <16 x i8> %640, %638
+  %647 = and <16 x i8> %646, %645
+  %648 = shufflevector <16 x i8> %447, <16 x i8> %449, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
+  %649 = shufflevector <16 x i8> %447, <16 x i8> %449, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
+  %650 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %648, <16 x i8> splat (i8 96))
+  %651 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %649, <16 x i8> splat (i8 112))
+  %652 = or <16 x i8> %650, %651
+  %.inner82 = and <16 x i8> %652, splat (i8 -128)
+  %.inner83 = xor <16 x i8> %.inner82, %647
+  %653 = bitcast <16 x i8> %.inner83 to <2 x i64>
+  %654 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %449, <16 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -17, i8 -33, i8 -65>)
+  %655 = bitcast <16 x i8> %654 to <2 x i64>
+  %656 = or <2 x i64> %.sroa.23310.0.lcssa1754.i, %655
+  %657 = or <2 x i64> %656, %590
+  %658 = or <2 x i64> %657, %611
+  %659 = or <2 x i64> %658, %632
+  %660 = or <2 x i64> %659, %653
   br label %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i: ; preds = %.noexc63.i, %568
-  %.sroa.53.0.lcssa1752.i.pn = phi <2 x i64> [ %650, %568 ], [ %.sroa.53.0.lcssa1752.i, %.noexc63.i ]
-  %.sroa.23310.1.i = or <2 x i64> %.sroa.53.0.lcssa1752.i.pn, %.sroa.23310.0.lcssa1754.i
-  %651 = trunc i64 %.sroa.11.0.lcssa1746.i to i32
-  %652 = add i32 %651, -64
-  %653 = icmp eq i64 %.sroa.142.0.lcssa1750.i, 0
-  br i1 %653, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i, label %.noexc141.i
+_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i: ; preds = %569, %.noexc63.i
+  %.sroa.23310.1.i = phi <2 x i64> [ %660, %569 ], [ %.sroa.53.0.lcssa1752.i, %.noexc63.i ]
+  %661 = trunc i64 %.sroa.11.0.lcssa1746.i to i32
+  %662 = add i32 %661, -64
+  %663 = icmp eq i64 %.sroa.142.0.lcssa1750.i, 0
+  br i1 %663, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i, label %.noexc141.i
 
 .noexc141.i:                                      ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %654 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.142.0.lcssa1750.i)
-  %655 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.142.0.lcssa1750.i, i1 true)
-  %656 = trunc nuw nsw i64 %655 to i32
-  %657 = or disjoint i32 %652, %656
-  store i32 %657, ptr %.sroa.59.0.lcssa1751.i, align 4, !tbaa !7
-  %658 = add i64 %.sroa.142.0.lcssa1750.i, -1
-  %659 = and i64 %658, %.sroa.142.0.lcssa1750.i
-  %660 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %659, i1 true)
-  %661 = trunc nuw nsw i64 %660 to i32
-  %662 = or disjoint i32 %652, %661
-  %663 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 4
-  store i32 %662, ptr %663, align 4, !tbaa !7
-  %664 = add i64 %659, -2
-  %665 = and i64 %664, %659
-  %666 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %665, i1 true)
-  %667 = trunc nuw nsw i64 %666 to i32
-  %668 = or disjoint i32 %652, %667
-  %669 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 8
-  store i32 %668, ptr %669, align 4, !tbaa !7
-  %670 = add i64 %665, -2
-  %671 = and i64 %670, %665
-  %672 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %671, i1 true)
-  %673 = trunc nuw nsw i64 %672 to i32
-  %674 = or disjoint i32 %652, %673
-  %675 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 12
-  store i32 %674, ptr %675, align 4, !tbaa !7
-  %676 = icmp samesign ugt i64 %654, 4
-  br i1 %676, label %.noexc154.i, label %.loopexit1635.i, !prof !127
+  %664 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.142.0.lcssa1750.i)
+  %665 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.142.0.lcssa1750.i, i1 true)
+  %666 = trunc nuw nsw i64 %665 to i32
+  %667 = or disjoint i32 %662, %666
+  store i32 %667, ptr %.sroa.59.0.lcssa1751.i, align 4, !tbaa !7
+  %668 = add i64 %.sroa.142.0.lcssa1750.i, -1
+  %669 = and i64 %668, %.sroa.142.0.lcssa1750.i
+  %670 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %669, i1 true)
+  %671 = trunc nuw nsw i64 %670 to i32
+  %672 = or disjoint i32 %662, %671
+  %673 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 4
+  store i32 %672, ptr %673, align 4, !tbaa !7
+  %674 = add i64 %669, -2
+  %675 = and i64 %674, %669
+  %676 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %675, i1 true)
+  %677 = trunc nuw nsw i64 %676 to i32
+  %678 = or disjoint i32 %662, %677
+  %679 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 8
+  store i32 %678, ptr %679, align 4, !tbaa !7
+  %680 = add i64 %675, -2
+  %681 = and i64 %680, %675
+  %682 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %681, i1 true)
+  %683 = trunc nuw nsw i64 %682 to i32
+  %684 = or disjoint i32 %662, %683
+  %685 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 12
+  store i32 %684, ptr %685, align 4, !tbaa !7
+  %686 = icmp samesign ugt i64 %664, 4
+  br i1 %686, label %.noexc154.i, label %.loopexit1635.i, !prof !127
 
 .noexc154.i:                                      ; preds = %.noexc141.i
-  %677 = add i64 %671, -2
-  %678 = and i64 %677, %671
-  %679 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %678, i1 true)
-  %680 = trunc nuw nsw i64 %679 to i32
-  %681 = or disjoint i32 %652, %680
-  %682 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 16
-  store i32 %681, ptr %682, align 4, !tbaa !7
-  %683 = add i64 %678, -2
-  %684 = and i64 %683, %678
-  %685 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %684, i1 true)
-  %686 = trunc nuw nsw i64 %685 to i32
-  %687 = or disjoint i32 %652, %686
-  %688 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 20
-  store i32 %687, ptr %688, align 4, !tbaa !7
-  %689 = add i64 %684, -1
-  %690 = and i64 %689, %684
-  %691 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %690, i1 true)
-  %692 = trunc nuw nsw i64 %691 to i32
-  %693 = or disjoint i32 %652, %692
-  %694 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 24
-  store i32 %693, ptr %694, align 4, !tbaa !7
-  %695 = add i64 %690, -2
-  %696 = and i64 %695, %690
-  %697 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %696, i1 true)
-  %698 = trunc nuw nsw i64 %697 to i32
-  %699 = or disjoint i32 %652, %698
-  %700 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 28
-  store i32 %699, ptr %700, align 4, !tbaa !7
-  %701 = icmp samesign ugt i64 %654, 8
-  br i1 %701, label %.noexc177.i, label %.loopexit1635.i, !prof !127
+  %687 = add i64 %681, -2
+  %688 = and i64 %687, %681
+  %689 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %688, i1 true)
+  %690 = trunc nuw nsw i64 %689 to i32
+  %691 = or disjoint i32 %662, %690
+  %692 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 16
+  store i32 %691, ptr %692, align 4, !tbaa !7
+  %693 = add i64 %688, -2
+  %694 = and i64 %693, %688
+  %695 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %694, i1 true)
+  %696 = trunc nuw nsw i64 %695 to i32
+  %697 = or disjoint i32 %662, %696
+  %698 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 20
+  store i32 %697, ptr %698, align 4, !tbaa !7
+  %699 = add i64 %694, -1
+  %700 = and i64 %699, %694
+  %701 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %700, i1 true)
+  %702 = trunc nuw nsw i64 %701 to i32
+  %703 = or disjoint i32 %662, %702
+  %704 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 24
+  store i32 %703, ptr %704, align 4, !tbaa !7
+  %705 = add i64 %700, -2
+  %706 = and i64 %705, %700
+  %707 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %706, i1 true)
+  %708 = trunc nuw nsw i64 %707 to i32
+  %709 = or disjoint i32 %662, %708
+  %710 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 28
+  store i32 %709, ptr %710, align 4, !tbaa !7
+  %711 = icmp samesign ugt i64 %664, 8
+  br i1 %711, label %.noexc177.i, label %.loopexit1635.i, !prof !127
 
 .noexc177.i:                                      ; preds = %.noexc154.i
-  %702 = add i64 %696, -2
-  %703 = and i64 %702, %696
-  %704 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %703, i1 true)
-  %705 = trunc nuw nsw i64 %704 to i32
-  %706 = or disjoint i32 %652, %705
-  %707 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 32
-  store i32 %706, ptr %707, align 4, !tbaa !7
-  %708 = add i64 %703, -2
-  %709 = and i64 %708, %703
-  %710 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %709, i1 true)
-  %711 = trunc nuw nsw i64 %710 to i32
-  %712 = or disjoint i32 %652, %711
-  %713 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 36
-  store i32 %712, ptr %713, align 4, !tbaa !7
-  %714 = add i64 %709, -2
-  %715 = and i64 %714, %709
-  %716 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %715, i1 true)
-  %717 = trunc nuw nsw i64 %716 to i32
-  %718 = or disjoint i32 %652, %717
-  %719 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 40
-  store i32 %718, ptr %719, align 4, !tbaa !7
-  %720 = add i64 %715, -1
-  %721 = and i64 %720, %715
-  %722 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %721, i1 true)
-  %723 = trunc nuw nsw i64 %722 to i32
-  %724 = or disjoint i32 %652, %723
-  %725 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 44
-  store i32 %724, ptr %725, align 4, !tbaa !7
-  %726 = icmp samesign ugt i64 %654, 12
-  br i1 %726, label %.noexc200.i, label %.loopexit1635.i, !prof !127
+  %712 = add i64 %706, -2
+  %713 = and i64 %712, %706
+  %714 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %713, i1 true)
+  %715 = trunc nuw nsw i64 %714 to i32
+  %716 = or disjoint i32 %662, %715
+  %717 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 32
+  store i32 %716, ptr %717, align 4, !tbaa !7
+  %718 = add i64 %713, -2
+  %719 = and i64 %718, %713
+  %720 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %719, i1 true)
+  %721 = trunc nuw nsw i64 %720 to i32
+  %722 = or disjoint i32 %662, %721
+  %723 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 36
+  store i32 %722, ptr %723, align 4, !tbaa !7
+  %724 = add i64 %719, -2
+  %725 = and i64 %724, %719
+  %726 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %725, i1 true)
+  %727 = trunc nuw nsw i64 %726 to i32
+  %728 = or disjoint i32 %662, %727
+  %729 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 40
+  store i32 %728, ptr %729, align 4, !tbaa !7
+  %730 = add i64 %725, -1
+  %731 = and i64 %730, %725
+  %732 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %731, i1 true)
+  %733 = trunc nuw nsw i64 %732 to i32
+  %734 = or disjoint i32 %662, %733
+  %735 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 44
+  store i32 %734, ptr %735, align 4, !tbaa !7
+  %736 = icmp samesign ugt i64 %664, 12
+  br i1 %736, label %.noexc200.i, label %.loopexit1635.i, !prof !127
 
 .noexc200.i:                                      ; preds = %.noexc177.i
-  %727 = add i64 %721, -2
-  %728 = and i64 %727, %721
-  %729 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %728, i1 true)
-  %730 = trunc nuw nsw i64 %729 to i32
-  %731 = or disjoint i32 %652, %730
-  %732 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 48
-  store i32 %731, ptr %732, align 4, !tbaa !7
-  %733 = add i64 %728, -2
-  %734 = and i64 %733, %728
-  %735 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %734, i1 true)
-  %736 = trunc nuw nsw i64 %735 to i32
-  %737 = or disjoint i32 %652, %736
-  %738 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 52
-  store i32 %737, ptr %738, align 4, !tbaa !7
-  %739 = add i64 %734, -2
-  %740 = and i64 %739, %734
-  %741 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %740, i1 true)
-  %742 = trunc nuw nsw i64 %741 to i32
-  %743 = or disjoint i32 %652, %742
-  %744 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 56
-  store i32 %743, ptr %744, align 4, !tbaa !7
-  %745 = add i64 %740, -2
-  %746 = and i64 %745, %740
-  %747 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %746, i1 true)
-  %748 = trunc nuw nsw i64 %747 to i32
-  %749 = or disjoint i32 %652, %748
-  %750 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 60
-  store i32 %749, ptr %750, align 4, !tbaa !7
-  %751 = icmp samesign ugt i64 %654, 16
-  br i1 %751, label %.noexc223.i, label %.loopexit1635.i, !prof !127
+  %737 = add i64 %731, -2
+  %738 = and i64 %737, %731
+  %739 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %738, i1 true)
+  %740 = trunc nuw nsw i64 %739 to i32
+  %741 = or disjoint i32 %662, %740
+  %742 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 48
+  store i32 %741, ptr %742, align 4, !tbaa !7
+  %743 = add i64 %738, -2
+  %744 = and i64 %743, %738
+  %745 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %744, i1 true)
+  %746 = trunc nuw nsw i64 %745 to i32
+  %747 = or disjoint i32 %662, %746
+  %748 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 52
+  store i32 %747, ptr %748, align 4, !tbaa !7
+  %749 = add i64 %744, -2
+  %750 = and i64 %749, %744
+  %751 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %750, i1 true)
+  %752 = trunc nuw nsw i64 %751 to i32
+  %753 = or disjoint i32 %662, %752
+  %754 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 56
+  store i32 %753, ptr %754, align 4, !tbaa !7
+  %755 = add i64 %750, -2
+  %756 = and i64 %755, %750
+  %757 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %756, i1 true)
+  %758 = trunc nuw nsw i64 %757 to i32
+  %759 = or disjoint i32 %662, %758
+  %760 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 60
+  store i32 %759, ptr %760, align 4, !tbaa !7
+  %761 = icmp samesign ugt i64 %664, 16
+  br i1 %761, label %.noexc223.i, label %.loopexit1635.i, !prof !127
 
 .noexc223.i:                                      ; preds = %.noexc200.i
-  %752 = add i64 %746, -1
-  %753 = and i64 %752, %746
-  %754 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %753, i1 true)
-  %755 = trunc nuw nsw i64 %754 to i32
-  %756 = or disjoint i32 %652, %755
-  %757 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 64
-  store i32 %756, ptr %757, align 4, !tbaa !7
-  %758 = add i64 %753, -2
-  %759 = and i64 %758, %753
-  %760 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %759, i1 true)
-  %761 = trunc nuw nsw i64 %760 to i32
-  %762 = or disjoint i32 %652, %761
-  %763 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 68
-  store i32 %762, ptr %763, align 4, !tbaa !7
-  %764 = add i64 %759, -2
-  %765 = and i64 %764, %759
-  %766 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %765, i1 true)
-  %767 = trunc nuw nsw i64 %766 to i32
-  %768 = or disjoint i32 %652, %767
-  %769 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 72
-  store i32 %768, ptr %769, align 4, !tbaa !7
-  %770 = add i64 %765, -2
-  %771 = and i64 %770, %765
-  %772 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %771, i1 true)
-  %773 = trunc nuw nsw i64 %772 to i32
-  %774 = or disjoint i32 %652, %773
-  %775 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 76
-  store i32 %774, ptr %775, align 4, !tbaa !7
-  %776 = icmp samesign ugt i64 %654, 20
-  br i1 %776, label %.noexc103.i, label %.loopexit1635.i, !prof !127
+  %762 = add i64 %756, -1
+  %763 = and i64 %762, %756
+  %764 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %763, i1 true)
+  %765 = trunc nuw nsw i64 %764 to i32
+  %766 = or disjoint i32 %662, %765
+  %767 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 64
+  store i32 %766, ptr %767, align 4, !tbaa !7
+  %768 = add i64 %763, -2
+  %769 = and i64 %768, %763
+  %770 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %769, i1 true)
+  %771 = trunc nuw nsw i64 %770 to i32
+  %772 = or disjoint i32 %662, %771
+  %773 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 68
+  store i32 %772, ptr %773, align 4, !tbaa !7
+  %774 = add i64 %769, -2
+  %775 = and i64 %774, %769
+  %776 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %775, i1 true)
+  %777 = trunc nuw nsw i64 %776 to i32
+  %778 = or disjoint i32 %662, %777
+  %779 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 72
+  store i32 %778, ptr %779, align 4, !tbaa !7
+  %780 = add i64 %775, -2
+  %781 = and i64 %780, %775
+  %782 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %781, i1 true)
+  %783 = trunc nuw nsw i64 %782 to i32
+  %784 = or disjoint i32 %662, %783
+  %785 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 76
+  store i32 %784, ptr %785, align 4, !tbaa !7
+  %786 = icmp samesign ugt i64 %664, 20
+  br i1 %786, label %.noexc103.i, label %.loopexit1635.i, !prof !127
 
 .noexc103.i:                                      ; preds = %.noexc223.i
-  %777 = add i64 %771, -2
-  %778 = and i64 %777, %771
-  %779 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %778, i1 true)
-  %780 = trunc nuw nsw i64 %779 to i32
-  %781 = or disjoint i32 %652, %780
-  %782 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 80
-  store i32 %781, ptr %782, align 4, !tbaa !7
-  %783 = add i64 %778, -1
-  %784 = and i64 %783, %778
-  %785 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %784, i1 true)
-  %786 = trunc nuw nsw i64 %785 to i32
-  %787 = or disjoint i32 %652, %786
-  %788 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 84
-  store i32 %787, ptr %788, align 4, !tbaa !7
-  %789 = add i64 %784, -2
-  %790 = and i64 %789, %784
-  %791 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %790, i1 true)
-  %792 = trunc nuw nsw i64 %791 to i32
-  %793 = or disjoint i32 %652, %792
-  %794 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 88
-  store i32 %793, ptr %794, align 4, !tbaa !7
-  %795 = add i64 %790, -2
-  %796 = and i64 %795, %790
-  %797 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %796, i1 true)
-  %798 = trunc nuw nsw i64 %797 to i32
-  %799 = or disjoint i32 %652, %798
-  %800 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 92
-  store i32 %799, ptr %800, align 4, !tbaa !7
-  %801 = icmp samesign ugt i64 %654, 24
-  br i1 %801, label %.noexc104.i.preheader, label %.loopexit1635.i, !prof !142
+  %787 = add i64 %781, -2
+  %788 = and i64 %787, %781
+  %789 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %788, i1 true)
+  %790 = trunc nuw nsw i64 %789 to i32
+  %791 = or disjoint i32 %662, %790
+  %792 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 80
+  store i32 %791, ptr %792, align 4, !tbaa !7
+  %793 = add i64 %788, -1
+  %794 = and i64 %793, %788
+  %795 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %794, i1 true)
+  %796 = trunc nuw nsw i64 %795 to i32
+  %797 = or disjoint i32 %662, %796
+  %798 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 84
+  store i32 %797, ptr %798, align 4, !tbaa !7
+  %799 = add i64 %794, -2
+  %800 = and i64 %799, %794
+  %801 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %800, i1 true)
+  %802 = trunc nuw nsw i64 %801 to i32
+  %803 = or disjoint i32 %662, %802
+  %804 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 88
+  store i32 %803, ptr %804, align 4, !tbaa !7
+  %805 = add i64 %800, -2
+  %806 = and i64 %805, %800
+  %807 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %806, i1 true)
+  %808 = trunc nuw nsw i64 %807 to i32
+  %809 = or disjoint i32 %662, %808
+  %810 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 92
+  store i32 %809, ptr %810, align 4, !tbaa !7
+  %811 = icmp samesign ugt i64 %664, 24
+  br i1 %811, label %.noexc104.i.preheader, label %.loopexit1635.i, !prof !142
 
 .noexc104.i.preheader:                            ; preds = %.noexc103.i
-  %802 = add i64 %796, -2
-  %803 = and i64 %802, %796
+  %812 = add i64 %806, -2
+  %813 = and i64 %812, %806
   br label %.noexc104.i
 
 .noexc104.i:                                      ; preds = %.noexc104.i.preheader, %.noexc104.i
   %indvars.iv1697.i = phi i64 [ %indvars.iv.next1698.i, %.noexc104.i ], [ 24, %.noexc104.i.preheader ]
-  %.015791665.i = phi i64 [ %809, %.noexc104.i ], [ %803, %.noexc104.i.preheader ]
-  %804 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015791665.i, i1 true)
-  %805 = trunc nuw nsw i64 %804 to i32
-  %806 = or disjoint i32 %652, %805
-  %807 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1751.i, i64 %indvars.iv1697.i
-  store i32 %806, ptr %807, align 4, !tbaa !7
-  %808 = add i64 %.015791665.i, -1
-  %809 = and i64 %808, %.015791665.i
+  %.015791665.i = phi i64 [ %819, %.noexc104.i ], [ %813, %.noexc104.i.preheader ]
+  %814 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015791665.i, i1 true)
+  %815 = trunc nuw nsw i64 %814 to i32
+  %816 = or disjoint i32 %662, %815
+  %817 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1751.i, i64 %indvars.iv1697.i
+  store i32 %816, ptr %817, align 4, !tbaa !7
+  %818 = add i64 %.015791665.i, -1
+  %819 = and i64 %818, %.015791665.i
   %indvars.iv.next1698.i = add nuw nsw i64 %indvars.iv1697.i, 1
-  %exitcond1701.not.i = icmp eq i64 %indvars.iv.next1698.i, %654
+  %exitcond1701.not.i = icmp eq i64 %indvars.iv.next1698.i, %664
   br i1 %exitcond1701.not.i, label %.loopexit1635.i, label %.noexc104.i, !llvm.loop !344
 
 .loopexit1635.i:                                  ; preds = %.noexc104.i, %.noexc103.i, %.noexc223.i, %.noexc200.i, %.noexc177.i, %.noexc154.i, %.noexc141.i
-  %810 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1751.i, i64 %654
+  %820 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1751.i, i64 %664
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i: ; preds = %.loopexit1635.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %.sroa.59.2.i = phi ptr [ %.sroa.59.0.lcssa1751.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %810, %.loopexit1635.i ]
-  %811 = xor i64 %545, -1
-  %812 = and i64 %811, %541
-  %813 = or i64 %812, %539
-  %814 = xor i64 %488, %492
-  %815 = xor i64 %814, -1
-  %816 = and i64 %813, %815
-  %817 = and i64 %492, %560
-  %818 = or i64 %817, %.sroa.148.0.lcssa1749.i
-  %819 = icmp eq i64 %816, 0
-  br i1 %819, label %.noexc.i, label %.noexc139.i
+  %.sroa.59.2.i = phi ptr [ %.sroa.59.0.lcssa1751.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %820, %.loopexit1635.i ]
+  %821 = xor i64 %546, -1
+  %822 = and i64 %821, %542
+  %823 = or i64 %822, %540
+  %824 = xor i64 %489, %493
+  %825 = xor i64 %824, -1
+  %826 = and i64 %823, %825
+  %827 = and i64 %493, %561
+  %828 = or i64 %827, %.sroa.148.0.lcssa1749.i
+  %829 = icmp eq i64 %826, 0
+  br i1 %829, label %.noexc.i, label %.noexc139.i
 
 .noexc139.i:                                      ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i
-  %820 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %816)
-  %821 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %816, i1 true)
-  %822 = or disjoint i64 %821, %.sroa.11.0.lcssa1746.i
-  %823 = trunc i64 %822 to i32
-  store i32 %823, ptr %.sroa.59.2.i, align 4, !tbaa !7
-  %824 = add i64 %816, -1
-  %825 = and i64 %824, %816
-  %826 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %825, i1 true)
-  %827 = or disjoint i64 %826, %.sroa.11.0.lcssa1746.i
-  %828 = trunc i64 %827 to i32
-  %829 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 4
-  store i32 %828, ptr %829, align 4, !tbaa !7
-  %830 = add i64 %825, -2
-  %831 = and i64 %830, %825
-  %832 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %831, i1 true)
-  %833 = or disjoint i64 %832, %.sroa.11.0.lcssa1746.i
-  %834 = trunc i64 %833 to i32
-  %835 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 8
-  store i32 %834, ptr %835, align 4, !tbaa !7
-  %836 = add i64 %831, -2
-  %837 = and i64 %836, %831
-  %838 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %837, i1 true)
-  %839 = or disjoint i64 %838, %.sroa.11.0.lcssa1746.i
-  %840 = trunc i64 %839 to i32
-  %841 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 12
-  store i32 %840, ptr %841, align 4, !tbaa !7
-  %842 = icmp samesign ugt i64 %820, 4
-  br i1 %842, label %.noexc157.i, label %.loopexit.i, !prof !127
+  %830 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %826)
+  %831 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %826, i1 true)
+  %832 = or disjoint i64 %831, %.sroa.11.0.lcssa1746.i
+  %833 = trunc i64 %832 to i32
+  store i32 %833, ptr %.sroa.59.2.i, align 4, !tbaa !7
+  %834 = add i64 %826, -1
+  %835 = and i64 %834, %826
+  %836 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %835, i1 true)
+  %837 = or disjoint i64 %836, %.sroa.11.0.lcssa1746.i
+  %838 = trunc i64 %837 to i32
+  %839 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 4
+  store i32 %838, ptr %839, align 4, !tbaa !7
+  %840 = add i64 %835, -2
+  %841 = and i64 %840, %835
+  %842 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %841, i1 true)
+  %843 = or disjoint i64 %842, %.sroa.11.0.lcssa1746.i
+  %844 = trunc i64 %843 to i32
+  %845 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 8
+  store i32 %844, ptr %845, align 4, !tbaa !7
+  %846 = add i64 %841, -2
+  %847 = and i64 %846, %841
+  %848 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %847, i1 true)
+  %849 = or disjoint i64 %848, %.sroa.11.0.lcssa1746.i
+  %850 = trunc i64 %849 to i32
+  %851 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 12
+  store i32 %850, ptr %851, align 4, !tbaa !7
+  %852 = icmp samesign ugt i64 %830, 4
+  br i1 %852, label %.noexc157.i, label %.loopexit.i, !prof !127
 
 .noexc157.i:                                      ; preds = %.noexc139.i
-  %843 = add i64 %837, -2
-  %844 = and i64 %843, %837
-  %845 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %844, i1 true)
-  %846 = or disjoint i64 %845, %.sroa.11.0.lcssa1746.i
-  %847 = trunc i64 %846 to i32
-  %848 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 16
-  store i32 %847, ptr %848, align 4, !tbaa !7
-  %849 = add i64 %844, -2
-  %850 = and i64 %849, %844
-  %851 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %850, i1 true)
-  %852 = or disjoint i64 %851, %.sroa.11.0.lcssa1746.i
-  %853 = trunc i64 %852 to i32
-  %854 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 20
-  store i32 %853, ptr %854, align 4, !tbaa !7
-  %855 = add i64 %850, -1
-  %856 = and i64 %855, %850
-  %857 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %856, i1 true)
-  %858 = or disjoint i64 %857, %.sroa.11.0.lcssa1746.i
-  %859 = trunc i64 %858 to i32
-  %860 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 24
-  store i32 %859, ptr %860, align 4, !tbaa !7
-  %861 = add i64 %856, -2
-  %862 = and i64 %861, %856
-  %863 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %862, i1 true)
-  %864 = or disjoint i64 %863, %.sroa.11.0.lcssa1746.i
-  %865 = trunc i64 %864 to i32
-  %866 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 28
-  store i32 %865, ptr %866, align 4, !tbaa !7
-  %867 = icmp samesign ugt i64 %820, 8
-  br i1 %867, label %.noexc175.i, label %.loopexit.i, !prof !127
+  %853 = add i64 %847, -2
+  %854 = and i64 %853, %847
+  %855 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %854, i1 true)
+  %856 = or disjoint i64 %855, %.sroa.11.0.lcssa1746.i
+  %857 = trunc i64 %856 to i32
+  %858 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 16
+  store i32 %857, ptr %858, align 4, !tbaa !7
+  %859 = add i64 %854, -2
+  %860 = and i64 %859, %854
+  %861 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %860, i1 true)
+  %862 = or disjoint i64 %861, %.sroa.11.0.lcssa1746.i
+  %863 = trunc i64 %862 to i32
+  %864 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 20
+  store i32 %863, ptr %864, align 4, !tbaa !7
+  %865 = add i64 %860, -1
+  %866 = and i64 %865, %860
+  %867 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %866, i1 true)
+  %868 = or disjoint i64 %867, %.sroa.11.0.lcssa1746.i
+  %869 = trunc i64 %868 to i32
+  %870 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 24
+  store i32 %869, ptr %870, align 4, !tbaa !7
+  %871 = add i64 %866, -2
+  %872 = and i64 %871, %866
+  %873 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %872, i1 true)
+  %874 = or disjoint i64 %873, %.sroa.11.0.lcssa1746.i
+  %875 = trunc i64 %874 to i32
+  %876 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 28
+  store i32 %875, ptr %876, align 4, !tbaa !7
+  %877 = icmp samesign ugt i64 %830, 8
+  br i1 %877, label %.noexc175.i, label %.loopexit.i, !prof !127
 
 .noexc175.i:                                      ; preds = %.noexc157.i
-  %868 = add i64 %862, -2
-  %869 = and i64 %868, %862
-  %870 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %869, i1 true)
-  %871 = or disjoint i64 %870, %.sroa.11.0.lcssa1746.i
-  %872 = trunc i64 %871 to i32
-  %873 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 32
-  store i32 %872, ptr %873, align 4, !tbaa !7
-  %874 = add i64 %869, -2
-  %875 = and i64 %874, %869
-  %876 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %875, i1 true)
-  %877 = or disjoint i64 %876, %.sroa.11.0.lcssa1746.i
-  %878 = trunc i64 %877 to i32
-  %879 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 36
-  store i32 %878, ptr %879, align 4, !tbaa !7
-  %880 = add i64 %875, -2
-  %881 = and i64 %880, %875
-  %882 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %881, i1 true)
-  %883 = or disjoint i64 %882, %.sroa.11.0.lcssa1746.i
-  %884 = trunc i64 %883 to i32
-  %885 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 40
-  store i32 %884, ptr %885, align 4, !tbaa !7
-  %886 = add i64 %881, -1
-  %887 = and i64 %886, %881
-  %888 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %887, i1 true)
-  %889 = or disjoint i64 %888, %.sroa.11.0.lcssa1746.i
-  %890 = trunc i64 %889 to i32
-  %891 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 44
-  store i32 %890, ptr %891, align 4, !tbaa !7
-  %892 = icmp samesign ugt i64 %820, 12
-  br i1 %892, label %.noexc203.i, label %.loopexit.i, !prof !127
+  %878 = add i64 %872, -2
+  %879 = and i64 %878, %872
+  %880 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %879, i1 true)
+  %881 = or disjoint i64 %880, %.sroa.11.0.lcssa1746.i
+  %882 = trunc i64 %881 to i32
+  %883 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 32
+  store i32 %882, ptr %883, align 4, !tbaa !7
+  %884 = add i64 %879, -2
+  %885 = and i64 %884, %879
+  %886 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %885, i1 true)
+  %887 = or disjoint i64 %886, %.sroa.11.0.lcssa1746.i
+  %888 = trunc i64 %887 to i32
+  %889 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 36
+  store i32 %888, ptr %889, align 4, !tbaa !7
+  %890 = add i64 %885, -2
+  %891 = and i64 %890, %885
+  %892 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %891, i1 true)
+  %893 = or disjoint i64 %892, %.sroa.11.0.lcssa1746.i
+  %894 = trunc i64 %893 to i32
+  %895 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 40
+  store i32 %894, ptr %895, align 4, !tbaa !7
+  %896 = add i64 %891, -1
+  %897 = and i64 %896, %891
+  %898 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %897, i1 true)
+  %899 = or disjoint i64 %898, %.sroa.11.0.lcssa1746.i
+  %900 = trunc i64 %899 to i32
+  %901 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 44
+  store i32 %900, ptr %901, align 4, !tbaa !7
+  %902 = icmp samesign ugt i64 %830, 12
+  br i1 %902, label %.noexc203.i, label %.loopexit.i, !prof !127
 
 .noexc203.i:                                      ; preds = %.noexc175.i
-  %893 = add i64 %887, -2
-  %894 = and i64 %893, %887
-  %895 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %894, i1 true)
-  %896 = or disjoint i64 %895, %.sroa.11.0.lcssa1746.i
-  %897 = trunc i64 %896 to i32
-  %898 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 48
-  store i32 %897, ptr %898, align 4, !tbaa !7
-  %899 = add i64 %894, -2
-  %900 = and i64 %899, %894
-  %901 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %900, i1 true)
-  %902 = or disjoint i64 %901, %.sroa.11.0.lcssa1746.i
-  %903 = trunc i64 %902 to i32
-  %904 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 52
-  store i32 %903, ptr %904, align 4, !tbaa !7
-  %905 = add i64 %900, -2
-  %906 = and i64 %905, %900
-  %907 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %906, i1 true)
-  %908 = or disjoint i64 %907, %.sroa.11.0.lcssa1746.i
-  %909 = trunc i64 %908 to i32
-  %910 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 56
-  store i32 %909, ptr %910, align 4, !tbaa !7
-  %911 = add i64 %906, -2
-  %912 = and i64 %911, %906
-  %913 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %912, i1 true)
-  %914 = or disjoint i64 %913, %.sroa.11.0.lcssa1746.i
-  %915 = trunc i64 %914 to i32
-  %916 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 60
-  store i32 %915, ptr %916, align 4, !tbaa !7
-  %917 = icmp samesign ugt i64 %820, 16
-  br i1 %917, label %.noexc221.i, label %.loopexit.i, !prof !127
+  %903 = add i64 %897, -2
+  %904 = and i64 %903, %897
+  %905 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %904, i1 true)
+  %906 = or disjoint i64 %905, %.sroa.11.0.lcssa1746.i
+  %907 = trunc i64 %906 to i32
+  %908 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 48
+  store i32 %907, ptr %908, align 4, !tbaa !7
+  %909 = add i64 %904, -2
+  %910 = and i64 %909, %904
+  %911 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %910, i1 true)
+  %912 = or disjoint i64 %911, %.sroa.11.0.lcssa1746.i
+  %913 = trunc i64 %912 to i32
+  %914 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 52
+  store i32 %913, ptr %914, align 4, !tbaa !7
+  %915 = add i64 %910, -2
+  %916 = and i64 %915, %910
+  %917 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %916, i1 true)
+  %918 = or disjoint i64 %917, %.sroa.11.0.lcssa1746.i
+  %919 = trunc i64 %918 to i32
+  %920 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 56
+  store i32 %919, ptr %920, align 4, !tbaa !7
+  %921 = add i64 %916, -2
+  %922 = and i64 %921, %916
+  %923 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %922, i1 true)
+  %924 = or disjoint i64 %923, %.sroa.11.0.lcssa1746.i
+  %925 = trunc i64 %924 to i32
+  %926 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 60
+  store i32 %925, ptr %926, align 4, !tbaa !7
+  %927 = icmp samesign ugt i64 %830, 16
+  br i1 %927, label %.noexc221.i, label %.loopexit.i, !prof !127
 
 .noexc221.i:                                      ; preds = %.noexc203.i
-  %918 = add i64 %912, -1
-  %919 = and i64 %918, %912
-  %920 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %919, i1 true)
-  %921 = or disjoint i64 %920, %.sroa.11.0.lcssa1746.i
-  %922 = trunc i64 %921 to i32
-  %923 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 64
-  store i32 %922, ptr %923, align 4, !tbaa !7
-  %924 = add i64 %919, -2
-  %925 = and i64 %924, %919
-  %926 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %925, i1 true)
-  %927 = or disjoint i64 %926, %.sroa.11.0.lcssa1746.i
-  %928 = trunc i64 %927 to i32
-  %929 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 68
-  store i32 %928, ptr %929, align 4, !tbaa !7
-  %930 = add i64 %925, -2
-  %931 = and i64 %930, %925
-  %932 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %931, i1 true)
-  %933 = or disjoint i64 %932, %.sroa.11.0.lcssa1746.i
-  %934 = trunc i64 %933 to i32
-  %935 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 72
-  store i32 %934, ptr %935, align 4, !tbaa !7
-  %936 = add i64 %931, -2
-  %937 = and i64 %936, %931
-  %938 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %937, i1 true)
-  %939 = or disjoint i64 %938, %.sroa.11.0.lcssa1746.i
-  %940 = trunc i64 %939 to i32
-  %941 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 76
-  store i32 %940, ptr %941, align 4, !tbaa !7
-  %942 = icmp samesign ugt i64 %820, 20
-  br i1 %942, label %.noexc107.i, label %.loopexit.i, !prof !127
+  %928 = add i64 %922, -1
+  %929 = and i64 %928, %922
+  %930 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %929, i1 true)
+  %931 = or disjoint i64 %930, %.sroa.11.0.lcssa1746.i
+  %932 = trunc i64 %931 to i32
+  %933 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 64
+  store i32 %932, ptr %933, align 4, !tbaa !7
+  %934 = add i64 %929, -2
+  %935 = and i64 %934, %929
+  %936 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %935, i1 true)
+  %937 = or disjoint i64 %936, %.sroa.11.0.lcssa1746.i
+  %938 = trunc i64 %937 to i32
+  %939 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 68
+  store i32 %938, ptr %939, align 4, !tbaa !7
+  %940 = add i64 %935, -2
+  %941 = and i64 %940, %935
+  %942 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %941, i1 true)
+  %943 = or disjoint i64 %942, %.sroa.11.0.lcssa1746.i
+  %944 = trunc i64 %943 to i32
+  %945 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 72
+  store i32 %944, ptr %945, align 4, !tbaa !7
+  %946 = add i64 %941, -2
+  %947 = and i64 %946, %941
+  %948 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %947, i1 true)
+  %949 = or disjoint i64 %948, %.sroa.11.0.lcssa1746.i
+  %950 = trunc i64 %949 to i32
+  %951 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 76
+  store i32 %950, ptr %951, align 4, !tbaa !7
+  %952 = icmp samesign ugt i64 %830, 20
+  br i1 %952, label %.noexc107.i, label %.loopexit.i, !prof !127
 
 .noexc107.i:                                      ; preds = %.noexc221.i
-  %943 = add i64 %937, -2
-  %944 = and i64 %943, %937
-  %945 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %944, i1 true)
-  %946 = or disjoint i64 %945, %.sroa.11.0.lcssa1746.i
-  %947 = trunc i64 %946 to i32
-  %948 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 80
-  store i32 %947, ptr %948, align 4, !tbaa !7
-  %949 = add i64 %944, -1
-  %950 = and i64 %949, %944
-  %951 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %950, i1 true)
-  %952 = or disjoint i64 %951, %.sroa.11.0.lcssa1746.i
-  %953 = trunc i64 %952 to i32
-  %954 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 84
-  store i32 %953, ptr %954, align 4, !tbaa !7
-  %955 = add i64 %950, -2
-  %956 = and i64 %955, %950
-  %957 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %956, i1 true)
-  %958 = or disjoint i64 %957, %.sroa.11.0.lcssa1746.i
-  %959 = trunc i64 %958 to i32
-  %960 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 88
-  store i32 %959, ptr %960, align 4, !tbaa !7
-  %961 = add i64 %956, -2
-  %962 = and i64 %961, %956
-  %963 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %962, i1 true)
-  %964 = or disjoint i64 %963, %.sroa.11.0.lcssa1746.i
-  %965 = trunc i64 %964 to i32
-  %966 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 92
-  store i32 %965, ptr %966, align 4, !tbaa !7
-  %967 = icmp samesign ugt i64 %820, 24
-  br i1 %967, label %.noexc108.i.preheader, label %.loopexit.i, !prof !142
+  %953 = add i64 %947, -2
+  %954 = and i64 %953, %947
+  %955 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %954, i1 true)
+  %956 = or disjoint i64 %955, %.sroa.11.0.lcssa1746.i
+  %957 = trunc i64 %956 to i32
+  %958 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 80
+  store i32 %957, ptr %958, align 4, !tbaa !7
+  %959 = add i64 %954, -1
+  %960 = and i64 %959, %954
+  %961 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %960, i1 true)
+  %962 = or disjoint i64 %961, %.sroa.11.0.lcssa1746.i
+  %963 = trunc i64 %962 to i32
+  %964 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 84
+  store i32 %963, ptr %964, align 4, !tbaa !7
+  %965 = add i64 %960, -2
+  %966 = and i64 %965, %960
+  %967 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %966, i1 true)
+  %968 = or disjoint i64 %967, %.sroa.11.0.lcssa1746.i
+  %969 = trunc i64 %968 to i32
+  %970 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 88
+  store i32 %969, ptr %970, align 4, !tbaa !7
+  %971 = add i64 %966, -2
+  %972 = and i64 %971, %966
+  %973 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %972, i1 true)
+  %974 = or disjoint i64 %973, %.sroa.11.0.lcssa1746.i
+  %975 = trunc i64 %974 to i32
+  %976 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 92
+  store i32 %975, ptr %976, align 4, !tbaa !7
+  %977 = icmp samesign ugt i64 %830, 24
+  br i1 %977, label %.noexc108.i.preheader, label %.loopexit.i, !prof !142
 
 .noexc108.i.preheader:                            ; preds = %.noexc107.i
-  %968 = add i64 %962, -2
-  %969 = and i64 %968, %962
+  %978 = add i64 %972, -2
+  %979 = and i64 %978, %972
   br label %.noexc108.i
 
 .noexc108.i:                                      ; preds = %.noexc108.i.preheader, %.noexc108.i
   %indvars.iv1702.i = phi i64 [ %indvars.iv.next1703.i, %.noexc108.i ], [ 24, %.noexc108.i.preheader ]
-  %.015771667.i = phi i64 [ %975, %.noexc108.i ], [ %969, %.noexc108.i.preheader ]
-  %970 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015771667.i, i1 true)
-  %971 = or disjoint i64 %970, %.sroa.11.0.lcssa1746.i
-  %972 = trunc i64 %971 to i32
-  %973 = getelementptr inbounds nuw i32, ptr %.sroa.59.2.i, i64 %indvars.iv1702.i
-  store i32 %972, ptr %973, align 4, !tbaa !7
-  %974 = add i64 %.015771667.i, -1
-  %975 = and i64 %974, %.015771667.i
+  %.015771667.i = phi i64 [ %985, %.noexc108.i ], [ %979, %.noexc108.i.preheader ]
+  %980 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015771667.i, i1 true)
+  %981 = or disjoint i64 %980, %.sroa.11.0.lcssa1746.i
+  %982 = trunc i64 %981 to i32
+  %983 = getelementptr inbounds nuw i32, ptr %.sroa.59.2.i, i64 %indvars.iv1702.i
+  store i32 %982, ptr %983, align 4, !tbaa !7
+  %984 = add i64 %.015771667.i, -1
+  %985 = and i64 %984, %.015771667.i
   %indvars.iv.next1703.i = add nuw nsw i64 %indvars.iv1702.i, 1
-  %exitcond1706.not.i = icmp eq i64 %indvars.iv.next1703.i, %820
+  %exitcond1706.not.i = icmp eq i64 %indvars.iv.next1703.i, %830
   br i1 %exitcond1706.not.i, label %.loopexit.i, label %.noexc108.i, !llvm.loop !344
 
 .loopexit.i:                                      ; preds = %.noexc108.i, %.noexc107.i, %.noexc221.i, %.noexc203.i, %.noexc175.i, %.noexc157.i, %.noexc139.i
-  %976 = getelementptr inbounds nuw i32, ptr %.sroa.59.2.i, i64 %820
+  %986 = getelementptr inbounds nuw i32, ptr %.sroa.59.2.i, i64 %830
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.loopexit.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i
-  %.sroa.59.3.i = phi ptr [ %.sroa.59.2.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i ], [ %976, %.loopexit.i ]
-  %.not.i.i53.i = icmp sgt i64 %492, -1
+  %.sroa.59.3.i = phi ptr [ %.sroa.59.2.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i ], [ %986, %.loopexit.i ]
+  %.not.i.i53.i = icmp sgt i64 %493, -1
   %brmerge.i = select i1 %.not.i, i1 true, i1 %.not.i.i53.i, !prof !157
   br i1 %brmerge.i, label %.thread.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, !prof !158
 
 .thread.i:                                        ; preds = %.noexc.i
-  %.not.i.i = icmp eq i64 %818, 0
-  br i1 %.not.i.i, label %977, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
+  %.not.i.i = icmp eq i64 %828, 0
+  br i1 %.not.i.i, label %987, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-977:                                              ; preds = %.thread.i
-  %978 = load ptr, ptr %441, align 8, !tbaa !128
-  %979 = ptrtoint ptr %.sroa.59.3.i to i64
-  %980 = ptrtoint ptr %978 to i64
-  %981 = sub i64 %979, %980
-  %982 = lshr exact i64 %981, 2
-  %983 = trunc i64 %982 to i32
-  %984 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %983, ptr %984, align 8, !tbaa !70
-  %985 = trunc i64 %.01317321745.i to i32
-  %986 = and i64 %982, 4294967295
-  %987 = getelementptr inbounds nuw i32, ptr %978, i64 %986
-  store i32 %985, ptr %987, align 4, !tbaa !7
-  %988 = load i32, ptr %984, align 8, !tbaa !70
-  %989 = add i32 %988, 1
-  %990 = zext i32 %989 to i64
-  %991 = getelementptr inbounds nuw i32, ptr %978, i64 %990
-  store i32 %985, ptr %991, align 4, !tbaa !7
-  %992 = load i32, ptr %984, align 8, !tbaa !70
-  %993 = add i32 %992, 2
-  %994 = zext i32 %993 to i64
-  %995 = getelementptr inbounds nuw i32, ptr %978, i64 %994
-  store i32 0, ptr %995, align 4, !tbaa !7
-  %996 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %996, align 8, !tbaa !80
-  %997 = load i32, ptr %984, align 8, !tbaa !70
-  %998 = icmp eq i32 %997, 0
-  br i1 %998, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %999, !prof !127
-
-999:                                              ; preds = %977
-  %1000 = add i32 %997, -1
-  %1001 = zext i32 %1000 to i64
-  %1002 = getelementptr inbounds nuw i32, ptr %978, i64 %1001
-  %1003 = load i32, ptr %1002, align 4, !tbaa !7
+987:                                              ; preds = %.thread.i
+  %988 = load ptr, ptr %442, align 8, !tbaa !128
+  %989 = ptrtoint ptr %.sroa.59.3.i to i64
+  %990 = ptrtoint ptr %988 to i64
+  %991 = sub i64 %989, %990
+  %992 = lshr exact i64 %991, 2
+  %993 = trunc i64 %992 to i32
+  %994 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %993, ptr %994, align 8, !tbaa !70
+  %995 = trunc i64 %.01317321745.i to i32
+  %996 = and i64 %992, 4294967295
+  %997 = getelementptr inbounds nuw i32, ptr %988, i64 %996
+  store i32 %995, ptr %997, align 4, !tbaa !7
+  %998 = load i32, ptr %994, align 8, !tbaa !70
+  %999 = add i32 %998, 1
+  %1000 = zext i32 %999 to i64
+  %1001 = getelementptr inbounds nuw i32, ptr %988, i64 %1000
+  store i32 %995, ptr %1001, align 4, !tbaa !7
+  %1002 = load i32, ptr %994, align 8, !tbaa !70
+  %1003 = add i32 %1002, 2
   %1004 = zext i32 %1003 to i64
-  %1005 = icmp ult i64 %.01317321745.i, %1004
-  br i1 %1005, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1006, !prof !127
+  %1005 = getelementptr inbounds nuw i32, ptr %988, i64 %1004
+  store i32 0, ptr %1005, align 4, !tbaa !7
+  %1006 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %1006, align 8, !tbaa !80
+  %1007 = load i32, ptr %994, align 8, !tbaa !70
+  %1008 = icmp eq i32 %1007, 0
+  br i1 %1008, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1009, !prof !127
 
-1006:                                             ; preds = %999
-  switch i32 %3, label %1118 [
-    i32 1, label %1007
-    i32 2, label %1059
+1009:                                             ; preds = %987
+  %1010 = add i32 %1007, -1
+  %1011 = zext i32 %1010 to i64
+  %1012 = getelementptr inbounds nuw i32, ptr %988, i64 %1011
+  %1013 = load i32, ptr %1012, align 4, !tbaa !7
+  %1014 = zext i32 %1013 to i64
+  %1015 = icmp ult i64 %.01317321745.i, %1014
+  br i1 %1015, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1016, !prof !127
+
+1016:                                             ; preds = %1009
+  switch i32 %3, label %1128 [
+    i32 1, label %1017
+    i32 2, label %1069
   ]
 
-1007:                                             ; preds = %1006
-  br i1 %.not.i.i53.i, label %.preheader.i, label %1008
+1017:                                             ; preds = %1016
+  br i1 %.not.i.i53.i, label %.preheader.i, label %1018
 
-1008:                                             ; preds = %1007
-  store i32 %1000, ptr %984, align 8, !tbaa !70
-  %1009 = icmp eq i32 %1000, 0
-  br i1 %1009, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %..preheader.i_crit_edge, !prof !127
+1018:                                             ; preds = %1017
+  store i32 %1010, ptr %994, align 8, !tbaa !70
+  %1019 = icmp eq i32 %1010, 0
+  br i1 %1019, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %..preheader.i_crit_edge, !prof !127
 
-..preheader.i_crit_edge:                          ; preds = %1008
-  %.pre17 = add i32 %997, -2
+..preheader.i_crit_edge:                          ; preds = %1018
+  %.pre17 = add i32 %1007, -2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %..preheader.i_crit_edge, %1007
-  %.043.i1679.i.pre-phi = phi i32 [ %.pre17, %..preheader.i_crit_edge ], [ %1000, %1007 ]
-  %1010 = phi i32 [ %1000, %..preheader.i_crit_edge ], [ %997, %1007 ]
+.preheader.i:                                     ; preds = %..preheader.i_crit_edge, %1017
+  %.043.i1679.i.pre-phi = phi i32 [ %.pre17, %..preheader.i_crit_edge ], [ %1010, %1017 ]
+  %1020 = phi i32 [ %1010, %..preheader.i_crit_edge ], [ %1007, %1017 ]
   %.not.i2751680.i = icmp eq i32 %.043.i1679.i.pre-phi, 0
   %.pre1715.i = load ptr, ptr %6, align 8, !tbaa !334
   br i1 %.not.i2751680.i, label %._crit_edge1686.i, label %.lr.ph1685.i
 
 .lr.ph1685.i:                                     ; preds = %.preheader.i
-  %1011 = zext i32 %.043.i1679.i.pre-phi to i64
-  br label %1012
+  %1021 = zext i32 %.043.i1679.i.pre-phi to i64
+  br label %1022
 
-1012:                                             ; preds = %1034, %.lr.ph1685.i
-  %indvars.iv1710.i = phi i64 [ %1011, %.lr.ph1685.i ], [ %indvars.iv.next1711.i, %1034 ]
-  %.035.i1683.i = phi i32 [ 0, %.lr.ph1685.i ], [ %.338.i.i, %1034 ]
-  %.043.in.i1682.i = phi i32 [ %1010, %.lr.ph1685.i ], [ %1036, %1034 ]
-  %.044.i1681.i = phi i32 [ 0, %.lr.ph1685.i ], [ %.347.i.i, %1034 ]
-  %1013 = getelementptr inbounds nuw i32, ptr %978, i64 %indvars.iv1710.i
-  %1014 = load i32, ptr %1013, align 4, !tbaa !7
-  %1015 = zext i32 %1014 to i64
-  %1016 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1015
-  %1017 = load i8, ptr %1016, align 1, !tbaa !4
-  switch i8 %1017, label %1026 [
-    i8 58, label %1034
-    i8 44, label %1034
-    i8 125, label %1018
-    i8 93, label %1020
-    i8 123, label %1022
-    i8 91, label %1024
-  ]
-
-1018:                                             ; preds = %1012
-  %1019 = add nsw i32 %.044.i1681.i, -1
-  br label %1034
-
-1020:                                             ; preds = %1012
-  %1021 = add nsw i32 %.035.i1683.i, -1
-  br label %1034
-
-1022:                                             ; preds = %1012
-  %1023 = add nsw i32 %.044.i1681.i, 1
-  br label %1026
-
-1024:                                             ; preds = %1012
-  %1025 = add nsw i32 %.035.i1683.i, 1
-  br label %1026
-
-1026:                                             ; preds = %1024, %1022, %1012
-  %.246.i.i = phi i32 [ %.044.i1681.i, %1012 ], [ %1023, %1022 ], [ %.044.i1681.i, %1024 ]
-  %.237.i.i = phi i32 [ %.035.i1683.i, %1012 ], [ %.035.i1683.i, %1022 ], [ %1025, %1024 ]
-  %1027 = add i32 %.043.in.i1682.i, -2
-  %1028 = zext i32 %1027 to i64
-  %1029 = getelementptr inbounds nuw i32, ptr %978, i64 %1028
-  %1030 = load i32, ptr %1029, align 4, !tbaa !7
-  %1031 = zext i32 %1030 to i64
-  %1032 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1031
-  %1033 = load i8, ptr %1032, align 1, !tbaa !4
-  switch i8 %1033, label %1037 [
-    i8 123, label %1034
+1022:                                             ; preds = %1044, %.lr.ph1685.i
+  %indvars.iv1710.i = phi i64 [ %1021, %.lr.ph1685.i ], [ %indvars.iv.next1711.i, %1044 ]
+  %.035.i1683.i = phi i32 [ 0, %.lr.ph1685.i ], [ %.338.i.i, %1044 ]
+  %.043.in.i1682.i = phi i32 [ %1020, %.lr.ph1685.i ], [ %1046, %1044 ]
+  %.044.i1681.i = phi i32 [ 0, %.lr.ph1685.i ], [ %.347.i.i, %1044 ]
+  %1023 = getelementptr inbounds nuw i32, ptr %988, i64 %indvars.iv1710.i
+  %1024 = load i32, ptr %1023, align 4, !tbaa !7
+  %1025 = zext i32 %1024 to i64
+  %1026 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1025
+  %1027 = load i8, ptr %1026, align 1, !tbaa !4
+  switch i8 %1027, label %1036 [
+    i8 58, label %1044
+    i8 44, label %1044
+    i8 125, label %1028
+    i8 93, label %1030
+    i8 123, label %1032
     i8 91, label %1034
-    i8 58, label %1034
-    i8 44, label %1034
   ]
 
-1034:                                             ; preds = %1026, %1026, %1026, %1026, %1020, %1018, %1012, %1012
-  %.347.i.i = phi i32 [ %.044.i1681.i, %1012 ], [ %.044.i1681.i, %1020 ], [ %1019, %1018 ], [ %.044.i1681.i, %1012 ], [ %.246.i.i, %1026 ], [ %.246.i.i, %1026 ], [ %.246.i.i, %1026 ], [ %.246.i.i, %1026 ]
-  %.338.i.i = phi i32 [ %.035.i1683.i, %1012 ], [ %1021, %1020 ], [ %.035.i1683.i, %1018 ], [ %.035.i1683.i, %1012 ], [ %.237.i.i, %1026 ], [ %.237.i.i, %1026 ], [ %.237.i.i, %1026 ], [ %.237.i.i, %1026 ]
-  %indvars.iv.next1711.i = add nsw i64 %indvars.iv1710.i, -1
-  %1035 = and i64 %indvars.iv.next1711.i, 4294967295
-  %.not.i275.i = icmp eq i64 %1035, 0
-  %1036 = trunc nuw i64 %indvars.iv1710.i to i32
-  br i1 %.not.i275.i, label %._crit_edge1686.i, label %1012, !llvm.loop !346
+1028:                                             ; preds = %1022
+  %1029 = add nsw i32 %.044.i1681.i, -1
+  br label %1044
 
-1037:                                             ; preds = %1026
-  %1038 = trunc nuw i64 %indvars.iv1710.i to i32
-  %1039 = icmp ne i32 %.237.i.i, 0
-  %1040 = icmp ne i32 %.246.i.i, 0
-  %or.cond.i277.i = select i1 %1039, i1 true, i1 %1040
-  %spec.select.i278.i = select i1 %or.cond.i277.i, i32 %1038, i32 %1010
+1030:                                             ; preds = %1022
+  %1031 = add nsw i32 %.035.i1683.i, -1
+  br label %1044
+
+1032:                                             ; preds = %1022
+  %1033 = add nsw i32 %.044.i1681.i, 1
+  br label %1036
+
+1034:                                             ; preds = %1022
+  %1035 = add nsw i32 %.035.i1683.i, 1
+  br label %1036
+
+1036:                                             ; preds = %1034, %1032, %1022
+  %.246.i.i = phi i32 [ %.044.i1681.i, %1022 ], [ %1033, %1032 ], [ %.044.i1681.i, %1034 ]
+  %.237.i.i = phi i32 [ %.035.i1683.i, %1022 ], [ %.035.i1683.i, %1032 ], [ %1035, %1034 ]
+  %1037 = add i32 %.043.in.i1682.i, -2
+  %1038 = zext i32 %1037 to i64
+  %1039 = getelementptr inbounds nuw i32, ptr %988, i64 %1038
+  %1040 = load i32, ptr %1039, align 4, !tbaa !7
+  %1041 = zext i32 %1040 to i64
+  %1042 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1041
+  %1043 = load i8, ptr %1042, align 1, !tbaa !4
+  switch i8 %1043, label %1047 [
+    i8 123, label %1044
+    i8 91, label %1044
+    i8 58, label %1044
+    i8 44, label %1044
+  ]
+
+1044:                                             ; preds = %1036, %1036, %1036, %1036, %1030, %1028, %1022, %1022
+  %.347.i.i = phi i32 [ %.044.i1681.i, %1022 ], [ %.044.i1681.i, %1030 ], [ %1029, %1028 ], [ %.044.i1681.i, %1022 ], [ %.246.i.i, %1036 ], [ %.246.i.i, %1036 ], [ %.246.i.i, %1036 ], [ %.246.i.i, %1036 ]
+  %.338.i.i = phi i32 [ %.035.i1683.i, %1022 ], [ %1031, %1030 ], [ %.035.i1683.i, %1028 ], [ %.035.i1683.i, %1022 ], [ %.237.i.i, %1036 ], [ %.237.i.i, %1036 ], [ %.237.i.i, %1036 ], [ %.237.i.i, %1036 ]
+  %indvars.iv.next1711.i = add nsw i64 %indvars.iv1710.i, -1
+  %1045 = and i64 %indvars.iv.next1711.i, 4294967295
+  %.not.i275.i = icmp eq i64 %1045, 0
+  %1046 = trunc nuw i64 %indvars.iv1710.i to i32
+  br i1 %.not.i275.i, label %._crit_edge1686.i, label %1022, !llvm.loop !346
+
+1047:                                             ; preds = %1036
+  %1048 = trunc nuw i64 %indvars.iv1710.i to i32
+  %1049 = icmp ne i32 %.237.i.i, 0
+  %1050 = icmp ne i32 %.246.i.i, 0
+  %or.cond.i277.i = select i1 %1049, i1 true, i1 %1050
+  %spec.select.i278.i = select i1 %or.cond.i277.i, i32 %1048, i32 %1020
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
-._crit_edge1686.i:                                ; preds = %1034, %.preheader.i
-  %.044.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.347.i.i, %1034 ]
-  %.035.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.338.i.i, %1034 ]
-  %1041 = load i32, ptr %978, align 4, !tbaa !7
-  %1042 = zext i32 %1041 to i64
-  %1043 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1042
-  %1044 = load i8, ptr %1043, align 1, !tbaa !4
-  switch i8 %1044, label %1053 [
-    i8 125, label %1045
-    i8 93, label %1047
-    i8 123, label %1049
-    i8 91, label %1051
+._crit_edge1686.i:                                ; preds = %1044, %.preheader.i
+  %.044.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.347.i.i, %1044 ]
+  %.035.i.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.338.i.i, %1044 ]
+  %1051 = load i32, ptr %988, align 4, !tbaa !7
+  %1052 = zext i32 %1051 to i64
+  %1053 = getelementptr inbounds nuw i8, ptr %.pre1715.i, i64 %1052
+  %1054 = load i8, ptr %1053, align 1, !tbaa !4
+  switch i8 %1054, label %1063 [
+    i8 125, label %1055
+    i8 93, label %1057
+    i8 123, label %1059
+    i8 91, label %1061
   ]
 
-1045:                                             ; preds = %._crit_edge1686.i
-  %1046 = add nsw i32 %.044.i.lcssa.i, -1
-  br label %1053
+1055:                                             ; preds = %._crit_edge1686.i
+  %1056 = add nsw i32 %.044.i.lcssa.i, -1
+  br label %1063
 
-1047:                                             ; preds = %._crit_edge1686.i
-  %1048 = add nsw i32 %.035.i.lcssa.i, -1
-  br label %1053
+1057:                                             ; preds = %._crit_edge1686.i
+  %1058 = add nsw i32 %.035.i.lcssa.i, -1
+  br label %1063
 
-1049:                                             ; preds = %._crit_edge1686.i
-  %1050 = add nsw i32 %.044.i.lcssa.i, 1
-  br label %1053
+1059:                                             ; preds = %._crit_edge1686.i
+  %1060 = add nsw i32 %.044.i.lcssa.i, 1
+  br label %1063
 
-1051:                                             ; preds = %._crit_edge1686.i
-  %1052 = add nsw i32 %.035.i.lcssa.i, 1
-  br label %1053
+1061:                                             ; preds = %._crit_edge1686.i
+  %1062 = add nsw i32 %.035.i.lcssa.i, 1
+  br label %1063
 
-1053:                                             ; preds = %1051, %1049, %1047, %1045, %._crit_edge1686.i
-  %.448.i.i = phi i32 [ %.044.i.lcssa.i, %._crit_edge1686.i ], [ %1046, %1045 ], [ %.044.i.lcssa.i, %1047 ], [ %1050, %1049 ], [ %.044.i.lcssa.i, %1051 ]
-  %.439.i.i = phi i32 [ %.035.i.lcssa.i, %._crit_edge1686.i ], [ %.035.i.lcssa.i, %1045 ], [ %1048, %1047 ], [ %.035.i.lcssa.i, %1049 ], [ %1052, %1051 ]
-  %1054 = icmp ne i32 %.439.i.i, 0
-  %1055 = icmp ne i32 %.448.i.i, 0
-  %or.cond4.i.i = select i1 %1054, i1 true, i1 %1055
+1063:                                             ; preds = %1061, %1059, %1057, %1055, %._crit_edge1686.i
+  %.448.i.i = phi i32 [ %.044.i.lcssa.i, %._crit_edge1686.i ], [ %1056, %1055 ], [ %.044.i.lcssa.i, %1057 ], [ %1060, %1059 ], [ %.044.i.lcssa.i, %1061 ]
+  %.439.i.i = phi i32 [ %.035.i.lcssa.i, %._crit_edge1686.i ], [ %.035.i.lcssa.i, %1055 ], [ %1058, %1057 ], [ %.035.i.lcssa.i, %1059 ], [ %1062, %1061 ]
+  %1064 = icmp ne i32 %.439.i.i, 0
+  %1065 = icmp ne i32 %.448.i.i, 0
+  %or.cond4.i.i = select i1 %1064, i1 true, i1 %1065
   br i1 %or.cond4.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1053, %1037
-  %.0.i276.i = phi i32 [ %1010, %1053 ], [ %spec.select.i278.i, %1037 ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1063, %1047
+  %.0.i276.i = phi i32 [ %1020, %1063 ], [ %spec.select.i278.i, %1047 ]
   %.not1630.i = icmp eq i32 %.0.i276.i, 0
   br i1 %.not1630.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
-  %.pre = load i32, ptr %978, align 4, !tbaa !7
+  %.pre = load i32, ptr %988, align 4, !tbaa !7
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge, %1053
-  %1056 = phi i32 [ %.pre, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge ], [ %1041, %1053 ]
-  %1057 = icmp eq i32 %1056, 0
-  br i1 %1057, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1058
+_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge, %1063
+  %1066 = phi i32 [ %.pre, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i_crit_edge ], [ %1051, %1063 ]
+  %1067 = icmp eq i32 %1066, 0
+  br i1 %1067, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1068
 
-1058:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i
-  store i32 0, ptr %984, align 8, !tbaa !70
+1068:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i
+  store i32 0, ptr %994, align 8, !tbaa !70
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
-  store i32 %.0.i276.i, ptr %984, align 8, !tbaa !70
-  br label %1118
+  store i32 %.0.i276.i, ptr %994, align 8, !tbaa !70
+  br label %1128
 
-1059:                                             ; preds = %1006
+1069:                                             ; preds = %1016
   br i1 %.not.i.i53.i, label %.preheader1632.i, label %thread-pre-split1616.i
 
-thread-pre-split1616.i:                           ; preds = %1059
-  store i32 %1000, ptr %984, align 8, !tbaa !70
-  %1060 = icmp eq i32 %1000, 0
-  br i1 %1060, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, label %thread-pre-split1616.i..preheader1632.i_crit_edge
+thread-pre-split1616.i:                           ; preds = %1069
+  store i32 %1010, ptr %994, align 8, !tbaa !70
+  %1070 = icmp eq i32 %1010, 0
+  br i1 %1070, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, label %thread-pre-split1616.i..preheader1632.i_crit_edge
 
 thread-pre-split1616.i..preheader1632.i_crit_edge: ; preds = %thread-pre-split1616.i
-  %.pre18 = add i32 %997, -2
+  %.pre18 = add i32 %1007, -2
   br label %.preheader1632.i
 
-.preheader1632.i:                                 ; preds = %thread-pre-split1616.i..preheader1632.i_crit_edge, %1059
-  %.043.i2831669.i.pre-phi = phi i32 [ %.pre18, %thread-pre-split1616.i..preheader1632.i_crit_edge ], [ %1000, %1059 ]
-  %1061 = phi i32 [ %1000, %thread-pre-split1616.i..preheader1632.i_crit_edge ], [ %997, %1059 ]
+.preheader1632.i:                                 ; preds = %thread-pre-split1616.i..preheader1632.i_crit_edge, %1069
+  %.043.i2831669.i.pre-phi = phi i32 [ %.pre18, %thread-pre-split1616.i..preheader1632.i_crit_edge ], [ %1010, %1069 ]
+  %1071 = phi i32 [ %1010, %thread-pre-split1616.i..preheader1632.i_crit_edge ], [ %1007, %1069 ]
   %.not.i2841670.i = icmp eq i32 %.043.i2831669.i.pre-phi, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !334
   br i1 %.not.i2841670.i, label %._crit_edge1676.i, label %.lr.ph1675.i
 
 .lr.ph1675.i:                                     ; preds = %.preheader1632.i
-  %1062 = zext i32 %.043.i2831669.i.pre-phi to i64
-  br label %1063
+  %1072 = zext i32 %.043.i2831669.i.pre-phi to i64
+  br label %1073
 
-1063:                                             ; preds = %1085, %.lr.ph1675.i
-  %indvars.iv1707.i = phi i64 [ %1062, %.lr.ph1675.i ], [ %indvars.iv.next1708.i, %1085 ]
-  %.035.i2811673.i = phi i32 [ 0, %.lr.ph1675.i ], [ %.338.i289.i, %1085 ]
-  %.043.in.i2801672.i = phi i32 [ %1061, %.lr.ph1675.i ], [ %1087, %1085 ]
-  %.044.i2791671.i = phi i32 [ 0, %.lr.ph1675.i ], [ %.347.i287.i, %1085 ]
-  %1064 = getelementptr inbounds nuw i32, ptr %978, i64 %indvars.iv1707.i
-  %1065 = load i32, ptr %1064, align 4, !tbaa !7
-  %1066 = zext i32 %1065 to i64
-  %1067 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1066
-  %1068 = load i8, ptr %1067, align 1, !tbaa !4
-  switch i8 %1068, label %1077 [
-    i8 58, label %1085
-    i8 44, label %1085
-    i8 125, label %1069
-    i8 93, label %1071
-    i8 123, label %1073
-    i8 91, label %1075
-  ]
-
-1069:                                             ; preds = %1063
-  %1070 = add nsw i32 %.044.i2791671.i, -1
-  br label %1085
-
-1071:                                             ; preds = %1063
-  %1072 = add nsw i32 %.035.i2811673.i, -1
-  br label %1085
-
-1073:                                             ; preds = %1063
-  %1074 = add nsw i32 %.044.i2791671.i, 1
-  br label %1077
-
-1075:                                             ; preds = %1063
-  %1076 = add nsw i32 %.035.i2811673.i, 1
-  br label %1077
-
-1077:                                             ; preds = %1075, %1073, %1063
-  %.246.i285.i = phi i32 [ %.044.i2791671.i, %1063 ], [ %1074, %1073 ], [ %.044.i2791671.i, %1075 ]
-  %.237.i286.i = phi i32 [ %.035.i2811673.i, %1063 ], [ %.035.i2811673.i, %1073 ], [ %1076, %1075 ]
-  %1078 = add i32 %.043.in.i2801672.i, -2
-  %1079 = zext i32 %1078 to i64
-  %1080 = getelementptr inbounds nuw i32, ptr %978, i64 %1079
-  %1081 = load i32, ptr %1080, align 4, !tbaa !7
-  %1082 = zext i32 %1081 to i64
-  %1083 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1082
-  %1084 = load i8, ptr %1083, align 1, !tbaa !4
-  switch i8 %1084, label %1088 [
-    i8 123, label %1085
+1073:                                             ; preds = %1095, %.lr.ph1675.i
+  %indvars.iv1707.i = phi i64 [ %1072, %.lr.ph1675.i ], [ %indvars.iv.next1708.i, %1095 ]
+  %.035.i2811673.i = phi i32 [ 0, %.lr.ph1675.i ], [ %.338.i289.i, %1095 ]
+  %.043.in.i2801672.i = phi i32 [ %1071, %.lr.ph1675.i ], [ %1097, %1095 ]
+  %.044.i2791671.i = phi i32 [ 0, %.lr.ph1675.i ], [ %.347.i287.i, %1095 ]
+  %1074 = getelementptr inbounds nuw i32, ptr %988, i64 %indvars.iv1707.i
+  %1075 = load i32, ptr %1074, align 4, !tbaa !7
+  %1076 = zext i32 %1075 to i64
+  %1077 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1076
+  %1078 = load i8, ptr %1077, align 1, !tbaa !4
+  switch i8 %1078, label %1087 [
+    i8 58, label %1095
+    i8 44, label %1095
+    i8 125, label %1079
+    i8 93, label %1081
+    i8 123, label %1083
     i8 91, label %1085
-    i8 58, label %1085
-    i8 44, label %1085
   ]
 
-1085:                                             ; preds = %1077, %1077, %1077, %1077, %1071, %1069, %1063, %1063
-  %.347.i287.i = phi i32 [ %.044.i2791671.i, %1063 ], [ %.044.i2791671.i, %1071 ], [ %1070, %1069 ], [ %.044.i2791671.i, %1063 ], [ %.246.i285.i, %1077 ], [ %.246.i285.i, %1077 ], [ %.246.i285.i, %1077 ], [ %.246.i285.i, %1077 ]
-  %.338.i289.i = phi i32 [ %.035.i2811673.i, %1063 ], [ %1072, %1071 ], [ %.035.i2811673.i, %1069 ], [ %.035.i2811673.i, %1063 ], [ %.237.i286.i, %1077 ], [ %.237.i286.i, %1077 ], [ %.237.i286.i, %1077 ], [ %.237.i286.i, %1077 ]
+1079:                                             ; preds = %1073
+  %1080 = add nsw i32 %.044.i2791671.i, -1
+  br label %1095
+
+1081:                                             ; preds = %1073
+  %1082 = add nsw i32 %.035.i2811673.i, -1
+  br label %1095
+
+1083:                                             ; preds = %1073
+  %1084 = add nsw i32 %.044.i2791671.i, 1
+  br label %1087
+
+1085:                                             ; preds = %1073
+  %1086 = add nsw i32 %.035.i2811673.i, 1
+  br label %1087
+
+1087:                                             ; preds = %1085, %1083, %1073
+  %.246.i285.i = phi i32 [ %.044.i2791671.i, %1073 ], [ %1084, %1083 ], [ %.044.i2791671.i, %1085 ]
+  %.237.i286.i = phi i32 [ %.035.i2811673.i, %1073 ], [ %.035.i2811673.i, %1083 ], [ %1086, %1085 ]
+  %1088 = add i32 %.043.in.i2801672.i, -2
+  %1089 = zext i32 %1088 to i64
+  %1090 = getelementptr inbounds nuw i32, ptr %988, i64 %1089
+  %1091 = load i32, ptr %1090, align 4, !tbaa !7
+  %1092 = zext i32 %1091 to i64
+  %1093 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1092
+  %1094 = load i8, ptr %1093, align 1, !tbaa !4
+  switch i8 %1094, label %1098 [
+    i8 123, label %1095
+    i8 91, label %1095
+    i8 58, label %1095
+    i8 44, label %1095
+  ]
+
+1095:                                             ; preds = %1087, %1087, %1087, %1087, %1081, %1079, %1073, %1073
+  %.347.i287.i = phi i32 [ %.044.i2791671.i, %1073 ], [ %.044.i2791671.i, %1081 ], [ %1080, %1079 ], [ %.044.i2791671.i, %1073 ], [ %.246.i285.i, %1087 ], [ %.246.i285.i, %1087 ], [ %.246.i285.i, %1087 ], [ %.246.i285.i, %1087 ]
+  %.338.i289.i = phi i32 [ %.035.i2811673.i, %1073 ], [ %1082, %1081 ], [ %.035.i2811673.i, %1079 ], [ %.035.i2811673.i, %1073 ], [ %.237.i286.i, %1087 ], [ %.237.i286.i, %1087 ], [ %.237.i286.i, %1087 ], [ %.237.i286.i, %1087 ]
   %indvars.iv.next1708.i = add nsw i64 %indvars.iv1707.i, -1
-  %1086 = and i64 %indvars.iv.next1708.i, 4294967295
-  %.not.i284.i = icmp eq i64 %1086, 0
-  %1087 = trunc nuw i64 %indvars.iv1707.i to i32
-  br i1 %.not.i284.i, label %._crit_edge1676.i, label %1063, !llvm.loop !346
+  %1096 = and i64 %indvars.iv.next1708.i, 4294967295
+  %.not.i284.i = icmp eq i64 %1096, 0
+  %1097 = trunc nuw i64 %indvars.iv1707.i to i32
+  br i1 %.not.i284.i, label %._crit_edge1676.i, label %1073, !llvm.loop !346
 
-1088:                                             ; preds = %1077
-  %1089 = trunc nuw i64 %indvars.iv1707.i to i32
-  %1090 = icmp ne i32 %.237.i286.i, 0
-  %1091 = icmp ne i32 %.246.i285.i, 0
-  %or.cond.i299.i = select i1 %1090, i1 true, i1 %1091
-  %spec.select.i300.i = select i1 %or.cond.i299.i, i32 %1089, i32 %1061
+1098:                                             ; preds = %1087
+  %1099 = trunc nuw i64 %indvars.iv1707.i to i32
+  %1100 = icmp ne i32 %.237.i286.i, 0
+  %1101 = icmp ne i32 %.246.i285.i, 0
+  %or.cond.i299.i = select i1 %1100, i1 true, i1 %1101
+  %spec.select.i300.i = select i1 %or.cond.i299.i, i32 %1099, i32 %1071
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i
 
-._crit_edge1676.i:                                ; preds = %1085, %.preheader1632.i
-  %.044.i279.lcssa.i = phi i32 [ 0, %.preheader1632.i ], [ %.347.i287.i, %1085 ]
-  %.035.i281.lcssa.i = phi i32 [ 0, %.preheader1632.i ], [ %.338.i289.i, %1085 ]
-  %1092 = load i32, ptr %978, align 4, !tbaa !7
-  %1093 = zext i32 %1092 to i64
-  %1094 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1093
-  %1095 = load i8, ptr %1094, align 1, !tbaa !4
-  switch i8 %1095, label %1104 [
-    i8 125, label %1096
-    i8 93, label %1098
-    i8 123, label %1100
-    i8 91, label %1102
+._crit_edge1676.i:                                ; preds = %1095, %.preheader1632.i
+  %.044.i279.lcssa.i = phi i32 [ 0, %.preheader1632.i ], [ %.347.i287.i, %1095 ]
+  %.035.i281.lcssa.i = phi i32 [ 0, %.preheader1632.i ], [ %.338.i289.i, %1095 ]
+  %1102 = load i32, ptr %988, align 4, !tbaa !7
+  %1103 = zext i32 %1102 to i64
+  %1104 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %1103
+  %1105 = load i8, ptr %1104, align 1, !tbaa !4
+  switch i8 %1105, label %1114 [
+    i8 125, label %1106
+    i8 93, label %1108
+    i8 123, label %1110
+    i8 91, label %1112
   ]
 
-1096:                                             ; preds = %._crit_edge1676.i
-  %1097 = add nsw i32 %.044.i279.lcssa.i, -1
-  br label %1104
+1106:                                             ; preds = %._crit_edge1676.i
+  %1107 = add nsw i32 %.044.i279.lcssa.i, -1
+  br label %1114
 
-1098:                                             ; preds = %._crit_edge1676.i
-  %1099 = add nsw i32 %.035.i281.lcssa.i, -1
-  br label %1104
+1108:                                             ; preds = %._crit_edge1676.i
+  %1109 = add nsw i32 %.035.i281.lcssa.i, -1
+  br label %1114
 
-1100:                                             ; preds = %._crit_edge1676.i
-  %1101 = add nsw i32 %.044.i279.lcssa.i, 1
-  br label %1104
+1110:                                             ; preds = %._crit_edge1676.i
+  %1111 = add nsw i32 %.044.i279.lcssa.i, 1
+  br label %1114
 
-1102:                                             ; preds = %._crit_edge1676.i
-  %1103 = add nsw i32 %.035.i281.lcssa.i, 1
-  br label %1104
+1112:                                             ; preds = %._crit_edge1676.i
+  %1113 = add nsw i32 %.035.i281.lcssa.i, 1
+  br label %1114
 
-1104:                                             ; preds = %1102, %1100, %1098, %1096, %._crit_edge1676.i
-  %.448.i295.i = phi i32 [ %.044.i279.lcssa.i, %._crit_edge1676.i ], [ %1097, %1096 ], [ %.044.i279.lcssa.i, %1098 ], [ %1101, %1100 ], [ %.044.i279.lcssa.i, %1102 ]
-  %.439.i296.i = phi i32 [ %.035.i281.lcssa.i, %._crit_edge1676.i ], [ %.035.i281.lcssa.i, %1096 ], [ %1099, %1098 ], [ %.035.i281.lcssa.i, %1100 ], [ %1103, %1102 ]
-  %1105 = icmp ne i32 %.439.i296.i, 0
-  %1106 = icmp ne i32 %.448.i295.i, 0
-  %or.cond4.i297.i = select i1 %1105, i1 true, i1 %1106
-  %spec.select50.i298.i = select i1 %or.cond4.i297.i, i32 0, i32 %1061
+1114:                                             ; preds = %1112, %1110, %1108, %1106, %._crit_edge1676.i
+  %.448.i295.i = phi i32 [ %.044.i279.lcssa.i, %._crit_edge1676.i ], [ %1107, %1106 ], [ %.044.i279.lcssa.i, %1108 ], [ %1111, %1110 ], [ %.044.i279.lcssa.i, %1112 ]
+  %.439.i296.i = phi i32 [ %.035.i281.lcssa.i, %._crit_edge1676.i ], [ %.035.i281.lcssa.i, %1106 ], [ %1109, %1108 ], [ %.035.i281.lcssa.i, %1110 ], [ %1113, %1112 ]
+  %1115 = icmp ne i32 %.439.i296.i, 0
+  %1116 = icmp ne i32 %.448.i295.i, 0
+  %or.cond4.i297.i = select i1 %1115, i1 true, i1 %1116
+  %spec.select50.i298.i = select i1 %or.cond4.i297.i, i32 0, i32 %1071
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i: ; preds = %1104, %1088, %thread-pre-split1616.i
-  %.0.i294.i = phi i32 [ 0, %thread-pre-split1616.i ], [ %spec.select.i300.i, %1088 ], [ %spec.select50.i298.i, %1104 ]
-  store i32 %.0.i294.i, ptr %984, align 8, !tbaa !70
-  %1107 = zext i32 %.0.i294.i to i64
-  %1108 = getelementptr inbounds nuw i32, ptr %978, i64 %1107
-  %1109 = load i32, ptr %1108, align 4, !tbaa !7
-  %1110 = add i32 %.0.i294.i, 1
-  %1111 = zext i32 %1110 to i64
-  %1112 = getelementptr inbounds nuw i32, ptr %978, i64 %1111
-  store i32 %1109, ptr %1112, align 4, !tbaa !7
-  %1113 = load i32, ptr %984, align 8, !tbaa !70
-  %1114 = zext i32 %1113 to i64
-  %1115 = getelementptr inbounds nuw i32, ptr %978, i64 %1114
-  store i32 %985, ptr %1115, align 4, !tbaa !7
-  %1116 = load i32, ptr %984, align 8, !tbaa !70
-  %1117 = icmp eq i32 %1116, 0
-  br i1 %1117, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1118, !prof !127
+_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i: ; preds = %1114, %1098, %thread-pre-split1616.i
+  %.0.i294.i = phi i32 [ 0, %thread-pre-split1616.i ], [ %spec.select.i300.i, %1098 ], [ %spec.select50.i298.i, %1114 ]
+  store i32 %.0.i294.i, ptr %994, align 8, !tbaa !70
+  %1117 = zext i32 %.0.i294.i to i64
+  %1118 = getelementptr inbounds nuw i32, ptr %988, i64 %1117
+  %1119 = load i32, ptr %1118, align 4, !tbaa !7
+  %1120 = add i32 %.0.i294.i, 1
+  %1121 = zext i32 %1120 to i64
+  %1122 = getelementptr inbounds nuw i32, ptr %988, i64 %1121
+  store i32 %1119, ptr %1122, align 4, !tbaa !7
+  %1123 = load i32, ptr %994, align 8, !tbaa !70
+  %1124 = zext i32 %1123 to i64
+  %1125 = getelementptr inbounds nuw i32, ptr %988, i64 %1124
+  store i32 %995, ptr %1125, align 4, !tbaa !7
+  %1126 = load i32, ptr %994, align 8, !tbaa !70
+  %1127 = icmp eq i32 %1126, 0
+  br i1 %1127, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1128, !prof !127
 
-1118:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i, %1006
-  %1119 = tail call noundef i32 @llvm.x86.sse41.ptestz(<2 x i64> %.sroa.23310.1.i, <2 x i64> %.sroa.23310.1.i)
-  %.not1631.i = icmp eq i32 %1119, 0
-  %1120 = select i1 %.not1631.i, i32 11, i32 0
+1128:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i, %1016
+  %1129 = tail call noundef i32 @llvm.x86.sse41.ptestz(<2 x i64> %.sroa.23310.1.i, <2 x i64> %.sroa.23310.1.i)
+  %.not1631.i = icmp eq i32 %1129, 0
+  %1130 = select i1 %.not1631.i, i32 11, i32 0
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1118, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %1058, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i, %1008, %999, %977, %.thread.i, %.noexc.i, %._crit_edge.i
-  %.1.i = phi i32 [ 13, %1058 ], [ 13, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i ], [ 1, %1008 ], [ 15, %.noexc.i ], [ 14, %.thread.i ], [ 13, %977 ], [ 24, %999 ], [ %1120, %1118 ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1128, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %1068, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i, %1018, %1009, %987, %.thread.i, %.noexc.i, %._crit_edge.i
+  %.1.i = phi i32 [ 13, %1068 ], [ 13, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i ], [ 1, %1018 ], [ 15, %.noexc.i ], [ 14, %.thread.i ], [ 13, %987 ], [ 24, %1009 ], [ %1130, %1128 ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1758.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 

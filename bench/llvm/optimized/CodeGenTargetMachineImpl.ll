@@ -19464,14 +19464,14 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZNK4llvm9BitVector5countEv.exit.loopexit:        ; preds = %.lr.ph.i
   %116 = zext i32 %114 to i64
+  %117 = mul nsw i64 %.sroa.0276.1, %116
   br label %_ZNK4llvm9BitVector5countEv.exit
 
 _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %_ZNK4llvm9BitVector5countEv.exit.loopexit, %._crit_edge306
-  %.0.lcssa.i = phi i64 [ 0, %._crit_edge306 ], [ %116, %_ZNK4llvm9BitVector5countEv.exit.loopexit ]
-  %117 = mul nsw i64 %.sroa.0276.1, %.0.lcssa.i
-  %118 = icmp ne i64 %117, 0
+  %.0.lcssa.i = phi i64 [ 0, %._crit_edge306 ], [ %117, %_ZNK4llvm9BitVector5countEv.exit.loopexit ]
+  %118 = icmp ne i64 %.0.lcssa.i, 0
   %119 = zext i1 %118 to i64
-  %120 = sub i64 %117, %119
+  %120 = sub i64 %.0.lcssa.i, %119
   %121 = zext i32 %72 to i64
   %122 = udiv i64 %120, %121
   %123 = add i64 %122, %119

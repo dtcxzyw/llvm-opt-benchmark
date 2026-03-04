@@ -16728,9 +16728,9 @@ define hidden noundef i64 @_ZN14ide_completion11completions9flyimport34compute_f
   %46 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !4440, !noalias !4443, !noundef !4
   %47 = add i8 %46, -65
   %48 = icmp ult i8 %47, 26
-  %.0.i.i = select i1 %48, i8 32, i8 0
-  %49 = or i8 %.0.i.i, %46
-  store i8 %49, ptr %.sroa.0.06.i.i, align 1, !alias.scope !4440, !noalias !4443
+  %49 = select i1 %48, i8 32, i8 0
+  %.0.i.i = or i8 %49, %46
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !4440, !noalias !4443
   %50 = icmp eq ptr %45, %43
   br i1 %50, label %.loopexit, label %.lr.ph.i.i
 

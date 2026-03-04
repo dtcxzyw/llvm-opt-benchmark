@@ -275,8 +275,8 @@ define noundef i32 @BIO_hex_string(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20
-  %.not39 = icmp eq i32 %.1, 0
-  br i1 %.not39, label %21, label %._crit_edge.thread
+  %.not38 = icmp eq i32 %.1, 0
+  br i1 %.not38, label %21, label %._crit_edge.thread
 
 21:                                               ; preds = %._crit_edge
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull @.str.1) #7

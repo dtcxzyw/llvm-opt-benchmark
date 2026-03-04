@@ -5936,6 +5936,7 @@ _ZN4llvm7support6detail20build_format_adapterINSt7__cxx1112basic_stringIcSt11cha
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !36, !noalias !294
   %67 = add nuw nsw i64 %66, 1
+  store ptr %63, ptr %17, align 8, !tbaa !50, !noalias !294
   store i64 0, ptr %65, align 8, !tbaa !36, !noalias !294
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %69 = icmp ult i64 %66, 16

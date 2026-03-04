@@ -8279,8 +8279,8 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
   br label %36
 
 36:                                               ; preds = %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i, %.lr.ph.i
-  %.013.i = phi i32 [ %2, %.lr.ph.i ], [ %86, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
-  %.0912.i = phi i1 [ false, %.lr.ph.i ], [ %85, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
+  %.013.i = phi i32 [ %2, %.lr.ph.i ], [ %85, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
+  %.0912.i = phi i1 [ false, %.lr.ph.i ], [ %.0.i.i, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
   %37 = load i32, ptr %1, align 8
   %38 = lshr i32 %37, 24
   %39 = zext nneg i32 %38 to i64
@@ -8360,15 +8360,14 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread.i.i: ; preds = %_ZNK5clang4Type13is
   br label %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i
 
 _ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i: ; preds = %83, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %83 ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread.i.i ]
+  %.0.i.i = phi i1 [ %.0912.i, %83 ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %85 = or i1 %.0912.i, %.0.i.i
-  %86 = add i32 %.013.i, 1
-  %.not.i15 = icmp ugt i32 %86, %33
+  %85 = add i32 %.013.i, 1
+  %.not.i15 = icmp ugt i32 %85, %33
   br i1 %.not.i15, label %_ZN5clangL31checkOpenCLEnqueueLocalSizeArgsERNS_4SemaEPNS_8CallExprEjj.exit, label %36, !llvm.loop !805
 
 _ZN5clangL31checkOpenCLEnqueueLocalSizeArgsERNS_4SemaEPNS_8CallExprEjj.exit: ; preds = %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i, %32, %29
-  %.0 = phi i1 [ true, %29 ], [ false, %32 ], [ %85, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
+  %.0 = phi i1 [ true, %29 ], [ false, %32 ], [ %.0.i.i, %_ZN5clangL25checkOpenCLEnqueueIntTypeERNS_4SemaEPNS_4ExprERKNS_8QualTypeE.exit.i ]
   ret i1 %.0
 }
 

@@ -1075,11 +1075,11 @@ BufferGetPage.exit76.i:                           ; preds = %272, %266
 
 ._crit_edge97.i:                                  ; preds = %.lr.ph96.i
   %291 = icmp sgt i32 %286, 0
-  %292 = load volatile i32, ptr @CritSectionCount, align 4
-  %293 = add i32 %292, -1
-  store volatile i32 %293, ptr @CritSectionCount, align 4
-  %294 = and i1 %2, %291
-  br i1 %294, label %.lr.ph100.split.i, label %._crit_edge101.i
+  %292 = and i1 %2, %291
+  %293 = load volatile i32, ptr @CritSectionCount, align 4
+  %294 = add i32 %293, -1
+  store volatile i32 %294, ptr @CritSectionCount, align 4
+  br i1 %292, label %.lr.ph100.split.i, label %._crit_edge101.i
 
 .lr.ph100.split.i:                                ; preds = %._crit_edge97.i, %.lr.ph100.split.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %.lr.ph100.split.i ], [ 0, %._crit_edge97.i ]

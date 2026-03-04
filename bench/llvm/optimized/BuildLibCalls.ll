@@ -2348,12 +2348,15 @@ _ZL13setRetNoUndefRN4llvm8FunctionE.exit:         ; preds = %1, %11, %13
   %20 = zext i32 %19 to i64
   %21 = load i64, ptr %14, align 8, !tbaa !33
   %22 = icmp ugt i64 %21, %20
-  br i1 %22, label %.lr.ph.i, label %_ZL14setArgsNoUndefRN4llvm8FunctionE.exit, !llvm.loop !58
+  br i1 %22, label %.lr.ph.i, label %_ZL14setArgsNoUndefRN4llvm8FunctionE.exit.loopexit, !llvm.loop !58
 
-_ZL14setArgsNoUndefRN4llvm8FunctionE.exit:        ; preds = %18, %_ZL13setRetNoUndefRN4llvm8FunctionE.exit
-  %.07.lcssa.i = phi i1 [ false, %_ZL13setRetNoUndefRN4llvm8FunctionE.exit ], [ %.1.i, %18 ]
-  %23 = or i1 %.0.i, %.07.lcssa.i
-  ret i1 %23
+_ZL14setArgsNoUndefRN4llvm8FunctionE.exit.loopexit: ; preds = %18
+  %23 = or i1 %.0.i, %.1.i
+  br label %_ZL14setArgsNoUndefRN4llvm8FunctionE.exit
+
+_ZL14setArgsNoUndefRN4llvm8FunctionE.exit:        ; preds = %_ZL14setArgsNoUndefRN4llvm8FunctionE.exit.loopexit, %_ZL13setRetNoUndefRN4llvm8FunctionE.exit
+  %.07.lcssa.i = phi i1 [ %.0.i, %_ZL13setRetNoUndefRN4llvm8FunctionE.exit ], [ %23, %_ZL14setArgsNoUndefRN4llvm8FunctionE.exit.loopexit ]
+  ret i1 %.07.lcssa.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3042,32 +3045,22 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %_ZNK4llvm17Target
 58:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
   %59 = tail call noundef ptr @_ZNK4llvm6Module13getNamedValueENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr %.sroa.05.0.i31, i64 %.sroa.5.0.i29) #7
   %.not = icmp eq ptr %59, null
-  br i1 %.not, label %68, label %60
+  br i1 %.not, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %60
 
 60:                                               ; preds = %58
   %61 = load i8, ptr %59, align 8, !tbaa !93
   %.not46 = icmp eq i8 %61, 0
-  br i1 %.not46, label %62, label %67
+  br i1 %.not46, label %62, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = load ptr, ptr %1, align 8, !tbaa !3
   %66 = tail call noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl22isValidProtoForLibFuncERKNS_12FunctionTypeENS_7LibFuncERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(216) %65, ptr noundef nonnull align 8 dereferenceable(24) %64, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(841) %0) #7
-  br label %67
-
-67:                                               ; preds = %60, %62
-  %.1 = phi i1 [ %66, %62 ], [ undef, %60 ]
-  %spec.select = and i1 %.not46, %.1
-  br label %68
-
-68:                                               ; preds = %67, %58
-  %.2 = phi i1 [ undef, %58 ], [ %spec.select, %67 ]
-  %spec.select21 = or i1 %.not, %.2
   br label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread
 
-_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread: ; preds = %3, %68, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit ], [ %spec.select21, %68 ], [ false, %3 ]
+_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread: ; preds = %58, %60, %62, %3, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit ], [ false, %3 ], [ true, %58 ], [ %66, %62 ], [ false, %60 ]
   ret i1 %.0
 }
 

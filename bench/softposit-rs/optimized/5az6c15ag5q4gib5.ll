@@ -52,7 +52,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %48, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.35, %48 ], [ %., %13 ], [ %.34, %14 ]
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.34, %48 ], [ %., %13 ], [ %.33, %14 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -68,7 +68,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br label %8
 
 14:                                               ; preds = %11
-  %.34 = select i1 %.not, i16 16384, i16 -16384
+  %.33 = select i1 %.not, i16 16384, i16 -16384
   br label %8
 
 15:                                               ; preds = %11
@@ -114,7 +114,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br label %8
 
 48:                                               ; preds = %15
-  %.35 = select i1 %.not, i16 1, i16 -1
+  %.34 = select i1 %.not, i16 1, i16 -1
   br label %8
 }
 
@@ -132,7 +132,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %48, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.35, %48 ], [ %., %13 ], [ %.34, %14 ]
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.34, %48 ], [ %., %13 ], [ %.33, %14 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -148,7 +148,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br label %8
 
 14:                                               ; preds = %11
-  %.34 = select i1 %.not, i16 16384, i16 -16384
+  %.33 = select i1 %.not, i16 16384, i16 -16384
   br label %8
 
 15:                                               ; preds = %11
@@ -194,7 +194,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br label %8
 
 48:                                               ; preds = %15
-  %.35 = select i1 %.not, i16 1, i16 -1
+  %.34 = select i1 %.not, i16 1, i16 -1
   br label %8
 }
 
@@ -4665,7 +4665,7 @@ define range(i32 0, -65535) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
 20:                                               ; preds = %17
-  %.34.i = select i1 %.not.i, i16 16384, i16 -16384
+  %.33.i = select i1 %.not.i, i16 16384, i16 -16384
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
 21:                                               ; preds = %17
@@ -4711,11 +4711,11 @@ define range(i32 0, -65535) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
 54:                                               ; preds = %21
-  %.35.i = select i1 %.not.i, i16 1, i16 -1
+  %.34.i = select i1 %.not.i, i16 1, i16 -1
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
 "_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit": ; preds = %6, %13, %19, %20, %23, %54
-  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %.35.i, %54 ], [ %..i, %19 ], [ %.34.i, %20 ]
+  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %.34.i, %54 ], [ %..i, %19 ], [ %.33.i, %20 ]
   %55 = zext i16 %.0.i to i32
   %56 = shl nuw i32 %55, 16
   br label %63

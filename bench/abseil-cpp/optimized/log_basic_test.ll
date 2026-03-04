@@ -34388,11 +34388,12 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNSt16allocator_traitsISaIN7testing8internal26ParameterizedTestSuiteInfoIN17absl_log_internal12BasicLogTestEE17InstantiationInfoEEE9constructIS6_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIN4absl18LogSeverityAtLeastEEEvERPFSF_RKNS0_13TestParamInfoISI_EEERPKcRiEEEvRS7_PT_DpOT0_.exit.i.i.i: ; preds = %._crit_edge.i.i13.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i)
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.2.i.i, ptr noundef nonnull align 8 dereferenceable(10) %58, i64 10, i1 false)
   store i8 0, ptr %58, align 8, !tbaa !20
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %65, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.2.i.i, i64 10, i1 false)
   %.pre39.i = load ptr, ptr %61, align 8, !tbaa !560
+  store ptr %58, ptr %34, align 8, !tbaa !26
   store i64 0, ptr %59, align 8, !tbaa !17
   store ptr %65, ptr %62, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -34638,11 +34639,12 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNSt16allocator_traitsISaIN7testing8internal26ParameterizedTestSuiteInfoIN17absl_log_internal12BasicLogTestEE17InstantiationInfoEEE9constructIS6_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIN4absl18LogSeverityAtLeastEEEvERPFSF_RKNS0_13TestParamInfoISI_EEERPKcRiEEEvRS7_PT_DpOT0_.exit.i.i.i20: ; preds = %._crit_edge.i.i13.i18
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i1)
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.2.i.i1, ptr noundef nonnull align 8 dereferenceable(10) %141, i64 10, i1 false)
   store i8 0, ptr %141, align 8, !tbaa !20
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %148, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.2.i.i1, i64 10, i1 false)
   %.pre39.i21 = load ptr, ptr %144, align 8, !tbaa !560
+  store ptr %141, ptr %25, align 8, !tbaa !26
   store i64 0, ptr %142, align 8, !tbaa !17
   store ptr %148, ptr %145, align 8, !tbaa !10
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 8

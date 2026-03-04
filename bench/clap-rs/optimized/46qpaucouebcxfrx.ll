@@ -1632,13 +1632,13 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %.fca.1.extract.val.i.i.i.i.i = load i8, ptr %28, align 1, !noalias !516, !noundef !7
   %29 = add i8 %.fca.0.extract.val.i.i.i.i.i, -65
   %30 = icmp ult i8 %29, 26
-  %.0.i.i.i.i.i.i.i.i = select i1 %30, i8 32, i8 0
-  %31 = add i8 %.fca.1.extract.val.i.i.i.i.i, -65
-  %32 = icmp ult i8 %31, 26
-  %.02.i.i.i.i.i.i.i.i = select i1 %32, i8 32, i8 0
-  %33 = or i8 %.0.i.i.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i.i.i
-  %34 = or i8 %.02.i.i.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i8 %33, %34
+  %31 = select i1 %30, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i.i = or i8 %31, %.fca.0.extract.val.i.i.i.i.i
+  %32 = add i8 %.fca.1.extract.val.i.i.i.i.i, -65
+  %33 = icmp ult i8 %32, 26
+  %34 = select i1 %33, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i.i = or i8 %34, %.fca.1.extract.val.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %23, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h74f0fb1e94a2dec4E.llvm.4786290445112235611.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h74f0fb1e94a2dec4E.llvm.4786290445112235611.exit": ; preds = %23, %25, %3
@@ -2525,13 +2525,13 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
   %.fca.1.extract.val.i.i.i.i = load i8, ptr %27, align 1, !noalias !791, !noundef !7
   %28 = add i8 %.fca.0.extract.val.i.i.i.i, -65
   %29 = icmp ult i8 %28, 26
-  %.0.i.i.i.i.i.i.i = select i1 %29, i8 32, i8 0
-  %30 = add i8 %.fca.1.extract.val.i.i.i.i, -65
-  %31 = icmp ult i8 %30, 26
-  %.02.i.i.i.i.i.i.i = select i1 %31, i8 32, i8 0
-  %32 = or i8 %.0.i.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i.i
-  %33 = or i8 %.02.i.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %32, %33
+  %30 = select i1 %29, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %30, %.fca.0.extract.val.i.i.i.i
+  %31 = add i8 %.fca.1.extract.val.i.i.i.i, -65
+  %32 = icmp ult i8 %31, 26
+  %33 = select i1 %32, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %33, %.fca.1.extract.val.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %22, label %"_ZN12clap_builder7builder14possible_value13PossibleValue7matches28_$u7b$$u7b$closure$u7d$$u7d$17he145876a6f0feda8E.llvm.4786290445112235611.exit"
 
 "_ZN12clap_builder7builder14possible_value13PossibleValue7matches28_$u7b$$u7b$closure$u7d$$u7d$17he145876a6f0feda8E.llvm.4786290445112235611.exit": ; preds = %22, %24, %3
@@ -2839,13 +2839,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.fca.1.extract.val = load i8, ptr %12, align 1, !noundef !7
   %13 = add i8 %.fca.0.extract.val, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i.i.i = select i1 %14, i8 32, i8 0
-  %15 = add i8 %.fca.1.extract.val, -65
-  %16 = icmp ult i8 %15, 26
-  %.02.i.i.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.0.i.i.i, %.fca.0.extract.val
-  %18 = or i8 %.02.i.i.i, %.fca.1.extract.val
-  %.not = icmp eq i8 %17, %18
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i.i = or i8 %15, %.fca.0.extract.val
+  %16 = add i8 %.fca.1.extract.val, -65
+  %17 = icmp ult i8 %16, 26
+  %18 = select i1 %17, i8 32, i8 0
+  %.02.i.i.i = or i8 %18, %.fca.1.extract.val
+  %.not = icmp eq i8 %.0.i.i.i, %.02.i.i.i
   br i1 %.not, label %6, label %19
 
 19:                                               ; preds = %6, %9
@@ -2900,13 +2900,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %.fca.1.extract.val.i = load i8, ptr %25, align 1, !noalias !920, !noundef !7
   %26 = add i8 %.fca.0.extract.val.i, -65
   %27 = icmp ult i8 %26, 26
-  %.0.i.i.i.i = select i1 %27, i8 32, i8 0
-  %28 = add i8 %.fca.1.extract.val.i, -65
-  %29 = icmp ult i8 %28, 26
-  %.02.i.i.i.i = select i1 %29, i8 32, i8 0
-  %30 = or i8 %.0.i.i.i.i, %.fca.0.extract.val.i
-  %31 = or i8 %.02.i.i.i.i, %.fca.1.extract.val.i
-  %.not.i = icmp eq i8 %30, %31
+  %28 = select i1 %27, i8 32, i8 0
+  %.0.i.i.i.i = or i8 %28, %.fca.0.extract.val.i
+  %29 = add i8 %.fca.1.extract.val.i, -65
+  %30 = icmp ult i8 %29, 26
+  %31 = select i1 %30, i8 32, i8 0
+  %.02.i.i.i.i = or i8 %31, %.fca.1.extract.val.i
+  %.not.i = icmp eq i8 %.0.i.i.i.i, %.02.i.i.i.i
   br i1 %.not.i, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd2118ffddd2631bdE.llvm.4786290445112235611.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd2118ffddd2631bdE.llvm.4786290445112235611.exit: ; preds = %22, %20, %4
@@ -5934,13 +5934,13 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder7builder14possible_value13Po
   %.fca.1.extract.val.i.i.i = load i8, ptr %27, align 1, !noalias !1791, !noundef !7
   %28 = add i8 %.fca.0.extract.val.i.i.i, -65
   %29 = icmp ult i8 %28, 26
-  %.0.i.i.i.i.i.i = select i1 %29, i8 32, i8 0
-  %30 = add i8 %.fca.1.extract.val.i.i.i, -65
-  %31 = icmp ult i8 %30, 26
-  %.02.i.i.i.i.i.i = select i1 %31, i8 32, i8 0
-  %32 = or i8 %.0.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i
-  %33 = or i8 %.02.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i
-  %.not.i.i.i = icmp eq i8 %32, %33
+  %30 = select i1 %29, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %30, %.fca.0.extract.val.i.i.i
+  %31 = add i8 %.fca.1.extract.val.i.i.i, -65
+  %32 = icmp ult i8 %31, 26
+  %33 = select i1 %32, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %33, %.fca.1.extract.val.i.i.i
+  %.not.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %22, label %_ZN12clap_builder4util14eq_ignore_case17h72693f4b9d568fd2E.exit
 
 _ZN12clap_builder4util14eq_ignore_case17h72693f4b9d568fd2E.exit: ; preds = %22, %24, %3
@@ -6055,9 +6055,9 @@ define void @"_ZN91_$LT$clap_builder..builder..value_hint..ValueHint$u20$as$u20$
   %17 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1829, !noalias !1832, !noundef !7
   %18 = add i8 %17, -65
   %19 = icmp ult i8 %18, 26
-  %.0.i.i = select i1 %19, i8 32, i8 0
-  %20 = or i8 %.0.i.i, %17
-  store i8 %20, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1829, !noalias !1832
+  %20 = select i1 %19, i8 32, i8 0
+  %.0.i.i = or i8 %20, %17
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1829, !noalias !1832
   %21 = icmp eq ptr %16, %13
   br i1 %21, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit", label %.lr.ph.i.i
 
@@ -10394,13 +10394,13 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder6parser7matches11matched_arg
   %.fca.1.extract.val.i.i.i = load i8, ptr %59, align 1, !noalias !2398, !noundef !7
   %60 = add i8 %.fca.0.extract.val.i.i.i, -65
   %61 = icmp ult i8 %60, 26
-  %.0.i.i.i.i.i.i = select i1 %61, i8 32, i8 0
-  %62 = add i8 %.fca.1.extract.val.i.i.i, -65
-  %63 = icmp ult i8 %62, 26
-  %.02.i.i.i.i.i.i = select i1 %63, i8 32, i8 0
-  %64 = or i8 %.0.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i
-  %65 = or i8 %.02.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i
-  %.not.i.i.i = icmp eq i8 %64, %65
+  %62 = select i1 %61, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %62, %.fca.0.extract.val.i.i.i
+  %63 = add i8 %.fca.1.extract.val.i.i.i, -65
+  %64 = icmp ult i8 %63, 26
+  %65 = select i1 %64, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %65, %.fca.1.extract.val.i.i.i
+  %.not.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %54, label %_ZN12clap_builder4util14eq_ignore_case17h72693f4b9d568fd2E.exit
 
 _ZN12clap_builder4util14eq_ignore_case17h72693f4b9d568fd2E.exit: ; preds = %56, %54, %42
@@ -11719,13 +11719,13 @@ define hidden noundef zeroext i1 @_ZN12clap_builder4util14eq_ignore_case17h72693
   %.fca.1.extract.val.i.i = load i8, ptr %25, align 1, !noalias !2727, !noundef !7
   %26 = add i8 %.fca.0.extract.val.i.i, -65
   %27 = icmp ult i8 %26, 26
-  %.0.i.i.i.i.i = select i1 %27, i8 32, i8 0
-  %28 = add i8 %.fca.1.extract.val.i.i, -65
-  %29 = icmp ult i8 %28, 26
-  %.02.i.i.i.i.i = select i1 %29, i8 32, i8 0
-  %30 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %31 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %30, %31
+  %28 = select i1 %27, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %28, %.fca.0.extract.val.i.i
+  %29 = add i8 %.fca.1.extract.val.i.i, -65
+  %30 = icmp ult i8 %29, 26
+  %31 = select i1 %30, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %31, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %20, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h5955f2eb680231dfE.llvm.4786290445112235611.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h5955f2eb680231dfE.llvm.4786290445112235611.exit": ; preds = %20, %22, %4

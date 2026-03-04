@@ -6817,29 +6817,29 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_db..system..path..Sys
   %or.cond34.i.i = select i1 %or.cond.i.i, i1 %11, i1 false
   br i1 %or.cond34.i.i, label %13, label %12
 
-12:                                               ; preds = %15, %13, %8, %0
+12:                                               ; preds = %14, %13, %8, %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !777
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i) ]
   %.not28.i.i = icmp eq i8 %.sroa.6.0.copyload.i, 6
-  br i1 %.not28.i.i, label %18, label %17
+  br i1 %.not28.i.i, label %17, label %16
 
 13:                                               ; preds = %8
   %switch.i.i = icmp samesign ult i8 %.sroa.6.0.copyload.i, 3
   %switch35.i.i = icmp samesign ult i8 %.sroa.612.0.copyload.i, 3
-  %14 = xor i1 %switch.i.i, %switch35.i.i
-  br i1 %14, label %12, label %15
+  %spec.select36.i.i = xor i1 %switch.i.i, %switch35.i.i
+  br i1 %spec.select36.i.i, label %12, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.0.copyload.i) ]
-  %16 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8729d42fa99f9bb7E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload.i, i64 noundef %.sroa.5.0.copyload.i, ptr noalias noundef nonnull readonly align 1 %.sroa.09.0.copyload.i, i64 noundef %.sroa.5.0.copyload.i), !noalias !777
-  br i1 %16, label %"_ZN60_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h913ed21c2971438cE.exit", label %12
+  %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8729d42fa99f9bb7E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload.i, i64 noundef %.sroa.5.0.copyload.i, ptr noalias noundef nonnull readonly align 1 %.sroa.09.0.copyload.i, i64 noundef %.sroa.5.0.copyload.i), !noalias !777
+  br i1 %15, label %"_ZN60_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h913ed21c2971438cE.exit", label %12
 
-17:                                               ; preds = %12
+16:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.519.i.i, ptr noundef nonnull align 1 dereferenceable(39) %6, i64 39, i1 false)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %12
+17:                                               ; preds = %16, %12
   store ptr %.sroa.0.0.copyload.i, ptr %2, align 8, !noalias !777
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !777
@@ -6856,13 +6856,13 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_db..system..path..Sys
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !777
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.0.copyload.i) ]
   %.not29.i.i = icmp eq i8 %.sroa.612.0.copyload.i, 6
-  br i1 %.not29.i.i, label %20, label %19
+  br i1 %.not29.i.i, label %19, label %18
 
-19:                                               ; preds = %18
+18:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, ptr noundef nonnull align 1 dereferenceable(39) %5, i64 39, i1 false)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %18
+19:                                               ; preds = %18, %17
   store ptr %.sroa.09.0.copyload.i, ptr %1, align 8, !noalias !777
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.511.0.copyload.i, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !noalias !777
@@ -6876,13 +6876,13 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_db..system..path..Sys
   store i8 %.sroa.1117.0.copyload.i, ptr %.sroa.78.0..sroa_idx.i.i, align 1, !noalias !777
   %.sroa.89.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 58
   store i8 %.sroa.1319.0.copyload.i, ptr %.sroa.89.0..sroa_idx.i.i, align 2, !noalias !777
-  %21 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h8b3de50785261c85E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %1), !noalias !777
+  %20 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h8b3de50785261c85E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %1), !noalias !777
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !777
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !777
   br label %"_ZN60_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h913ed21c2971438cE.exit"
 
-"_ZN60_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h913ed21c2971438cE.exit": ; preds = %15, %20
-  %.sroa.0.0.i.i = phi i1 [ %21, %20 ], [ true, %15 ]
+"_ZN60_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h913ed21c2971438cE.exit": ; preds = %14, %19
+  %.sroa.0.0.i.i = phi i1 [ %20, %19 ], [ true, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.519.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1547,13 +1547,19 @@ define hidden i64 @_ZN13ZBarrierSetC115resolve_addressER9LIRAccessb(ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val5 = load i8, ptr %5, align 8
   %6 = tail call noundef zeroext i1 @_ZN11ZBarrierSet14barrier_neededEm9BasicType(i64 noundef %.val, i8 noundef zeroext %.val5) #10
-  %7 = load i64, ptr %4, align 8
-  %8 = and i64 %7, 2147483648
-  %9 = icmp ne i64 %8, 0
-  %10 = select i1 %6, i1 %9, i1 false
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %3
+  %8 = load i64, ptr %4, align 8
+  %9 = and i64 %8, 2147483648
+  %10 = icmp ne i64 %9, 0
   %11 = or i1 %2, %10
-  %12 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %11) #10
-  ret i64 %12
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i1 [ %2, %3 ], [ %11, %7 ]
+  %14 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %13) #10
+  ret i64 %14
 }
 
 declare i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(80), i1 noundef zeroext) unnamed_addr #2

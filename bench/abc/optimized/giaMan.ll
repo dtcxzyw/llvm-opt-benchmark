@@ -2364,150 +2364,150 @@ define void @Gia_ManStopP(ptr noundef captures(none) %0) local_unnamed_addr #2 {
 define double @Gia_ManMemory(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8, !tbaa !29
-  %3 = getelementptr i8, ptr %0, i64 64
-  %.val30 = load ptr, ptr %3, align 8, !tbaa !33
-  %4 = getelementptr i8, ptr %.val30, i64 4
-  %.val30.val = load i32, ptr %4, align 4, !tbaa !30
-  %5 = getelementptr i8, ptr %0, i64 72
-  %.val31 = load ptr, ptr %5, align 8, !tbaa !34
-  %6 = getelementptr i8, ptr %.val31, i64 4
-  %.val31.val = load i32, ptr %6, align 4, !tbaa !30
-  %7 = getelementptr i8, ptr %0, i64 100
-  %.val29 = load i32, ptr %7, align 4, !tbaa !30
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %Vec_IntMemory.exit, label %12
+  %3 = sext i32 %.val to i64
+  %4 = mul nsw i64 %3, 12
+  %5 = uitofp i64 %4 to double
+  %6 = fadd double %5, 1.120000e+03
+  %7 = getelementptr i8, ptr %0, i64 64
+  %.val30 = load ptr, ptr %7, align 8, !tbaa !33
+  %8 = getelementptr i8, ptr %.val30, i64 4
+  %.val30.val = load i32, ptr %8, align 4, !tbaa !30
+  %9 = sext i32 %.val30.val to i64
+  %10 = shl nsw i64 %9, 2
+  %11 = uitofp i64 %10 to double
+  %12 = fadd double %6, %11
+  %13 = getelementptr i8, ptr %0, i64 72
+  %.val31 = load ptr, ptr %13, align 8, !tbaa !34
+  %14 = getelementptr i8, ptr %.val31, i64 4
+  %.val31.val = load i32, ptr %14, align 4, !tbaa !30
+  %15 = sext i32 %.val31.val to i64
+  %16 = shl nsw i64 %15, 2
+  %17 = uitofp i64 %16 to double
+  %18 = fadd double %12, %17
+  %19 = getelementptr i8, ptr %0, i64 100
+  %.val29 = load i32, ptr %19, align 4, !tbaa !30
+  %20 = sext i32 %.val29 to i64
+  %21 = shl nsw i64 %20, 2
+  %22 = uitofp i64 %21 to double
+  %23 = fadd double %18, %22
+  %24 = shl nsw i64 %3, 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %26 = load ptr, ptr %25, align 8, !tbaa !85
+  %.not = icmp eq ptr %26, null
+  %27 = uitofp i64 %24 to double
+  %28 = select i1 %.not, double 0.000000e+00, double %27
+  %29 = fadd double %28, %23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %31 = load ptr, ptr %30, align 8, !tbaa !90
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %Vec_IntMemory.exit, label %32
 
-12:                                               ; preds = %1
-  %13 = load i32, ptr %11, align 8, !tbaa !31
-  %14 = sext i32 %13 to i64
-  %15 = uitofp i64 %14 to double
-  %16 = tail call double @llvm.fmuladd.f64(double %15, double 4.000000e+00, double 1.600000e+01)
+32:                                               ; preds = %1
+  %33 = load i32, ptr %31, align 8, !tbaa !31
+  %34 = sext i32 %33 to i64
+  %35 = uitofp i64 %34 to double
+  %36 = tail call double @llvm.fmuladd.f64(double %35, double 4.000000e+00, double 1.600000e+01)
+  %37 = fadd double %29, %36
   br label %Vec_IntMemory.exit
 
-Vec_IntMemory.exit:                               ; preds = %1, %12
-  %17 = phi double [ %16, %12 ], [ 0.000000e+00, %1 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %19 = load ptr, ptr %18, align 8, !tbaa !91
-  %.not.i32 = icmp eq ptr %19, null
-  br i1 %.not.i32, label %Vec_IntMemory.exit33, label %20
+Vec_IntMemory.exit:                               ; preds = %1, %32
+  %38 = phi double [ %37, %32 ], [ %29, %1 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %40 = load ptr, ptr %39, align 8, !tbaa !91
+  %.not.i32 = icmp eq ptr %40, null
+  br i1 %.not.i32, label %Vec_IntMemory.exit33, label %41
 
-20:                                               ; preds = %Vec_IntMemory.exit
-  %21 = load i32, ptr %19, align 8, !tbaa !31
-  %22 = sext i32 %21 to i64
-  %23 = uitofp i64 %22 to double
-  %24 = tail call double @llvm.fmuladd.f64(double %23, double 4.000000e+00, double 1.600000e+01)
+41:                                               ; preds = %Vec_IntMemory.exit
+  %42 = load i32, ptr %40, align 8, !tbaa !31
+  %43 = sext i32 %42 to i64
+  %44 = uitofp i64 %43 to double
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double 4.000000e+00, double 1.600000e+01)
   br label %Vec_IntMemory.exit33
 
-Vec_IntMemory.exit33:                             ; preds = %Vec_IntMemory.exit, %20
-  %25 = phi double [ %24, %20 ], [ 0.000000e+00, %Vec_IntMemory.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %27 = load i32, ptr %26, align 8, !tbaa !31
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %29 = load ptr, ptr %28, align 8, !tbaa !92
-  %.not.i35 = icmp eq ptr %29, null
-  br i1 %.not.i35, label %Vec_FltMemory.exit, label %30
+Vec_IntMemory.exit33:                             ; preds = %Vec_IntMemory.exit, %41
+  %46 = phi double [ %45, %41 ], [ 0.000000e+00, %Vec_IntMemory.exit ]
+  %47 = fadd double %38, %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %49 = load i32, ptr %48, align 8, !tbaa !31
+  %50 = sext i32 %49 to i64
+  %51 = uitofp i64 %50 to double
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double 4.000000e+00, double 1.600000e+01)
+  %53 = fadd double %47, %52
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %55 = load ptr, ptr %54, align 8, !tbaa !92
+  %.not.i35 = icmp eq ptr %55, null
+  br i1 %.not.i35, label %Vec_FltMemory.exit, label %56
 
-30:                                               ; preds = %Vec_IntMemory.exit33
-  %31 = load i32, ptr %29, align 8, !tbaa !93
-  %32 = sext i32 %31 to i64
-  %33 = uitofp i64 %32 to double
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double 4.000000e+00, double 1.600000e+01)
+56:                                               ; preds = %Vec_IntMemory.exit33
+  %57 = load i32, ptr %55, align 8, !tbaa !93
+  %58 = sext i32 %57 to i64
+  %59 = uitofp i64 %58 to double
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double 4.000000e+00, double 1.600000e+01)
+  %61 = fadd double %53, %60
   br label %Vec_FltMemory.exit
 
-Vec_FltMemory.exit:                               ; preds = %Vec_IntMemory.exit33, %30
-  %35 = phi double [ %34, %30 ], [ 0.000000e+00, %Vec_IntMemory.exit33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %37 = load ptr, ptr %36, align 8, !tbaa !94
-  %.not.i36 = icmp eq ptr %37, null
-  br i1 %.not.i36, label %Vec_FltMemory.exit37, label %38
+Vec_FltMemory.exit:                               ; preds = %Vec_IntMemory.exit33, %56
+  %62 = phi double [ %61, %56 ], [ %53, %Vec_IntMemory.exit33 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %64 = load ptr, ptr %63, align 8, !tbaa !94
+  %.not.i36 = icmp eq ptr %64, null
+  br i1 %.not.i36, label %Vec_FltMemory.exit37, label %65
 
-38:                                               ; preds = %Vec_FltMemory.exit
-  %39 = load i32, ptr %37, align 8, !tbaa !93
-  %40 = sext i32 %39 to i64
-  %41 = uitofp i64 %40 to double
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double 4.000000e+00, double 1.600000e+01)
+65:                                               ; preds = %Vec_FltMemory.exit
+  %66 = load i32, ptr %64, align 8, !tbaa !93
+  %67 = sext i32 %66 to i64
+  %68 = uitofp i64 %67 to double
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double 4.000000e+00, double 1.600000e+01)
   br label %Vec_FltMemory.exit37
 
-Vec_FltMemory.exit37:                             ; preds = %Vec_FltMemory.exit, %38
-  %43 = phi double [ %42, %38 ], [ 0.000000e+00, %Vec_FltMemory.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %45 = load ptr, ptr %44, align 8, !tbaa !42
-  %.not.i38 = icmp eq ptr %45, null
-  br i1 %.not.i38, label %Vec_PtrMemory.exit, label %46
+Vec_FltMemory.exit37:                             ; preds = %Vec_FltMemory.exit, %65
+  %70 = phi double [ %69, %65 ], [ 0.000000e+00, %Vec_FltMemory.exit ]
+  %71 = fadd double %62, %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %73 = load ptr, ptr %72, align 8, !tbaa !42
+  %.not.i38 = icmp eq ptr %73, null
+  br i1 %.not.i38, label %Vec_PtrMemory.exit, label %74
 
-46:                                               ; preds = %Vec_FltMemory.exit37
-  %47 = load i32, ptr %45, align 8, !tbaa !95
-  %48 = sext i32 %47 to i64
-  %49 = uitofp i64 %48 to double
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double 8.000000e+00, double 1.600000e+01)
+74:                                               ; preds = %Vec_FltMemory.exit37
+  %75 = load i32, ptr %73, align 8, !tbaa !95
+  %76 = sext i32 %75 to i64
+  %77 = uitofp i64 %76 to double
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double 8.000000e+00, double 1.600000e+01)
+  %79 = fadd double %71, %78
   br label %Vec_PtrMemory.exit
 
-Vec_PtrMemory.exit:                               ; preds = %Vec_FltMemory.exit37, %46
-  %51 = phi double [ %50, %46 ], [ 0.000000e+00, %Vec_FltMemory.exit37 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %53 = load ptr, ptr %52, align 8, !tbaa !43
-  %.not.i39 = icmp eq ptr %53, null
-  br i1 %.not.i39, label %Vec_PtrMemory.exit40, label %54
+Vec_PtrMemory.exit:                               ; preds = %Vec_FltMemory.exit37, %74
+  %80 = phi double [ %79, %74 ], [ %71, %Vec_FltMemory.exit37 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %82 = load ptr, ptr %81, align 8, !tbaa !43
+  %.not.i39 = icmp eq ptr %82, null
+  br i1 %.not.i39, label %Vec_PtrMemory.exit40, label %83
 
-54:                                               ; preds = %Vec_PtrMemory.exit
-  %55 = load i32, ptr %53, align 8, !tbaa !95
-  %56 = sext i32 %55 to i64
-  %57 = uitofp i64 %56 to double
-  %58 = tail call double @llvm.fmuladd.f64(double %57, double 8.000000e+00, double 1.600000e+01)
+83:                                               ; preds = %Vec_PtrMemory.exit
+  %84 = load i32, ptr %82, align 8, !tbaa !95
+  %85 = sext i32 %84 to i64
+  %86 = uitofp i64 %85 to double
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double 8.000000e+00, double 1.600000e+01)
   br label %Vec_PtrMemory.exit40
 
-Vec_PtrMemory.exit40:                             ; preds = %Vec_PtrMemory.exit, %54
-  %59 = phi double [ %58, %54 ], [ 0.000000e+00, %Vec_PtrMemory.exit ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %61 = load ptr, ptr %60, align 8, !tbaa !44
-  %.not.i41 = icmp eq ptr %61, null
-  br i1 %.not.i41, label %Vec_PtrMemory.exit42, label %62
+Vec_PtrMemory.exit40:                             ; preds = %Vec_PtrMemory.exit, %83
+  %88 = phi double [ %87, %83 ], [ 0.000000e+00, %Vec_PtrMemory.exit ]
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %90 = load ptr, ptr %89, align 8, !tbaa !44
+  %.not.i41 = icmp eq ptr %90, null
+  br i1 %.not.i41, label %Vec_PtrMemory.exit42, label %91
 
-62:                                               ; preds = %Vec_PtrMemory.exit40
-  %63 = load i32, ptr %61, align 8, !tbaa !95
-  %64 = sext i32 %63 to i64
-  %65 = uitofp i64 %64 to double
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double 8.000000e+00, double 1.600000e+01)
+91:                                               ; preds = %Vec_PtrMemory.exit40
+  %92 = load i32, ptr %90, align 8, !tbaa !95
+  %93 = sext i32 %92 to i64
+  %94 = uitofp i64 %93 to double
+  %95 = tail call double @llvm.fmuladd.f64(double %94, double 8.000000e+00, double 1.600000e+01)
   br label %Vec_PtrMemory.exit42
 
-Vec_PtrMemory.exit42:                             ; preds = %Vec_PtrMemory.exit40, %62
-  %67 = phi double [ %66, %62 ], [ 0.000000e+00, %Vec_PtrMemory.exit40 ]
-  %68 = sext i32 %.val to i64
-  %69 = mul nsw i64 %68, 12
-  %70 = uitofp i64 %69 to double
-  %71 = fadd double %70, 1.120000e+03
-  %72 = sext i32 %.val30.val to i64
-  %73 = shl nsw i64 %72, 2
-  %74 = uitofp i64 %73 to double
-  %75 = fadd double %71, %74
-  %76 = sext i32 %.val31.val to i64
-  %77 = shl nsw i64 %76, 2
-  %78 = uitofp i64 %77 to double
-  %79 = fadd double %75, %78
-  %80 = sext i32 %.val29 to i64
-  %81 = shl nsw i64 %80, 2
-  %82 = uitofp i64 %81 to double
-  %83 = fadd double %79, %82
-  %.not = icmp eq ptr %9, null
-  %84 = shl nsw i64 %68, 2
-  %85 = uitofp i64 %84 to double
-  %86 = select i1 %.not, double 0.000000e+00, double %85
-  %87 = fadd double %86, %83
-  %88 = fadd double %87, %17
-  %89 = fadd double %88, %25
-  %90 = sext i32 %27 to i64
-  %91 = uitofp i64 %90 to double
-  %92 = tail call double @llvm.fmuladd.f64(double %91, double 4.000000e+00, double 1.600000e+01)
-  %93 = fadd double %89, %92
-  %94 = fadd double %93, %35
-  %95 = fadd double %94, %43
-  %96 = fadd double %95, %51
-  %97 = fadd double %96, %59
-  %98 = fadd double %97, %67
+Vec_PtrMemory.exit42:                             ; preds = %Vec_PtrMemory.exit40, %91
+  %96 = phi double [ %95, %91 ], [ 0.000000e+00, %Vec_PtrMemory.exit40 ]
+  %97 = fadd double %80, %88
+  %98 = fadd double %97, %96
   ret double %98
 }
 

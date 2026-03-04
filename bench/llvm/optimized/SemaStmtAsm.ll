@@ -3849,7 +3849,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit651: ; preds = 
   %1846 = load ptr, ptr %1822, align 16, !tbaa !1067
   %1847 = call noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %1846)
   %.pre1128 = load ptr, ptr %1822, align 16, !tbaa !1067
-  br i1 %1847, label %1858, label %1848
+  br i1 %1847, label %1859, label %1848
 
 1848:                                             ; preds = %1842
   %1849 = getelementptr inbounds nuw i8, ptr %.pre1128, i64 8
@@ -3860,22 +3860,23 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit651: ; preds = 
   %1853 = getelementptr inbounds nuw i8, ptr %1852, i64 16
   %1854 = load i8, ptr %1853, align 16
   %1855 = icmp eq i8 %1854, 41
-  br i1 %1855, label %1858, label %1856
+  br i1 %1855, label %1859, label %1856
 
 1856:                                             ; preds = %1848
   %1857 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.pre1128) #21
-  %.473 = zext i1 %1857 to i32
-  %.474 = select i1 %1857, i32 1, i32 2
+  %1858 = zext i1 %1857 to i32
+  %spec.select474 = xor i32 %1844, %1858
+  %spec.select475 = select i1 %1857, i32 1, i32 2
   %.pre1127 = load ptr, ptr %1822, align 16, !tbaa !1067
-  br label %1858
+  br label %1859
 
-1858:                                             ; preds = %1856, %1842, %1848
-  %1859 = phi ptr [ %.pre1128, %1842 ], [ %.pre1127, %1856 ], [ %.pre1128, %1848 ]
-  %1860 = phi i32 [ 0, %1842 ], [ %.473, %1856 ], [ 0, %1848 ]
-  %1861 = phi i1 [ true, %1842 ], [ false, %1856 ], [ true, %1848 ]
-  %.0425 = phi i32 [ 0, %1842 ], [ %.474, %1856 ], [ 0, %1848 ]
+1859:                                             ; preds = %1856, %1842, %1848
+  %1860 = phi ptr [ %.pre1128, %1842 ], [ %.pre1127, %1856 ], [ %.pre1128, %1848 ]
+  %1861 = phi i32 [ %1844, %1842 ], [ %spec.select474, %1856 ], [ %1844, %1848 ]
+  %or.cond20 = phi i1 [ %1845, %1842 ], [ false, %1856 ], [ %1845, %1848 ]
+  %.0425 = phi i32 [ 0, %1842 ], [ %spec.select475, %1856 ], [ 0, %1848 ]
   %1862 = load ptr, ptr %120, align 8, !tbaa !684
-  %1863 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1862, ptr noundef %1859) #21
+  %1863 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1862, ptr noundef %1860) #21
   %1864 = extractvalue { i64, i64 } %1863, 0
   %1865 = load ptr, ptr %120, align 8, !tbaa !684
   %1866 = load ptr, ptr %1816, align 16, !tbaa !1067
@@ -3884,10 +3885,10 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit651: ; preds = 
   %1869 = icmp eq i64 %1864, %1868
   %1870 = icmp eq i32 %.0424, %.0425
   %1871 = and i1 %1870, %1869
-  %or.cond475 = and i1 %1843, %1871
-  br i1 %or.cond475, label %.thread970, label %1872
+  %or.cond473 = and i1 %1843, %1871
+  br i1 %or.cond473, label %.thread970, label %1872
 
-1872:                                             ; preds = %1858
+1872:                                             ; preds = %1859
   %1873 = load ptr, ptr %72, align 8, !tbaa !11
   %1874 = load i32, ptr %1244, align 8, !tbaa !14
   %1875 = zext i32 %1874 to i64
@@ -3945,7 +3946,7 @@ _ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.e
 
 _ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670.thread: ; preds = %1892, %1872, %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670
   %.1423 = phi i1 [ %1894, %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670 ], [ false, %1872 ], [ %spec.select952, %1892 ]
-  %1895 = icmp ne i32 %1844, %1860
+  %1895 = icmp ne i32 %1861, 0
   %or.cond16 = or i1 %1895, %.1423
   %or.cond16.not = xor i1 %or.cond16, true
   %or.cond18 = and i1 %1843, %or.cond16.not
@@ -3978,7 +3979,6 @@ _ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.e
   br label %1945
 
 1910:                                             ; preds = %1896, %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670.thread
-  %or.cond20 = and i1 %1845, %1861
   br i1 %or.cond20, label %1911, label %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit681
 
 1911:                                             ; preds = %1910
@@ -4058,7 +4058,7 @@ _ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.e
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %1945
 
-.thread970:                                       ; preds = %1812, %1858, %_ZNK5clang4Type13isBooleanTypeEv.exit.thread, %1904, %1901
+.thread970:                                       ; preds = %1812, %1859, %_ZNK5clang4Type13isBooleanTypeEv.exit.thread, %1904, %1901
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %.thread959

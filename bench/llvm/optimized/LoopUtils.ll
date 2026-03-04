@@ -565,7 +565,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %34
 
 .lr.ph:                                           ; preds = %_ZN4llvm10successorsEPNS_10BasicBlockE.exit, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48
   %.161 = phi i1 [ %.2, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48 ], [ %.064, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit ]
-  %.sroa.427.060 = phi i32 [ %132, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48 ], [ 0, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit ]
+  %.sroa.427.060 = phi i32 [ %131, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48 ], [ 0, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit ]
   %41 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %35, i32 noundef %.sroa.427.060) #22
   %42 = load i8, ptr %21, align 4, !tbaa !17, !range !22, !noundef !36
   %43 = trunc nuw i8 %42 to i1
@@ -762,15 +762,14 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31._crit
   br label %"_ZZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEbENK3$_0clEPNS_10BasicBlockE.exit"
 
 "_ZZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEbENK3$_0clEPNS_10BasicBlockE.exit": ; preds = %77, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31.i, %69, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31._crit_edge.i, %126
-  %.3.i = phi i1 [ true, %126 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31._crit_edge.i ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31.i ], [ false, %69 ], [ false, %77 ]
+  %.3.i = phi i1 [ true, %126 ], [ %.161, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31._crit_edge.i ], [ %.161, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread31.i ], [ %.161, %69 ], [ %.161, %77 ]
   store i32 0, ptr %9, align 8, !tbaa !9
-  %131 = or i1 %.161, %.3.i
   br label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread48: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit, %"_ZZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEbENK3$_0clEPNS_10BasicBlockE.exit"
-  %.2 = phi i1 [ %131, %"_ZZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEbENK3$_0clEPNS_10BasicBlockE.exit" ], [ %.161, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit ], [ %.161, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.161, %.lr.ph.i.i ], [ %.161, %.lr.ph.i.i.i ]
-  %132 = add nuw nsw i32 %.sroa.427.060, 1
-  %.not50 = icmp eq i32 %132, %39
+  %.2 = phi i1 [ %.3.i, %"_ZZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEbENK3$_0clEPNS_10BasicBlockE.exit" ], [ %.161, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit ], [ %.161, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.161, %.lr.ph.i.i ], [ %.161, %.lr.ph.i.i.i ]
+  %131 = add nuw nsw i32 %.sroa.427.060, 1
+  %.not50 = icmp eq i32 %131, %39
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 }
 

@@ -65997,7 +65997,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit": ; preds = %1009, %.backedge904
   %1015 = phi ptr [ %1479, %.backedge904 ], [ %.sroa.4689.0.copyload, %1009 ]
-  %.0274.shrunk1752 = phi i1 [ %1129, %.backedge904 ], [ false, %1009 ]
+  %.0274.shrunk1752 = phi i1 [ %.0.i.i, %.backedge904 ], [ false, %1009 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15604)
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 64
   store ptr %1016, ptr %.sroa.4685.0..sroa_idx, align 8, !alias.scope !15604, !noalias !15607
@@ -66008,7 +66008,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   br i1 %1017, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread", label %1018
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit", %.backedge904, %1009
-  %.0274.shrunk.lcssa = phi i1 [ false, %1009 ], [ %1129, %.backedge904 ], [ %.0274.shrunk1752, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit" ]
+  %.0274.shrunk.lcssa = phi i1 [ false, %1009 ], [ %.0.i.i, %.backedge904 ], [ %.0274.shrunk1752, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3854840f449d0ddE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %151)
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit511" unwind label %1007
@@ -66410,11 +66410,11 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   %.val357 = load ptr, ptr %292, align 8, !nonnull !11, !noundef !11
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val357, ptr nonnull readonly align 1 %.val359, i64 %.val358), !alias.scope !15680
   %1128 = icmp eq i32 %bcmp.i.i, 0
+  %1129 = or i1 %.0274.shrunk1752, %1128
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd2f0e6583fe12b65E.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd2f0e6583fe12b65E.exit": ; preds = %1127, %1126
-  %.0.i.i = phi i1 [ %1128, %1127 ], [ false, %1126 ]
-  %1129 = or i1 %.0274.shrunk1752, %.0.i.i
+  %.0.i.i = phi i1 [ %1129, %1127 ], [ %.0274.shrunk1752, %1126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !15684
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146)
           to label %.noexc544 unwind label %1124

@@ -4328,6 +4328,7 @@ _ZNK5arrow5Datum6scalarEv.exit:                   ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %29, ptr %33, align 8, !tbaa !37, !alias.scope !180
+  store ptr %26, ptr %23, align 8, !tbaa !32
   store i64 0, ptr %32, align 8, !tbaa !37
   store i8 0, ptr %26, align 8, !tbaa !84
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -4829,6 +4830,7 @@ _ZNK5arrow5Datum6scalarEv.exit84:                 ; preds = %206
   %227 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %228 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %224, ptr %228, align 8, !tbaa !37, !alias.scope !223
+  store ptr %221, ptr %218, align 8, !tbaa !32
   store i64 0, ptr %227, align 8, !tbaa !37
   store i8 0, ptr %221, align 8, !tbaa !84
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i90
@@ -5248,6 +5250,7 @@ define internal fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvE
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %21, ptr %25, align 8, !tbaa !37, !alias.scope !232
+  store ptr %18, ptr %15, align 8, !tbaa !32
   store i64 0, ptr %24, align 8, !tbaa !37
   store i8 0, ptr %18, align 8, !tbaa !84
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

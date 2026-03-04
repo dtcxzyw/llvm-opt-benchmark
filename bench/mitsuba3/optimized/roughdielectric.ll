@@ -3655,11 +3655,11 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit218: ; preds = %_ZNK7m
 28:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit218
   %29 = xor i1 %27, true
   %30 = and i1 %25, %29
+  %31 = and i1 %13, %30
   br label %._crit_edge239
 
 ._crit_edge239:                                   ; preds = %28, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit218
-  %31 = phi i1 [ true, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit218 ], [ %30, %28 ]
-  %32 = and i1 %13, %31
+  %32 = phi i1 [ %13, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit218 ], [ %31, %28 ]
   %33 = fcmp contract ogt float %10, 0.000000e+00
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 108

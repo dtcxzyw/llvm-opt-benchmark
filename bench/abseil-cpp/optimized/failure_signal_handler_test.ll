@@ -12813,11 +12813,12 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNSt16allocator_traitsISaIN7testing8internal26ParameterizedTestSuiteInfoINS0_13TestWithParamIiEEE17InstantiationInfoEEE9constructIS6_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIiEEvERPFSF_RKNS0_13TestParamInfoIiEEERPKcRiEEEvRS7_PT_DpOT0_.exit.i.i.i: ; preds = %._crit_edge.i.i13.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i)
-  %243 = getelementptr inbounds nuw i8, ptr %240, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %.sroa.2.i.i, ptr noundef nonnull align 8 dereferenceable(14) %236, i64 14, i1 false)
   store i8 0, ptr %236, align 8, !tbaa !24
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %243, ptr noundef nonnull align 8 dereferenceable(14) %.sroa.2.i.i, i64 14, i1 false)
   %.pre39.i = load ptr, ptr %239, align 8, !tbaa !271
+  store ptr %236, ptr %10, align 8, !tbaa !20
   store i64 0, ptr %237, align 8, !tbaa !22
   store ptr %243, ptr %240, align 8, !tbaa !21
   %244 = getelementptr inbounds nuw i8, ptr %240, i64 8

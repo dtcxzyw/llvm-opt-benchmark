@@ -124,40 +124,40 @@ _ZN8QuantLib12close_enoughEdd.exit:               ; preds = %if.end.i
 if.then32:                                        ; preds = %if.then28, %if.end5.i, %_ZN8QuantLib12close_enoughEdd.exit
   %eps_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %11 = load double, ptr %eps_, align 8, !tbaa !11
+  %12 = fmul double %a, %11
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end5.i, %_ZN8QuantLib12close_enoughEdd.exit, %if.then32, %if.then
-  %tmp.0 = phi double [ 1.000000e+00, %if.then ], [ %11, %if.then32 ], [ 1.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit ], [ 1.000000e+00, %if.end5.i ]
-  %mul = fmul double %a, %tmp.0
-  %cmp.i.i35 = fcmp oeq double %mul, %b
+  %tmp.0 = phi double [ %a, %if.then ], [ %12, %if.then32 ], [ %a, %_ZN8QuantLib12close_enoughEdd.exit ], [ %a, %if.end5.i ]
+  %cmp.i.i35 = fcmp oeq double %tmp.0, %b
   br i1 %cmp.i.i35, label %cleanup, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end33
-  %sub.i.i = fsub double %mul, %b
-  %12 = tail call double @llvm.fabs.f64(double %sub.i.i)
-  %cmp1.i.i = fcmp oeq double %mul, 0.000000e+00
+  %sub.i.i = fsub double %tmp.0, %b
+  %13 = tail call double @llvm.fabs.f64(double %sub.i.i)
+  %cmp1.i.i = fcmp oeq double %tmp.0, 0.000000e+00
   %cmp2.i.i = fcmp oeq double %b, 0.000000e+00
   %or.cond.i.i = or i1 %cmp2.i.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %_ZN8QuantLib12close_enoughEdd.exit.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %13 = tail call double @llvm.fabs.f64(double %mul)
-  %mul.i.i = fmul double %13, 0x3D05000000000000
-  %cmp6.i.i36 = fcmp ole double %12, %mul.i.i
-  %14 = tail call double @llvm.fabs.f64(double %b)
-  %mul7.i.i = fmul double %14, 0x3D05000000000000
-  %cmp8.i.i = fcmp ole double %12, %mul7.i.i
-  %15 = or i1 %cmp6.i.i36, %cmp8.i.i
-  br i1 %15, label %cleanup, label %if.then.i
+  %14 = tail call double @llvm.fabs.f64(double %tmp.0)
+  %mul.i.i = fmul double %14, 0x3D05000000000000
+  %cmp6.i.i36 = fcmp ole double %13, %mul.i.i
+  %15 = tail call double @llvm.fabs.f64(double %b)
+  %mul7.i.i = fmul double %15, 0x3D05000000000000
+  %cmp8.i.i = fcmp ole double %13, %mul7.i.i
+  %16 = or i1 %cmp6.i.i36, %cmp8.i.i
+  br i1 %16, label %cleanup, label %if.then.i
 
 _ZN8QuantLib12close_enoughEdd.exit.i:             ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt double %12, 0x3A1B900000000000
+  %cmp4.i.i = fcmp olt double %13, 0x3A1B900000000000
   br i1 %cmp4.i.i, label %cleanup, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i, %if.end5.i.i
   %integrator_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %16 = load ptr, ptr %integrator_.i, align 8, !tbaa !21
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %integrator_.i, align 8, !tbaa !21
+  %cmp.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i, !prof !22
 
 cond.false.i.i:                                   ; preds = %if.then.i
@@ -166,41 +166,41 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i
 
 _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i: ; preds = %cond.false.i.i, %if.then.i
-  %17 = phi ptr [ %16, %if.then.i ], [ %.pre.i.i, %cond.false.i.i ]
-  %call3.i = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 1 %f, double noundef %mul, double noundef %b)
+  %18 = phi ptr [ %17, %if.then.i ], [ %.pre.i.i, %cond.false.i.i ]
+  %call3.i = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 1 %f, double noundef %tmp.0, double noundef %b)
   br label %cleanup
 
 if.end35:                                         ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit30
-  %18 = load double, ptr %__first.sroa.0.0.lcssa.i.i162, align 8, !tbaa !7
-  %cmp.i38 = fcmp oeq double %a, %18
+  %19 = load double, ptr %__first.sroa.0.0.lcssa.i.i162, align 8, !tbaa !7
+  %cmp.i38 = fcmp oeq double %a, %19
   br i1 %cmp.i38, label %if.end44, label %if.end.i39
 
 if.end.i39:                                       ; preds = %if.end35
-  %sub.i40 = fsub double %a, %18
-  %19 = tail call double @llvm.fabs.f64(double %sub.i40)
+  %sub.i40 = fsub double %a, %19
+  %20 = tail call double @llvm.fabs.f64(double %sub.i40)
   %cmp1.i41 = fcmp oeq double %a, 0.000000e+00
-  %cmp2.i42 = fcmp oeq double %18, 0.000000e+00
+  %cmp2.i42 = fcmp oeq double %19, 0.000000e+00
   %or.cond.i43 = or i1 %cmp1.i41, %cmp2.i42
   br i1 %or.cond.i43, label %_ZN8QuantLib12close_enoughEdd.exit52, label %if.end5.i44
 
 if.end5.i44:                                      ; preds = %if.end.i39
-  %20 = tail call double @llvm.fabs.f64(double %a)
-  %mul.i45 = fmul double %20, 0x3D05000000000000
-  %cmp6.i46 = fcmp ole double %19, %mul.i45
-  %21 = tail call double @llvm.fabs.f64(double %18)
-  %mul7.i47 = fmul double %21, 0x3D05000000000000
-  %cmp8.i48 = fcmp ole double %19, %mul7.i47
-  %22 = or i1 %cmp6.i46, %cmp8.i48
-  br i1 %22, label %if.end44, label %if.then38
+  %21 = tail call double @llvm.fabs.f64(double %a)
+  %mul.i45 = fmul double %21, 0x3D05000000000000
+  %cmp6.i46 = fcmp ole double %20, %mul.i45
+  %22 = tail call double @llvm.fabs.f64(double %19)
+  %mul7.i47 = fmul double %22, 0x3D05000000000000
+  %cmp8.i48 = fcmp ole double %20, %mul7.i47
+  %23 = or i1 %cmp6.i46, %cmp8.i48
+  br i1 %23, label %if.end44, label %if.then38
 
 _ZN8QuantLib12close_enoughEdd.exit52:             ; preds = %if.end.i39
-  %cmp4.i51 = fcmp olt double %19, 0x3A1B900000000000
+  %cmp4.i51 = fcmp olt double %20, 0x3A1B900000000000
   br i1 %cmp4.i51, label %if.end44, label %if.then38
 
 if.then38:                                        ; preds = %if.end5.i44, %_ZN8QuantLib12close_enoughEdd.exit52
   %eps_41 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %23 = load double, ptr %eps_41, align 8, !tbaa !11
-  %div = fdiv double %18, %23
+  %24 = load double, ptr %eps_41, align 8, !tbaa !11
+  %div = fdiv double %19, %24
   %cmp.i53 = fcmp olt double %b, %div
   %.sroa.speculated145 = select i1 %cmp.i53, double %b, double %div
   %cmp.i.i54 = fcmp oeq double %a, %.sroa.speculated145
@@ -208,29 +208,29 @@ if.then38:                                        ; preds = %if.end5.i44, %_ZN8Q
 
 if.end.i.i55:                                     ; preds = %if.then38
   %sub.i.i56 = fsub double %a, %.sroa.speculated145
-  %24 = tail call double @llvm.fabs.f64(double %sub.i.i56)
+  %25 = tail call double @llvm.fabs.f64(double %sub.i.i56)
   %cmp2.i.i58 = fcmp oeq double %.sroa.speculated145, 0.000000e+00
   %or.cond.i.i59 = or i1 %cmp1.i41, %cmp2.i.i58
   br i1 %or.cond.i.i59, label %_ZN8QuantLib12close_enoughEdd.exit.i73, label %if.end5.i.i60
 
 if.end5.i.i60:                                    ; preds = %if.end.i.i55
-  %25 = tail call double @llvm.fabs.f64(double %a)
-  %mul.i.i61 = fmul double %25, 0x3D05000000000000
-  %cmp6.i.i62 = fcmp ole double %24, %mul.i.i61
-  %26 = tail call double @llvm.fabs.f64(double %.sroa.speculated145)
-  %mul7.i.i63 = fmul double %26, 0x3D05000000000000
-  %cmp8.i.i64 = fcmp ole double %24, %mul7.i.i63
-  %27 = or i1 %cmp6.i.i62, %cmp8.i.i64
-  br i1 %27, label %if.end44, label %if.then.i65
+  %26 = tail call double @llvm.fabs.f64(double %a)
+  %mul.i.i61 = fmul double %26, 0x3D05000000000000
+  %cmp6.i.i62 = fcmp ole double %25, %mul.i.i61
+  %27 = tail call double @llvm.fabs.f64(double %.sroa.speculated145)
+  %mul7.i.i63 = fmul double %27, 0x3D05000000000000
+  %cmp8.i.i64 = fcmp ole double %25, %mul7.i.i63
+  %28 = or i1 %cmp6.i.i62, %cmp8.i.i64
+  br i1 %28, label %if.end44, label %if.then.i65
 
 _ZN8QuantLib12close_enoughEdd.exit.i73:           ; preds = %if.end.i.i55
-  %cmp4.i.i74 = fcmp olt double %24, 0x3A1B900000000000
+  %cmp4.i.i74 = fcmp olt double %25, 0x3A1B900000000000
   br i1 %cmp4.i.i74, label %if.end44, label %if.then.i65
 
 if.then.i65:                                      ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i73, %if.end5.i.i60
   %integrator_.i66 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %28 = load ptr, ptr %integrator_.i66, align 8, !tbaa !21
-  %cmp.not.i.i67 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %integrator_.i66, align 8, !tbaa !21
+  %cmp.not.i.i67 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i67, label %cond.false.i.i71, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68, !prof !22
 
 cond.false.i.i71:                                 ; preds = %if.then.i65
@@ -239,78 +239,78 @@ cond.false.i.i71:                                 ; preds = %if.then.i65
   br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68
 
 _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68: ; preds = %cond.false.i.i71, %if.then.i65
-  %29 = phi ptr [ %28, %if.then.i65 ], [ %.pre.i.i72, %cond.false.i.i71 ]
-  %call3.i69 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 1 %f, double noundef %a, double noundef %.sroa.speculated145)
-  %30 = fadd double %call3.i69, 0.000000e+00
+  %30 = phi ptr [ %29, %if.then.i65 ], [ %.pre.i.i72, %cond.false.i.i71 ]
+  %call3.i69 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 1 %f, double noundef %a, double noundef %.sroa.speculated145)
+  %31 = fadd double %call3.i69, 0.000000e+00
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68, %_ZN8QuantLib12close_enoughEdd.exit.i73, %if.end5.i.i60, %if.then38, %if.end35, %if.end5.i44, %_ZN8QuantLib12close_enoughEdd.exit52
-  %31 = phi ptr [ %1, %_ZN8QuantLib12close_enoughEdd.exit52 ], [ %1, %if.end35 ], [ %1, %if.end5.i44 ], [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68 ], [ %1, %_ZN8QuantLib12close_enoughEdd.exit.i73 ], [ %1, %if.end5.i.i60 ], [ %1, %if.then38 ]
-  %res.0 = phi double [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit52 ], [ 0.000000e+00, %if.end35 ], [ 0.000000e+00, %if.end5.i44 ], [ %30, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68 ], [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit.i73 ], [ 0.000000e+00, %if.end5.i.i60 ], [ 0.000000e+00, %if.then38 ]
-  %cmp.i77 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i13, %31
+  %32 = phi ptr [ %1, %_ZN8QuantLib12close_enoughEdd.exit52 ], [ %1, %if.end35 ], [ %1, %if.end5.i44 ], [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68 ], [ %1, %_ZN8QuantLib12close_enoughEdd.exit.i73 ], [ %1, %if.end5.i.i60 ], [ %1, %if.then38 ]
+  %res.0 = phi double [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit52 ], [ 0.000000e+00, %if.end35 ], [ 0.000000e+00, %if.end5.i44 ], [ %31, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i68 ], [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit.i73 ], [ 0.000000e+00, %if.end5.i.i60 ], [ 0.000000e+00, %if.then38 ]
+  %cmp.i77 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i13, %32
   br i1 %cmp.i77, label %if.then50, label %if.end61
 
 if.then50:                                        ; preds = %if.end44
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i13, i64 -8
-  %32 = load double, ptr %incdec.ptr.i, align 8, !tbaa !7
-  %cmp.i78 = fcmp oeq double %32, %b
+  %33 = load double, ptr %incdec.ptr.i, align 8, !tbaa !7
+  %cmp.i78 = fcmp oeq double %33, %b
   br i1 %cmp.i78, label %if.end61, label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.then50
-  %sub.i80 = fsub double %32, %b
-  %33 = tail call double @llvm.fabs.f64(double %sub.i80)
-  %cmp1.i81 = fcmp oeq double %32, 0.000000e+00
+  %sub.i80 = fsub double %33, %b
+  %34 = tail call double @llvm.fabs.f64(double %sub.i80)
+  %cmp1.i81 = fcmp oeq double %33, 0.000000e+00
   %cmp2.i82 = fcmp oeq double %b, 0.000000e+00
   %or.cond.i83 = or i1 %cmp2.i82, %cmp1.i81
   br i1 %or.cond.i83, label %_ZN8QuantLib12close_enoughEdd.exit92, label %if.end5.i84
 
 if.end5.i84:                                      ; preds = %if.end.i79
-  %34 = tail call double @llvm.fabs.f64(double %32)
-  %mul.i85 = fmul double %34, 0x3D05000000000000
-  %cmp6.i86 = fcmp ole double %33, %mul.i85
-  %35 = tail call double @llvm.fabs.f64(double %b)
-  %mul7.i87 = fmul double %35, 0x3D05000000000000
-  %cmp8.i88 = fcmp ole double %33, %mul7.i87
-  %36 = or i1 %cmp6.i86, %cmp8.i88
-  br i1 %36, label %if.end61, label %if.then54
+  %35 = tail call double @llvm.fabs.f64(double %33)
+  %mul.i85 = fmul double %35, 0x3D05000000000000
+  %cmp6.i86 = fcmp ole double %34, %mul.i85
+  %36 = tail call double @llvm.fabs.f64(double %b)
+  %mul7.i87 = fmul double %36, 0x3D05000000000000
+  %cmp8.i88 = fcmp ole double %34, %mul7.i87
+  %37 = or i1 %cmp6.i86, %cmp8.i88
+  br i1 %37, label %if.end61, label %if.then54
 
 _ZN8QuantLib12close_enoughEdd.exit92:             ; preds = %if.end.i79
-  %cmp4.i91 = fcmp olt double %33, 0x3A1B900000000000
+  %cmp4.i91 = fcmp olt double %34, 0x3A1B900000000000
   br i1 %cmp4.i91, label %if.end61, label %if.then54
 
 if.then54:                                        ; preds = %if.end5.i84, %_ZN8QuantLib12close_enoughEdd.exit92
   %eps_56 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %37 = load double, ptr %eps_56, align 8, !tbaa !11
-  %mul57 = fmul double %32, %37
+  %38 = load double, ptr %eps_56, align 8, !tbaa !11
+  %mul57 = fmul double %33, %38
   %cmp.i.i93 = fcmp oeq double %mul57, %b
-  br i1 %cmp.i.i93, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114, label %if.end.i.i94
+  br i1 %cmp.i.i93, label %if.end61, label %if.end.i.i94
 
 if.end.i.i94:                                     ; preds = %if.then54
   %sub.i.i95 = fsub double %mul57, %b
-  %38 = tail call double @llvm.fabs.f64(double %sub.i.i95)
+  %39 = tail call double @llvm.fabs.f64(double %sub.i.i95)
   %cmp1.i.i96 = fcmp oeq double %mul57, 0.000000e+00
   %or.cond.i.i98 = or i1 %cmp2.i82, %cmp1.i.i96
   br i1 %or.cond.i.i98, label %_ZN8QuantLib12close_enoughEdd.exit.i112, label %if.end5.i.i99
 
 if.end5.i.i99:                                    ; preds = %if.end.i.i94
-  %39 = tail call double @llvm.fabs.f64(double %mul57)
-  %mul.i.i100 = fmul double %39, 0x3D05000000000000
-  %cmp6.i.i101 = fcmp ole double %38, %mul.i.i100
-  %40 = tail call double @llvm.fabs.f64(double %b)
-  %mul7.i.i102 = fmul double %40, 0x3D05000000000000
-  %cmp8.i.i103 = fcmp ole double %38, %mul7.i.i102
-  %41 = or i1 %cmp6.i.i101, %cmp8.i.i103
-  br i1 %41, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114, label %if.then.i104
+  %40 = tail call double @llvm.fabs.f64(double %mul57)
+  %mul.i.i100 = fmul double %40, 0x3D05000000000000
+  %cmp6.i.i101 = fcmp ole double %39, %mul.i.i100
+  %41 = tail call double @llvm.fabs.f64(double %b)
+  %mul7.i.i102 = fmul double %41, 0x3D05000000000000
+  %cmp8.i.i103 = fcmp ole double %39, %mul7.i.i102
+  %42 = or i1 %cmp6.i.i101, %cmp8.i.i103
+  br i1 %42, label %if.end61, label %if.then.i104
 
 _ZN8QuantLib12close_enoughEdd.exit.i112:          ; preds = %if.end.i.i94
-  %cmp4.i.i113 = fcmp olt double %38, 0x3A1B900000000000
-  br i1 %cmp4.i.i113, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114, label %if.then.i104
+  %cmp4.i.i113 = fcmp olt double %39, 0x3A1B900000000000
+  br i1 %cmp4.i.i113, label %if.end61, label %if.then.i104
 
 if.then.i104:                                     ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i112, %if.end5.i.i99
   %integrator_.i105 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %42 = load ptr, ptr %integrator_.i105, align 8, !tbaa !21
-  %cmp.not.i.i106 = icmp eq ptr %42, null
+  %43 = load ptr, ptr %integrator_.i105, align 8, !tbaa !21
+  %cmp.not.i.i106 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i106, label %cond.false.i.i110, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107, !prof !22
 
 cond.false.i.i110:                                ; preds = %if.then.i104
@@ -319,18 +319,14 @@ cond.false.i.i110:                                ; preds = %if.then.i104
   br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107
 
 _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107: ; preds = %cond.false.i.i110, %if.then.i104
-  %43 = phi ptr [ %42, %if.then.i104 ], [ %.pre.i.i111, %cond.false.i.i110 ]
-  %call3.i108 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 1 %f, double noundef %mul57, double noundef %b)
-  br label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114
-
-_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114: ; preds = %if.then54, %if.end5.i.i99, %_ZN8QuantLib12close_enoughEdd.exit.i112, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107
-  %retval.0.i109 = phi double [ %call3.i108, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107 ], [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit.i112 ], [ 0.000000e+00, %if.end5.i.i99 ], [ 0.000000e+00, %if.then54 ]
-  %add59 = fadd double %res.0, %retval.0.i109
+  %44 = phi ptr [ %43, %if.then.i104 ], [ %.pre.i.i111, %cond.false.i.i110 ]
+  %call3.i108 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 1 %f, double noundef %mul57, double noundef %b)
+  %45 = fadd double %res.0, %call3.i108
   br label %if.end61
 
-if.end61:                                         ; preds = %if.then50, %if.end5.i84, %_ZN8QuantLib12close_enoughEdd.exit92, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114, %if.end44
-  %b0.sroa.0.0 = phi ptr [ %incdec.ptr.i, %_ZN8QuantLib12close_enoughEdd.exit92 ], [ %incdec.ptr.i, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114 ], [ %__first.sroa.0.0.lcssa.i.i13, %if.end44 ], [ %incdec.ptr.i, %if.end5.i84 ], [ %incdec.ptr.i, %if.then50 ]
-  %res.1 = phi double [ %res.0, %_ZN8QuantLib12close_enoughEdd.exit92 ], [ %add59, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit114 ], [ %res.0, %if.end44 ], [ %res.0, %if.end5.i84 ], [ %res.0, %if.then50 ]
+if.end61:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107, %_ZN8QuantLib12close_enoughEdd.exit.i112, %if.end5.i.i99, %if.then54, %if.then50, %if.end5.i84, %_ZN8QuantLib12close_enoughEdd.exit92, %if.end44
+  %b0.sroa.0.0 = phi ptr [ %incdec.ptr.i, %_ZN8QuantLib12close_enoughEdd.exit92 ], [ %incdec.ptr.i, %if.then50 ], [ %__first.sroa.0.0.lcssa.i.i13, %if.end44 ], [ %incdec.ptr.i, %if.end5.i84 ], [ %incdec.ptr.i, %if.then54 ], [ %incdec.ptr.i, %if.end5.i.i99 ], [ %incdec.ptr.i, %_ZN8QuantLib12close_enoughEdd.exit.i112 ], [ %incdec.ptr.i, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107 ]
+  %res.1 = phi double [ %res.0, %_ZN8QuantLib12close_enoughEdd.exit92 ], [ %res.0, %if.then50 ], [ %res.0, %if.end44 ], [ %res.0, %if.end5.i84 ], [ %res.0, %if.then54 ], [ %res.0, %if.end5.i.i99 ], [ %res.0, %_ZN8QuantLib12close_enoughEdd.exit.i112 ], [ %45, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i107 ]
   %cmp.i115167 = icmp ult ptr %__first.sroa.0.0.lcssa.i.i162, %b0.sroa.0.0
   br i1 %cmp.i115167, label %for.body.lr.ph, label %cleanup
 
@@ -342,12 +338,12 @@ for.body.lr.ph:                                   ; preds = %if.end61
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139
   %res.2169 = phi double [ %res.1, %for.body.lr.ph ], [ %add75, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139 ]
   %x.sroa.0.0168 = phi ptr [ %__first.sroa.0.0.lcssa.i.i162, %for.body.lr.ph ], [ %add.ptr.i, %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139 ]
-  %44 = load double, ptr %x.sroa.0.0168, align 8, !tbaa !7
-  %45 = load double, ptr %eps_64, align 8, !tbaa !11
-  %mul65 = fmul double %44, %45
+  %46 = load double, ptr %x.sroa.0.0168, align 8, !tbaa !7
+  %47 = load double, ptr %eps_64, align 8, !tbaa !11
+  %mul65 = fmul double %46, %47
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %x.sroa.0.0168, i64 8
-  %46 = load double, ptr %add.ptr.i, align 8, !tbaa !7
-  %div72 = fdiv double %46, %45
+  %48 = load double, ptr %add.ptr.i, align 8, !tbaa !7
+  %div72 = fdiv double %48, %47
   %cmp.i116 = fcmp olt double %b, %div72
   %.sroa.speculated = select i1 %cmp.i116, double %b, double %div72
   %cmp.i.i118 = fcmp oeq double %mul65, %.sroa.speculated
@@ -355,29 +351,29 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.end.i.i119:                                    ; preds = %for.body
   %sub.i.i120 = fsub double %mul65, %.sroa.speculated
-  %47 = tail call double @llvm.fabs.f64(double %sub.i.i120)
+  %49 = tail call double @llvm.fabs.f64(double %sub.i.i120)
   %cmp1.i.i121 = fcmp oeq double %mul65, 0.000000e+00
   %cmp2.i.i122 = fcmp oeq double %.sroa.speculated, 0.000000e+00
   %or.cond.i.i123 = or i1 %cmp1.i.i121, %cmp2.i.i122
   br i1 %or.cond.i.i123, label %_ZN8QuantLib12close_enoughEdd.exit.i137, label %if.end5.i.i124
 
 if.end5.i.i124:                                   ; preds = %if.end.i.i119
-  %48 = tail call double @llvm.fabs.f64(double %mul65)
-  %mul.i.i125 = fmul double %48, 0x3D05000000000000
-  %cmp6.i.i126 = fcmp ole double %47, %mul.i.i125
-  %49 = tail call double @llvm.fabs.f64(double %.sroa.speculated)
-  %mul7.i.i127 = fmul double %49, 0x3D05000000000000
-  %cmp8.i.i128 = fcmp ole double %47, %mul7.i.i127
-  %50 = or i1 %cmp6.i.i126, %cmp8.i.i128
-  br i1 %50, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139, label %if.then.i129
+  %50 = tail call double @llvm.fabs.f64(double %mul65)
+  %mul.i.i125 = fmul double %50, 0x3D05000000000000
+  %cmp6.i.i126 = fcmp ole double %49, %mul.i.i125
+  %51 = tail call double @llvm.fabs.f64(double %.sroa.speculated)
+  %mul7.i.i127 = fmul double %51, 0x3D05000000000000
+  %cmp8.i.i128 = fcmp ole double %49, %mul7.i.i127
+  %52 = or i1 %cmp6.i.i126, %cmp8.i.i128
+  br i1 %52, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139, label %if.then.i129
 
 _ZN8QuantLib12close_enoughEdd.exit.i137:          ; preds = %if.end.i.i119
-  %cmp4.i.i138 = fcmp olt double %47, 0x3A1B900000000000
+  %cmp4.i.i138 = fcmp olt double %49, 0x3A1B900000000000
   br i1 %cmp4.i.i138, label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139, label %if.then.i129
 
 if.then.i129:                                     ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i137, %if.end5.i.i124
-  %51 = load ptr, ptr %integrator_.i130, align 8, !tbaa !21
-  %cmp.not.i.i131 = icmp eq ptr %51, null
+  %53 = load ptr, ptr %integrator_.i130, align 8, !tbaa !21
+  %cmp.not.i.i131 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i131, label %cond.false.i.i135, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i132, !prof !22
 
 cond.false.i.i135:                                ; preds = %if.then.i129
@@ -386,8 +382,8 @@ cond.false.i.i135:                                ; preds = %if.then.i129
   br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i132
 
 _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i132: ; preds = %cond.false.i.i135, %if.then.i129
-  %52 = phi ptr [ %51, %if.then.i129 ], [ %.pre.i.i136, %cond.false.i.i135 ]
-  %call3.i133 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 1 %f, double noundef %mul65, double noundef %.sroa.speculated)
+  %54 = phi ptr [ %53, %if.then.i129 ], [ %.pre.i.i136, %cond.false.i.i135 ]
+  %call3.i133 = tail call noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 %f, double noundef %mul65, double noundef %.sroa.speculated)
   br label %_ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139
 
 _ZNK8QuantLib17PiecewiseIntegral11integrate_hERKSt8functionIFddEEdd.exit139: ; preds = %for.body, %if.end5.i.i124, %_ZN8QuantLib12close_enoughEdd.exit.i137, %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit.i132

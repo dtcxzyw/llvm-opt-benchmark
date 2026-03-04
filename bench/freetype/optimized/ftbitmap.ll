@@ -1560,7 +1560,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %162 = call i32 @FT_Bitmap_Convert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 1)
   store i32 %162, ptr %8, align 4, !tbaa !3
   %.not276 = icmp eq i32 %162, 0
-  br i1 %.not276, label %163, label %.thread331
+  br i1 %.not276, label %163, label %250
 
 163:                                              ; preds = %159, %161
   %.0212.sroa.phi238.sroa.phi = phi ptr [ %.0212.sroa.phi238.sroa.gep, %161 ], [ %.0212.sroa.phi238.sroa.gep282, %159 ]
@@ -1647,24 +1647,24 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %224 = trunc i32 %223 to i8
   store i8 %224, ptr %.0223304, align 1, !tbaa !23
   %225 = mul nuw nsw i32 %209, %214
-  %.lhs.trunc338 = trunc nuw i32 %225 to i16
-  %226 = udiv i16 %.lhs.trunc338, 255
-  %.zext339 = zext nneg i16 %226 to i32
-  %227 = add nuw nsw i32 %206, %.zext339
+  %.lhs.trunc335 = trunc nuw i32 %225 to i16
+  %226 = udiv i16 %.lhs.trunc335, 255
+  %.zext336 = zext nneg i16 %226 to i32
+  %227 = add nuw nsw i32 %206, %.zext336
   %228 = trunc i32 %227 to i8
   store i8 %228, ptr %212, align 1, !tbaa !23
   %229 = mul nuw nsw i32 %209, %217
-  %.lhs.trunc340 = trunc nuw i32 %229 to i16
-  %230 = udiv i16 %.lhs.trunc340, 255
-  %.zext341 = zext nneg i16 %230 to i32
-  %231 = add nuw nsw i32 %208, %.zext341
+  %.lhs.trunc337 = trunc nuw i32 %229 to i16
+  %230 = udiv i16 %.lhs.trunc337, 255
+  %.zext338 = zext nneg i16 %230 to i32
+  %231 = add nuw nsw i32 %208, %.zext338
   %232 = trunc i32 %231 to i8
   store i8 %232, ptr %215, align 1, !tbaa !23
   %233 = mul nuw nsw i32 %209, %220
-  %.lhs.trunc342 = trunc nuw i32 %233 to i16
-  %234 = udiv i16 %.lhs.trunc342, 255
-  %.zext343 = zext nneg i16 %234 to i32
-  %235 = add nuw nsw i32 %202, %.zext343
+  %.lhs.trunc339 = trunc nuw i32 %233 to i16
+  %234 = udiv i16 %.lhs.trunc339, 255
+  %.zext340 = zext nneg i16 %234 to i32
+  %235 = add nuw nsw i32 %202, %.zext340
   %236 = trunc i32 %235 to i8
   %237 = getelementptr inbounds nuw i8, ptr %.0223304, i64 4
   store i8 %236, ptr %218, align 1, !tbaa !23
@@ -1686,50 +1686,50 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %245 = icmp ult ptr %242, %173
   br i1 %245, label %192, label %.loopexit, !llvm.loop !57
 
-.loopexit:                                        ; preds = %._crit_edge, %163, %167
+.loopexit:                                        ; preds = %._crit_edge, %167, %163
   store i64 %78, ptr %5, align 8, !tbaa !51
   %246 = and i64 %83, 4294967232
   %247 = add nsw i64 %246, %79
   store i64 %247, ptr %43, align 8, !tbaa !54
   %.pre312 = load i32, ptr %8, align 4, !tbaa !3
   %248 = icmp ne i32 %.pre312, 0
-  %or.cond10 = and i1 %97, %248
-  br i1 %or.cond10, label %FT_Bitmap_Done.exit, label %252
+  %249 = and i1 %97, %248
+  br i1 %249, label %FT_Bitmap_Done.exit, label %254
 
-.thread331:                                       ; preds = %161
+250:                                              ; preds = %161
   br i1 %97, label %.thread293.critedge, label %.thread293
 
 FT_Bitmap_Done.exit:                              ; preds = %.loopexit
-  %249 = load ptr, ptr %0, align 8, !tbaa !12
-  %250 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %251 = load ptr, ptr %250, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %249, ptr noundef %251) #8
+  %251 = load ptr, ptr %0, align 8, !tbaa !12
+  %252 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %253 = load ptr, ptr %252, align 8, !tbaa !19
+  call void @ft_mem_free(ptr noundef %251, ptr noundef %253) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   br i1 %.not275, label %.thread293, label %FT_Bitmap_Done.exit281
 
-252:                                              ; preds = %.loopexit
+254:                                              ; preds = %.loopexit
   br i1 %.not275, label %.thread293, label %FT_Bitmap_Done.exit281
 
-FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit, %252
-  %253 = load ptr, ptr %0, align 8, !tbaa !12
-  %254 = load ptr, ptr %.0212.sroa.phi238.sroa.gep, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %253, ptr noundef %254) #8
-  br label %.thread293
-
-.thread293.critedge:                              ; preds = %.thread331
+FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit, %254
   %255 = load ptr, ptr %0, align 8, !tbaa !12
-  %256 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %257 = load ptr, ptr %256, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %255, ptr noundef %257) #8
+  %256 = load ptr, ptr %.0212.sroa.phi238.sroa.gep, align 8, !tbaa !19
+  call void @ft_mem_free(ptr noundef %255, ptr noundef %256) #8
+  br label %.thread293
+
+.thread293.critedge:                              ; preds = %250
+  %257 = load ptr, ptr %0, align 8, !tbaa !12
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %259 = load ptr, ptr %258, align 8, !tbaa !19
+  call void @ft_mem_free(ptr noundef %257, ptr noundef %259) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   br label %.thread293
 
-.thread293:                                       ; preds = %.thread293.critedge, %.thread331, %123, %FT_Bitmap_Done.exit, %FT_Bitmap_Done.exit281, %252
-  %258 = load i32, ptr %8, align 4, !tbaa !3
+.thread293:                                       ; preds = %.thread293.critedge, %250, %123, %FT_Bitmap_Done.exit, %FT_Bitmap_Done.exit281, %254
+  %260 = load i32, ptr %8, align 4, !tbaa !3
   br label %.thread284
 
 .thread284:                                       ; preds = %115, %.thread, %106, %98, %77, %67, %62, %50, %38, %.thread283, %36, %28, %21, %18, %14, %7, %.thread293
-  %.0 = phi i32 [ 6, %18 ], [ 0, %21 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 0, %77 ], [ 6, %98 ], [ %258, %.thread293 ], [ 0, %.thread ], [ 6, %67 ], [ 6, %28 ], [ 6, %7 ], [ 6, %14 ], [ 0, %36 ], [ %111, %106 ], [ 6, %115 ]
+  %.0 = phi i32 [ 6, %18 ], [ 0, %21 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 0, %77 ], [ 6, %98 ], [ %260, %.thread293 ], [ 0, %.thread ], [ 6, %67 ], [ 6, %28 ], [ 6, %7 ], [ 6, %14 ], [ 0, %36 ], [ %111, %106 ], [ 6, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

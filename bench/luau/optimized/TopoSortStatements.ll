@@ -1944,6 +1944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %17, ptr %21, align 8, !tbaa !8
+  store ptr %14, ptr %3, align 8, !tbaa !14
   store i64 0, ptr %20, align 8, !tbaa !8
   store i8 0, ptr %14, align 8, !tbaa !24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

@@ -475,6 +475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %76, ptr %80, align 8, !tbaa !21, !alias.scope !53
+  store ptr %73, ptr %70, align 8, !tbaa !18
   store i64 0, ptr %79, align 8, !tbaa !21
   store i8 0, ptr %73, align 8, !tbaa !30
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -2493,8 +2493,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread.i: ; preds = %_ZNK5clang1
 _ZNK5clang18ArraySubscriptExpr6getIdxEv.exit:     ; preds = %19, %33, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread.i
   %.in.i = phi ptr [ %39, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread.i ], [ %6, %19 ], [ %6, %33 ], [ %6, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
   %40 = load ptr, ptr %.in.i, align 8, !tbaa !111
-  %.not.not = icmp ne ptr %40, null
-  br i1 %.not.not, label %41, label %46
+  %.not.not.not = icmp eq ptr %40, null
+  br i1 %.not.not.not, label %46, label %41
 
 41:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr6getIdxEv.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2510,9 +2510,8 @@ _ZNK5clang18ArraySubscriptExpr6getIdxEv.exit:     ; preds = %19, %33, %_ZNK5clan
   br label %46
 
 46:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr6getIdxEv.exit, %41
-  %.07 = phi i1 [ %45, %41 ], [ undef, %_ZNK5clang18ArraySubscriptExpr6getIdxEv.exit ]
-  %spec.select = and i1 %.not.not, %.07
-  ret i1 %spec.select
+  %.07 = phi i1 [ %45, %41 ], [ false, %_ZNK5clang18ArraySubscriptExpr6getIdxEv.exit ]
+  ret i1 %.07
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2579,8 +2578,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %26
 _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %19, %26, %33, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %39
   %.in.i = phi ptr [ %40, %39 ], [ %6, %26 ], [ %6, %19 ], [ %6, %33 ], [ %6, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
   %41 = load ptr, ptr %.in.i, align 8, !tbaa !111
-  %.not.not = icmp ne ptr %41, null
-  br i1 %.not.not, label %42, label %47
+  %.not.not.not = icmp eq ptr %41, null
+  br i1 %.not.not.not, label %47, label %42
 
 42:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2596,9 +2595,8 @@ _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %19, %26, %33, %_ZNK
   br label %47
 
 47:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit, %42
-  %.07 = phi i1 [ %46, %42 ], [ undef, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ]
-  %spec.select = and i1 %.not.not, %.07
-  ret i1 %spec.select
+  %.07 = phi i1 [ %46, %42 ], [ false, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ]
+  ret i1 %.07
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

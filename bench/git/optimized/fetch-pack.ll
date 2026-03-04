@@ -5958,112 +5958,115 @@ git_bswap32.exit115:                              ; preds = %114
   %175 = call i32 @finish_command(ptr noundef nonnull %11) #20
   %.not107 = icmp eq i32 %175, 0
   %.pre11 = load i32, ptr %13, align 8
-  %.pre15 = and i32 %.pre11, 4096
-  %176 = icmp ne i32 %.pre15, 0
   br i1 %.not107, label %._crit_edge14, label %177
 
+._crit_edge14:                                    ; preds = %174
+  %.pre15 = shl i32 %.pre11, 1
+  %176 = and i32 %.pre15, 8192
+  br label %181
+
 177:                                              ; preds = %174
-  %178 = icmp eq i32 %175, 1
-  %or.cond21 = and i1 %178, %176
-  br i1 %or.cond21, label %._crit_edge14, label %184
+  %178 = and i32 %.pre11, 4096
+  %179 = icmp ne i32 %178, 0
+  %180 = icmp eq i32 %175, 1
+  %or.cond21 = and i1 %180, %179
+  br i1 %or.cond21, label %181, label %185
 
-._crit_edge14:                                    ; preds = %174, %177
-  %.pre-phi = phi i1 [ true, %177 ], [ %176, %174 ]
-  %179 = and i1 %.not107, %.pre-phi
-  %180 = select i1 %179, i32 8192, i32 0
-  %181 = and i32 %.pre11, -8193
-  %182 = or disjoint i32 %180, %181
-  store i32 %182, ptr %13, align 8
-  %183 = load i32, ptr @use_sideband, align 4, !tbaa !15
-  %.not108 = icmp eq i32 %183, 0
-  br i1 %.not108, label %190, label %186
+181:                                              ; preds = %._crit_edge14, %177
+  %.pre-phi = phi i32 [ %176, %._crit_edge14 ], [ 0, %177 ]
+  %182 = and i32 %.pre11, -8193
+  %183 = or disjoint i32 %.pre-phi, %182
+  store i32 %183, ptr %13, align 8
+  %184 = load i32, ptr @use_sideband, align 4, !tbaa !15
+  %.not108 = icmp eq i32 %184, 0
+  br i1 %.not108, label %191, label %187
 
-184:                                              ; preds = %177
-  %185 = call fastcc ptr @_(ptr noundef nonnull @.str.119)
-  call void (ptr, ...) @die(ptr noundef %185, ptr noundef nonnull %.083) #21
+185:                                              ; preds = %177
+  %186 = call fastcc ptr @_(ptr noundef nonnull @.str.119)
+  call void (ptr, ...) @die(ptr noundef %186, ptr noundef nonnull %.083) #21
   unreachable
 
-186:                                              ; preds = %._crit_edge14
-  %187 = call i32 @finish_async(ptr noundef nonnull %9) #20
-  %.not109 = icmp eq i32 %187, 0
-  br i1 %.not109, label %190, label %188
+187:                                              ; preds = %181
+  %188 = call i32 @finish_async(ptr noundef nonnull %9) #20
+  %.not109 = icmp eq i32 %188, 0
+  br i1 %.not109, label %191, label %189
 
-188:                                              ; preds = %186
-  %189 = call fastcc ptr @_(ptr noundef nonnull @.str.120)
-  call void (ptr, ...) @die(ptr noundef %189) #21
+189:                                              ; preds = %187
+  %190 = call fastcc ptr @_(ptr noundef nonnull @.str.120)
+  call void (ptr, ...) @die(ptr noundef %190) #21
   unreachable
 
-190:                                              ; preds = %186, %._crit_edge14
-  %191 = call i32 @sigchain_pop(i32 noundef 13) #20
-  %192 = icmp ne ptr %2, null
-  %or.cond23 = and i1 %192, %56
-  br i1 %or.cond23, label %193, label %219
+191:                                              ; preds = %187, %181
+  %192 = call i32 @sigchain_pop(i32 noundef 13) #20
+  %193 = icmp ne ptr %2, null
+  %or.cond23 = and i1 %193, %56
+  br i1 %or.cond23, label %194, label %220
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %195 = load i64, ptr %194, align 8, !tbaa !19
-  %.not110 = icmp eq i64 %195, 0
-  br i1 %.not110, label %219, label %196
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %196 = load i64, ptr %195, align 8, !tbaa !19
+  %.not110 = icmp eq i64 %196, 0
+  br i1 %.not110, label %220, label %197
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr %13, align 8
-  %198 = and i32 %197, 524288
-  %.not111 = icmp eq i32 %198, 0
-  br i1 %.not111, label %219, label %199
+197:                                              ; preds = %194
+  %198 = load i32, ptr %13, align 8
+  %199 = and i32 %198, 524288
+  %.not111 = icmp eq i32 %199, 0
+  br i1 %.not111, label %220, label %200
 
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %2, align 8, !tbaa !63
-  %201 = load ptr, ptr %200, align 8, !tbaa !64
+200:                                              ; preds = %197
+  %201 = load ptr, ptr %2, align 8, !tbaa !63
+  %202 = load ptr, ptr %201, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.find_common.c, i64 24, i1 false)
-  %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #19
-  call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull %201, i64 noundef %202) #20
-  %203 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %204 = load ptr, ptr %203, align 8, !tbaa !67
-  %205 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %206 = load i64, ptr %205, align 8, !tbaa !124
-  %207 = icmp ult i64 %206, 5
-  br i1 %207, label %217, label %208
+  %203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %202) #19
+  call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull %202, i64 noundef %203) #20
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %205 = load ptr, ptr %204, align 8, !tbaa !67
+  %206 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %207 = load i64, ptr %206, align 8, !tbaa !124
+  %208 = icmp ult i64 %207, 5
+  br i1 %208, label %218, label %209
 
-208:                                              ; preds = %199
-  %209 = add i64 %206, -5
-  %210 = getelementptr inbounds nuw i8, ptr %204, i64 %209
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %210, ptr noundef nonnull dereferenceable(5) @.str.123, i64 5)
+209:                                              ; preds = %200
+  %210 = add i64 %207, -5
+  %211 = getelementptr inbounds nuw i8, ptr %205, i64 %210
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %211, ptr noundef nonnull dereferenceable(5) @.str.123, i64 5)
   %.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not.i.i.i, label %211, label %217
+  br i1 %.not.i.i.i, label %212, label %218
 
-211:                                              ; preds = %208
-  store i64 %209, ptr %205, align 8, !tbaa !124
-  %212 = load i64, ptr %7, align 8, !tbaa !66
-  %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %212, i64 1)
-  %213 = icmp ugt i64 %209, %spec.select.i.i.i
-  br i1 %213, label %214, label %215
+212:                                              ; preds = %209
+  store i64 %210, ptr %206, align 8, !tbaa !124
+  %213 = load i64, ptr %7, align 8, !tbaa !66
+  %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %213, i64 1)
+  %214 = icmp ugt i64 %210, %spec.select.i.i.i
+  br i1 %214, label %215, label %216
 
-214:                                              ; preds = %211
+215:                                              ; preds = %212
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.184, i32 noundef 167, ptr noundef nonnull @.str.185) #21
   unreachable
 
-215:                                              ; preds = %211
-  %.not9.i.i.i = icmp eq ptr %204, @strbuf_slopbuf
-  br i1 %.not9.i.i.i, label %create_promisor_file.exit, label %216
+216:                                              ; preds = %212
+  %.not9.i.i.i = icmp eq ptr %205, @strbuf_slopbuf
+  br i1 %.not9.i.i.i, label %create_promisor_file.exit, label %217
 
-216:                                              ; preds = %215
-  store i8 0, ptr %210, align 1, !tbaa !12
+217:                                              ; preds = %216
+  store i8 0, ptr %211, align 1, !tbaa !12
   br label %create_promisor_file.exit
 
-217:                                              ; preds = %208, %199
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 874, ptr noundef nonnull @.str.124, ptr noundef nonnull %201) #21
+218:                                              ; preds = %209, %200
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 874, ptr noundef nonnull @.str.124, ptr noundef nonnull %202) #21
   unreachable
 
-create_promisor_file.exit:                        ; preds = %215, %216
+create_promisor_file.exit:                        ; preds = %216, %217
   call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull @.str.125, i64 noundef 9) #20
-  %218 = load ptr, ptr %203, align 8, !tbaa !67
-  call void @write_promisor_file(ptr noundef %218, ptr noundef %4, i32 noundef %5) #20
+  %219 = load ptr, ptr %204, align 8, !tbaa !67
+  call void @write_promisor_file(ptr noundef %219, ptr noundef %4, i32 noundef %5) #20
   call void @strbuf_release(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %219
+  br label %220
 
-219:                                              ; preds = %create_promisor_file.exit, %196, %193, %190
+220:                                              ; preds = %create_promisor_file.exit, %197, %194, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

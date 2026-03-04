@@ -3816,9 +3816,9 @@ define internal fastcc void @_ZN4llvm13SCEVTraversalIN12_GLOBAL__N_127SCEVCollec
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load i32, ptr %19, align 8, !tbaa !20, !noalias !213
   %21 = icmp ult i32 %14, %20
-  br i1 %21, label %.critedge29, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  br i1 %21, label %.critedge27, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-.critedge29:                                      ; preds = %._crit_edge.i.i
+.critedge27:                                      ; preds = %._crit_edge.i.i
   %22 = add nuw i32 %14, 1
   store i32 %22, ptr %13, align 4, !tbaa !23, !noalias !213
   store ptr %1, ptr %16, align 8, !tbaa !27, !noalias !213
@@ -3830,7 +3830,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.critedge
 
-26:                                               ; preds = %.critedge29, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+26:                                               ; preds = %.critedge27, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %27 = load ptr, ptr %0, align 8, !tbaa !216
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i16, ptr %28, align 8, !tbaa !28
@@ -4164,11 +4164,11 @@ _ZN12_GLOBAL__N_127SCEVCollectAddRecMultiplies6followEPKN4llvm4SCEVE.exit.thread
   %166 = add nuw nsw i64 %165, 1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull %167, i64 noundef %166, i64 noundef 8) #12
-  %.pre.i6 = load i32, ptr %160, align 8, !tbaa !9
+  %.pre.i5 = load i32, ptr %160, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds = %_ZN12_GLOBAL__N_127SCEVCollectAddRecMultiplies6followEPKN4llvm4SCEVE.exit.thread, %164
-  %168 = phi i32 [ %161, %_ZN12_GLOBAL__N_127SCEVCollectAddRecMultiplies6followEPKN4llvm4SCEVE.exit.thread ], [ %.pre.i6, %164 ]
+  %168 = phi i32 [ %161, %_ZN12_GLOBAL__N_127SCEVCollectAddRecMultiplies6followEPKN4llvm4SCEVE.exit.thread ], [ %.pre.i5, %164 ]
   %169 = load ptr, ptr %159, align 8, !tbaa !3
   %170 = zext i32 %168 to i64
   %171 = getelementptr inbounds nuw ptr, ptr %169, i64 %170

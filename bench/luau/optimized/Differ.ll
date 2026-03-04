@@ -1778,6 +1778,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %97, %104
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %113, ptr %117, align 8, !tbaa !32, !alias.scope !41
+  store ptr %110, ptr %107, align 8, !tbaa !24
   store i64 0, ptr %116, align 8, !tbaa !32
   store i8 0, ptr %110, align 8, !tbaa !30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -2042,6 +2043,7 @@ _ZNSt7__cxx119to_stringEm.exit59:                 ; preds = %209, %216
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %229 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %225, ptr %229, align 8, !tbaa !32, !alias.scope !50
+  store ptr %222, ptr %219, align 8, !tbaa !24
   store i64 0, ptr %228, align 8, !tbaa !32
   store i8 0, ptr %222, align 8, !tbaa !30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i65

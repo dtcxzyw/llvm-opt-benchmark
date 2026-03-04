@@ -28092,9 +28092,9 @@ _ZN4core3ops8function6FnOnce9call_once17h252ada55dccea298E.exit.thread252: ; pre
 146:                                              ; preds = %.lr.ph.i.i
   %147 = add i8 %128, -65
   %148 = icmp ult i8 %147, 26
-  %.sroa.011.0.i.i = select i1 %148, i8 32, i8 0
-  %149 = or i8 %.sroa.011.0.i.i, %128
-  %150 = zext nneg i8 %149 to i32
+  %149 = select i1 %148, i8 32, i8 0
+  %.sroa.011.0.i.i = or i8 %149, %128
+  %150 = zext nneg i8 %.sroa.011.0.i.i to i32
   invoke fastcc void @_ZN5alloc6string6String4push17h65f6c624e4e39ab4E(ptr noalias noundef align 8 dereferenceable(24) %24, i32 noundef %150)
           to label %160 unwind label %125, !noalias !5700
 

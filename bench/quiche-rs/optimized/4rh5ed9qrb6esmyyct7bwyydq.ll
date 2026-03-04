@@ -1165,9 +1165,9 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %.val5.i.i = load i8, ptr %55, align 1, !noalias !79, !noundef !3
   %56 = add i8 %.val5.i.i, -65
   %57 = icmp ult i8 %56, 26
-  %.sroa.0.0.i.i6.i.i = select i1 %57, i8 32, i8 0
-  %58 = or i8 %.sroa.0.0.i.i6.i.i, %.val5.i.i
-  %.not.i.i = icmp eq i8 %.val.i.i, %58
+  %58 = select i1 %57, i8 32, i8 0
+  %.sroa.0.0.i.i6.i.i = or i8 %58, %.val5.i.i
+  %.not.i.i = icmp eq i8 %.val.i.i, %.sroa.0.0.i.i6.i.i
   br i1 %.not.i.i, label %51, label %59
 
 59:                                               ; preds = %.lr.ph.i
@@ -1300,9 +1300,9 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %110 = load i8, ptr %109, align 1, !noalias !112, !noundef !3
   %111 = add i8 %110, -65
   %112 = icmp ult i8 %111, 26
-  %.sroa.03.0.i.i = select i1 %112, i8 32, i8 0
-  %113 = or i8 %.sroa.03.0.i.i, %110
-  store i8 %113, ptr %109, align 1, !noalias !112
+  %113 = select i1 %112, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %113, %110
+  store i8 %.sroa.03.0.i.i, ptr %109, align 1, !noalias !112
   %114 = add nuw i64 %.sroa.0.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %114, %88
   br i1 %exitcond.not.i.i, label %"_ZN5alloc5slice30_$LT$impl$u20$$u5b$u8$u5d$$GT$18to_ascii_lowercase17h75e47716e0e47689E.exit.i", label %.lr.ph.i.i

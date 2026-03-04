@@ -16921,7 +16921,7 @@ _ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit: ;
   %166 = phi i1 [ false, %_ZNK4llvm26LoopVectorizationCostModel33blockNeedsPredicationForAnyReasonEPNS_10BasicBlockE.exit ], [ %165, %163 ], [ false, %154 ], [ %161, %.lr.ph.i.i.i ]
   %167 = load i8, ptr %1, align 8, !tbaa !205
   %168 = icmp eq i8 %167, 61
-  br i1 %168, label %169, label %204
+  br i1 %168, label %169, label %205
 
 169:                                              ; preds = %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit
   %170 = load i32, ptr %35, align 8, !tbaa !907
@@ -16969,33 +16969,32 @@ _ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit: ; 
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !673
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread, label %204
+  br i1 %200, label %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread, label %205
 
 _ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread: ; preds = %.lr.ph.i.i.i.i.i63, %169, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %202 = load i32, ptr %201, align 8, !tbaa !320
   %203 = icmp ne i32 %202, 0
-  br label %204
+  %204 = or i1 %166, %203
+  br label %205
 
-204:                                              ; preds = %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit, %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit
-  %205 = phi i1 [ false, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit ], [ false, %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit ], [ %203, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread ]
+205:                                              ; preds = %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit, %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit
+  %or.cond5 = phi i1 [ %166, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit ], [ %166, %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit ], [ %204, %_ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thread ]
   %206 = icmp eq i8 %167, 62
-  br i1 %206, label %207, label %212
+  br i1 %206, label %207, label %213
 
-207:                                              ; preds = %204
+207:                                              ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %209 = load i32, ptr %208, align 8, !tbaa !920
   %210 = load i32, ptr %35, align 8, !tbaa !907
   %211 = icmp ult i32 %209, %210
-  br label %212
+  %212 = or i1 %or.cond5, %211
+  br i1 %212, label %214, label %.loopexit
 
-212:                                              ; preds = %207, %204
-  %213 = phi i1 [ false, %204 ], [ %211, %207 ]
-  %or.cond5 = or i1 %166, %205
-  %or.cond7 = or i1 %or.cond5, %213
-  br i1 %or.cond7, label %214, label %.loopexit
+213:                                              ; preds = %205
+  br i1 %or.cond5, label %214, label %.loopexit
 
-214:                                              ; preds = %212
+214:                                              ; preds = %207, %213
   %215 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %216 = load i8, ptr %215, align 4, !tbaa !921, !range !48, !noundef !49
   %217 = trunc nuw i8 %216 to i1
@@ -17032,8 +17031,8 @@ _ZNK4llvm15InterleaveGroupINS_11InstructionEE22requiresScalarEpilogueEv.exit.thr
   %228 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo18isLegalMaskedStoreEPNS_4TypeENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(8) %227, ptr noundef %.1.i67, i8 %.sroa.0.1.i) #30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit54._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57_crit_edge, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit61, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57, %219, %223, %214, %212, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit
-  %.0 = phi i1 [ %222, %219 ], [ false, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit ], [ %228, %223 ], [ true, %212 ], [ false, %214 ], [ false, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57 ], [ false, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit61 ], [ false, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit54._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57_crit_edge ]
+.loopexit:                                        ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit54._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57_crit_edge, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit61, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57, %207, %219, %223, %214, %213, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit
+  %.0 = phi i1 [ true, %207 ], [ false, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit ], [ %228, %223 ], [ true, %213 ], [ false, %214 ], [ %222, %219 ], [ false, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57 ], [ false, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit61 ], [ false, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit54._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit57_crit_edge ]
   ret i1 %.0
 }
 
@@ -40757,15 +40756,15 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_11Instru
   br i1 %37, label %_ZN4llvm12PatternMatch14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES5_Lj17ELb0EEENS_8SExtInstEE5matchIS4_EEbPT_.exit.sink.split.i, label %_ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES6_Lj17ELb0EEENS_8ZExtInstEEENS2_IS7_NS_8SExtInstEEEE5matchIS5_EEbPT_.exit
 
 _ZN4llvm12PatternMatch14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES5_Lj17ELb0EEENS_8SExtInstEE5matchIS4_EEbPT_.exit.sink.split.i: ; preds = %32, %14
-  %.sink17.i = phi i64 [ 8, %14 ], [ 24, %32 ]
+  %.sink12.i = phi i64 [ 8, %14 ], [ 24, %32 ]
   %.sink.i = phi ptr [ %17, %14 ], [ %35, %32 ]
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink17.i
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12.i
   %39 = load ptr, ptr %38, align 8, !tbaa !1495
   store ptr %.sink.i, ptr %39, align 8, !tbaa !673
   br label %_ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES6_Lj17ELb0EEENS_8ZExtInstEEENS2_IS7_NS_8SExtInstEEEE5matchIS5_EEbPT_.exit
 
 _ZN4llvm12PatternMatch16match_combine_orINS0_14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES6_Lj17ELb0EEENS_8ZExtInstEEENS2_IS7_NS_8SExtInstEEEE5matchIS5_EEbPT_.exit: ; preds = %4, %9, %14, %20, %22, %27, %32, %_ZN4llvm12PatternMatch14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES5_Lj17ELb0EEENS_8SExtInstEE5matchIS4_EEbPT_.exit.sink.split.i
-  %.0.i = phi i1 [ false, %4 ], [ false, %20 ], [ false, %22 ], [ false, %14 ], [ false, %32 ], [ false, %27 ], [ false, %9 ], [ true, %_ZN4llvm12PatternMatch14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES5_Lj17ELb0EEENS_8SExtInstEE5matchIS4_EEbPT_.exit.sink.split.i ]
+  %.0.i = phi i1 [ false, %14 ], [ false, %20 ], [ false, %22 ], [ false, %9 ], [ false, %32 ], [ false, %27 ], [ false, %4 ], [ true, %_ZN4llvm12PatternMatch14CastInst_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_11InstructionEEES5_Lj17ELb0EEENS_8SExtInstEE5matchIS4_EEbPT_.exit.sink.split.i ]
   ret i1 %.0.i
 }
 
@@ -62141,8 +62140,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %80
 93:                                               ; preds = %86
   %94 = getelementptr inbounds i8, ptr %88, i64 -32
   %95 = load ptr, ptr %94, align 8, !tbaa !206
-  %.not.i.not.i7.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.not.i7.i.i, label %.critedge, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit
+  %.not.i.not.i6.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.not.i6.i.i, label %.critedge, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit: ; preds = %93, %90
   %96 = phi ptr [ %92, %90 ], [ %95, %93 ]
@@ -62164,8 +62163,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_mat
 103:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit
   %104 = getelementptr inbounds i8, ptr %98, i64 -32
   %105 = load ptr, ptr %104, align 8, !tbaa !206
-  %.not.i.not.i7.i.i33 = icmp eq ptr %105, null
-  br i1 %.not.i.not.i7.i.i33, label %.critedge, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit36
+  %.not.i.not.i6.i.i33 = icmp eq ptr %105, null
+  br i1 %.not.i.not.i6.i.i33, label %.critedge, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit36
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit36: ; preds = %103, %100
   %storemerge76 = phi ptr [ %102, %100 ], [ %105, %103 ]

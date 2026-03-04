@@ -2175,7 +2175,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit144:               ; preds = %175, %180
   %192 = load ptr, ptr %191, align 8, !tbaa !92
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef null, ptr noundef %192, ptr noundef nonnull align 4 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %193 = or disjoint i32 %128, %186
+  %193 = or disjoint i32 %128, %21
   br label %196
 
 .thread25:                                        ; preds = %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit
@@ -2185,6 +2185,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit144:               ; preds = %175, %180
 .thread25._crit_edge:                             ; preds = %.thread25
   %.pre59 = shl nuw nsw i32 %4, 28
   %.pre60 = select i1 %24, i32 1073741824, i32 0
+  %.pre62 = or disjoint i32 %.pre59, %.pre60
   br label %196
 
 195:                                              ; preds = %.thread25
@@ -2192,18 +2193,17 @@ _ZN4llvmplERKNS_5TwineES2_.exit144:               ; preds = %175, %180
   br label %.critedge
 
 196:                                              ; preds = %.thread25._crit_edge, %185
-  %.pre-phi61 = phi i32 [ %.pre60, %.thread25._crit_edge ], [ %187, %185 ]
-  %.25628 = phi i32 [ %.pre59, %.thread25._crit_edge ], [ %193, %185 ]
+  %.pre-phi63 = phi i32 [ %.pre62, %.thread25._crit_edge ], [ %188, %185 ]
+  %.25628 = phi i32 [ %21, %.thread25._crit_edge ], [ %193, %185 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %197 = or disjoint i32 %.25628, %.pre-phi61
-  %198 = or i32 %21, %197
-  %199 = or i32 %198, -2147483648
-  store i32 %199, ptr %15, align 4, !tbaa !109
-  %200 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %53, ptr %200, align 4, !tbaa !111
-  %201 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %202 = load ptr, ptr %201, align 8, !tbaa !92
-  call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef null, ptr noundef %202, ptr noundef nonnull align 4 dereferenceable(8) %15)
+  %197 = or i32 %.pre-phi63, %.25628
+  %198 = or i32 %197, -2147483648
+  store i32 %198, ptr %15, align 4, !tbaa !109
+  %199 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %53, ptr %199, align 4, !tbaa !111
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !92
+  call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef null, ptr noundef %201, ptr noundef nonnull align 4 dereferenceable(8) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge
 

@@ -597,14 +597,14 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %102, label %41, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %96
-  %or.cond4 = and i1 %36, %.166
-  br i1 %or.cond4, label %103, label %._crit_edge95.thread
+  %103 = and i1 %36, %.166
+  br i1 %103, label %104, label %._crit_edge95.thread
 
-103:                                              ; preds = %._crit_edge95
+104:                                              ; preds = %._crit_edge95
   tail call void @lv_obj_refresh_style(ptr noundef nonnull %0, i32 noundef %5, i8 noundef zeroext %.06386)
   br label %._crit_edge95.thread
 
-._crit_edge95.thread:                             ; preds = %.thread, %103, %._crit_edge95
+._crit_edge95.thread:                             ; preds = %.thread, %104, %._crit_edge95
   ret void
 }
 

@@ -8341,14 +8341,14 @@ _ZN4http6header5value11HeaderValue6to_str17hec6e329186dcccdcE.exit: ; preds = %1
   %39 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1040, !noundef !7
   %40 = add i8 %39, -65
   %41 = icmp ult i8 %40, 26
-  %.sroa.04.0.i = select i1 %41, i8 32, i8 0
-  %42 = or i8 %.sroa.04.0.i, %39
+  %42 = select i1 %41, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %42, %39
   %43 = load i8, ptr %.sroa.02.0.i, align 1, !noalias !1040, !noundef !7
   %44 = add i8 %43, -65
   %45 = icmp ult i8 %44, 26
-  %.sroa.05.0.i = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.sroa.05.0.i, %43
-  %47 = icmp eq i8 %42, %46
+  %46 = select i1 %45, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %46, %43
+  %47 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %47, label %33, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit"
 
 48:                                               ; preds = %28

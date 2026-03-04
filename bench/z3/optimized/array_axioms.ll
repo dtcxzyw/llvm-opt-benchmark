@@ -7493,11 +7493,11 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %._crit_edge
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 4
   %77 = select i1 %73, i1 %76, i1 false
+  %78 = or i1 %.03750, %77
   br label %_ZNK17array_recognizers10is_defaultEP4expr.exit
 
 _ZNK17array_recognizers10is_defaultEP4expr.exit:  ; preds = %59, %66, %71
-  %78 = phi i1 [ false, %59 ], [ false, %66 ], [ %77, %71 ]
-  %79 = or i1 %.03750, %78
+  %79 = phi i1 [ %.03750, %59 ], [ %.03750, %66 ], [ %78, %71 ]
   %80 = getelementptr inbounds nuw i8, ptr %.03651, i64 8
   %.not39 = icmp eq ptr %80, %55
   br i1 %.not39, label %._crit_edge53, label %59

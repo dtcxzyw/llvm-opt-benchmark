@@ -1039,13 +1039,13 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4St
   %.tr121.ph178 = phi i1 [ %.tr121169, %.thread108 ], [ %4, %5 ]
   %.tr120.ph177 = phi i1 [ %.tr120.ph124172, %.thread108 ], [ %3, %5 ]
   %.tr119.ph176 = phi ptr [ null, %.thread108 ], [ %2, %5 ]
-  %.tr.ph175 = phi ptr [ %80, %.thread108 ], [ %0, %5 ]
+  %.tr.ph175 = phi ptr [ %82, %.thread108 ], [ %0, %5 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer122
   %.tr121.ph125173 = phi i1 [ %.tr121.ph178, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer122 ]
-  %.tr120.ph124172 = phi i1 [ %.tr120.ph177, %.lr.ph.lr.ph ], [ %68, %tailrecurse.outer122 ]
-  %.tr.ph123171 = phi ptr [ %.tr.ph175, %.lr.ph.lr.ph ], [ %73, %tailrecurse.outer122 ]
+  %.tr120.ph124172 = phi i1 [ %.tr120.ph177, %.lr.ph.lr.ph ], [ %70, %tailrecurse.outer122 ]
+  %.tr.ph123171 = phi ptr [ %.tr.ph175, %.lr.ph.lr.ph ], [ %75, %tailrecurse.outer122 ]
   br label %6
 
 6:                                                ; preds = %.lr.ph, %tailrecurse
@@ -1112,7 +1112,7 @@ tailrecurse:                                      ; preds = %17
     i16 48, label %55
     i16 5, label %.critedge2.loopexit343
     i16 120, label %59
-    i16 4, label %74
+    i16 4, label %76
   ]
 
 28:                                               ; preds = %25
@@ -1186,77 +1186,83 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   %62 = and i32 %61, 63
   %63 = add nsw i32 %62, -19
   %64 = icmp ult i32 %63, 2
-  %65 = add nsw i32 %62, -9
-  %66 = icmp ult i32 %65, 7
-  %67 = select i1 %64, i1 true, i1 %66
-  %68 = and i1 %.tr120.ph124172, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !215
-  %71 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef %.tr119.ph176, i1 noundef zeroext %68, i1 noundef zeroext false)
-  br i1 %71, label %.critedge2, label %tailrecurse.outer122
+  br i1 %64, label %69, label %65
 
-tailrecurse.outer122:                             ; preds = %59
-  %72 = getelementptr inbounds nuw i8, ptr %.270, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !215
-  %.not167 = icmp eq ptr %73, null
+65:                                               ; preds = %59
+  %66 = add nsw i32 %62, -9
+  %67 = icmp ult i32 %66, 7
+  %68 = and i1 %.tr120.ph124172, %67
+  br label %69
+
+69:                                               ; preds = %65, %59
+  %70 = phi i1 [ %.tr120.ph124172, %59 ], [ %68, %65 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.270, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !215
+  %73 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef %.tr119.ph176, i1 noundef zeroext %70, i1 noundef zeroext false)
+  br i1 %73, label %.critedge2, label %tailrecurse.outer122
+
+tailrecurse.outer122:                             ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %.270, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !215
+  %.not167 = icmp eq ptr %75, null
   br i1 %.not167, label %.critedge2, label %.lr.ph
 
-74:                                               ; preds = %25
-  %75 = load i32, ptr %.270, align 8
-  %76 = lshr i32 %75, 19
-  %77 = and i32 %76, 31
-  switch i32 %77, label %.critedge2 [
-    i32 9, label %78
-    i32 7, label %78
+76:                                               ; preds = %25
+  %77 = load i32, ptr %.270, align 8
+  %78 = lshr i32 %77, 19
+  %79 = and i32 %78, 31
+  switch i32 %79, label %.critedge2 [
+    i32 9, label %80
+    i32 7, label %80
   ]
 
-78:                                               ; preds = %74, %74
+80:                                               ; preds = %76, %76
   %.not89 = icmp eq ptr %.tr119.ph176, null
-  br i1 %.not89, label %.thread108, label %81
+  br i1 %.not89, label %.thread108, label %83
 
-.thread108:                                       ; preds = %78
-  %79 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !222
-  %.not167170 = icmp eq ptr %80, null
+.thread108:                                       ; preds = %80
+  %81 = getelementptr inbounds nuw i8, ptr %.270, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !222
+  %.not167170 = icmp eq ptr %82, null
   br i1 %.not167170, label %.critedge2, label %.lr.ph.lr.ph
 
-81:                                               ; preds = %78
+83:                                               ; preds = %80
   %.sroa.0.0.copyload.i98 = load i32, ptr %.tr119.ph176, align 4, !tbaa !205
-  %82 = icmp eq i32 %.sroa.0.0.copyload.i98, 0
-  %83 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !222
-  %85 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.tr119.ph176, i1 noundef zeroext %.tr120.ph124172, i1 noundef zeroext %.tr121169)
-  br i1 %82, label %86, label %.critedge2
+  %84 = icmp eq i32 %.sroa.0.0.copyload.i98, 0
+  %85 = getelementptr inbounds nuw i8, ptr %.270, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !222
+  %87 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.tr119.ph176, i1 noundef zeroext %.tr120.ph124172, i1 noundef zeroext %.tr121169)
+  br i1 %84, label %88, label %.critedge2
 
-86:                                               ; preds = %81
+88:                                               ; preds = %83
   %.sroa.0.0.copyload.i99 = load i32, ptr %.tr119.ph176, align 4, !tbaa !205
   %.not116 = icmp eq i32 %.sroa.0.0.copyload.i99, 0
-  br i1 %.not116, label %.critedge2, label %87
+  br i1 %.not116, label %.critedge2, label %89
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %83, align 8, !tbaa !222
-  %89 = tail call noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #17
-  %90 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %89) #17
-  %.sroa.0.0.extract.trunc = trunc i64 %90 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %90, 32
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %85, align 8, !tbaa !222
+  %91 = tail call noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #17
+  %92 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %91) #17
+  %.sroa.0.0.extract.trunc = trunc i64 %92 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %92, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %91 = icmp eq i32 %.sroa.0.0.copyload.i99, %.sroa.0.0.extract.trunc
-  %92 = getelementptr inbounds nuw i8, ptr %.tr119.ph176, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %93, %.sroa.5.0.extract.trunc
-  %95 = select i1 %91, i1 %94, i1 false
-  br i1 %95, label %96, label %.critedge2
+  %93 = icmp eq i32 %.sroa.0.0.copyload.i99, %.sroa.0.0.extract.trunc
+  %94 = getelementptr inbounds nuw i8, ptr %.tr119.ph176, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, %.sroa.5.0.extract.trunc
+  %97 = select i1 %93, i1 %96, i1 false
+  br i1 %97, label %98, label %.critedge2
 
-96:                                               ; preds = %87
-  %97 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.270) #17
-  store i64 %97, ptr %.tr119.ph176, align 4
+98:                                               ; preds = %89
+  %99 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.270) #17
+  store i64 %99, ptr %.tr119.ph176, align 4
   br label %.critedge2
 
 .critedge2.loopexit343:                           ; preds = %25
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.thread108, %74, %59, %tailrecurse.outer122, %tailrecurse, %25, %.critedge2.loopexit343, %5, %28, %35, %86, %81, %45, %55, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit, %.loopexit, %.critedge, %53, %87, %96
-  %.0 = phi i1 [ %85, %81 ], [ false, %28 ], [ false, %25 ], [ false, %35 ], [ %48, %45 ], [ %85, %86 ], [ %58, %55 ], [ false, %.loopexit ], [ %85, %87 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ %54, %53 ], [ true, %.critedge ], [ %85, %96 ], [ false, %5 ], [ true, %.critedge2.loopexit343 ], [ false, %tailrecurse ], [ false, %tailrecurse.outer122 ], [ true, %59 ], [ false, %74 ], [ false, %.thread108 ]
+.critedge2:                                       ; preds = %.thread108, %76, %69, %tailrecurse.outer122, %tailrecurse, %25, %.critedge2.loopexit343, %5, %28, %35, %88, %83, %45, %55, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit, %.loopexit, %.critedge, %53, %89, %98
+  %.0 = phi i1 [ %87, %83 ], [ false, %28 ], [ false, %25 ], [ false, %35 ], [ %48, %45 ], [ %87, %88 ], [ %58, %55 ], [ false, %.loopexit ], [ %87, %89 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ %54, %53 ], [ true, %.critedge ], [ %87, %98 ], [ false, %5 ], [ true, %.critedge2.loopexit343 ], [ false, %tailrecurse ], [ false, %tailrecurse.outer122 ], [ true, %69 ], [ false, %76 ], [ false, %.thread108 ]
   ret i1 %.0
 }
 

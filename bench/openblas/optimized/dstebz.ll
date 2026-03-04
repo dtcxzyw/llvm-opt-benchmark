@@ -259,16 +259,16 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge.loopexit:                             ; preds = %129
   %.pre = load i32, ptr %2, align 4, !tbaa !3
   %133 = sext i32 %130 to i64
+  %134 = fmul double %80, %131
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %97
-  %134 = phi double [ %131, %._crit_edge.loopexit ], [ 1.000000e+00, %97 ]
-  %135 = phi i64 [ %133, %._crit_edge.loopexit ], [ 1, %97 ]
-  %136 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %98, %97 ]
-  %137 = getelementptr inbounds i32, ptr %32, i64 %135
-  store i32 %136, ptr %137, align 4, !tbaa !3
-  %138 = fmul double %80, %134
-  store double %138, ptr %29, align 8, !tbaa !7
+  %135 = phi double [ %134, %._crit_edge.loopexit ], [ %80, %97 ]
+  %136 = phi i64 [ %133, %._crit_edge.loopexit ], [ 1, %97 ]
+  %137 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %98, %97 ]
+  %138 = getelementptr inbounds i32, ptr %32, i64 %136
+  store i32 %137, ptr %138, align 4, !tbaa !3
+  store double %135, ptr %29, align 8, !tbaa !7
   %139 = icmp eq i32 %.1649, 3
   %140 = load double, ptr %8, align 8, !tbaa !7
   %141 = load i32, ptr %2, align 4, !tbaa !3
@@ -337,13 +337,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %177 = sitofp i32 %157 to double
   %178 = fneg double %176
   %179 = tail call double @llvm.fmuladd.f64(double %178, double %177, double %166)
-  %180 = fneg double %138
+  %180 = fneg double %135
   %181 = tail call double @llvm.fmuladd.f64(double %180, double 4.200000e+00, double %179)
   %182 = tail call double @llvm.fmuladd.f64(double %176, double %177, double %163)
-  %183 = tail call double @llvm.fmuladd.f64(double %138, double 2.100000e+00, double %182)
-  %184 = fadd double %138, %174
+  %183 = tail call double @llvm.fmuladd.f64(double %135, double 2.100000e+00, double %182)
+  %184 = fadd double %135, %174
   %185 = tail call double @log(double noundef %184) #6, !tbaa !3
-  %186 = tail call double @log(double noundef %138) #6, !tbaa !3
+  %186 = tail call double @log(double noundef %135) #6, !tbaa !3
   %187 = fsub double %185, %186
   %188 = fdiv double %187, 0x3FE62E42FEFA39EF
   %189 = fptosi double %188 to i32

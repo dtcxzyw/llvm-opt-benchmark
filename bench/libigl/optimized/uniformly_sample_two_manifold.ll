@@ -2096,11 +2096,11 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin
 
 ._crit_edge1610.us.loopexit:                      ; preds = %798
   %789 = icmp ne i32 %778, %799
+  %790 = or i1 %.02381611.us, %789
   br label %._crit_edge1610.us
 
 ._crit_edge1610.us:                               ; preds = %._crit_edge1610.us.loopexit, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us
-  %790 = phi i1 [ %789, %._crit_edge1610.us.loopexit ], [ false, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us ]
-  %791 = or i1 %.02381611.us, %790
+  %791 = phi i1 [ %790, %._crit_edge1610.us.loopexit ], [ %.02381611.us, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us ]
   call void @free(ptr noundef %.sroa.0784.31398.us) #19
   %indvars.iv.next1698 = add nuw nsw i64 %indvars.iv1697, 1
   %exitcond1700.not = icmp ne i64 %indvars.iv.next1698, %wide.trip.count

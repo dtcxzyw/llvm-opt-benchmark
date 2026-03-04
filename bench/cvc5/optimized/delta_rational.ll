@@ -113,6 +113,7 @@ define hidden void @_ZNK4cvc58internal13DeltaRational8toStringB5cxx11Ev(ptr dead
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !15, !alias.scope !9
+  store ptr %11, ptr %8, align 8, !tbaa !12
   store i64 0, ptr %17, align 8, !tbaa !15
   store i8 0, ptr %11, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

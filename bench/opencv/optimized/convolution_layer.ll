@@ -13926,12 +13926,12 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i21
   %60 = sext i32 %59 to i64
+  %61 = mul i64 %.reass, %60
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %45, %.preheader.i
-  %.024.i = phi i64 [ 0, %45 ], [ 1, %.preheader.i ], [ %60, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
-  %61 = mul i64 %.reass, %.024.i
-  %62 = uitofp i64 %61 to float
+  %.024.i = phi i64 [ 0, %45 ], [ %.reass, %.preheader.i ], [ %61, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
+  %62 = uitofp i64 %.024.i to float
   %63 = fadd float %.01625, %62
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12

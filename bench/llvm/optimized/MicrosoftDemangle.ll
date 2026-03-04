@@ -1959,7 +1959,7 @@ _ZN4llvm11ms_demangle9Demangler18demangleDeclaratorERSt17basic_string_viewIcSt11
   br label %116
 
 116:                                              ; preds = %115, %122
-  %.not.not48 = phi i1 [ true, %115 ], [ false, %122 ]
+  %.not.not48 = phi i1 [ %35, %115 ], [ false, %122 ]
   %117 = phi i64 [ %.promoted, %115 ], [ %124, %122 ]
   %.sroa.2.0.copyload.i394546 = phi ptr [ %.sroa.2.0..sroa_idx.i.promoted, %115 ], [ %123, %122 ]
   %118 = icmp eq i64 %117, 0
@@ -1979,8 +1979,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   store ptr %123, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !39
   %124 = add i64 %117, -1
   store i64 %124, ptr %1, align 8, !tbaa !33
-  %.not.not = and i1 %35, %.not.not48
-  br i1 %.not.not, label %116, label %.critedge, !llvm.loop !96
+  br i1 %.not.not48, label %116, label %.critedge, !llvm.loop !96
 
 .critedge:                                        ; preds = %122
   %125 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler24demangleFunctionEncodingERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)

@@ -1217,13 +1217,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i: ; preds = %195
   %204 = load i64, ptr %60, align 8, !tbaa !32, !noalias !72
   %.pre.i = load i64, ptr %61, align 8, !tbaa !37, !noalias !72
-  store ptr %60, ptr %15, align 8, !tbaa !33, !noalias !72
   store i64 %204, ptr %62, align 8, !tbaa !32, !alias.scope !72
   br label %205
 
 205:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i
   %.sink = phi ptr [ %62, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %199, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
   %206 = phi i64 [ %201, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %.pre.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
+  store ptr %60, ptr %15, align 8, !tbaa !33, !noalias !72
   store i64 0, ptr %61, align 8, !tbaa !37, !noalias !72
   store i8 0, ptr %60, align 8, !tbaa !32, !noalias !72
   store ptr %.sink, ptr %14, align 8, !tbaa !29, !alias.scope !72
@@ -1826,13 +1826,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i159: ; preds = %408
   %417 = load i64, ptr %68, align 8, !tbaa !32, !noalias !101
   %.pre.i161 = load i64, ptr %69, align 8, !tbaa !37, !noalias !101
-  store ptr %68, ptr %26, align 8, !tbaa !33, !noalias !101
   store i64 %417, ptr %70, align 8, !tbaa !32, !alias.scope !101
   br label %418
 
 418:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i159, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i163
   %.sink612 = phi ptr [ %70, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i163 ], [ %412, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i159 ]
   %419 = phi i64 [ %414, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i163 ], [ %.pre.i161, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i159 ]
+  store ptr %68, ptr %26, align 8, !tbaa !33, !noalias !101
   store i64 0, ptr %69, align 8, !tbaa !37, !noalias !101
   store i8 0, ptr %68, align 8, !tbaa !32, !noalias !101
   store ptr %.sink612, ptr %25, align 8, !tbaa !29, !alias.scope !101
@@ -7812,13 +7812,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i: ; preds = %225
   %234 = load i64, ptr %45, align 8, !tbaa !32, !noalias !294
   %.pre.i = load i64, ptr %46, align 8, !tbaa !37, !noalias !294
-  store ptr %45, ptr %15, align 8, !tbaa !33, !noalias !294
   store i64 %234, ptr %47, align 8, !tbaa !32, !alias.scope !294
   br label %235
 
 235:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i
   %.sink = phi ptr [ %47, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %229, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
   %236 = phi i64 [ %231, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %.pre.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
+  store ptr %45, ptr %15, align 8, !tbaa !33, !noalias !294
   store i64 0, ptr %46, align 8, !tbaa !37, !noalias !294
   store i8 0, ptr %45, align 8, !tbaa !32, !noalias !294
   store ptr %.sink, ptr %14, align 8, !tbaa !29, !alias.scope !294
@@ -8423,13 +8423,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i196: ; preds = %425
   %434 = load i64, ptr %53, align 8, !tbaa !32, !noalias !303
   %.pre.i198 = load i64, ptr %54, align 8, !tbaa !37, !noalias !303
-  store ptr %53, ptr %26, align 8, !tbaa !33, !noalias !303
   store i64 %434, ptr %55, align 8, !tbaa !32, !alias.scope !303
   br label %435
 
 435:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i196, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i200
   %.sink579 = phi ptr [ %55, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i200 ], [ %429, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i196 ]
   %436 = phi i64 [ %431, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i200 ], [ %.pre.i198, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i196 ]
+  store ptr %53, ptr %26, align 8, !tbaa !33, !noalias !303
   store i64 0, ptr %54, align 8, !tbaa !37, !noalias !303
   store i8 0, ptr %53, align 8, !tbaa !32, !noalias !303
   store ptr %.sink579, ptr %25, align 8, !tbaa !29, !alias.scope !303
@@ -9932,13 +9932,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i: ; preds = %273
   %282 = load i64, ptr %42, align 8, !tbaa !32, !noalias !321
   %.pre.i = load i64, ptr %43, align 8, !tbaa !37, !noalias !321
-  store ptr %42, ptr %17, align 8, !tbaa !33, !noalias !321
   store i64 %282, ptr %44, align 8, !tbaa !32, !alias.scope !321
   br label %283
 
 283:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i
   %.sink = phi ptr [ %44, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %277, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
   %284 = phi i64 [ %279, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %.pre.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
+  store ptr %42, ptr %17, align 8, !tbaa !33, !noalias !321
   store i64 0, ptr %43, align 8, !tbaa !37, !noalias !321
   store i8 0, ptr %42, align 8, !tbaa !32, !noalias !321
   store ptr %.sink, ptr %16, align 8, !tbaa !29, !alias.scope !321
@@ -22499,13 +22499,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i: ; preds = %247
   %256 = load i64, ptr %59, align 8, !tbaa !32, !noalias !564
   %.pre.i = load i64, ptr %60, align 8, !tbaa !37, !noalias !564
-  store ptr %59, ptr %20, align 8, !tbaa !33, !noalias !564
   store i64 %256, ptr %61, align 8, !tbaa !32, !alias.scope !564
   br label %257
 
 257:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i
   %.sink = phi ptr [ %61, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %251, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
   %258 = phi i64 [ %253, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i ], [ %.pre.i, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i ]
+  store ptr %59, ptr %20, align 8, !tbaa !33, !noalias !564
   store i64 0, ptr %60, align 8, !tbaa !37, !noalias !564
   store i8 0, ptr %59, align 8, !tbaa !32, !noalias !564
   store ptr %.sink, ptr %19, align 8, !tbaa !29, !alias.scope !564
@@ -23176,13 +23176,13 @@ _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i242: ; preds = %458
   %467 = load i64, ptr %70, align 8, !tbaa !32, !noalias !577
   %.pre.i244 = load i64, ptr %71, align 8, !tbaa !37, !noalias !577
-  store ptr %70, ptr %36, align 8, !tbaa !33, !noalias !577
   store i64 %467, ptr %72, align 8, !tbaa !32, !alias.scope !577
   br label %468
 
 468:                                              ; preds = %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i242, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i246
   %.sink610 = phi ptr [ %72, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i246 ], [ %462, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i242 ]
   %469 = phi i64 [ %464, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.thread.i246 ], [ %.pre.i244, %_ZN7testing8internal9EqMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit.i242 ]
+  store ptr %70, ptr %36, align 8, !tbaa !33, !noalias !577
   store i64 0, ptr %71, align 8, !tbaa !37, !noalias !577
   store i8 0, ptr %70, align 8, !tbaa !32, !noalias !577
   store ptr %.sink610, ptr %35, align 8, !tbaa !29, !alias.scope !577

@@ -12982,19 +12982,19 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %656 = icmp eq i32 %654, %651
   %or.cond3 = or i1 %637, %656
   %or.cond411 = select i1 %655, i1 true, i1 %or.cond3
-  br i1 %or.cond411, label %661, label %657
+  br i1 %or.cond411, label %662, label %657
 
 657:                                              ; preds = %648
   %658 = load i32, ptr %77, align 4, !tbaa !76, !llvm.access.group !396
   %659 = add nsw i32 %658, -1
   %660 = icmp eq i32 %636, %659
-  br label %661
+  %661 = and i1 %127, %660
+  br label %662
 
-661:                                              ; preds = %657, %648
-  %662 = phi i1 [ %660, %657 ], [ true, %648 ]
+662:                                              ; preds = %657, %648
+  %or.cond.i267 = phi i1 [ %661, %657 ], [ %127, %648 ]
   %663 = load i32, ptr %10, align 4, !tbaa !76, !llvm.access.group !396
   %664 = icmp ne i32 %663, 1
-  %or.cond.i267 = and i1 %127, %662
   %665 = select i1 %or.cond.i267, i32 0, i32 %566
   %666 = add nsw i32 %663, -1
   %667 = select i1 %or.cond.i267, i32 %666, i32 %568
@@ -13002,7 +13002,7 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %.not2421275 = select i1 %664, i1 %668, i1 false
   br i1 %.not2421275, label %._crit_edge1282, label %.lr.ph1281
 
-.lr.ph1281:                                       ; preds = %661
+.lr.ph1281:                                       ; preds = %662
   %669 = select i1 %664, i32 %665, i32 %567
   %670 = sext i32 %654 to i64
   br label %671
@@ -14688,12 +14688,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit333:       ; preds = %_ZNSt10filesystem7_
   %.pre1643 = load i32, ptr %85, align 4, !tbaa !76, !llvm.access.group !396
   br label %._crit_edge1282
 
-._crit_edge1282:                                  ; preds = %._crit_edge1282.loopexit, %661
-  %1485 = phi i32 [ %649, %661 ], [ %.pre1643, %._crit_edge1282.loopexit ]
-  %1486 = phi i32 [ %650, %661 ], [ %.pre1643, %._crit_edge1282.loopexit ]
-  %.sroa.0383.10.lcssa = phi float [ %.sroa.0383.91287, %661 ], [ %.sroa.0383.11.lcssa, %._crit_edge1282.loopexit ]
-  %.sroa.0385.10.lcssa = phi float [ %.sroa.0385.91288, %661 ], [ %.sroa.0385.11.lcssa, %._crit_edge1282.loopexit ]
-  %.sroa.0.10.lcssa = phi i32 [ %.sroa.0.91289, %661 ], [ %.sroa.0.11.lcssa, %._crit_edge1282.loopexit ]
+._crit_edge1282:                                  ; preds = %._crit_edge1282.loopexit, %662
+  %1485 = phi i32 [ %649, %662 ], [ %.pre1643, %._crit_edge1282.loopexit ]
+  %1486 = phi i32 [ %650, %662 ], [ %.pre1643, %._crit_edge1282.loopexit ]
+  %.sroa.0383.10.lcssa = phi float [ %.sroa.0383.91287, %662 ], [ %.sroa.0383.11.lcssa, %._crit_edge1282.loopexit ]
+  %.sroa.0385.10.lcssa = phi float [ %.sroa.0385.91288, %662 ], [ %.sroa.0385.11.lcssa, %._crit_edge1282.loopexit ]
+  %.sroa.0.10.lcssa = phi i32 [ %.sroa.0.91289, %662 ], [ %.sroa.0.11.lcssa, %._crit_edge1282.loopexit ]
   %1487 = add nsw i32 %.02121290, 1
   %1488 = icmp eq i32 %1486, 1
   %1489 = add nsw i32 %1486, -1

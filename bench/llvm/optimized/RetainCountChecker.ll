@@ -3162,12 +3162,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br label %57
 
 57:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %55, %27
-  %.sroa.032.1 = phi i64 [ 0, %27 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %.sroa.0.0.copyload.i, %55 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread ]
+  %.sroa.031.1 = phi i64 [ 0, %27 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %.sroa.0.0.copyload.i, %55 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 58:                                               ; preds = %19, %57, %3
-  %.sroa.032.0 = phi i64 [ 0, %3 ], [ %.sroa.032.1, %57 ], [ 0, %19 ]
+  %.sroa.031.0 = phi i64 [ 0, %3 ], [ %.sroa.031.1, %57 ], [ 0, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = load ptr, ptr %1, align 8, !tbaa !231
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
@@ -3263,9 +3263,8 @@ _ZNK5clang4ento14ObjCMethodCall15getMethodFamilyEv.exit.i.i: ; preds = %88, %83
   br label %_ZL10getSummaryRN5clang4ento20RetainSummaryManagerERKNS0_9CallEventENS_8QualTypeE.exit
 
 _ZL10getSummaryRN5clang4ento20RetainSummaryManagerERKNS0_9CallEventENS_8QualTypeE.exit: ; preds = %69, %_ZNK5clang4ento14ObjCMethodCall15getMethodFamilyEv.exit.i.i, %92, %94
-  %.07.i.i = phi i1 [ %105, %94 ], [ false, %92 ], [ false, %_ZNK5clang4ento14ObjCMethodCall15getMethodFamilyEv.exit.i.i ], [ undef, %69 ]
-  %spec.select.i.i30 = and i1 %.not.i.i29, %.07.i.i
-  %106 = call noundef ptr @_ZN5clang4ento20RetainSummaryManager10getSummaryENS_7AnyCallEbbNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %14, ptr noundef nonnull byval(%"class.clang::AnyCall") align 8 %5, i1 noundef zeroext %70, i1 noundef zeroext %spec.select.i.i30, i64 %.sroa.032.0) #21
+  %.07.i.i = phi i1 [ %105, %94 ], [ false, %92 ], [ false, %_ZNK5clang4ento14ObjCMethodCall15getMethodFamilyEv.exit.i.i ], [ false, %69 ]
+  %106 = call noundef ptr @_ZN5clang4ento20RetainSummaryManager10getSummaryENS_7AnyCallEbbNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %14, ptr noundef nonnull byval(%"class.clang::AnyCall") align 8 %5, i1 noundef zeroext %70, i1 noundef zeroext %.07.i.i, i64 %.sroa.031.0) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %108 = load i8, ptr %107, align 8, !tbaa !731, !range !242, !noundef !243

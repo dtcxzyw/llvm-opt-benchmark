@@ -1763,8 +1763,8 @@ read_number.exit:                                 ; preds = %.preheader.i
   store ptr %.1.i, ptr %7, align 8, !tbaa !21
   br label %.lr.ph237
 
-read_number.exit.thread:                          ; preds = %62, %.lr.ph.i, %57
-  %.3.i.ph = phi ptr [ %53, %57 ], [ %.275.i, %.lr.ph.i ], [ %scevgep.i, %62 ]
+read_number.exit.thread:                          ; preds = %.lr.ph.i, %62, %57
+  %.3.i.ph = phi ptr [ %53, %57 ], [ %scevgep.i, %62 ], [ %.275.i, %.lr.ph.i ]
   store ptr %.3.i.ph, ptr %7, align 8, !tbaa !21
   br label %._crit_edge
 
@@ -1973,9 +1973,9 @@ read_number.exit165.thread.thread:                ; preds = %80, %.critedge28, %
   store i32 %116, ptr %3, align 4, !tbaa !22
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.i162, %99, %read_number.exit.thread, %94, %69, %114, %115, %105
-  %117 = phi ptr [ %112, %115 ], [ %112, %114 ], [ %102, %105 ], [ %90, %94 ], [ %.3.i.ph, %read_number.exit.thread ], [ %.promoted250.pre298, %69 ], [ %.275.i163, %.lr.ph.i162 ], [ %scevgep.i161, %99 ]
-  %.097 = phi i32 [ 1, %115 ], [ 1, %114 ], [ 0, %105 ], [ 0, %94 ], [ 0, %read_number.exit.thread ], [ 0, %69 ], [ 0, %99 ], [ 0, %.lr.ph.i162 ]
+._crit_edge:                                      ; preds = %99, %.lr.ph.i162, %read_number.exit.thread, %94, %69, %114, %115, %105
+  %117 = phi ptr [ %112, %115 ], [ %112, %114 ], [ %102, %105 ], [ %90, %94 ], [ %.3.i.ph, %read_number.exit.thread ], [ %.promoted250.pre298, %69 ], [ %scevgep.i161, %99 ], [ %.275.i163, %.lr.ph.i162 ]
+  %.097 = phi i32 [ 1, %115 ], [ 1, %114 ], [ 0, %105 ], [ 0, %94 ], [ 0, %read_number.exit.thread ], [ 0, %69 ], [ 0, %.lr.ph.i162 ], [ 0, %99 ]
   store ptr %117, ptr %0, align 8, !tbaa !21
   br label %.critedge6
 
@@ -2014,104 +2014,103 @@ define internal fastcc range(i32 0, 2) i32 @read_number(ptr noundef nonnull capt
 
 19:                                               ; preds = %12, %14, %17, %7
   %.056 = phi i32 [ %15, %14 ], [ %3, %17 ], [ %3, %12 ], [ %3, %7 ]
-  %20 = phi i1 [ true, %14 ], [ true, %17 ], [ false, %12 ], [ false, %7 ]
-  %21 = phi i1 [ true, %14 ], [ false, %17 ], [ false, %12 ], [ false, %7 ]
+  %or.cond = phi i1 [ true, %14 ], [ true, %17 ], [ false, %12 ], [ false, %7 ]
+  %20 = phi i1 [ true, %14 ], [ false, %17 ], [ false, %12 ], [ false, %7 ]
   %.050 = phi ptr [ %16, %14 ], [ %18, %17 ], [ %9, %12 ], [ %9, %7 ]
   %.05081 = ptrtoint ptr %.050 to i64
   %.not = icmp ult ptr %.050, %1
-  br i1 %.not, label %22, label %56
+  br i1 %.not, label %21, label %55
 
-22:                                               ; preds = %19
-  %23 = load i8, ptr %.050, align 1, !tbaa !23
-  %24 = add i8 %23, -48
-  %or.cond69 = icmp ult i8 %24, 10
-  br i1 %or.cond69, label %.preheader, label %56
+21:                                               ; preds = %19
+  %22 = load i8, ptr %.050, align 1, !tbaa !23
+  %23 = add i8 %22, -48
+  %or.cond69 = icmp ult i8 %23, 10
+  br i1 %or.cond69, label %.preheader, label %55
 
-.preheader:                                       ; preds = %22, %29
-  %.051 = phi i32 [ %34, %29 ], [ 0, %22 ]
-  %.1 = phi ptr [ %32, %29 ], [ %.050, %22 ]
-  %25 = icmp ult ptr %.1, %1
-  br i1 %25, label %26, label %.critedge
+.preheader:                                       ; preds = %21, %28
+  %.051 = phi i32 [ %33, %28 ], [ 0, %21 ]
+  %.1 = phi ptr [ %31, %28 ], [ %.050, %21 ]
+  %24 = icmp ult ptr %.1, %1
+  br i1 %24, label %25, label %.critedge
 
-26:                                               ; preds = %.preheader
-  %27 = load i8, ptr %.1, align 1, !tbaa !23
-  %28 = add i8 %27, -48
-  %or.cond70 = icmp ult i8 %28, 10
-  br i1 %or.cond70, label %29, label %.critedge
+25:                                               ; preds = %.preheader
+  %26 = load i8, ptr %.1, align 1, !tbaa !23
+  %27 = add i8 %26, -48
+  %or.cond70 = icmp ult i8 %27, 10
+  br i1 %or.cond70, label %28, label %.critedge
 
-29:                                               ; preds = %26
-  %30 = zext nneg i8 %27 to i32
-  %31 = mul i32 %.051, 10
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %33 = add i32 %31, -48
-  %34 = add i32 %33, %30
-  %35 = icmp ugt i32 %34, %.056
-  br i1 %35, label %36, label %.preheader
+28:                                               ; preds = %25
+  %29 = zext nneg i8 %26 to i32
+  %30 = mul i32 %.051, 10
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %32 = add i32 %30, -48
+  %33 = add i32 %32, %29
+  %34 = icmp ugt i32 %33, %.056
+  br i1 %34, label %35, label %.preheader
 
-36:                                               ; preds = %29
+35:                                               ; preds = %28
   store i32 %4, ptr %6, align 4, !tbaa !22
-  %37 = icmp ult ptr %32, %1
-  br i1 %37, label %.lr.ph.preheader, label %.critedge2
+  %36 = icmp ult ptr %31, %1
+  br i1 %36, label %.lr.ph.preheader, label %.critedge2
 
-.lr.ph.preheader:                                 ; preds = %36
-  %38 = sub i64 %8, %.05081
-  %scevgep = getelementptr i8, ptr %.050, i64 %38
+.lr.ph.preheader:                                 ; preds = %35
+  %37 = sub i64 %8, %.05081
+  %scevgep = getelementptr i8, ptr %.050, i64 %37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.275 = phi ptr [ %42, %41 ], [ %32, %.lr.ph.preheader ]
-  %39 = load i8, ptr %.275, align 1, !tbaa !23
-  %40 = add i8 %39, -48
-  %or.cond71 = icmp ult i8 %40, 10
-  br i1 %or.cond71, label %41, label %.critedge2
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %.275 = phi ptr [ %41, %40 ], [ %31, %.lr.ph.preheader ]
+  %38 = load i8, ptr %.275, align 1, !tbaa !23
+  %39 = add i8 %38, -48
+  %or.cond71 = icmp ult i8 %39, 10
+  br i1 %or.cond71, label %40, label %.critedge2
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.275, i64 1
-  %43 = icmp ult ptr %42, %1
-  br i1 %43, label %.lr.ph, label %.critedge2
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds nuw i8, ptr %.275, i64 1
+  %42 = icmp ult ptr %41, %1
+  br i1 %42, label %.lr.ph, label %.critedge2
 
-.critedge:                                        ; preds = %.preheader, %26
-  %or.cond = and i1 %10, %20
-  br i1 %or.cond, label %44, label %.critedge2
+.critedge:                                        ; preds = %.preheader, %25
+  br i1 %or.cond, label %43, label %.critedge2
 
-44:                                               ; preds = %.critedge
-  %45 = icmp eq i32 %.051, 0
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %.critedge
+  %44 = icmp eq i32 %.051, 0
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   store i32 126, ptr %6, align 4, !tbaa !22
   br label %.critedge2
 
-47:                                               ; preds = %44
-  br i1 %21, label %48, label %50
+46:                                               ; preds = %43
+  br i1 %20, label %47, label %49
 
-48:                                               ; preds = %47
-  %49 = add i32 %.051, %2
+47:                                               ; preds = %46
+  %48 = add i32 %.051, %2
   br label %.critedge2
 
-50:                                               ; preds = %47
-  %51 = icmp ugt i32 %.051, %2
-  br i1 %51, label %52, label %53
+49:                                               ; preds = %46
+  %50 = icmp ugt i32 %.051, %2
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   store i32 115, ptr %6, align 4, !tbaa !22
   br label %.critedge2
 
-53:                                               ; preds = %50
-  %54 = add nuw nsw i32 %2, 1
-  %55 = sub nuw nsw i32 %54, %.051
+52:                                               ; preds = %49
+  %53 = add nuw nsw i32 %2, 1
+  %54 = sub nuw i32 %53, %.051
   br label %.critedge2
 
-.critedge2:                                       ; preds = %41, %.lr.ph, %36, %.critedge, %53, %48, %52, %46
-  %.152 = phi i32 [ %.051, %52 ], [ %55, %53 ], [ %.051, %.critedge ], [ 0, %46 ], [ %49, %48 ], [ %34, %36 ], [ %34, %.lr.ph ], [ %34, %41 ]
-  %.3 = phi ptr [ %.1, %52 ], [ %.1, %53 ], [ %.1, %.critedge ], [ %.1, %46 ], [ %.1, %48 ], [ %32, %36 ], [ %scevgep, %41 ], [ %.275, %.lr.ph ]
-  %.0 = phi i32 [ 0, %52 ], [ 1, %53 ], [ 1, %.critedge ], [ 0, %46 ], [ 1, %48 ], [ 0, %36 ], [ 0, %.lr.ph ], [ 0, %41 ]
+.critedge2:                                       ; preds = %40, %.lr.ph, %35, %.critedge, %52, %47, %51, %45
+  %.152 = phi i32 [ %.051, %51 ], [ %54, %52 ], [ %.051, %.critedge ], [ 0, %45 ], [ %48, %47 ], [ %33, %35 ], [ %33, %.lr.ph ], [ %33, %40 ]
+  %.3 = phi ptr [ %.1, %51 ], [ %.1, %52 ], [ %.1, %.critedge ], [ %.1, %45 ], [ %.1, %47 ], [ %31, %35 ], [ %scevgep, %40 ], [ %.275, %.lr.ph ]
+  %.0 = phi i32 [ 0, %51 ], [ 1, %52 ], [ 1, %.critedge ], [ 0, %45 ], [ 1, %47 ], [ 0, %35 ], [ 0, %.lr.ph ], [ 0, %40 ]
   store i32 %.152, ptr %5, align 4, !tbaa !22
   store ptr %.3, ptr %0, align 8, !tbaa !21
-  br label %56
+  br label %55
 
-56:                                               ; preds = %19, %22, %.critedge2
-  %.055 = phi i32 [ %.0, %.critedge2 ], [ 0, %22 ], [ 0, %19 ]
+55:                                               ; preds = %19, %21, %.critedge2
+  %.055 = phi i32 [ %.0, %.critedge2 ], [ 0, %21 ], [ 0, %19 ]
   ret i32 %.055
 }
 

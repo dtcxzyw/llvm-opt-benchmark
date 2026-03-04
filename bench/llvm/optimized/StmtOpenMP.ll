@@ -372,11 +372,11 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.ptr55 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.ptr55, ptr %3, align 8, !tbaa !34
+  %.ptr54 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.ptr54, ptr %3, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4, ptr %9, align 4, !tbaa !36
-  store ptr %5, ptr %.ptr55, align 8, !tbaa !37
+  store ptr %5, ptr %.ptr54, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %10, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -389,7 +389,7 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %.lr.ph.i.i.i.i.i.i.i.i
-  %14 = phi ptr [ %.ptr55, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre, %thread-pre-split.backedge ]
+  %14 = phi ptr [ %.ptr54, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre, %thread-pre-split.backedge ]
   %.pr = phi i32 [ 1, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pr.pre, %thread-pre-split.backedge ]
   %.2.ph = phi ptr [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.2.ph.be, %thread-pre-split.backedge ]
   br label %15
@@ -416,31 +416,31 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %27 = zext i32 %26 to i64
   %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
-  %.not2660 = icmp eq i32 %26, 0
-  br i1 %.not2660, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph
+  %.not2659 = icmp eq i32 %26, 0
+  br i1 %.not2659, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
-  %.462 = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.2.ph, %23 ]
-  %.02061 = phi ptr [ %62, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %24, %23 ]
-  %29 = load ptr, ptr %.02061, align 8, !tbaa !11
+  %.461 = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.2.ph, %23 ]
+  %.02060 = phi ptr [ %62, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %24, %23 ]
+  %29 = load ptr, ptr %.02060, align 8, !tbaa !11
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %30
 
 30:                                               ; preds = %.lr.ph
   %31 = load i16, ptr %29, align 8
   %32 = and i16 %31, 511
-  %.not57 = icmp eq i16 %32, 237
-  br i1 %.not57, label %33, label %36
+  %.not56 = icmp eq i16 %32, 237
+  br i1 %.not56, label %33, label %36
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !11
-  %.pre67 = load i16, ptr %35, align 8
-  %.pre70 = and i16 %.pre67, 511
+  %.pre66 = load i16, ptr %35, align 8
+  %.pre69 = and i16 %.pre66, 511
   br label %36
 
 36:                                               ; preds = %33, %30
-  %.pre-phi = phi i16 [ %.pre70, %33 ], [ %32, %30 ]
+  %.pre-phi = phi i16 [ %.pre69, %33 ], [ %32, %30 ]
   %.045 = phi ptr [ %35, %33 ], [ %29, %30 ]
   switch i16 %.pre-phi, label %37 [
     i16 243, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit
@@ -500,7 +500,7 @@ _ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = 
   ]
 
 _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = %36, %36, %42
-  %.not30 = icmp eq ptr %.462, null
+  %.not30 = icmp eq ptr %.461, null
   br i1 %.not30, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit
 
 _ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread: ; preds = %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %37, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit
@@ -540,18 +540,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exi
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread, %46, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit
-  %.6.ph = phi ptr [ %.462, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.462, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.462, %.lr.ph ], [ %.462, %46 ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
-  %62 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
+  %.6.ph = phi ptr [ %.461, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.461, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.461, %.lr.ph ], [ %.461, %46 ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %.02060, i64 8
   %.not26 = icmp eq ptr %62, %28
   br i1 %.not26, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit, label %.lr.ph
 
 _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
   %.5.ph = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %0, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
-  %.pre68 = load i32, ptr %10, align 8, !tbaa !39
+  %.pre67 = load i32, ptr %10, align 8, !tbaa !39
   br label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
 
 _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit, %23
-  %63 = phi i32 [ %22, %23 ], [ %.pre68, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
+  %63 = phi i32 [ %22, %23 ], [ %.pre67, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
   %.5 = phi ptr [ %.2.ph, %23 ], [ %.5.ph, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
   %.not.i36 = icmp eq i32 %63, 0
   br i1 %.not.i36, label %64, label %thread-pre-split.backedge
@@ -586,7 +586,7 @@ thread-pre-split.backedge:                        ; preds = %65, %_ZN4llvm3isaIN
 _ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit: ; preds = %.loopexit, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = load ptr, ptr %3, align 8, !tbaa !34
-  %70 = icmp eq ptr %69, %.ptr55
+  %70 = icmp eq ptr %69, %.ptr54
   br i1 %70, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37, label %71
 
 71:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit
@@ -812,8 +812,8 @@ select.unfold:                                    ; preds = %10, %.select.unfold
   br i1 %exitcond.not, label %.thread49, label %.preheader, !llvm.loop !33
 
 .thread49:                                        ; preds = %33, %31, %22, %6
-  %.lcssa = phi i1 [ true, %6 ], [ true, %22 ], [ false, %31 ], [ true, %33 ]
-  ret i1 %.lcssa
+  %.1 = phi i1 [ true, %6 ], [ true, %22 ], [ false, %31 ], [ true, %33 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

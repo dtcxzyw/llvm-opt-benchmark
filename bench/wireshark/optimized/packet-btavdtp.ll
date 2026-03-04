@@ -2679,19 +2679,19 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = load i32, ptr @hf_aptx_data, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread99, label %23
+  br i1 %.not, label %.thread101, label %23
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not72 = icmp eq ptr %25, null
-  br i1 %.not72, label %.thread99, label %26
+  br i1 %.not72, label %.thread101, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = icmp ugt i8 %28, 8
-  br i1 %29, label %30, label %.thread99
+  br i1 %29, label %30, label %.thread101
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %25, i64 8
@@ -2706,201 +2706,201 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = and i8 %32, 15
   %38 = tail call range(i8 0, 5) i8 @llvm.ctpop.i8(i8 %37)
   %39 = icmp eq i8 %38, 1
-  br i1 %39, label %44, label %42
+  br i1 %39, label %.split1, label %54
 
 40:                                               ; preds = %30
   %41 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %143
+  br label %142
 
-42:                                               ; preds = %.split
-  %43 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %143
-
-44:                                               ; preds = %.split
-  %45 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %34, i1 true)
-  %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.dissect_aptx, i64 %46
+.split1:                                          ; preds = %.split
+  %42 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %34, i1 true)
+  %43 = zext nneg i32 %42 to i64
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.dissect_aptx, i64 %43
   %switch.load = load double, ptr %switch.gep, align 8
-  %47 = icmp eq i8 %37, 8
-  %. = select i1 %47, double 1.000000e+00, double 2.000000e+00
-  %48 = fmul nnan double %., %switch.load
-  %49 = fdiv nnan double 1.600000e+01, %48
-  %50 = fmul nnan double %49, 1.000000e+03
-  %51 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %52 = uitofp i32 %51 to double
-  %53 = fmul nnan double %52, 2.500000e-01
-  %54 = fmul double %50, %53
-  %55 = load i32, ptr @hf_aptx_cumulative_frame_duration, align 4
-  %56 = tail call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %54)
-  %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %57
+  %44 = icmp eq i8 %37, 8
+  %45 = fmul nnan double %switch.load, 2.000000e+00
+  %.067.ph = select i1 %44, double %switch.load, double %45
+  %46 = fdiv double 1.600000e+01, %.067.ph
+  %47 = fmul double %46, 1.000000e+03
+  %48 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %49 = uitofp i32 %48 to double
+  %50 = fmul nnan double %49, 2.500000e-01
+  %51 = fmul double %47, %50
+  %52 = load i32, ptr @hf_aptx_cumulative_frame_duration, align 4
+  %53 = tail call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %51)
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %56
 
-57:                                               ; preds = %44
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %.not5.i = icmp eq ptr %59, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %60
+54:                                               ; preds = %.split
+  %55 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %142
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = or i32 %62, 2
-  store i32 %63, ptr %61, align 4
+56:                                               ; preds = %.split1
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %.not5.i = icmp eq ptr %58, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %59
+
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %61 = load i32, ptr %60, align 4
+  %62 = or i32 %61, 2
+  store i32 %62, ptr %60, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %44, %57, %60
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %65 = load ptr, ptr %64, align 8
-  %.not73 = icmp eq ptr %65, null
-  br i1 %.not73, label %.thread99, label %66
+proto_item_set_generated.exit:                    ; preds = %.split1, %56, %59
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %64 = load ptr, ptr %63, align 8
+  %.not73 = icmp eq ptr %64, null
+  br i1 %.not73, label %.thread101, label %65
 
-66:                                               ; preds = %proto_item_set_generated.exit
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %.not74 = icmp eq ptr %68, null
-  br i1 %.not74, label %.thread99, label %69
+65:                                               ; preds = %proto_item_set_generated.exit
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %.not74 = icmp eq ptr %67, null
+  br i1 %.not74, label %.thread101, label %68
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %70, ptr noundef nonnull %65)
-  %71 = load i32, ptr @hf_aptx_delta_time, align 4
-  %72 = call double @nstime_to_msec(ptr noundef nonnull %5)
-  %73 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %72)
-  %.not.i76 = icmp eq ptr %73, null
-  br i1 %.not.i76, label %proto_item_set_generated.exit78, label %74
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %69, ptr noundef nonnull %64)
+  %70 = load i32, ptr @hf_aptx_delta_time, align 4
+  %71 = call double @nstime_to_msec(ptr noundef nonnull %5)
+  %72 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %71)
+  %.not.i76 = icmp eq ptr %72, null
+  br i1 %.not.i76, label %proto_item_set_generated.exit78, label %73
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %76 = load ptr, ptr %75, align 8
-  %.not5.i77 = icmp eq ptr %76, null
-  br i1 %.not5.i77, label %proto_item_set_generated.exit78, label %77
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %75 = load ptr, ptr %74, align 8
+  %.not5.i77 = icmp eq ptr %75, null
+  br i1 %.not5.i77, label %proto_item_set_generated.exit78, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = or i32 %79, 2
-  store i32 %80, ptr %78, align 4
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = or i32 %78, 2
+  store i32 %79, ptr %77, align 4
   br label %proto_item_set_generated.exit78
 
-proto_item_set_generated.exit78:                  ; preds = %69, %74, %77
-  %81 = load i32, ptr @hf_aptx_avrcp_song_position, align 4
-  %82 = load ptr, ptr %64, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %84 = load double, ptr %83, align 8
-  %85 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %84)
-  %.not.i79 = icmp eq ptr %85, null
-  br i1 %.not.i79, label %proto_item_set_generated.exit81, label %86
+proto_item_set_generated.exit78:                  ; preds = %68, %73, %76
+  %80 = load i32, ptr @hf_aptx_avrcp_song_position, align 4
+  %81 = load ptr, ptr %63, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %83 = load double, ptr %82, align 8
+  %84 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %83)
+  %.not.i79 = icmp eq ptr %84, null
+  br i1 %.not.i79, label %proto_item_set_generated.exit81, label %85
 
-86:                                               ; preds = %proto_item_set_generated.exit78
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %88 = load ptr, ptr %87, align 8
-  %.not5.i80 = icmp eq ptr %88, null
-  br i1 %.not5.i80, label %proto_item_set_generated.exit81, label %89
+85:                                               ; preds = %proto_item_set_generated.exit78
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %.not5.i80 = icmp eq ptr %87, null
+  br i1 %.not5.i80, label %proto_item_set_generated.exit81, label %88
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = or i32 %91, 2
-  store i32 %92, ptr %90, align 4
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 28
+  %90 = load i32, ptr %89, align 4
+  %91 = or i32 %90, 2
+  store i32 %91, ptr %89, align 4
   br label %proto_item_set_generated.exit81
 
-proto_item_set_generated.exit81:                  ; preds = %proto_item_set_generated.exit78, %86, %89
-  %93 = load ptr, ptr %64, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %70, ptr noundef nonnull %94)
-  %95 = load i32, ptr @hf_aptx_delta_time_from_the_beginning, align 4
-  %96 = call double @nstime_to_msec(ptr noundef nonnull %5)
-  %97 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %96)
-  %.not.i82 = icmp eq ptr %97, null
-  br i1 %.not.i82, label %proto_item_set_generated.exit84, label %98
+proto_item_set_generated.exit81:                  ; preds = %proto_item_set_generated.exit78, %85, %88
+  %92 = load ptr, ptr %63, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %69, ptr noundef nonnull %93)
+  %94 = load i32, ptr @hf_aptx_delta_time_from_the_beginning, align 4
+  %95 = call double @nstime_to_msec(ptr noundef nonnull %5)
+  %96 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %95)
+  %.not.i82 = icmp eq ptr %96, null
+  br i1 %.not.i82, label %proto_item_set_generated.exit84, label %97
 
-98:                                               ; preds = %proto_item_set_generated.exit81
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %.not5.i83 = icmp eq ptr %100, null
-  br i1 %.not5.i83, label %proto_item_set_generated.exit84, label %101
+97:                                               ; preds = %proto_item_set_generated.exit81
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %.not5.i83 = icmp eq ptr %99, null
+  br i1 %.not5.i83, label %proto_item_set_generated.exit84, label %100
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 28
-  %103 = load i32, ptr %102, align 4
-  %104 = or i32 %103, 2
-  store i32 %104, ptr %102, align 4
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 28
+  %102 = load i32, ptr %101, align 4
+  %103 = or i32 %102, 2
+  store i32 %103, ptr %101, align 4
   br label %proto_item_set_generated.exit84
 
-proto_item_set_generated.exit84:                  ; preds = %proto_item_set_generated.exit81, %98, %101
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 57
-  %108 = load i16, ptr %107, align 1
-  %109 = and i16 %108, 8
-  %.not75 = icmp eq i16 %109, 0
-  br i1 %.not75, label %110, label %115
+proto_item_set_generated.exit84:                  ; preds = %proto_item_set_generated.exit81, %97, %100
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 57
+  %107 = load i16, ptr %106, align 1
+  %108 = and i16 %107, 8
+  %.not75 = icmp eq i16 %108, 0
+  br i1 %.not75, label %109, label %114
 
-110:                                              ; preds = %proto_item_set_generated.exit84
-  %111 = load ptr, ptr %67, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %113 = load double, ptr %112, align 8
-  %114 = fadd double %54, %113
-  store double %114, ptr %112, align 8
-  br label %115
+109:                                              ; preds = %proto_item_set_generated.exit84
+  %110 = load ptr, ptr %66, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %112 = load double, ptr %111, align 8
+  %113 = fadd double %51, %112
+  store double %113, ptr %111, align 8
+  br label %114
 
-115:                                              ; preds = %110, %proto_item_set_generated.exit84
-  %116 = load i32, ptr @hf_aptx_cumulative_duration, align 4
-  %117 = load ptr, ptr %64, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %119 = load double, ptr %118, align 8
-  %120 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %119)
-  %.not.i85 = icmp eq ptr %120, null
-  br i1 %.not.i85, label %proto_item_set_generated.exit87, label %121
+114:                                              ; preds = %109, %proto_item_set_generated.exit84
+  %115 = load i32, ptr @hf_aptx_cumulative_duration, align 4
+  %116 = load ptr, ptr %63, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %118 = load double, ptr %117, align 8
+  %119 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %118)
+  %.not.i85 = icmp eq ptr %119, null
+  br i1 %.not.i85, label %proto_item_set_generated.exit87, label %120
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %123 = load ptr, ptr %122, align 8
-  %.not5.i86 = icmp eq ptr %123, null
-  br i1 %.not5.i86, label %proto_item_set_generated.exit87, label %124
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %.not5.i86 = icmp eq ptr %122, null
+  br i1 %.not5.i86, label %proto_item_set_generated.exit87, label %123
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %126 = load i32, ptr %125, align 4
-  %127 = or i32 %126, 2
-  store i32 %127, ptr %125, align 4
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %125 = load i32, ptr %124, align 4
+  %126 = or i32 %125, 2
+  store i32 %126, ptr %124, align 4
   br label %proto_item_set_generated.exit87
 
-proto_item_set_generated.exit87:                  ; preds = %115, %121, %124
-  %128 = load i32, ptr @hf_aptx_diff, align 4
-  %129 = load ptr, ptr %64, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %131 = load double, ptr %130, align 8
-  %132 = call double @nstime_to_msec(ptr noundef nonnull %5)
-  %133 = fsub double %131, %132
-  %134 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %133)
-  %.not.i88 = icmp eq ptr %134, null
-  br i1 %.not.i88, label %proto_item_set_generated.exit90, label %135
+proto_item_set_generated.exit87:                  ; preds = %114, %120, %123
+  %127 = load i32, ptr @hf_aptx_diff, align 4
+  %128 = load ptr, ptr %63, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %130 = load double, ptr %129, align 8
+  %131 = call double @nstime_to_msec(ptr noundef nonnull %5)
+  %132 = fsub double %130, %131
+  %133 = call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %127, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %132)
+  %.not.i88 = icmp eq ptr %133, null
+  br i1 %.not.i88, label %proto_item_set_generated.exit90, label %134
 
-135:                                              ; preds = %proto_item_set_generated.exit87
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %137 = load ptr, ptr %136, align 8
-  %.not5.i89 = icmp eq ptr %137, null
-  br i1 %.not5.i89, label %proto_item_set_generated.exit90, label %138
+134:                                              ; preds = %proto_item_set_generated.exit87
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %136 = load ptr, ptr %135, align 8
+  %.not5.i89 = icmp eq ptr %136, null
+  br i1 %.not5.i89, label %proto_item_set_generated.exit90, label %137
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 28
-  %140 = load i32, ptr %139, align 4
-  %141 = or i32 %140, 2
-  store i32 %141, ptr %139, align 4
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 28
+  %139 = load i32, ptr %138, align 4
+  %140 = or i32 %139, 2
+  store i32 %140, ptr %138, align 4
   br label %proto_item_set_generated.exit90
 
-proto_item_set_generated.exit90:                  ; preds = %proto_item_set_generated.exit87, %135, %138
+proto_item_set_generated.exit90:                  ; preds = %proto_item_set_generated.exit87, %134, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread99
+  br label %.thread101
 
-.thread99:                                        ; preds = %proto_item_set_generated.exit, %66, %proto_item_set_generated.exit90, %26, %23, %15
-  %142 = call i32 @tvb_reported_length(ptr noundef %0)
-  br label %143
+.thread101:                                       ; preds = %proto_item_set_generated.exit, %65, %proto_item_set_generated.exit90, %26, %23, %15
+  %141 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %142
 
-143:                                              ; preds = %40, %42, %.thread99
-  %.1 = phi i32 [ %142, %.thread99 ], [ %41, %40 ], [ %43, %42 ]
+142:                                              ; preds = %40, %54, %.thread101
+  %.1 = phi i32 [ %141, %.thread101 ], [ %41, %40 ], [ %55, %54 ]
   ret i32 %.1
 }
 

@@ -5232,11 +5232,11 @@ _ZN8rationalpLERKS_.exit211:                      ; preds = %328
   %352 = load i32, ptr %347, align 8
   %353 = icmp eq i32 %352, 1
   %354 = select i1 %351, i1 %353, i1 false
+  %355 = and i1 %.0141324, %354
   br label %_ZNK8rational6is_oneEv.exit
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %346, %337
-  %355 = phi i1 [ false, %337 ], [ %354, %346 ]
-  %356 = and i1 %.0141324, %355
+  %356 = phi i1 [ false, %337 ], [ %355, %346 ]
   %357 = getelementptr inbounds nuw i8, ptr %.0139325, i64 40
   %.not = icmp eq ptr %357, %304
   br i1 %.not, label %._crit_edge327, label %.lr.ph326

@@ -8495,7 +8495,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 24
   %355 = load ptr, ptr %354, align 8
   %356 = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(40) %351) #15
-  br i1 %356, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %.preheader.i
+  br i1 %356, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %352
   br i1 %.not1936.i, label %.lr.ph.i166, label %.critedge.i164
@@ -8514,7 +8514,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread
   %363 = call noundef i32 %362(ptr noundef nonnull align 8 dereferenceable(40) %359, i32 noundef %.01637.i) #15
   %364 = and i32 %363, 2
   %.not.i167 = icmp eq i32 %364, 0
-  br i1 %.not.i167, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %357
+  br i1 %.not.i167, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %357
 
 .critedge.i164:                                   ; preds = %357, %.preheader.i
   %365 = load ptr, ptr %8, align 8, !tbaa !443
@@ -8523,7 +8523,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread
   %368 = load ptr, ptr %367, align 8
   %369 = call noundef i32 %368(ptr noundef nonnull align 8 dereferenceable(40) %365, i32 noundef %.04.i) #15
   %370 = icmp eq i32 %369, 2
-  br i1 %370, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %371
+  br i1 %370, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %371
 
 371:                                              ; preds = %.critedge.i164
   %372 = and i32 %369, 1
@@ -8551,12 +8551,12 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread
 382:                                              ; preds = %376
   %383 = and i32 %380, 4
   %.not14.i.i = icmp eq i32 %383, 0
-  br i1 %.not14.i.i, label %375, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, !llvm.loop !446
+  br i1 %.not14.i.i, label %375, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, !llvm.loop !446
 
 _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i: ; preds = %376, %375, %371
   %384 = and i32 %369, 4
   %.not21.i = icmp eq i32 %384, 0
-  br i1 %.not21.i, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %385
+  br i1 %.not21.i, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %385
 
 385:                                              ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i
   %386 = load ptr, ptr %8, align 8, !tbaa !443
@@ -8566,7 +8566,7 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   %.013.in.i.i = phi i32 [ %.04.i, %385 ], [ %.013.i.i, %394 ]
   %.013.i.i = add i32 %.013.in.i.i, 1
   %.not.i22.i = icmp ugt i32 %.013.i.i, %.sroa.speculated
-  br i1 %.not.i22.i, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %388
+  br i1 %.not.i22.i, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %388
 
 388:                                              ; preds = %387
   %389 = load ptr, ptr %386, align 8, !tbaa !30
@@ -8574,20 +8574,20 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   %391 = load ptr, ptr %390, align 8
   %392 = call noundef i32 %391(ptr noundef nonnull align 8 dereferenceable(40) %386, i32 noundef %.013.i.i) #15
   %393 = icmp eq i32 %392, 4
-  br i1 %393, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, label %394
+  br i1 %393, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, label %394
 
 394:                                              ; preds = %388
   %395 = and i32 %392, 1
   %.not15.i.i = icmp eq i32 %395, 0
-  br i1 %.not15.i.i, label %387, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, !llvm.loop !447
+  br i1 %.not15.i.i, label %387, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i, !llvm.loop !447
 
-_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i: ; preds = %.lr.ph.i166, %382, %388, %387, %394, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i, %.critedge.i164, %352
-  %.1.ph.i = phi i1 [ false, %352 ], [ false, %394 ], [ false, %382 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i ], [ true, %.critedge.i164 ], [ true, %388 ], [ false, %387 ], [ true, %.lr.ph.i166 ]
+_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i: ; preds = %.lr.ph.i166, %382, %388, %387, %394, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i, %.critedge.i164, %352
+  %.1.ph.i = phi i1 [ false, %352 ], [ false, %382 ], [ false, %394 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i ], [ true, %.critedge.i164 ], [ true, %388 ], [ false, %387 ], [ true, %.lr.ph.i166 ]
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !443
   %.not.i23.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i23.i, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i: ; preds = %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i
+_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i: ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i
   %396 = load ptr, ptr %.pr.i, align 8, !tbaa !30
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8
@@ -8595,7 +8595,7 @@ _ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i: ; preds = %_ZL27pre
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.1.ph.i, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread, label %.thread228
 
-_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit: ; preds = %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i
+_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit: ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.1.ph.i, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit.thread, label %.thread228
 
@@ -8659,7 +8659,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thr
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 24
   %421 = load ptr, ptr %420, align 8
   %422 = call noundef zeroext i1 %421(ptr noundef nonnull align 8 dereferenceable(40) %417) #15
-  br i1 %422, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %.preheader.i169
+  br i1 %422, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %.preheader.i169
 
 .preheader.i169:                                  ; preds = %418
   br i1 %.not1936.i, label %.lr.ph.i193, label %.critedge.i171
@@ -8678,7 +8678,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thr
   %429 = call noundef i32 %428(ptr noundef nonnull align 8 dereferenceable(40) %425, i32 noundef %.01637.i194) #15
   %430 = and i32 %429, 2
   %.not.i195 = icmp eq i32 %430, 0
-  br i1 %.not.i195, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %423
+  br i1 %.not.i195, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %423
 
 .critedge.i171:                                   ; preds = %423, %.preheader.i169
   %431 = load ptr, ptr %7, align 8, !tbaa !443
@@ -8687,7 +8687,7 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thr
   %434 = load ptr, ptr %433, align 8
   %435 = call noundef i32 %434(ptr noundef nonnull align 8 dereferenceable(40) %431, i32 noundef %.04.i) #15
   %436 = icmp eq i32 %435, 2
-  br i1 %436, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %437
+  br i1 %436, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %437
 
 437:                                              ; preds = %.critedge.i171
   %438 = and i32 %435, 1
@@ -8715,12 +8715,12 @@ _ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thr
 448:                                              ; preds = %442
   %449 = and i32 %446, 4
   %.not14.i.i176 = icmp eq i32 %449, 0
-  br i1 %.not14.i.i176, label %441, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, !llvm.loop !446
+  br i1 %.not14.i.i176, label %441, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, !llvm.loop !446
 
 _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185: ; preds = %442, %441, %437
   %450 = and i32 %435, 4
   %.not21.i186 = icmp eq i32 %450, 0
-  br i1 %.not21.i186, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %451
+  br i1 %.not21.i186, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %451
 
 451:                                              ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185
   %452 = load ptr, ptr %7, align 8, !tbaa !443
@@ -8730,7 +8730,7 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   %.013.in.i.i187 = phi i32 [ %.04.i, %451 ], [ %.013.i.i188, %460 ]
   %.013.i.i188 = add i32 %.013.in.i.i187, 1
   %.not.i22.i189 = icmp ugt i32 %.013.i.i188, %.04.i147
-  br i1 %.not.i22.i189, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %454
+  br i1 %.not.i22.i189, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %454
 
 454:                                              ; preds = %453
   %455 = load ptr, ptr %452, align 8, !tbaa !30
@@ -8738,20 +8738,20 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   %457 = load ptr, ptr %456, align 8
   %458 = call noundef i32 %457(ptr noundef nonnull align 8 dereferenceable(40) %452, i32 noundef %.013.i.i188) #15
   %459 = icmp eq i32 %458, 4
-  br i1 %459, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, label %460
+  br i1 %459, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, label %460
 
 460:                                              ; preds = %454
   %461 = and i32 %458, 1
   %.not15.i.i190 = icmp eq i32 %461, 0
-  br i1 %.not15.i.i190, label %453, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177, !llvm.loop !447
+  br i1 %.not15.i.i190, label %453, label %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177, !llvm.loop !447
 
-_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177: ; preds = %.lr.ph.i193, %448, %454, %453, %460, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185, %.critedge.i171, %418
-  %.1.ph.i178 = phi i1 [ false, %418 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185 ], [ false, %448 ], [ false, %460 ], [ true, %.critedge.i171 ], [ true, %454 ], [ true, %453 ], [ true, %.lr.ph.i193 ]
+_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177: ; preds = %.lr.ph.i193, %448, %454, %453, %460, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185, %.critedge.i171, %418
+  %.1.ph.i178 = phi i1 [ false, %418 ], [ false, %448 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i185 ], [ false, %460 ], [ true, %.critedge.i171 ], [ true, %454 ], [ true, %453 ], [ true, %.lr.ph.i193 ]
   %.pr.i179 = load ptr, ptr %7, align 8, !tbaa !443
   %.not.i23.i180 = icmp eq ptr %.pr.i179, null
   br i1 %.not.i23.i180, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i181
 
-_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i181: ; preds = %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177
+_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i181: ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177
   %462 = load ptr, ptr %.pr.i179, align 8, !tbaa !30
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load ptr, ptr %463, align 8
@@ -8759,7 +8759,7 @@ _ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i181: ; preds = %_ZL27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.1.ph.i178, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thread, label %.thread228
 
-_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197: ; preds = %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i177
+_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197: ; preds = %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.i177
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.1.ph.i178, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit197.thread, label %.thread228
 

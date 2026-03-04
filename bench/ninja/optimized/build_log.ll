@@ -1674,6 +1674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.assume(i1 %157)
   %158 = add nuw nsw i64 %156, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %64, ptr noundef nonnull align 8 dereferenceable(1) %60, i64 %158, i1 false)
+  store ptr %60, ptr %12, align 8, !tbaa !10
   store i64 0, ptr %61, align 8, !tbaa !13
   store i8 0, ptr %60, align 8, !tbaa !14
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 16

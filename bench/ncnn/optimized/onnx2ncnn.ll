@@ -16233,12 +16233,13 @@ _ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf.exit: ; preds = %7284, %7297
   %7318 = load float, ptr %7317, align 8, !tbaa !160
   %.pr6183.pre = load i32, ptr %7280, align 8, !tbaa !59
   %7319 = fcmp oeq float %7318, 1.000000e+00
+  %7320 = and i1 %7302, %7319
   br label %_ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf.exit4316
 
 _ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf.exit4316: ; preds = %7304, %7316
-  %7320 = phi i32 [ %.pr6183.pre, %7316 ], [ %7305, %7304 ]
-  %7321 = phi i1 [ %7319, %7316 ], [ true, %7304 ]
-  %7322 = icmp sgt i32 %7320, 0
+  %7321 = phi i32 [ %.pr6183.pre, %7316 ], [ %7305, %7304 ]
+  %or.cond6 = phi i1 [ %7320, %7316 ], [ %7302, %7304 ]
+  %7322 = icmp sgt i32 %7321, 0
   br i1 %7322, label %.lr.ph.i4318, label %.critedge12
 
 7323:                                             ; preds = %.lr.ph.i4318
@@ -16265,12 +16266,13 @@ _ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf.exit4316: ; preds = %7304, %7316
   %7337 = load i64, ptr %7336, align 8, !tbaa !148
   %.pr6185.pre = load i32, ptr %7280, align 8, !tbaa !59
   %7338 = icmp eq i64 %7337, 0
+  %7339 = and i1 %7338, %or.cond6
   br label %_ZL15get_node_attr_iRKN4onnx9NodeProtoEPKci.exit
 
 _ZL15get_node_attr_iRKN4onnx9NodeProtoEPKci.exit: ; preds = %7323, %7335
-  %7339 = phi i32 [ %.pr6185.pre, %7335 ], [ %7324, %7323 ]
-  %7340 = phi i1 [ %7338, %7335 ], [ true, %7323 ]
-  %7341 = icmp sgt i32 %7339, 0
+  %7340 = phi i32 [ %.pr6185.pre, %7335 ], [ %7324, %7323 ]
+  %or.cond8 = phi i1 [ %7339, %7335 ], [ %or.cond6, %7323 ]
+  %7341 = icmp sgt i32 %7340, 0
   br i1 %7341, label %.lr.ph.i4322, label %.critedge12
 
 7342:                                             ; preds = %.lr.ph.i4322
@@ -16296,8 +16298,6 @@ _ZL15get_node_attr_iRKN4onnx9NodeProtoEPKci.exit4326: ; preds = %.lr.ph.i4322
   %7354 = getelementptr inbounds nuw i8, ptr %7349, i64 176
   %7355 = load i64, ptr %7354, align 8, !tbaa !148
   %7356 = icmp eq i64 %7355, 1
-  %or.cond6 = and i1 %7302, %7321
-  %or.cond8 = and i1 %7340, %or.cond6
   %or.cond10 = and i1 %7356, %or.cond8
   br i1 %or.cond10, label %7357, label %.critedge12
 

@@ -1393,23 +1393,23 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
   %57 = sext i32 %56 to i64
+  %58 = mul i64 %51, %57
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %53
-  %.024.i = phi i64 [ %57, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ], [ 1, %53 ]
-  %58 = mul i64 %5, %21
-  %59 = mul i64 %51, %.024.i
-  store i64 %59, ptr %10, align 8, !tbaa !24
+  %.024.i = phi i64 [ %58, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ], [ %51, %53 ]
+  %59 = mul i64 %5, %21
+  store i64 %.024.i, ptr %10, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %60 = udiv i64 %59, %51
+  %60 = udiv i64 %.024.i, %51
   store i64 %60, ptr %11, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %61 = uitofp i64 %59 to double
+  %61 = uitofp i64 %.024.i to double
   %62 = fdiv double 1.000000e+00, %61
   %63 = fptrunc double %62 to float
   store float %63, ptr %12, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %64 = trunc i64 %58 to i32
+  %64 = trunc i64 %59 to i32
   store i32 0, ptr %13, align 4, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %64, ptr %65, align 4, !tbaa !28
@@ -1442,7 +1442,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   store ptr %67, ptr %14, align 8, !tbaa !36
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastNormGroupERKNS0_3MatES8_S8_RS6_fmE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %69, align 8, !tbaa !37
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastNormGroupERKNS0_3MatES8_S8_RS6_fmE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %66, align 8, !tbaa !40
-  %70 = mul i64 %59, %58
+  %70 = mul i64 %.024.i, %59
   %71 = uitofp i64 %70 to double
   %72 = fmul nnan double %71, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %72)

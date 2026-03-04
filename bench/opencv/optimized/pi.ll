@@ -2685,9 +2685,9 @@ define hidden void @opj_pi_update_encoding_parameters(ptr noundef readonly captu
   %.046 = phi i32 [ %.14757, %._crit_edge.i ], [ 0, %.lr.ph128.i.preheader ]
   %.041 = phi i32 [ %.344, %._crit_edge.i ], [ 2147483647, %.lr.ph128.i.preheader ]
   %.0 = phi i32 [ %.3, %._crit_edge.i ], [ 2147483647, %.lr.ph128.i.preheader ]
-  %.0126.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph128.i.preheader ]
-  %.0110125.i = phi ptr [ %128, %._crit_edge.i ], [ %40, %.lr.ph128.i.preheader ]
-  %.0111124.i = phi ptr [ %127, %._crit_edge.i ], [ %42, %.lr.ph128.i.preheader ]
+  %.0126.i = phi i32 [ %128, %._crit_edge.i ], [ 0, %.lr.ph128.i.preheader ]
+  %.0110125.i = phi ptr [ %127, %._crit_edge.i ], [ %40, %.lr.ph128.i.preheader ]
+  %.0111124.i = phi ptr [ %126, %._crit_edge.i ], [ %42, %.lr.ph128.i.preheader ]
   %47 = load i32, ptr %.0111124.i, align 8, !tbaa !52
   %48 = zext i32 %47 to i64
   %49 = add nsw i64 %48, -1
@@ -2788,13 +2788,13 @@ define hidden void @opj_pi_update_encoding_parameters(ptr noundef readonly captu
   %118 = lshr i32 -1, %74
   %119 = and i32 %117, %118
   %120 = select i1 %116, i32 0, i32 %119
-  %121 = icmp eq i32 %97, %101
-  %122 = sub i32 %115, %103
-  %123 = lshr i32 -1, %76
-  %124 = and i32 %122, %123
-  %125 = select i1 %121, i32 0, i32 %124
-  %126 = mul i32 %120, %125
-  %.251 = tail call i32 @llvm.umax.i32(i32 %126, i32 %.150)
+  %.not58 = icmp eq i32 %97, %101
+  %121 = sub i32 %115, %103
+  %122 = lshr i32 -1, %76
+  %123 = and i32 %121, %122
+  %124 = mul i32 %120, %123
+  %125 = tail call i32 @llvm.umax.i32(i32 %124, i32 %.150)
+  %.251 = select i1 %.not58, i32 %.150, i32 %125
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
   br i1 %exitcond.not, label %._crit_edge.i, label %72, !llvm.loop !146
@@ -2804,180 +2804,180 @@ define hidden void @opj_pi_update_encoding_parameters(ptr noundef readonly captu
   %.352 = phi i32 [ %.049, %65 ], [ %.251, %72 ]
   %.344 = phi i32 [ %.041, %65 ], [ %.243, %72 ]
   %.3 = phi i32 [ %.0, %65 ], [ %.2, %72 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.0111124.i, i64 64
-  %128 = getelementptr inbounds nuw i8, ptr %.0110125.i, i64 1080
-  %129 = add nuw i32 %.0126.i, 1
-  %exitcond60.not = icmp eq i32 %129, %38
-  br i1 %exitcond60.not, label %opj_get_encoding_parameters.exit, label %.lr.ph128.i, !llvm.loop !147
+  %126 = getelementptr inbounds nuw i8, ptr %.0111124.i, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %.0110125.i, i64 1080
+  %128 = add nuw i32 %.0126.i, 1
+  %exitcond61.not = icmp eq i32 %128, %38
+  br i1 %exitcond61.not, label %opj_get_encoding_parameters.exit, label %.lr.ph128.i, !llvm.loop !147
 
 opj_get_encoding_parameters.exit:                 ; preds = %._crit_edge.i, %3
   %.453 = phi i32 [ 0, %3 ], [ %.352, %._crit_edge.i ]
   %.248 = phi i32 [ 0, %3 ], [ %.14757, %._crit_edge.i ]
   %.445 = phi i32 [ 2147483647, %3 ], [ %.344, %._crit_edge.i ]
   %.4 = phi i32 [ 2147483647, %3 ], [ %.3, %._crit_edge.i ]
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 5688
-  %131 = load i8, ptr %130, align 8
-  %132 = and i8 %131, 4
-  %.not = icmp eq i8 %132, 0
-  %133 = getelementptr inbounds nuw i8, ptr %7, i64 420
-  %134 = load i32, ptr %133, align 4, !tbaa !16
-  br i1 %.not, label %197, label %135
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 5688
+  %130 = load i8, ptr %129, align 8
+  %131 = and i8 %130, 4
+  %.not = icmp eq i8 %131, 0
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 420
+  %133 = load i32, ptr %132, align 4, !tbaa !16
+  br i1 %.not, label %196, label %134
 
-135:                                              ; preds = %opj_get_encoding_parameters.exit
-  %136 = getelementptr inbounds nuw i8, ptr %7, i64 424
-  %137 = getelementptr inbounds nuw i8, ptr %7, i64 428
-  %138 = load i32, ptr %137, align 4, !tbaa !73
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 500
-  store i32 %138, ptr %139, align 4, !tbaa !114
-  %140 = getelementptr inbounds nuw i8, ptr %7, i64 440
-  %141 = load i32, ptr %140, align 4, !tbaa !79
-  %142 = getelementptr inbounds nuw i8, ptr %7, i64 516
-  store i32 %141, ptr %142, align 4, !tbaa !115
-  %143 = load i32, ptr %136, align 4, !tbaa !71
-  %144 = getelementptr inbounds nuw i8, ptr %7, i64 496
-  store i32 %143, ptr %144, align 4, !tbaa !116
-  %145 = getelementptr inbounds nuw i8, ptr %7, i64 436
-  %146 = load i32, ptr %145, align 4, !tbaa !77
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 512
-  store i32 %146, ptr %147, align 4, !tbaa !117
-  %148 = getelementptr inbounds nuw i8, ptr %7, i64 432
-  %149 = load i32, ptr %148, align 4, !tbaa !81
-  %150 = getelementptr inbounds nuw i8, ptr %7, i64 508
-  store i32 %149, ptr %150, align 4, !tbaa !118
-  %151 = getelementptr inbounds nuw i8, ptr %7, i64 492
-  store i32 0, ptr %151, align 4, !tbaa !119
-  %152 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  %153 = load i32, ptr %152, align 4, !tbaa !120
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 460
-  store i32 %153, ptr %154, align 4, !tbaa !68
-  %155 = getelementptr inbounds nuw i8, ptr %7, i64 504
-  store i32 0, ptr %155, align 4, !tbaa !121
-  %156 = getelementptr inbounds nuw i8, ptr %7, i64 520
-  store i32 %.453, ptr %156, align 4, !tbaa !122
-  %157 = getelementptr inbounds nuw i8, ptr %7, i64 524
-  store i32 %19, ptr %157, align 4, !tbaa !123
-  %158 = getelementptr inbounds nuw i8, ptr %7, i64 528
-  store i32 %23, ptr %158, align 4, !tbaa !124
-  %159 = getelementptr inbounds nuw i8, ptr %7, i64 532
-  store i32 %32, ptr %159, align 4, !tbaa !125
-  %160 = getelementptr inbounds nuw i8, ptr %7, i64 536
-  store i32 %36, ptr %160, align 4, !tbaa !126
-  %161 = getelementptr inbounds nuw i8, ptr %7, i64 540
-  store i32 %.445, ptr %161, align 4, !tbaa !127
-  %162 = getelementptr inbounds nuw i8, ptr %7, i64 544
-  store i32 %.4, ptr %162, align 4, !tbaa !128
-  %163 = add i32 %134, -1
-  %164 = icmp ult i32 %163, -2
-  br i1 %164, label %.lr.ph.preheader.i, label %opj_pi_update_encode_poc_and_final.exit
+134:                                              ; preds = %opj_get_encoding_parameters.exit
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 424
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 428
+  %137 = load i32, ptr %136, align 4, !tbaa !73
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 500
+  store i32 %137, ptr %138, align 4, !tbaa !114
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 440
+  %140 = load i32, ptr %139, align 4, !tbaa !79
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 516
+  store i32 %140, ptr %141, align 4, !tbaa !115
+  %142 = load i32, ptr %135, align 4, !tbaa !71
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 496
+  store i32 %142, ptr %143, align 4, !tbaa !116
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 436
+  %145 = load i32, ptr %144, align 4, !tbaa !77
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 512
+  store i32 %145, ptr %146, align 4, !tbaa !117
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 432
+  %148 = load i32, ptr %147, align 4, !tbaa !81
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 508
+  store i32 %148, ptr %149, align 4, !tbaa !118
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 492
+  store i32 0, ptr %150, align 4, !tbaa !119
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 456
+  %152 = load i32, ptr %151, align 4, !tbaa !120
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 460
+  store i32 %152, ptr %153, align 4, !tbaa !68
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 504
+  store i32 0, ptr %154, align 4, !tbaa !121
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 520
+  store i32 %.453, ptr %155, align 4, !tbaa !122
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 524
+  store i32 %19, ptr %156, align 4, !tbaa !123
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 528
+  store i32 %23, ptr %157, align 4, !tbaa !124
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 532
+  store i32 %32, ptr %158, align 4, !tbaa !125
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 536
+  store i32 %36, ptr %159, align 4, !tbaa !126
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 540
+  store i32 %.445, ptr %160, align 4, !tbaa !127
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 544
+  store i32 %.4, ptr %161, align 4, !tbaa !128
+  %162 = add i32 %133, -1
+  %163 = icmp ult i32 %162, -2
+  br i1 %163, label %.lr.ph.preheader.i, label %opj_pi_update_encode_poc_and_final.exit
 
-.lr.ph.preheader.i:                               ; preds = %135
-  %165 = getelementptr inbounds nuw i8, ptr %7, i64 572
+.lr.ph.preheader.i:                               ; preds = %134
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 572
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
-  %.02.i = phi i32 [ %196, %.lr.ph.i12 ], [ 1, %.lr.ph.preheader.i ]
-  %.0671.i = phi ptr [ %195, %.lr.ph.i12 ], [ %165, %.lr.ph.preheader.i ]
-  %166 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 4
-  %167 = load i32, ptr %166, align 4, !tbaa !73
-  %168 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 76
-  store i32 %167, ptr %168, align 4, !tbaa !114
-  %169 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 16
-  %170 = load i32, ptr %169, align 4, !tbaa !79
-  %171 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 92
-  store i32 %170, ptr %171, align 4, !tbaa !115
-  %172 = load i32, ptr %.0671.i, align 4, !tbaa !71
-  %173 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 72
-  store i32 %172, ptr %173, align 4, !tbaa !116
-  %174 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 12
-  %175 = load i32, ptr %174, align 4, !tbaa !77
-  %176 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 88
-  store i32 %175, ptr %176, align 4, !tbaa !117
-  %177 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 8
-  %178 = load i32, ptr %177, align 4, !tbaa !81
-  %179 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 84
-  store i32 %178, ptr %179, align 4, !tbaa !118
-  %180 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 32
-  %181 = load i32, ptr %180, align 4, !tbaa !120
-  %182 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 36
-  store i32 %181, ptr %182, align 4, !tbaa !68
-  %183 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 80
-  store i32 0, ptr %183, align 4, !tbaa !121
-  %184 = getelementptr inbounds i8, ptr %.0671.i, i64 -64
-  %185 = load i32, ptr %184, align 4, !tbaa !118
-  %186 = icmp ugt i32 %178, %185
-  %spec.select.i = select i1 %186, i32 %178, i32 0
-  %187 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 68
-  store i32 %spec.select.i, ptr %187, align 4, !tbaa !119
-  %188 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 96
-  store i32 %.453, ptr %188, align 4, !tbaa !122
-  %189 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 100
-  store i32 %19, ptr %189, align 4, !tbaa !123
-  %190 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 104
-  store i32 %23, ptr %190, align 4, !tbaa !124
-  %191 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 108
-  store i32 %32, ptr %191, align 4, !tbaa !125
-  %192 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 112
-  store i32 %36, ptr %192, align 4, !tbaa !126
-  %193 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 116
-  store i32 %.445, ptr %193, align 4, !tbaa !127
-  %194 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 120
-  store i32 %.4, ptr %194, align 4, !tbaa !128
-  %195 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 148
-  %196 = add nuw i32 %.02.i, 1
-  %exitcond.not.i = icmp eq i32 %.02.i, %134
+  %.02.i = phi i32 [ %195, %.lr.ph.i12 ], [ 1, %.lr.ph.preheader.i ]
+  %.0671.i = phi ptr [ %194, %.lr.ph.i12 ], [ %164, %.lr.ph.preheader.i ]
+  %165 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 4
+  %166 = load i32, ptr %165, align 4, !tbaa !73
+  %167 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 76
+  store i32 %166, ptr %167, align 4, !tbaa !114
+  %168 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 16
+  %169 = load i32, ptr %168, align 4, !tbaa !79
+  %170 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 92
+  store i32 %169, ptr %170, align 4, !tbaa !115
+  %171 = load i32, ptr %.0671.i, align 4, !tbaa !71
+  %172 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 72
+  store i32 %171, ptr %172, align 4, !tbaa !116
+  %173 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 12
+  %174 = load i32, ptr %173, align 4, !tbaa !77
+  %175 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 88
+  store i32 %174, ptr %175, align 4, !tbaa !117
+  %176 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 8
+  %177 = load i32, ptr %176, align 4, !tbaa !81
+  %178 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 84
+  store i32 %177, ptr %178, align 4, !tbaa !118
+  %179 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 32
+  %180 = load i32, ptr %179, align 4, !tbaa !120
+  %181 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 36
+  store i32 %180, ptr %181, align 4, !tbaa !68
+  %182 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 80
+  store i32 0, ptr %182, align 4, !tbaa !121
+  %183 = getelementptr inbounds i8, ptr %.0671.i, i64 -64
+  %184 = load i32, ptr %183, align 4, !tbaa !118
+  %185 = icmp ugt i32 %177, %184
+  %spec.select.i = select i1 %185, i32 %177, i32 0
+  %186 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 68
+  store i32 %spec.select.i, ptr %186, align 4, !tbaa !119
+  %187 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 96
+  store i32 %.453, ptr %187, align 4, !tbaa !122
+  %188 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 100
+  store i32 %19, ptr %188, align 4, !tbaa !123
+  %189 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 104
+  store i32 %23, ptr %189, align 4, !tbaa !124
+  %190 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 108
+  store i32 %32, ptr %190, align 4, !tbaa !125
+  %191 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 112
+  store i32 %36, ptr %191, align 4, !tbaa !126
+  %192 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 116
+  store i32 %.445, ptr %192, align 4, !tbaa !127
+  %193 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 120
+  store i32 %.4, ptr %193, align 4, !tbaa !128
+  %194 = getelementptr inbounds nuw i8, ptr %.0671.i, i64 148
+  %195 = add nuw i32 %.02.i, 1
+  %exitcond.not.i = icmp eq i32 %.02.i, %133
   br i1 %exitcond.not.i, label %opj_pi_update_encode_poc_and_final.exit, label %.lr.ph.i12, !llvm.loop !129
 
-197:                                              ; preds = %opj_get_encoding_parameters.exit
-  %.not.i13 = icmp eq i32 %134, -1
+196:                                              ; preds = %opj_get_encoding_parameters.exit
+  %.not.i13 = icmp eq i32 %133, -1
   br i1 %.not.i13, label %opj_pi_update_encode_poc_and_final.exit, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %197
-  %198 = getelementptr inbounds nuw i8, ptr %7, i64 424
-  %199 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %200 = load i32, ptr %199, align 8, !tbaa !34
-  %201 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %202 = load i32, ptr %201, align 4, !tbaa !85
-  br label %203
+.lr.ph.i14:                                       ; preds = %196
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 424
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %199 = load i32, ptr %198, align 8, !tbaa !34
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %201 = load i32, ptr %200, align 4, !tbaa !85
+  br label %202
 
-203:                                              ; preds = %203, %.lr.ph.i14
-  %.02.i15 = phi i32 [ 0, %.lr.ph.i14 ], [ %220, %203 ]
-  %.0331.i = phi ptr [ %198, %.lr.ph.i14 ], [ %219, %203 ]
-  %204 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 76
-  store i32 0, ptr %204, align 4, !tbaa !114
-  %205 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 92
-  store i32 %38, ptr %205, align 4, !tbaa !115
-  %206 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 72
-  store i32 0, ptr %206, align 4, !tbaa !116
-  %207 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 88
-  store i32 %.248, ptr %207, align 4, !tbaa !117
-  %208 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 68
-  store i32 0, ptr %208, align 4, !tbaa !119
-  %209 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 84
-  store i32 %200, ptr %209, align 4, !tbaa !118
-  %210 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 36
-  store i32 %202, ptr %210, align 4, !tbaa !68
-  %211 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 80
-  store i32 0, ptr %211, align 4, !tbaa !121
-  %212 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 96
-  store i32 %.453, ptr %212, align 4, !tbaa !122
-  %213 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 100
-  store i32 %19, ptr %213, align 4, !tbaa !123
-  %214 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 104
-  store i32 %23, ptr %214, align 4, !tbaa !124
-  %215 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 108
-  store i32 %32, ptr %215, align 4, !tbaa !125
-  %216 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 112
-  store i32 %36, ptr %216, align 4, !tbaa !126
-  %217 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 116
-  store i32 %.445, ptr %217, align 4, !tbaa !127
-  %218 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 120
-  store i32 %.4, ptr %218, align 4, !tbaa !128
-  %219 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 148
-  %220 = add nuw i32 %.02.i15, 1
-  %exitcond.not.i16 = icmp eq i32 %.02.i15, %134
-  br i1 %exitcond.not.i16, label %opj_pi_update_encode_poc_and_final.exit, label %203, !llvm.loop !130
+202:                                              ; preds = %202, %.lr.ph.i14
+  %.02.i15 = phi i32 [ 0, %.lr.ph.i14 ], [ %219, %202 ]
+  %.0331.i = phi ptr [ %197, %.lr.ph.i14 ], [ %218, %202 ]
+  %203 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 76
+  store i32 0, ptr %203, align 4, !tbaa !114
+  %204 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 92
+  store i32 %38, ptr %204, align 4, !tbaa !115
+  %205 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 72
+  store i32 0, ptr %205, align 4, !tbaa !116
+  %206 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 88
+  store i32 %.248, ptr %206, align 4, !tbaa !117
+  %207 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 68
+  store i32 0, ptr %207, align 4, !tbaa !119
+  %208 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 84
+  store i32 %199, ptr %208, align 4, !tbaa !118
+  %209 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 36
+  store i32 %201, ptr %209, align 4, !tbaa !68
+  %210 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 80
+  store i32 0, ptr %210, align 4, !tbaa !121
+  %211 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 96
+  store i32 %.453, ptr %211, align 4, !tbaa !122
+  %212 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 100
+  store i32 %19, ptr %212, align 4, !tbaa !123
+  %213 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 104
+  store i32 %23, ptr %213, align 4, !tbaa !124
+  %214 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 108
+  store i32 %32, ptr %214, align 4, !tbaa !125
+  %215 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 112
+  store i32 %36, ptr %215, align 4, !tbaa !126
+  %216 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 116
+  store i32 %.445, ptr %216, align 4, !tbaa !127
+  %217 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 120
+  store i32 %.4, ptr %217, align 4, !tbaa !128
+  %218 = getelementptr inbounds nuw i8, ptr %.0331.i, i64 148
+  %219 = add nuw i32 %.02.i15, 1
+  %exitcond.not.i16 = icmp eq i32 %.02.i15, %133
+  br i1 %exitcond.not.i16, label %opj_pi_update_encode_poc_and_final.exit, label %202, !llvm.loop !130
 
-opj_pi_update_encode_poc_and_final.exit:          ; preds = %.lr.ph.i12, %203, %197, %135
+opj_pi_update_encode_poc_and_final.exit:          ; preds = %.lr.ph.i12, %202, %196, %134
   ret void
 }
 

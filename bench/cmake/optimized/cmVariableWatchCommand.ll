@@ -480,13 +480,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc56
   %129 = load i64, ptr %104, align 8, !tbaa !16, !noalias !50
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %117, align 8, !tbaa !17, !noalias !50
-  store ptr %104, ptr %11, align 8, !tbaa !14, !noalias !50
   store i64 %129, ptr %125, align 8, !tbaa !16, !noalias !50
   br label %130
 
 130:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i.i = phi ptr [ %125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i.i.i.i.i ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i ]
   %131 = phi i64 [ %126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i ]
+  store ptr %104, ptr %11, align 8, !tbaa !14, !noalias !50
   store i64 0, ptr %117, align 8, !tbaa !17, !noalias !50
   store i8 0, ptr %104, align 8, !tbaa !16, !noalias !50
   %132 = getelementptr inbounds nuw i8, ptr %120, i64 16

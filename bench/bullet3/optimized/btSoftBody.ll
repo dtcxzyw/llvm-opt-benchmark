@@ -52499,11 +52499,11 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
 ._crit_edge.i:                                    ; preds = %311
   %.pre.i = load float, ptr %6, align 4, !tbaa !234
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.pre124.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !234
+  %.pre120.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !234
   br label %313
 
 313:                                              ; preds = %._crit_edge.i, %.thread103.i
-  %314 = phi float [ %.val69.i, %.thread103.i ], [ %.pre124.i, %._crit_edge.i ]
+  %314 = phi float [ %.val69.i, %.thread103.i ], [ %.pre120.i, %._crit_edge.i ]
   %315 = phi float [ 0.000000e+00, %.thread103.i ], [ %.pre.i, %._crit_edge.i ]
   %.067105.i = phi i32 [ 2, %.thread103.i ], [ %.067.i, %._crit_edge.i ]
   %316 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -52547,7 +52547,7 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
   br i1 %.not114.i, label %.lr.ph.i, label %.thread111.i
 
 .lr.ph.i:                                         ; preds = %.thread107.i, %331, %328, %319, %299
-  %.067102109141.i = phi i32 [ 1, %.thread107.i ], [ 1, %299 ], [ %.067105.i, %331 ], [ %.067105.i, %328 ], [ 2, %319 ]
+  %.067102109137.i = phi i32 [ 1, %.thread107.i ], [ 1, %299 ], [ %.067105.i, %331 ], [ %.067105.i, %328 ], [ 2, %319 ]
   %332 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %334 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -52555,7 +52555,7 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
   %336 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %337 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %338 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %wide.trip.count.i = zext nneg i32 %.067102109141.i to i64
+  %wide.trip.count.i = zext nneg i32 %.067102109137.i to i64
   br label %339
 
 339:                                              ; preds = %443, %.lr.ph.i
@@ -52722,12 +52722,12 @@ _ZN9btVector313safeNormalizeEv.exit.i:            ; preds = %441, %436
   br i1 %exitcond.not.i, label %.thread111.i, label %339, !llvm.loop !1315
 
 .thread111.i:                                     ; preds = %443, %_ZN9btVector313safeNormalizeEv.exit.i, %343, %.thread107.i, %295
-  %.not.lcssa.i = phi i1 [ false, %.thread107.i ], [ false, %295 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ], [ false, %443 ], [ false, %343 ]
+  %.2.i = phi i1 [ false, %.thread107.i ], [ false, %295 ], [ false, %343 ], [ false, %443 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
 _ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit: ; preds = %4, %.thread111.i, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
-  %.0 = phi i1 [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %.not.lcssa.i, %.thread111.i ], [ false, %4 ]
+  %.0 = phi i1 [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %.2.i, %.thread111.i ], [ false, %4 ]
   ret i1 %.0
 }
 

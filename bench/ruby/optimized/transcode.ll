@@ -1250,7 +1250,7 @@ ruby_nonempty_memcpy.exit200.i:                   ; preds = %73, %72
   br label %.thread221.i
 
 .thread.i:                                        ; preds = %97, %85, %78
-  %.not181.i = phi i1 [ true, %78 ], [ true, %85 ], [ false, %97 ]
+  %.not181.i = phi i1 [ true, %78 ], [ true, %85 ], [ %.not182.i, %97 ]
   %114 = load ptr, ptr %18, align 8, !tbaa !81
   %.not178.i = icmp eq ptr %114, null
   br i1 %.not178.i, label %120, label %115
@@ -1267,8 +1267,7 @@ ruby_nonempty_memcpy.exit200.i:                   ; preds = %73, %72
   br i1 %.not180.i, label %120, label %select.unfold219.i
 
 120:                                              ; preds = %118, %115, %.thread.i
-  %or.cond194.i = or i1 %.not182.i, %.not181.i
-  br i1 %or.cond194.i, label %126, label %121
+  br i1 %.not181.i, label %126, label %121
 
 121:                                              ; preds = %120
   %122 = load ptr, ptr %spec.select24, align 8, !tbaa !26

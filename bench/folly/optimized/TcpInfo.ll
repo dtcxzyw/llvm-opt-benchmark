@@ -2090,98 +2090,100 @@ define void @_ZNK5folly7TcpInfo18bbrBwBitsPerSecondEv(ptr dead_on_unwind noalias
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !156, !noundef !45
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.i, label %17
+  br i1 %5, label %6, label %18
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.i: ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %7 = load i8, ptr %6, align 4, !tbaa !53, !range !44, !noalias !161, !noundef !45
-  %8 = trunc nuw i8 %7 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %10 = load i32, ptr %9, align 8, !noalias !156
-  %11 = icmp eq i32 %10, 5
-  %or.cond.i.not.i = select i1 %8, i1 %11, i1 false
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %13 = load i32, ptr %12, align 8, !noalias !164
-  %or.cond.i.i5.i = icmp sgt i32 %13, 7
-  %or.cond.i = select i1 %or.cond.i.not.i, i1 %or.cond.i.i5.i, i1 false
-  br i1 %or.cond.i, label %_ZNKR5folly8OptionalImE5valueEv.exit.i, label %17
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !161, !noundef !45
+  %9 = trunc nuw i8 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %11 = load i32, ptr %10, align 8, !noalias !166
+  %12 = icmp ne i32 %11, 5
+  %not..i = xor i1 %9, true
+  %or.cond.i2.i = select i1 %not..i, i1 true, i1 %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %14 = load i32, ptr %13, align 8, !noalias !167
+  %or.cond.i.i5.i = icmp slt i32 %14, 8
+  %or.cond33.i = select i1 %or.cond.i2.i, i1 true, i1 %or.cond.i.i5.i
+  br i1 %or.cond33.i, label %18, label %_ZNKR5folly8OptionalImE5valueEv.exit.i
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.i
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %15 = load i64, ptr %14, align 8, !noalias !164
-  %16 = shl i64 %15, 3
-  store i64 %16, ptr %0, align 8, !tbaa !47, !alias.scope !165
+_ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %16 = load i64, ptr %15, align 8, !noalias !167
+  %17 = shl i64 %16, 3
+  store i64 %17, ptr %0, align 8, !tbaa !47, !alias.scope !168
   br label %_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit
 
-17:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.i, %2
-  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !165
+18:                                               ; preds = %6, %2
+  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !168
   br label %_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit
 
-_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i, %17
-  %.sink.i = phi i8 [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ], [ 0, %17 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %18, align 8, !tbaa !60, !alias.scope !165
+_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i, %18
+  %.sink.i = phi i8 [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ], [ 0, %18 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %19, align 8, !tbaa !60, !alias.scope !168
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.6") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !168, !noundef !45
+  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !171, !noundef !45
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
+  br i1 %5, label %6, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6: ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %7 = load i8, ptr %6, align 4, !tbaa !53, !range !44, !noalias !171, !noundef !45
-  %8 = trunc nuw i8 %7 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %10 = load i32, ptr %9, align 8, !noalias !168
-  %11 = icmp eq i32 %10, 5
-  %or.cond.i.not = select i1 %8, i1 %11, i1 false
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %13 = load i32, ptr %12, align 8
-  %or.cond.i.i5 = icmp sgt i32 %13, 7
-  %or.cond = select i1 %or.cond.i.not, i1 %or.cond.i.i5, i1 false
-  br i1 %or.cond, label %_ZNR5folly8OptionalImEdeEv.exit7, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !174, !noundef !45
+  %9 = trunc nuw i8 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %11 = load i32, ptr %10, align 8, !noalias !179
+  %12 = icmp ne i32 %11, 5
+  %not. = xor i1 %9, true
+  %or.cond.i2 = select i1 %not., i1 true, i1 %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %14 = load i32, ptr %13, align 8
+  %or.cond.i.i5 = icmp slt i32 %14, 8
+  %or.cond33 = select i1 %or.cond.i2, i1 true, i1 %or.cond.i.i5
+  br i1 %or.cond33, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, label %_ZNR5folly8OptionalImEdeEv.exit7
 
-_ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %15 = load i32, ptr %14, align 8
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  %18 = load i32, ptr %17, align 4
-  %19 = zext i32 %18 to i64
-  %20 = shl nuw i64 %19, 32
-  %.sroa.0.0 = or disjoint i64 %20, %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0, ptr %0, align 8, !tbaa !47
-  store i8 1, ptr %21, align 8, !tbaa !48
-  br label %23
+_ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %16 = load i32, ptr %15, align 4, !tbaa !17, !noalias !180
+  %17 = zext i32 %16 to i64
+  %18 = shl nuw i64 %17, 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %20 = load i32, ptr %19, align 8
+  %21 = zext i32 %20 to i64
+  %22 = or disjoint i64 %18, %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %22, ptr %0, align 8, !tbaa !47
+  store i8 1, ptr %23, align 8, !tbaa !48
+  br label %25
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %2, %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %6, %2
   store i8 0, ptr %0, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %22, align 8, !tbaa !60
-  br label %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %24, align 8, !tbaa !60
+  br label %25
 
-23:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
+25:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo9bbrMinrttEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.9") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !174, !noundef !45
+  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !183, !noundef !45
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !177, !noundef !45
+  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !186, !noundef !45
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %11 = load i32, ptr %10, align 8, !noalias !174
+  %11 = load i32, ptr %10, align 8, !noalias !183
   %12 = icmp ne i32 %11, 5
   %not. = xor i1 %9, true
   %or.cond.i = select i1 %not., i1 true, i1 %12
@@ -2193,11 +2195,11 @@ define void @_ZNK5folly7TcpInfo9bbrMinrttEv(ptr dead_on_unwind noalias writable 
 
 _ZNR5folly8OptionalImEdeEv.exit:                  ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %16 = load i32, ptr %15, align 8, !tbaa !17, !noalias !180
+  %16 = load i32, ptr %15, align 8, !tbaa !17, !noalias !189
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %17, ptr %0, align 8, !tbaa !47
-  store i8 1, ptr %18, align 8, !tbaa !183
+  store i8 1, ptr %18, align 8, !tbaa !192
   br label %21
 
 19:                                               ; preds = %6, %2
@@ -2212,48 +2214,48 @@ _ZNR5folly8OptionalImEdeEv.exit:                  ; preds = %6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo13bbrPacingGainEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.6") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !185, !noundef !45
+  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !194, !noundef !45
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.critedge.i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !188, !noundef !45
+  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !197, !noundef !45
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %11 = load i32, ptr %10, align 8, !noalias !185
+  %11 = load i32, ptr %10, align 8, !noalias !194
   %12 = icmp eq i32 %11, 5
   %or.cond.i = select i1 %9, i1 %12, i1 false
   br i1 %or.cond.i, label %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i, label %.critedge.i
 
 _ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i: ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %14 = load i32, ptr %13, align 8, !tbaa !59, !noalias !194
+  %14 = load i32, ptr %13, align 8, !tbaa !59, !noalias !203
   %or.cond.i.i = icmp slt i32 %14, 16
   br i1 %or.cond.i.i, label %20, label %15
 
 15:                                               ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %17 = load i32, ptr %16, align 4, !tbaa !17, !noalias !194
+  %17 = load i32, ptr %16, align 4, !tbaa !17, !noalias !203
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %0, align 8, !tbaa !47, !alias.scope !194
-  store i8 1, ptr %19, align 8, !tbaa !48, !alias.scope !194
+  store i64 %18, ptr %0, align 8, !tbaa !47, !alias.scope !203
+  store i8 1, ptr %19, align 8, !tbaa !48, !alias.scope !203
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 20:                                               ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
-  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !194
+  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !203
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %21, align 8, !tbaa !60, !alias.scope !194
+  store i8 0, ptr %21, align 8, !tbaa !60, !alias.scope !203
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 .critedge.i:                                      ; preds = %6, %2
-  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !185
+  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !194
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %22, align 8, !tbaa !60, !alias.scope !185
+  store i8 0, ptr %22, align 8, !tbaa !60, !alias.scope !194
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit: ; preds = %15, %20, %.critedge.i
@@ -2262,48 +2264,48 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo11bbrCwndGainEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.6") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !195, !noundef !45
+  %4 = load i8, ptr %3, align 4, !tbaa !57, !range !44, !noalias !204, !noundef !45
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.critedge.i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !198, !noundef !45
+  %8 = load i8, ptr %7, align 4, !tbaa !53, !range !44, !noalias !207, !noundef !45
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %11 = load i32, ptr %10, align 8, !noalias !195
+  %11 = load i32, ptr %10, align 8, !noalias !204
   %12 = icmp eq i32 %11, 5
   %or.cond.i = select i1 %9, i1 %12, i1 false
   br i1 %or.cond.i, label %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i, label %.critedge.i
 
 _ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i: ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %14 = load i32, ptr %13, align 8, !tbaa !59, !noalias !204
+  %14 = load i32, ptr %13, align 8, !tbaa !59, !noalias !213
   %or.cond.i.i = icmp slt i32 %14, 20
   br i1 %or.cond.i.i, label %20, label %15
 
 15:                                               ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %17 = load i32, ptr %16, align 8, !tbaa !17, !noalias !204
+  %17 = load i32, ptr %16, align 8, !tbaa !17, !noalias !213
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %0, align 8, !tbaa !47, !alias.scope !204
-  store i8 1, ptr %19, align 8, !tbaa !48, !alias.scope !204
+  store i64 %18, ptr %0, align 8, !tbaa !47, !alias.scope !213
+  store i8 1, ptr %19, align 8, !tbaa !48, !alias.scope !213
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 20:                                               ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
-  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !204
+  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !213
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %21, align 8, !tbaa !60, !alias.scope !204
+  store i8 0, ptr %21, align 8, !tbaa !60, !alias.scope !213
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 .critedge.i:                                      ; preds = %6, %2
-  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !195
+  store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !204
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %22, align 8, !tbaa !60, !alias.scope !195
+  store i8 0, ptr %22, align 8, !tbaa !60, !alias.scope !204
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit: ; preds = %15, %20, %.critedge.i
@@ -2556,47 +2558,56 @@ attributes #22 = { noreturn nounwind }
 !158 = distinct !{!158, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
 !159 = distinct !{!159, !160, !"_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv: argument 0"}
 !160 = distinct !{!160, !"_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv"}
-!161 = !{!162, !157, !159}
+!161 = !{!162, !164, !159}
 !162 = distinct !{!162, !163, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
 !163 = distinct !{!163, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
-!164 = !{!159}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE: argument 0"}
-!167 = distinct !{!167, !"_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE"}
+!164 = distinct !{!164, !165, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!165 = distinct !{!165, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!166 = !{!164, !159}
+!167 = !{!159}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
-!170 = distinct !{!170, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
-!171 = !{!172, !169}
-!172 = distinct !{!172, !173, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
-!173 = distinct !{!173, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
-!176 = distinct !{!176, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
-!177 = !{!178, !175}
-!178 = distinct !{!178, !179, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
-!179 = distinct !{!179, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
-!180 = !{!181, !175}
+!169 = distinct !{!169, !170, !"_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE: argument 0"}
+!170 = distinct !{!170, !"_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE"}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!173 = distinct !{!173, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!174 = !{!175, !177}
+!175 = distinct !{!175, !176, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
+!176 = distinct !{!176, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
+!177 = distinct !{!177, !178, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!178 = distinct !{!178, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!179 = !{!177}
+!180 = !{!181, !177}
 !181 = distinct !{!181, !182, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
 !182 = distinct !{!182, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
-!183 = !{!184, !35, i64 8}
-!184 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE", !62, i64 0}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
-!187 = distinct !{!187, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
-!188 = !{!189, !186}
-!189 = distinct !{!189, !190, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
-!190 = distinct !{!190, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
-!193 = distinct !{!193, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
-!194 = !{!192, !186}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
-!197 = distinct !{!197, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
-!198 = !{!199, !196}
-!199 = distinct !{!199, !200, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
-!200 = distinct !{!200, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
-!203 = distinct !{!203, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
-!204 = !{!202, !196}
+!183 = !{!184}
+!184 = distinct !{!184, !185, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!185 = distinct !{!185, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!186 = !{!187, !184}
+!187 = distinct !{!187, !188, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
+!188 = distinct !{!188, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
+!189 = !{!190, !184}
+!190 = distinct !{!190, !191, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
+!191 = distinct !{!191, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
+!192 = !{!193, !35, i64 8}
+!193 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE", !62, i64 0}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!196 = distinct !{!196, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!197 = !{!198, !195}
+!198 = distinct !{!198, !199, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
+!199 = distinct !{!199, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
+!202 = distinct !{!202, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
+!203 = !{!201, !195}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_: argument 0"}
+!206 = distinct !{!206, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_"}
+!207 = !{!208, !205}
+!208 = distinct !{!208, !209, !"_ZNK5folly7TcpInfo10ccNameEnumEv: argument 0"}
+!209 = distinct !{!209, !"_ZNK5folly7TcpInfo10ccNameEnumEv"}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_: argument 0"}
+!212 = distinct !{!212, !"_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjNS_6detail12tcp_bbr_infoEEENS_8OptionalImEERKT0_MS6_T_"}
+!213 = !{!211, !205}

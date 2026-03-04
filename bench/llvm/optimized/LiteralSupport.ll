@@ -7034,7 +7034,7 @@ thread-pre-split:                                 ; preds = %_ZL21ProcessNamedUC
 
 642:                                              ; preds = %thread-pre-split, %_ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17DiagnosticsEngineERKNS4_11LangOptionsE.exit.thread176
   %643 = phi i32 [ %.pr, %thread-pre-split ], [ %.sroa.01.0.extract.trunc.i, %_ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17DiagnosticsEngineERKNS4_11LangOptionsE.exit.thread176 ]
-  %.0173179 = phi i1 [ %.1, %thread-pre-split ], [ false, %_ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17DiagnosticsEngineERKNS4_11LangOptionsE.exit.thread176 ]
+  %.0173179 = phi i1 [ %.1, %thread-pre-split ], [ true, %_ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17DiagnosticsEngineERKNS4_11LangOptionsE.exit.thread176 ]
   %.fr = freeze i32 %643
   %644 = and i32 %.fr, -2048
   %or.cond108 = icmp eq i32 %644, 55296
@@ -7225,9 +7225,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i131: ; preds = %
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit135
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit135:         ; preds = %718, %715, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i131, %692, %689
-  %or.cond3 = or i1 %37, %.0173179
   %719 = icmp ne ptr %6, null
-  %or.cond5 = and i1 %719, %or.cond3
+  %or.cond5 = and i1 %719, %.0173179
   br i1 %or.cond5, label %720, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 720:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit135

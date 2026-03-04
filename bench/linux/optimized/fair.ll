@@ -9928,7 +9928,7 @@ define internal fastcc void @update_blocked_averages(i32 noundef %0) unnamed_add
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 2304
   %39 = load ptr, ptr %38, align 64
   %40 = icmp eq ptr %39, %38
-  br i1 %40, label %234, label %41
+  br i1 %40, label %235, label %41
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 2584
@@ -10208,21 +10208,21 @@ define internal fastcc void @update_blocked_averages(i32 noundef %0) unnamed_add
 
 232:                                              ; preds = %229
   %233 = icmp ne i8 %158, 0
-  br label %234
+  %234 = or i1 %37, %233
+  br label %235
 
-234:                                              ; preds = %232, %34
-  %235 = phi i8 [ %35, %34 ], [ %230, %232 ]
-  %236 = phi i1 [ false, %34 ], [ %233, %232 ]
-  %237 = or i1 %37, %236
-  %238 = icmp eq i8 %235, 0
+235:                                              ; preds = %232, %34
+  %236 = phi i8 [ %35, %34 ], [ %230, %232 ]
+  %237 = phi i1 [ %37, %34 ], [ %234, %232 ]
+  %238 = icmp eq i8 %236, 0
   br i1 %238, label %241, label %239
 
-239:                                              ; preds = %234
+239:                                              ; preds = %235
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %240, align 16
   br label %241
 
-241:                                              ; preds = %239, %234
+241:                                              ; preds = %239, %235
   br i1 %237, label %242, label %256
 
 242:                                              ; preds = %241

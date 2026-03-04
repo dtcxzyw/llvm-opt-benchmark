@@ -9098,10 +9098,14 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef non
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %0) unnamed_addr #3 align 2 {
+  br label %tailrecurse248
+
+tailrecurse248:                                   ; preds = %78, %1
+  %.tr249 = phi ptr [ %0, %1 ], [ %80, %78 ]
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
-  %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
+tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse248
+  %.tr = phi ptr [ %.tr249, %tailrecurse248 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !281
   %.not.i.i = icmp eq ptr %3, null
@@ -9272,21 +9276,15 @@ _ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode
 
 _ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
   %77 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 268
-  br i1 %77, label %78, label %82
+  br i1 %77, label %78, label %.thread131
 
 78:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
   %79 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !133
-  %81 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %80)
-  br label %82
+  br label %tailrecurse248
 
-82:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit, %78
-  %.9 = phi i1 [ %81, %78 ], [ undef, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit ]
-  %spec.select81 = and i1 %77, %.9
-  br label %.thread131
-
-.thread131:                                       ; preds = %73, %63, %68, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %57, %.thread136, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12, %82
-  %.1 = phi i1 [ %15, %12 ], [ true, %57 ], [ %spec.select81, %82 ], [ %30, %27 ], [ false, %.thread136 ], [ false, %16 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %73 ], [ true, %63 ], [ false, %68 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ]
+.thread131:                                       ; preds = %73, %63, %68, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit, %57, %.thread136, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12
+  %.1 = phi i1 [ %15, %12 ], [ true, %57 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit ], [ false, %.thread136 ], [ false, %16 ], [ %30, %27 ], [ true, %63 ], [ false, %68 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ], [ false, %73 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ]
   ret i1 %.1
 }
 

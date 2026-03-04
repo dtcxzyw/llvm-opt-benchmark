@@ -586,9 +586,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %50 = load ptr, ptr %49, align 8, !tbaa !33, !noalias !38
   %51 = load i32, ptr %48, align 4, !tbaa !37, !noalias !38
   %52 = load i32, ptr %47, align 8, !tbaa !37, !noalias !38
+  store ptr %4, ptr %1, align 8, !tbaa !41
   store i32 %52, ptr %41, align 8, !tbaa !37
   store i32 %51, ptr %42, align 4, !tbaa !37
   store ptr %50, ptr %43, align 8, !tbaa !33
+  store ptr %5, ptr %0, align 8, !tbaa !41
   store i32 %46, ptr %47, align 8, !tbaa !37
   store i32 %45, ptr %48, align 4, !tbaa !37
   store ptr %44, ptr %49, align 8, !tbaa !33
@@ -621,22 +623,24 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase4SwapEPS2_(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %4, %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %7, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %8, align 8, !tbaa !25
-  %12 = load ptr, ptr %10, align 8, !tbaa !25
-  store ptr %12, ptr %8, align 8, !tbaa !25
-  store ptr %11, ptr %10, align 8, !tbaa !25
+  store ptr %6, ptr %3, align 8, !tbaa !41
+  store ptr %4, ptr %5, align 8, !tbaa !41
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = load ptr, ptr %8, align 8, !tbaa !25
+  store ptr %12, ptr %10, align 8, !tbaa !25
+  store ptr %11, ptr %8, align 8, !tbaa !25
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %8, align 8, !tbaa !3
-  %.not = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %.not = icmp eq ptr %15, null
+  %16 = load ptr, ptr %8, align 8, !tbaa !3
   %.not12 = icmp eq ptr %16, null
   br i1 %.not, label %17, label %19
 
@@ -644,22 +648,22 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase4SwapEPS2_(ptr nou
   br i1 %.not12, label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit, label %18
 
 18:                                               ; preds = %17
-  tail call void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %4)
+  tail call void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef nonnull %8, ptr noundef nonnull %14, ptr noundef %6, ptr noundef %4)
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
 
 19:                                               ; preds = %13
   br i1 %.not12, label %20, label %21
 
 20:                                               ; preds = %19
-  tail call void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef nonnull %8, ptr noundef nonnull %15, ptr noundef %4, ptr noundef %6)
+  tail call void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %6)
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
 
 21:                                               ; preds = %19
-  %22 = icmp eq ptr %14, %16
+  %22 = icmp eq ptr %15, %16
   br i1 %22, label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %14, align 8, !tbaa !21
+  %24 = load ptr, ptr %15, align 8, !tbaa !21
   %25 = load ptr, ptr %16, align 8, !tbaa !21
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %40
@@ -668,25 +672,27 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase4SwapEPS2_(ptr nou
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !33, !noalias !41
-  %32 = load i32, ptr %29, align 4, !tbaa !37, !noalias !41
-  %33 = load i32, ptr %28, align 8, !tbaa !37, !noalias !41
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !33, !noalias !44
-  %38 = load i32, ptr %35, align 4, !tbaa !37, !noalias !44
-  %39 = load i32, ptr %34, align 8, !tbaa !37, !noalias !44
+  %31 = load ptr, ptr %30, align 8, !tbaa !33, !noalias !42
+  %32 = load i32, ptr %29, align 4, !tbaa !37, !noalias !42
+  %33 = load i32, ptr %28, align 8, !tbaa !37, !noalias !42
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !33, !noalias !45
+  %38 = load i32, ptr %35, align 4, !tbaa !37, !noalias !45
+  %39 = load i32, ptr %34, align 8, !tbaa !37, !noalias !45
+  store ptr %24, ptr %16, align 8, !tbaa !41
   store i32 %39, ptr %28, align 8, !tbaa !37
   store i32 %38, ptr %29, align 4, !tbaa !37
   store ptr %37, ptr %30, align 8, !tbaa !33
+  store ptr %25, ptr %15, align 8, !tbaa !41
   store i32 %33, ptr %34, align 8, !tbaa !37
   store i32 %32, ptr %35, align 4, !tbaa !37
   store ptr %31, ptr %36, align 8, !tbaa !33
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
 
 40:                                               ; preds = %23
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS0_16RepeatedPtrFieldINS0_7MessageEE11TypeHandlerEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %16)
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS0_16RepeatedPtrFieldINS0_7MessageEE11TypeHandlerEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %16)
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit: ; preds = %17, %20, %18, %21, %27, %40, %9
@@ -703,10 +709,10 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit: ; preds = %
 define hidden void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %3, align 8, !tbaa !47
-  %6 = load ptr, ptr %4, align 8, !tbaa !47
-  store ptr %6, ptr %3, align 8, !tbaa !47
-  store ptr %5, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !41
+  %6 = load ptr, ptr %4, align 8, !tbaa !41
+  store ptr %6, ptr %3, align 8, !tbaa !41
+  store ptr %5, ptr %4, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %7, align 8, !tbaa !25
@@ -726,10 +732,10 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2
 define hidden void @_ZN6google8protobuf8internal12MapFieldBase17UnsafeShallowSwapEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %0, ptr noundef captures(none) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %3, align 8, !tbaa !47
-  %6 = load ptr, ptr %4, align 8, !tbaa !47
-  store ptr %6, ptr %3, align 8, !tbaa !47
-  store ptr %5, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !41
+  %6 = load ptr, ptr %4, align 8, !tbaa !41
+  store ptr %6, ptr %3, align 8, !tbaa !41
+  store ptr %5, ptr %4, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %7, align 8, !tbaa !25
@@ -1057,7 +1063,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit: ; preds = 
           to label %35 unwind label %41
 
 35:                                               ; preds = %33
-  %36 = load i64, ptr %28, align 8, !tbaa !47
+  %36 = load i64, ptr %28, align 8, !tbaa !41
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %38, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit
 
@@ -1280,7 +1286,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
           to label %8 unwind label %14
 
 8:                                                ; preds = %7
-  %9 = load i64, ptr %2, align 8, !tbaa !47
+  %9 = load i64, ptr %2, align 8, !tbaa !41
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMapD2Ev.exit
 
@@ -4205,8 +4211,8 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   %28 = load ptr, ptr %26, align 8, !tbaa !121
   store ptr %28, ptr %25, align 8, !tbaa !121
   store ptr %27, ptr %26, align 8, !tbaa !121
-  store i64 %10, ptr %4, align 8, !tbaa !47
-  store ptr %5, ptr %6, align 8, !tbaa !47
+  store i64 %10, ptr %4, align 8, !tbaa !41
+  store ptr %5, ptr %6, align 8, !tbaa !41
   br label %51
 
 29:                                               ; preds = %2
@@ -4234,7 +4240,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
-  %41 = load i64, ptr %34, align 8, !tbaa !47
+  %41 = load i64, ptr %34, align 8, !tbaa !41
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit
 
@@ -7329,18 +7335,18 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %55 = load ptr, ptr %54, align 8, !tbaa !33, !noalias !220
   %56 = load i32, ptr %53, align 4, !tbaa !37, !noalias !220
   %57 = load i32, ptr %5, align 8, !tbaa !37, !noalias !220
-  %58 = load ptr, ptr %3, align 8, !tbaa !47, !noalias !220
+  %58 = load ptr, ptr %3, align 8, !tbaa !41, !noalias !220
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !33, !noalias !223
   %62 = load i32, ptr %59, align 4, !tbaa !37, !noalias !223
   %63 = load i32, ptr %34, align 8, !tbaa !37, !noalias !223
-  %64 = load ptr, ptr %1, align 8, !tbaa !47, !noalias !223
-  store ptr %64, ptr %3, align 8, !tbaa !47
+  %64 = load ptr, ptr %1, align 8, !tbaa !41, !noalias !223
+  store ptr %64, ptr %3, align 8, !tbaa !41
   store i32 %63, ptr %5, align 8, !tbaa !37
   store i32 %62, ptr %53, align 4, !tbaa !37
   store ptr %61, ptr %54, align 8, !tbaa !33
-  store ptr %58, ptr %1, align 8, !tbaa !47
+  store ptr %58, ptr %1, align 8, !tbaa !41
   store i32 %57, ptr %34, align 8, !tbaa !37
   store i32 %56, ptr %59, align 4, !tbaa !37
   store ptr %55, ptr %60, align 8, !tbaa !33
@@ -8682,7 +8688,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 8, ptr %10, align 8, !tbaa !57
   store i64 8, ptr %5, align 8, !tbaa !55
-  %11 = load i64, ptr %8, align 8, !tbaa !47
+  %11 = load i64, ptr %8, align 8, !tbaa !41
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit.i.i.i
 
@@ -8718,7 +8724,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16CreateEmptyTab
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !58
   store i64 %1, ptr %5, align 8, !tbaa !55
-  %32 = load i64, ptr %8, align 8, !tbaa !47
+  %32 = load i64, ptr %8, align 8, !tbaa !41
   %33 = icmp eq i64 %32, 0
   %34 = shl i64 %1, 3
   br i1 %33, label %35, label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit.i.i.i16
@@ -8750,7 +8756,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16CreateEmptyTab
   br label %49
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap12TransferListEPKPvm.exit, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16CreateEmptyTableEm.exit18
-  %46 = load i64, ptr %8, align 8, !tbaa !47
+  %46 = load i64, ptr %8, align 8, !tbaa !41
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap7DeallocIPvEEvPT_m.exit
 
@@ -8964,7 +8970,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
 
 8:                                                ; preds = %2
   %9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store i64 0, ptr %9, align 8, !tbaa !47
+  store i64 0, ptr %9, align 8, !tbaa !41
   br label %_ZN6google8protobuf5Arena14CreateInternalISt3mapISt17reference_wrapperIKNS0_6MapKeyEEPvSt4lessIS5_ENS0_8internal12MapAllocatorISt4pairIKS7_S8_EEEEJSA_SG_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 10:                                               ; preds = %2
@@ -8975,7 +8981,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectISt3mapISt17reference_wrapperIKNS0_6MapKeyEEPvSt4lessIS5_ENS1_12MapAllocatorISt4pairIKS7_S8_EEEEEEvS8_, ptr %14, align 8, !tbaa !20
   %15 = ptrtoint ptr %6 to i64
-  store i64 %15, ptr %12, align 8, !tbaa !47
+  store i64 %15, ptr %12, align 8, !tbaa !41
   br label %_ZN6google8protobuf5Arena14CreateInternalISt3mapISt17reference_wrapperIKNS0_6MapKeyEEPvSt4lessIS5_ENS0_8internal12MapAllocatorISt4pairIKS7_S8_EEEEJSA_SG_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalISt3mapISt17reference_wrapperIKNS0_6MapKeyEEPvSt4lessIS5_ENS0_8internal12MapAllocatorISt4pairIKS7_S8_EEEEJSA_SG_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit: ; preds = %8, %10
@@ -10064,13 +10070,13 @@ attributes #34 = { allocsize(0) }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
 !40 = distinct !{!40, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!43 = distinct !{!43, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!46 = distinct !{!46, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!47 = !{!5, !5, i64 0}
+!41 = !{!5, !5, i64 0}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!44 = distinct !{!44, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!47 = distinct !{!47, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
 !48 = !{!22, !23, i64 12}
 !49 = distinct !{!49, !30}
 !50 = !{!51, !52, i64 0}

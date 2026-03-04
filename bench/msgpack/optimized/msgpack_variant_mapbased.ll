@@ -13549,6 +13549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %130 = add nuw nsw i64 %128, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %36, i64 %130, i1 false)
   store i64 %128, ptr %39, align 8, !tbaa !10, !alias.scope !331
+  store ptr %36, ptr %11, align 8, !tbaa !32, !noalias !331
   store i64 0, ptr %37, align 8, !tbaa !10, !noalias !331
   store i8 0, ptr %36, align 8, !tbaa !13, !noalias !331
   store ptr %41, ptr %40, align 8, !tbaa !4

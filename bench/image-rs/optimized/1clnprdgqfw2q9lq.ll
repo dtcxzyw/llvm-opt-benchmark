@@ -15038,10 +15038,10 @@ _ZN3exr4meta9attribute4Text15write_i32_sized17he0526279b8546ddeE.exit.i.i: ; pre
   %474 = load i8, ptr %473, align 8, !range !309, !alias.scope !3059, !noalias !3060, !noundef !4
   %475 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %476 = load i8, ptr %475, align 1, !range !334, !alias.scope !3059, !noalias !3060, !noundef !4
-  %spec.select.i.i = shl nuw nsw i8 %476, 4
-  %477 = or disjoint i8 %spec.select.i.i, %474
+  %477 = shl nuw nsw i8 %476, 4
+  %spec.select.i.i = or disjoint i8 %477, %474
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !3081
-  store i8 %477, ptr %47, align 1, !noalias !3081
+  store i8 %spec.select.i.i, ptr %47, align 1, !noalias !3081
   %478 = call noundef ptr @_ZN3std2io5Write9write_all17hff15f0bbd5347798E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef 1), !noalias !3088
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !3081
   %479 = icmp eq ptr %478, null

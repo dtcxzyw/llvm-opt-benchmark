@@ -236,23 +236,22 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us:      ; preds = %_ZNSt6vectorIiSaIiE
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us
   %24 = phi i1 [ false, %._crit_edge.us ], [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
-  %indvars.iv22 = phi i64 [ 1, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
-  %25 = mul nuw nsw i64 %21, %indvars.iv22
-  %invariant.gep.us = getelementptr i32, ptr %23, i64 %25
-  %26 = getelementptr i32, ptr %20, i64 %25
-  br label %27
+  %indvars.iv22 = phi i64 [ %21, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
+  %invariant.gep.us = getelementptr i32, ptr %23, i64 %indvars.iv22
+  %25 = getelementptr i32, ptr %20, i64 %indvars.iv22
+  br label %26
 
-27:                                               ; preds = %.preheader.us, %27
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %27 ]
+26:                                               ; preds = %.preheader.us, %26
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %26 ]
   %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %indvars.iv
-  %28 = load i32, ptr %gep.us, align 4, !tbaa !37
-  %29 = getelementptr i32, ptr %26, i64 %indvars.iv
-  store i32 %28, ptr %29, align 4, !tbaa !37
+  %27 = load i32, ptr %gep.us, align 4, !tbaa !37
+  %28 = getelementptr i32, ptr %25, i64 %indvars.iv
+  store i32 %27, ptr %28, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !39
 
-._crit_edge.us:                                   ; preds = %27
+._crit_edge.us:                                   ; preds = %26
   br i1 %24, label %.preheader.us, label %.split.us, !llvm.loop !40
 
 .split.us:                                        ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEE6resizeEm.exit

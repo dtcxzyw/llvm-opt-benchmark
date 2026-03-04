@@ -3367,9 +3367,9 @@ define noundef zeroext i1 @_ZN6uucore4mods2os8is_wsl_117h09bddae057103655E() unn
   %34 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !621, !noalias !624, !noundef !4
   %35 = add i8 %34, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i = select i1 %36, i8 32, i8 0
-  %37 = or i8 %.0.i.i, %34
-  store i8 %37, ptr %.sroa.0.06.i.i, align 1, !alias.scope !621, !noalias !624
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i = or i8 %37, %34
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !621, !noalias !624
   %38 = icmp eq ptr %33, %31
   br i1 %38, label %.loopexit, label %.lr.ph.i.i
 
@@ -3578,9 +3578,9 @@ define noundef zeroext i1 @_ZN6uucore4mods2os8is_wsl_217h7c0e99af3043fe03E() unn
   %32 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !670, !noalias !673, !noundef !4
   %33 = add i8 %32, -65
   %34 = icmp ult i8 %33, 26
-  %.0.i.i = select i1 %34, i8 32, i8 0
-  %35 = or i8 %.0.i.i, %32
-  store i8 %35, ptr %.sroa.0.06.i.i, align 1, !alias.scope !670, !noalias !673
+  %35 = select i1 %34, i8 32, i8 0
+  %.0.i.i = or i8 %35, %32
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !670, !noalias !673
   %36 = icmp eq ptr %31, %29
   br i1 %36, label %.loopexit, label %.lr.ph.i.i
 

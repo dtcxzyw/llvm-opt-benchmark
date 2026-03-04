@@ -401,6 +401,7 @@ define void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(32
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %19, align 8, !tbaa !12, !alias.scope !16
+  store ptr %12, ptr %9, align 8, !tbaa !19
   store i64 0, ptr %18, align 8, !tbaa !12
   store i8 0, ptr %12, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -519,6 +520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %59, ptr %63, align 8, !tbaa !12, !alias.scope !23
+  store ptr %56, ptr %53, align 8, !tbaa !19
   store i64 0, ptr %62, align 8, !tbaa !12
   store i8 0, ptr %56, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i35
@@ -1045,6 +1047,7 @@ define void @_ZN11colvarparseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %16, ptr %20, align 8, !tbaa !12, !alias.scope !50
+  store ptr %13, ptr %10, align 8, !tbaa !19
   store i64 0, ptr %19, align 8, !tbaa !12
   store i8 0, ptr %13, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -2144,10 +2147,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245: ; preds = %.b
   %122 = load i8, ptr %121, align 1, !tbaa !15
   %123 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %96, i8 noundef signext %122, i64 noundef 0) #20
   %124 = icmp ne i64 %123, -1
+  %spec.select = and i1 %.0154, %124
   br label %125
 
 125:                                              ; preds = %118, %112
-  %.0156 = phi i1 [ true, %112 ], [ %124, %118 ]
+  %.0156 = phi i1 [ %.0154, %112 ], [ %spec.select, %118 ]
   %126 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.45, i64 noundef %.0149, i64 noundef 2) #20
   %.not13.i = icmp eq i64 %126, -1
   br i1 %.not13.i, label %_ZN11colvarparse12check_bracesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit, label %.lr.ph.i281
@@ -2175,8 +2179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245: ; preds = %.b
 
 _ZN11colvarparse12check_bracesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %125, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i1 [ true, %125 ], [ %137, %._crit_edge.loopexit.i ]
-  %or.cond = and i1 %.0154, %.0156
-  %spec.select200 = select i1 %or.cond, i1 %.010.lcssa.i, i1 false
+  %spec.select200 = select i1 %.0156, i1 %.010.lcssa.i, i1 false
   br i1 %spec.select200, label %143, label %138
 
 138:                                              ; preds = %_ZN11colvarparse12check_bracesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit

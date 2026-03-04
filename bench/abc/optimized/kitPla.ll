@@ -1759,22 +1759,22 @@ Kit_TruthOr.exit.loopexit:                        ; preds = %select.unfold.i57
 .loopexit:                                        ; preds = %Kit_TruthOr.exit.loopexit, %Kit_TruthOr.exit.loopexit.us
   %.us-phi = phi i8 [ %29, %Kit_TruthOr.exit.loopexit.us ], [ %61, %Kit_TruthOr.exit.loopexit ]
   %71 = icmp ne i8 %.us-phi, 48
-  %brmerge = or i1 %15, %71
-  br i1 %brmerge, label %Kit_TruthNot.exit, label %select.unfold.preheader.i61
+  %72 = or i1 %15, %71
+  br i1 %72, label %Kit_TruthNot.exit, label %select.unfold.preheader.i61
 
 select.unfold.preheader.i61:                      ; preds = %.loopexit
-  %72 = zext nneg i32 %spec.select.i to i64
+  %73 = zext nneg i32 %spec.select.i to i64
   br label %select.unfold.i62
 
 select.unfold.i62:                                ; preds = %select.unfold.i62, %select.unfold.preheader.i61
-  %indvars.iv.i63 = phi i64 [ %72, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
+  %indvars.iv.i63 = phi i64 [ %73, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
   %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i63, -1
-  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i64
-  %74 = load i32, ptr %73, align 4, !tbaa !18
-  %75 = xor i32 %74, -1
-  store i32 %75, ptr %73, align 4, !tbaa !18
-  %76 = icmp samesign ugt i64 %indvars.iv.i63, 1
-  br i1 %76, label %select.unfold.i62, label %Kit_TruthNot.exit, !llvm.loop !46
+  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i64
+  %75 = load i32, ptr %74, align 4, !tbaa !18
+  %76 = xor i32 %75, -1
+  store i32 %76, ptr %74, align 4, !tbaa !18
+  %77 = icmp samesign ugt i64 %indvars.iv.i63, 1
+  br i1 %77, label %select.unfold.i62, label %Kit_TruthNot.exit, !llvm.loop !46
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i62, %.lr.ph71.split, %.lr.ph71.split.us, %Kit_TruthClear.exit, %.loopexit, %10
   ret void

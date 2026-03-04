@@ -3173,9 +3173,9 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1087: ; preds = %553, %555, 
   %581 = load i8, ptr %580, align 8, !tbaa !135
   %.not5.i1090 = icmp ne i8 %581, 0
   %582 = and i64 %.sroa.2.0.i1085, 4294967296
-  %.not1547 = icmp eq i64 %582, 0
-  %or.cond1562 = select i1 %.not5.i1090, i1 true, i1 %.not1547
-  br i1 %or.cond1562, label %.critedge1066, label %583
+  %.not1544 = icmp eq i64 %582, 0
+  %or.cond1559 = select i1 %.not5.i1090, i1 true, i1 %.not1544
+  br i1 %or.cond1559, label %.critedge1066, label %583
 
 583:                                              ; preds = %575
   %584 = getelementptr inbounds nuw i8, ptr %580, i64 8
@@ -3414,14 +3414,13 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1119: ; preds = %685, %6
   br label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1126
 
 _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1126: ; preds = %702, %704, %710
-  %.sroa.2.0.i1121 = phi i1 [ true, %710 ], [ false, %702 ], [ false, %704 ]
+  %.sroa.2.0.i1121 = phi i1 [ %.sroa.2.0.i1114, %710 ], [ false, %702 ], [ false, %704 ]
   %.sroa.0.0.i1122 = phi double [ %712, %710 ], [ undef, %702 ], [ undef, %704 ]
   %713 = fcmp ogt double %678, 0.000000e+00
-  %or.cond1376 = and i1 %.sroa.2.0.i1114, %.sroa.2.0.i1121
   br i1 %713, label %714, label %747
 
 714:                                              ; preds = %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1126
-  br i1 %or.cond1376, label %715, label %731
+  br i1 %.sroa.2.0.i1121, label %715, label %731
 
 715:                                              ; preds = %714
   %716 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen7compareEddNS0_11IrConditionE(double noundef %.sroa.0.0.i1115, double noundef %.sroa.0.0.i1122, i8 noundef zeroext 5)
@@ -3486,7 +3485,7 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1126: ; preds = %702, %7
   br label %.critedge1066
 
 747:                                              ; preds = %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1126
-  br i1 %or.cond1376, label %748, label %764
+  br i1 %.sroa.2.0.i1121, label %748, label %764
 
 748:                                              ; preds = %747
   %749 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen7compareEddNS0_11IrConditionE(double noundef %.sroa.0.0.i1122, double noundef %.sroa.0.0.i1115, i8 noundef zeroext 5)
@@ -5476,7 +5475,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1158: ; preds = %1422
   tail call void @_ZN4Luau7CodeGen14ConstPropState18invalidateUserCallEv(ptr noundef nonnull align 8 dereferenceable(5464) %0)
   br label %.critedge1066
 
-.critedge1066:                                    ; preds = %632, %630, %575, %573, %271, %1162, %1159, %1024, %1027, %669, %667, %1698, %1690, %1686, %1681, %1541, %1432, %1516, %.critedge1069, %1456, %1453, %1457, %1504, %1507, %1358, %1337, %1312, %1336, %1308, %1287, %1269, %1286, %1279, %1265, %1244, %1243, %1241, %1203, %1117, %917, %992, %.critedge1051, %979, %955, %958, %982, %764, %757, %750, %731, %724, %717, %653, %646, %598, %592, %400, %.critedge1048, %417, %.critedge, %287, %133, %134, %.thread, %1584, %1593, %1596, %1571, %1579, %1582, %1410, %1412, %1395, %1397, %1078, %1074, %1057, %1049, %1054, %1053, %859, %869, %872, %873, %844, %854, %857, %858, %843, %832, %835, %836, %800, %802, %528, %521, %539, %535, %477, %470, %467, %467, %460, %453, %450, %450, %171, %179, %184, %182, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, %94, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread, %74, %79, %75, %50, %56, %52, %._crit_edge1433, %1556, %1369, %1381, %._crit_edge, %1368, %1174, %.critedge1058, %1213, %._crit_edge1438, %._crit_edge1445, %1127, %1044, %1042, %1043, %._crit_edge1450, %1037, %885, %884, %881, %795, %418, %449, %423, %226, %240, %241, %242, %196, %210, %211, %212, %148, %153, %101, %95, %100, %57, %62, %1790, %1775, %1764, %1735, %1734, %1719, %1718, %1703, %1699, %1687, %1670, %1659, %1644, %1643, %1628, %1613, %1598, %1382, %1340, %1339, %1338, %1214, %1082, %780, %256, %45
+.critedge1066:                                    ; preds = %632, %575, %573, %630, %271, %1162, %1159, %1024, %1027, %669, %667, %1698, %1690, %1686, %1681, %1541, %1432, %1516, %.critedge1069, %1456, %1453, %1457, %1504, %1507, %1358, %1337, %1312, %1336, %1308, %1287, %1269, %1286, %1279, %1265, %1244, %1243, %1241, %1203, %1117, %917, %992, %.critedge1051, %979, %955, %958, %982, %764, %757, %750, %731, %724, %717, %653, %646, %598, %592, %400, %.critedge1048, %417, %.critedge, %287, %133, %134, %.thread, %1584, %1593, %1596, %1571, %1579, %1582, %1410, %1412, %1395, %1397, %1078, %1074, %1057, %1049, %1054, %1053, %859, %869, %872, %873, %844, %854, %857, %858, %843, %832, %835, %836, %800, %802, %528, %521, %539, %535, %477, %470, %467, %467, %460, %453, %450, %450, %171, %179, %184, %182, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, %94, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread, %74, %79, %75, %50, %56, %52, %._crit_edge1433, %1556, %1369, %1381, %._crit_edge, %1368, %1174, %.critedge1058, %1213, %._crit_edge1438, %._crit_edge1445, %1127, %1044, %1042, %1043, %._crit_edge1450, %1037, %885, %884, %881, %795, %418, %449, %423, %226, %240, %241, %242, %196, %210, %211, %212, %148, %153, %101, %95, %100, %57, %62, %1790, %1775, %1764, %1735, %1734, %1719, %1718, %1703, %1699, %1687, %1670, %1659, %1644, %1643, %1628, %1613, %1598, %1382, %1340, %1339, %1338, %1214, %1082, %780, %256, %45
   ret void
 }
 

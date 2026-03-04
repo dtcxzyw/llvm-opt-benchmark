@@ -24489,6 +24489,7 @@ define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !43, !alias.scope !1045
+  store ptr %8, ptr %5, align 8, !tbaa !107
   store i64 0, ptr %14, align 8, !tbaa !43
   store i8 0, ptr %8, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -25041,6 +25042,7 @@ define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !43, !alias.scope !1053
+  store ptr %8, ptr %5, align 8, !tbaa !107
   store i64 0, ptr %14, align 8, !tbaa !43
   store i8 0, ptr %8, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -25575,6 +25577,7 @@ define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !43, !alias.scope !1061
+  store ptr %8, ptr %5, align 8, !tbaa !107
   store i64 0, ptr %14, align 8, !tbaa !43
   store i8 0, ptr %8, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -25771,6 +25774,7 @@ define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !43, !alias.scope !1067
+  store ptr %8, ptr %5, align 8, !tbaa !107
   store i64 0, ptr %14, align 8, !tbaa !43
   store i8 0, ptr %8, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -25967,6 +25971,7 @@ define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !43, !alias.scope !1073
+  store ptr %8, ptr %5, align 8, !tbaa !107
   store i64 0, ptr %14, align 8, !tbaa !43
   store i8 0, ptr %8, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

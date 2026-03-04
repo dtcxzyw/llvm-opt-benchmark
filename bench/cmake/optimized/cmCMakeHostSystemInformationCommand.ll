@@ -9735,6 +9735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i.i.i: 
   call void @llvm.assume(i1 %30)
   %31 = add nuw nsw i64 %29, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %26, i64 %31, i1 false)
+  store ptr %26, ptr %24, align 8, !tbaa !4
   store i64 0, ptr %28, align 8, !tbaa !17
   store i8 0, ptr %26, align 8, !tbaa !12
   store ptr %21, ptr %7, align 8, !tbaa !18

@@ -819,7 +819,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
   %50 = and i32 %49, 1
   %51 = icmp eq i32 %50, 0
   %or.cond = select i1 %47, i1 %51, i1 false
-  br i1 %or.cond, label %52, label %.thread
+  br i1 %or.cond, label %52, label %.critedge7
 
 52:                                               ; preds = %39
   %53 = trunc i16 %41 to i1
@@ -830,16 +830,16 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 4
   %60 = icmp eq i32 %59, 0
-  %.not16 = and i1 %60, %53
+  %.not18 = and i1 %60, %53
   %61 = icmp ult i32 %49, 2
-  %or.cond13 = select i1 %.not16, i1 true, i1 %61
-  br i1 %or.cond13, label %69, label %62
+  %or.cond15 = select i1 %.not18, i1 true, i1 %61
+  br i1 %or.cond15, label %69, label %62
 
-.thread:                                          ; preds = %39
+.critedge7:                                       ; preds = %39
   %.old = icmp ult i32 %49, 2
   br i1 %.old, label %69, label %62
 
-62:                                               ; preds = %52, %.thread
+62:                                               ; preds = %52, %.critedge7
   %63 = lshr i32 %49, 1
   %64 = load volatile i64, ptr @jiffies, align 64
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -848,7 +848,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
   %68 = icmp slt i64 %67, 0
   br i1 %68, label %96, label %69
 
-69:                                               ; preds = %62, %.thread, %52
+69:                                               ; preds = %62, %.critedge7, %52
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, -4
@@ -2189,7 +2189,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
 20:                                               ; preds = %4
   %21 = tail call i32 @skb_checksum_help(ptr noundef %2) #12
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.thread23
+  br i1 %22, label %23, label %.thread22
 
 23:                                               ; preds = %20, %4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -2233,7 +2233,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %56 = and i32 %55, 1
   %57 = icmp eq i32 %56, 0
   %or.cond = select i1 %53, i1 %57, i1 false
-  br i1 %or.cond, label %58, label %.thread
+  br i1 %or.cond, label %58, label %.critedge
 
 58:                                               ; preds = %42
   %59 = trunc i16 %44 to i1
@@ -2244,16 +2244,16 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 4
   %66 = icmp eq i32 %65, 0
-  %.not98 = and i1 %66, %59
+  %.not97 = and i1 %66, %59
   %67 = icmp ult i32 %55, 2
-  %or.cond95 = select i1 %.not98, i1 true, i1 %67
-  br i1 %or.cond95, label %75, label %68
+  %or.cond94 = select i1 %.not97, i1 true, i1 %67
+  br i1 %or.cond94, label %75, label %68
 
-.thread:                                          ; preds = %42
+.critedge:                                        ; preds = %42
   %.old = icmp ult i32 %55, 2
   br i1 %.old, label %75, label %68
 
-68:                                               ; preds = %58, %.thread
+68:                                               ; preds = %58, %.critedge
   %69 = lshr i32 %55, 1
   %70 = load volatile i64, ptr @jiffies, align 64
   %71 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -2262,7 +2262,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %74 = icmp slt i64 %73, 0
   br i1 %74, label %105, label %75
 
-75:                                               ; preds = %68, %.thread, %58
+75:                                               ; preds = %68, %.critedge, %58
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %77, -4
@@ -2300,12 +2300,12 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %104 = load volatile i32, ptr %103, align 8
-  %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %.pre61 = load i16, ptr %.phi.trans.insert60, align 4
+  %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %.pre60 = load i16, ptr %.phi.trans.insert59, align 4
   br label %105
 
 105:                                              ; preds = %98, %92, %88, %75, %68
-  %106 = phi i16 [ %.pre61, %98 ], [ %44, %68 ], [ %44, %75 ], [ %44, %92 ], [ %44, %88 ]
+  %106 = phi i16 [ %.pre60, %98 ], [ %44, %68 ], [ %44, %75 ], [ %44, %92 ], [ %44, %88 ]
   %107 = phi i32 [ %104, %98 ], [ %69, %68 ], [ %81, %75 ], [ %97, %92 ], [ %85, %88 ]
   %108 = tail call i32 @llvm.umin.i32(i32 %107, i32 65535)
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 62
@@ -2339,7 +2339,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %.thread21, label %139
+  br i1 %138, label %.thread20, label %139
 
 139:                                              ; preds = %105
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -2349,7 +2349,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %145 = load i8, ptr %144, align 2
   %146 = icmp eq i8 %145, 0
-  br i1 %146, label %.loopexit26, label %147
+  br i1 %146, label %.loopexit25, label %147
 
 147:                                              ; preds = %139
   %148 = zext i8 %145 to i64
@@ -2365,9 +2365,9 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %155 = load i32, ptr %154, align 8
   %156 = add i32 %155, %152
   %157 = icmp samesign ugt i64 %151, 1
-  br i1 %157, label %150, label %.loopexit26, !llvm.loop !18
+  br i1 %157, label %150, label %.loopexit25, !llvm.loop !18
 
-.loopexit26:                                      ; preds = %150, %139
+.loopexit25:                                      ; preds = %150, %139
   %158 = phi i32 [ 0, %139 ], [ %156, %150 ]
   %159 = add i32 %143, %118
   %160 = sub i32 %141, %159
@@ -2376,14 +2376,14 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %163 = and i32 %161, 7
   %164 = icmp eq i32 %163, 0
   %165 = and i1 %162, %164
-  br i1 %165, label %166, label %.thread21
+  br i1 %165, label %166, label %.thread20
 
-166:                                              ; preds = %.loopexit26
+166:                                              ; preds = %.loopexit25
   %167 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %168 = load i16, ptr %167, align 2
   %169 = and i16 %168, -193
   %170 = icmp eq i16 %169, 0
-  br i1 %170, label %171, label %.thread21
+  br i1 %170, label %171, label %.thread20
 
 171:                                              ; preds = %166
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 126
@@ -2397,7 +2397,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %178 = load volatile i32, ptr %177, align 4
   %179 = and i32 %178, 65535
   %180 = icmp eq i32 %179, 1
-  br i1 %180, label %181, label %.thread21
+  br i1 %180, label %181, label %.thread20
 
 181:                                              ; preds = %176, %171
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 200
@@ -2407,7 +2407,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %186 = sub i64 %184, %185
   %187 = trunc i64 %186 to i32
   %188 = icmp ugt i32 %131, %187
-  br i1 %188, label %.thread21, label %189
+  br i1 %188, label %.thread20, label %189
 
 189:                                              ; preds = %181
   %190 = add nuw nsw i32 %131, %118
@@ -2494,14 +2494,14 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %242 = zext i1 %241 to i24
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %.promoted = load i32, ptr %237, align 8
-  %.promoted41 = load ptr, ptr %239, align 8
+  %.promoted40 = load ptr, ptr %239, align 8
   %244 = load i32, ptr %238, align 4
   %245 = zext i32 %244 to i64
   %246 = sub nsw i64 0, %245
   br label %247
 
 247:                                              ; preds = %333, %235
-  %248 = phi ptr [ %.promoted41, %235 ], [ %321, %333 ]
+  %248 = phi ptr [ %.promoted40, %235 ], [ %321, %333 ]
   %249 = phi i32 [ %.promoted, %235 ], [ %322, %333 ]
   %250 = phi ptr [ %236, %235 ], [ %334, %333 ]
   %251 = phi ptr [ %2, %235 ], [ %250, %333 ]
@@ -2650,7 +2650,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %348 = icmp eq ptr %347, null
   %349 = icmp eq ptr %347, %194
   %350 = or i1 %348, %349
-  br i1 %350, label %.thread21, label %.preheader
+  br i1 %350, label %.thread20, label %.preheader
 
 .preheader:                                       ; preds = %341, %.preheader
   %351 = phi ptr [ %358, %.preheader ], [ %347, %341 ]
@@ -2667,14 +2667,14 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %359 = icmp eq ptr %358, null
   %360 = icmp eq ptr %358, %194
   %361 = or i1 %359, %360
-  br i1 %361, label %.thread21.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %361, label %.thread20.loopexit, label %.preheader, !llvm.loop !37
 
-.thread21.loopexit:                               ; preds = %.preheader
-  %.pre62 = load ptr, ptr %24, align 8
-  br label %.thread21
+.thread20.loopexit:                               ; preds = %.preheader
+  %.pre61 = load ptr, ptr %24, align 8
+  br label %.thread20
 
-.thread21:                                        ; preds = %.thread21.loopexit, %341, %.loopexit26, %166, %176, %181, %105
-  %362 = phi ptr [ %.pre62, %.thread21.loopexit ], [ %342, %341 ], [ %25, %.loopexit26 ], [ %25, %166 ], [ %25, %176 ], [ %25, %181 ], [ %25, %105 ]
+.thread20:                                        ; preds = %.thread20.loopexit, %341, %.loopexit25, %166, %176, %181, %105
+  %362 = phi ptr [ %.pre61, %.thread20.loopexit ], [ %342, %341 ], [ %25, %.loopexit25 ], [ %25, %166 ], [ %25, %176 ], [ %25, %181 ], [ %25, %105 ]
   %363 = load i16, ptr %120, align 4
   %364 = trunc i16 %363 to i8
   %365 = lshr i8 %364, 6
@@ -2710,7 +2710,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %387 = icmp eq i32 %374, %118
   br i1 %387, label %.loopexit, label %388
 
-388:                                              ; preds = %.thread21
+388:                                              ; preds = %.thread20
   %389 = icmp ne i64 %16, 0
   %390 = and i1 %389, %10
   %391 = zext i1 %390 to i24
@@ -2734,7 +2734,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
 402:                                              ; preds = %398
   %403 = ptrtoint ptr %400 to i64
   %404 = trunc i64 %403 to i32
-  br label %.thread23
+  br label %.thread22
 
 405:                                              ; preds = %398
   %406 = icmp eq i32 %399, 0
@@ -2757,9 +2757,9 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   store i24 %415, ptr %412, align 1
   %416 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %400) #12
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %393, label %.thread23
+  br i1 %417, label %393, label %.thread22
 
-.loopexit:                                        ; preds = %393, %.thread21
+.loopexit:                                        ; preds = %393, %.thread20
   tail call void @consume_skb(ptr noundef %2) #12
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %419 = load ptr, ptr %418, align 8
@@ -2767,7 +2767,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %420, ptr elementtype(i64) %420) #12, !srcloc !39
   br label %425
 
-.thread23:                                        ; preds = %410, %402, %20
+.thread22:                                        ; preds = %410, %402, %20
   %421 = phi i32 [ %21, %20 ], [ %404, %402 ], [ %416, %410 ]
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #12
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2776,8 +2776,8 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %424, ptr elementtype(i64) %424) #12, !srcloc !40
   br label %425
 
-425:                                              ; preds = %335, %338, %.thread23, %.loopexit
-  %426 = phi i32 [ %421, %.thread23 ], [ 0, %.loopexit ], [ 0, %335 ], [ %328, %338 ]
+425:                                              ; preds = %335, %338, %.thread22, %.loopexit
+  %426 = phi i32 [ %421, %.thread22 ], [ 0, %.loopexit ], [ 0, %335 ], [ %328, %338 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %426

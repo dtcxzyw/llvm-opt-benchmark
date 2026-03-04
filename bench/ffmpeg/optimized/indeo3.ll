@@ -150,42 +150,42 @@ bytestream2_get_le32.exit.i:                      ; preds = %19, %bytestream2_in
 24:                                               ; preds = %bytestream2_get_le32.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 4
   %26 = load i32, ptr %.sroa.0.0.i, align 1, !tbaa !40
-  %27 = xor i32 %26, %.0.i.i
   %.pre255.i = ptrtoint ptr %25 to i64
   br label %bytestream2_get_le32.exit173.i
 
 bytestream2_get_le32.exit173.i:                   ; preds = %24, %bytestream2_get_le32.exit.i
   %.pre-phi256.i = phi i64 [ %17, %bytestream2_get_le32.exit.i ], [ %.pre255.i, %24 ]
   %.sroa.0.1.i = phi ptr [ %16, %bytestream2_get_le32.exit.i ], [ %25, %24 ]
-  %.0.i172.i = phi i32 [ %.0.i.i, %bytestream2_get_le32.exit.i ], [ %27, %24 ]
-  %28 = sub i64 %17, %.pre-phi256.i
-  %29 = icmp slt i64 %28, 4
-  br i1 %29, label %bytestream2_get_le32.exit175.i, label %30
+  %.0.i172.i = phi i32 [ 0, %bytestream2_get_le32.exit.i ], [ %26, %24 ]
+  %27 = sub i64 %17, %.pre-phi256.i
+  %28 = icmp slt i64 %27, 4
+  br i1 %28, label %bytestream2_get_le32.exit175.i, label %29
 
-30:                                               ; preds = %bytestream2_get_le32.exit173.i
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
-  %32 = load i32, ptr %.sroa.0.1.i, align 1, !tbaa !40
-  %.pre257.i = ptrtoint ptr %31 to i64
-  %33 = xor i32 %32, %.0.i172.i
+29:                                               ; preds = %bytestream2_get_le32.exit173.i
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
+  %31 = load i32, ptr %.sroa.0.1.i, align 1, !tbaa !40
+  %32 = xor i32 %31, %.0.i.i
+  %.pre257.i = ptrtoint ptr %30 to i64
   br label %bytestream2_get_le32.exit175.i
 
-bytestream2_get_le32.exit175.i:                   ; preds = %30, %bytestream2_get_le32.exit173.i
-  %.pre-phi258.i = phi i64 [ %17, %bytestream2_get_le32.exit173.i ], [ %.pre257.i, %30 ]
-  %.sroa.0.2.i = phi ptr [ %16, %bytestream2_get_le32.exit173.i ], [ %31, %30 ]
-  %.0.i174.i = phi i32 [ %.0.i172.i, %bytestream2_get_le32.exit173.i ], [ %33, %30 ]
-  %34 = sub i64 %17, %.pre-phi258.i
-  %35 = icmp slt i64 %34, 4
-  br i1 %35, label %bytestream2_get_le32.exit177.i, label %36
+bytestream2_get_le32.exit175.i:                   ; preds = %29, %bytestream2_get_le32.exit173.i
+  %.pre-phi258.i = phi i64 [ %17, %bytestream2_get_le32.exit173.i ], [ %.pre257.i, %29 ]
+  %.sroa.0.2.i = phi ptr [ %16, %bytestream2_get_le32.exit173.i ], [ %30, %29 ]
+  %.0.i174.i = phi i32 [ %.0.i.i, %bytestream2_get_le32.exit173.i ], [ %32, %29 ]
+  %33 = sub i64 %17, %.pre-phi258.i
+  %34 = icmp slt i64 %33, 4
+  br i1 %34, label %bytestream2_get_le32.exit177.i, label %35
 
-36:                                               ; preds = %bytestream2_get_le32.exit175.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i, i64 4
-  %38 = load i32, ptr %.sroa.0.2.i, align 1, !tbaa !40
+35:                                               ; preds = %bytestream2_get_le32.exit175.i
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i, i64 4
+  %37 = load i32, ptr %.sroa.0.2.i, align 1, !tbaa !40
+  %38 = xor i32 %37, %.0.i172.i
   br label %bytestream2_get_le32.exit177.i
 
-bytestream2_get_le32.exit177.i:                   ; preds = %36, %bytestream2_get_le32.exit175.i
-  %.sroa.0.3.i = phi ptr [ %37, %36 ], [ %16, %bytestream2_get_le32.exit175.i ]
-  %.0.i176.i = phi i32 [ %38, %36 ], [ 0, %bytestream2_get_le32.exit175.i ]
-  %39 = xor i32 %.0.i174.i, %.0.i176.i
+bytestream2_get_le32.exit177.i:                   ; preds = %35, %bytestream2_get_le32.exit175.i
+  %.sroa.0.3.i = phi ptr [ %36, %35 ], [ %16, %bytestream2_get_le32.exit175.i ]
+  %.0.i176.i = phi i32 [ %38, %35 ], [ %.0.i172.i, %bytestream2_get_le32.exit175.i ]
+  %39 = xor i32 %.0.i176.i, %.0.i174.i
   %.not.i = icmp eq i32 %39, 1179798856
   br i1 %.not.i, label %41, label %40
 

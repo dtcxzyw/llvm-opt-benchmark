@@ -11093,9 +11093,9 @@ _ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34:    ; preds = %_ZN4llvm12PatternMa
   br i1 %101, label %"_ZZL16foldDependentIVsRN4llvm7PHINodeERNS_13IRBuilderBaseEENK3$_0clEPNS_5ValueES6_.exit", label %"_ZZL16foldDependentIVsRN4llvm7PHINodeERNS_13IRBuilderBaseEENK3$_0clEPNS_5ValueES6_.exit39.thread"
 
 "_ZZL16foldDependentIVsRN4llvm7PHINodeERNS_13IRBuilderBaseEENK3$_0clEPNS_5ValueES6_.exit": ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34, %76, %71, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i, %35, %30
-  %.057 = phi ptr [ %57, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %26, %35 ], [ %29, %30 ], [ %67, %76 ], [ %70, %71 ], [ %98, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ]
-  %.054 = phi ptr [ %18, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %18, %35 ], [ %18, %30 ], [ %20, %76 ], [ %20, %71 ], [ %20, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ]
-  %.051 = phi ptr [ %20, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %20, %35 ], [ %20, %30 ], [ %18, %76 ], [ %18, %71 ], [ %18, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ]
+  %.057 = phi ptr [ %26, %35 ], [ %57, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %29, %30 ], [ %98, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ], [ %70, %71 ], [ %67, %76 ]
+  %.054 = phi ptr [ %18, %35 ], [ %18, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %18, %30 ], [ %20, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ], [ %20, %71 ], [ %20, %76 ]
+  %.051 = phi ptr [ %20, %35 ], [ %20, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ], [ %20, %30 ], [ %18, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i34 ], [ %18, %71 ], [ %18, %76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -8557,14 +8557,14 @@ _ZN12pingora_core9protocols4http11compression26depends_on_accept_encoding17h34f4
   %133 = load i8, ptr %.sroa.01.0.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !752, !noalias !753, !noundef !16
   %134 = add i8 %133, -65
   %135 = icmp ult i8 %134, 26
-  %.sroa.04.0.i.i.i.i.i.i.i.i.i = select i1 %135, i8 32, i8 0
-  %136 = or i8 %.sroa.04.0.i.i.i.i.i.i.i.i.i, %133
+  %136 = select i1 %135, i8 32, i8 0
+  %.sroa.04.0.i.i.i.i.i.i.i.i.i = or i8 %136, %133
   %137 = load i8, ptr %.sroa.02.0.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !750, !noalias !754, !noundef !16
   %138 = add i8 %137, -65
   %139 = icmp ult i8 %138, 26
-  %.sroa.05.0.i.i.i.i.i.i.i.i.i = select i1 %139, i8 32, i8 0
-  %140 = or i8 %.sroa.05.0.i.i.i.i.i.i.i.i.i, %137
-  %141 = icmp eq i8 %136, %140
+  %140 = select i1 %139, i8 32, i8 0
+  %.sroa.05.0.i.i.i.i.i.i.i.i.i = or i8 %140, %137
+  %141 = icmp eq i8 %.sroa.04.0.i.i.i.i.i.i.i.i.i, %.sroa.05.0.i.i.i.i.i.i.i.i.i
   br i1 %141, label %.preheader.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h42b20d49210fefd9E.exit.i.i.i.i.i"
 
 142:                                              ; preds = %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i"
@@ -8584,14 +8584,14 @@ _ZN12pingora_core9protocols4http11compression26depends_on_accept_encoding17h34f4
   %147 = load i8, ptr %.sroa.0.03.i.i.i.i.i.i.i, align 1, !alias.scope !760, !noalias !761, !noundef !16
   %148 = add i8 %147, -65
   %149 = icmp ult i8 %148, 26
-  %.sroa.04.0.i11.i.i.i.i.i.i.i.i = select i1 %149, i8 32, i8 0
-  %150 = or i8 %.sroa.04.0.i11.i.i.i.i.i.i.i.i, %147
+  %150 = select i1 %149, i8 32, i8 0
+  %.sroa.04.0.i11.i.i.i.i.i.i.i.i = or i8 %150, %147
   %151 = load i8, ptr %146, align 1, !alias.scope !758, !noalias !762, !noundef !16
   %152 = add i8 %151, -65
   %153 = icmp ult i8 %152, 26
-  %.sroa.05.0.i12.i.i.i.i.i.i.i.i = select i1 %153, i8 32, i8 0
-  %154 = or i8 %.sroa.05.0.i12.i.i.i.i.i.i.i.i, %151
-  %155 = icmp eq i8 %150, %154
+  %154 = select i1 %153, i8 32, i8 0
+  %.sroa.05.0.i12.i.i.i.i.i.i.i.i = or i8 %154, %151
+  %155 = icmp eq i8 %.sroa.04.0.i11.i.i.i.i.i.i.i.i, %.sroa.05.0.i12.i.i.i.i.i.i.i.i
   br i1 %155, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h144e25dbdf0a1f49E.exit.thread.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h42b20d49210fefd9E.exit.i.i.i.i.i"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h42b20d49210fefd9E.exit.i.i.i.i.i": ; preds = %129, %.preheader.i5.preheader.i.i.i.i.i.i.i.i, %.split.i.i.i.i.i.i.i.i, %.split2.i.i.i.i.i.i.i.i
@@ -9805,14 +9805,14 @@ _ZN4core5slice5ascii8is_ascii17h66536e9e512d3998E.exit.i: ; preds = %.lr.ph25.i.
   %24 = load i8, ptr %.sroa.01.0.i.i10, align 1, !alias.scope !854, !noalias !859, !noundef !16
   %25 = add i8 %24, -65
   %26 = icmp ult i8 %25, 26
-  %.sroa.04.0.i.i = select i1 %26, i8 32, i8 0
-  %27 = or i8 %.sroa.04.0.i.i, %24
+  %27 = select i1 %26, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %27, %24
   %28 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !857, !noalias !863, !noundef !16
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.05.0.i.i = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.05.0.i.i, %28
-  %32 = icmp eq i8 %27, %31
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %31, %28
+  %32 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %32, label %.preheader.i.i9, label %.loopexit98
 
 "_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit": ; preds = %.preheader14.i.i, %._crit_edge.i.i, %_ZN4core5slice5ascii8is_ascii17h66536e9e512d3998E.exit.i
@@ -9839,14 +9839,14 @@ _ZN4core5slice5ascii8is_ascii17h66536e9e512d3998E.exit.i: ; preds = %.lr.ph25.i.
   %39 = load i8, ptr %.sroa.01.0.i.i20, align 1, !alias.scope !865, !noalias !870, !noundef !16
   %40 = add i8 %39, -65
   %41 = icmp ult i8 %40, 26
-  %.sroa.04.0.i.i21 = select i1 %41, i8 32, i8 0
-  %42 = or i8 %.sroa.04.0.i.i21, %39
+  %42 = select i1 %41, i8 32, i8 0
+  %.sroa.04.0.i.i21 = or i8 %42, %39
   %43 = load i8, ptr %.sroa.02.0.i.i19, align 1, !alias.scope !868, !noalias !874, !noundef !16
   %44 = add i8 %43, -65
   %45 = icmp ult i8 %44, 26
-  %.sroa.05.0.i.i22 = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.sroa.05.0.i.i22, %43
-  %47 = icmp eq i8 %42, %46
+  %46 = select i1 %45, i8 32, i8 0
+  %.sroa.05.0.i.i22 = or i8 %46, %43
+  %47 = icmp eq i8 %.sroa.04.0.i.i21, %.sroa.05.0.i.i22
   br i1 %47, label %.preheader.i.i17, label %.loopexit
 
 "_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit34": ; preds = %"_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit"
@@ -9872,14 +9872,14 @@ _ZN4core5slice5ascii8is_ascii17h66536e9e512d3998E.exit.i: ; preds = %.lr.ph25.i.
   %54 = load i8, ptr %.sroa.01.0.i.i44, align 1, !alias.scope !876, !noalias !881, !noundef !16
   %55 = add i8 %54, -65
   %56 = icmp ult i8 %55, 26
-  %.sroa.04.0.i.i45 = select i1 %56, i8 32, i8 0
-  %57 = or i8 %.sroa.04.0.i.i45, %54
+  %57 = select i1 %56, i8 32, i8 0
+  %.sroa.04.0.i.i45 = or i8 %57, %54
   %58 = load i8, ptr %.sroa.02.0.i.i43, align 1, !alias.scope !879, !noalias !885, !noundef !16
   %59 = add i8 %58, -65
   %60 = icmp ult i8 %59, 26
-  %.sroa.05.0.i.i46 = select i1 %60, i8 32, i8 0
-  %61 = or i8 %.sroa.05.0.i.i46, %58
-  %62 = icmp eq i8 %57, %61
+  %61 = select i1 %60, i8 32, i8 0
+  %.sroa.05.0.i.i46 = or i8 %61, %58
+  %62 = icmp eq i8 %.sroa.04.0.i.i45, %.sroa.05.0.i.i46
   br i1 %62, label %.preheader.i.i41, label %"_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit58.thread"
 
 "_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit58": ; preds = %"_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h8a41f225a22498abE.exit34"
@@ -11665,14 +11665,14 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %49 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !1047, !noalias !1050, !noundef !16
   %50 = add i8 %49, -65
   %51 = icmp ult i8 %50, 26
-  %.sroa.04.0.i.i = select i1 %51, i8 32, i8 0
-  %52 = or i8 %.sroa.04.0.i.i, %49
+  %52 = select i1 %51, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %52, %49
   %53 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !1050, !noalias !1047, !noundef !16
   %54 = add i8 %53, -65
   %55 = icmp ult i8 %54, 26
-  %.sroa.05.0.i.i = select i1 %55, i8 32, i8 0
-  %56 = or i8 %.sroa.05.0.i.i, %53
-  %57 = icmp eq i8 %52, %56
+  %56 = select i1 %55, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %56, %53
+  %57 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %57, label %.preheader.i.i, label %.loopexit
 
 58:                                               ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession14is_upgrade_req17hbc256eb103177895E.exit
@@ -11806,14 +11806,14 @@ define void @_ZN12pingora_core9protocols4http2v16client11HttpSession20init_req_b
   %19 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !1057, !noalias !1062, !noundef !16
   %20 = add i8 %19, -65
   %21 = icmp ult i8 %20, 26
-  %.sroa.04.0.i.i = select i1 %21, i8 32, i8 0
-  %22 = or i8 %.sroa.04.0.i.i, %19
+  %22 = select i1 %21, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %22, %19
   %23 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !1060, !noalias !1063, !noundef !16
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.sroa.05.0.i.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.sroa.05.0.i.i, %23
-  %27 = icmp eq i8 %22, %26
+  %26 = select i1 %25, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %26, %23
+  %27 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %27, label %.preheader.i.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.thread.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.thread.i": ; preds = %15, %9, %6
@@ -13498,14 +13498,14 @@ _ZN12pingora_core9protocols4http2v16server11HttpSession14is_upgrade_req17h0dc43b
   %47 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !1138, !noalias !1141, !noundef !16
   %48 = add i8 %47, -65
   %49 = icmp ult i8 %48, 26
-  %.sroa.04.0.i.i = select i1 %49, i8 32, i8 0
-  %50 = or i8 %.sroa.04.0.i.i, %47
+  %50 = select i1 %49, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %50, %47
   %51 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !1141, !noalias !1138, !noundef !16
   %52 = add i8 %51, -65
   %53 = icmp ult i8 %52, 26
-  %.sroa.05.0.i.i = select i1 %53, i8 32, i8 0
-  %54 = or i8 %.sroa.05.0.i.i, %51
-  %55 = icmp eq i8 %50, %54
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %54, %51
+  %55 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %55, label %.preheader.i.i, label %.loopexit
 
 56:                                               ; preds = %66, %76, %75, %_ZN12pingora_core9protocols4http2v16server11HttpSession19is_chunked_encoding17hab1bf99304b5bd8aE.exit, %1, %35

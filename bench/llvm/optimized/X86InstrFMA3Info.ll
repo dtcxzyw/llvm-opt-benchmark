@@ -31,7 +31,7 @@ define dso_local noundef ptr @_ZN4llvm12getFMA3GroupEjm(i32 noundef %0, i64 noun
   %11 = phi i1 [ %9, %7 ], [ true, %2 ]
   %12 = and i64 %1, 1610735616
   %or.cond35 = icmp eq i64 %12, 536887296
-  br i1 %or.cond35, label %19, label %13
+  br i1 %or.cond35, label %20, label %13
 
 13:                                               ; preds = %10
   %14 = and i64 %1, 1610612736
@@ -41,17 +41,17 @@ define dso_local noundef ptr @_ZN4llvm12getFMA3GroupEjm(i32 noundef %0, i64 noun
 16:                                               ; preds = %13
   %17 = and i64 %1, 57344
   %18 = icmp eq i64 %17, 16384
-  br label %19
+  %19 = and i1 %18, %11
+  br label %20
 
-19:                                               ; preds = %10, %16
-  %20 = phi i1 [ true, %10 ], [ %18, %16 ]
+20:                                               ; preds = %10, %16
+  %or.cond7 = phi i1 [ %11, %10 ], [ %19, %16 ]
   %21 = and i64 %1, 4096
   %22 = icmp eq i64 %21, 0
-  %or.cond7 = and i1 %11, %20
   %or.cond9 = and i1 %22, %or.cond7
   br i1 %or.cond9, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit"
 
-_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i: ; preds = %19
+_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i: ; preds = %20
   %23 = and i64 %1, 281474976710656
   %.not = icmp eq i64 %23, 0
   %24 = and i64 %1, 17592186044416
@@ -82,8 +82,8 @@ _ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i: ; preds = %_ZSt7adv
   %36 = icmp sgt i64 %.111.i.i, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !7
 
-"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %13, %19
-  %.0 = phi ptr [ null, %13 ], [ null, %19 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
+"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %13, %20
+  %.0 = phi ptr [ null, %13 ], [ null, %20 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
   ret ptr %.0
 }
 

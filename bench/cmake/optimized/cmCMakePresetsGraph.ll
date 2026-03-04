@@ -6897,19 +6897,19 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.i: ; preds =
   %998 = load ptr, ptr %997, align 8, !tbaa !39
   %999 = getelementptr inbounds nuw i8, ptr %.sroa.0763.01319, i64 696
   %1000 = load ptr, ptr %999, align 8, !tbaa !39
-  %.not18.i.i = icmp eq ptr %998, %1000
-  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i337
+  %.not17.i.i = icmp eq ptr %998, %1000
+  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i337
 
 .lr.ph.i.i337:                                    ; preds = %996
   %1001 = getelementptr inbounds nuw i8, ptr %.sroa.0763.01319, i64 136
   br label %1002
 
 1002:                                             ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i, %.lr.ph.i.i337
-  %.sroa.05.019.i.i = phi ptr [ %998, %.lr.ph.i.i337 ], [ %1010, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i ]
+  %.sroa.05.018.i.i = phi ptr [ %998, %.lr.ph.i.i337 ], [ %1010, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i ]
   %1003 = load ptr, ptr %1001, align 8, !tbaa !211
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 32
   %1005 = load i32, ptr %1004, align 8, !tbaa !212
-  %1006 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.019.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %1005)
+  %1006 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.018.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %1005)
           to label %.noexc101.i unwind label %.loopexit.split-lp.i338
 
 .noexc101.i:                                      ; preds = %1002
@@ -6921,10 +6921,10 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.i: ; preds =
 1007:                                             ; preds = %.noexc101.i
   %1008 = load i8, ptr %900, align 8, !tbaa !263, !range !33, !noundef !34
   %1009 = trunc nuw i8 %1008 to i1
-  br i1 %1009, label %.loopexit.sink.split.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i
+  br i1 %1009, label %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.thread.sink.split.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i
 
 _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i: ; preds = %.noexc101.i
-  %1010 = getelementptr inbounds nuw i8, ptr %.sroa.05.019.i.i, i64 32
+  %1010 = getelementptr inbounds nuw i8, ptr %.sroa.05.018.i.i, i64 32
   %.not.i100.i = icmp eq ptr %1010, %1000
   br i1 %.not.i100.i, label %._crit_edge.i.i, label %1002
 
@@ -6933,19 +6933,19 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i: ; preds =
   %1012 = load ptr, ptr %1011, align 8, !tbaa !39
   %1013 = getelementptr inbounds nuw i8, ptr %.sroa.0763.01319, i64 760
   %1014 = load ptr, ptr %1013, align 8, !tbaa !39
-  %.not1520.i.i = icmp eq ptr %1012, %1014
-  br i1 %.not1520.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i, label %.lr.ph24.i.i
+  %.not1519.i.i = icmp eq ptr %1012, %1014
+  br i1 %.not1519.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i, label %.lr.ph23.i.i
 
-.lr.ph24.i.i:                                     ; preds = %._crit_edge.i.i
+.lr.ph23.i.i:                                     ; preds = %._crit_edge.i.i
   %1015 = getelementptr inbounds nuw i8, ptr %.sroa.0763.01319, i64 136
   br label %1016
 
-1016:                                             ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i, %.lr.ph24.i.i
-  %.sroa.01.021.i.i = phi ptr [ %1012, %.lr.ph24.i.i ], [ %1024, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ]
+1016:                                             ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i, %.lr.ph23.i.i
+  %.sroa.01.020.i.i = phi ptr [ %1012, %.lr.ph23.i.i ], [ %1024, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ]
   %1017 = load ptr, ptr %1015, align 8, !tbaa !211
   %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 32
   %1019 = load i32, ptr %1018, align 8, !tbaa !212
-  %1020 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.021.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %1019)
+  %1020 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.020.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %1019)
           to label %.noexc102.i unwind label %.loopexit.i340
 
 .noexc102.i:                                      ; preds = %1016
@@ -6957,14 +6957,14 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit.i.i: ; preds =
 1021:                                             ; preds = %.noexc102.i
   %1022 = load i8, ptr %900, align 8, !tbaa !263, !range !33, !noundef !34
   %1023 = trunc nuw i8 %1022 to i1
-  br i1 %1023, label %.loopexit.sink.split.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i
+  br i1 %1023, label %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.thread.sink.split.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i
 
 _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i: ; preds = %.noexc102.i
-  %1024 = getelementptr inbounds nuw i8, ptr %.sroa.01.021.i.i, i64 32
+  %1024 = getelementptr inbounds nuw i8, ptr %.sroa.01.020.i.i, i64 32
   %.not15.i.i = icmp eq ptr %1024, %1014
   br i1 %.not15.i.i, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i, label %1016
 
-.loopexit.sink.split.i.i:                         ; preds = %1021, %1007
+_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.thread.sink.split.i.i: ; preds = %1021, %1007
   store i8 0, ptr %900, align 8, !tbaa !263
   call void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %899) #28
   br label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i
@@ -6979,8 +6979,8 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i: ; preds
           cleanup
   br label %1038
 
-_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i: ; preds = %.noexc101.i, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i, %.noexc102.i, %.loopexit.sink.split.i.i, %1021, %._crit_edge.i.i, %1007, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i, %969, %966, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i
-  %.3.i324 = phi i1 [ true, %.loopexit.sink.split.i.i ], [ %981, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i ], [ true, %969 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i ], [ true, %1007 ], [ true, %1021 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ], [ true, %._crit_edge.i.i ], [ true, %966 ], [ false, %.noexc102.i ], [ false, %.noexc101.i ]
+_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i: ; preds = %.noexc101.i, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i, %.noexc102.i, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.thread.sink.split.i.i, %1021, %._crit_edge.i.i, %1007, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i, %969, %966, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i
+  %.3.i324 = phi i1 [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.thread.sink.split.i.i ], [ %981, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i ], [ true, %969 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i ], [ true, %1007 ], [ true, %1021 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ], [ true, %._crit_edge.i.i ], [ true, %966 ], [ false, %.noexc102.i ], [ false, %.noexc101.i ]
   %1025 = load ptr, ptr %13, align 8, !tbaa !182
   %1026 = load ptr, ptr %816, align 8, !tbaa !184
   %.not4.i.i.i.i.i325 = icmp eq ptr %1025, %1026

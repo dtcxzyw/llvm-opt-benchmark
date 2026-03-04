@@ -30737,9 +30737,9 @@ define internal fastcc void @_ZN11ruff_linter10docstrings8sections15SectionConte
   %65 = load i8, ptr %64, align 1, !alias.scope !2757, !noalias !2760, !noundef !3
   %66 = add i8 %65, -65
   %67 = icmp ult i8 %66, 26
-  %.sroa.03.0.i.i.i.i = select i1 %67, i8 32, i8 0
-  %68 = or i8 %.sroa.03.0.i.i.i.i, %65
-  store i8 %68, ptr %64, align 1, !alias.scope !2757, !noalias !2760
+  %68 = select i1 %67, i8 32, i8 0
+  %.sroa.03.0.i.i.i.i = or i8 %68, %65
+  store i8 %.sroa.03.0.i.i.i.i, ptr %64, align 1, !alias.scope !2757, !noalias !2760
   %69 = add nuw i64 %.sroa.0.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %69, %55
   br i1 %exitcond.not.i.i.i.i, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hc02ae8927d8075a0E.exit.i.i", label %.lr.ph.i.i.i.i
@@ -47933,9 +47933,9 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions20is
   %271 = load i8, ptr %270, align 1, !alias.scope !3683, !noalias !3686, !noundef !3
   %272 = add i8 %271, -65
   %273 = icmp ult i8 %272, 26
-  %.sroa.03.0.i.i.i = select i1 %273, i8 32, i8 0
-  %274 = or i8 %.sroa.03.0.i.i.i, %271
-  store i8 %274, ptr %270, align 1, !alias.scope !3683, !noalias !3686
+  %274 = select i1 %273, i8 32, i8 0
+  %.sroa.03.0.i.i.i = or i8 %274, %271
+  store i8 %.sroa.03.0.i.i.i, ptr %270, align 1, !alias.scope !3683, !noalias !3686
   %275 = add nuw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %275, %259
   br i1 %exitcond.not.i.i.i, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hc02ae8927d8075a0E.exit.i", label %.lr.ph.i.i.i

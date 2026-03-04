@@ -1575,14 +1575,14 @@ exit_mm.exit:                                     ; preds = %134, %153, %157
   %394 = getelementptr i8, ptr %392, i64 -1456
   %395 = icmp eq ptr %394, null
   %396 = or i1 %393, %395
-  br i1 %396, label %.loopexit.i, label %.preheader7.i
+  br i1 %396, label %.loopexit.i, label %.preheader11.i
 
-.preheader7.i:                                    ; preds = %390, %432
+.preheader11.i:                                   ; preds = %390, %432
   %397 = phi ptr [ %436, %432 ], [ %394, %390 ]
   %398 = icmp eq ptr %397, %377
   br i1 %398, label %432, label %399
 
-399:                                              ; preds = %.preheader7.i
+399:                                              ; preds = %.preheader11.i
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 1216
   %401 = load i32, ptr %400, align 64
   %402 = icmp eq i32 %401, 0
@@ -1629,14 +1629,14 @@ exit_mm.exit:                                     ; preds = %134, %153, %157
   %431 = icmp eq ptr %426, %430
   br i1 %431, label %kill_orphaned_pgrp.exit, label %432
 
-432:                                              ; preds = %424, %418, %.critedge.i, %407, %.preheader7.i
+432:                                              ; preds = %424, %418, %.critedge.i, %407, %.preheader11.i
   %433 = getelementptr i8, ptr %397, i64 1456
   %434 = load volatile ptr, ptr %433, align 16
   %435 = icmp eq ptr %434, null
   %436 = getelementptr i8, ptr %434, i64 -1456
   %437 = icmp eq ptr %436, null
   %438 = or i1 %435, %437
-  br i1 %438, label %.loopexit.i, label %.preheader7.i, !llvm.loop !29
+  br i1 %438, label %.loopexit.i, label %.preheader11.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %432, %390
   %439 = load volatile ptr, ptr %391, align 8
@@ -1666,8 +1666,8 @@ exit_mm.exit:                                     ; preds = %134, %153, %157
   br i1 %457, label %kill_orphaned_pgrp.exit, label %.preheader.i, !llvm.loop !59
 
 458:                                              ; preds = %.preheader.i
-  %459 = call i32 @__kill_pgrp_info(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %371) #15
-  %460 = call i32 @__kill_pgrp_info(i32 noundef 18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %371) #15
+  %459 = call i32 @__kill_pgrp_info(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %371) #15
+  %460 = call i32 @__kill_pgrp_info(i32 noundef 18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %371) #15
   br label %kill_orphaned_pgrp.exit
 
 kill_orphaned_pgrp.exit:                          ; preds = %424, %451, %458, %.loopexit.i, %383, %375, %345, %.loopexit48
@@ -1731,14 +1731,14 @@ kill_orphaned_pgrp.exit:                          ; preds = %424, %451, %458, %.
   %499 = getelementptr i8, ptr %497, i64 -1456
   %500 = icmp eq ptr %499, null
   %501 = or i1 %498, %500
-  br i1 %501, label %.loopexit.i38, label %.preheader7.i36
+  br i1 %501, label %.loopexit.i38, label %.preheader11.i36
 
-.preheader7.i36:                                  ; preds = %495, %537
+.preheader11.i36:                                 ; preds = %495, %537
   %502 = phi ptr [ %541, %537 ], [ %499, %495 ]
   %503 = icmp eq ptr %502, %476
   br i1 %503, label %537, label %504
 
-504:                                              ; preds = %.preheader7.i36
+504:                                              ; preds = %.preheader11.i36
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 1216
   %506 = load i32, ptr %505, align 64
   %507 = icmp eq i32 %506, 0
@@ -1785,14 +1785,14 @@ kill_orphaned_pgrp.exit:                          ; preds = %424, %451, %458, %.
   %536 = icmp eq ptr %531, %535
   br i1 %536, label %kill_orphaned_pgrp.exit41, label %537
 
-537:                                              ; preds = %529, %523, %.critedge.i37, %512, %.preheader7.i36
+537:                                              ; preds = %529, %523, %.critedge.i37, %512, %.preheader11.i36
   %538 = getelementptr i8, ptr %502, i64 1456
   %539 = load volatile ptr, ptr %538, align 16
   %540 = icmp eq ptr %539, null
   %541 = getelementptr i8, ptr %539, i64 -1456
   %542 = icmp eq ptr %541, null
   %543 = or i1 %540, %542
-  br i1 %543, label %.loopexit.i38, label %.preheader7.i36, !llvm.loop !29
+  br i1 %543, label %.loopexit.i38, label %.preheader11.i36, !llvm.loop !29
 
 .loopexit.i38:                                    ; preds = %537, %495
   %544 = load volatile ptr, ptr %496, align 8
@@ -1822,8 +1822,8 @@ kill_orphaned_pgrp.exit:                          ; preds = %424, %451, %458, %.
   br i1 %562, label %kill_orphaned_pgrp.exit41, label %.preheader.i39, !llvm.loop !59
 
 563:                                              ; preds = %.preheader.i39
-  %564 = call i32 @__kill_pgrp_info(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %480) #15
-  %565 = call i32 @__kill_pgrp_info(i32 noundef 18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %480) #15
+  %564 = call i32 @__kill_pgrp_info(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %480) #15
+  %565 = call i32 @__kill_pgrp_info(i32 noundef 18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %480) #15
   br label %kill_orphaned_pgrp.exit41
 
 kill_orphaned_pgrp.exit41:                        ; preds = %529, %556, %563, %.loopexit.i38, %488, %474, %473

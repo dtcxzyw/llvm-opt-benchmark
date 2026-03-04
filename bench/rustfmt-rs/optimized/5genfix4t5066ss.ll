@@ -4704,13 +4704,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.fca.1.extract.val = load i8, ptr %12, align 1, !noundef !5
   %13 = add i8 %.fca.0.extract.val, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i.i.i = select i1 %14, i8 32, i8 0
-  %15 = add i8 %.fca.1.extract.val, -65
-  %16 = icmp ult i8 %15, 26
-  %.02.i.i.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.0.i.i.i, %.fca.0.extract.val
-  %18 = or i8 %.02.i.i.i, %.fca.1.extract.val
-  %.not = icmp eq i8 %17, %18
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i.i = or i8 %15, %.fca.0.extract.val
+  %16 = add i8 %.fca.1.extract.val, -65
+  %17 = icmp ult i8 %16, 26
+  %18 = select i1 %17, i8 32, i8 0
+  %.02.i.i.i = or i8 %18, %.fca.1.extract.val
+  %.not = icmp eq i8 %.0.i.i.i, %.02.i.i.i
   br i1 %.not, label %6, label %19
 
 19:                                               ; preds = %6, %9
@@ -4735,13 +4735,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %.fca.1.extract.val.i = load i8, ptr %10, align 1, !noalias !906, !noundef !5
   %11 = add i8 %.fca.0.extract.val.i, -65
   %12 = icmp ult i8 %11, 26
-  %.0.i.i.i.i = select i1 %12, i8 32, i8 0
-  %13 = add i8 %.fca.1.extract.val.i, -65
-  %14 = icmp ult i8 %13, 26
-  %.02.i.i.i.i = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.0.i.i.i.i, %.fca.0.extract.val.i
-  %16 = or i8 %.02.i.i.i.i, %.fca.1.extract.val.i
-  %.not.i = icmp eq i8 %15, %16
+  %13 = select i1 %12, i8 32, i8 0
+  %.0.i.i.i.i = or i8 %13, %.fca.0.extract.val.i
+  %14 = add i8 %.fca.1.extract.val.i, -65
+  %15 = icmp ult i8 %14, 26
+  %16 = select i1 %15, i8 32, i8 0
+  %.02.i.i.i.i = or i8 %16, %.fca.1.extract.val.i
+  %.not.i = icmp eq i8 %.0.i.i.i.i, %.02.i.i.i.i
   br i1 %.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h97fbe63a15f42034E.llvm.4073844125802496097.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h97fbe63a15f42034E.llvm.4073844125802496097.exit: ; preds = %7, %.preheader, %4
@@ -39153,13 +39153,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8362, !noalias !8367, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit34
 
 .loopexit34:                                      ; preds = %6, %3
@@ -39181,13 +39181,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8371, !noalias !8376, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit33
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -39214,13 +39214,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %33, align 1, !alias.scope !8380, !noalias !8385, !noundef !5
   %34 = add i8 %.fca.0.extract.val.i.i13, -65
   %35 = icmp ult i8 %34, 26
-  %.0.i.i.i.i.i15 = select i1 %35, i8 32, i8 0
-  %36 = add i8 %.fca.1.extract.val.i.i14, -65
-  %37 = icmp ult i8 %36, 26
-  %.02.i.i.i.i.i16 = select i1 %37, i8 32, i8 0
-  %38 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %39 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %38, %39
+  %36 = select i1 %35, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %36, %.fca.0.extract.val.i.i13
+  %37 = add i8 %.fca.1.extract.val.i.i14, -65
+  %38 = icmp ult i8 %37, 26
+  %39 = select i1 %38, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %39, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit32
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -39248,13 +39248,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i23 = load i8, ptr %46, align 1, !alias.scope !8389, !noalias !8394, !noundef !5
   %47 = add i8 %.fca.0.extract.val.i.i22, -65
   %48 = icmp ult i8 %47, 26
-  %.0.i.i.i.i.i24 = select i1 %48, i8 32, i8 0
-  %49 = add i8 %.fca.1.extract.val.i.i23, -65
-  %50 = icmp ult i8 %49, 26
-  %.02.i.i.i.i.i25 = select i1 %50, i8 32, i8 0
-  %51 = or i8 %.0.i.i.i.i.i24, %.fca.0.extract.val.i.i22
-  %52 = or i8 %.02.i.i.i.i.i25, %.fca.1.extract.val.i.i23
-  %.not.i.i26 = icmp eq i8 %51, %52
+  %49 = select i1 %48, i8 32, i8 0
+  %.0.i.i.i.i.i24 = or i8 %49, %.fca.0.extract.val.i.i22
+  %50 = add i8 %.fca.1.extract.val.i.i23, -65
+  %51 = icmp ult i8 %50, 26
+  %52 = select i1 %51, i8 32, i8 0
+  %.02.i.i.i.i.i25 = or i8 %52, %.fca.1.extract.val.i.i23
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
   br i1 %.not.i.i26, label %.preheader.i20, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit18": ; preds = %.preheader.i11
@@ -39385,13 +39385,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8421, !noalias !8426, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -39413,13 +39413,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8430, !noalias !8435, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -39446,13 +39446,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %33, align 1, !alias.scope !8439, !noalias !8444, !noundef !5
   %34 = add i8 %.fca.0.extract.val.i.i13, -65
   %35 = icmp ult i8 %34, 26
-  %.0.i.i.i.i.i15 = select i1 %35, i8 32, i8 0
-  %36 = add i8 %.fca.1.extract.val.i.i14, -65
-  %37 = icmp ult i8 %36, 26
-  %.02.i.i.i.i.i16 = select i1 %37, i8 32, i8 0
-  %38 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %39 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %38, %39
+  %36 = select i1 %35, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %36, %.fca.0.extract.val.i.i13
+  %37 = add i8 %.fca.1.extract.val.i.i14, -65
+  %38 = icmp ult i8 %37, 26
+  %39 = select i1 %38, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %39, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -39583,13 +39583,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8471, !noalias !8476, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -39611,13 +39611,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8480, !noalias !8485, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -39645,13 +39645,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !8489, !noalias !8494, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -40285,13 +40285,13 @@ _ZN5serde2de7Visitor12visit_string17hfa459429c77446aaE.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i = load i8, ptr %195, align 1, !alias.scope !8645, !noalias !8650, !noundef !5
   %196 = add i8 %.fca.0.extract.val.i.i, -65
   %197 = icmp ult i8 %196, 26
-  %.0.i.i.i.i.i = select i1 %197, i8 32, i8 0
-  %198 = add i8 %.fca.1.extract.val.i.i, -65
-  %199 = icmp ult i8 %198, 26
-  %.02.i.i.i.i.i = select i1 %199, i8 32, i8 0
-  %200 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %201 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i26 = icmp eq i8 %200, %201
+  %198 = select i1 %197, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %198, %.fca.0.extract.val.i.i
+  %199 = add i8 %.fca.1.extract.val.i.i, -65
+  %200 = icmp ult i8 %199, 26
+  %201 = select i1 %200, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %201, %.fca.1.extract.val.i.i
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i26, label %.preheader.i, label %.loopexit41
 
 202:                                              ; preds = %"_ZN62_$LT$toml..value..Value$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h02d5820311540496E.exit"
@@ -40330,13 +40330,13 @@ _ZN5serde2de7Visitor12visit_string17hfa459429c77446aaE.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i31 = load i8, ptr %210, align 1, !alias.scope !8654, !noalias !8659, !noundef !5
   %211 = add i8 %.fca.0.extract.val.i.i30, -65
   %212 = icmp ult i8 %211, 26
-  %.0.i.i.i.i.i32 = select i1 %212, i8 32, i8 0
-  %213 = add i8 %.fca.1.extract.val.i.i31, -65
-  %214 = icmp ult i8 %213, 26
-  %.02.i.i.i.i.i33 = select i1 %214, i8 32, i8 0
-  %215 = or i8 %.0.i.i.i.i.i32, %.fca.0.extract.val.i.i30
-  %216 = or i8 %.02.i.i.i.i.i33, %.fca.1.extract.val.i.i31
-  %.not.i.i34 = icmp eq i8 %215, %216
+  %213 = select i1 %212, i8 32, i8 0
+  %.0.i.i.i.i.i32 = or i8 %213, %.fca.0.extract.val.i.i30
+  %214 = add i8 %.fca.1.extract.val.i.i31, -65
+  %215 = icmp ult i8 %214, 26
+  %216 = select i1 %215, i8 32, i8 0
+  %.02.i.i.i.i.i33 = or i8 %216, %.fca.1.extract.val.i.i31
+  %.not.i.i34 = icmp eq i8 %.0.i.i.i.i.i32, %.02.i.i.i.i.i33
   br i1 %.not.i.i34, label %.preheader.i28, label %.loopexit
 
 .loopexit:                                        ; preds = %207, %.loopexit41
@@ -40513,13 +40513,13 @@ define void @"_ZN132_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8704, !noalias !8709, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %16
 
 16:                                               ; preds = %6
@@ -40540,13 +40540,13 @@ define void @"_ZN132_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8713, !noalias !8718, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.thread
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -40574,13 +40574,13 @@ define void @"_ZN132_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !8722, !noalias !8727, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -40711,13 +40711,13 @@ define void @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8754, !noalias !8759, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -40739,13 +40739,13 @@ define void @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8763, !noalias !8768, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -40773,13 +40773,13 @@ define void @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !8772, !noalias !8777, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -40944,13 +40944,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8816, !noalias !8821, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit45
 
 .loopexit45:                                      ; preds = %6, %3
@@ -40972,13 +40972,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8825, !noalias !8830, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit44
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -41006,13 +41006,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !8834, !noalias !8839, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit43
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -41040,13 +41040,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i23 = load i8, ptr %47, align 1, !alias.scope !8843, !noalias !8848, !noundef !5
   %48 = add i8 %.fca.0.extract.val.i.i22, -65
   %49 = icmp ult i8 %48, 26
-  %.0.i.i.i.i.i24 = select i1 %49, i8 32, i8 0
-  %50 = add i8 %.fca.1.extract.val.i.i23, -65
-  %51 = icmp ult i8 %50, 26
-  %.02.i.i.i.i.i25 = select i1 %51, i8 32, i8 0
-  %52 = or i8 %.0.i.i.i.i.i24, %.fca.0.extract.val.i.i22
-  %53 = or i8 %.02.i.i.i.i.i25, %.fca.1.extract.val.i.i23
-  %.not.i.i26 = icmp eq i8 %52, %53
+  %50 = select i1 %49, i8 32, i8 0
+  %.0.i.i.i.i.i24 = or i8 %50, %.fca.0.extract.val.i.i22
+  %51 = add i8 %.fca.1.extract.val.i.i23, -65
+  %52 = icmp ult i8 %51, 26
+  %53 = select i1 %52, i8 32, i8 0
+  %.02.i.i.i.i.i25 = or i8 %53, %.fca.1.extract.val.i.i23
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
   br i1 %.not.i.i26, label %.preheader.i20, label %.loopexit42
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit18": ; preds = %.preheader.i11
@@ -41074,13 +41074,13 @@ define void @"_ZN146_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i32 = load i8, ptr %60, align 1, !alias.scope !8852, !noalias !8857, !noundef !5
   %61 = add i8 %.fca.0.extract.val.i.i31, -65
   %62 = icmp ult i8 %61, 26
-  %.0.i.i.i.i.i33 = select i1 %62, i8 32, i8 0
-  %63 = add i8 %.fca.1.extract.val.i.i32, -65
-  %64 = icmp ult i8 %63, 26
-  %.02.i.i.i.i.i34 = select i1 %64, i8 32, i8 0
-  %65 = or i8 %.0.i.i.i.i.i33, %.fca.0.extract.val.i.i31
-  %66 = or i8 %.02.i.i.i.i.i34, %.fca.1.extract.val.i.i32
-  %.not.i.i35 = icmp eq i8 %65, %66
+  %63 = select i1 %62, i8 32, i8 0
+  %.0.i.i.i.i.i33 = or i8 %63, %.fca.0.extract.val.i.i31
+  %64 = add i8 %.fca.1.extract.val.i.i32, -65
+  %65 = icmp ult i8 %64, 26
+  %66 = select i1 %65, i8 32, i8 0
+  %.02.i.i.i.i.i34 = or i8 %66, %.fca.1.extract.val.i.i32
+  %.not.i.i35 = icmp eq i8 %.0.i.i.i.i.i33, %.02.i.i.i.i.i34
   br i1 %.not.i.i35, label %.preheader.i29, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit27": ; preds = %.preheader.i20
@@ -41211,13 +41211,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !8884, !noalias !8889, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit
 
 .loopexit:                                        ; preds = %6, %3
@@ -41239,13 +41239,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !8893, !noalias !8898, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %29
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -41272,13 +41272,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !8902, !noalias !8907, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.thread
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -41922,13 +41922,13 @@ _ZN5serde2de7Visitor12visit_string17h1c866401d570f9afE.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i = load i8, ptr %195, align 1, !alias.scope !9058, !noalias !9063, !noundef !5
   %196 = add i8 %.fca.0.extract.val.i.i, -65
   %197 = icmp ult i8 %196, 26
-  %.0.i.i.i.i.i = select i1 %197, i8 32, i8 0
-  %198 = add i8 %.fca.1.extract.val.i.i, -65
-  %199 = icmp ult i8 %198, 26
-  %.02.i.i.i.i.i = select i1 %199, i8 32, i8 0
-  %200 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %201 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i30 = icmp eq i8 %200, %201
+  %198 = select i1 %197, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %198, %.fca.0.extract.val.i.i
+  %199 = add i8 %.fca.1.extract.val.i.i, -65
+  %200 = icmp ult i8 %199, 26
+  %201 = select i1 %200, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %201, %.fca.1.extract.val.i.i
+  %.not.i.i30 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i30, label %.preheader.i, label %.loopexit
 
 202:                                              ; preds = %"_ZN62_$LT$toml..value..Value$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17ha2181b761b510c3cE.exit"
@@ -41967,13 +41967,13 @@ _ZN5serde2de7Visitor12visit_string17h1c866401d570f9afE.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i35 = load i8, ptr %210, align 1, !alias.scope !9067, !noalias !9072, !noundef !5
   %211 = add i8 %.fca.0.extract.val.i.i34, -65
   %212 = icmp ult i8 %211, 26
-  %.0.i.i.i.i.i36 = select i1 %212, i8 32, i8 0
-  %213 = add i8 %.fca.1.extract.val.i.i35, -65
-  %214 = icmp ult i8 %213, 26
-  %.02.i.i.i.i.i37 = select i1 %214, i8 32, i8 0
-  %215 = or i8 %.0.i.i.i.i.i36, %.fca.0.extract.val.i.i34
-  %216 = or i8 %.02.i.i.i.i.i37, %.fca.1.extract.val.i.i35
-  %.not.i.i38 = icmp eq i8 %215, %216
+  %213 = select i1 %212, i8 32, i8 0
+  %.0.i.i.i.i.i36 = or i8 %213, %.fca.0.extract.val.i.i34
+  %214 = add i8 %.fca.1.extract.val.i.i35, -65
+  %215 = icmp ult i8 %214, 26
+  %216 = select i1 %215, i8 32, i8 0
+  %.02.i.i.i.i.i37 = or i8 %216, %.fca.1.extract.val.i.i35
+  %.not.i.i38 = icmp eq i8 %.0.i.i.i.i.i36, %.02.i.i.i.i.i37
   br i1 %.not.i.i38, label %.preheader.i32, label %217
 
 217:                                              ; preds = %207
@@ -41994,13 +41994,13 @@ _ZN5serde2de7Visitor12visit_string17h1c866401d570f9afE.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i44 = load i8, ptr %222, align 1, !alias.scope !9076, !noalias !9081, !noundef !5
   %223 = add i8 %.fca.0.extract.val.i.i43, -65
   %224 = icmp ult i8 %223, 26
-  %.0.i.i.i.i.i45 = select i1 %224, i8 32, i8 0
-  %225 = add i8 %.fca.1.extract.val.i.i44, -65
-  %226 = icmp ult i8 %225, 26
-  %.02.i.i.i.i.i46 = select i1 %226, i8 32, i8 0
-  %227 = or i8 %.0.i.i.i.i.i45, %.fca.0.extract.val.i.i43
-  %228 = or i8 %.02.i.i.i.i.i46, %.fca.1.extract.val.i.i44
-  %.not.i.i47 = icmp eq i8 %227, %228
+  %225 = select i1 %224, i8 32, i8 0
+  %.0.i.i.i.i.i45 = or i8 %225, %.fca.0.extract.val.i.i43
+  %226 = add i8 %.fca.1.extract.val.i.i44, -65
+  %227 = icmp ult i8 %226, 26
+  %228 = select i1 %227, i8 32, i8 0
+  %.02.i.i.i.i.i46 = or i8 %228, %.fca.1.extract.val.i.i44
+  %.not.i.i47 = icmp eq i8 %.0.i.i.i.i.i45, %.02.i.i.i.i.i46
   br i1 %.not.i.i47, label %.preheader.i41, label %.thread54
 
 .thread54:                                        ; preds = %219, %.loopexit
@@ -42177,13 +42177,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9126, !noalias !9131, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -42205,13 +42205,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9135, !noalias !9140, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -42239,13 +42239,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9144, !noalias !9149, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -42444,13 +42444,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9200, !noalias !9205, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit67
 
 .loopexit67:                                      ; preds = %6, %3
@@ -42472,13 +42472,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9209, !noalias !9214, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit66
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -42506,13 +42506,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9218, !noalias !9223, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit65
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -42540,13 +42540,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i23 = load i8, ptr %47, align 1, !alias.scope !9227, !noalias !9232, !noundef !5
   %48 = add i8 %.fca.0.extract.val.i.i22, -65
   %49 = icmp ult i8 %48, 26
-  %.0.i.i.i.i.i24 = select i1 %49, i8 32, i8 0
-  %50 = add i8 %.fca.1.extract.val.i.i23, -65
-  %51 = icmp ult i8 %50, 26
-  %.02.i.i.i.i.i25 = select i1 %51, i8 32, i8 0
-  %52 = or i8 %.0.i.i.i.i.i24, %.fca.0.extract.val.i.i22
-  %53 = or i8 %.02.i.i.i.i.i25, %.fca.1.extract.val.i.i23
-  %.not.i.i26 = icmp eq i8 %52, %53
+  %50 = select i1 %49, i8 32, i8 0
+  %.0.i.i.i.i.i24 = or i8 %50, %.fca.0.extract.val.i.i22
+  %51 = add i8 %.fca.1.extract.val.i.i23, -65
+  %52 = icmp ult i8 %51, 26
+  %53 = select i1 %52, i8 32, i8 0
+  %.02.i.i.i.i.i25 = or i8 %53, %.fca.1.extract.val.i.i23
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
   br i1 %.not.i.i26, label %.preheader.i20, label %.loopexit64
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit18": ; preds = %.preheader.i11
@@ -42574,13 +42574,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i32 = load i8, ptr %60, align 1, !alias.scope !9236, !noalias !9241, !noundef !5
   %61 = add i8 %.fca.0.extract.val.i.i31, -65
   %62 = icmp ult i8 %61, 26
-  %.0.i.i.i.i.i33 = select i1 %62, i8 32, i8 0
-  %63 = add i8 %.fca.1.extract.val.i.i32, -65
-  %64 = icmp ult i8 %63, 26
-  %.02.i.i.i.i.i34 = select i1 %64, i8 32, i8 0
-  %65 = or i8 %.0.i.i.i.i.i33, %.fca.0.extract.val.i.i31
-  %66 = or i8 %.02.i.i.i.i.i34, %.fca.1.extract.val.i.i32
-  %.not.i.i35 = icmp eq i8 %65, %66
+  %63 = select i1 %62, i8 32, i8 0
+  %.0.i.i.i.i.i33 = or i8 %63, %.fca.0.extract.val.i.i31
+  %64 = add i8 %.fca.1.extract.val.i.i32, -65
+  %65 = icmp ult i8 %64, 26
+  %66 = select i1 %65, i8 32, i8 0
+  %.02.i.i.i.i.i34 = or i8 %66, %.fca.1.extract.val.i.i32
+  %.not.i.i35 = icmp eq i8 %.0.i.i.i.i.i33, %.02.i.i.i.i.i34
   br i1 %.not.i.i35, label %.preheader.i29, label %.loopexit63
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit27": ; preds = %.preheader.i20
@@ -42608,13 +42608,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i41 = load i8, ptr %73, align 1, !alias.scope !9245, !noalias !9250, !noundef !5
   %74 = add i8 %.fca.0.extract.val.i.i40, -65
   %75 = icmp ult i8 %74, 26
-  %.0.i.i.i.i.i42 = select i1 %75, i8 32, i8 0
-  %76 = add i8 %.fca.1.extract.val.i.i41, -65
-  %77 = icmp ult i8 %76, 26
-  %.02.i.i.i.i.i43 = select i1 %77, i8 32, i8 0
-  %78 = or i8 %.0.i.i.i.i.i42, %.fca.0.extract.val.i.i40
-  %79 = or i8 %.02.i.i.i.i.i43, %.fca.1.extract.val.i.i41
-  %.not.i.i44 = icmp eq i8 %78, %79
+  %76 = select i1 %75, i8 32, i8 0
+  %.0.i.i.i.i.i42 = or i8 %76, %.fca.0.extract.val.i.i40
+  %77 = add i8 %.fca.1.extract.val.i.i41, -65
+  %78 = icmp ult i8 %77, 26
+  %79 = select i1 %78, i8 32, i8 0
+  %.02.i.i.i.i.i43 = or i8 %79, %.fca.1.extract.val.i.i41
+  %.not.i.i44 = icmp eq i8 %.0.i.i.i.i.i42, %.02.i.i.i.i.i43
   br i1 %.not.i.i44, label %.preheader.i38, label %.loopexit62
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit36": ; preds = %.preheader.i29
@@ -42641,13 +42641,13 @@ define void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i50 = load i8, ptr %85, align 1, !alias.scope !9254, !noalias !9259, !noundef !5
   %86 = add i8 %.fca.0.extract.val.i.i49, -65
   %87 = icmp ult i8 %86, 26
-  %.0.i.i.i.i.i51 = select i1 %87, i8 32, i8 0
-  %88 = add i8 %.fca.1.extract.val.i.i50, -65
-  %89 = icmp ult i8 %88, 26
-  %.02.i.i.i.i.i52 = select i1 %89, i8 32, i8 0
-  %90 = or i8 %.0.i.i.i.i.i51, %.fca.0.extract.val.i.i49
-  %91 = or i8 %.02.i.i.i.i.i52, %.fca.1.extract.val.i.i50
-  %.not.i.i53 = icmp eq i8 %90, %91
+  %88 = select i1 %87, i8 32, i8 0
+  %.0.i.i.i.i.i51 = or i8 %88, %.fca.0.extract.val.i.i49
+  %89 = add i8 %.fca.1.extract.val.i.i50, -65
+  %90 = icmp ult i8 %89, 26
+  %91 = select i1 %90, i8 32, i8 0
+  %.02.i.i.i.i.i52 = or i8 %91, %.fca.1.extract.val.i.i50
+  %.not.i.i53 = icmp eq i8 %.0.i.i.i.i.i51, %.02.i.i.i.i.i52
   br i1 %.not.i.i53, label %.preheader.i47, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit45": ; preds = %.preheader.i38
@@ -43310,13 +43310,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i = load i8, ptr %194, align 1, !alias.scope !9410, !noalias !9415, !noundef !5
   %195 = add i8 %.fca.0.extract.val.i.i, -65
   %196 = icmp ult i8 %195, 26
-  %.0.i.i.i.i.i = select i1 %196, i8 32, i8 0
-  %197 = add i8 %.fca.1.extract.val.i.i, -65
-  %198 = icmp ult i8 %197, 26
-  %.02.i.i.i.i.i = select i1 %198, i8 32, i8 0
-  %199 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %200 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i46 = icmp eq i8 %199, %200
+  %197 = select i1 %196, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %197, %.fca.0.extract.val.i.i
+  %198 = add i8 %.fca.1.extract.val.i.i, -65
+  %199 = icmp ult i8 %198, 26
+  %200 = select i1 %199, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %200, %.fca.1.extract.val.i.i
+  %.not.i.i46 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i46, label %.preheader.i, label %.loopexit114
 
 201:                                              ; preds = %"_ZN62_$LT$toml..value..Value$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17hc1ffd2ca054c85c7E.exit"
@@ -43355,13 +43355,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i51 = load i8, ptr %209, align 1, !alias.scope !9419, !noalias !9424, !noundef !5
   %210 = add i8 %.fca.0.extract.val.i.i50, -65
   %211 = icmp ult i8 %210, 26
-  %.0.i.i.i.i.i52 = select i1 %211, i8 32, i8 0
-  %212 = add i8 %.fca.1.extract.val.i.i51, -65
-  %213 = icmp ult i8 %212, 26
-  %.02.i.i.i.i.i53 = select i1 %213, i8 32, i8 0
-  %214 = or i8 %.0.i.i.i.i.i52, %.fca.0.extract.val.i.i50
-  %215 = or i8 %.02.i.i.i.i.i53, %.fca.1.extract.val.i.i51
-  %.not.i.i54 = icmp eq i8 %214, %215
+  %212 = select i1 %211, i8 32, i8 0
+  %.0.i.i.i.i.i52 = or i8 %212, %.fca.0.extract.val.i.i50
+  %213 = add i8 %.fca.1.extract.val.i.i51, -65
+  %214 = icmp ult i8 %213, 26
+  %215 = select i1 %214, i8 32, i8 0
+  %.02.i.i.i.i.i53 = or i8 %215, %.fca.1.extract.val.i.i51
+  %.not.i.i54 = icmp eq i8 %.0.i.i.i.i.i52, %.02.i.i.i.i.i53
   br i1 %.not.i.i54, label %.preheader.i48, label %.loopexit113
 
 .loopexit113:                                     ; preds = %206, %.loopexit114
@@ -43383,13 +43383,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i60 = load i8, ptr %221, align 1, !alias.scope !9428, !noalias !9433, !noundef !5
   %222 = add i8 %.fca.0.extract.val.i.i59, -65
   %223 = icmp ult i8 %222, 26
-  %.0.i.i.i.i.i61 = select i1 %223, i8 32, i8 0
-  %224 = add i8 %.fca.1.extract.val.i.i60, -65
-  %225 = icmp ult i8 %224, 26
-  %.02.i.i.i.i.i62 = select i1 %225, i8 32, i8 0
-  %226 = or i8 %.0.i.i.i.i.i61, %.fca.0.extract.val.i.i59
-  %227 = or i8 %.02.i.i.i.i.i62, %.fca.1.extract.val.i.i60
-  %.not.i.i63 = icmp eq i8 %226, %227
+  %224 = select i1 %223, i8 32, i8 0
+  %.0.i.i.i.i.i61 = or i8 %224, %.fca.0.extract.val.i.i59
+  %225 = add i8 %.fca.1.extract.val.i.i60, -65
+  %226 = icmp ult i8 %225, 26
+  %227 = select i1 %226, i8 32, i8 0
+  %.02.i.i.i.i.i62 = or i8 %227, %.fca.1.extract.val.i.i60
+  %.not.i.i63 = icmp eq i8 %.0.i.i.i.i.i61, %.02.i.i.i.i.i62
   br i1 %.not.i.i63, label %.preheader.i57, label %.loopexit112
 
 .loopexit112:                                     ; preds = %218, %.loopexit113
@@ -43411,13 +43411,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i69 = load i8, ptr %233, align 1, !alias.scope !9437, !noalias !9442, !noundef !5
   %234 = add i8 %.fca.0.extract.val.i.i68, -65
   %235 = icmp ult i8 %234, 26
-  %.0.i.i.i.i.i70 = select i1 %235, i8 32, i8 0
-  %236 = add i8 %.fca.1.extract.val.i.i69, -65
-  %237 = icmp ult i8 %236, 26
-  %.02.i.i.i.i.i71 = select i1 %237, i8 32, i8 0
-  %238 = or i8 %.0.i.i.i.i.i70, %.fca.0.extract.val.i.i68
-  %239 = or i8 %.02.i.i.i.i.i71, %.fca.1.extract.val.i.i69
-  %.not.i.i72 = icmp eq i8 %238, %239
+  %236 = select i1 %235, i8 32, i8 0
+  %.0.i.i.i.i.i70 = or i8 %236, %.fca.0.extract.val.i.i68
+  %237 = add i8 %.fca.1.extract.val.i.i69, -65
+  %238 = icmp ult i8 %237, 26
+  %239 = select i1 %238, i8 32, i8 0
+  %.02.i.i.i.i.i71 = or i8 %239, %.fca.1.extract.val.i.i69
+  %.not.i.i72 = icmp eq i8 %.0.i.i.i.i.i70, %.02.i.i.i.i.i71
   br i1 %.not.i.i72, label %.preheader.i66, label %.loopexit111
 
 .loopexit111:                                     ; preds = %230, %.loopexit112
@@ -43439,13 +43439,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i78 = load i8, ptr %245, align 1, !alias.scope !9446, !noalias !9451, !noundef !5
   %246 = add i8 %.fca.0.extract.val.i.i77, -65
   %247 = icmp ult i8 %246, 26
-  %.0.i.i.i.i.i79 = select i1 %247, i8 32, i8 0
-  %248 = add i8 %.fca.1.extract.val.i.i78, -65
-  %249 = icmp ult i8 %248, 26
-  %.02.i.i.i.i.i80 = select i1 %249, i8 32, i8 0
-  %250 = or i8 %.0.i.i.i.i.i79, %.fca.0.extract.val.i.i77
-  %251 = or i8 %.02.i.i.i.i.i80, %.fca.1.extract.val.i.i78
-  %.not.i.i81 = icmp eq i8 %250, %251
+  %248 = select i1 %247, i8 32, i8 0
+  %.0.i.i.i.i.i79 = or i8 %248, %.fca.0.extract.val.i.i77
+  %249 = add i8 %.fca.1.extract.val.i.i78, -65
+  %250 = icmp ult i8 %249, 26
+  %251 = select i1 %250, i8 32, i8 0
+  %.02.i.i.i.i.i80 = or i8 %251, %.fca.1.extract.val.i.i78
+  %.not.i.i81 = icmp eq i8 %.0.i.i.i.i.i79, %.02.i.i.i.i.i80
   br i1 %.not.i.i81, label %.preheader.i75, label %.loopexit110
 
 .loopexit110:                                     ; preds = %242, %.loopexit111
@@ -43467,13 +43467,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i87 = load i8, ptr %257, align 1, !alias.scope !9455, !noalias !9460, !noundef !5
   %258 = add i8 %.fca.0.extract.val.i.i86, -65
   %259 = icmp ult i8 %258, 26
-  %.0.i.i.i.i.i88 = select i1 %259, i8 32, i8 0
-  %260 = add i8 %.fca.1.extract.val.i.i87, -65
-  %261 = icmp ult i8 %260, 26
-  %.02.i.i.i.i.i89 = select i1 %261, i8 32, i8 0
-  %262 = or i8 %.0.i.i.i.i.i88, %.fca.0.extract.val.i.i86
-  %263 = or i8 %.02.i.i.i.i.i89, %.fca.1.extract.val.i.i87
-  %.not.i.i90 = icmp eq i8 %262, %263
+  %260 = select i1 %259, i8 32, i8 0
+  %.0.i.i.i.i.i88 = or i8 %260, %.fca.0.extract.val.i.i86
+  %261 = add i8 %.fca.1.extract.val.i.i87, -65
+  %262 = icmp ult i8 %261, 26
+  %263 = select i1 %262, i8 32, i8 0
+  %.02.i.i.i.i.i89 = or i8 %263, %.fca.1.extract.val.i.i87
+  %.not.i.i90 = icmp eq i8 %.0.i.i.i.i.i88, %.02.i.i.i.i.i89
   br i1 %.not.i.i90, label %.preheader.i84, label %.loopexit109
 
 .loopexit109:                                     ; preds = %254, %.loopexit110
@@ -43494,13 +43494,13 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.fca.1.extract.val.i.i96 = load i8, ptr %268, align 1, !alias.scope !9464, !noalias !9469, !noundef !5
   %269 = add i8 %.fca.0.extract.val.i.i95, -65
   %270 = icmp ult i8 %269, 26
-  %.0.i.i.i.i.i97 = select i1 %270, i8 32, i8 0
-  %271 = add i8 %.fca.1.extract.val.i.i96, -65
-  %272 = icmp ult i8 %271, 26
-  %.02.i.i.i.i.i98 = select i1 %272, i8 32, i8 0
-  %273 = or i8 %.0.i.i.i.i.i97, %.fca.0.extract.val.i.i95
-  %274 = or i8 %.02.i.i.i.i.i98, %.fca.1.extract.val.i.i96
-  %.not.i.i99 = icmp eq i8 %273, %274
+  %271 = select i1 %270, i8 32, i8 0
+  %.0.i.i.i.i.i97 = or i8 %271, %.fca.0.extract.val.i.i95
+  %272 = add i8 %.fca.1.extract.val.i.i96, -65
+  %273 = icmp ult i8 %272, 26
+  %274 = select i1 %273, i8 32, i8 0
+  %.02.i.i.i.i.i98 = or i8 %274, %.fca.1.extract.val.i.i96
+  %.not.i.i99 = icmp eq i8 %.0.i.i.i.i.i97, %.02.i.i.i.i.i98
   br i1 %.not.i.i99, label %.preheader.i93, label %.loopexit
 
 .loopexit:                                        ; preds = %265, %.loopexit109
@@ -43658,13 +43658,13 @@ define void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9505, !noalias !9510, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -43686,13 +43686,13 @@ define void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9514, !noalias !9519, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -43720,13 +43720,13 @@ define void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9523, !noalias !9528, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -43874,13 +43874,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9561, !noalias !9566, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %16
 
 16:                                               ; preds = %6
@@ -43901,13 +43901,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9570, !noalias !9575, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %29
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -43934,13 +43934,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9579, !noalias !9584, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %42
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -43967,13 +43967,13 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i23 = load i8, ptr %47, align 1, !alias.scope !9588, !noalias !9593, !noundef !5
   %48 = add i8 %.fca.0.extract.val.i.i22, -65
   %49 = icmp ult i8 %48, 26
-  %.0.i.i.i.i.i24 = select i1 %49, i8 32, i8 0
-  %50 = add i8 %.fca.1.extract.val.i.i23, -65
-  %51 = icmp ult i8 %50, 26
-  %.02.i.i.i.i.i25 = select i1 %51, i8 32, i8 0
-  %52 = or i8 %.0.i.i.i.i.i24, %.fca.0.extract.val.i.i22
-  %53 = or i8 %.02.i.i.i.i.i25, %.fca.1.extract.val.i.i23
-  %.not.i.i26 = icmp eq i8 %52, %53
+  %50 = select i1 %49, i8 32, i8 0
+  %.0.i.i.i.i.i24 = or i8 %50, %.fca.0.extract.val.i.i22
+  %51 = add i8 %.fca.1.extract.val.i.i23, -65
+  %52 = icmp ult i8 %51, 26
+  %53 = select i1 %52, i8 32, i8 0
+  %.02.i.i.i.i.i25 = or i8 %53, %.fca.1.extract.val.i.i23
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
   br i1 %.not.i.i26, label %.preheader.i20, label %.thread33
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit18": ; preds = %.preheader.i11
@@ -44104,13 +44104,13 @@ define void @"_ZN150_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9620, !noalias !9625, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -44132,13 +44132,13 @@ define void @"_ZN150_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9629, !noalias !9634, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -44166,13 +44166,13 @@ define void @"_ZN150_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9638, !noalias !9643, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -44320,13 +44320,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9676, !noalias !9681, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %16
 
 16:                                               ; preds = %6
@@ -44347,13 +44347,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9685, !noalias !9690, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %29
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -44380,13 +44380,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9694, !noalias !9699, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %42
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -44413,13 +44413,13 @@ define void @"_ZN136_$LT$rustfmt_nightly..config..options..__define_config_type_
   %.fca.1.extract.val.i.i23 = load i8, ptr %47, align 1, !alias.scope !9703, !noalias !9708, !noundef !5
   %48 = add i8 %.fca.0.extract.val.i.i22, -65
   %49 = icmp ult i8 %48, 26
-  %.0.i.i.i.i.i24 = select i1 %49, i8 32, i8 0
-  %50 = add i8 %.fca.1.extract.val.i.i23, -65
-  %51 = icmp ult i8 %50, 26
-  %.02.i.i.i.i.i25 = select i1 %51, i8 32, i8 0
-  %52 = or i8 %.0.i.i.i.i.i24, %.fca.0.extract.val.i.i22
-  %53 = or i8 %.02.i.i.i.i.i25, %.fca.1.extract.val.i.i23
-  %.not.i.i26 = icmp eq i8 %52, %53
+  %50 = select i1 %49, i8 32, i8 0
+  %.0.i.i.i.i.i24 = or i8 %50, %.fca.0.extract.val.i.i22
+  %51 = add i8 %.fca.1.extract.val.i.i23, -65
+  %52 = icmp ult i8 %51, 26
+  %53 = select i1 %52, i8 32, i8 0
+  %.02.i.i.i.i.i25 = or i8 %53, %.fca.1.extract.val.i.i23
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
   br i1 %.not.i.i26, label %.preheader.i20, label %.thread33
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit18": ; preds = %.preheader.i11
@@ -44568,13 +44568,13 @@ define void @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9741, !noalias !9746, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit40
 
 .loopexit40:                                      ; preds = %6, %3
@@ -44596,13 +44596,13 @@ define void @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i11 = load i8, ptr %21, align 1, !alias.scope !9750, !noalias !9755, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i10, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i12 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i11, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i13 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i12, %.fca.0.extract.val.i.i10
-  %27 = or i8 %.02.i.i.i.i.i13, %.fca.1.extract.val.i.i11
-  %.not.i.i14 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i12 = or i8 %24, %.fca.0.extract.val.i.i10
+  %25 = add i8 %.fca.1.extract.val.i.i11, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i13 = or i8 %27, %.fca.1.extract.val.i.i11
+  %.not.i.i14 = icmp eq i8 %.0.i.i.i.i.i12, %.02.i.i.i.i.i13
   br i1 %.not.i.i14, label %.preheader.i8, label %.loopexit39
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -44628,13 +44628,13 @@ define void @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i20 = load i8, ptr %33, align 1, !alias.scope !9759, !noalias !9764, !noundef !5
   %34 = add i8 %.fca.0.extract.val.i.i19, -65
   %35 = icmp ult i8 %34, 26
-  %.0.i.i.i.i.i21 = select i1 %35, i8 32, i8 0
-  %36 = add i8 %.fca.1.extract.val.i.i20, -65
-  %37 = icmp ult i8 %36, 26
-  %.02.i.i.i.i.i22 = select i1 %37, i8 32, i8 0
-  %38 = or i8 %.0.i.i.i.i.i21, %.fca.0.extract.val.i.i19
-  %39 = or i8 %.02.i.i.i.i.i22, %.fca.1.extract.val.i.i20
-  %.not.i.i23 = icmp eq i8 %38, %39
+  %36 = select i1 %35, i8 32, i8 0
+  %.0.i.i.i.i.i21 = or i8 %36, %.fca.0.extract.val.i.i19
+  %37 = add i8 %.fca.1.extract.val.i.i20, -65
+  %38 = icmp ult i8 %37, 26
+  %39 = select i1 %38, i8 32, i8 0
+  %.02.i.i.i.i.i22 = or i8 %39, %.fca.1.extract.val.i.i20
+  %.not.i.i23 = icmp eq i8 %.0.i.i.i.i.i21, %.02.i.i.i.i.i22
   br i1 %.not.i.i23, label %.preheader.i17, label %.loopexit38
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit15": ; preds = %.preheader.i8
@@ -44662,13 +44662,13 @@ define void @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i29 = load i8, ptr %46, align 1, !alias.scope !9768, !noalias !9773, !noundef !5
   %47 = add i8 %.fca.0.extract.val.i.i28, -65
   %48 = icmp ult i8 %47, 26
-  %.0.i.i.i.i.i30 = select i1 %48, i8 32, i8 0
-  %49 = add i8 %.fca.1.extract.val.i.i29, -65
-  %50 = icmp ult i8 %49, 26
-  %.02.i.i.i.i.i31 = select i1 %50, i8 32, i8 0
-  %51 = or i8 %.0.i.i.i.i.i30, %.fca.0.extract.val.i.i28
-  %52 = or i8 %.02.i.i.i.i.i31, %.fca.1.extract.val.i.i29
-  %.not.i.i32 = icmp eq i8 %51, %52
+  %49 = select i1 %48, i8 32, i8 0
+  %.0.i.i.i.i.i30 = or i8 %49, %.fca.0.extract.val.i.i28
+  %50 = add i8 %.fca.1.extract.val.i.i29, -65
+  %51 = icmp ult i8 %50, 26
+  %52 = select i1 %51, i8 32, i8 0
+  %.02.i.i.i.i.i31 = or i8 %52, %.fca.1.extract.val.i.i29
+  %.not.i.i32 = icmp eq i8 %.0.i.i.i.i.i30, %.02.i.i.i.i.i31
   br i1 %.not.i.i32, label %.preheader.i26, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit24": ; preds = %.preheader.i17
@@ -44801,13 +44801,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9800, !noalias !9805, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit23
 
 .loopexit23:                                      ; preds = %6, %3
@@ -44829,13 +44829,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9809, !noalias !9814, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit22
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i
@@ -44863,13 +44863,13 @@ define void @"_ZN140_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i14 = load i8, ptr %34, align 1, !alias.scope !9818, !noalias !9823, !noundef !5
   %35 = add i8 %.fca.0.extract.val.i.i13, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i.i.i.i15 = select i1 %36, i8 32, i8 0
-  %37 = add i8 %.fca.1.extract.val.i.i14, -65
-  %38 = icmp ult i8 %37, 26
-  %.02.i.i.i.i.i16 = select i1 %38, i8 32, i8 0
-  %39 = or i8 %.0.i.i.i.i.i15, %.fca.0.extract.val.i.i13
-  %40 = or i8 %.02.i.i.i.i.i16, %.fca.1.extract.val.i.i14
-  %.not.i.i17 = icmp eq i8 %39, %40
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i.i.i.i15 = or i8 %37, %.fca.0.extract.val.i.i13
+  %38 = add i8 %.fca.1.extract.val.i.i14, -65
+  %39 = icmp ult i8 %38, 26
+  %40 = select i1 %39, i8 32, i8 0
+  %.02.i.i.i.i.i16 = or i8 %40, %.fca.1.extract.val.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
   br i1 %.not.i.i17, label %.preheader.i11, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit9": ; preds = %.preheader.i2
@@ -44978,13 +44978,13 @@ define void @"_ZN138_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i = load i8, ptr %9, align 1, !alias.scope !9844, !noalias !9849, !noundef !5
   %10 = add i8 %.fca.0.extract.val.i.i, -65
   %11 = icmp ult i8 %10, 26
-  %.0.i.i.i.i.i = select i1 %11, i8 32, i8 0
-  %12 = add i8 %.fca.1.extract.val.i.i, -65
-  %13 = icmp ult i8 %12, 26
-  %.02.i.i.i.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %15 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %14, %15
+  %12 = select i1 %11, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %12, %.fca.0.extract.val.i.i
+  %13 = add i8 %.fca.1.extract.val.i.i, -65
+  %14 = icmp ult i8 %13, 26
+  %15 = select i1 %14, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %15, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit12
 
 .loopexit12:                                      ; preds = %6, %3
@@ -45006,13 +45006,13 @@ define void @"_ZN138_$LT$rustfmt_nightly..config..lists..__define_config_type_on
   %.fca.1.extract.val.i.i5 = load i8, ptr %21, align 1, !alias.scope !9853, !noalias !9858, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i4, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i6 = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i5, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i7 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i6, %.fca.0.extract.val.i.i4
-  %27 = or i8 %.02.i.i.i.i.i7, %.fca.1.extract.val.i.i5
-  %.not.i.i8 = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i6 = or i8 %24, %.fca.0.extract.val.i.i4
+  %25 = add i8 %.fca.1.extract.val.i.i5, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i7 = or i8 %27, %.fca.1.extract.val.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
   br i1 %.not.i.i8, label %.preheader.i2, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i

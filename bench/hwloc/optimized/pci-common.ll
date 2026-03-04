@@ -1054,13 +1054,13 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8, !tbaa !31
   %.not.not = icmp eq i32 %7, 0
-  br i1 %.not.not, label %.critedge70, label %.preheader
+  br i1 %.not.not, label %.critedge71, label %.preheader
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 884
   %9 = load i32, ptr %8, align 4, !tbaa !38
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %hwloc__pci_find_busid_parent_quirk.exit, label %.lr.ph
+  br i1 %.not, label %hwloc__pci_find_busid_parent_quirk.exit.thread68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = load i32, ptr %1, align 4, !tbaa !78
@@ -1093,22 +1093,22 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !45
   %26 = tail call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %25) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 27:                                               ; preds = %14, %18, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %hwloc__pci_find_busid_parent_quirk.exit, label %14, !llvm.loop !79
+  br i1 %exitcond.not, label %hwloc__pci_find_busid_parent_quirk.exit.thread68, label %14, !llvm.loop !79
 
-.critedge70:                                      ; preds = %2
+.critedge71:                                      ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %29 = load i64, ptr %28, align 8, !tbaa !3
   switch i64 %29, label %53 [
-    i64 0, label %hwloc__pci_find_busid_parent_quirk.exit
+    i64 0, label %hwloc__pci_find_busid_parent_quirk.exit.thread68
     i64 -1, label %30
   ]
 
-30:                                               ; preds = %.critedge70
+30:                                               ; preds = %.critedge71
   store i64 0, ptr %28, align 8, !tbaa !3
   %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 224
@@ -1168,8 +1168,8 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
   store i64 %52, ptr %28, align 8, !tbaa !3
   br label %53
 
-53:                                               ; preds = %.critedge70, %51, %48, %hwloc_obj_get_info_by_name.exit.thread.i
-  %54 = phi i64 [ %46, %hwloc_obj_get_info_by_name.exit.thread.i ], [ %.pre.i, %48 ], [ %52, %51 ], [ %29, %.critedge70 ]
+53:                                               ; preds = %.critedge71, %51, %48, %hwloc_obj_get_info_by_name.exit.thread.i
+  %54 = phi i64 [ %46, %hwloc_obj_get_info_by_name.exit.thread.i ], [ %.pre.i, %48 ], [ %52, %51 ], [ %29, %.critedge71 ]
   %55 = and i64 %54, 4611686018427387904
   %.not60.i = icmp eq i64 %55, 0
   br i1 %.not60.i, label %60, label %56
@@ -1178,17 +1178,17 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
   %57 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef nonnull %0) #25
   %58 = tail call i32 @hwloc_bitmap_last(ptr noundef %57) #25
   %59 = tail call i32 @hwloc_bitmap_set(ptr noundef %3, i32 noundef %58) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 60:                                               ; preds = %53
   %61 = and i64 %54, 1
   %.not61.i = icmp eq i64 %61, 0
-  br i1 %.not61.i, label %hwloc__pci_find_busid_parent_quirk.exit, label %62
+  br i1 %.not61.i, label %hwloc__pci_find_busid_parent_quirk.exit.thread68, label %62
 
 62:                                               ; preds = %60
   %63 = load i32, ptr %1, align 4, !tbaa !78
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %hwloc__pci_find_busid_parent_quirk.exit
+  br i1 %64, label %65, label %hwloc__pci_find_busid_parent_quirk.exit.thread68
 
 65:                                               ; preds = %62
   %66 = load i8, ptr %4, align 4, !tbaa !74
@@ -1199,7 +1199,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 68:                                               ; preds = %65
   %69 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 0, i32 noundef 7) #22
   %70 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 64, i32 noundef 71) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 71:                                               ; preds = %65
   %72 = add i8 %66, 44
@@ -1209,7 +1209,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 73:                                               ; preds = %71
   %74 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 8, i32 noundef 15) #22
   %75 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 72, i32 noundef 79) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 76:                                               ; preds = %71
   %or.cond63.i = icmp eq i8 %67, -56
@@ -1218,7 +1218,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 77:                                               ; preds = %76
   %78 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 16, i32 noundef 23) #22
   %79 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 80, i32 noundef 87) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 80:                                               ; preds = %76
   %81 = add i8 %66, 52
@@ -1228,7 +1228,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 82:                                               ; preds = %80
   %83 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 24, i32 noundef 31) #22
   %84 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 88, i32 noundef 95) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 85:                                               ; preds = %80
   %or.cond65.i = icmp eq i8 %67, -40
@@ -1237,7 +1237,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 86:                                               ; preds = %85
   %87 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 32, i32 noundef 39) #22
   %88 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 96, i32 noundef 103) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 89:                                               ; preds = %85
   %90 = add i8 %66, 36
@@ -1247,7 +1247,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 91:                                               ; preds = %89
   %92 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 40, i32 noundef 47) #22
   %93 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 104, i32 noundef 111) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 94:                                               ; preds = %89
   %or.cond67.i = icmp eq i8 %67, -64
@@ -1256,47 +1256,47 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 95:                                               ; preds = %94
   %96 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 48, i32 noundef 55) #22
   %97 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 112, i32 noundef 119) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
 98:                                               ; preds = %94
   %99 = add i8 %66, 60
   %or.cond68.i = icmp ult i8 %99, 3
-  br i1 %or.cond68.i, label %100, label %hwloc__pci_find_busid_parent_quirk.exit
+  br i1 %or.cond68.i, label %100, label %hwloc__pci_find_busid_parent_quirk.exit.thread68
 
 100:                                              ; preds = %98
   %101 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 56, i32 noundef 63) #22
   %102 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %3, i32 noundef 120, i32 noundef 127) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
-hwloc__pci_find_busid_parent_quirk.exit:          ; preds = %27, %.preheader, %60, %62, %98, %.critedge70
+hwloc__pci_find_busid_parent_quirk.exit.thread68: ; preds = %27, %.preheader, %60, %62, %98, %.critedge71
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %104 = load ptr, ptr %103, align 8, !tbaa !86
   %.not58 = icmp eq ptr %104, null
   br i1 %.not58, label %.critedge, label %105
 
-105:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit
+105:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit.thread68
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %107 = load ptr, ptr %106, align 8, !tbaa !87
   %108 = tail call i32 %107(ptr noundef nonnull %104, ptr noundef nonnull %1, ptr noundef %3) #22
   %109 = icmp slt i32 %108, 0
-  br i1 %109, label %.critedge, label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br i1 %109, label %.critedge, label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
-.critedge:                                        ; preds = %hwloc__pci_find_busid_parent_quirk.exit, %105
+.critedge:                                        ; preds = %hwloc__pci_find_busid_parent_quirk.exit.thread68, %105
   %110 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef nonnull %0) #25
   %111 = tail call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %110) #22
-  br label %hwloc__pci_find_busid_parent_quirk.exit.thread66
+  br label %hwloc__pci_find_busid_parent_quirk.exit.thread65
 
-hwloc__pci_find_busid_parent_quirk.exit.thread66: ; preds = %100, %95, %91, %86, %82, %77, %73, %68, %56, %.thread, %105, %.critedge
+hwloc__pci_find_busid_parent_quirk.exit.thread65: ; preds = %100, %95, %91, %86, %82, %77, %73, %68, %56, %.thread, %105, %.critedge
   %112 = tail call ptr @hwloc_find_insert_io_parent_by_complete_cpuset(ptr noundef %0, ptr noundef %3) #22
   %.not59 = icmp eq ptr %112, null
   br i1 %.not59, label %113, label %115
 
-113:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit.thread66
+113:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit.thread65
   %114 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #25
   br label %115
 
-115:                                              ; preds = %113, %hwloc__pci_find_busid_parent_quirk.exit.thread66
-  %.0 = phi ptr [ %112, %hwloc__pci_find_busid_parent_quirk.exit.thread66 ], [ %114, %113 ]
+115:                                              ; preds = %113, %hwloc__pci_find_busid_parent_quirk.exit.thread65
+  %.0 = phi ptr [ %112, %hwloc__pci_find_busid_parent_quirk.exit.thread65 ], [ %114, %113 ]
   tail call void @hwloc_bitmap_free(ptr noundef %3) #22
   ret ptr %.0
 }

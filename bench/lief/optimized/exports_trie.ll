@@ -1248,12 +1248,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %6 = alloca i32, align 4
   %7 = alloca %"class.LIEF::vector_iostream", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %8, ptr %3, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %8, align 8, !tbaa !10
-  %10 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !48
-  store i64 0, ptr %9, align 8, !tbaa !25, !noalias !48
+  %10 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !48
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %8, ptr %3, align 8, !tbaa !29, !noalias !48
+  store i64 0, ptr %9, align 8, !tbaa !25, !noalias !48
   store i8 0, ptr %11, align 8, !noalias !53
   store i8 0, ptr %8, align 8, !tbaa !10, !noalias !48
   store ptr %11, ptr %10, align 8, !tbaa !22, !noalias !48
@@ -15908,12 +15908,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %228, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %235 = phi i64 [ %234, %228 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %236 = icmp samesign ugt i64 %226, %235
+  %236 = icmp ugt i64 %226, %235
   br i1 %236, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %237
 
 237:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %238 = sub nuw nsw i64 %235, %226
-  %239 = icmp samesign ugt i64 %238, 1
+  %239 = icmp ugt i64 %238, 1
   br i1 %239, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %240
 
 240:                                              ; preds = %237
@@ -16290,12 +16290,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211: ; preds = %405, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208
   %412 = phi i64 [ %411, %405 ], [ %.03556.i201, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
-  %413 = icmp samesign ugt i64 %403, %412
+  %413 = icmp ugt i64 %403, %412
   br i1 %413, label %.thread602, label %414
 
 414:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211
   %415 = sub nuw nsw i64 %412, %403
-  %416 = icmp samesign ugt i64 %415, 1
+  %416 = icmp ugt i64 %415, 1
   br i1 %416, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit214, label %417
 
 417:                                              ; preds = %414
@@ -16398,12 +16398,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229: ; preds = %458, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226
   %465 = phi i64 [ %464, %458 ], [ %.03556.i219, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
-  %466 = icmp samesign ugt i64 %456, %465
+  %466 = icmp ugt i64 %456, %465
   br i1 %466, label %.thread.sink.split, label %467
 
 467:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229
   %468 = sub nuw nsw i64 %465, %456
-  %469 = icmp samesign ugt i64 %468, 1
+  %469 = icmp ugt i64 %468, 1
   br i1 %469, label %.thread, label %470
 
 470:                                              ; preds = %467
@@ -16742,7 +16742,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300: ; preds = %608, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297
   %615 = phi i64 [ %614, %608 ], [ %.03556.i290, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
-  %616 = icmp samesign ugt i64 %606, %615
+  %616 = icmp ugt i64 %606, %615
   br i1 %616, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit303, label %617
 
 617:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
@@ -16872,12 +16872,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322: ; preds = %674, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319
   %681 = phi i64 [ %680, %674 ], [ %.03556.i312, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
-  %682 = icmp samesign ugt i64 %672, %681
+  %682 = icmp ugt i64 %672, %681
   br i1 %682, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %683
 
 683:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322
   %684 = sub nuw nsw i64 %681, %672
-  %685 = icmp samesign ugt i64 %684, 1
+  %685 = icmp ugt i64 %684, 1
   br i1 %685, label %.thread408, label %686
 
 686:                                              ; preds = %683

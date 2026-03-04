@@ -152,7 +152,7 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, 
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %49 = load i32, ptr %48, align 4, !tbaa !33
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %57
 
 51:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -171,56 +171,56 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.i = load i32, ptr %11, align 4, !tbaa !16
+  %56 = and i1 %43, %55
   br label %_ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
 
-56:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
-  %57 = load i32, ptr %14, align 8, !tbaa !23
-  %58 = icmp slt i32 %47, %57
-  br i1 %58, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
+57:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+  %58 = load i32, ptr %14, align 8, !tbaa !23
+  %59 = icmp slt i32 %47, %58
+  br i1 %59, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
 
-select.unfold.i.preheader.i.i:                    ; preds = %56
-  %59 = icmp eq i32 %57, 0
-  %spec.select44 = select i1 %59, i32 16, i32 %57
+select.unfold.i.preheader.i.i:                    ; preds = %57
+  %60 = icmp eq i32 %58, 0
+  %spec.select44 = select i1 %60, i32 16, i32 %58
   br label %select.unfold.i.i.i
 
-select.unfold.i.i.i:                              ; preds = %select.unfold.i.preheader.i.i, %61
-  %.0.i.i.i = phi i32 [ %62, %61 ], [ %spec.select44, %select.unfold.i.preheader.i.i ]
-  %60 = icmp slt i32 %.0.i.i.i, 1073741824
-  br i1 %60, label %61, label %_ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
+select.unfold.i.i.i:                              ; preds = %select.unfold.i.preheader.i.i, %62
+  %.0.i.i.i = phi i32 [ %63, %62 ], [ %spec.select44, %select.unfold.i.preheader.i.i ]
+  %61 = icmp slt i32 %.0.i.i.i, 1073741824
+  br i1 %61, label %62, label %_ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
 
-61:                                               ; preds = %select.unfold.i.i.i
-  %62 = shl nsw i32 %.0.i.i.i, 1
-  %.not.i.i = icmp sgt i32 %62, %57
-  br i1 %.not.i.i, label %63, label %select.unfold.i.i.i, !llvm.loop !24
+62:                                               ; preds = %select.unfold.i.i.i
+  %63 = shl nsw i32 %.0.i.i.i, 1
+  %.not.i.i = icmp sgt i32 %63, %58
+  br i1 %.not.i.i, label %64, label %select.unfold.i.i.i, !llvm.loop !24
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %3, align 8, !tbaa !26
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %62)
-  %67 = load i32, ptr %11, align 4, !tbaa !16
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %3, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %63)
+  %68 = load i32, ptr %11, align 4, !tbaa !16
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %63, %56
-  %.sink.i.i = phi i32 [ %67, %63 ], [ %47, %56 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %64, %57
+  %.sink.i.i = phi i32 [ %68, %64 ], [ %47, %57 ]
   %.sink5.in.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sink5.i.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !29
-  %68 = sext i32 %.sink.i.i to i64
-  %69 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %68
-  store i8 47, ptr %69, align 1, !tbaa !28
-  %70 = load i32, ptr %11, align 4, !tbaa !16
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %11, align 4, !tbaa !16
+  %69 = sext i32 %.sink.i.i to i64
+  %70 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %69
+  store i8 47, ptr %70, align 1, !tbaa !28
+  %71 = load i32, ptr %11, align 4, !tbaa !16
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %11, align 4, !tbaa !16
   br label %_ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
 
 _ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit: ; preds = %select.unfold.i.i.i, %51, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i
-  %72 = phi i32 [ %.pre.i, %51 ], [ %71, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %47, %select.unfold.i.i.i ]
-  %.0.i = phi i1 [ %55, %51 ], [ true, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ true, %select.unfold.i.i.i ]
-  %73 = load i32, ptr %46, align 4, !tbaa !32
-  %74 = sub nsw i32 %72, %73
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %74, ptr %75, align 4, !tbaa !33
-  %76 = and i1 %43, %.0.i
+  %73 = phi i32 [ %.pre.i, %51 ], [ %72, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %47, %select.unfold.i.i.i ]
+  %.0.i = phi i1 [ %56, %51 ], [ %43, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %43, %select.unfold.i.i.i ]
+  %74 = load i32, ptr %46, align 4, !tbaa !32
+  %75 = sub nsw i32 %73, %74
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 %75, ptr %76, align 4, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -231,7 +231,7 @@ _ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12Can
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %82, ptr noundef nonnull align 4 dereferenceable(8) %83, ptr noundef nonnull %3, ptr noundef nonnull %84)
-  ret i1 %76
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -312,7 +312,7 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i:      ; preds = %select.unfold.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %46 = load i32, ptr %45, align 4, !tbaa !33
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %48, label %53
+  br i1 %47, label %48, label %54
 
 48:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -331,63 +331,63 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i:      ; preds = %select.unfold.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.i.i = load i32, ptr %12, align 4, !tbaa !16
+  %53 = and i1 %42, %52
   br label %_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
 
-53:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i
-  %54 = load i32, ptr %15, align 8, !tbaa !23
-  %55 = icmp slt i32 %44, %54
-  br i1 %55, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i, label %select.unfold.i.preheader.i.i.i
+54:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i
+  %55 = load i32, ptr %15, align 8, !tbaa !23
+  %56 = icmp slt i32 %44, %55
+  br i1 %56, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i, label %select.unfold.i.preheader.i.i.i
 
-select.unfold.i.preheader.i.i.i:                  ; preds = %53
-  %56 = icmp eq i32 %54, 0
-  %spec.select19 = select i1 %56, i32 16, i32 %54
+select.unfold.i.preheader.i.i.i:                  ; preds = %54
+  %57 = icmp eq i32 %55, 0
+  %spec.select19 = select i1 %57, i32 16, i32 %55
   br label %select.unfold.i.i.i.i
 
-select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.preheader.i.i.i, %58
-  %.0.i.i.i.i = phi i32 [ %59, %58 ], [ %spec.select19, %select.unfold.i.preheader.i.i.i ]
-  %57 = icmp slt i32 %.0.i.i.i.i, 1073741824
-  br i1 %57, label %58, label %_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
+select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.preheader.i.i.i, %59
+  %.0.i.i.i.i = phi i32 [ %60, %59 ], [ %spec.select19, %select.unfold.i.preheader.i.i.i ]
+  %58 = icmp slt i32 %.0.i.i.i.i, 1073741824
+  br i1 %58, label %59, label %_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
 
-58:                                               ; preds = %select.unfold.i.i.i.i
-  %59 = shl nsw i32 %.0.i.i.i.i, 1
-  %.not.i.i.i = icmp sgt i32 %59, %54
-  br i1 %.not.i.i.i, label %60, label %select.unfold.i.i.i.i, !llvm.loop !24
+59:                                               ; preds = %select.unfold.i.i.i.i
+  %60 = shl nsw i32 %.0.i.i.i.i, 1
+  %.not.i.i.i = icmp sgt i32 %60, %55
+  br i1 %.not.i.i.i, label %61, label %select.unfold.i.i.i.i, !llvm.loop !24
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %4, align 8, !tbaa !26
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %59)
-  %64 = load i32, ptr %12, align 4, !tbaa !16
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %4, align 8, !tbaa !26
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %60)
+  %65 = load i32, ptr %12, align 4, !tbaa !16
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i: ; preds = %60, %53
-  %.sink.i.i.i = phi i32 [ %64, %60 ], [ %44, %53 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i: ; preds = %61, %54
+  %.sink.i.i.i = phi i32 [ %65, %61 ], [ %44, %54 ]
   %.sink5.in.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sink5.i.i.i = load ptr, ptr %.sink5.in.i.i.i, align 8, !tbaa !29
-  %65 = sext i32 %.sink.i.i.i to i64
-  %66 = getelementptr inbounds i8, ptr %.sink5.i.i.i, i64 %65
-  store i8 47, ptr %66, align 1, !tbaa !28
-  %67 = load i32, ptr %12, align 4, !tbaa !16
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %12, align 4, !tbaa !16
+  %66 = sext i32 %.sink.i.i.i to i64
+  %67 = getelementptr inbounds i8, ptr %.sink5.i.i.i, i64 %66
+  store i8 47, ptr %67, align 1, !tbaa !28
+  %68 = load i32, ptr %12, align 4, !tbaa !16
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %12, align 4, !tbaa !16
   br label %_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
 
 _ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit: ; preds = %select.unfold.i.i.i.i, %48, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i
-  %69 = phi i32 [ %.pre.i.i, %48 ], [ %68, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i ], [ %44, %select.unfold.i.i.i.i ]
-  %.0.i.i = phi i1 [ %52, %48 ], [ true, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i ], [ true, %select.unfold.i.i.i.i ]
-  %70 = load i32, ptr %43, align 4, !tbaa !32
-  %71 = sub nsw i32 %69, %70
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i32 %71, ptr %72, align 4, !tbaa !33
-  %73 = and i1 %42, %.0.i.i
+  %70 = phi i32 [ %.pre.i.i, %48 ], [ %69, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i ], [ %44, %select.unfold.i.i.i.i ]
+  %.0.i.i = phi i1 [ %53, %48 ], [ %42, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i ], [ %42, %select.unfold.i.i.i.i ]
+  %71 = load i32, ptr %43, align 4, !tbaa !32
+  %72 = sub nsw i32 %70, %71
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  store i32 %72, ptr %73, align 4, !tbaa !33
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %74, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %75)
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %76, ptr noundef nonnull %4, ptr noundef nonnull %77)
-  ret i1 %73
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

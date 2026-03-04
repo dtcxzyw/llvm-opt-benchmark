@@ -3159,7 +3159,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
   %9 = load i64, ptr %1, align 8, !range !144, !alias.scope !466, !noalias !463, !noundef !5
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %26, label %11
+  br i1 %10, label %27, label %11
 
 11:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
@@ -3203,29 +3203,29 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   %.sroa.9.i.0..sroa.9.i.0..sroa.9.i.0..sroa.9.0..sroa.9.0..sroa.9.16..pre.i = load i64, ptr %.sroa.9.i, align 8, !noalias !482
   %23 = icmp ne i64 %.sroa.556.i.0..sroa.556.i.0..sroa.556.i.0..sroa.556.0..sroa.556.0..sroa.556.8..pre.i, 0
   %24 = and i1 %22, %23
-  %25 = icmp eq i64 %.sroa.9.i.0..sroa.9.i.0..sroa.9.i.0..sroa.9.0..sroa.9.0..sroa.9.16..pre.i, 0
-  br label %26
+  %25 = and i1 %5, %24
+  %26 = icmp eq i64 %.sroa.9.i.0..sroa.9.i.0..sroa.9.i.0..sroa.9.0..sroa.9.0..sroa.9.16..pre.i, 0
+  br label %27
 
-26:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i", %2
-  %.sroa.9.0..sroa.9.0..sroa.9.16..i = phi i1 [ %25, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i" ], [ true, %2 ]
-  %or.cond.i = phi i1 [ %24, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i" ], [ true, %2 ]
+27:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i", %2
+  %.sroa.9.0..sroa.9.0..sroa.9.16..i = phi i1 [ %26, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i" ], [ true, %2 ]
+  %or.cond.i = phi i1 [ %25, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i" ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.556.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
-  %or.cond3.i = and i1 %5, %or.cond.i
-  %or.cond5.i = and i1 %8, %or.cond3.i
+  %or.cond5.i = and i1 %8, %or.cond.i
   %or.cond8.i = select i1 %or.cond5.i, i1 %.sroa.9.0..sroa.9.0..sroa.9.16..i, i1 false
-  br i1 %or.cond8.i, label %27, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
+  br i1 %or.cond8.i, label %28, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %28, align 8, !alias.scope !463, !noalias !466
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %29, align 8, !alias.scope !463, !noalias !466
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit": ; preds = %26, %27
-  %.sink.i = phi i64 [ 1, %27 ], [ 0, %26 ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit": ; preds = %27, %28
+  %.sink.i = phi i64 [ 1, %28 ], [ 0, %27 ]
   store i64 0, ptr %0, align 8, !alias.scope !463, !noalias !466
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %29, align 8, !alias.scope !463, !noalias !466
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i, ptr %30, align 8, !alias.scope !463, !noalias !466
   ret void
 }
 

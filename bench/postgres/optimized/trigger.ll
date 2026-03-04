@@ -3733,24 +3733,24 @@ fastgetattr.exit124:                              ; preds = %311, %317
   store i8 %428, ptr %345, align 4
   %429 = and i16 %373, 4
   %.not.i = icmp eq i16 %429, 0
-  br i1 %.not.i, label %435, label %430
+  br i1 %.not.i, label %436, label %430
 
 430:                                              ; preds = %350
   %431 = getelementptr inbounds nuw i8, ptr %371, i64 80
   %432 = load ptr, ptr %431, align 8
   %433 = icmp ne ptr %432, null
   %434 = zext i1 %433 to i8
-  br label %435
+  %435 = or i8 %353, %434
+  br label %436
 
-435:                                              ; preds = %430, %350
-  %436 = phi i8 [ 0, %350 ], [ %434, %430 ]
-  %437 = or i8 %353, %436
+436:                                              ; preds = %430, %350
+  %437 = phi i8 [ %353, %350 ], [ %435, %430 ]
   store i8 %437, ptr %346, align 1
   %438 = and i16 %373, 16
   %.not46.i = icmp eq i16 %438, 0
   br i1 %.not46.i, label %.critedge.i, label %439
 
-439:                                              ; preds = %435
+439:                                              ; preds = %436
   %440 = getelementptr inbounds nuw i8, ptr %371, i64 72
   %441 = load ptr, ptr %440, align 8
   %442 = icmp ne ptr %441, null
@@ -3762,11 +3762,11 @@ fastgetattr.exit124:                              ; preds = %311, %317
   %447 = load ptr, ptr %446, align 8
   %448 = icmp ne ptr %447, null
   %449 = zext i1 %448 to i8
+  %450 = or i8 %352, %449
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %439, %435
-  %450 = phi i8 [ %449, %439 ], [ 0, %435 ]
-  %451 = or i8 %352, %450
+.critedge.i:                                      ; preds = %439, %436
+  %451 = phi i8 [ %450, %439 ], [ %352, %436 ]
   store i8 %451, ptr %348, align 1
   %452 = and i16 %373, 8
   %.not47.i = icmp eq i16 %452, 0
@@ -3777,11 +3777,11 @@ fastgetattr.exit124:                              ; preds = %311, %317
   %455 = load ptr, ptr %454, align 8
   %456 = icmp ne ptr %455, null
   %457 = zext i1 %456 to i8
+  %458 = or i8 %351, %457
   br label %SetTriggerFlags.exit
 
 SetTriggerFlags.exit:                             ; preds = %.critedge.i, %453
-  %458 = phi i8 [ 0, %.critedge.i ], [ %457, %453 ]
-  %459 = or i8 %351, %458
+  %459 = phi i8 [ %351, %.critedge.i ], [ %458, %453 ]
   store i8 %459, ptr %349, align 8
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count

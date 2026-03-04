@@ -1308,21 +1308,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
 .critedge501:                                     ; preds = %.lr.ph827, %354, %.critedge430, %.thread682, %._crit_edge828
   %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
-  %.not1076 = icmp samesign ult i64 %indvars.iv.next897, %166
-  br i1 %.not1076, label %167, label %._crit_edge834, !llvm.loop !63
+  %.not1075 = icmp samesign ult i64 %indvars.iv.next897, %166
+  br i1 %.not1075, label %167, label %._crit_edge834.loopexit, !llvm.loop !63
 
-._crit_edge834:                                   ; preds = %.critedge501, %159
+._crit_edge834.loopexit:                          ; preds = %.critedge501
   br i1 %.not, label %444, label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge834, %426, %429
-  %.sink1075 = phi ptr [ %428, %426 ], [ %428, %429 ], [ %19, %._crit_edge834 ]
-  %441 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef %.sink1075)
+._crit_edge834:                                   ; preds = %159
+  br i1 %.not, label %444, label %.sink.split
+
+.sink.split:                                      ; preds = %._crit_edge834, %._crit_edge834.loopexit, %426, %429
+  %.sink1074 = phi ptr [ %428, %426 ], [ %428, %429 ], [ %19, %._crit_edge834.loopexit ], [ %19, %._crit_edge834 ]
+  %441 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef %.sink1074)
   %442 = load ptr, ptr %81, align 8, !tbaa !51
   %443 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv898
   store ptr %441, ptr %443, align 8, !tbaa !49
   br label %444
 
-444:                                              ; preds = %.sink.split, %._crit_edge834
+444:                                              ; preds = %.sink.split, %._crit_edge834.loopexit, %._crit_edge834
   %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
   %445 = load i32, ptr %2, align 8, !tbaa !29
   %446 = sext i32 %445 to i64

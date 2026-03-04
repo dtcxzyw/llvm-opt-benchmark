@@ -802,7 +802,7 @@ define hidden noundef zeroext i1 @_ZNK2cv5kinfu6detail13PoseGraphImpl7isValidEv(
   %15 = icmp ne i64 %10, 0
   %16 = icmp ne i64 %14, 0
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, label %258
+  br i1 %or.cond, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, label %257
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1034,7 +1034,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit78:        ; preds = %78, %63, %73, %58, 
   %.sroa.0126.3 = phi ptr [ %.sroa.0126.0224, %39 ], [ %.sroa.0126.1220, %56 ], [ %.sroa.0126.1220, %.loopexit175 ], [ %.sroa.0126.1220, %.loopexit.split-lp ]
   %.pn58.pn = phi { ptr, i32 } [ %40, %39 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit175 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %257
+  br label %256
 
 107:                                              ; preds = %36
   %108 = load i64, ptr %31, align 8, !tbaa !138
@@ -1045,7 +1045,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit78:        ; preds = %78, %63, %73, %58, 
 111:                                              ; preds = %107
   %112 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 113:                                              ; preds = %107
   %.not = icmp eq ptr %110, null
@@ -1220,7 +1220,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 182:                                              ; preds = %181, %173
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %181 ], [ %174, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %257
+  br label %256
 
 183:                                              ; preds = %114, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %184 = load ptr, ptr %30, align 8, !tbaa !134
@@ -1367,7 +1367,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 244:                                              ; preds = %.split227.us
   %245 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 .loopexit166:                                     ; preds = %237, %232
   %246 = add nuw i64 %.031225, 1
@@ -1375,52 +1375,51 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br i1 %exitcond266.not, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.split.split, !llvm.loop !162
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.loopexit166, %209, %.thread148, %.lr.ph.i.i.i.i.i93, %.lr.ph.i.i.i.i.i107, %.loopexit.us, %196, %201, %..loopexit_crit_edge21.i.i.i.i.i111, %..loopexit_crit_edge21.i.i.i.i.i97
-  %247 = phi i1 [ false, %196 ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %201 ], [ true, %.loopexit.us ], [ false, %..loopexit_crit_edge21.i.i.i.i.i97 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %.lr.ph.i.i.i.i.i93 ], [ true, %.loopexit166 ], [ false, %209 ], [ false, %.thread148 ]
-  %248 = and i1 %109, %247
+  %247 = phi i1 [ false, %196 ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %201 ], [ %109, %.loopexit.us ], [ false, %..loopexit_crit_edge21.i.i.i.i.i97 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %.lr.ph.i.i.i.i.i93 ], [ %109, %.loopexit166 ], [ false, %209 ], [ false, %.thread148 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.4) #30
-  %249 = load ptr, ptr %19, align 8, !tbaa !163
-  %.not5.i.i.i.i = icmp eq ptr %249, null
+  %248 = load ptr, ptr %19, align 8, !tbaa !163
+  %.not5.i.i.i.i = icmp eq ptr %248, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %250, %.lr.ph.i.i.i.i ], [ %249, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %250 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !139
+  %.06.i.i.i.i = phi ptr [ %249, %.lr.ph.i.i.i.i ], [ %248, %_ZNSt6vectorImSaImEED2Ev.exit ]
+  %249 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !139
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #30
-  %.not.i.i.i.i = icmp eq ptr %250, null
+  %.not.i.i.i.i = icmp eq ptr %249, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !164
 
 _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit
-  %251 = load ptr, ptr %3, align 8, !tbaa !122
-  %252 = load i64, ptr %18, align 8, !tbaa !129
-  %253 = shl i64 %252, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %251, i8 0, i64 %253, i1 false)
+  %250 = load ptr, ptr %3, align 8, !tbaa !122
+  %251 = load i64, ptr %18, align 8, !tbaa !129
+  %252 = shl i64 %251, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %250, i8 0, i64 %252, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %254 = load ptr, ptr %3, align 8, !tbaa !122
-  %255 = icmp eq ptr %254, %17
-  br i1 %255, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit, label %256
+  %253 = load ptr, ptr %3, align 8, !tbaa !122
+  %254 = icmp eq ptr %253, %17
+  br i1 %254, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit, label %255
 
-256:                                              ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %254) #30
+255:                                              ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
+  call void @_ZdlPv(ptr noundef %253) #30
   br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit
 
-_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit: ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %256
+_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit: ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %258
+  br label %257
 
-257:                                              ; preds = %111, %182, %244, %106
+256:                                              ; preds = %111, %182, %244, %106
   %.sroa.0126.2 = phi ptr [ %.sroa.0126.3, %106 ], [ %.sroa.0126.4, %244 ], [ %.sroa.0126.4, %182 ], [ %.sroa.0126.4, %111 ]
   %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %106 ], [ %245, %244 ], [ %.pn.pn.pn, %182 ], [ %112, %111 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit121
 
-_ZNSt6vectorImSaImEED2Ev.exit121:                 ; preds = %.thread160, %257
-  %.pn58.pn.pn.pn164 = phi { ptr, i32 } [ %38, %.thread160 ], [ %.pn58.pn.pn.pn, %257 ]
+_ZNSt6vectorImSaImEED2Ev.exit121:                 ; preds = %.thread160, %256
+  %.pn58.pn.pn.pn164 = phi { ptr, i32 } [ %38, %.thread160 ], [ %.pn58.pn.pn.pn, %256 ]
   call void @_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn58.pn.pn.pn164
 
-258:                                              ; preds = %1, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit
-  %.0 = phi i1 [ %248, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit ], [ false, %1 ]
+257:                                              ; preds = %1, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit
+  %.0 = phi i1 [ %247, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit ], [ false, %1 ]
   ret i1 %.0
 }
 

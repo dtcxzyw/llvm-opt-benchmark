@@ -171,15 +171,15 @@ define internal { double, double } @_ZL15vandg_s_inverse5PJ_XYP8PJconsts(double 
 82:                                               ; preds = %67
   %83 = fadd double %21, 0xC023BD3CC9BE45DE
   %84 = fcmp ugt double %79, 0.000000e+00
-  br i1 %84, label %85, label %87
+  br i1 %84, label %85, label %88
 
 85:                                               ; preds = %82
   %86 = tail call double @sqrt(double noundef %79) #7, !tbaa !43
-  br label %87
+  %87 = fadd double %83, %86
+  br label %88
 
-87:                                               ; preds = %82, %85
-  %88 = phi double [ %86, %85 ], [ 0.000000e+00, %82 ]
-  %89 = fadd double %83, %88
+88:                                               ; preds = %82, %85
+  %89 = phi double [ %87, %85 ], [ %83, %82 ]
   %90 = fmul double %89, 5.000000e-01
   %91 = fdiv double %90, %0
   br label %94
@@ -188,9 +188,9 @@ define internal { double, double } @_ZL15vandg_s_inverse5PJ_XYP8PJconsts(double 
   %93 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   br label %94
 
-94:                                               ; preds = %44, %92, %67, %87, %11, %8
-  %.sroa.073.0 = phi double [ 0.000000e+00, %8 ], [ %18, %11 ], [ %.sroa.073.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %91, %87 ], [ 0.000000e+00, %67 ]
-  %.sroa.5.0 = phi double [ 0.000000e+00, %8 ], [ 0.000000e+00, %11 ], [ %.sroa.5.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %.sroa.8.0, %87 ], [ %.sroa.8.0, %67 ]
+94:                                               ; preds = %44, %92, %67, %88, %11, %8
+  %.sroa.073.0 = phi double [ 0.000000e+00, %8 ], [ %18, %11 ], [ %.sroa.073.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %91, %88 ], [ 0.000000e+00, %67 ]
+  %.sroa.5.0 = phi double [ 0.000000e+00, %8 ], [ 0.000000e+00, %11 ], [ %.sroa.5.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %.sroa.8.0, %88 ], [ %.sroa.8.0, %67 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.073.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert

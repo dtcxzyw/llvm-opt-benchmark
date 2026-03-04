@@ -11698,13 +11698,13 @@ _ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split: ; preds = %_ZNK17arith
   %490 = load i32, ptr %489, align 4
   %491 = icmp eq i32 %490, %.sink356
   %492 = select i1 %488, i1 %491, i1 false
+  %493 = and i1 %.072.shrunk245253, %492
   br label %_ZNK17arith_recognizers5is_ltEPK4expr.exit178
 
 _ZNK17arith_recognizers5is_ltEPK4expr.exit178:    ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split, %_ZNK17arith_recognizers5is_geEPK4expr.exit180, %_ZNK17arith_recognizers5is_gtEPK4expr.exit176
   %.4231 = phi ptr [ %.3230.ph, %_ZNK17arith_recognizers5is_gtEPK4expr.exit176 ], [ %.1228274.ph, %_ZNK17arith_recognizers5is_geEPK4expr.exit180 ], [ %.4231.ph, %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split ]
   %.4 = phi ptr [ %.3.ph, %_ZNK17arith_recognizers5is_gtEPK4expr.exit176 ], [ %.1226276.ph, %_ZNK17arith_recognizers5is_geEPK4expr.exit180 ], [ %.4.ph, %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split ]
-  %493 = phi i1 [ true, %_ZNK17arith_recognizers5is_gtEPK4expr.exit176 ], [ true, %_ZNK17arith_recognizers5is_geEPK4expr.exit180 ], [ %492, %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split ]
-  %or.cond5 = and i1 %.072.shrunk245253, %493
+  %or.cond5 = phi i1 [ %.072.shrunk245253, %_ZNK17arith_recognizers5is_gtEPK4expr.exit176 ], [ %.072.shrunk245253, %_ZNK17arith_recognizers5is_geEPK4expr.exit180 ], [ %493, %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.sink.split ]
   br i1 %or.cond5, label %494, label %_ZNK17arith_recognizers5is_ltEPK4expr.exit178.thread
 
 494:                                              ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit178

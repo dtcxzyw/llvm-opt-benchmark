@@ -768,9 +768,9 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread27
 
-.thread27:                                        ; preds = %129, %114, %166
-  %168 = phi i32 [ 1, %129 ], [ 0, %166 ], [ 0, %114 ]
-  %169 = phi i64 [ 0, %129 ], [ %167, %166 ], [ 0, %114 ]
+.thread27:                                        ; preds = %114, %129, %166
+  %168 = phi i32 [ 0, %166 ], [ 0, %114 ], [ 1, %129 ]
+  %169 = phi i64 [ %167, %166 ], [ 0, %114 ], [ 0, %129 ]
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2430,9 +2430,9 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-.thread:                                          ; preds = %66, %48, %103
-  %105 = phi i32 [ 1, %66 ], [ 0, %103 ], [ 0, %48 ]
-  %106 = phi i64 [ 0, %66 ], [ %104, %103 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %66, %103
+  %105 = phi i32 [ 0, %103 ], [ 0, %48 ], [ 1, %66 ]
+  %106 = phi i64 [ %104, %103 ], [ 0, %48 ], [ 0, %66 ]
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %.outer

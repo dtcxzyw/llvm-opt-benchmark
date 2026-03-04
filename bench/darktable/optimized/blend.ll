@@ -578,22 +578,23 @@ dt_develop_blend_colorspace.exit:                 ; preds = %85, %switch.lookup,
   %123 = load float, ptr %122, align 4, !tbaa !126
   %124 = fmul reassoc nsz arcp contract afn float %123, 0x3F847AE140000000
   %125 = fcmp reassoc nsz arcp contract afn ult float %124, 0.000000e+00
-  br i1 %125, label %130, label %126
+  br i1 %125, label %131, label %126
 
 126:                                              ; preds = %114
   %127 = fcmp reassoc nsz arcp contract afn ugt float %124, 1.000000e+00
-  br i1 %127, label %130, label %128
+  br i1 %127, label %131, label %128
 
 128:                                              ; preds = %126
   %129 = fcmp reassoc nsz arcp contract afn ogt float %124, 0x3F1A36E2E0000000
-  br label %130
+  %130 = and i1 %115, %129
+  br label %131
 
-130:                                              ; preds = %128, %126, %114
-  %131 = phi i1 [ true, %126 ], [ %129, %128 ], [ false, %114 ]
+131:                                              ; preds = %128, %126, %114
+  %or.cond.i = phi i1 [ %115, %126 ], [ %130, %128 ], [ false, %114 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   br i1 %101, label %132, label %140
 
-132:                                              ; preds = %130
+132:                                              ; preds = %131
   %133 = add i32 %117, -1
   %134 = icmp ult i32 %133, 2
   br i1 %134, label %135, label %137
@@ -619,7 +620,7 @@ dt_develop_blend_colorspace.exit:                 ; preds = %85, %switch.lookup,
   store i32 %120, ptr %.0.i342.sroa.phi, align 4, !tbaa !127
   br label %142
 
-140:                                              ; preds = %130
+140:                                              ; preds = %131
   br i1 %104, label %141, label %142
 
 141:                                              ; preds = %140
@@ -628,7 +629,6 @@ dt_develop_blend_colorspace.exit:                 ; preds = %85, %switch.lookup,
 
 142:                                              ; preds = %141, %140, %139, %136, %135
   %.1.i = phi i64 [ 2, %136 ], [ 1, %135 ], [ %.0.i342, %139 ], [ 1, %141 ], [ 0, %140 ]
-  %or.cond.i = and i1 %115, %131
   br i1 %or.cond.i, label %143, label %_develop_mask_get_post_operations.exit
 
 143:                                              ; preds = %142

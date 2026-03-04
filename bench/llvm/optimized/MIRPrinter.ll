@@ -1839,7 +1839,6 @@ _ZNK4llvm19MachineRegisterInfo13getSimpleHintENS_8RegisterE.exit.thread108: ; pr
   br i1 %.not.i.i48, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread.i, label %148
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread.i:   ; preds = %.lr.ph.i
-  store ptr %61, ptr %15, align 8, !tbaa !175, !alias.scope !415
   store i8 0, ptr %61, align 8, !tbaa !179, !alias.scope !415
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i.i
 
@@ -1890,6 +1889,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %158, %156, %._crit_
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread.i
   %163 = phi i64 [ %.pre, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i ], [ 0, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread.i ]
   %164 = add nuw nsw i64 %163, 1
+  store ptr %61, ptr %15, align 8, !tbaa !420
   store i64 0, ptr %62, align 8, !tbaa !177
   %165 = icmp ult i64 %163, 16
   call void @llvm.assume(i1 %165)
@@ -5639,13 +5639,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %95 = load i64, ptr %27, align 8, !tbaa !179
   %.pre.i = load i64, ptr %28, align 8, !tbaa !177
-  store ptr %27, ptr %11, align 8, !tbaa !420
   store i64 %95, ptr %29, align 8, !tbaa !179
   br label %_ZN4llvm4yaml15FlowStringValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN4llvm4yaml15FlowStringValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %96 = phi ptr [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i ], [ %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
   %97 = phi i64 [ %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i ], [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
+  store ptr %27, ptr %11, align 8, !tbaa !420
   store i64 0, ptr %28, align 8, !tbaa !177
   store i8 0, ptr %27, align 8, !tbaa !179
   store ptr %96, ptr %10, align 8, !tbaa !175

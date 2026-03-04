@@ -447,18 +447,17 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9B
   %66 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %67 = and i64 %66, 524288
   %68 = icmp ne i64 %67, 0
-  br label %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit
-
-_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit: ; preds = %62, %63, %65
-  %.0.i = phi i1 [ %68, %65 ], [ false, %63 ], [ false, %62 ]
-  %69 = or i1 %.0.shrunk, %.0.i
+  %69 = or i1 %.0.shrunk, %68
   br i1 %69, label %70, label %71
 
-70:                                               ; preds = %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit, %51
+_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit: ; preds = %62, %63
+  br i1 %.0.shrunk, label %70, label %71
+
+70:                                               ; preds = %65, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit, %51
   br label %71
 
-71:                                               ; preds = %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit, %47, %49, %41, %43, %27, %33, %21, %20, %16, %14, %10, %6, %70
-  %.047 = phi i1 [ false, %14 ], [ false, %16 ], [ false, %20 ], [ true, %70 ], [ false, %47 ], [ false, %41 ], [ false, %27 ], [ false, %21 ], [ false, %6 ], [ false, %10 ], [ false, %33 ], [ false, %43 ], [ false, %49 ], [ false, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit ]
+71:                                               ; preds = %65, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit, %47, %49, %41, %43, %27, %33, %21, %20, %16, %14, %10, %6, %70
+  %.047 = phi i1 [ false, %14 ], [ false, %16 ], [ false, %20 ], [ true, %70 ], [ false, %47 ], [ false, %41 ], [ false, %27 ], [ false, %21 ], [ false, %6 ], [ false, %10 ], [ false, %33 ], [ false, %43 ], [ false, %49 ], [ false, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit ], [ false, %65 ]
   ret i1 %.047
 }
 
@@ -4498,21 +4497,21 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %268 = icmp ne ptr %267, %254
   %269 = call noundef zeroext i1 @_ZNK4Type12higher_equalEPKS_(ptr noundef nonnull align 8 dereferenceable(20) %267, ptr noundef %254)
   %270 = and i1 %269, %268
-  br i1 %269, label %274, label %271
+  br i1 %269, label %275, label %271
 
 271:                                              ; preds = %216
   %272 = load i32, ptr %264, align 8
   %273 = icmp ne i32 %272, 22
-  br label %274
+  %274 = or i1 %270, %273
+  br label %275
 
-274:                                              ; preds = %271, %216
-  %275 = phi i1 [ false, %216 ], [ %273, %271 ]
-  %276 = or i1 %270, %275
+275:                                              ; preds = %271, %216
+  %276 = phi i1 [ %270, %216 ], [ %274, %271 ]
   %277 = add i8 %190, -4
   %278 = icmp ult i8 %277, 8
   br i1 %278, label %287, label %279
 
-279:                                              ; preds = %274
+279:                                              ; preds = %275
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 276
@@ -4525,7 +4524,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %286, ptr noundef nonnull @.str.35) #9
   br label %410
 
-287:                                              ; preds = %274
+287:                                              ; preds = %275
   %288 = icmp eq ptr %..i170, null
   %or.cond5 = or i1 %220, %288
   br i1 %or.cond5, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %289

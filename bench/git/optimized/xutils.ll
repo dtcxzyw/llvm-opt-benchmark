@@ -767,17 +767,17 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph92.split.us.split.us.i:                     ; preds = %.lr.ph92.split.us.i, %41
   %36 = phi i8 [ %42, %41 ], [ %17, %.lr.ph92.split.us.i ]
-  %.0517491.us.us.i = phi ptr [ %58, %41 ], [ %5, %.lr.ph92.split.us.i ]
+  %.0517491.us.us.i = phi ptr [ %59, %41 ], [ %5, %.lr.ph92.split.us.i ]
   %.07590.us.us.i = phi i64 [ %.1.us100.us.i, %41 ], [ 5381, %.lr.ph92.split.us.i ]
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = and i8 %39, 1
   %.not59.us.us.i = icmp eq i8 %40, 0
-  br i1 %.not59.us.us.i, label %54, label %.preheader66.us.us.i
+  br i1 %.not59.us.us.i, label %55, label %.preheader66.us.us.i
 
 41:                                               ; preds = %.critedge2.us.us.thread.i
-  %42 = load i8, ptr %58, align 1, !tbaa !14
+  %42 = load i8, ptr %59, align 1, !tbaa !14
   %.not.us98.us.i = icmp eq i8 %42, 10
   br i1 %.not.us98.us.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.us.split.us.i, !llvm.loop !45
 
@@ -799,173 +799,173 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %or.cond65.us.us.i, label %.critedge2.us.us.i, label %.preheader66.us.us.i, !llvm.loop !46
 
 .critedge2.us.us.i:                               ; preds = %45
-  %or.cond.us.us.i = or i1 %14, %.not61.us.us.i
-  br i1 %or.cond.us.us.i, label %.critedge2.us.us.thread.i, label %51
+  %51 = or i1 %14, %.not61.us.us.i
+  br i1 %51, label %.critedge2.us.us.thread.i, label %52
 
-51:                                               ; preds = %.critedge2.us.us.i
-  %52 = mul i64 %.07590.us.us.i, 33
-  %53 = xor i64 %52, 32
+52:                                               ; preds = %.critedge2.us.us.i
+  %53 = mul i64 %.07590.us.us.i, 33
+  %54 = xor i64 %53, 32
   br label %.critedge2.us.us.thread.i
 
-54:                                               ; preds = %.lr.ph92.split.us.split.us.i
-  %55 = mul i64 %.07590.us.us.i, 33
-  %56 = sext i8 %36 to i64
-  %57 = xor i64 %55, %56
+55:                                               ; preds = %.lr.ph92.split.us.split.us.i
+  %56 = mul i64 %.07590.us.us.i, 33
+  %57 = sext i8 %36 to i64
+  %58 = xor i64 %56, %57
   br label %.critedge2.us.us.thread.i
 
-.critedge2.us.us.thread.i:                        ; preds = %.preheader66.us.us.i, %54, %51, %.critedge2.us.us.i
-  %.152.us99.us.i = phi ptr [ %.253.us.us.i, %51 ], [ %.0517491.us.us.i, %54 ], [ %.253.us.us.i, %.critedge2.us.us.i ], [ %.253.us.us.i, %.preheader66.us.us.i ]
-  %.1.us100.us.i = phi i64 [ %53, %51 ], [ %57, %54 ], [ %.07590.us.us.i, %.critedge2.us.us.i ], [ %.07590.us.us.i, %.preheader66.us.us.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %.152.us99.us.i, i64 1
-  %59 = icmp ult ptr %58, %1
-  br i1 %59, label %41, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
+.critedge2.us.us.thread.i:                        ; preds = %.preheader66.us.us.i, %55, %52, %.critedge2.us.us.i
+  %.152.us99.us.i = phi ptr [ %.253.us.us.i, %52 ], [ %.0517491.us.us.i, %55 ], [ %.253.us.us.i, %.critedge2.us.us.i ], [ %.253.us.us.i, %.preheader66.us.us.i ]
+  %.1.us100.us.i = phi i64 [ %54, %52 ], [ %58, %55 ], [ %.07590.us.us.i, %.critedge2.us.us.i ], [ %.07590.us.us.i, %.preheader66.us.us.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %.152.us99.us.i, i64 1
+  %60 = icmp ult ptr %59, %1
+  br i1 %60, label %41, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
-.lr.ph92.split.us.split.i:                        ; preds = %.lr.ph92.split.us.i, %65
-  %60 = phi i8 [ %66, %65 ], [ %17, %.lr.ph92.split.us.i ]
-  %.0517491.us.i = phi ptr [ %88, %65 ], [ %5, %.lr.ph92.split.us.i ]
-  %.07590.us.i = phi i64 [ %.1.us100.i, %65 ], [ 5381, %.lr.ph92.split.us.i ]
-  %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !14
-  %64 = and i8 %63, 1
-  %.not59.us.i = icmp eq i8 %64, 0
-  br i1 %.not59.us.i, label %84, label %.preheader66.us.i
+.lr.ph92.split.us.split.i:                        ; preds = %.lr.ph92.split.us.i, %66
+  %61 = phi i8 [ %67, %66 ], [ %17, %.lr.ph92.split.us.i ]
+  %.0517491.us.i = phi ptr [ %89, %66 ], [ %5, %.lr.ph92.split.us.i ]
+  %.07590.us.i = phi i64 [ %.1.us100.i, %66 ], [ 5381, %.lr.ph92.split.us.i ]
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !14
+  %65 = and i8 %64, 1
+  %.not59.us.i = icmp eq i8 %65, 0
+  br i1 %.not59.us.i, label %85, label %.preheader66.us.i
 
-65:                                               ; preds = %.loopexit.us.i
-  %66 = load i8, ptr %88, align 1, !tbaa !14
-  %.not.us98.i = icmp eq i8 %66, 10
+66:                                               ; preds = %.loopexit.us.i
+  %67 = load i8, ptr %89, align 1, !tbaa !14
+  %.not.us98.i = icmp eq i8 %67, 10
   br i1 %.not.us98.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.us.split.i, !llvm.loop !45
 
-.preheader66.us.i:                                ; preds = %.lr.ph92.split.us.split.i, %69
-  %.253.us.i = phi ptr [ %67, %69 ], [ %.0517491.us.i, %.lr.ph92.split.us.split.i ]
-  %67 = getelementptr inbounds nuw i8, ptr %.253.us.i, i64 1
-  %68 = icmp ult ptr %67, %1
-  br i1 %68, label %69, label %.loopexit.us.i
+.preheader66.us.i:                                ; preds = %.lr.ph92.split.us.split.i, %70
+  %.253.us.i = phi ptr [ %68, %70 ], [ %.0517491.us.i, %.lr.ph92.split.us.split.i ]
+  %68 = getelementptr inbounds nuw i8, ptr %.253.us.i, i64 1
+  %69 = icmp ult ptr %68, %1
+  br i1 %69, label %70, label %.loopexit.us.i
 
-69:                                               ; preds = %.preheader66.us.i
-  %70 = load i8, ptr %67, align 1, !tbaa !14
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !14
-  %74 = and i8 %73, 1
-  %.not60.us.i = icmp eq i8 %74, 0
-  %.not61.us.i = icmp eq i8 %70, 10
+70:                                               ; preds = %.preheader66.us.i
+  %71 = load i8, ptr %68, align 1, !tbaa !14
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !14
+  %75 = and i8 %74, 1
+  %.not60.us.i = icmp eq i8 %75, 0
+  %.not61.us.i = icmp eq i8 %71, 10
   %or.cond65.us.i = or i1 %.not61.us.i, %.not60.us.i
   br i1 %or.cond65.us.i, label %.critedge2.us.i, label %.preheader66.us.i, !llvm.loop !46
 
-.critedge2.us.i:                                  ; preds = %69
+.critedge2.us.i:                                  ; preds = %70
   %or.cond.us.i = or i1 %14, %.not61.us.i
-  br i1 %or.cond.us.i, label %78, label %75
+  br i1 %or.cond.us.i, label %79, label %76
 
-75:                                               ; preds = %.critedge2.us.i
-  %76 = mul i64 %.07590.us.i, 33
-  %77 = xor i64 %76, 32
+76:                                               ; preds = %.critedge2.us.i
+  %77 = mul i64 %.07590.us.i, 33
+  %78 = xor i64 %77, 32
   br label %.loopexit.us.i
 
-78:                                               ; preds = %.critedge2.us.i
+79:                                               ; preds = %.critedge2.us.i
   br i1 %.not61.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %78, %.lr.ph.us.i
-  %.373.us.i = phi i64 [ %82, %.lr.ph.us.i ], [ %.07590.us.i, %78 ]
-  %.05072.us.i = phi ptr [ %83, %.lr.ph.us.i ], [ %.0517491.us.i, %78 ]
-  %79 = mul i64 %.373.us.i, 33
-  %80 = load i8, ptr %.05072.us.i, align 1, !tbaa !14
-  %81 = sext i8 %80 to i64
-  %82 = xor i64 %79, %81
-  %83 = getelementptr inbounds nuw i8, ptr %.05072.us.i, i64 1
+.lr.ph.us.i:                                      ; preds = %79, %.lr.ph.us.i
+  %.373.us.i = phi i64 [ %83, %.lr.ph.us.i ], [ %.07590.us.i, %79 ]
+  %.05072.us.i = phi ptr [ %84, %.lr.ph.us.i ], [ %.0517491.us.i, %79 ]
+  %80 = mul i64 %.373.us.i, 33
+  %81 = load i8, ptr %.05072.us.i, align 1, !tbaa !14
+  %82 = sext i8 %81 to i64
+  %83 = xor i64 %80, %82
+  %84 = getelementptr inbounds nuw i8, ptr %.05072.us.i, i64 1
   %.not64.us.i = icmp eq ptr %.05072.us.i, %.253.us.i
   br i1 %.not64.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !47
 
-84:                                               ; preds = %.lr.ph92.split.us.split.i
-  %85 = mul i64 %.07590.us.i, 33
-  %86 = sext i8 %60 to i64
-  %87 = xor i64 %85, %86
+85:                                               ; preds = %.lr.ph92.split.us.split.i
+  %86 = mul i64 %.07590.us.i, 33
+  %87 = sext i8 %61 to i64
+  %88 = xor i64 %86, %87
   br label %.loopexit.us.i
 
-.loopexit.us.i:                                   ; preds = %.preheader66.us.i, %.lr.ph.us.i, %84, %78, %75
-  %.152.us99.i = phi ptr [ %.253.us.i, %78 ], [ %.0517491.us.i, %84 ], [ %.253.us.i, %75 ], [ %.253.us.i, %.lr.ph.us.i ], [ %.253.us.i, %.preheader66.us.i ]
-  %.1.us100.i = phi i64 [ %.07590.us.i, %78 ], [ %87, %84 ], [ %77, %75 ], [ %82, %.lr.ph.us.i ], [ %.07590.us.i, %.preheader66.us.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.152.us99.i, i64 1
-  %89 = icmp ult ptr %88, %1
-  br i1 %89, label %65, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
+.loopexit.us.i:                                   ; preds = %.preheader66.us.i, %.lr.ph.us.i, %85, %79, %76
+  %.152.us99.i = phi ptr [ %.253.us.i, %79 ], [ %.0517491.us.i, %85 ], [ %.253.us.i, %76 ], [ %.253.us.i, %.lr.ph.us.i ], [ %.253.us.i, %.preheader66.us.i ]
+  %.1.us100.i = phi i64 [ %.07590.us.i, %79 ], [ %88, %85 ], [ %78, %76 ], [ %83, %.lr.ph.us.i ], [ %.07590.us.i, %.preheader66.us.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.152.us99.i, i64 1
+  %90 = icmp ult ptr %89, %1
+  br i1 %90, label %66, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
-90:                                               ; preds = %.critedge2.i
-  %91 = load i8, ptr %109, align 1, !tbaa !14
-  %.not.i = icmp eq i8 %91, 10
+91:                                               ; preds = %.critedge2.i
+  %92 = load i8, ptr %110, align 1, !tbaa !14
+  %.not.i = icmp eq i8 %92, 10
   br i1 %.not.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.i, !llvm.loop !45
 
-.lr.ph92.split.i:                                 ; preds = %.lr.ph92.i, %90
-  %92 = phi i8 [ %91, %90 ], [ %17, %.lr.ph92.i ]
-  %.0517491.i = phi ptr [ %109, %90 ], [ %5, %.lr.ph92.i ]
-  %.07590.i = phi i64 [ %.1.i, %90 ], [ 5381, %.lr.ph92.i ]
-  %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !14
-  %96 = and i8 %95, 1
-  %.not59.i = icmp eq i8 %96, 0
-  br i1 %.not59.i, label %105, label %.preheader66.i
+.lr.ph92.split.i:                                 ; preds = %.lr.ph92.i, %91
+  %93 = phi i8 [ %92, %91 ], [ %17, %.lr.ph92.i ]
+  %.0517491.i = phi ptr [ %110, %91 ], [ %5, %.lr.ph92.i ]
+  %.07590.i = phi i64 [ %.1.i, %91 ], [ 5381, %.lr.ph92.i ]
+  %94 = zext i8 %93 to i64
+  %95 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %94
+  %96 = load i8, ptr %95, align 1, !tbaa !14
+  %97 = and i8 %96, 1
+  %.not59.i = icmp eq i8 %97, 0
+  br i1 %.not59.i, label %106, label %.preheader66.i
 
-.preheader66.i:                                   ; preds = %.lr.ph92.split.i, %99
-  %.253.i = phi ptr [ %97, %99 ], [ %.0517491.i, %.lr.ph92.split.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.253.i, i64 1
-  %98 = icmp ult ptr %97, %1
-  br i1 %98, label %99, label %.critedge2.i
+.preheader66.i:                                   ; preds = %.lr.ph92.split.i, %100
+  %.253.i = phi ptr [ %98, %100 ], [ %.0517491.i, %.lr.ph92.split.i ]
+  %98 = getelementptr inbounds nuw i8, ptr %.253.i, i64 1
+  %99 = icmp ult ptr %98, %1
+  br i1 %99, label %100, label %.critedge2.i
 
-99:                                               ; preds = %.preheader66.i
-  %100 = load i8, ptr %97, align 1, !tbaa !14
-  %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !14
-  %104 = and i8 %103, 1
-  %.not60.i = icmp eq i8 %104, 0
-  %.not61.i = icmp eq i8 %100, 10
+100:                                              ; preds = %.preheader66.i
+  %101 = load i8, ptr %98, align 1, !tbaa !14
+  %102 = zext i8 %101 to i64
+  %103 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %102
+  %104 = load i8, ptr %103, align 1, !tbaa !14
+  %105 = and i8 %104, 1
+  %.not60.i = icmp eq i8 %105, 0
+  %.not61.i = icmp eq i8 %101, 10
   %or.cond65.i = or i1 %.not61.i, %.not60.i
   br i1 %or.cond65.i, label %.critedge2.i, label %.preheader66.i, !llvm.loop !46
 
-105:                                              ; preds = %.lr.ph92.split.i
-  %106 = mul i64 %.07590.i, 33
-  %107 = sext i8 %92 to i64
-  %108 = xor i64 %106, %107
+106:                                              ; preds = %.lr.ph92.split.i
+  %107 = mul i64 %.07590.i, 33
+  %108 = sext i8 %93 to i64
+  %109 = xor i64 %107, %108
   br label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %99, %.preheader66.i, %105
-  %.152.i = phi ptr [ %.0517491.i, %105 ], [ %.253.i, %.preheader66.i ], [ %.253.i, %99 ]
-  %.1.i = phi i64 [ %108, %105 ], [ %.07590.i, %.preheader66.i ], [ %.07590.i, %99 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
-  %110 = icmp ult ptr %109, %1
-  br i1 %110, label %90, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
+.critedge2.i:                                     ; preds = %100, %.preheader66.i, %106
+  %.152.i = phi ptr [ %.0517491.i, %106 ], [ %.253.i, %.preheader66.i ], [ %.253.i, %100 ]
+  %.1.i = phi i64 [ %109, %106 ], [ %.07590.i, %.preheader66.i ], [ %.07590.i, %100 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
+  %111 = icmp ult ptr %110, %1
+  br i1 %111, label %91, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
-xdl_hash_record_with_whitespace.exit:             ; preds = %90, %.critedge2.i, %65, %.loopexit.us.i, %41, %.critedge2.us.us.thread.i, %19, %33, %10, %.lr.ph76.split.us.i, %.lr.ph76.split.i
-  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %5, %.lr.ph76.split.us.i ], [ %5, %.lr.ph76.split.i ], [ %88, %65 ], [ %34, %19 ], [ %58, %41 ], [ %scevgep.i, %33 ], [ %58, %.critedge2.us.us.thread.i ], [ %88, %.loopexit.us.i ], [ %109, %.critedge2.i ], [ %109, %90 ]
-  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ 5381, %.lr.ph76.split.us.i ], [ 5381, %.lr.ph76.split.i ], [ %.1.us100.i, %65 ], [ %.1.us.i, %19 ], [ %.1.us100.us.i, %41 ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %90 ]
-  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %.lr.ph76.split.i ], [ 1, %65 ], [ 1, %19 ], [ 1, %41 ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %90 ], [ 0, %.critedge2.i ]
-  %111 = getelementptr inbounds nuw i8, ptr %.051.lcssa.i, i64 %.lcssa70.i
-  br label %119
+xdl_hash_record_with_whitespace.exit:             ; preds = %91, %.critedge2.i, %66, %.loopexit.us.i, %41, %.critedge2.us.us.thread.i, %19, %33, %10, %.lr.ph76.split.us.i, %.lr.ph76.split.i
+  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %5, %.lr.ph76.split.us.i ], [ %5, %.lr.ph76.split.i ], [ %89, %66 ], [ %34, %19 ], [ %59, %41 ], [ %scevgep.i, %33 ], [ %59, %.critedge2.us.us.thread.i ], [ %89, %.loopexit.us.i ], [ %110, %.critedge2.i ], [ %110, %91 ]
+  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ 5381, %.lr.ph76.split.us.i ], [ 5381, %.lr.ph76.split.i ], [ %.1.us100.i, %66 ], [ %.1.us.i, %19 ], [ %.1.us100.us.i, %41 ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %91 ]
+  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %.lr.ph76.split.i ], [ 1, %66 ], [ 1, %19 ], [ 1, %41 ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %91 ], [ 0, %.critedge2.i ]
+  %112 = getelementptr inbounds nuw i8, ptr %.051.lcssa.i, i64 %.lcssa70.i
+  br label %120
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %113
-  %.036 = phi ptr [ %117, %113 ], [ %5, %.lr.ph.preheader ]
-  %.01935 = phi i64 [ %116, %113 ], [ 5381, %.lr.ph.preheader ]
-  %112 = load i8, ptr %.036, align 1, !tbaa !14
-  %.not21 = icmp eq i8 %112, 10
-  br i1 %.not21, label %.critedge, label %113
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %114
+  %.036 = phi ptr [ %118, %114 ], [ %5, %.lr.ph.preheader ]
+  %.01935 = phi i64 [ %117, %114 ], [ 5381, %.lr.ph.preheader ]
+  %113 = load i8, ptr %.036, align 1, !tbaa !14
+  %.not21 = icmp eq i8 %113, 10
+  br i1 %.not21, label %.critedge, label %114
 
-113:                                              ; preds = %.lr.ph
-  %114 = mul i64 %.01935, 33
-  %115 = sext i8 %112 to i64
-  %116 = xor i64 %114, %115
-  %117 = getelementptr inbounds nuw i8, ptr %.036, i64 1
-  %exitcond.not = icmp eq ptr %117, %1
+114:                                              ; preds = %.lr.ph
+  %115 = mul i64 %.01935, 33
+  %116 = sext i8 %113 to i64
+  %117 = xor i64 %115, %116
+  %118 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+  %exitcond.not = icmp eq ptr %118, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !48
 
-.critedge:                                        ; preds = %.lr.ph, %113, %.preheader
-  %.019.lcssa = phi i64 [ 5381, %.preheader ], [ %116, %113 ], [ %.01935, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %5, %.preheader ], [ %scevgep, %113 ], [ %.036, %.lr.ph ]
-  %.lcssa = phi i64 [ 0, %.preheader ], [ 0, %113 ], [ 1, %.lr.ph ]
-  %118 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %.lcssa
-  br label %119
+.critedge:                                        ; preds = %.lr.ph, %114, %.preheader
+  %.019.lcssa = phi i64 [ 5381, %.preheader ], [ %117, %114 ], [ %.01935, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %5, %.preheader ], [ %scevgep, %114 ], [ %.036, %.lr.ph ]
+  %.lcssa = phi i64 [ 0, %.preheader ], [ 0, %114 ], [ 1, %.lr.ph ]
+  %119 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %.lcssa
+  br label %120
 
-119:                                              ; preds = %.critedge, %xdl_hash_record_with_whitespace.exit
-  %storemerge = phi ptr [ %111, %xdl_hash_record_with_whitespace.exit ], [ %118, %.critedge ]
+120:                                              ; preds = %.critedge, %xdl_hash_record_with_whitespace.exit
+  %storemerge = phi ptr [ %112, %xdl_hash_record_with_whitespace.exit ], [ %119, %.critedge ]
   %.020 = phi i64 [ %.0.lcssa.i, %xdl_hash_record_with_whitespace.exit ], [ %.019.lcssa, %.critedge ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !44
   ret i64 %.020

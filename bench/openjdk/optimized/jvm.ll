@@ -34587,12 +34587,15 @@ _ZN16java_lang_String9hash_codeEPKai.exit21:      ; preds = %_ZN16java_lang_Stri
   %50 = add i32 %47, %49
   %51 = getelementptr inbounds nuw i8, ptr %.056.i26, i64 1
   %52 = icmp samesign ugt i32 %.047.i25, 1
-  br i1 %52, label %.lr.ph.i23, label %_ZN16java_lang_String9hash_codeEPKai.exit27, !llvm.loop !62
+  br i1 %52, label %.lr.ph.i23, label %_ZN16java_lang_String9hash_codeEPKai.exit27.loopexit, !llvm.loop !62
 
-_ZN16java_lang_String9hash_codeEPKai.exit27:      ; preds = %.lr.ph.i23, %_ZN16java_lang_String9hash_codeEPKai.exit21
-  %.0.lcssa.i22 = phi i32 [ 0, %_ZN16java_lang_String9hash_codeEPKai.exit21 ], [ %50, %.lr.ph.i23 ]
-  %53 = xor i32 %.0.lcssa.i16, %.0.lcssa.i22
-  %54 = zext i32 %53 to i64
+_ZN16java_lang_String9hash_codeEPKai.exit27.loopexit: ; preds = %.lr.ph.i23
+  %53 = xor i32 %.0.lcssa.i16, %50
+  br label %_ZN16java_lang_String9hash_codeEPKai.exit27
+
+_ZN16java_lang_String9hash_codeEPKai.exit27:      ; preds = %_ZN16java_lang_String9hash_codeEPKai.exit27.loopexit, %_ZN16java_lang_String9hash_codeEPKai.exit21
+  %.0.lcssa.i22 = phi i32 [ %.0.lcssa.i16, %_ZN16java_lang_String9hash_codeEPKai.exit21 ], [ %53, %_ZN16java_lang_String9hash_codeEPKai.exit27.loopexit ]
+  %54 = zext i32 %.0.lcssa.i22 to i64
   %55 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
   %56 = sext i32 %55 to i64
   %57 = add nsw i64 %54, %56

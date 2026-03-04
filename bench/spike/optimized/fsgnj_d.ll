@@ -200,7 +200,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fsgnj_dP11
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %63, %61
   %.sroa.027.0 = phi i64 [ %.sroa.036.0, %61 ], [ %69, %63 ]
-  %sext = shl i64 %.sroa.036.0, 32
+  %sext = shl i64 %.sroa.027.0, 32
   %70 = ashr exact i64 %sext, 32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %24
@@ -500,7 +500,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fsgnj_dP
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %66, %64
   %.sroa.032.0 = phi i64 [ %.sroa.041.0, %64 ], [ %72, %66 ]
-  %sext = shl i64 %.sroa.041.0, 32
+  %sext = shl i64 %.sroa.032.0, 32
   %73 = ashr exact i64 %sext, 32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -960,7 +960,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fsgnj_dP11
   unreachable
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %86
-  %sext = shl i64 %.sroa.056.0, 32
+  %sext = shl i64 %.sroa.043.0, 32
   %93 = ashr exact i64 %sext, 32
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %95 = getelementptr inbounds nuw i64, ptr %94, i64 %24
@@ -1307,7 +1307,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fsgnj_dP
   unreachable
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %89
-  %sext = shl i64 %.sroa.061.0, 32
+  %sext = shl i64 %.sroa.048.0, 32
   %96 = ashr exact i64 %sext, 32
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

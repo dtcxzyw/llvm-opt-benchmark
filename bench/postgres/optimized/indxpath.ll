@@ -4137,14 +4137,13 @@ define internal fastcc ptr @build_paths_for_OR(ptr noundef %0, ptr noundef %1, p
 match_clauses_to_index.exit.loopexit:             ; preds = %.lr.ph15.i
   %.pre68 = load i8, ptr %5, align 8, !range !4
   %48 = trunc nuw i8 %.pre68 to i1
-  br label %match_clauses_to_index.exit
+  %49 = or i1 %.051, %48
+  br i1 %49, label %50, label %61
 
-match_clauses_to_index.exit:                      ; preds = %match_clauses_to_index.exit.loopexit, %39, %.lr.ph.i
-  %49 = phi i1 [ %48, %match_clauses_to_index.exit.loopexit ], [ false, %39 ], [ false, %.lr.ph.i ]
-  %or.cond5 = or i1 %.051, %49
-  br i1 %or.cond5, label %50, label %61
+match_clauses_to_index.exit:                      ; preds = %39, %.lr.ph.i
+  br i1 %.051, label %50, label %61
 
-50:                                               ; preds = %match_clauses_to_index.exit
+50:                                               ; preds = %match_clauses_to_index.exit.loopexit, %match_clauses_to_index.exit
   br i1 %.not.i55, label %match_clauses_to_index.exit60, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %50
@@ -4169,9 +4168,9 @@ match_clauses_to_index.exit60:                    ; preds = %.lr.ph15.i57, %50, 
   %60 = tail call ptr @list_concat(ptr noundef %.06471, ptr noundef %59) #7
   br label %61
 
-61:                                               ; preds = %match_clauses_to_index.exit, %33, %.lr.ph73, %match_clauses_to_index.exit60
-  %.149 = phi ptr [ %.3, %match_clauses_to_index.exit60 ], [ %.2, %33 ], [ %.0486372, %.lr.ph73 ], [ %.3, %match_clauses_to_index.exit ]
-  %.1 = phi ptr [ %60, %match_clauses_to_index.exit60 ], [ %.06471, %33 ], [ %.06471, %.lr.ph73 ], [ %.06471, %match_clauses_to_index.exit ]
+61:                                               ; preds = %match_clauses_to_index.exit.loopexit, %match_clauses_to_index.exit, %33, %.lr.ph73, %match_clauses_to_index.exit60
+  %.149 = phi ptr [ %.3, %match_clauses_to_index.exit60 ], [ %.2, %33 ], [ %.0486372, %.lr.ph73 ], [ %.3, %match_clauses_to_index.exit ], [ %.3, %match_clauses_to_index.exit.loopexit ]
+  %.1 = phi ptr [ %60, %match_clauses_to_index.exit60 ], [ %.06471, %33 ], [ %.06471, %.lr.ph73 ], [ %.06471, %match_clauses_to_index.exit ], [ %.06471, %match_clauses_to_index.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
   %62 = load i32, ptr %8, align 4

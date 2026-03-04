@@ -1074,9 +1074,9 @@ default.unreachable:                              ; preds = %.noexc34.i
   %95 = load i8, ptr %94, align 1, !alias.scope !127, !noalias !130, !noundef !3
   %96 = add i8 %95, -65
   %97 = icmp ult i8 %96, 26
-  %.sroa.03.0.i.i.i = select i1 %97, i8 32, i8 0
-  %98 = or i8 %.sroa.03.0.i.i.i, %95
-  store i8 %98, ptr %94, align 1, !alias.scope !127, !noalias !130
+  %98 = select i1 %97, i8 32, i8 0
+  %.sroa.03.0.i.i.i = or i8 %98, %95
+  store i8 %.sroa.03.0.i.i.i, ptr %94, align 1, !alias.scope !127, !noalias !130
   %99 = add nuw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %99, %86
   br i1 %exitcond.not.i.i.i, label %100, label %.lr.ph.i.i.i

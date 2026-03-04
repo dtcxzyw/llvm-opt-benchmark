@@ -2405,152 +2405,149 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %56
-  %41 = phi i64 [ %57, %56 ], [ 0, %.split.us.preheader ]
+.split.us:                                        ; preds = %.split.us.preheader, %55
+  %41 = phi i64 [ %56, %55 ], [ 0, %.split.us.preheader ]
   %42 = getelementptr i64, ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.critedge, label %45
+  br i1 %44, label %.critedge21, label %45
 
 45:                                               ; preds = %.split.us
   %46 = load i32, ptr %39, align 8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.critedge
+  br i1 %47, label %48, label %.critedge21
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %38, align 8
   %50 = load i64, ptr %37, align 8
   %51 = icmp ugt i64 %49, %50
-  br i1 %51, label %.critedge, label %52
+  br i1 %51, label %.critedge21, label %52
 
 52:                                               ; preds = %48
   tail call void @trace_seq_puts(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #12
   %53 = load i32, ptr %39, align 8
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %56
+  br i1 %54, label %.critedge.us, label %55
 
-55:                                               ; preds = %52
+.critedge.us:                                     ; preds = %52
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, i64 noundef %43) #12
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %52
+55:                                               ; preds = %.critedge.us, %52
   tail call void @trace_seq_putc(ptr noundef nonnull %5, i8 noundef zeroext 10) #12
-  %57 = add nuw nsw i64 %41, 1
-  %58 = icmp eq i64 %57, 8
-  br i1 %58, label %.critedge, label %.split.us, !llvm.loop !68
+  %56 = add nuw nsw i64 %41, 1
+  %57 = icmp eq i64 %56, 8
+  br i1 %57, label %.critedge21, label %.split.us, !llvm.loop !68
 
-.split:                                           ; preds = %27, %107
-  %59 = phi i64 [ %108, %107 ], [ 0, %27 ]
-  %60 = getelementptr i64, ptr %29, i64 %59
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.split7.us, label %63
+.split:                                           ; preds = %27, %102
+  %58 = phi i64 [ %103, %102 ], [ 0, %27 ]
+  %59 = getelementptr i64, ptr %29, i64 %58
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %.split7.us, label %62
 
-63:                                               ; preds = %.split
-  %64 = load i32, ptr %30, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.split7.us
+62:                                               ; preds = %.split
+  %63 = load i32, ptr %30, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %.split7.us
 
-66:                                               ; preds = %63
-  %67 = load i64, ptr %31, align 8
-  %68 = load i64, ptr %32, align 8
-  %69 = icmp ugt i64 %67, %68
-  br i1 %69, label %.split7.us, label %70
+65:                                               ; preds = %62
+  %66 = load i64, ptr %31, align 8
+  %67 = load i64, ptr %32, align 8
+  %68 = icmp ugt i64 %66, %67
+  br i1 %68, label %.split7.us, label %69
 
-70:                                               ; preds = %66
+69:                                               ; preds = %65
   tail call void @trace_seq_puts(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #12
-  %71 = load i32, ptr %30, align 8
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %107
+  %70 = load i32, ptr %30, align 8
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %102
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #12
-          to label %75 [label %74], !srcloc !69
+          to label %74 [label %73], !srcloc !69
 
-74:                                               ; preds = %73
+73:                                               ; preds = %72
   tail call void @__mmap_lock_do_trace_start_locking(ptr noundef nonnull %28, i1 noundef zeroext false) #12
-  br label %75
+  br label %74
 
-75:                                               ; preds = %74, %73
+74:                                               ; preds = %73, %72
   tail call void @down_read(ptr noundef nonnull %34) #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #12
-          to label %77 [label %76], !srcloc !69
+          to label %76 [label %75], !srcloc !69
 
-76:                                               ; preds = %75
+75:                                               ; preds = %74
   tail call void @__mmap_lock_do_trace_acquire_returned(ptr noundef nonnull %28, i1 noundef zeroext false, i1 noundef zeroext true) #12
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %75
-  %78 = tail call ptr @find_vma(ptr noundef nonnull %28, i64 noundef %61) #12
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread, label %80
+76:                                               ; preds = %75, %74
+  %77 = tail call ptr @find_vma(ptr noundef nonnull %28, i64 noundef %60) #12
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %.thread, label %79
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 136
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i64, ptr %78, align 8
-  %84 = icmp eq ptr %82, null
-  br i1 %84, label %.thread, label %85
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 136
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i64, ptr %77, align 8
+  %83 = icmp eq ptr %81, null
+  br i1 %83, label %.thread, label %84
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 20
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %87, 33554432
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %92, label %90, !prof !5
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 33554432
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %91, label %89, !prof !5
 
-90:                                               ; preds = %85
-  %91 = tail call ptr @backing_file_user_path(ptr noundef nonnull %82) #12
-  br label %94
+89:                                               ; preds = %84
+  %90 = tail call ptr @backing_file_user_path(ptr noundef nonnull %81) #12
+  br label %93
 
-92:                                               ; preds = %85
-  %93 = getelementptr inbounds nuw i8, ptr %82, i64 152
-  br label %94
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 152
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
-  %96 = tail call i32 @trace_seq_path(ptr noundef nonnull %5, ptr noundef %95) #12
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.thread, label %98
+93:                                               ; preds = %91, %89
+  %94 = phi ptr [ %90, %89 ], [ %92, %91 ]
+  %95 = tail call i32 @trace_seq_path(ptr noundef nonnull %5, ptr noundef %94) #12
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %.thread, label %97
 
-98:                                               ; preds = %94
-  %99 = sub i64 %61, %83
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.58, i64 noundef %99) #12
+97:                                               ; preds = %93
+  %98 = sub i64 %60, %82
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.58, i64 noundef %98) #12
   br label %.thread
 
-.thread:                                          ; preds = %77, %98, %94, %80
-  %100 = phi i1 [ true, %98 ], [ true, %94 ], [ false, %80 ], [ false, %77 ]
-  %101 = phi i1 [ false, %98 ], [ true, %94 ], [ false, %80 ], [ false, %77 ]
+.thread:                                          ; preds = %76, %97, %93, %79
+  %99 = phi i1 [ %36, %97 ], [ true, %93 ], [ false, %79 ], [ false, %76 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #12
-          to label %103 [label %102], !srcloc !69
+          to label %101 [label %100], !srcloc !69
 
-102:                                              ; preds = %.thread
+100:                                              ; preds = %.thread
   tail call void @__mmap_lock_do_trace_released(ptr noundef nonnull %28, i1 noundef zeroext false) #12
-  br label %103
+  br label %101
 
-103:                                              ; preds = %102, %.thread
+101:                                              ; preds = %100, %.thread
   tail call void @up_read(ptr noundef nonnull %34) #12
-  %104 = and i1 %36, %100
-  %105 = or i1 %101, %104
-  br i1 %105, label %107, label %106
+  br i1 %99, label %102, label %.critedge
 
-106:                                              ; preds = %103
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, i64 noundef %61) #12
-  br label %107
+.critedge:                                        ; preds = %101
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, i64 noundef %60) #12
+  br label %102
 
-107:                                              ; preds = %106, %103, %70
+102:                                              ; preds = %.critedge, %101, %69
   tail call void @trace_seq_putc(ptr noundef nonnull %5, i8 noundef zeroext 10) #12
-  %108 = add nuw nsw i64 %59, 1
-  %109 = icmp eq i64 %108, 8
-  br i1 %109, label %.split7.us, label %.split, !llvm.loop !68
+  %103 = add nuw nsw i64 %58, 1
+  %104 = icmp eq i64 %103, 8
+  br i1 %104, label %.split7.us, label %.split, !llvm.loop !68
 
-.split7.us:                                       ; preds = %107, %66, %63, %.split
+.split7.us:                                       ; preds = %102, %65, %62, %.split
   tail call void @mmput(ptr noundef nonnull %28) #12
-  br label %.critedge
+  br label %.critedge21
 
-.critedge:                                        ; preds = %.split.us, %56, %48, %45, %.split7.us
-  %110 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #12
-  ret i32 %110
+.critedge21:                                      ; preds = %.split.us, %55, %48, %45, %.split7.us
+  %105 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #12
+  ret i32 %105
 }
 
 ; Function Attrs: null_pointer_is_valid

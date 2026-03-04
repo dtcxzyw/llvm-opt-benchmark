@@ -3112,12 +3112,12 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46.loopexit: ; p
   %.pre = load ptr, ptr %101, align 8
   %.pre66 = load ptr, ptr %103, align 8
   %118 = icmp ne ptr %.pre, %.pre66
+  %119 = or i1 %41, %118
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46.loopexit, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit
-  %119 = phi i1 [ %118, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46.loopexit ], [ false, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit ]
+  %or.cond = phi i1 [ %119, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46.loopexit ], [ %41, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit ]
   %120 = atomicrmw sub ptr %84, i64 4 seq_cst, align 8
-  %or.cond = or i1 %41, %119
   %or.cond3 = select i1 %or.cond, i1 true, i1 %60
   br i1 %or.cond3, label %124, label %121
 

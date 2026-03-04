@@ -4896,6 +4896,7 @@ define void @_ZN12colvarmodule16set_initial_stepEx(ptr noundef nonnull readnone 
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %13, ptr %17, align 8, !tbaa !60, !alias.scope !205
+  store ptr %10, ptr %7, align 8, !tbaa !74
   store i64 0, ptr %16, align 8, !tbaa !60
   store i8 0, ptr %10, align 8, !tbaa !61
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

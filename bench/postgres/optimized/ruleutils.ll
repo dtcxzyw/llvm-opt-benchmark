@@ -8814,7 +8814,7 @@ list_length.exit:                                 ; preds = %25, %29
   br label %.thr_comm
 
 .thr_comm:                                        ; preds = %86, %96
-  %.064107.ph = phi i1 [ false, %86 ], [ true, %96 ]
+  %.064107.ph = phi i1 [ false, %86 ], [ %.0115, %96 ]
   %.166105.ph = phi ptr [ @.str.430, %86 ], [ %.166.ph, %96 ]
   %.ph = phi i32 [ %.071112, %86 ], [ %97, %96 ]
   br i1 %2, label %125, label %99
@@ -8863,9 +8863,8 @@ list_length.exit:                                 ; preds = %25, %29
 110:                                              ; preds = %108, %106, %105
   %111 = call ptr @format_type_be(i32 noundef %78) #10
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %111) #10
-  %or.cond = and i1 %.0115, %.064107123
   %112 = icmp sgt i32 %100, %.073
-  %or.cond96 = select i1 %or.cond, i1 %112, i1 false
+  %or.cond96 = select i1 %.064107123, i1 %112, i1 false
   br i1 %or.cond96, label %113, label %120
 
 113:                                              ; preds = %110

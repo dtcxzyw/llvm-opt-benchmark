@@ -393,7 +393,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %.thread78
 
 .thread78:                                        ; preds = %49, %30, %44, %40, %33
-  %.ph79 = phi i1 [ true, %33 ], [ true, %30 ], [ false, %49 ], [ false, %40 ], [ false, %44 ]
+  %or.cond4.not = phi i1 [ false, %33 ], [ false, %30 ], [ true, %49 ], [ true, %40 ], [ true, %44 ]
   %.ph80 = phi i1 [ true, %33 ], [ true, %30 ], [ %37, %49 ], [ %37, %40 ], [ %37, %44 ]
   %.ph81 = phi i1 [ false, %33 ], [ false, %30 ], [ %spec.select, %49 ], [ true, %40 ], [ true, %44 ]
   %.pr = load i32, ptr %13, align 8, !tbaa !28
@@ -438,9 +438,9 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 67:                                               ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8208
   %69 = load i32, ptr %68, align 8
-  %70 = icmp ne i32 %69, 1
-  %or.cond69.not = select i1 %.ph79, i1 %70, i1 false
-  br i1 %or.cond69.not, label %.thread95, label %71
+  %70 = icmp eq i32 %69, 1
+  %or.cond69 = select i1 %or.cond4.not, i1 true, i1 %70
+  br i1 %or.cond69, label %71, label %.thread95
 
 71:                                               ; preds = %67
   br i1 %.ph80, label %83, label %72
@@ -479,12 +479,12 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %13, align 8, !tbaa !28
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert107 = getelementptr inbounds ptr, ptr %0, i64 %.phi.trans.insert
-  %.pre108 = load ptr, ptr %.phi.trans.insert107, align 8, !tbaa !29
+  %.phi.trans.insert106 = getelementptr inbounds ptr, ptr %0, i64 %.phi.trans.insert
+  %.pre107 = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !29
   br label %.thread91
 
 .thread91:                                        ; preds = %12, %84
-  %89 = phi ptr [ %17, %12 ], [ %.pre108, %84 ]
+  %89 = phi ptr [ %17, %12 ], [ %.pre107, %84 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8212
   %91 = load i8, ptr %90, align 4, !tbaa !20, !range !37, !noundef !38
   %92 = trunc nuw i8 %91 to i1
@@ -516,16 +516,16 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 105:                                              ; preds = %99
   call void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %103) #13
   call void @_ZdlPv(ptr noundef nonnull %103) #14
-  %.pre109 = load i32, ptr %13, align 8, !tbaa !28
-  %.pre110 = sext i32 %.pre109 to i64
+  %.pre108 = load i32, ptr %13, align 8, !tbaa !28
+  %.pre109 = sext i32 %.pre108 to i64
   br label %106
 
 106:                                              ; preds = %105, %99
-  %.pre-phi111 = phi i64 [ %.pre110, %105 ], [ %101, %99 ]
-  %107 = phi i32 [ %.pre109, %105 ], [ %100, %99 ]
+  %.pre-phi110 = phi i64 [ %.pre109, %105 ], [ %101, %99 ]
+  %107 = phi i32 [ %.pre108, %105 ], [ %100, %99 ]
   %108 = add nsw i32 %107, -1
   store i32 %108, ptr %13, align 8, !tbaa !28
-  %109 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi111
+  %109 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi110
   store ptr null, ptr %109, align 8, !tbaa !29
   %110 = icmp sgt i32 %107, 0
   br i1 %110, label %.lr.ph, label %._crit_edge
@@ -660,11 +660,11 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 177:                                              ; preds = %173, %169
   %178 = load i32, ptr %13, align 8
   %179 = icmp ne i32 %178, 0
-  %or.cond71.not106 = select i1 %.04794, i1 true, i1 %179
+  %or.cond71.not105 = select i1 %.04794, i1 true, i1 %179
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 25001
   %181 = load i8, ptr %180, align 1, !range !37
   %182 = trunc nuw i8 %181 to i1
-  %or.cond74 = select i1 %or.cond71.not106, i1 true, i1 %182
+  %or.cond74 = select i1 %or.cond71.not105, i1 true, i1 %182
   br i1 %or.cond74, label %188, label %183
 
 183:                                              ; preds = %177

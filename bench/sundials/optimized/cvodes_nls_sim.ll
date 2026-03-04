@@ -582,16 +582,16 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensSim(ptr noundef %0, pt
   %. = select i1 %35, double %31, double %34
   store double %., ptr %28, align 8, !tbaa !64
   %36 = fcmp ogt double %., 1.000000e+00
-  %37 = select i1 %36, double 1.000000e+00, double %.
-  %38 = fmul double %23, %37
+  %37 = fmul double %23, %.
+  %38 = select i1 %36, double %23, double %37
   %39 = fdiv double %38, %3
   %40 = fcmp ugt double %39, 1.000000e+00
   br i1 %40, label %61, label %.thread51
 
 .thread:                                          ; preds = %25
   %41 = fcmp ogt double %29, 1.000000e+00
-  %42 = select i1 %41, double 1.000000e+00, double %29
-  %43 = fmul double %23, %42
+  %42 = fmul double %23, %29
+  %43 = select i1 %41, double %23, double %42
   %44 = fdiv double %43, %3
   %45 = fcmp ugt double %44, 1.000000e+00
   br i1 %45, label %.thread49, label %46

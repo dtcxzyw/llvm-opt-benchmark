@@ -6958,30 +6958,30 @@ _.exit:                                           ; preds = %37, %39
 
 69:                                               ; preds = %62, %.loopexit.i19
   %70 = phi i32 [ %68, %62 ], [ -362807296, %.loopexit.i19 ]
+  %71 = or i32 %70, %35
   %.pr = load i8, ptr %.1.i21, align 1, !tbaa !38
   %.not11 = icmp eq i8 %.pr, 0
-  br i1 %.not11, label %.thread, label %71
+  br i1 %.not11, label %.thread, label %72
 
-71:                                               ; preds = %69
-  %72 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i27 = icmp eq i32 %72, 0
-  br i1 %.not4.i27, label %_.exit29, label %73
+72:                                               ; preds = %69
+  %73 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i27 = icmp eq i32 %73, 0
+  br i1 %.not4.i27, label %_.exit29, label %74
 
-73:                                               ; preds = %71
-  %74 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.341, i32 noundef 5) #34
+74:                                               ; preds = %72
+  %75 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.341, i32 noundef 5) #34
   br label %_.exit29
 
-_.exit29:                                         ; preds = %71, %73
-  %.0.i28 = phi ptr [ %74, %73 ], [ @.str.341, %71 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !214
-  %77 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i28, ptr noundef %76) #34
+_.exit29:                                         ; preds = %72, %74
+  %.0.i28 = phi ptr [ %75, %74 ], [ @.str.341, %72 ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !214
+  %78 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i28, ptr noundef %77) #34
   br label %79
 
 .thread:                                          ; preds = %parse_rename_score.exit, %69
-  %.037 = phi i32 [ %70, %69 ], [ 0, %parse_rename_score.exit ]
-  %78 = or i32 %.037, %35
-  store i32 %78, ptr %5, align 4, !tbaa !11
+  %.037 = phi i32 [ %71, %69 ], [ %35, %parse_rename_score.exit ]
+  store i32 %.037, ptr %5, align 4, !tbaa !11
   br label %79
 
 79:                                               ; preds = %.thread, %_.exit29, %_.exit

@@ -865,11 +865,11 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema26RequireCompleteDeclContextE
   %9 = add nsw i16 %8, -61
   %10 = icmp ult i16 %9, -5
   %11 = getelementptr inbounds i8, ptr %2, i64 -64
-  br i1 %10, label %52, label %12
+  br i1 %10, label %51, label %12
 
 12:                                               ; preds = %3
   %13 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  br i1 %13, label %52, label %14
+  br i1 %13, label %51, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %2, i64 -16
@@ -898,7 +898,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %17, 
   %29 = load i8, ptr %28, align 2
   %30 = and i8 %29, 2
   %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %31, label %52
+  br i1 %.not, label %31, label %51
 
 31:                                               ; preds = %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
   %32 = tail call i32 @_ZNK5clang12CXXScopeSpec23getLastQualifierNameLocEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
@@ -938,7 +938,7 @@ _ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit: ; preds = %37, %40
   store ptr null, ptr %42, align 8, !tbaa !680
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %43, align 8, !tbaa !1081
-  br label %52
+  br label %51
 
 44:                                               ; preds = %31
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 28
@@ -951,13 +951,8 @@ _ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit: ; preds = %37, %40
   %50 = call noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteEnumDeclEPNS_8EnumDeclENS_14SourceLocationEPNS_12CXXScopeSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %27, i32 %.sroa.028.0, ptr noundef nonnull %1)
   br label %51
 
-51:                                               ; preds = %44, %49
-  %.3 = phi i1 [ %50, %49 ], [ undef, %44 ]
-  %spec.select = and i1 %48, %.3
-  br label %52
-
-52:                                               ; preds = %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit, %51, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit, %3, %12
-  %.0 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ], [ true, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit ], [ %spec.select, %51 ]
+51:                                               ; preds = %49, %44, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit, %3, %12
+  %.0 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ], [ true, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit ], [ %50, %49 ], [ false, %44 ]
   ret i1 %.0
 }
 

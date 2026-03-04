@@ -7611,7 +7611,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef %0, float 
 
 7:                                                ; preds = %3
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
-  br label %134
+  br label %133
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -7621,7 +7621,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef %0, float 
 
 13:                                               ; preds = %9
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
-  br label %134
+  br label %133
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -7635,7 +7635,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef %0, float 
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %23 = load float, ptr %22, align 4
   %24 = fcmp oeq float %23, %2
-  br i1 %24, label %134, label %25
+  br i1 %24, label %133, label %25
 
 25:                                               ; preds = %21, %15
   store float %1, ptr %18, align 4
@@ -7837,13 +7837,12 @@ QueueCmdSetViewport.exit:                         ; preds = %70, %79, %94, %95
   br label %QueueCmdSetClipRect.exit
 
 QueueCmdSetClipRect.exit:                         ; preds = %107, %116, %125
-  %.0.i29 = phi i1 [ true, %107 ], [ true, %125 ], [ false, %116 ]
+  %.0.i29 = phi i1 [ %.0.i, %107 ], [ %.0.i, %125 ], [ false, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %133 = and i1 %.0.i, %.0.i29
-  br label %134
+  br label %133
 
-134:                                              ; preds = %QueueCmdSetClipRect.exit, %21, %13, %7
-  %.0 = phi i1 [ false, %13 ], [ false, %7 ], [ %133, %QueueCmdSetClipRect.exit ], [ true, %21 ]
+133:                                              ; preds = %QueueCmdSetClipRect.exit, %21, %13, %7
+  %.0 = phi i1 [ false, %13 ], [ false, %7 ], [ %.0.i29, %QueueCmdSetClipRect.exit ], [ true, %21 ]
   ret i1 %.0
 }
 

@@ -8407,7 +8407,7 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
 
 .critedge.thread:                                 ; preds = %17
   %18 = load ptr, ptr %0, align 8
-  %spec.select270 = select i1 %1, ptr %18, ptr @.str.190
+  %spec.select260 = select i1 %1, ptr %18, ptr @.str.190
   br label %.lr.ph
 
 19:                                               ; preds = %17
@@ -8419,17 +8419,17 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
 .critedge:                                        ; preds = %19
   %23 = load ptr, ptr %0, align 8
   %spec.select = select i1 %1, ptr %23, ptr @.str.190
-  %.not56229 = icmp sgt i32 %21, 0
-  br i1 %.not56229, label %.lr.ph, label %.loopexit
+  %.not56220 = icmp sgt i32 %21, 0
+  br i1 %.not56220, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.critedge.thread, %.critedge
-  %spec.select272 = phi ptr [ %spec.select270, %.critedge.thread ], [ %spec.select, %.critedge ]
+  %spec.select262 = phi ptr [ %spec.select260, %.critedge.thread ], [ %spec.select, %.critedge ]
   %24 = phi i32 [ 1, %.critedge.thread ], [ %21, %.critedge ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not.i.i269 = icmp ne ptr %15, null
-  %.not.i.i.not = select i1 %2, i1 %.not.i.i269, i1 false
+  %.not.i.i259 = icmp ne ptr %15, null
+  %.not.i.i.not = select i1 %2, i1 %.not.i.i259, i1 false
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8437,16 +8437,16 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   br label %32
 
 32:                                               ; preds = %.lr.ph, %191
-  %.044231 = phi i32 [ 0, %.lr.ph ], [ %192, %191 ]
-  %.045230 = phi ptr [ null, %.lr.ph ], [ %.247, %191 ]
+  %.044222 = phi i32 [ 0, %.lr.ph ], [ %192, %191 ]
+  %.045221 = phi ptr [ null, %.lr.ph ], [ %.247, %191 ]
   br i1 %3, label %33, label %35
 
 33:                                               ; preds = %32
-  %34 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.044231)
+  %34 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.044222)
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.146 = phi ptr [ %34, %33 ], [ %.045230, %32 ]
+  %.146 = phi ptr [ %34, %33 ], [ %.045221, %32 ]
   %.not50 = icmp eq ptr %.146, null
   br i1 %.not50, label %39, label %36
 
@@ -8477,7 +8477,7 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   br label %.thread187
 
 43:                                               ; preds = %39
-  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %spec.select272)
+  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %spec.select262)
           to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %43
@@ -8888,11 +8888,11 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit: ; preds = %187
   br i1 %.not, label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread, label %189
 
 189:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_777UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %163, i32 noundef %.044231)
+  invoke void @_ZN6icu_777UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %163, i32 noundef %.044222)
           to label %.thread187 unwind label %.loopexit.split-lp
 
 _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread: ; preds = %187, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_777UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.044231)
+  invoke void @_ZN6icu_777UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.044222)
           to label %.thread187 unwind label %.loopexit.split-lp
 
 .thread187:                                       ; preds = %59, %.thread, %189, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.thread176
@@ -8910,11 +8910,11 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread: ; preds = %187
 191:                                              ; preds = %_ZNK6icu_7713CharStringMap3getEPKc.exit, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit102
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %10) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %192 = add nuw nsw i32 %.044231, 1
+  %192 = add nuw nsw i32 %.044222, 1
   %exitcond.not = icmp eq i32 %192, %24
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !114
 
-.loopexit:                                        ; preds = %191, %.thread187, %.critedge, %19, %13, %6
+.loopexit:                                        ; preds = %191, %.critedge, %.thread187, %19, %13, %6
   %.0 = phi i1 [ false, %19 ], [ false, %6 ], [ false, %13 ], [ %190, %.thread187 ], [ false, %.critedge ], [ false, %191 ]
   ret i1 %.0
 }

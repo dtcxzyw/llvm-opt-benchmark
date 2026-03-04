@@ -2183,7 +2183,7 @@ bytestream2_get_byte.exit142.thread:              ; preds = %88, %bytestream2_ge
   br i1 %.not174, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %bytestream2_get_byte.exit146
-  %111 = phi ptr [ %124, %bytestream2_get_byte.exit146 ], [ %95, %.preheader ]
+  %111 = phi ptr [ %125, %bytestream2_get_byte.exit146 ], [ %95, %.preheader ]
   %.in = phi i32 [ %112, %bytestream2_get_byte.exit146 ], [ %97, %.preheader ]
   %.499172 = phi i32 [ %126, %bytestream2_get_byte.exit146 ], [ 0, %.preheader ]
   %112 = add nsw i32 %.in, -1
@@ -2210,13 +2210,13 @@ bytestream2_get_byte.exit142.thread:              ; preds = %88, %bytestream2_ge
   store ptr %121, ptr %1, align 8, !tbaa !90
   %122 = load i8, ptr %111, align 1, !tbaa !75
   %123 = zext i8 %122 to i32
+  %124 = or disjoint i32 %115, %123
   br label %bytestream2_get_byte.exit146
 
 bytestream2_get_byte.exit146:                     ; preds = %119, %120
-  %124 = phi ptr [ %89, %119 ], [ %121, %120 ]
-  %.0.i145 = phi i32 [ 0, %119 ], [ %123, %120 ]
-  %125 = or disjoint i32 %115, 1
-  %126 = add i32 %125, %.0.i145
+  %125 = phi ptr [ %89, %119 ], [ %121, %120 ]
+  %.0.i145 = phi i32 [ %115, %119 ], [ %124, %120 ]
+  %126 = add i32 %.0.i145, 1
   %127 = icmp samesign ugt i32 %.in, 131
   br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !152
 

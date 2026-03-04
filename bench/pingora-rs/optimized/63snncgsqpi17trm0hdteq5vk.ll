@@ -445,17 +445,17 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$19poll_write_vectored17h98d54c04341c7063E"(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = tail call noundef zeroext i1 @"_ZN108_$LT$pingora_core..protocols..l4..stream..RawStreamWrapper$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17h5428f628212d2568E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  br i1 %5, label %6, label %.preheader78
+  br i1 %5, label %6, label %.preheader76
 
-.preheader78:                                     ; preds = %4
-  %.not.not81 = icmp eq i64 %3, 0
-  br i1 %.not.not81, label %.critedge, label %.lr.ph
+.preheader76:                                     ; preds = %4
+  %.not79 = icmp eq i64 %3, 0
+  br i1 %.not79, label %.critedge75, label %.lr.ph
 
 6:                                                ; preds = %4
   %.idx = shl nuw nsw i64 %3, 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %8 = icmp eq i64 %3, 0
-  br i1 %8, label %.thread70, label %.preheader
+  br i1 %8, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6, %.preheader
   %.sroa.07.0.i = phi i64 [ %11, %.preheader ], [ 0, %6 ]
@@ -479,15 +479,15 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
   %20 = icmp ugt i64 %11, %19
   br i1 %20, label %65, label %69
 
-.lr.ph:                                           ; preds = %.preheader78, %62
-  %.sroa.0.083 = phi ptr [ %64, %62 ], [ %2, %.preheader78 ]
-  %.sroa.13.082 = phi i64 [ %63, %62 ], [ %3, %.preheader78 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 8
+.lr.ph:                                           ; preds = %.preheader76, %62
+  %.sroa.0.081 = phi ptr [ %64, %62 ], [ %2, %.preheader76 ]
+  %.sroa.13.080 = phi i64 [ %63, %62 ], [ %3, %.preheader76 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !3
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %62, label %.thread
+  br i1 %23, label %62, label %.critedge
 
-.thread:                                          ; preds = %.lr.ph
+.critedge:                                        ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i64, ptr %24, align 8, !range !28, !noundef !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -498,45 +498,45 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
   %30 = icmp ugt i64 %22, %29
   br i1 %30, label %31, label %35
 
-31:                                               ; preds = %.thread
+31:                                               ; preds = %.critedge
   %32 = tail call fastcc { i64, ptr } @"_ZN5tokio2io4util10buf_writer18BufWriter$LT$W$GT$9flush_buf17h6e0ebd20928a4c03E"(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(32) %1)
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = trunc nuw i64 %33 to i1
-  br i1 %34, label %.critedge, label %38
+  br i1 %34, label %.critedge75, label %38
 
-35:                                               ; preds = %._crit_edge95, %.thread
-  %36 = phi i64 [ %.pre, %._crit_edge95 ], [ %25, %.thread ]
+35:                                               ; preds = %._crit_edge93, %.critedge
+  %36 = phi i64 [ %.pre, %._crit_edge93 ], [ %25, %.critedge ]
   %.not60 = icmp ult i64 %22, %36
-  %37 = load ptr, ptr %.sroa.0.083, align 8, !noundef !3
+  %37 = load ptr, ptr %.sroa.0.081, align 8, !noundef !3
   br i1 %.not60, label %40, label %58
 
 38:                                               ; preds = %31
   %39 = extractvalue { i64, ptr } %32, 1
   %.not58 = icmp eq ptr %39, null
-  br i1 %.not58, label %._crit_edge95, label %.critedge
+  br i1 %.not58, label %._crit_edge93, label %.critedge75
 
-._crit_edge95:                                    ; preds = %38
+._crit_edge93:                                    ; preds = %38
   %.pre = load i64, ptr %24, align 8, !range !28
   br label %35
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %22
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he7d0b4d87673464fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %37, ptr noundef nonnull %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.14565fd8bf24fc52b307f6d9f637eb2a.12)
-  %.idx92 = shl i64 %.sroa.13.082, 4
-  %42 = getelementptr i8, ptr %.sroa.0.083, i64 %.idx92
-  %43 = icmp eq i64 %.idx92, 16
-  br i1 %43, label %._crit_edge, label %.lr.ph89.preheader
+  %.idx90 = shl i64 %.sroa.13.080, 4
+  %42 = getelementptr i8, ptr %.sroa.0.081, i64 %.idx90
+  %43 = icmp eq i64 %.idx90, 16
+  br i1 %43, label %._crit_edge, label %.lr.ph87.preheader
 
-.lr.ph89.preheader:                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 16
-  %.sroa.054.185 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 32
-  br label %.lr.ph89
+.lr.ph87.preheader:                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 16
+  %.sroa.054.183 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 32
+  br label %.lr.ph87
 
-.lr.ph89:                                         ; preds = %.lr.ph89.preheader, %53
-  %.sroa.054.188 = phi ptr [ %.sroa.054.1, %53 ], [ %.sroa.054.185, %.lr.ph89.preheader ]
-  %.sroa.054.087 = phi ptr [ %.sroa.054.188, %53 ], [ %44, %.lr.ph89.preheader ]
-  %.sroa.047.086 = phi i64 [ %56, %53 ], [ %22, %.lr.ph89.preheader ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.054.087, i64 8
+.lr.ph87:                                         ; preds = %.lr.ph87.preheader, %53
+  %.sroa.054.186 = phi ptr [ %.sroa.054.1, %53 ], [ %.sroa.054.183, %.lr.ph87.preheader ]
+  %.sroa.054.085 = phi ptr [ %.sroa.054.186, %53 ], [ %44, %.lr.ph87.preheader ]
+  %.sroa.047.084 = phi i64 [ %56, %53 ], [ %22, %.lr.ph87.preheader ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.054.085, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = load i64, ptr %24, align 8, !range !28, !noundef !3
   %48 = load i64, ptr %26, align 8, !noundef !3
@@ -546,61 +546,61 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
   %51 = icmp ugt i64 %46, %50
   br i1 %51, label %._crit_edge, label %53
 
-._crit_edge:                                      ; preds = %53, %.lr.ph89, %40
-  %.sroa.047.0.lcssa = phi i64 [ %22, %40 ], [ %.sroa.047.086, %.lr.ph89 ], [ %56, %53 ]
+._crit_edge:                                      ; preds = %53, %.lr.ph87, %40
+  %.sroa.047.0.lcssa = phi i64 [ %22, %40 ], [ %.sroa.047.084, %.lr.ph87 ], [ %56, %53 ]
   %52 = inttoptr i64 %.sroa.047.0.lcssa to ptr
-  br label %.critedge
+  br label %.critedge75
 
-53:                                               ; preds = %.lr.ph89
-  %54 = load ptr, ptr %.sroa.054.087, align 8, !noundef !3
+53:                                               ; preds = %.lr.ph87
+  %54 = load ptr, ptr %.sroa.054.085, align 8, !noundef !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %46
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he7d0b4d87673464fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %54, ptr noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.14565fd8bf24fc52b307f6d9f637eb2a.13)
-  %56 = add i64 %46, %.sroa.047.086
-  %57 = icmp eq ptr %.sroa.054.188, %42
+  %56 = add i64 %46, %.sroa.047.084
+  %57 = icmp eq ptr %.sroa.054.186, %42
   %.sroa.054.1.idx = select i1 %57, i64 0, i64 16
-  %.sroa.054.1 = getelementptr inbounds nuw i8, ptr %.sroa.054.188, i64 %.sroa.054.1.idx
-  br i1 %57, label %._crit_edge, label %.lr.ph89
+  %.sroa.054.1 = getelementptr inbounds nuw i8, ptr %.sroa.054.186, i64 %.sroa.054.1.idx
+  br i1 %57, label %._crit_edge, label %.lr.ph87
 
 58:                                               ; preds = %35
   %59 = tail call { i64, ptr } @"_ZN108_$LT$pingora_core..protocols..l4..stream..RawStreamWrapper$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hab21804f18590298E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %22)
   %60 = extractvalue { i64, ptr } %59, 0
   %61 = extractvalue { i64, ptr } %59, 1
-  br label %.critedge
+  br label %.critedge75
 
 62:                                               ; preds = %.lr.ph
-  %63 = add i64 %.sroa.13.082, -1
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 16
-  %.not.not = icmp eq i64 %63, 0
-  br i1 %.not.not, label %.critedge, label %.lr.ph
+  %63 = add i64 %.sroa.13.080, -1
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 16
+  %.not = icmp eq i64 %63, 0
+  br i1 %.not, label %.critedge75, label %.lr.ph
 
 65:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc247e31c41e74852E.exit"
   %66 = tail call fastcc { i64, ptr } @"_ZN5tokio2io4util10buf_writer18BufWriter$LT$W$GT$9flush_buf17h6e0ebd20928a4c03E"(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(32) %1)
   %67 = extractvalue { i64, ptr } %66, 0
   %68 = trunc nuw i64 %67 to i1
-  br i1 %68, label %.critedge, label %76
+  br i1 %68, label %.critedge75, label %76
 
-69:                                               ; preds = %._crit_edge96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc247e31c41e74852E.exit"
-  %70 = phi i64 [ %.pre97, %._crit_edge96 ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc247e31c41e74852E.exit" ]
+69:                                               ; preds = %._crit_edge94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc247e31c41e74852E.exit"
+  %70 = phi i64 [ %.pre95, %._crit_edge94 ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc247e31c41e74852E.exit" ]
   %.not64 = icmp ult i64 %11, %70
   br i1 %.not64, label %.lr.ph.i, label %83
 
-.thread70:                                        ; preds = %6
+.thread:                                          ; preds = %6
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %73 = load i64, ptr %72, align 8, !noundef !3
   %74 = icmp sgt i64 %73, -1
   tail call void @llvm.assume(i1 %74)
   %75 = load i64, ptr %71, align 8, !range !28, !noundef !3
-  %.not6472.not = icmp eq i64 %75, 0
-  br i1 %.not6472.not, label %83, label %.critedge
+  %.not6469.not = icmp eq i64 %75, 0
+  br i1 %.not6469.not, label %83, label %.critedge75
 
 76:                                               ; preds = %65
   %77 = extractvalue { i64, ptr } %66, 1
   %.not62 = icmp eq ptr %77, null
-  br i1 %.not62, label %._crit_edge96, label %.critedge
+  br i1 %.not62, label %._crit_edge94, label %.critedge75
 
-._crit_edge96:                                    ; preds = %76
-  %.pre97 = load i64, ptr %14, align 8, !range !28
+._crit_edge94:                                    ; preds = %76
+  %.pre95 = load i64, ptr %14, align 8, !range !28
   br label %69
 
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.i
@@ -616,17 +616,17 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit": ; preds = %.lr.ph.i
   %82 = inttoptr i64 %11 to ptr
-  br label %.critedge
+  br label %.critedge75
 
-83:                                               ; preds = %.thread70, %69
+83:                                               ; preds = %.thread, %69
   %84 = tail call { i64, ptr } @"_ZN108_$LT$pingora_core..protocols..l4..stream..RawStreamWrapper$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$19poll_write_vectored17ha8482035afa20cd3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
   %85 = extractvalue { i64, ptr } %84, 0
   %86 = extractvalue { i64, ptr } %84, 1
-  br label %.critedge
+  br label %.critedge75
 
-.critedge:                                        ; preds = %62, %.thread70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit", %.preheader78, %65, %76, %31, %38, %83, %._crit_edge, %58
-  %.sroa.10.0 = phi ptr [ %39, %38 ], [ %86, %83 ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit" ], [ %52, %._crit_edge ], [ %77, %76 ], [ %61, %58 ], [ undef, %31 ], [ undef, %65 ], [ null, %.preheader78 ], [ null, %.thread70 ], [ null, %62 ]
-  %.sroa.022.0 = phi i64 [ 1, %38 ], [ %85, %83 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit" ], [ 0, %._crit_edge ], [ 1, %76 ], [ %60, %58 ], [ 2, %31 ], [ 2, %65 ], [ 0, %.preheader78 ], [ 0, %.thread70 ], [ 0, %62 ]
+.critedge75:                                      ; preds = %62, %.thread, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit", %.preheader76, %65, %76, %31, %38, %83, %._crit_edge, %58
+  %.sroa.10.0 = phi ptr [ %39, %38 ], [ %86, %83 ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit" ], [ %52, %._crit_edge ], [ %77, %76 ], [ %61, %58 ], [ undef, %31 ], [ undef, %65 ], [ null, %.preheader76 ], [ null, %.thread ], [ null, %62 ]
+  %.sroa.022.0 = phi i64 [ 1, %38 ], [ %85, %83 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haaf4384ac51e937fE.exit.loopexit" ], [ 0, %._crit_edge ], [ 1, %76 ], [ %60, %58 ], [ 2, %31 ], [ 2, %65 ], [ 0, %.preheader76 ], [ 0, %.thread ], [ 0, %62 ]
   %87 = insertvalue { i64, ptr } poison, i64 %.sroa.022.0, 0
   %88 = insertvalue { i64, ptr } %87, ptr %.sroa.10.0, 1
   ret { i64, ptr } %88

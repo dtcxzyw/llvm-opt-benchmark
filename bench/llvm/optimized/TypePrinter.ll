@@ -4539,11 +4539,11 @@ _ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %70, %64
   %.0.i.i = phi ptr [ %69, %64 ], [ %73, %70 ]
   %74 = tail call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %.0.i.i, i64 %.sroa.0.0.i) #18
   %.pre = load i64, ptr %14, align 8, !tbaa !13
-  %.pre175 = or i64 %.pre, %16
+  %.pre176 = or i64 %.pre, %16
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
 _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; preds = %61, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i
-  %.pre-phi = phi i64 [ %17, %61 ], [ %.pre175, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ]
+  %.pre-phi = phi i64 [ %17, %61 ], [ %.pre176, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ]
   %.sroa.04.0.i = phi i64 [ %63, %61 ], [ %74, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ]
   %75 = and i64 %.sroa.04.0.i, -16
   %76 = inttoptr i64 %75 to ptr
@@ -4564,7 +4564,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %.sroa.030.0.copyload = load i64, ptr %8, align 8, !tbaa !18
   %85 = load i64, ptr %7, align 8, !tbaa !109
   %.not = icmp eq i64 %85, %.sroa.030.0.copyload
-  br i1 %.not, label %86, label %150
+  br i1 %.not, label %86, label %._crit_edge
 
 86:                                               ; preds = %82
   %87 = and i64 %83, -16
@@ -4588,11 +4588,11 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i8, ptr %100, align 16
   %102 = icmp eq i8 %98, %101
-  br i1 %102, label %103, label %150
+  br i1 %102, label %103, label %._crit_edge
 
 103:                                              ; preds = %95
   %104 = call fastcc noundef zeroext i1 @_ZL17isSubstitutedTypeRN5clang10ASTContextENS_8QualTypeES2_N4llvm8ArrayRefINS_16TemplateArgumentEEEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %90, i64 %94, ptr %3, i64 %4, i32 noundef %5)
-  br label %150
+  br label %._crit_edge
 
 105:                                              ; preds = %86
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -4601,8 +4601,8 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %109 = inttoptr i64 %108 to ptr
   %110 = load ptr, ptr %109, align 16, !tbaa !20
   %111 = call noundef ptr @_ZNK5clang4Type5getAsINS_26TemplateSpecializationTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %110) #18
-  %.not78 = icmp ne ptr %111, null
-  br i1 %.not78, label %112, label %.loopexit
+  %.not78.not = icmp eq ptr %111, null
+  br i1 %.not78.not, label %._crit_edge, label %112
 
 112:                                              ; preds = %105
   %113 = load ptr, ptr %88, align 16, !tbaa !20
@@ -4621,14 +4621,14 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %120 = load ptr, ptr %88, align 16, !tbaa !20
   %121 = call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %120) #18
   %.not.i.i99 = icmp eq ptr %121, null
-  br i1 %.not.i.i99, label %.loopexit, label %122
+  br i1 %.not.i.i99, label %._crit_edge, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 28
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, 126
   %126 = icmp eq i32 %125, 58
-  br i1 %126, label %127, label %.loopexit
+  br i1 %126, label %127, label %._crit_edge
 
 127:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4661,18 +4661,18 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %140, align 4, !tbaa !13
   %141 = call fastcc noundef zeroext i1 @_ZL29isSubstitutedTemplateArgumentRN5clang10ASTContextENS_16TemplateArgumentES2_N4llvm8ArrayRefIS2_EEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %10, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %11, ptr %3, i64 %4, i32 noundef %5)
-  br i1 %141, label %142, label %.loopexit
+  br i1 %141, label %142, label %._crit_edge
 
 142:                                              ; preds = %133
   %143 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %144 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %145 = load i32, ptr %144, align 4, !tbaa !13
   %.not81 = icmp eq i32 %.sroa.6.1.ph.in, %145
-  br i1 %.not81, label %.preheader, label %.loopexit
+  br i1 %.not81, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %142
   %.not82170 = icmp eq i32 %.sroa.6.1.ph.in, 0
-  br i1 %.not82170, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not82170, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %146 = zext i32 %.sroa.6.1.ph.in to i64
@@ -4685,22 +4685,17 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %149 = call fastcc noundef zeroext i1 @_ZL29isSubstitutedTemplateArgumentRN5clang10ASTContextENS_16TemplateArgumentES2_N4llvm8ArrayRefIS2_EEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %147, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %148, ptr %3, i64 %4, i32 noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp ne i64 %indvars.iv.next, %146
-  %or.cond185.not = select i1 %149, i1 %.not82, i1 false
-  br i1 %or.cond185.not, label %.lr.ph, label %.loopexit, !llvm.loop !183
+  %or.cond186.not = select i1 %149, i1 %.not82, i1 false
+  br i1 %or.cond186.not, label %.lr.ph, label %._crit_edge, !llvm.loop !183
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %133, %142, %122, %119, %105
-  %.9 = phi i1 [ undef, %105 ], [ false, %133 ], [ false, %142 ], [ false, %119 ], [ false, %122 ], [ true, %.preheader ], [ %149, %.lr.ph ]
-  %spec.select83 = and i1 %.not78, %.9
-  br label %150
-
-150:                                              ; preds = %103, %95, %.loopexit, %82
-  %.2 = phi i1 [ %spec.select83, %.loopexit ], [ false, %82 ], [ %104, %103 ], [ false, %95 ]
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %105, %119, %122, %142, %133, %103, %95, %82
+  %.2 = phi i1 [ false, %95 ], [ false, %82 ], [ %104, %103 ], [ false, %105 ], [ false, %133 ], [ false, %142 ], [ false, %119 ], [ false, %122 ], [ true, %.preheader ], [ %149, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit, %43, %40, %34, %6, %150
-  %.0 = phi i1 [ true, %6 ], [ %.2, %150 ], [ false, %40 ], [ false, %43 ], [ false, %34 ], [ %81, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit ]
+.thread:                                          ; preds = %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit, %43, %40, %34, %6, %._crit_edge
+  %.0 = phi i1 [ true, %6 ], [ %.2, %._crit_edge ], [ false, %40 ], [ false, %43 ], [ false, %34 ], [ %81, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit ]
   ret i1 %.0
 }
 

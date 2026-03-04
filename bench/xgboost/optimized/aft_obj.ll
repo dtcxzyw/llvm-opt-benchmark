@@ -10031,7 +10031,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %.042 = phi double [ %28, %21 ], [ 0.000000e+00, %18 ]
   %.040 = phi double [ %32, %21 ], [ 1.000000e+00, %18 ]
   %35 = fcmp ugt double %0, 0.000000e+00
-  br i1 %35, label %36, label %49
+  br i1 %35, label %36, label %50
 
 36:                                               ; preds = %34
   %37 = fsub double %5, %2
@@ -10046,23 +10046,23 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %46 = fadd double %45, 1.000000e+00
   %47 = fmul double %46, 5.000000e-01
   %48 = fcmp ogt double %38, 0.000000e+00
-  br label %49
+  %49 = or i1 %48, %.044
+  br label %50
 
-49:                                               ; preds = %34, %36
+50:                                               ; preds = %34, %36
   %.2 = phi i8 [ %.1, %36 ], [ 2, %34 ]
-  %.043 = phi i1 [ %48, %36 ], [ false, %34 ]
+  %.043 = phi i1 [ %49, %36 ], [ %.044, %34 ]
   %.041 = phi double [ %43, %36 ], [ 0.000000e+00, %34 ]
   %.0 = phi double [ %47, %36 ], [ 0.000000e+00, %34 ]
-  %50 = or i1 %.044, %.043
   %51 = fsub double %.042, %.041
   %52 = fsub double %.040, %.0
   br label %53
 
-53:                                               ; preds = %49, %8
-  %.049 = phi i8 [ 0, %8 ], [ %.2, %49 ]
-  %.048.in = phi i1 [ %17, %8 ], [ %50, %49 ]
-  %.pn = phi double [ %15, %8 ], [ %52, %49 ]
-  %.045 = phi double [ %16, %8 ], [ %51, %49 ]
+53:                                               ; preds = %50, %8
+  %.049 = phi i8 [ 0, %8 ], [ %.2, %50 ]
+  %.048.in = phi i1 [ %17, %8 ], [ %.043, %50 ]
+  %.pn = phi double [ %15, %8 ], [ %52, %50 ]
+  %.045 = phi double [ %16, %8 ], [ %51, %50 ]
   %.046 = fmul double %3, %.pn
   %54 = fdiv double %.045, %.046
   %55 = fcmp olt double %.046, 0x3D719799812DEA11
@@ -10165,7 +10165,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %.061 = phi double [ %41, %30 ], [ 1.000000e+00, %27 ]
   %.1 = phi i8 [ 3, %30 ], [ 1, %27 ]
   %47 = fcmp ugt double %0, 0.000000e+00
-  br i1 %47, label %48, label %64
+  br i1 %47, label %48, label %65
 
 48:                                               ; preds = %46
   %49 = fsub double %5, %2
@@ -10183,31 +10183,31 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %61 = fdiv double %60, 0x40040D931FF62705
   %62 = fmul double %61, %51
   %63 = fcmp ogt double %50, 0.000000e+00
-  br label %64
+  %64 = or i1 %63, %.067
+  br label %65
 
-64:                                               ; preds = %46, %48
-  %.066 = phi i1 [ %63, %48 ], [ false, %46 ]
+65:                                               ; preds = %46, %48
+  %.066 = phi i1 [ %64, %48 ], [ %.067, %46 ]
   %.064 = phi double [ %62, %48 ], [ 0.000000e+00, %46 ]
   %.062 = phi double [ %55, %48 ], [ 0.000000e+00, %46 ]
   %.060 = phi double [ %59, %48 ], [ 0.000000e+00, %46 ]
   %.2 = phi i8 [ %.1, %48 ], [ 2, %46 ]
-  %65 = fsub double %.061, %.060
-  %66 = fsub double %.063, %.062
-  %67 = fsub double %.065, %.064
-  %68 = fmul double %3, %65
-  %69 = or i1 %.067, %.066
-  %70 = fneg double %66
-  %71 = fmul double %66, %70
-  %72 = tail call double @llvm.fmuladd.f64(double %65, double %67, double %71)
+  %66 = fsub double %.061, %.060
+  %67 = fsub double %.063, %.062
+  %68 = fsub double %.065, %.064
+  %69 = fmul double %3, %66
+  %70 = fneg double %67
+  %71 = fmul double %67, %70
+  %72 = tail call double @llvm.fmuladd.f64(double %66, double %68, double %71)
   %73 = fneg double %72
-  %74 = fmul double %68, %68
+  %74 = fmul double %69, %69
   br label %75
 
-75:                                               ; preds = %64, %8
-  %.068.in = phi i1 [ %26, %8 ], [ %69, %64 ]
-  %.059 = phi i8 [ 0, %8 ], [ %.2, %64 ]
-  %.057 = phi double [ %25, %8 ], [ %74, %64 ]
-  %.0 = phi double [ %22, %8 ], [ %73, %64 ]
+75:                                               ; preds = %65, %8
+  %.068.in = phi i1 [ %26, %8 ], [ %.066, %65 ]
+  %.059 = phi i8 [ 0, %8 ], [ %.2, %65 ]
+  %.057 = phi double [ %25, %8 ], [ %74, %65 ]
+  %.0 = phi double [ %22, %8 ], [ %73, %65 ]
   %76 = fdiv double %.0, %.057
   %77 = fcmp olt double %.057, 0x3D719799812DEA11
   %78 = tail call double @llvm.fabs.f64(double %76)
@@ -11276,7 +11276,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit53: ; preds = %28, %35, %39
   %.042 = phi double [ %.0.i52, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 0.000000e+00, %25 ]
   %.040 = phi double [ %43, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1.000000e+00, %25 ]
   %46 = fcmp ugt double %0, 0.000000e+00
-  br i1 %46, label %47, label %64
+  br i1 %46, label %47, label %65
 
 47:                                               ; preds = %45
   %48 = fsub double %5, %2
@@ -11303,23 +11303,23 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %47, %54, %58
   %61 = fdiv double %50, %51
   %62 = select i1 %53, double 1.000000e+00, double %61
   %63 = fcmp ogt double %49, 0.000000e+00
-  br label %64
+  %64 = or i1 %63, %.044
+  br label %65
 
-64:                                               ; preds = %45, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
+65:                                               ; preds = %45, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
   %.2 = phi i8 [ %.1, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 2, %45 ]
-  %.043 = phi i1 [ %63, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ false, %45 ]
+  %.043 = phi i1 [ %64, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ %.044, %45 ]
   %.041 = phi double [ %.0.i54, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %45 ]
   %.0 = phi double [ %62, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %45 ]
-  %65 = or i1 %.044, %.043
   %66 = fsub double %.042, %.041
   %67 = fsub double %.040, %.0
   br label %68
 
-68:                                               ; preds = %64, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
-  %.049 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.2, %64 ]
-  %.048.in = phi i1 [ %24, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %65, %64 ]
-  %.pn = phi double [ %.0.i60, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %67, %64 ]
-  %.045 = phi double [ %23, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %66, %64 ]
+68:                                               ; preds = %65, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.2, %65 ]
+  %.048.in = phi i1 [ %24, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.043, %65 ]
+  %.pn = phi double [ %.0.i60, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %67, %65 ]
+  %.045 = phi double [ %23, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %66, %65 ]
   %.046 = fmul double %3, %.pn
   %69 = fdiv double %.045, %.046
   %70 = fcmp olt double %.046, 0x3D719799812DEA11
@@ -12383,7 +12383,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52: ; preds = %32, %38
   %.042 = phi double [ %42, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 0.000000e+00, %29 ]
   %.040 = phi double [ %46, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1.000000e+00, %29 ]
   %49 = fcmp ugt double %0, 0.000000e+00
-  br i1 %49, label %50, label %66
+  br i1 %49, label %50, label %67
 
 50:                                               ; preds = %48
   %51 = fsub double %5, %2
@@ -12406,23 +12406,23 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %50, %56
   %63 = tail call double @exp(double noundef %62) #20, !tbaa !134
   %64 = fsub double 1.000000e+00, %63
   %65 = fcmp ogt double %52, 0.000000e+00
-  br label %66
+  %66 = or i1 %65, %.044
+  br label %67
 
-66:                                               ; preds = %48, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
+67:                                               ; preds = %48, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
   %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 2, %48 ]
-  %.043 = phi i1 [ %65, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ false, %48 ]
+  %.043 = phi i1 [ %66, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ %.044, %48 ]
   %.041 = phi double [ %60, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %48 ]
   %.0 = phi double [ %64, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %48 ]
-  %67 = or i1 %.044, %.043
   %68 = fsub double %.042, %.041
   %69 = fsub double %.040, %.0
   br label %70
 
-70:                                               ; preds = %66, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
-  %.049 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.2, %66 ]
-  %.048.in = phi i1 [ %28, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %67, %66 ]
-  %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %69, %66 ]
-  %.045 = phi double [ %27, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %68, %66 ]
+70:                                               ; preds = %67, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.2, %67 ]
+  %.048.in = phi i1 [ %28, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.043, %67 ]
+  %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %69, %67 ]
+  %.045 = phi double [ %27, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %68, %67 ]
   %.046 = fmul double %3, %.pn
   %71 = fdiv double %.045, %.046
   %72 = fcmp olt double %.046, 0x3D719799812DEA11
@@ -12591,7 +12591,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74: ; preds = %_ZN7xgboost
   %.061 = phi double [ %67, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1.000000e+00, %50 ]
   %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1, %50 ]
   %79 = fcmp ugt double %0, 0.000000e+00
-  br i1 %79, label %80, label %105
+  br i1 %79, label %80, label %106
 
 80:                                               ; preds = %78
   %81 = fsub double %5, %2
@@ -12629,31 +12629,31 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76: ; preds = %_ZN7xgboost6c
 _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76
   %103 = phi double [ %102, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit.i76 ], [ 0.000000e+00, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit75 ]
   %104 = fcmp ogt double %82, 0.000000e+00
-  br label %105
+  %105 = or i1 %104, %.067
+  br label %106
 
-105:                                              ; preds = %78, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77
-  %.066 = phi i1 [ %104, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ false, %78 ]
+106:                                              ; preds = %78, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77
+  %.066 = phi i1 [ %105, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ %.067, %78 ]
   %.064 = phi double [ %103, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
   %.062 = phi double [ %90, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
   %.060 = phi double [ %94, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %78 ]
   %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 2, %78 ]
-  %106 = fsub double %.061, %.060
-  %107 = fsub double %.063, %.062
-  %108 = fsub double %.065, %.064
-  %109 = fmul double %3, %106
-  %110 = or i1 %.067, %.066
-  %111 = fneg double %107
-  %112 = fmul double %107, %111
-  %113 = tail call double @llvm.fmuladd.f64(double %106, double %108, double %112)
+  %107 = fsub double %.061, %.060
+  %108 = fsub double %.063, %.062
+  %109 = fsub double %.065, %.064
+  %110 = fmul double %3, %107
+  %111 = fneg double %108
+  %112 = fmul double %108, %111
+  %113 = tail call double @llvm.fmuladd.f64(double %107, double %109, double %112)
   %114 = fneg double %113
-  %115 = fmul double %109, %109
+  %115 = fmul double %110, %110
   br label %116
 
-116:                                              ; preds = %105, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
-  %.068.in = phi i1 [ %49, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %110, %105 ]
-  %.059 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.2, %105 ]
-  %.057 = phi double [ %48, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %115, %105 ]
-  %.0 = phi double [ %45, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %114, %105 ]
+116:                                              ; preds = %106, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
+  %.068.in = phi i1 [ %49, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.066, %106 ]
+  %.059 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.2, %106 ]
+  %.057 = phi double [ %48, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %115, %106 ]
+  %.0 = phi double [ %45, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %114, %106 ]
   %117 = fdiv double %.0, %.057
   %118 = fcmp olt double %.057, 0x3D719799812DEA11
   %119 = tail call double @llvm.fabs.f64(double %117)

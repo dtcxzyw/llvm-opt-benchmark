@@ -5565,6 +5565,7 @@ define linkonce_odr dso_local void @_ZN21EmitVBaseVisitorConst5visitEP14AstCMeth
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %21, ptr %25, align 8, !tbaa !42, !alias.scope !200
+  store ptr %18, ptr %15, align 8, !tbaa !38
   store i64 0, ptr %24, align 8, !tbaa !42
   store i8 0, ptr %18, align 8, !tbaa !43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -10797,6 +10798,7 @@ define linkonce_odr dso_local void @_ZN21EmitVBaseVisitorConst5visitEP12AstJumpB
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %16, ptr %20, align 8, !tbaa !42, !alias.scope !318
+  store ptr %13, ptr %10, align 8, !tbaa !38
   store i64 0, ptr %19, align 8, !tbaa !42
   store i8 0, ptr %13, align 8, !tbaa !43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

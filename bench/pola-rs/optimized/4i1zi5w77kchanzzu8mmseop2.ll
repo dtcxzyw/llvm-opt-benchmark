@@ -119349,7 +119349,7 @@ define hidden void @"_ZN11polars_core13chunked_array7struct_100_$LT$impl$u20$pol
   br label %.loopexit.split-lp
 
 50:                                               ; preds = %.lr.ph, %245
-  %.sroa.04.0100 = phi i1 [ false, %.lr.ph ], [ %95, %245 ]
+  %.sroa.04.0100 = phi i1 [ false, %.lr.ph ], [ %spec.select, %245 ]
   %.sroa.047.099 = phi ptr [ %3, %.lr.ph ], [ %51, %245 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.047.099, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -119357,7 +119357,7 @@ define hidden void @"_ZN11polars_core13chunked_array7struct_100_$LT$impl$u20$pol
           to label %89 unwind label %.loopexit.split-lp.loopexit
 
 ._crit_edge:                                      ; preds = %245
-  br i1 %95, label %54, label %.critedge101
+  br i1 %spec.select, label %54, label %.critedge101
 
 .critedge101:                                     ; preds = %43, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -119495,8 +119495,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h3e92f95fa189a9e9E.exit: ; preds
 
 93:                                               ; preds = %89
   %94 = icmp ne i64 %90, 1
-  %. = and i1 %92, %94
-  %95 = or i1 %.sroa.04.0100, %.
+  %95 = and i1 %92, %94
+  %spec.select = or i1 %.sroa.04.0100, %95
   %96 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.047.099)
           to label %99 unwind label %.loopexit.split-lp.loopexit
 

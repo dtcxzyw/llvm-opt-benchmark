@@ -5669,15 +5669,15 @@ define weak_odr dso_local void @_ZN4mold10ObjectFileINS_6X86_64EE17mark_live_obj
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   br label %53
 
-._crit_edge:                                      ; preds = %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, %3
+._crit_edge:                                      ; preds = %.thread50, %3
   ret void
 
-53:                                               ; preds = %.lr.ph, %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread
-  %.058 = phi i64 [ %13, %.lr.ph ], [ %200, %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread ]
+53:                                               ; preds = %.lr.ph, %.thread50
+  %.061 = phi i64 [ %13, %.lr.ph ], [ %200, %.thread50 ]
   %54 = load ptr, ptr %17, align 8, !tbaa !338
-  %55 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %54, i64 %.058
+  %55 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %54, i64 %.061
   %56 = load ptr, ptr %18, align 8, !tbaa !323
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.058
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.061
   %58 = load ptr, ptr %57, align 8, !tbaa !328
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 6
   %60 = load i16, ptr %59, align 1
@@ -5847,13 +5847,13 @@ _ZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6Symbo
 121:                                              ; preds = %119, %_ZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEh.exit
   %122 = load ptr, ptr %58, align 8, !tbaa !329
   %.not29 = icmp eq ptr %122, null
-  br i1 %.not29, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, label %123
+  br i1 %.not29, label %.thread50, label %123
 
 123:                                              ; preds = %121
   %124 = load i16, ptr %59, align 1
-  switch i16 %124, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread [
+  switch i16 %124, label %.thread50 [
     i16 0, label %125
-    i16 -14, label %.thread
+    i16 -14, label %132
   ]
 
 125:                                              ; preds = %123
@@ -5861,15 +5861,15 @@ _ZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6Symbo
   %127 = load i8, ptr %126, align 1
   %.mask.i = and i8 %127, -16
   %128 = icmp eq i8 %.mask.i, 32
-  br i1 %128, label %129, label %.thread.thread
+  br i1 %128, label %.thread, label %.thread.thread
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 112
-  %131 = load i8, ptr %130, align 8, !tbaa !50, !range !319, !noundef !320
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %.thread.thread, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread
+.thread:                                          ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 112
+  %130 = load i8, ptr %129, align 8, !tbaa !50, !range !319, !noundef !320
+  %131 = trunc nuw i8 %130 to i1
+  br i1 %131, label %.thread.thread, label %.thread50
 
-.thread:                                          ; preds = %123
+132:                                              ; preds = %123
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %134 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %135 = load i32, ptr %134, align 4, !tbaa !337
@@ -5878,19 +5878,19 @@ _ZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6Symbo
   %138 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %137, i64 %136
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 6
   %140 = load i16, ptr %139, align 1
-  %.not81 = icmp eq i16 %140, -14
-  br i1 %.not81, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, label %.thread.thread
+  %.not53 = icmp eq i16 %140, -14
+  br i1 %.not53, label %.thread50, label %.thread.thread
 
-.thread.thread:                                   ; preds = %129, %125, %.thread
+.thread.thread:                                   ; preds = %125, %.thread, %132
   %141 = getelementptr inbounds nuw i8, ptr %122, i64 128
   %142 = load atomic i8, ptr %141 monotonic, align 1
   %143 = trunc i8 %142 to i1
-  br i1 %143, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, label %_ZN4mold6AtomicIbE12test_and_setEv.exit
+  br i1 %143, label %.thread50, label %_ZN4mold6AtomicIbE12test_and_setEv.exit
 
 _ZN4mold6AtomicIbE12test_and_setEv.exit:          ; preds = %.thread.thread
   %144 = atomicrmw xchg ptr %141, i8 1 monotonic, align 1
   %145 = trunc i8 %144 to i1
-  br i1 %145, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, label %146
+  br i1 %145, label %.thread50, label %146
 
 146:                                              ; preds = %_ZN4mold6AtomicIbE12test_and_setEv.exit
   %147 = load ptr, ptr %58, align 8, !tbaa !329
@@ -5911,7 +5911,7 @@ _ZNKSt8functionIFvPN4mold9InputFileINS0_6X86_64EEEEEclES4_.exit: ; preds = %146
   %151 = load i16, ptr %116, align 1
   %152 = and i16 %151, 4
   %.not30 = icmp eq i16 %152, 0
-  br i1 %.not30, label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread, label %153
+  br i1 %.not30, label %.thread50, label %153
 
 153:                                              ; preds = %_ZNKSt8functionIFvPN4mold9InputFileINS0_6X86_64EEEEEclES4_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -6016,10 +6016,10 @@ _ZN4mold3OutINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZN4mold3OutINS_7Co
   store i64 0, ptr %33, align 8, !tbaa !77
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %25) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZN4mold6AtomicIbE12test_and_setEv.exit.thread
+  br label %.thread50
 
-_ZN4mold6AtomicIbE12test_and_setEv.exit.thread:   ; preds = %129, %123, %.thread.thread, %_ZN4mold6AtomicIbE12test_and_setEv.exit, %.thread, %_ZN4mold3OutINS_7ContextINS_6X86_64EEEED2Ev.exit, %_ZNKSt8functionIFvPN4mold9InputFileINS0_6X86_64EEEEEclES4_.exit, %121
-  %200 = add nuw nsw i64 %.058, 1
+.thread50:                                        ; preds = %123, %.thread.thread, %.thread, %_ZN4mold6AtomicIbE12test_and_setEv.exit, %132, %_ZN4mold3OutINS_7ContextINS_6X86_64EEEED2Ev.exit, %_ZNKSt8functionIFvPN4mold9InputFileINS0_6X86_64EEEEEclES4_.exit, %121
+  %200 = add nuw nsw i64 %.061, 1
   %201 = load i64, ptr %14, align 8, !tbaa !321
   %202 = icmp ult i64 %200, %201
   br i1 %202, label %53, label %._crit_edge, !llvm.loop !633

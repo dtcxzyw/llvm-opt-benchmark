@@ -115,151 +115,151 @@ define internal fastcc i32 @do_name_ex(ptr noundef readonly captures(none) %0, p
   %.not116 = icmp eq i64 %25, 0
   %26 = and i64 %4, 16777216
   %.not119 = icmp eq i64 %26, 0
-  br label %27
+  %27 = or i64 %4, 128
+  br label %28
 
-27:                                               ; preds = %.lr.ph, %82
+28:                                               ; preds = %.lr.ph, %82
   %.094148 = phi i32 [ %spec.store.select, %.lr.ph ], [ %83, %82 ]
   %.0100147 = phi i32 [ 0, %.lr.ph ], [ %84, %82 ]
-  %.0101146 = phi i32 [ -1, %.lr.ph ], [ %48, %82 ]
-  %28 = xor i32 %.0100147, -1
-  %29 = add nsw i32 %20, %28
-  %.0100147.sink = select i1 %.not109, i32 %.0100147, i32 %29
-  %30 = call ptr @X509_NAME_get_entry(ptr noundef %2, i32 noundef %.0100147.sink) #10
+  %.0101146 = phi i32 [ -1, %.lr.ph ], [ %49, %82 ]
+  %29 = xor i32 %.0100147, -1
+  %30 = add nsw i32 %20, %29
+  %.0100147.sink = select i1 %.not109, i32 %.0100147, i32 %30
+  %31 = call ptr @X509_NAME_get_entry(ptr noundef %2, i32 noundef %.0100147.sink) #10
   %.not110 = icmp eq i32 %.0101146, -1
-  br i1 %.not110, label %46, label %31
+  br i1 %.not110, label %47, label %32
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !9
-  %34 = icmp eq i32 %.0101146, %33
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !9
+  %35 = icmp eq i32 %.0101146, %34
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %31
-  %36 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.091, i32 noundef %.088) #10, !callees !8
-  %.not113 = icmp eq i32 %36, 0
-  br i1 %.not113, label %.critedge, label %37
+36:                                               ; preds = %32
+  %37 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.091, i32 noundef %.088) #10, !callees !8
+  %.not113 = icmp eq i32 %37, 0
+  br i1 %.not113, label %.critedge, label %38
 
-37:                                               ; preds = %35
-  %38 = add nsw i32 %.094148, %.088
-  br label %46
+38:                                               ; preds = %36
+  %39 = add nsw i32 %.094148, %.088
+  br label %47
 
-39:                                               ; preds = %31
-  %40 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.092, i32 noundef %.089) #10, !callees !8
-  %.not111 = icmp eq i32 %40, 0
-  br i1 %.not111, label %.critedge, label %41
+40:                                               ; preds = %32
+  %41 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.092, i32 noundef %.089) #10, !callees !8
+  %.not111 = icmp eq i32 %41, 0
+  br i1 %.not111, label %.critedge, label %42
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   br i1 %.not140, label %.loopexit142, label %.lr.ph.i123
 
-42:                                               ; preds = %.lr.ph.i123
-  %43 = add nuw nsw i32 %.06.i124, 1
-  %exitcond.not.i126 = icmp eq i32 %43, %.093
+43:                                               ; preds = %.lr.ph.i123
+  %44 = add nuw nsw i32 %.06.i124, 1
+  %exitcond.not.i126 = icmp eq i32 %44, %.093
   br i1 %exitcond.not.i126, label %.loopexit142, label %.lr.ph.i123, !llvm.loop !6
 
-.lr.ph.i123:                                      ; preds = %41, %42
-  %.06.i124 = phi i32 [ %43, %42 ], [ 0, %41 ]
-  %44 = call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef 1) #10, !callees !8
-  %.not.i125 = icmp eq i32 %44, 0
-  br i1 %.not.i125, label %.critedge, label %42
+.lr.ph.i123:                                      ; preds = %42, %43
+  %.06.i124 = phi i32 [ %44, %43 ], [ 0, %42 ]
+  %45 = call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef 1) #10, !callees !8
+  %.not.i125 = icmp eq i32 %45, 0
+  br i1 %.not.i125, label %.critedge, label %43
 
-.loopexit142:                                     ; preds = %42, %41
-  %45 = add i32 %23, %.094148
-  br label %46
+.loopexit142:                                     ; preds = %43, %42
+  %46 = add i32 %23, %.094148
+  br label %47
 
-46:                                               ; preds = %37, %.loopexit142, %27
-  %.195 = phi i32 [ %38, %37 ], [ %45, %.loopexit142 ], [ %.094148, %27 ]
-  %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !9
-  %49 = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %30) #10
-  %50 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %30) #10
-  %51 = call i32 @OBJ_obj2nid(ptr noundef %49) #10
-  br i1 %.not114, label %77, label %52
+47:                                               ; preds = %38, %.loopexit142, %28
+  %.195 = phi i32 [ %39, %38 ], [ %46, %.loopexit142 ], [ %.094148, %28 ]
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %49 = load i32, ptr %48, align 8, !tbaa !9
+  %50 = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %31) #10
+  %51 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %31) #10
+  %52 = call i32 @OBJ_obj2nid(ptr noundef %50) #10
+  br i1 %.not114, label %78, label %53
 
-52:                                               ; preds = %46
-  %53 = icmp eq i32 %51, 0
-  %or.cond = select i1 %24, i1 true, i1 %53
-  br i1 %or.cond, label %54, label %56
+53:                                               ; preds = %47
+  %54 = icmp eq i32 %52, 0
+  %or.cond = select i1 %24, i1 true, i1 %54
+  br i1 %or.cond, label %55, label %57
 
-54:                                               ; preds = %52
-  %55 = call i32 @OBJ_obj2txt(ptr noundef nonnull %6, i32 noundef 80, ptr noundef %49, i32 noundef 1) #10
-  br label %61
+55:                                               ; preds = %53
+  %56 = call i32 @OBJ_obj2txt(ptr noundef nonnull %6, i32 noundef 80, ptr noundef %50, i32 noundef 1) #10
+  br label %62
 
-56:                                               ; preds = %52
-  switch i32 %19, label %61 [
-    i32 0, label %57
-    i32 2097152, label %59
+57:                                               ; preds = %53
+  switch i32 %19, label %62 [
+    i32 0, label %58
+    i32 2097152, label %60
   ]
 
-57:                                               ; preds = %56
-  %58 = call ptr @OBJ_nid2sn(i32 noundef %51) #10
-  br label %61
+58:                                               ; preds = %57
+  %59 = call ptr @OBJ_nid2sn(i32 noundef %52) #10
+  br label %62
 
-59:                                               ; preds = %56
-  %60 = call ptr @OBJ_nid2ln(i32 noundef %51) #10
-  br label %61
+60:                                               ; preds = %57
+  %61 = call ptr @OBJ_nid2ln(i32 noundef %52) #10
+  br label %62
 
-61:                                               ; preds = %56, %57, %59, %54
-  %.098 = phi ptr [ %6, %54 ], [ %58, %57 ], [ %60, %59 ], [ @.str.8, %56 ]
-  %.0 = phi i32 [ 0, %54 ], [ 10, %57 ], [ 25, %59 ], [ 0, %56 ]
-  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.098) #11
-  %63 = trunc i64 %62 to i32
-  %64 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.098, i32 noundef %63) #10, !callees !8
-  %.not115 = icmp eq i32 %64, 0
-  br i1 %.not115, label %.critedge, label %65
+62:                                               ; preds = %57, %58, %60, %55
+  %.098 = phi ptr [ %6, %55 ], [ %59, %58 ], [ %61, %60 ], [ @.str.8, %57 ]
+  %.0 = phi i32 [ 0, %55 ], [ 10, %58 ], [ 25, %60 ], [ 0, %57 ]
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.098) #11
+  %64 = trunc i64 %63 to i32
+  %65 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.098, i32 noundef %64) #10, !callees !8
+  %.not115 = icmp eq i32 %65, 0
+  br i1 %.not115, label %.critedge, label %66
 
-65:                                               ; preds = %61
-  %66 = icmp sle i32 %.0, %63
-  %or.cond120 = or i1 %.not116, %66
-  br i1 %or.cond120, label %72, label %.lr.ph.i129.preheader
+66:                                               ; preds = %62
+  %67 = icmp sle i32 %.0, %64
+  %or.cond120 = or i1 %.not116, %67
+  br i1 %or.cond120, label %73, label %.lr.ph.i129.preheader
 
-.lr.ph.i129.preheader:                            ; preds = %65
-  %67 = sub nsw i32 %.0, %63
+.lr.ph.i129.preheader:                            ; preds = %66
+  %68 = sub nsw i32 %.0, %64
   br label %.lr.ph.i129
 
-68:                                               ; preds = %.lr.ph.i129
-  %69 = add nuw nsw i32 %.06.i130, 1
-  %exitcond.not.i132 = icmp eq i32 %69, %67
+69:                                               ; preds = %.lr.ph.i129
+  %70 = add nuw nsw i32 %.06.i130, 1
+  %exitcond.not.i132 = icmp eq i32 %70, %68
   br i1 %exitcond.not.i132, label %.loopexit, label %.lr.ph.i129, !llvm.loop !6
 
-.lr.ph.i129:                                      ; preds = %.lr.ph.i129.preheader, %68
-  %.06.i130 = phi i32 [ %69, %68 ], [ 0, %.lr.ph.i129.preheader ]
-  %70 = call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef 1) #10, !callees !8
-  %.not.i131 = icmp eq i32 %70, 0
-  br i1 %.not.i131, label %.critedge, label %68
+.lr.ph.i129:                                      ; preds = %.lr.ph.i129.preheader, %69
+  %.06.i130 = phi i32 [ %70, %69 ], [ 0, %.lr.ph.i129.preheader ]
+  %71 = call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef 1) #10, !callees !8
+  %.not.i131 = icmp eq i32 %71, 0
+  br i1 %.not.i131, label %.critedge, label %69
 
-.loopexit:                                        ; preds = %68
-  %71 = add nsw i32 %67, %.195
-  br label %72
+.loopexit:                                        ; preds = %69
+  %72 = add nsw i32 %68, %.195
+  br label %73
 
-72:                                               ; preds = %.loopexit, %65
-  %.4 = phi i32 [ %71, %.loopexit ], [ %.195, %65 ]
-  %73 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.str.7..str.6, i32 noundef %.) #10, !callees !8
-  %.not118 = icmp eq i32 %73, 0
-  br i1 %.not118, label %.critedge, label %74
+73:                                               ; preds = %.loopexit, %66
+  %.4 = phi i32 [ %72, %.loopexit ], [ %.195, %66 ]
+  %74 = call i32 %0(ptr noundef %1, ptr noundef nonnull %.str.7..str.6, i32 noundef %.) #10, !callees !8
+  %.not118 = icmp eq i32 %74, 0
+  br i1 %.not118, label %.critedge, label %75
 
-74:                                               ; preds = %72
-  %75 = add nsw i32 %., %63
-  %76 = add nsw i32 %75, %.4
-  br label %77
+75:                                               ; preds = %73
+  %76 = add nsw i32 %., %64
+  %77 = add nsw i32 %76, %.4
+  br label %78
 
-77:                                               ; preds = %74, %46
-  %.296 = phi i32 [ %76, %74 ], [ %.195, %46 ]
-  %78 = icmp ne i32 %51, 0
-  %or.cond121 = or i1 %.not119, %78
-  %.0102 = select i1 %or.cond121, i64 0, i64 128
-  %79 = or i64 %.0102, %4
-  %80 = call fastcc i32 @do_print_ex(ptr noundef %0, ptr noundef %1, i64 noundef %79, ptr noundef %50)
+78:                                               ; preds = %75, %47
+  %.296 = phi i32 [ %77, %75 ], [ %.195, %47 ]
+  %79 = icmp ne i32 %52, 0
+  %or.cond121 = or i1 %.not119, %79
+  %.0102 = select i1 %or.cond121, i64 %4, i64 %27
+  %80 = call fastcc i32 @do_print_ex(ptr noundef %0, ptr noundef %1, i64 noundef %.0102, ptr noundef %51)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %.critedge, label %82
 
-82:                                               ; preds = %77
+82:                                               ; preds = %78
   %83 = add nsw i32 %80, %.296
   %84 = add nuw nsw i32 %.0100147, 1
   %exitcond.not = icmp eq i32 %84, %20
-  br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge, label %28, !llvm.loop !17
 
-.critedge:                                        ; preds = %.lr.ph.i, %35, %39, %77, %82, %72, %61, %.lr.ph.i123, %.lr.ph.i129, %16, %.loopexit145
-  %.085 = phi i32 [ %spec.store.select, %16 ], [ -1, %61 ], [ -1, %.lr.ph.i123 ], [ -1, %.loopexit145 ], [ -1, %.lr.ph.i129 ], [ -1, %72 ], [ %83, %82 ], [ -1, %39 ], [ -1, %35 ], [ -1, %77 ], [ -1, %.lr.ph.i ]
+.critedge:                                        ; preds = %.lr.ph.i, %36, %40, %78, %82, %73, %62, %.lr.ph.i123, %.lr.ph.i129, %16, %.loopexit145
+  %.085 = phi i32 [ %spec.store.select, %16 ], [ -1, %62 ], [ -1, %.lr.ph.i123 ], [ -1, %.loopexit145 ], [ -1, %.lr.ph.i129 ], [ -1, %73 ], [ %83, %82 ], [ -1, %40 ], [ -1, %36 ], [ -1, %78 ], [ -1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }

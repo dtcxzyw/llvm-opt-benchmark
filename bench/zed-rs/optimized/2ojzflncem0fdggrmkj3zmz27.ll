@@ -12378,8 +12378,8 @@ define hidden void @"_ZN3vim11change_list26_$LT$impl$u20$vim..Vim$GT$14move_to_c
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !2732, !noalias !2735
   store i64 0, ptr %0, align 8, !alias.scope !2732, !noalias !2735
-  %spec.select.i = select i1 %trunc8.i, i64 %19, i64 1
-  %20 = mul i64 %spec.select.i, %..i
+  %20 = select i1 %trunc8.i, i64 %19, i64 1
+  %.sroa.07.0.i = mul i64 %20, %..i
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %22 = load i8, ptr %21, align 8, !range !36, !noalias !2732, !noundef !5
   %23 = trunc nuw i8 %22 to i1
@@ -12398,7 +12398,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread26: ; preds = %15, %30
 30:                                               ; preds = %15
   store i64 1, ptr %7, align 8, !noalias !2732
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %20, ptr %31, align 8, !noalias !2732
+  store i64 %.sroa.07.0.i, ptr %31, align 8, !noalias !2732
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread26
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %3
@@ -12412,7 +12412,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %11, %_ZN3vim
   br label %36
 
 36:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread26, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %37 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %34, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %20, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread26 ]
+  %37 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %34, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread26 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load i64, ptr %38, align 8, !noundef !5
   %40 = icmp eq i64 %39, 0
@@ -15408,8 +15408,8 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i64, ptr %63, align 8, !alias.scope !3008, !noalias !3011
   store i64 0, ptr %0, align 8, !alias.scope !3008, !noalias !3011
-  %spec.select.i = select i1 %trunc8.i, i64 %64, i64 1
-  %65 = mul i64 %spec.select.i, %..i
+  %65 = select i1 %trunc8.i, i64 %64, i64 1
+  %.sroa.07.0.i = mul i64 %65, %..i
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 248
   %67 = load i8, ptr %66, align 8, !range !36, !noalias !3008, !noundef !5
   %68 = trunc nuw i8 %67 to i1
@@ -15428,11 +15428,11 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %51
 76:                                               ; preds = %60
   store i64 1, ptr %47, align 8, !noalias !3008
   %77 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 %65, ptr %77, align 8, !noalias !3008
+  store i64 %.sroa.07.0.i, ptr %77, align 8, !noalias !3008
   br label %69
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %55, %69
-  %.sroa.5.0.i = phi i64 [ %58, %55 ], [ %65, %69 ]
+  %.sroa.5.0.i = phi i64 [ %58, %55 ], [ %.sroa.07.0.i, %69 ]
   %.sroa.0.0.i = phi i1 [ %59, %55 ], [ false, %69 ]
   %78 = icmp ult i64 %.sroa.5.0.i, 2
   %.sroa.01.0 = select i1 %.sroa.0.0.i, i1 true, i1 %78
@@ -16620,8 +16620,8 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load i64, ptr %91, align 8, !alias.scope !3164, !noalias !3167
   store i64 0, ptr %0, align 8, !alias.scope !3164, !noalias !3167
-  %spec.select.i = select i1 %trunc8.i, i64 %92, i64 1
-  %93 = mul i64 %spec.select.i, %..i
+  %93 = select i1 %trunc8.i, i64 %92, i64 1
+  %.sroa.07.0.i = mul i64 %93, %..i
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 248
   %95 = load i8, ptr %94, align 8, !range !36, !noalias !3164, !noundef !5
   %96 = trunc nuw i8 %95 to i1
@@ -16643,11 +16643,11 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
 104:                                              ; preds = %88
   store i64 1, ptr %76, align 8, !noalias !3164
   %105 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %93, ptr %105, align 8, !noalias !3164
+  store i64 %.sroa.07.0.i, ptr %105, align 8, !noalias !3164
   br label %97
 
 106:                                              ; preds = %84, %80, %.noexc16
-  %.sroa.5.0.i = phi i64 [ %87, %84 ], [ undef, %80 ], [ %93, %.noexc16 ]
+  %.sroa.5.0.i = phi i64 [ %87, %84 ], [ undef, %80 ], [ %.sroa.07.0.i, %.noexc16 ]
   %.sroa.0.0.i = phi i64 [ %85, %84 ], [ 0, %80 ], [ 1, %.noexc16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZN3vim3Vim15active_operator17hf03cc95387d9469aE.llvm.16422900337870965792(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(536) %0)
@@ -18498,8 +18498,8 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %3, %10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !3400, !noalias !3403
   store i64 0, ptr %0, align 8, !alias.scope !3400, !noalias !3403
-  %spec.select.i = select i1 %trunc8.i, i64 %28, i64 1
-  %29 = mul i64 %spec.select.i, %..i
+  %29 = select i1 %trunc8.i, i64 %28, i64 1
+  %.sroa.07.0.i = mul i64 %29, %..i
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 248
   %31 = load i8, ptr %30, align 8, !range !36, !noalias !3400, !noundef !5
   %32 = trunc nuw i8 %31 to i1
@@ -18518,7 +18518,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3: ; preds = %24, %39
 39:                                               ; preds = %24
   store i64 1, ptr %16, align 8, !noalias !3400
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %29, ptr %40, align 8, !noalias !3400
+  store i64 %.sroa.07.0.i, ptr %40, align 8, !noalias !3400
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
@@ -18532,7 +18532,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %20, %_ZN3vim
   br label %45
 
 45:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %46 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %43, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %29, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ]
+  %46 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %43, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ]
   store i64 %46, ptr %4, align 8
   %47 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17hc7b0319b154ab471E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @_ZN3vim3Vim11switch_mode17h8534c9c1cc70cf9fE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, i8 noundef 0, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -19402,8 +19402,8 @@ define hidden void @"_ZN3vim6normal6repeat26_$LT$impl$u20$vim..Vim$GT$15replay_r
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !3562, !noalias !3565
   store i64 0, ptr %0, align 8, !alias.scope !3562, !noalias !3565
-  %spec.select.i = select i1 %trunc8.i, i64 %21, i64 1
-  %22 = mul i64 %spec.select.i, %..i
+  %22 = select i1 %trunc8.i, i64 %21, i64 1
+  %.sroa.07.0.i = mul i64 %22, %..i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %24 = load i8, ptr %23, align 8, !range !36, !noalias !3562, !noundef !5
   %25 = trunc nuw i8 %24 to i1
@@ -19422,7 +19422,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread19: ; preds = %17, %32
 32:                                               ; preds = %17
   store i64 1, ptr %9, align 8, !noalias !3562
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %22, ptr %33, align 8, !noalias !3562
+  store i64 %.sroa.07.0.i, ptr %33, align 8, !noalias !3562
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread19
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %3
@@ -19436,7 +19436,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %13, %_ZN3vim
   br label %38
 
 38:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread19, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %39 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %36, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %22, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread19 ]
+  %39 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %36, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread19 ]
   tail call void @_ZN3vim3Vim14clear_operator17hba1ad319f81c7089E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %40 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %41 = tail call noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
@@ -19718,8 +19718,8 @@ define hidden void @"_ZN3vim6normal6repeat26_$LT$impl$u20$vim..Vim$GT$6repeat17h
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8, !alias.scope !3605, !noalias !3608
   store i64 0, ptr %0, align 8, !alias.scope !3605, !noalias !3608
-  %spec.select.i = select i1 %trunc8.i, i64 %50, i64 1
-  %51 = mul i64 %spec.select.i, %..i
+  %51 = select i1 %trunc8.i, i64 %50, i64 1
+  %.sroa.07.0.i = mul i64 %51, %..i
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 248
   %53 = load i8, ptr %52, align 8, !range !36, !noalias !3605, !noundef !5
   %54 = trunc nuw i8 %53 to i1
@@ -19738,11 +19738,11 @@ define hidden void @"_ZN3vim6normal6repeat26_$LT$impl$u20$vim..Vim$GT$6repeat17h
 62:                                               ; preds = %46
   store i64 1, ptr %34, align 8, !noalias !3605
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 %51, ptr %63, align 8, !noalias !3605
+  store i64 %.sroa.07.0.i, ptr %63, align 8, !noalias !3605
   br label %55
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %38, %42, %55
-  %.sroa.5.0.i = phi i64 [ %45, %42 ], [ %51, %55 ], [ undef, %38 ]
+  %.sroa.5.0.i = phi i64 [ %45, %42 ], [ %.sroa.07.0.i, %55 ], [ undef, %38 ]
   %.sroa.0.0.i = phi i64 [ %43, %42 ], [ 1, %55 ], [ 0, %38 ]
   store i64 %.sroa.0.0.i, ptr %32, align 8
   %64 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -21087,8 +21087,8 @@ define hidden void @"_ZN3vim6normal6scroll26_$LT$impl$u20$vim..Vim$GT$6scroll17h
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !3867, !noalias !3870
   store i64 0, ptr %0, align 8, !alias.scope !3867, !noalias !3870
-  %spec.select.i = select i1 %trunc8.i, i64 %21, i64 1
-  %22 = mul i64 %spec.select.i, %..i
+  %22 = select i1 %trunc8.i, i64 %21, i64 1
+  %.sroa.07.0.i = mul i64 %22, %..i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %24 = load i8, ptr %23, align 8, !range !36, !noalias !3867, !noundef !5
   %25 = trunc nuw i8 %24 to i1
@@ -21102,13 +21102,13 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread6: ; preds = %17, %33
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4, !noundef !5
   tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %29, i32 noundef %31)
-  %32 = uitofp i64 %22 to float
+  %32 = uitofp i64 %.sroa.07.0.i to float
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
 
 33:                                               ; preds = %17
   store i64 1, ptr %9, align 8, !noalias !3867
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %22, ptr %34, align 8, !noalias !3867
+  store i64 %.sroa.07.0.i, ptr %34, align 8, !noalias !3867
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread6
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %4
@@ -21391,8 +21391,8 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8, !alias.scope !3992, !noalias !3995
   store i64 0, ptr %0, align 8, !alias.scope !3992, !noalias !3995
-  %spec.select.i = select i1 %trunc8.i, i64 %34, i64 1
-  %35 = mul i64 %spec.select.i, %..i
+  %35 = select i1 %trunc8.i, i64 %34, i64 1
+  %.sroa.07.0.i = mul i64 %35, %..i
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 248
   %37 = load i8, ptr %36, align 8, !range !36, !noalias !3992, !noundef !5
   %38 = trunc nuw i8 %37 to i1
@@ -21414,7 +21414,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
 46:                                               ; preds = %30
   store i64 1, ptr %22, align 8, !noalias !3992
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %35, ptr %47, align 8, !noalias !3992
+  store i64 %.sroa.07.0.i, ptr %47, align 8, !noalias !3992
   br label %39
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17h511c5bf51677ee97E.llvm.16422900337870965792.exit": ; preds = %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit, %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit.thread
@@ -21438,7 +21438,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   br label %.thread15
 
 .thread15:                                        ; preds = %.noexc5, %50, %.thread
-  %55 = phi i64 [ 1, %.thread ], [ %53, %50 ], [ %35, %.noexc5 ]
+  %55 = phi i64 [ 1, %.thread ], [ %53, %50 ], [ %.sroa.07.0.i, %.noexc5 ]
   store i64 %55, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4002
   invoke void @_ZN3vim3Vim13update_editor17h005d2d6ec0ba750cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -21969,8 +21969,8 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !4071, !noalias !4074
   store i64 0, ptr %0, align 8, !alias.scope !4071, !noalias !4074
-  %spec.select.i = select i1 %trunc8.i, i64 %35, i64 1
-  %36 = mul i64 %spec.select.i, %..i
+  %36 = select i1 %trunc8.i, i64 %35, i64 1
+  %.sroa.07.0.i = mul i64 %36, %..i
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 248
   %38 = load i8, ptr %37, align 8, !range !36, !noalias !4071, !noundef !5
   %39 = trunc nuw i8 %38 to i1
@@ -21992,7 +21992,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
 47:                                               ; preds = %31
   store i64 1, ptr %23, align 8, !noalias !4071
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %36, ptr %48, align 8, !noalias !4071
+  store i64 %.sroa.07.0.i, ptr %48, align 8, !noalias !4071
   br label %40
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17h511c5bf51677ee97E.llvm.16422900337870965792.exit": ; preds = %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit, %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit.thread
@@ -22020,7 +22020,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   br label %.thread30
 
 .thread30:                                        ; preds = %.noexc5, %51, %.thread
-  %56 = phi i64 [ 1, %.thread ], [ %54, %51 ], [ %36, %.noexc5 ]
+  %56 = phi i64 [ 1, %.thread ], [ %54, %51 ], [ %.sroa.07.0.i, %.noexc5 ]
   store i64 %56, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4081
   invoke void @_ZN3vim3Vim13update_editor17h005d2d6ec0ba750cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -22264,8 +22264,8 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !alias.scope !4124, !noalias !4127
   store i64 0, ptr %0, align 8, !alias.scope !4124, !noalias !4127
-  %spec.select.i = select i1 %trunc8.i, i64 %44, i64 1
-  %45 = mul i64 %spec.select.i, %..i
+  %45 = select i1 %trunc8.i, i64 %44, i64 1
+  %.sroa.07.0.i = mul i64 %45, %..i
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 248
   %47 = load i8, ptr %46, align 8, !range !36, !noalias !4124, !noundef !5
   %48 = trunc nuw i8 %47 to i1
@@ -22287,7 +22287,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
 56:                                               ; preds = %40
   store i64 1, ptr %32, align 8, !noalias !4124
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %45, ptr %57, align 8, !noalias !4124
+  store i64 %.sroa.07.0.i, ptr %57, align 8, !noalias !4124
   br label %49
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17h511c5bf51677ee97E.llvm.16422900337870965792.exit": ; preds = %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit, %_ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit.thread
@@ -22315,7 +22315,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   br label %.thread15
 
 .thread15:                                        ; preds = %.noexc5, %60, %.thread
-  %65 = phi i64 [ 1, %.thread ], [ %63, %60 ], [ %45, %.noexc5 ]
+  %65 = phi i64 [ 1, %.thread ], [ %63, %60 ], [ %.sroa.07.0.i, %.noexc5 ]
   store i64 %65, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4134
   invoke void @_ZN3vim3Vim13update_editor17h005d2d6ec0ba750cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
@@ -25509,8 +25509,8 @@ define hidden void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$9yank_line17h2df8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !4735, !noalias !4738
   store i64 0, ptr %0, align 8, !alias.scope !4735, !noalias !4738
-  %spec.select.i = select i1 %trunc8.i, i64 %23, i64 1
-  %24 = mul i64 %spec.select.i, %..i
+  %24 = select i1 %trunc8.i, i64 %23, i64 1
+  %.sroa.07.0.i = mul i64 %24, %..i
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %26 = load i8, ptr %25, align 8, !range !36, !noalias !4735, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -25529,11 +25529,11 @@ define hidden void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$9yank_line17h2df8
 35:                                               ; preds = %19
   store i64 1, ptr %7, align 8, !noalias !4735
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %24, ptr %36, align 8, !noalias !4735
+  store i64 %.sroa.07.0.i, ptr %36, align 8, !noalias !4735
   br label %28
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %11, %15, %28
-  %.sroa.5.0.i = phi i64 [ %18, %15 ], [ %24, %28 ], [ undef, %11 ]
+  %.sroa.5.0.i = phi i64 [ %18, %15 ], [ %.sroa.07.0.i, %28 ], [ undef, %11 ]
   %.sroa.0.0.i = phi i64 [ %16, %15 ], [ 1, %28 ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 15, ptr %5, align 8
@@ -25646,8 +25646,8 @@ define internal fastcc void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$14normal
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !4760, !noalias !4763
   store i64 0, ptr %0, align 8, !alias.scope !4760, !noalias !4763
-  %spec.select.i = select i1 %trunc8.i, i64 %22, i64 1
-  %23 = mul i64 %spec.select.i, %..i
+  %23 = select i1 %trunc8.i, i64 %22, i64 1
+  %.sroa.07.0.i = mul i64 %23, %..i
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %25 = load i8, ptr %24, align 8, !range !36, !noalias !4760, !noundef !5
   %26 = trunc nuw i8 %25 to i1
@@ -25669,7 +25669,7 @@ define internal fastcc void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$14normal
 34:                                               ; preds = %18
   store i64 1, ptr %10, align 8, !noalias !4760
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %23, ptr %35, align 8, !noalias !4760
+  store i64 %.sroa.07.0.i, ptr %35, align 8, !noalias !4760
   br label %27
 
 36:                                               ; preds = %62, %.noexc7, %.thread14, %.noexc4, %27, %.noexc, %4, %56, %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit
@@ -25698,7 +25698,7 @@ define internal fastcc void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$14normal
   br label %.thread14
 
 .thread14:                                        ; preds = %.noexc4, %42, %.thread
-  %47 = phi i64 [ 1, %.thread ], [ %45, %42 ], [ %23, %.noexc4 ]
+  %47 = phi i64 [ 1, %.thread ], [ %45, %42 ], [ %.sroa.07.0.i, %.noexc4 ]
   store i64 %47, ptr %6, align 8
   %48 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc7 unwind label %36
@@ -30488,8 +30488,8 @@ _ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit: 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8, !alias.scope !6177, !noalias !6180
   store i64 0, ptr %0, align 8, !alias.scope !6177, !noalias !6180
-  %spec.select.i = select i1 %trunc8.i, i64 %40, i64 1
-  %41 = mul i64 %spec.select.i, %..i
+  %41 = select i1 %trunc8.i, i64 %40, i64 1
+  %.sroa.07.0.i = mul i64 %41, %..i
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 248
   %43 = load i8, ptr %42, align 8, !range !36, !noalias !6177, !noundef !5
   %44 = trunc nuw i8 %43 to i1
@@ -30511,11 +30511,11 @@ _ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit: 
 52:                                               ; preds = %36
   store i64 1, ptr %24, align 8, !noalias !6177
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %41, ptr %53, align 8, !noalias !6177
+  store i64 %.sroa.07.0.i, ptr %53, align 8, !noalias !6177
   br label %45
 
 54:                                               ; preds = %32, %28, %.noexc6
-  %.sroa.5.0.i = phi i64 [ %35, %32 ], [ undef, %28 ], [ %41, %.noexc6 ]
+  %.sroa.5.0.i = phi i64 [ %35, %32 ], [ undef, %28 ], [ %.sroa.07.0.i, %.noexc6 ]
   %.sroa.0.0.i = phi i64 [ %33, %32 ], [ 0, %28 ], [ 1, %.noexc6 ]
   store i64 %.sroa.0.0.i, ptr %8, align 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -31437,8 +31437,8 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$11select_next17h4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !6363, !noalias !6366
   store i64 0, ptr %0, align 8, !alias.scope !6363, !noalias !6366
-  %spec.select.i = select i1 %trunc8.i, i64 %18, i64 1
-  %19 = mul i64 %spec.select.i, %..i
+  %19 = select i1 %trunc8.i, i64 %18, i64 1
+  %.sroa.07.0.i = mul i64 %19, %..i
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %21 = load i8, ptr %20, align 8, !range !36, !noalias !6363, !noundef !5
   %22 = trunc nuw i8 %21 to i1
@@ -31457,7 +31457,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3: ; preds = %14, %29
 29:                                               ; preds = %14
   store i64 1, ptr %6, align 8, !noalias !6363
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %19, ptr %30, align 8, !noalias !6363
+  store i64 %.sroa.07.0.i, ptr %30, align 8, !noalias !6363
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %3
@@ -31475,7 +31475,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %10, %_ZN3vim
   br label %37
 
 37:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %.sink = phi i64 [ %33, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %19, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ], [ %., %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ]
+  %.sink = phi i64 [ %33, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ], [ %., %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ]
   store i64 %.sink, ptr %4, align 8
   %38 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h89cbbb882a1b16f2E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -31512,8 +31512,8 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$15select_previous
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !6376, !noalias !6379
   store i64 0, ptr %0, align 8, !alias.scope !6376, !noalias !6379
-  %spec.select.i = select i1 %trunc8.i, i64 %18, i64 1
-  %19 = mul i64 %spec.select.i, %..i
+  %19 = select i1 %trunc8.i, i64 %18, i64 1
+  %.sroa.07.0.i = mul i64 %19, %..i
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %21 = load i8, ptr %20, align 8, !range !36, !noalias !6376, !noundef !5
   %22 = trunc nuw i8 %21 to i1
@@ -31532,7 +31532,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3: ; preds = %14, %29
 29:                                               ; preds = %14
   store i64 1, ptr %6, align 8, !noalias !6376
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %19, ptr %30, align 8, !noalias !6376
+  store i64 %.sroa.07.0.i, ptr %30, align 8, !noalias !6376
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %3
@@ -31550,7 +31550,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %10, %_ZN3vim
   br label %37
 
 37:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %.sink = phi i64 [ %33, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %19, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ], [ %., %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ]
+  %.sink = phi i64 [ %33, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread3 ], [ %., %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ]
   store i64 %.sink, ptr %4, align 8
   %38 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h2a9fe90292eadd4cE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -31608,8 +31608,8 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$12select_match17h
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8, !alias.scope !6389, !noalias !6392
   store i64 0, ptr %0, align 8, !alias.scope !6389, !noalias !6392
-  %spec.select.i = select i1 %trunc8.i, i64 %38, i64 1
-  %39 = mul i64 %spec.select.i, %..i
+  %39 = select i1 %trunc8.i, i64 %38, i64 1
+  %.sroa.07.0.i = mul i64 %39, %..i
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %41 = load i8, ptr %40, align 8, !range !36, !noalias !6389, !noundef !5
   %42 = trunc nuw i8 %41 to i1
@@ -31628,7 +31628,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread50: ; preds = %34, %49
 49:                                               ; preds = %34
   store i64 1, ptr %26, align 8, !noalias !6389
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %39, ptr %50, align 8, !noalias !6389
+  store i64 %.sroa.07.0.i, ptr %50, align 8, !noalias !6389
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread50
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %3
@@ -31642,7 +31642,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %30, %_ZN3vim
   br label %55
 
 55:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread50, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
-  %56 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %53, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %39, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread50 ]
+  %56 = phi i64 [ 1, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread ], [ %53, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit ], [ %.sroa.07.0.i, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread50 ]
   store i64 %56, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -34327,12 +34327,12 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %78, %66, %60, %45
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
 
 85:                                               ; preds = %70
-  %spec.select.i = select i1 %trunc8.i, i64 %74, i64 1
+  %86 = select i1 %trunc8.i, i64 %74, i64 1
   %..i = select i1 %trunc.i, i64 %72, i64 1
-  %86 = mul i64 %spec.select.i, %..i
+  %.sroa.07.0.i = mul i64 %86, %..i
   store i64 1, ptr %62, align 8, !noalias !6726
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 %86, ptr %87, align 8, !noalias !6726
+  store i64 %.sroa.07.0.i, ptr %87, align 8, !noalias !6726
   br label %78
 
 88:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
@@ -34415,8 +34415,8 @@ define hidden { i64, i64 } @_ZN3vim3Vim10take_count17h6898fe041cab8e11E(ptr noal
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 0, ptr %0, align 8
-  %spec.select = select i1 %trunc8, i64 %20, i64 1
-  %21 = mul i64 %spec.select, %.
+  %21 = select i1 %trunc8, i64 %20, i64 1
+  %.sroa.07.0 = mul i64 %21, %.
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %23 = load i8, ptr %22, align 8, !range !36, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -34435,11 +34435,11 @@ define hidden { i64, i64 } @_ZN3vim3Vim10take_count17h6898fe041cab8e11E(ptr noal
 32:                                               ; preds = %16
   store i64 1, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %21, ptr %33, align 8
+  store i64 %.sroa.07.0, ptr %33, align 8
   br label %25
 
 34:                                               ; preds = %8, %12, %25
-  %.sroa.5.0 = phi i64 [ %15, %12 ], [ %21, %25 ], [ undef, %8 ]
+  %.sroa.5.0 = phi i64 [ %15, %12 ], [ %.sroa.07.0, %25 ], [ undef, %8 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ 1, %25 ], [ 0, %8 ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.5.0, 1
@@ -35645,12 +35645,12 @@ define hidden void @_ZN3vim3Vim14clear_operator17hba1ad319f81c7089E(ptr noalias 
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
 
 27:                                               ; preds = %12
-  %spec.select.i = select i1 %trunc8.i, i64 %16, i64 1
+  %28 = select i1 %trunc8.i, i64 %16, i64 1
   %..i = select i1 %trunc.i, i64 %14, i64 1
-  %28 = mul i64 %spec.select.i, %..i
+  %.sroa.07.0.i = mul i64 %28, %..i
   store i64 1, ptr %4, align 8, !noalias !6874
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %28, ptr %29, align 8, !noalias !6874
+  store i64 %.sroa.07.0.i, ptr %29, align 8, !noalias !6874
   br label %20
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %2, %8, %20

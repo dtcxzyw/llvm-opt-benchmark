@@ -2583,12 +2583,12 @@ define internal fastcc range(i32 -1, 2073) i32 @_set_shared_task_bits(i32 nounde
 
 _get_task_cnt_node.exit.loopexit:                 ; preds = %.lr.ph.i
   %39 = zext i32 %38 to i64
+  %40 = mul i64 %32, %39
   br label %_get_task_cnt_node.exit
 
 _get_task_cnt_node.exit:                          ; preds = %_get_task_cnt_node.exit.loopexit, %.preheader.i
-  %.09.i = phi i64 [ 0, %.preheader.i ], [ %39, %_get_task_cnt_node.exit.loopexit ]
-  %40 = mul i64 %32, %.09.i
-  store i64 %40, ptr %11, align 8
+  %.09.i = phi i64 [ 0, %.preheader.i ], [ %40, %_get_task_cnt_node.exit.loopexit ]
+  store i64 %.09.i, ptr %11, align 8
   br i1 %4, label %41, label %43
 
 41:                                               ; preds = %_get_task_cnt_node.exit

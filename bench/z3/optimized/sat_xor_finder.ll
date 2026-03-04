@@ -1724,19 +1724,22 @@ define hidden noundef zeroext i1 @_ZN3sat10xor_finder11extract_xorEbRNS_6clauseE
   %26 = zext i1 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.04170, i64 4
   %.not = icmp eq ptr %27, %9
-  br i1 %.not, label %._crit_edge, label %15
+  br i1 %.not, label %._crit_edge.loopexit, label %15
 
-._crit_edge:                                      ; preds = %22, %4
-  %.037.lcssa = phi i1 [ false, %4 ], [ %25, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !38
-  %30 = icmp eq i32 %7, %29
-  %31 = xor i1 %1, %.037.lcssa
-  %or.cond = select i1 %30, i1 %31, i1 false
+._crit_edge.loopexit:                             ; preds = %22
+  %28 = xor i1 %1, %25
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.037.lcssa = phi i1 [ %1, %4 ], [ %28, %._crit_edge.loopexit ]
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !38
+  %31 = icmp eq i32 %7, %30
+  %or.cond = select i1 %31, i1 %.037.lcssa, i1 false
   br i1 %or.cond, label %_ZN3sat10xor_finder19update_combinationsERNS_6clauseEbj.exit, label %32
 
 32:                                               ; preds = %._crit_edge
-  br i1 %30, label %33, label %53
+  br i1 %31, label %33, label %53
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1786,7 +1789,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE9push_backEOS2_.exit: ; preds = %37, %43
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
 _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %53, %56
-  %58 = load i32, ptr %28, align 4, !tbaa !38
+  %58 = load i32, ptr %29, align 4, !tbaa !38
   %.not85 = icmp eq i32 %58, 0
   br i1 %.not85, label %._crit_edge74, label %.lr.ph73
 
@@ -1816,13 +1819,13 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %53, %56
   %70 = getelementptr inbounds nuw %"class.sat::literal", ptr %60, i64 %indvars.iv
   store i32 -2, ptr %70, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = load i32, ptr %28, align 4, !tbaa !38
+  %71 = load i32, ptr %29, align 4, !tbaa !38
   %72 = zext i32 %71 to i64
   %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %69, label %._crit_edge74, !llvm.loop !95
 
 .preheader.loopexit:                              ; preds = %76
-  %.pre = load i32, ptr %28, align 4, !tbaa !38
+  %.pre = load i32, ptr %29, align 4, !tbaa !38
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %._crit_edge74
@@ -1990,7 +1993,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %140, %146
   store i32 %152, ptr %151, align 4, !tbaa !10
   %153 = add i32 %148, 1
   store i32 %153, ptr %149, align 4, !tbaa !10
-  %.pre95 = load i32, ptr %28, align 4, !tbaa !38
+  %.pre95 = load i32, ptr %29, align 4, !tbaa !38
   br label %160
 
 154:                                              ; preds = %131

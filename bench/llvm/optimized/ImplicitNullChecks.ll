@@ -897,8 +897,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i: ; preds
   %156 = getelementptr inbounds nuw i8, ptr %.068.i, i64 56
   %157 = getelementptr inbounds nuw i8, ptr %.068.i, i64 48
   %.sroa.059.095.i = load ptr, ptr %156, align 8, !tbaa !350
-  %.not105.i = icmp eq ptr %.sroa.059.095.i, %157
-  br i1 %.not105.i, label %.thread.i, label %.lr.ph97.i
+  %.not99.i = icmp eq ptr %.sroa.059.095.i, %157
+  br i1 %.not99.i, label %.thread.i, label %.lr.ph97.i
 
 .lr.ph97.i:                                       ; preds = %.critedge46.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i
   %.sroa.059.096.i = phi ptr [ %.sroa.059.0.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ], [ %.sroa.059.095.i, %.critedge46.i ]
@@ -1687,8 +1687,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.059.096.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %.sroa.059.096.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i ], [ %467, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i ]
   %471 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %.sroa.059.0.i = load ptr, ptr %471, align 8, !tbaa !350
-  %.not106.i = icmp eq ptr %.sroa.059.0.i, %157
-  br i1 %.not106.i, label %.thread.i, label %.lr.ph97.i
+  %.not100.i = icmp eq ptr %.sroa.059.0.i, %157
+  br i1 %.not100.i, label %.thread.i, label %.lr.ph97.i
 
 .thread.i:                                        ; preds = %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.thread71.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %164, %_ZN12_GLOBAL__N_118ImplicitNullChecks12canHoistInstEPN4llvm12MachineInstrENS1_8ArrayRefIS3_EEPNS1_17MachineBasicBlockERS3_.exit, %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit, %.critedge46.i
   %472 = load ptr, ptr %18, align 8, !tbaa !25

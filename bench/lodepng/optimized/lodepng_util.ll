@@ -5375,202 +5375,202 @@ _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i:       ; preds = %45, %42, %39, %36, 
   br label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
 
 _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i:     ; preds = %83, %80, %77, %74, %71, %68, %65, %62, %59, %53, %50, %47, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
-  %84 = phi i1 [ true, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ false, %47 ], [ true, %50 ], [ false, %53 ], [ false, %59 ], [ false, %65 ], [ false, %71 ], [ true, %83 ], [ false, %62 ], [ false, %68 ], [ false, %74 ], [ false, %80 ], [ false, %77 ]
+  %or.cond.i = phi i1 [ %46, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ false, %47 ], [ %46, %50 ], [ false, %53 ], [ false, %59 ], [ false, %65 ], [ false, %71 ], [ %46, %83 ], [ false, %62 ], [ false, %68 ], [ false, %74 ], [ false, %80 ], [ false, %77 ]
   %.0.i79.i = phi i32 [ 1, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ 0, %47 ], [ 1, %50 ], [ 0, %53 ], [ 0, %59 ], [ 0, %65 ], [ 0, %71 ], [ 1, %83 ], [ 0, %62 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %77 ]
-  %.not58.i = icmp eq i32 %.0.i.i, %.0.i79.i
-  br i1 %.not58.i, label %85, label %.loopexit
+  %.not58.i = icmp ne i32 %.0.i.i, %.0.i79.i
+  %brmerge.i = or i1 %or.cond.i, %.not58.i
+  br i1 %brmerge.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %84
 
-85:                                               ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
-  %or.cond.i = and i1 %46, %84
-  br i1 %or.cond.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %86
-
-86:                                               ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 460
+84:                                               ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 460
+  %86 = load i32, ptr %85, align 4, !tbaa !71
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 460
   %88 = load i32, ptr %87, align 4, !tbaa !71
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 460
-  %90 = load i32, ptr %89, align 4, !tbaa !71
-  %.not59.i = icmp eq i32 %88, %90
-  br i1 %.not59.i, label %91, label %.loopexit
+  %.not59.i = icmp eq i32 %86, %88
+  br i1 %.not59.i, label %89, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-91:                                               ; preds = %86
-  %.not60.i = icmp eq i32 %88, 0
-  br i1 %.not60.i, label %109, label %92
+89:                                               ; preds = %84
+  %.not60.i = icmp eq i32 %86, 0
+  br i1 %.not60.i, label %107, label %90
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 480
+90:                                               ; preds = %89
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 480
+  %92 = load i32, ptr %91, align 8, !tbaa !73
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 480
   %94 = load i32, ptr %93, align 8, !tbaa !73
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 480
-  %96 = load i32, ptr %95, align 8, !tbaa !73
-  %.not76.i = icmp eq i32 %94, %96
-  br i1 %.not76.i, label %.preheader.i, label %.loopexit
+  %.not76.i = icmp eq i32 %92, %94
+  br i1 %.not76.i, label %.preheader.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-.preheader.i:                                     ; preds = %92
-  %97 = zext i32 %94 to i64
-  %.not95.i = icmp eq i32 %94, 0
-  br i1 %.not95.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %.lr.ph.i
+.preheader.i:                                     ; preds = %90
+  %95 = zext i32 %92 to i64
+  %.not95.i = icmp eq i32 %92, 0
+  br i1 %.not95.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 472
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 472
+  %97 = load ptr, ptr %96, align 8, !tbaa !72
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 472
   %99 = load ptr, ptr %98, align 8, !tbaa !72
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 472
-  %101 = load ptr, ptr %100, align 8, !tbaa !72
-  br label %104
+  br label %102
 
-102:                                              ; preds = %104
-  %103 = add nuw nsw i64 %.05092.i, 1
-  %exitcond.not.i = icmp eq i64 %103, %97
-  br i1 %exitcond.not.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %104, !llvm.loop !135
+100:                                              ; preds = %102
+  %101 = add nuw nsw i64 %.05092.i, 1
+  %exitcond.not.i = icmp eq i64 %101, %95
+  br i1 %exitcond.not.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36, label %102, !llvm.loop !135
 
-104:                                              ; preds = %102, %.lr.ph.i
-  %.05092.i = phi i64 [ 0, %.lr.ph.i ], [ %103, %102 ]
+102:                                              ; preds = %100, %.lr.ph.i
+  %.05092.i = phi i64 [ 0, %.lr.ph.i ], [ %101, %100 ]
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 %.05092.i
+  %104 = load i8, ptr %103, align 1, !tbaa !18
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 %.05092.i
   %106 = load i8, ptr %105, align 1, !tbaa !18
-  %107 = getelementptr inbounds nuw i8, ptr %101, i64 %.05092.i
-  %108 = load i8, ptr %107, align 1, !tbaa !18
-  %.not77.i = icmp eq i8 %106, %108
-  br i1 %.not77.i, label %102, label %.loopexit
+  %.not77.i = icmp eq i8 %104, %106
+  br i1 %.not77.i, label %100, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-109:                                              ; preds = %91
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 452
+107:                                              ; preds = %89
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 452
+  %109 = load i32, ptr %108, align 4, !tbaa !100
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 452
   %111 = load i32, ptr %110, align 4, !tbaa !100
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 452
-  %113 = load i32, ptr %112, align 4, !tbaa !100
-  %.not61.i = icmp eq i32 %111, %113
-  br i1 %.not61.i, label %114, label %.loopexit
+  %.not61.i = icmp eq i32 %109, %111
+  br i1 %.not61.i, label %112, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-114:                                              ; preds = %109
-  %.not62.i = icmp eq i32 %111, 0
-  br i1 %.not62.i, label %115, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit
+112:                                              ; preds = %107
+  %.not62.i = icmp eq i32 %109, 0
+  br i1 %.not62.i, label %113, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %5, i64 408
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 408
+  %115 = load i32, ptr %114, align 8, !tbaa !99
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %117 = load i32, ptr %116, align 8, !tbaa !99
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %119 = load i32, ptr %118, align 8, !tbaa !99
-  %.not63.i = icmp eq i32 %117, %119
-  br i1 %.not63.i, label %120, label %.loopexit
+  %.not63.i = icmp eq i32 %115, %117
+  br i1 %.not63.i, label %118, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-120:                                              ; preds = %115
-  %.not64.i = icmp eq i32 %117, 0
-  br i1 %.not64.i, label %126, label %121
+118:                                              ; preds = %113
+  %.not64.i = icmp eq i32 %115, 0
+  br i1 %.not64.i, label %124, label %119
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 412
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 412
+  %121 = load i32, ptr %120, align 4, !tbaa !101
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 412
   %123 = load i32, ptr %122, align 4, !tbaa !101
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 412
-  %125 = load i32, ptr %124, align 4, !tbaa !101
-  %.not65.i = icmp eq i32 %123, %125
-  br i1 %.not65.i, label %126, label %.loopexit
+  %.not65.i = icmp eq i32 %121, %123
+  br i1 %.not65.i, label %124, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-126:                                              ; preds = %121, %120
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 416
+124:                                              ; preds = %119, %118
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  %126 = load i32, ptr %125, align 8, !tbaa !126
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %128 = load i32, ptr %127, align 8, !tbaa !126
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 416
-  %130 = load i32, ptr %129, align 8, !tbaa !126
-  %.not66.i = icmp eq i32 %128, %130
-  br i1 %.not66.i, label %131, label %.loopexit
+  %.not66.i = icmp eq i32 %126, %128
+  br i1 %.not66.i, label %129, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-131:                                              ; preds = %126
-  %.not67.i = icmp eq i32 %128, 0
-  br i1 %.not67.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %132
+129:                                              ; preds = %124
+  %.not67.i = icmp eq i32 %126, 0
+  br i1 %.not67.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36, label %130
 
-132:                                              ; preds = %131
-  %133 = getelementptr inbounds nuw i8, ptr %5, i64 420
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 420
+  %132 = load i32, ptr %131, align 4, !tbaa !127
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 420
   %134 = load i32, ptr %133, align 4, !tbaa !127
-  %135 = getelementptr inbounds nuw i8, ptr %4, i64 420
-  %136 = load i32, ptr %135, align 4, !tbaa !127
-  %.not68.i = icmp eq i32 %134, %136
-  br i1 %.not68.i, label %137, label %.loopexit
+  %.not68.i = icmp eq i32 %132, %134
+  br i1 %.not68.i, label %135, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-137:                                              ; preds = %132
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 424
+135:                                              ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 424
+  %137 = load i32, ptr %136, align 8, !tbaa !128
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %139 = load i32, ptr %138, align 8, !tbaa !128
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 424
-  %141 = load i32, ptr %140, align 8, !tbaa !128
-  %.not69.i = icmp eq i32 %139, %141
-  br i1 %.not69.i, label %142, label %.loopexit
+  %.not69.i = icmp eq i32 %137, %139
+  br i1 %.not69.i, label %140, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 428
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 428
+  %142 = load i32, ptr %141, align 4, !tbaa !129
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 428
   %144 = load i32, ptr %143, align 4, !tbaa !129
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 428
-  %146 = load i32, ptr %145, align 4, !tbaa !129
-  %.not70.i = icmp eq i32 %144, %146
-  br i1 %.not70.i, label %147, label %.loopexit
+  %.not70.i = icmp eq i32 %142, %144
+  br i1 %.not70.i, label %145, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 432
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  %147 = load i32, ptr %146, align 8, !tbaa !130
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %149 = load i32, ptr %148, align 8, !tbaa !130
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 432
-  %151 = load i32, ptr %150, align 8, !tbaa !130
-  %.not71.i = icmp eq i32 %149, %151
-  br i1 %.not71.i, label %152, label %.loopexit
+  %.not71.i = icmp eq i32 %147, %149
+  br i1 %.not71.i, label %150, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 436
+150:                                              ; preds = %145
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 436
+  %152 = load i32, ptr %151, align 4, !tbaa !131
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 436
   %154 = load i32, ptr %153, align 4, !tbaa !131
-  %155 = getelementptr inbounds nuw i8, ptr %4, i64 436
-  %156 = load i32, ptr %155, align 4, !tbaa !131
-  %.not72.i = icmp eq i32 %154, %156
-  br i1 %.not72.i, label %157, label %.loopexit
+  %.not72.i = icmp eq i32 %152, %154
+  br i1 %.not72.i, label %155, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-157:                                              ; preds = %152
-  %158 = getelementptr inbounds nuw i8, ptr %5, i64 440
+155:                                              ; preds = %150
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 440
+  %157 = load i32, ptr %156, align 8, !tbaa !132
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %159 = load i32, ptr %158, align 8, !tbaa !132
-  %160 = getelementptr inbounds nuw i8, ptr %4, i64 440
-  %161 = load i32, ptr %160, align 8, !tbaa !132
-  %.not73.i = icmp eq i32 %159, %161
-  br i1 %.not73.i, label %162, label %.loopexit
+  %.not73.i = icmp eq i32 %157, %159
+  br i1 %.not73.i, label %160, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds nuw i8, ptr %5, i64 444
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 444
+  %162 = load i32, ptr %161, align 4, !tbaa !133
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 444
   %164 = load i32, ptr %163, align 4, !tbaa !133
-  %165 = getelementptr inbounds nuw i8, ptr %4, i64 444
-  %166 = load i32, ptr %165, align 4, !tbaa !133
-  %.not74.i = icmp eq i32 %164, %166
-  br i1 %.not74.i, label %167, label %.loopexit
+  %.not74.i = icmp eq i32 %162, %164
+  br i1 %.not74.i, label %165, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 448
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 448
+  %167 = load i32, ptr %166, align 8, !tbaa !134
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 448
   %169 = load i32, ptr %168, align 8, !tbaa !134
-  %170 = getelementptr inbounds nuw i8, ptr %4, i64 448
-  %171 = load i32, ptr %170, align 8, !tbaa !134
-  %.not75.i = icmp eq i32 %169, %171
-  br i1 %.not75.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, label %.loopexit
+  %.not75.i = icmp eq i32 %167, %169
+  br i1 %.not75.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
 
-_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit: ; preds = %102, %131, %167, %114, %.preheader.i, %85
-  %172 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %174 = tail call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %172, ptr noundef nonnull %173, i32 noundef %2, i32 noundef %3)
-  br label %183
+_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit: ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
+  br i1 %.not58.i, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread, label %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36
 
-.loopexit:                                        ; preds = %104, %157, %152, %147, %142, %137, %132, %126, %121, %115, %109, %167, %162, %92, %86, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
-  %175 = zext i32 %2 to i64
-  %176 = zext i32 %3 to i64
-  %mul.i35 = mul nuw i64 %176, %175
-  %mul.ov.i31 = icmp ult i64 %mul.i35, 1152921504606846976
-  br i1 %mul.ov.i31, label %177, label %183
+_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36: ; preds = %100, %129, %165, %.preheader.i, %112, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %171 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %172 = tail call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %170, ptr noundef nonnull %171, i32 noundef %2, i32 noundef %3)
+  br label %181
 
-177:                                              ; preds = %.loopexit
-  %mul.val.i30 = shl nuw i64 %mul.i35, 4
-  %178 = tail call noalias noundef ptr @malloc(i64 noundef %mul.val.i30) #33
+_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread: ; preds = %102, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit, %165, %84, %90, %155, %160, %107, %113, %119, %124, %130, %135, %140, %145, %150
+  %173 = zext i32 %2 to i64
+  %174 = zext i32 %3 to i64
+  %mul.i39 = mul nuw i64 %174, %173
+  %mul.ov.i31 = icmp ult i64 %mul.i39, 1152921504606846976
+  br i1 %mul.ov.i31, label %175, label %181
+
+175:                                              ; preds = %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread
+  %mul.val.i30 = shl nuw i64 %mul.i39, 4
+  %176 = tail call noalias noundef ptr @malloc(i64 noundef %mul.val.i30) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %179 = call noundef i32 @_ZN7lodepng12convertToXYZEPfS0_PKhjjPK12LodePNGState(ptr noundef %178, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %5)
-  %.not28 = icmp eq i32 %179, 0
-  br i1 %.not28, label %180, label %182
+  %177 = call noundef i32 @_ZN7lodepng12convertToXYZEPfS0_PKhjjPK12LodePNGState(ptr noundef %176, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %5)
+  %.not28 = icmp eq i32 %177, 0
+  br i1 %.not28, label %178, label %180
 
-180:                                              ; preds = %177
-  %181 = call noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr noundef %0, ptr noundef %178, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %8, i32 noundef %6)
-  br label %182
+178:                                              ; preds = %175
+  %179 = call noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr noundef %0, ptr noundef %176, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %8, i32 noundef %6)
+  br label %180
 
-182:                                              ; preds = %180, %177
-  %.024 = phi i32 [ %179, %177 ], [ %181, %180 ]
-  tail call void @free(ptr noundef %178) #29
+180:                                              ; preds = %178, %175
+  %.024 = phi i32 [ %177, %175 ], [ %179, %178 ]
+  tail call void @free(ptr noundef %176) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %183
+  br label %181
 
-183:                                              ; preds = %182, %.loopexit, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit
-  %.0 = phi i32 [ %174, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit ], [ %.024, %182 ], [ 92, %.loopexit ]
+181:                                              ; preds = %180, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36
+  %.0 = phi i32 [ %172, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread36 ], [ %.024, %180 ], [ 92, %_ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit.thread ]
   ret i32 %.0
 }
 

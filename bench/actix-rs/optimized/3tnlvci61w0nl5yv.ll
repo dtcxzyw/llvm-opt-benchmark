@@ -4795,13 +4795,13 @@ define void @"_ZN116_$LT$actix_web..http..header..content_disposition..Dispositi
   %.val6.i.i = load i8, ptr %30, align 1, !noalias !904, !noundef !9
   %31 = add i8 %.val.i.i, -65
   %32 = icmp ult i8 %31, 26
-  %.0.i.i.i.i.i = select i1 %32, i8 32, i8 0
-  %33 = add i8 %.val6.i.i, -65
-  %34 = icmp ult i8 %33, 26
-  %.02.i.i.i.i.i = select i1 %34, i8 32, i8 0
-  %35 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %36 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %35, %36
+  %33 = select i1 %32, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %33, %.val.i.i
+  %34 = add i8 %.val6.i.i, -65
+  %35 = icmp ult i8 %34, 26
+  %36 = select i1 %35, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %36, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %25, label %.loopexit
 
 37:                                               ; preds = %3
@@ -4843,13 +4843,13 @@ define void @"_ZN116_$LT$actix_web..http..header..content_disposition..Dispositi
   %.val6.i.i7 = load i8, ptr %52, align 1, !noalias !925, !noundef !9
   %53 = add i8 %.val.i.i6, -65
   %54 = icmp ult i8 %53, 26
-  %.0.i.i.i.i.i8 = select i1 %54, i8 32, i8 0
-  %55 = add i8 %.val6.i.i7, -65
-  %56 = icmp ult i8 %55, 26
-  %.02.i.i.i.i.i9 = select i1 %56, i8 32, i8 0
-  %57 = or i8 %.0.i.i.i.i.i8, %.val.i.i6
-  %58 = or i8 %.02.i.i.i.i.i9, %.val6.i.i7
-  %.not.i.i10 = icmp eq i8 %57, %58
+  %55 = select i1 %54, i8 32, i8 0
+  %.0.i.i.i.i.i8 = or i8 %55, %.val.i.i6
+  %56 = add i8 %.val6.i.i7, -65
+  %57 = icmp ult i8 %56, 26
+  %58 = select i1 %57, i8 32, i8 0
+  %.02.i.i.i.i.i9 = or i8 %58, %.val6.i.i7
+  %.not.i.i10 = icmp eq i8 %.0.i.i.i.i.i8, %.02.i.i.i.i.i9
   br i1 %.not.i.i10, label %47, label %59
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit": ; preds = %25
@@ -4899,13 +4899,13 @@ define void @"_ZN116_$LT$actix_web..http..header..content_disposition..Dispositi
   %.val6.i.i15 = load i8, ptr %76, align 1, !noalias !946, !noundef !9
   %77 = add i8 %.val.i.i14, -65
   %78 = icmp ult i8 %77, 26
-  %.0.i.i.i.i.i16 = select i1 %78, i8 32, i8 0
-  %79 = add i8 %.val6.i.i15, -65
-  %80 = icmp ult i8 %79, 26
-  %.02.i.i.i.i.i17 = select i1 %80, i8 32, i8 0
-  %81 = or i8 %.0.i.i.i.i.i16, %.val.i.i14
-  %82 = or i8 %.02.i.i.i.i.i17, %.val6.i.i15
-  %.not.i.i18 = icmp eq i8 %81, %82
+  %79 = select i1 %78, i8 32, i8 0
+  %.0.i.i.i.i.i16 = or i8 %79, %.val.i.i14
+  %80 = add i8 %.val6.i.i15, -65
+  %81 = icmp ult i8 %80, 26
+  %82 = select i1 %81, i8 32, i8 0
+  %.02.i.i.i.i.i17 = or i8 %82, %.val6.i.i15
+  %.not.i.i18 = icmp eq i8 %.0.i.i.i.i.i16, %.02.i.i.i.i.i17
   br i1 %.not.i.i18, label %71, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit11": ; preds = %47
@@ -5405,13 +5405,13 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %50
   %.val6.i.i = load i8, ptr %169, align 1, !noalias !1009, !noundef !9
   %170 = add i8 %.val.i.i, -65
   %171 = icmp ult i8 %170, 26
-  %.0.i.i.i.i.i = select i1 %171, i8 32, i8 0
-  %172 = add i8 %.val6.i.i, -65
-  %173 = icmp ult i8 %172, 26
-  %.02.i.i.i.i.i = select i1 %173, i8 32, i8 0
-  %174 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %175 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i179 = icmp eq i8 %174, %175
+  %172 = select i1 %171, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %172, %.val.i.i
+  %173 = add i8 %.val6.i.i, -65
+  %174 = icmp ult i8 %173, 26
+  %175 = select i1 %174, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %175, %.val6.i.i
+  %.not.i.i179 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i179, label %164, label %.loopexit
 
 176:                                              ; preds = %152
@@ -5613,13 +5613,13 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %50
   %.val6.i.i188 = load i8, ptr %234, align 1, !noalias !1034, !noundef !9
   %235 = add i8 %.val.i.i187, -65
   %236 = icmp ult i8 %235, 26
-  %.0.i.i.i.i.i189 = select i1 %236, i8 32, i8 0
-  %237 = add i8 %.val6.i.i188, -65
-  %238 = icmp ult i8 %237, 26
-  %.02.i.i.i.i.i190 = select i1 %238, i8 32, i8 0
-  %239 = or i8 %.0.i.i.i.i.i189, %.val.i.i187
-  %240 = or i8 %.02.i.i.i.i.i190, %.val6.i.i188
-  %.not.i.i191 = icmp eq i8 %239, %240
+  %237 = select i1 %236, i8 32, i8 0
+  %.0.i.i.i.i.i189 = or i8 %237, %.val.i.i187
+  %238 = add i8 %.val6.i.i188, -65
+  %239 = icmp ult i8 %238, 26
+  %240 = select i1 %239, i8 32, i8 0
+  %.02.i.i.i.i.i190 = or i8 %240, %.val6.i.i188
+  %.not.i.i191 = icmp eq i8 %.0.i.i.i.i.i189, %.02.i.i.i.i.i190
   br i1 %.not.i.i191, label %229, label %.loopexit409
 
 241:                                              ; preds = %.outer, %251
@@ -6037,13 +6037,13 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
   %.val6.i.i222 = load i8, ptr %362, align 1, !noalias !1125, !noundef !9
   %363 = add i8 %.val.i.i221, -65
   %364 = icmp ult i8 %363, 26
-  %.0.i.i.i.i.i223 = select i1 %364, i8 32, i8 0
-  %365 = add i8 %.val6.i.i222, -65
-  %366 = icmp ult i8 %365, 26
-  %.02.i.i.i.i.i224 = select i1 %366, i8 32, i8 0
-  %367 = or i8 %.0.i.i.i.i.i223, %.val.i.i221
-  %368 = or i8 %.02.i.i.i.i.i224, %.val6.i.i222
-  %.not.i.i225 = icmp eq i8 %367, %368
+  %365 = select i1 %364, i8 32, i8 0
+  %.0.i.i.i.i.i223 = or i8 %365, %.val.i.i221
+  %366 = add i8 %.val6.i.i222, -65
+  %367 = icmp ult i8 %366, 26
+  %368 = select i1 %367, i8 32, i8 0
+  %.02.i.i.i.i.i224 = or i8 %368, %.val6.i.i222
+  %.not.i.i225 = icmp eq i8 %.0.i.i.i.i.i223, %.02.i.i.i.i.i224
   br i1 %.not.i.i225, label %357, label %.loopexit409
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195": ; preds = %229

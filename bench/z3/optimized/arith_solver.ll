@@ -23065,11 +23065,11 @@ _ZNK5arith6solver6is_intEi.exit:                  ; preds = %_ZNK4decl13get_fami
   %69 = load i32, ptr %64, align 8
   %70 = icmp eq i32 %69, 1
   %71 = select i1 %68, i1 %70, i1 false
+  %72 = and i1 %.018.in41, %71
   br label %_ZNK5arith6solver6is_intEi.exit.thread
 
 _ZNK5arith6solver6is_intEi.exit.thread:           ; preds = %.noexc, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i, %63, %_ZNK5arith6solver6is_intEi.exit
-  %72 = phi i1 [ false, %_ZNK5arith6solver6is_intEi.exit ], [ %71, %63 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i ], [ false, %.noexc ]
-  %73 = and i1 %.018.in41, %72
+  %73 = phi i1 [ false, %_ZNK5arith6solver6is_intEi.exit ], [ %72, %63 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i ], [ false, %.noexc ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.035.040, i64 48
   %.not1.i.i = icmp eq ptr %74, %36
   br i1 %.not1.i.i, label %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv.exit, label %.lr.ph.i.i

@@ -337,8 +337,8 @@ _ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_
   br label %53
 
 53:                                               ; preds = %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i
-  %.sroa.08.i.0 = phi i64 [ 0, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i ], [ %98, %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i ]
-  %.sroa.5.i.0 = phi i64 [ 0, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i ], [ %99, %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i ]
+  %.sroa.08.i.0 = phi i64 [ 0, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i ], [ %.sroa.017.0..sroa.017.0..sroa.017.0..fca.0.load.i.i, %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i ]
+  %.sroa.5.i.0 = phi i64 [ 0, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i ], [ %.sroa.3.0..sroa.3.0..sroa.3.8..fca.1.load.i.i, %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i ]
   %.sroa.03.0.i = phi ptr [ %51, %_ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i ], [ %100, %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i ]
   %54 = icmp ult ptr %.sroa.03.0.i, %52
   br i1 %54, label %.lr.ph.i.i.i.i, label %61
@@ -415,30 +415,33 @@ _ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4
   %.not18.i.i = icmp eq i32 %86, 0
   br i1 %.not18.i.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %.lr.ph.i.i
 
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %89 = or i64 %.sroa.08.i.0, %97
+  %90 = or i64 %.sroa.5.i.0, %98
+  br label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i
+
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i, %.lr.ph.i.i
-  %.sroa.017.i.i.0 = phi i64 [ %95, %.lr.ph.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
-  %.sroa.3.i.i.0 = phi i64 [ %96, %.lr.ph.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
-  %.019.i.i = phi ptr [ %97, %.lr.ph.i.i ], [ %84, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
+  %.sroa.017.i.i.0 = phi i64 [ %97, %.lr.ph.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
+  %.sroa.3.i.i.0 = phi i64 [ %98, %.lr.ph.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
+  %.019.i.i = phi ptr [ %99, %.lr.ph.i.i ], [ %84, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %.sroa.04.0.copyload.i.i = load ptr, ptr %.019.i.i, align 8, !tbaa !388
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %.sroa.45.0.copyload.i.i = load i64, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !tbaa !389
-  %89 = call { i64, i64 } @_ZN5clang19parseSanitizerValueEN4llvm9StringRefEb(ptr %.sroa.04.0.copyload.i.i, i64 %.sroa.45.0.copyload.i.i, i1 noundef zeroext true) #8
-  %90 = extractvalue { i64, i64 } %89, 0
-  %91 = extractvalue { i64, i64 } %89, 1
-  %92 = call { i64, i64 } @_ZN5clang21expandSanitizerGroupsENS_13SanitizerMaskE(i64 %90, i64 %91) #8
-  %93 = extractvalue { i64, i64 } %92, 0
-  %94 = extractvalue { i64, i64 } %92, 1
-  %95 = or i64 %.sroa.017.i.i.0, %93
-  %96 = or i64 %.sroa.3.i.i.0, %94
-  %97 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %.not.i11.i = icmp eq ptr %97, %88
-  br i1 %.not.i11.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %.lr.ph.i.i
+  %91 = call { i64, i64 } @_ZN5clang19parseSanitizerValueEN4llvm9StringRefEb(ptr %.sroa.04.0.copyload.i.i, i64 %.sroa.45.0.copyload.i.i, i1 noundef zeroext true) #8
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = extractvalue { i64, i64 } %91, 1
+  %94 = call { i64, i64 } @_ZN5clang21expandSanitizerGroupsENS_13SanitizerMaskE(i64 %92, i64 %93) #8
+  %95 = extractvalue { i64, i64 } %94, 0
+  %96 = extractvalue { i64, i64 } %94, 1
+  %97 = or i64 %.sroa.017.i.i.0, %95
+  %98 = or i64 %.sroa.3.i.i.0, %96
+  %99 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %.not.i11.i = icmp eq ptr %99, %88
+  br i1 %.not.i11.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
-_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %.lr.ph.i.i, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i
-  %.sroa.3.0..sroa.3.0..sroa.3.8..fca.1.load.i.i = phi i64 [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ], [ %96, %.lr.ph.i.i ]
-  %.sroa.017.0..sroa.017.0..sroa.017.0..fca.0.load.i.i = phi i64 [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ], [ %95, %.lr.ph.i.i ]
-  %98 = or i64 %.sroa.08.i.0, %.sroa.017.0..sroa.017.0..sroa.017.0..fca.0.load.i.i
-  %99 = or i64 %.sroa.5.i.0, %.sroa.3.0..sroa.3.0..sroa.3.8..fca.1.load.i.i
+_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %._crit_edge.loopexit.i.i, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i
+  %.sroa.3.0..sroa.3.0..sroa.3.8..fca.1.load.i.i = phi i64 [ %90, %._crit_edge.loopexit.i.i ], [ %.sroa.5.i.0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
+  %.sroa.017.0..sroa.017.0..sroa.017.0..fca.0.load.i.i = phi i64 [ %89, %._crit_edge.loopexit.i.i ], [ %.sroa.08.i.0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.03.1.i, i64 8
   br label %53
 

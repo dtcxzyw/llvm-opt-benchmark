@@ -9396,7 +9396,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !135
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %394, label %10
+  br i1 %9, label %393, label %10
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9411,7 +9411,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store ptr %13, ptr %1, align 8, !tbaa !138
   store i64 %12, ptr %7, align 8, !tbaa !13
-  switch i32 %.sroa.0260.0.copyload, label %393 [
+  switch i32 %.sroa.0260.0.copyload, label %392 [
     i32 0, label %14
     i32 1, label %.critedge181
     i32 2, label %19
@@ -9438,7 +9438,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
     i32 20, label %328
     i32 21, label %347
     i32 22, label %347
-    i32 23, label %368
+    i32 23, label %367
   ]
 
 14:                                               ; preds = %10
@@ -10061,70 +10061,65 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %_ZNK4llvm4Type13get
   %spec.select.i.i.i.i.i.i.i.i246 = icmp ult i32 %361, -2
   %.not160332 = icmp eq ptr %357, null
   %.not160 = or i1 %.not160332, %spec.select.i.i.i.i.i.i.i.i246
-  br i1 %.not160, label %367, label %362
+  br i1 %.not160, label %.critedge181, label %362
 
 362:                                              ; preds = %353
   %363 = icmp eq i32 %.sroa.0260.0.copyload, 21
   %364 = select i1 %363, i32 1, i32 2
   %365 = tail call noundef ptr @_ZN4llvm10VectorType23getSubdividedVectorTypeEPS0_i(ptr noundef nonnull %357, i32 noundef %364)
   %366 = icmp ne ptr %0, %365
-  br label %367
-
-367:                                              ; preds = %353, %362
-  %.16 = phi i1 [ %366, %362 ], [ undef, %353 ]
-  %spec.select184 = or i1 %.not160, %.16
   br label %.critedge181
 
-368:                                              ; preds = %10
-  %369 = lshr i32 %.sroa.5262.0.copyload, 3
-  %370 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %371 = load i32, ptr %370, align 8, !tbaa !127
-  %.not = icmp ugt i32 %371, %369
-  br i1 %.not, label %374, label %372
+367:                                              ; preds = %10
+  %368 = lshr i32 %.sroa.5262.0.copyload, 3
+  %369 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %370 = load i32, ptr %369, align 8, !tbaa !127
+  %.not = icmp ugt i32 %370, %368
+  br i1 %.not, label %373, label %371
 
-372:                                              ; preds = %368
-  br i1 %4, label %.critedge181, label %373
+371:                                              ; preds = %367
+  br i1 %4, label %.critedge181, label %372
 
-373:                                              ; preds = %372
+372:                                              ; preds = %371
   call fastcc void @"_ZZL18matchIntrinsicTypePN4llvm4TypeERNS_8ArrayRefINS_9Intrinsic13IITDescriptorEEERNS_15SmallVectorImplIS1_EERNS7_ISt4pairIS1_S5_EEEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %6, ptr noundef %0)
   br label %.critedge181
 
-374:                                              ; preds = %368
-  %375 = zext nneg i32 %369 to i64
-  %376 = load ptr, ptr %2, align 8, !tbaa !130
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %375
-  %378 = load ptr, ptr %377, align 8, !tbaa !20
-  %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  %380 = load i32, ptr %379, align 8
-  %381 = and i32 %380, 255
-  %382 = add nsw i32 %381, -17
-  %spec.select.i.i.i.i.i.i.i.i248 = icmp ult i32 %382, 2
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %384 = load i32, ptr %383, align 8
-  %385 = and i32 %384, 255
-  %386 = add nsw i32 %385, -17
-  %spec.select.i.i.i.i.i.i.i.i250 = icmp ult i32 %386, 2
+373:                                              ; preds = %367
+  %374 = zext nneg i32 %368 to i64
+  %375 = load ptr, ptr %2, align 8, !tbaa !130
+  %376 = getelementptr inbounds nuw ptr, ptr %375, i64 %374
+  %377 = load ptr, ptr %376, align 8, !tbaa !20
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
+  %379 = load i32, ptr %378, align 8
+  %380 = and i32 %379, 255
+  %381 = add nsw i32 %380, -17
+  %spec.select.i.i.i.i.i.i.i.i248 = icmp ult i32 %381, 2
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %383 = load i32, ptr %382, align 8
+  %384 = and i32 %383, 255
+  %385 = add nsw i32 %384, -17
+  %spec.select.i.i.i.i.i.i.i.i250 = icmp ult i32 %385, 2
   %spec.select.i.i251 = select i1 %spec.select.i.i.i.i.i.i.i.i250, ptr %0, ptr null
-  %387 = icmp ne ptr %spec.select.i.i251, null
-  %388 = icmp ne ptr %378, null
-  %389 = and i1 %388, %spec.select.i.i.i.i.i.i.i.i248
-  %or.cond8 = and i1 %389, %387
-  br i1 %or.cond8, label %390, label %.critedge181
+  %386 = icmp ne ptr %spec.select.i.i251, null
+  %387 = icmp ne ptr %377, null
+  %388 = and i1 %387, %spec.select.i.i.i.i.i.i.i.i248
+  %or.cond8 = and i1 %388, %386
+  br i1 %or.cond8, label %389, label %.critedge181
 
-390:                                              ; preds = %374
-  %391 = tail call noundef ptr @_ZN4llvm10VectorType10getIntegerEPS0_(ptr noundef nonnull %378)
-  %392 = icmp ne ptr %spec.select.i.i251, %391
+389:                                              ; preds = %373
+  %390 = tail call noundef ptr @_ZN4llvm10VectorType10getIntegerEPS0_(ptr noundef nonnull %377)
+  %391 = icmp ne ptr %spec.select.i.i251, %390
   br label %.critedge181
 
-393:                                              ; preds = %10
+392:                                              ; preds = %10
   unreachable
 
-.critedge181:                                     ; preds = %122, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %.preheader, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %296, %89, %94, %100, %86, %85, %221, %196, %390, %374, %372, %373, %351, %352, %334, %343, %333, %332, %293, %292, %312, %321, %255, %273, %285, %251, %254, %235, %244, %233, %234, %227, %208, %209, %202, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %367, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
-  %.1 = phi i1 [ %18, %14 ], [ true, %372 ], [ true, %10 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %79, %77 ], [ %31, %27 ], [ true, %89 ], [ %392, %390 ], [ %111, %109 ], [ %137, %132 ], [ true, %374 ], [ true, %143 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %spec.select.i.i.i.i.i.i.i.i212, %168 ], [ %177, %173 ], [ false, %145 ], [ true, %183 ], [ true, %221 ], [ true, %208 ], [ true, %196 ], [ true, %233 ], [ %246, %244 ], [ true, %251 ], [ true, %273 ], [ true, %312 ], [ false, %333 ], [ %346, %343 ], [ %spec.select184, %367 ], [ true, %351 ], [ true, %24 ], [ true, %19 ], [ true, %80 ], [ true, %104 ], [ true, %94 ], [ true, %112 ], [ true, %117 ], [ true, %296 ], [ false, %.preheader ], [ false, %144 ], [ false, %184 ], [ %203, %202 ], [ false, %209 ], [ %228, %227 ], [ false, %234 ], [ true, %235 ], [ false, %254 ], [ true, %255 ], [ %286, %285 ], [ true, %292 ], [ false, %293 ], [ %327, %321 ], [ %103, %100 ], [ true, %332 ], [ true, %334 ], [ false, %352 ], [ false, %373 ], [ %88, %86 ], [ true, %85 ], [ %spec.select.i.i209, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ %126, %122 ]
+.critedge181:                                     ; preds = %122, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %.preheader, %362, %353, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %296, %89, %94, %100, %86, %85, %221, %196, %389, %373, %371, %372, %351, %352, %334, %343, %333, %332, %293, %292, %312, %321, %255, %273, %285, %251, %254, %235, %244, %233, %234, %227, %208, %209, %202, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
+  %.1 = phi i1 [ %18, %14 ], [ true, %371 ], [ true, %10 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %79, %77 ], [ %31, %27 ], [ true, %89 ], [ %391, %389 ], [ %111, %109 ], [ %137, %132 ], [ true, %373 ], [ true, %143 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %366, %362 ], [ %spec.select.i.i.i.i.i.i.i.i212, %168 ], [ %177, %173 ], [ false, %145 ], [ true, %183 ], [ true, %221 ], [ true, %208 ], [ true, %196 ], [ true, %233 ], [ %246, %244 ], [ true, %251 ], [ true, %273 ], [ true, %312 ], [ false, %333 ], [ %346, %343 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ true, %351 ], [ true, %24 ], [ true, %19 ], [ true, %80 ], [ true, %104 ], [ true, %94 ], [ true, %112 ], [ true, %117 ], [ true, %296 ], [ false, %.preheader ], [ false, %144 ], [ false, %184 ], [ %203, %202 ], [ false, %209 ], [ %228, %227 ], [ false, %234 ], [ true, %235 ], [ false, %254 ], [ true, %255 ], [ %286, %285 ], [ true, %292 ], [ false, %293 ], [ %327, %321 ], [ %103, %100 ], [ true, %332 ], [ true, %334 ], [ false, %352 ], [ false, %372 ], [ %88, %86 ], [ true, %85 ], [ true, %353 ], [ %spec.select.i.i209, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %394
+  br label %393
 
-394:                                              ; preds = %5, %.critedge181
+393:                                              ; preds = %5, %.critedge181
   %.0 = phi i1 [ %.1, %.critedge181 ], [ true, %5 ]
   ret i1 %.0
 }

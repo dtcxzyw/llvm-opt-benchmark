@@ -213,24 +213,24 @@ _ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread: ; preds = %36, %_ZN4l
 57:                                               ; preds = %44
   %58 = load i32, ptr %2, align 8, !tbaa !3
   %59 = add i32 %58, -13
-  %spec.select.i.i.i.i.i.i.i.i.i.i14 = icmp ult i32 %59, 4
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i14, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread
+  %spec.select.i.i.i.i.i.i.i.i.i.i13 = icmp ult i32 %59, 4
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i13, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread
 
-_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17: ; preds = %57
+_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15: ; preds = %57
   %60 = load ptr, ptr %0, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 552
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef zeroext i16 %62(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %64 = icmp eq i16 %63, 224
-  br i1 %64, label %86, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread
+  br i1 %64, label %86, label %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread
 
-_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread: ; preds = %57, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17
+_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread: ; preds = %57, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15
   br label %86
 
 65:                                               ; preds = %14
   %66 = add i32 %3, -17
-  %spec.select.i18 = icmp ult i32 %66, 4
-  br i1 %spec.select.i18, label %67, label %73
+  %spec.select.i16 = icmp ult i32 %66, 4
+  br i1 %spec.select.i16, label %67, label %73
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %0, align 8, !tbaa !13
@@ -239,7 +239,7 @@ _ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread: ; preds = %57, %_ZN
   %71 = tail call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %72 = icmp eq i32 %71, 38
   %spec.select = select i1 %72, ptr @_ZN4llvm6objectL18resolveMachOX86_64Emmmml, ptr null
-  %spec.select86 = select i1 %72, ptr @_ZN4llvm6objectL19supportsMachOX86_64Em, ptr null
+  %spec.select82 = select i1 %72, ptr @_ZN4llvm6objectL19supportsMachOX86_64Em, ptr null
   br label %86
 
 73:                                               ; preds = %65
@@ -258,13 +258,13 @@ _ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread: ; preds = %57, %_ZN
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %85 = icmp eq i32 %84, 56
-  %spec.select87 = select i1 %85, ptr @_ZN4llvm6objectL13resolveWasm64Emmmml, ptr null
-  %spec.select88 = select i1 %85, ptr @_ZN4llvm6objectL14supportsWasm64Em, ptr null
+  %spec.select83 = select i1 %85, ptr @_ZN4llvm6objectL13resolveWasm64Emmmml, ptr null
+  %spec.select84 = select i1 %85, ptr @_ZN4llvm6objectL14supportsWasm64Em, ptr null
   br label %86
 
-86:                                               ; preds = %80, %67, %73, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17, %44, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit, %26, %5, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread, %35, %34, %33, %32, %31, %30, %29, %28, %27, %13, %12, %11, %10
-  %.sroa.38.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL13resolveWasm32Emmmml, %73 ], [ @_ZN4llvm6objectL14resolveCOFFX86Emmmml, %10 ], [ @_ZN4llvm6objectL14resolveCOFFARMEmmmml, %11 ], [ @_ZN4llvm6objectL16resolveCOFFARM64Emmmml, %12 ], [ @_ZN4llvm6objectL13resolveX86_64Emmmml, %26 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml, %5 ], [ @_ZN4llvm6objectL14resolveAArch64Emmmml, %27 ], [ @_ZN4llvm6objectL10resolveBPFEmmmml, %28 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %29 ], [ @_ZN4llvm6objectL13resolveMips64Emmmml, %30 ], [ @_ZN4llvm6objectL12resolvePPC64Emmmml, %31 ], [ @_ZN4llvm6objectL14resolveSystemZEmmmml, %32 ], [ @_ZN4llvm6objectL14resolveSparc64Emmmml, %33 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %34 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %35 ], [ @_ZN4llvm6objectL10resolveX86Emmmml, %44 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL12resolvePPC32Emmmml, %45 ], [ @_ZN4llvm6objectL10resolveARMEmmmml, %46 ], [ @_ZN4llvm6objectL10resolveAVREmmmml, %47 ], [ @_ZN4llvm6objectL12resolveLanaiEmmmml, %48 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %49 ], [ @_ZN4llvm6objectL13resolveMips32Emmmml, %50 ], [ @_ZN4llvm6objectL13resolveMSP430Emmmml, %51 ], [ @_ZN4llvm6objectL14resolveSparc32Emmmml, %52 ], [ @_ZN4llvm6objectL14resolveHexagonEmmmml, %53 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %54 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %55 ], [ @_ZN4llvm6objectL11resolveCSKYEmmmml, %56 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ %spec.select87, %80 ], [ %spec.select, %67 ]
-  %.sroa.0.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL14supportsWasm32Em, %73 ], [ @_ZN4llvm6objectL15supportsCOFFX86Em, %10 ], [ @_ZN4llvm6objectL15supportsCOFFARMEm, %11 ], [ @_ZN4llvm6objectL17supportsCOFFARM64Em, %12 ], [ @_ZN4llvm6objectL14supportsX86_64Em, %26 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL18supportsCOFFX86_64Em, %5 ], [ @_ZN4llvm6objectL15supportsAArch64Em, %27 ], [ @_ZN4llvm6objectL11supportsBPFEm, %28 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %29 ], [ @_ZN4llvm6objectL14supportsMips64Em, %30 ], [ @_ZN4llvm6objectL13supportsPPC64Em, %31 ], [ @_ZN4llvm6objectL15supportsSystemZEm, %32 ], [ @_ZN4llvm6objectL15supportsSparc64Em, %33 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %34 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %35 ], [ @_ZN4llvm6objectL11supportsX86Em, %44 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL13supportsPPC32Em, %45 ], [ @_ZN4llvm6objectL11supportsARMEm, %46 ], [ @_ZN4llvm6objectL11supportsAVREm, %47 ], [ @_ZN4llvm6objectL13supportsLanaiEm, %48 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %49 ], [ @_ZN4llvm6objectL14supportsMips32Em, %50 ], [ @_ZN4llvm6objectL14supportsMSP430Em, %51 ], [ @_ZN4llvm6objectL15supportsSparc32Em, %52 ], [ @_ZN4llvm6objectL15supportsHexagonEm, %53 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %54 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %55 ], [ @_ZN4llvm6objectL12supportsCSKYEm, %56 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ %spec.select88, %80 ], [ %spec.select86, %67 ]
+86:                                               ; preds = %80, %67, %73, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15, %44, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit, %26, %5, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread, %35, %34, %33, %32, %31, %30, %29, %28, %27, %13, %12, %11, %10
+  %.sroa.38.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL13resolveWasm32Emmmml, %73 ], [ @_ZN4llvm6objectL14resolveCOFFX86Emmmml, %10 ], [ @_ZN4llvm6objectL14resolveCOFFARMEmmmml, %11 ], [ @_ZN4llvm6objectL16resolveCOFFARM64Emmmml, %12 ], [ @_ZN4llvm6objectL13resolveX86_64Emmmml, %26 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml, %5 ], [ @_ZN4llvm6objectL14resolveAArch64Emmmml, %27 ], [ @_ZN4llvm6objectL10resolveBPFEmmmml, %28 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %29 ], [ @_ZN4llvm6objectL13resolveMips64Emmmml, %30 ], [ @_ZN4llvm6objectL12resolvePPC64Emmmml, %31 ], [ @_ZN4llvm6objectL14resolveSystemZEmmmml, %32 ], [ @_ZN4llvm6objectL14resolveSparc64Emmmml, %33 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %34 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %35 ], [ @_ZN4llvm6objectL10resolveX86Emmmml, %44 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL12resolvePPC32Emmmml, %45 ], [ @_ZN4llvm6objectL10resolveARMEmmmml, %46 ], [ @_ZN4llvm6objectL10resolveAVREmmmml, %47 ], [ @_ZN4llvm6objectL12resolveLanaiEmmmml, %48 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %49 ], [ @_ZN4llvm6objectL13resolveMips32Emmmml, %50 ], [ @_ZN4llvm6objectL13resolveMSP430Emmmml, %51 ], [ @_ZN4llvm6objectL14resolveSparc32Emmmml, %52 ], [ @_ZN4llvm6objectL14resolveHexagonEmmmml, %53 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %54 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %55 ], [ @_ZN4llvm6objectL11resolveCSKYEmmmml, %56 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15 ], [ %spec.select83, %80 ], [ %spec.select, %67 ]
+  %.sroa.0.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL14supportsWasm32Em, %73 ], [ @_ZN4llvm6objectL15supportsCOFFX86Em, %10 ], [ @_ZN4llvm6objectL15supportsCOFFARMEm, %11 ], [ @_ZN4llvm6objectL17supportsCOFFARM64Em, %12 ], [ @_ZN4llvm6objectL14supportsX86_64Em, %26 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL18supportsCOFFX86_64Em, %5 ], [ @_ZN4llvm6objectL15supportsAArch64Em, %27 ], [ @_ZN4llvm6objectL11supportsBPFEm, %28 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %29 ], [ @_ZN4llvm6objectL14supportsMips64Em, %30 ], [ @_ZN4llvm6objectL13supportsPPC64Em, %31 ], [ @_ZN4llvm6objectL15supportsSystemZEm, %32 ], [ @_ZN4llvm6objectL15supportsSparc64Em, %33 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %34 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %35 ], [ @_ZN4llvm6objectL11supportsX86Em, %44 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15.thread ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL13supportsPPC32Em, %45 ], [ @_ZN4llvm6objectL11supportsARMEm, %46 ], [ @_ZN4llvm6objectL11supportsAVREm, %47 ], [ @_ZN4llvm6objectL13supportsLanaiEm, %48 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %49 ], [ @_ZN4llvm6objectL14supportsMips32Em, %50 ], [ @_ZN4llvm6objectL14supportsMSP430Em, %51 ], [ @_ZN4llvm6objectL15supportsSparc32Em, %52 ], [ @_ZN4llvm6objectL15supportsHexagonEm, %53 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %54 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %55 ], [ @_ZN4llvm6objectL12supportsCSKYEm, %56 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit15 ], [ %spec.select84, %80 ], [ %spec.select82, %67 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.38.0, 1
   ret { ptr, ptr } %.fca.1.insert

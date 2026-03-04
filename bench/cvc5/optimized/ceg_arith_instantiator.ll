@@ -8777,17 +8777,17 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit185: ; preds = %_ZN4cvc58internal1
   %258 = load i64, ptr %257, align 8
   %259 = and i64 %258, 1023
   %260 = icmp eq i64 %259, 5
+  %or.cond = and i1 %104, %260
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %invariant.op = and i1 %260, %104
   br label %266
 
 266:                                              ; preds = %256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit688
   %spec.select = phi i32 [ 4, %256 ], [ 2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit688 ]
-  %267 = phi i1 [ true, %256 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit688 ]
+  %267 = phi i1 [ %or.cond, %256 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit688 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %268 = load ptr, ptr %25, align 8, !tbaa !23
   store ptr %268, ptr %29, align 8, !tbaa !23
@@ -11053,8 +11053,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit68
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit688: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit680, %1237, %1243
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %.reass = and i1 %267, %invariant.op
-  br i1 %.reass, label %266, label %.loopexit, !llvm.loop !137
+  br i1 %267, label %266, label %.loopexit, !llvm.loop !137
 
 .body212:                                         ; preds = %1203, %1232, %462, %451, %794, %_ZN4cvc58internal8RationalD2Ev.exit377, %937, %1122, %437, %_ZN4cvc58internal8RationalD2Ev.exit210, %419
   %.pn148.pn = phi { ptr, i32 } [ %463, %462 ], [ %.pn143.pn, %1122 ], [ %1204, %1203 ], [ %1233, %1232 ], [ %.pn127, %437 ], [ %.pn123.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit210 ], [ %420, %419 ], [ %.pn120, %937 ], [ %.pn116.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit377 ], [ %452, %451 ], [ %.pn110.pn.pn.pn.pn, %794 ]

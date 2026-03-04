@@ -1390,12 +1390,12 @@ define void @dt_culling_init(ptr noundef captures(none) initializes((36, 40), (6
 
 123:                                              ; preds = %119
   store i32 1, ptr %5, align 8, !tbaa !121
-  br label %157
+  br label %158
 
 124:                                              ; preds = %119
   %125 = icmp eq i32 %.06497, %121
   %or.cond3 = and i1 %108, %125
-  br i1 %or.cond3, label %126, label %157
+  br i1 %or.cond3, label %126, label %158
 
 126:                                              ; preds = %124
   %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !57
@@ -1447,17 +1447,17 @@ define void @dt_culling_init(ptr noundef captures(none) initializes((36, 40), (6
   %155 = call i32 @sqlite3_finalize(ptr noundef %154) #14
   %.pre = load i32, ptr %5, align 8, !tbaa !121
   %156 = icmp eq i32 %.pre, 0
-  br label %157
+  %157 = and i1 %108, %156
+  br label %158
 
-157:                                              ; preds = %124, %153, %123
-  %.not78 = phi i1 [ true, %124 ], [ %156, %153 ], [ false, %123 ]
-  %158 = and i1 %108, %.not78
-  %159 = zext i1 %158 to i32
+158:                                              ; preds = %124, %153, %123
+  %.not78 = phi i1 [ %108, %124 ], [ %157, %153 ], [ false, %123 ]
+  %159 = zext i1 %.not78 to i32
   store i32 %159, ptr %4, align 4, !tbaa !127
   br label %.sink.split
 
-.sink.split:                                      ; preds = %112, %157, %105, %89
-  %.5.sink110 = phi i32 [ %.5, %89 ], [ %.493, %105 ], [ %.493, %157 ], [ %.493, %112 ]
+.sink.split:                                      ; preds = %112, %158, %105, %89
+  %.5.sink110 = phi i32 [ %.5, %89 ], [ %.493, %105 ], [ %.493, %158 ], [ %.493, %112 ]
   %160 = call fastcc i32 @_thumb_get_rowid(i32 noundef %.5.sink110)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %160, ptr %161, align 8, !tbaa !120

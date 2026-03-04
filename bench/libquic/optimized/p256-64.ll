@@ -3041,11 +3041,11 @@ get_bit.exit111.i:                                ; preds = %932, %get_bit.exit1
   %944 = trunc nuw i32 %943 to i8
   %945 = shl i8 %944, 2
   %946 = and i8 %945, 4
+  %947 = or disjoint i8 %946, %.0.i110.i
   br label %get_bit.exit114.i
 
 get_bit.exit114.i:                                ; preds = %940, %get_bit.exit111.i
-  %.0.i113.i = phi i8 [ %946, %940 ], [ 0, %get_bit.exit111.i ]
-  %947 = or disjoint i8 %.0.i110.i, %.0.i113.i
+  %.0.i113.i = phi i8 [ %947, %940 ], [ %.0.i110.i, %get_bit.exit111.i ]
   br i1 %or.cond.i115.i, label %get_bit.exit117.i, label %948
 
 948:                                              ; preds = %get_bit.exit114.i
@@ -3055,11 +3055,11 @@ get_bit.exit114.i:                                ; preds = %940, %get_bit.exit1
   %952 = trunc nuw i32 %951 to i8
   %953 = shl i8 %952, 1
   %954 = and i8 %953, 2
+  %955 = or disjoint i8 %954, %.0.i113.i
   br label %get_bit.exit117.i
 
 get_bit.exit117.i:                                ; preds = %948, %get_bit.exit114.i
-  %.0.i116.i = phi i8 [ %954, %948 ], [ 0, %get_bit.exit114.i ]
-  %955 = or disjoint i8 %947, %.0.i116.i
+  %.0.i116.i = phi i8 [ %955, %948 ], [ %.0.i113.i, %get_bit.exit114.i ]
   br i1 %or.cond.i118.i, label %get_bit.exit120.i, label %956
 
 956:                                              ; preds = %get_bit.exit117.i
@@ -3068,12 +3068,12 @@ get_bit.exit117.i:                                ; preds = %948, %get_bit.exit1
   %959 = lshr i32 %958, %912
   %960 = trunc nuw i32 %959 to i8
   %961 = and i8 %960, 1
+  %962 = or disjoint i8 %961, %.0.i116.i
   br label %get_bit.exit120.i
 
 get_bit.exit120.i:                                ; preds = %956, %get_bit.exit117.i
-  %.0.i119.i = phi i8 [ %961, %956 ], [ 0, %get_bit.exit117.i ]
-  %962 = or disjoint i8 %955, %.0.i119.i
-  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %14, ptr noundef nonnull %15, i8 noundef zeroext %962) #9
+  %.0.i119.i = phi i8 [ %962, %956 ], [ %.0.i116.i, %get_bit.exit117.i ]
+  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %14, ptr noundef nonnull %15, i8 noundef zeroext %.0.i119.i) #9
   %963 = load i8, ptr %15, align 1, !tbaa !20
   %964 = zext i8 %963 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %13, i8 0, i64 96, i1 false)

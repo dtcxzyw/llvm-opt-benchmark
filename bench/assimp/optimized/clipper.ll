@@ -7045,6 +7045,7 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib7Clipper15ExecuteInternalEv(ptr
 _ZNSt7__cxx114listIxSaIxEE5clearEv.exit.i.i.thread: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %15, ptr %17, align 8
+  store ptr %15, ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %18, align 8
   br label %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit

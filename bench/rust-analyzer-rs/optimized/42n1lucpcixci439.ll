@@ -241,9 +241,9 @@ define internal void @_ZN9toolchain17lookup_as_env_var17h032ae8913a6aba38E(ptr n
   %17 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !80, !noalias !78, !noundef !5
   %18 = add i8 %17, -97
   %19 = icmp ult i8 %18, 26
-  %.0.i.i = select i1 %19, i8 32, i8 0
-  %20 = xor i8 %.0.i.i, %17
-  store i8 %20, ptr %.sroa.0.06.i.i, align 1, !alias.scope !80, !noalias !78
+  %20 = select i1 %19, i8 32, i8 0
+  %.0.i.i = xor i8 %20, %17
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !80, !noalias !78
   %21 = icmp eq ptr %16, %14
   br i1 %21, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h641d9fbbd32698cbE.exit", label %.lr.ph.i.i
 

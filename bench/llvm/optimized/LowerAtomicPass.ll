@@ -47,7 +47,7 @@ define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15Analysi
 
 .lr.ph.i:                                         ; preds = %4, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i
   %.sroa.05.011.i = phi ptr [ %.sroa.05.0.i, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ %.sroa.05.08.i, %4 ]
-  %.010.i = phi i1 [ %37, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ false, %4 ]
+  %.010.i = phi i1 [ %.0.lcssa.i.i, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ false, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !9, !noalias !12
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 24
@@ -112,18 +112,21 @@ define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15Analysi
 36:                                               ; preds = %31, %29, %24, %22, %19, %16, %14, %.lr.ph.i.i
   %.1.i.i = phi i1 [ true, %14 ], [ %18, %16 ], [ %21, %19 ], [ %.052.i.i, %.lr.ph.i.i ], [ %.052.i.i, %31 ], [ %.052.i.i, %29 ], [ %.052.i.i, %22 ], [ %.052.i.i, %24 ]
   %.not45.i.i = icmp eq ptr %11, %9
-  br i1 %.not45.i.i, label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
+  br i1 %.not45.i.i, label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.loopexit.i, label %.lr.ph.i.i
 
-_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i:  ; preds = %36, %.lr.ph.i
-  %.0.lcssa.i.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i.i, %36 ]
-  %37 = or i1 %.010.i, %.0.lcssa.i.i
+_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.loopexit.i: ; preds = %36
+  %37 = or i1 %.010.i, %.1.i.i
+  br label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i
+
+_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i:  ; preds = %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.loopexit.i, %.lr.ph.i
+  %.0.lcssa.i.i = phi i1 [ %.010.i, %.lr.ph.i ], [ %37, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.loopexit.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 8
   %.sroa.05.0.i = load ptr, ptr %38, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.sroa.05.0.i, %6
   br i1 %.not.i, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit, label %.lr.ph.i
 
 _ZL12lowerAtomicsRN4llvm8FunctionE.exit:          ; preds = %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i
-  br i1 %37, label %39, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread
+  br i1 %.0.lcssa.i.i, label %39, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread
 
 39:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -74858,9 +74858,9 @@ switch.early.test.thread:                         ; preds = %23, %23, %23, %23, 
   %70 = load i8, ptr %.sroa.0.06.i, align 1, !alias.scope !16063, !noundef !4
   %71 = add i8 %70, -65
   %72 = icmp ult i8 %71, 26
-  %.0.i = select i1 %72, i8 32, i8 0
-  %73 = or i8 %.0.i, %70
-  store i8 %73, ptr %.sroa.0.06.i, align 1, !alias.scope !16063
+  %73 = select i1 %72, i8 32, i8 0
+  %.0.i = or i8 %73, %70
+  store i8 %.0.i, ptr %.sroa.0.06.i, align 1, !alias.scope !16063
   %74 = icmp eq ptr %69, %67
   br i1 %74, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_lowercase17h4a0de99f5a673770E.exit", label %.lr.ph.i
 

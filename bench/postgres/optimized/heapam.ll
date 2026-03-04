@@ -10718,7 +10718,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %193, %215, %216, %2
 
 257:                                              ; preds = %GetMultiXactIdHintBits.exit, %189, %185, %191, %FreezeMultiXactId.exit.thread130, %250, %247, %239, %235
   %.092 = phi i1 [ true, %250 ], [ false, %239 ], [ false, %247 ], [ false, %235 ], [ false, %FreezeMultiXactId.exit.thread130 ], [ false, %191 ], [ false, %185 ], [ false, %189 ], [ false, %GetMultiXactIdHintBits.exit ]
-  %.189 = phi i1 [ false, %250 ], [ false, %239 ], [ false, %247 ], [ false, %235 ], [ false, %FreezeMultiXactId.exit.thread130 ], [ false, %191 ], [ true, %185 ], [ true, %189 ], [ true, %GetMultiXactIdHintBits.exit ]
+  %.189 = phi i1 [ %43, %250 ], [ %43, %239 ], [ %43, %247 ], [ %43, %235 ], [ %43, %FreezeMultiXactId.exit.thread130 ], [ %43, %191 ], [ true, %185 ], [ true, %189 ], [ true, %GetMultiXactIdHintBits.exit ]
   %.1 = phi i1 [ false, %250 ], [ true, %239 ], [ true, %247 ], [ false, %235 ], [ false, %FreezeMultiXactId.exit.thread130 ], [ true, %191 ], [ false, %185 ], [ false, %189 ], [ false, %GetMultiXactIdHintBits.exit ]
   br i1 %.091.shrunk, label %258, label %261
 
@@ -10776,8 +10776,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %193, %215, %216, %2
   br label %283
 
 283:                                              ; preds = %278, %273
-  %284 = or i1 %43, %.189
-  %or.cond7 = or i1 %.091.shrunk, %284
+  %or.cond7 = or i1 %.091.shrunk, %.189
   %spec.select = or i1 %or.cond7, %.1
   ret i1 %spec.select
 }

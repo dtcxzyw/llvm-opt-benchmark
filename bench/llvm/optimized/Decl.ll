@@ -18738,11 +18738,11 @@ _ZNK5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit43: ; preds 
 134:                                              ; preds = %127, %123
   %135 = and i32 %125, 16384
   %136 = icmp ne i32 %135, 0
+  %137 = or i1 %.089, %136
   br label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit45
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit45: ; preds = %127, %134
-  %137 = phi i1 [ true, %127 ], [ %136, %134 ]
-  %138 = or i1 %.089, %137
+  %138 = phi i1 [ true, %127 ], [ %137, %134 ]
   %139 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i46 = load i64, ptr %139, align 8
   %140 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i46, 4

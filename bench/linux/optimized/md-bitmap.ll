@@ -2932,13 +2932,13 @@ define dso_local void @md_bitmap_free(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1928
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 972
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %17, 2
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2948,21 +2948,21 @@ define dso_local void @md_bitmap_free(ptr noundef %0) #0 align 16 {
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef %11) #19
   %26 = icmp eq i32 %21, %25
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr %10, align 8
   tail call void @md_cluster_stop(ptr noundef %28) #19
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %27, %19, %15
+.critedge:                                        ; preds = %9, %27, %19, %15
   %29 = tail call i32 @__SCT__might_resched() #19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load volatile i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %41, label %33
 
-33:                                               ; preds = %.thread
+33:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !23
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #19
@@ -2984,7 +2984,7 @@ define dso_local void @md_bitmap_free(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
-41:                                               ; preds = %.loopexit5, %.thread
+41:                                               ; preds = %.loopexit5, %.critedge
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call fastcc void @md_bitmap_file_unmap(ptr noundef nonnull %42)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8

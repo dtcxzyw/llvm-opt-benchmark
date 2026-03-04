@@ -25068,6 +25068,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %464, ptr noundef nonnull align 8 dereferenceable(1) %466, i64 %471, i1 false)
   %472 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %469, ptr %472, align 8, !tbaa !61, !alias.scope !655
+  store ptr %466, ptr %463, align 8, !tbaa !11
   store i64 0, ptr %468, align 8, !tbaa !61
   store i8 0, ptr %466, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i

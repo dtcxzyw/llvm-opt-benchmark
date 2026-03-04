@@ -757,13 +757,13 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor3addEPNS0_11Forma
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %41, label %9
+  br i1 %.not.i, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %11 = load i8, ptr %10, align 8, !tbaa !118, !range !119, !noundef !120
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %41
+  br i1 %12, label %13, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -775,7 +775,7 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor3addEPNS0_11Forma
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %18 = load i32, ptr %17, align 8, !tbaa !17
   %.not10 = icmp eq i32 %8, %18
-  br i1 %.not10, label %41, label %19
+  br i1 %.not10, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, label %19
 
 19:                                               ; preds = %16, %13
   %20 = load ptr, ptr %6, align 8, !tbaa !15
@@ -794,7 +794,7 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor3addEPNS0_11Forma
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %.not.i11 = icmp eq ptr %29, %1
-  br i1 %.not.i11, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, label %30
+  br i1 %.not.i11, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit.loopexit, label %30
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call noundef zeroext i1 @_ZN5clang6format22MacroCallReconstructor24processNextReconstructedEv(ptr noundef nonnull align 8 dereferenceable(296) %0)
@@ -808,26 +808,26 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor3addEPNS0_11Forma
   %39 = load ptr, ptr %37, align 8, !tbaa !129
   %40 = load ptr, ptr %38, align 8, !tbaa !129
   %.not3.i = icmp eq ptr %39, %40
-  br i1 %.not3.i, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, label %.lr.ph.i, !llvm.loop !131
+  br i1 %.not3.i, label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit.loopexit, label %.lr.ph.i, !llvm.loop !131
 
-_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit: ; preds = %.lr.ph.i, %30, %19
-  %.0.lcssa.i = phi i1 [ false, %19 ], [ %.05.i, %.lr.ph.i ], [ %32, %30 ]
-  %spec.select = or i1 %3, %.0.lcssa.i
-  br label %41
+_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit.loopexit: ; preds = %30, %.lr.ph.i
+  %.0.lcssa.i.ph = phi i1 [ %32, %30 ], [ %.05.i, %.lr.ph.i ]
+  %41 = or i1 %3, %.0.lcssa.i.ph
+  br label %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit
 
-41:                                               ; preds = %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, %16, %9, %5
-  %.0.shrunk = phi i1 [ %3, %5 ], [ %3, %9 ], [ %spec.select, %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit ], [ %3, %16 ]
+_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit: ; preds = %19, %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit.loopexit, %16, %9, %5
+  %.0.shrunk = phi i1 [ %3, %5 ], [ %3, %9 ], [ %3, %16 ], [ %3, %19 ], [ %41, %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit.loopexit ]
   tail call void @_ZN5clang6format22MacroCallReconstructor13prepareParentEPNS0_11FormatTokenEbj(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %2, i1 noundef zeroext %.0.shrunk, i32 noundef %4)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %43 = load i8, ptr %42, align 8, !tbaa !118, !range !119, !noundef !120
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %46
 
-45:                                               ; preds = %41
+45:                                               ; preds = %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit
   tail call void @_ZN5clang6format22MacroCallReconstructor11reconstructEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1)
   br label %47
 
-46:                                               ; preds = %41
+46:                                               ; preds = %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit
   tail call void @_ZN5clang6format22MacroCallReconstructor11appendTokenEPNS0_11FormatTokenEPNS1_17ReconstructedLineE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1, ptr noundef null)
   br label %47
 

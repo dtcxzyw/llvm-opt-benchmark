@@ -8423,9 +8423,9 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
   %19 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !972, !noalias !970, !noundef !4
   %20 = add i8 %19, -65
   %21 = icmp ult i8 %20, 26
-  %.0.i.i.i = select i1 %21, i8 32, i8 0
-  %22 = or i8 %.0.i.i.i, %19
-  store i8 %22, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !972, !noalias !970
+  %22 = select i1 %21, i8 32, i8 0
+  %.0.i.i.i = or i8 %22, %19
+  store i8 %.0.i.i.i, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !972, !noalias !970
   %23 = icmp eq ptr %18, %16
   br i1 %23, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit.i", label %.lr.ph.i.i.i
 
@@ -9851,9 +9851,9 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
   %26 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1133, !noalias !1131, !noundef !4
   %27 = add i8 %26, -65
   %28 = icmp ult i8 %27, 26
-  %.0.i.i = select i1 %28, i8 32, i8 0
-  %29 = or i8 %.0.i.i, %26
-  store i8 %29, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1133, !noalias !1131
+  %29 = select i1 %28, i8 32, i8 0
+  %.0.i.i = or i8 %29, %26
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1133, !noalias !1131
   %30 = icmp eq ptr %25, %23
   br i1 %30, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 

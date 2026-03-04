@@ -1162,6 +1162,7 @@ define linkonce_odr void @_ZN9JsonnetVmC2Ev(ptr noundef nonnull align 8 derefere
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %50, ptr %54, align 8, !tbaa !45, !alias.scope !92
+  store ptr %47, ptr %44, align 8, !tbaa !32
   store i64 0, ptr %53, align 8, !tbaa !45
   store i8 0, ptr %47, align 8, !tbaa !36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

@@ -1728,25 +1728,25 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %42 = add i64 %41, ptrtoint (ptr @runqueues to i64)
   %43 = inttoptr i64 %42 to ptr
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #30
-          to label %.thread [label %44], !srcloc !22
+          to label %.critedge [label %44], !srcloc !22
 
 44:                                               ; preds = %31
-  br i1 %6, label %.thread, label %45
+  br i1 %6, label %.critedge, label %45
 
 45:                                               ; preds = %44
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #30
-          to label %.thread [label %46], !srcloc !22
+          to label %.critedge [label %46], !srcloc !22
 
 46:                                               ; preds = %45
   %47 = getelementptr i8, ptr %1, i64 704
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %46
   tail call void @__update_stats_enqueue_sleeper(ptr noundef %43, ptr noundef %1, ptr noundef nonnull %47) #30
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %31, %49, %46, %45, %44
+.critedge:                                        ; preds = %31, %49, %46, %45, %44
   tail call fastcc void @dequeue_rt_stack(ptr noundef nonnull %4, i32 noundef %2)
   %50 = and i32 %2, 16
   %51 = icmp eq i32 %50, 0
@@ -1766,7 +1766,7 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %65 = getelementptr %struct.list_head, ptr %61, i64 %64
   br i1 %53, label %85, label %66
 
-66:                                               ; preds = %.thread
+66:                                               ; preds = %.critedge
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 422
   %68 = load i16, ptr %67, align 2
   %69 = icmp eq i16 %68, 0
@@ -1807,8 +1807,8 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %.pr = load i32, ptr %62, align 4
   br label %85
 
-85:                                               ; preds = %79, %.thread
-  %86 = phi i32 [ %.pr, %79 ], [ %63, %.thread ]
+85:                                               ; preds = %79, %.critedge
+  %86 = phi i32 [ %.pr, %79 ], [ %63, %.critedge ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 420
   store i16 1, ptr %87, align 4
   %88 = icmp sgt i32 %86, 99
@@ -1836,14 +1836,14 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %101 = getelementptr inbounds nuw i8, ptr %59, i64 2136
   %102 = load i32, ptr %101, align 8
   %103 = icmp sgt i32 %102, %86
-  br i1 %103, label %104, label %.thread8
+  br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %90
   store i32 %86, ptr %101, align 8
   %105 = getelementptr i8, ptr %59, i64 2588
   %106 = load i32, ptr %105, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %.thread8, label %107
+  br i1 %.not, label %.thread, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr i8, ptr %59, i64 2480
@@ -1852,9 +1852,9 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %111 = getelementptr i8, ptr %59, i64 2584
   %112 = load i32, ptr %111, align 8
   tail call void @cpupri_set(ptr noundef nonnull %110, i32 noundef %112, i32 noundef %86) #30
-  br label %.thread8
+  br label %.thread
 
-.thread8:                                         ; preds = %90, %107, %104
+.thread:                                          ; preds = %90, %107, %104
   %113 = load i32, ptr @sysctl_sched_rt_runtime, align 4
   %114 = icmp slt i32 %113, 0
   %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @def_rt_bandwidth, i64 16), align 8
@@ -1862,7 +1862,7 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   %117 = select i1 %114, i1 true, i1 %116
   br i1 %117, label %131, label %118
 
-118:                                              ; preds = %.thread8
+118:                                              ; preds = %.thread
   tail call void @_raw_spin_lock(ptr noundef nonnull @def_rt_bandwidth) #30
   %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @def_rt_bandwidth, i64 88), align 8
   %120 = icmp eq i32 %119, 0
@@ -1885,7 +1885,7 @@ define internal void @enqueue_task_rt(ptr noundef %0, ptr noundef %1, i32 nounde
   tail call void @_raw_spin_unlock(ptr noundef nonnull @def_rt_bandwidth) #30
   br label %131
 
-131:                                              ; preds = %130, %.thread8
+131:                                              ; preds = %130, %.thread
   %132 = getelementptr inbounds nuw i8, ptr %37, i64 2168
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0

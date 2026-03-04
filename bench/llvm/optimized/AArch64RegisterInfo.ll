@@ -4067,6 +4067,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %118, ptr %122, align 8, !tbaa !407, !alias.scope !411
+  store ptr %115, ptr %112, align 8, !tbaa !406
   store i64 0, ptr %121, align 8, !tbaa !407
   store i8 0, ptr %115, align 8, !tbaa !3
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16

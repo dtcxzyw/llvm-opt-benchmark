@@ -1826,17 +1826,17 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
   %9 = extractvalue { i64, ptr } %6, 1
   %10 = icmp eq ptr %9, null
   %or.cond = select i1 %8, i1 true, i1 %10
-  br i1 %or.cond, label %11, label %.thread
+  br i1 %or.cond, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = tail call { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4a5b54a080a9307fE"(ptr noundef nonnull align 8 %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %17, label %.thread
+  br i1 %14, label %17, label %.critedge
 
-.thread:                                          ; preds = %2, %17, %11, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit"
-  %.sroa.5.0 = phi ptr [ undef, %11 ], [ %18, %17 ], [ %9, %2 ], [ null, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %11 ], [ %.mux34, %17 ], [ 0, %2 ], [ 0, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit" ]
+.critedge:                                        ; preds = %2, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit", %11, %17
+  %.sroa.5.0 = phi ptr [ null, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit" ], [ %18, %17 ], [ %9, %2 ], [ undef, %11 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit" ], [ %.mux33, %17 ], [ 0, %2 ], [ 1, %11 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.5.0, 1
   ret { i64, ptr } %16
@@ -1846,8 +1846,8 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
   %19 = icmp ne ptr %18, null
   %brmerge = or i1 %8, %19
   %not. = xor i1 %19, true
-  %.mux34 = zext i1 %not. to i64
-  br i1 %brmerge, label %.thread, label %20
+  %.mux33 = zext i1 %not. to i64
+  br i1 %brmerge, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %0, align 8, !range !82, !noundef !4
@@ -1928,7 +1928,7 @@ common.resume:                                    ; preds = %42, %27, %30
 
 "_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hac692b6aa9f36f0bE.exit": ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %35
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d607a7b00f5887b24066a7f5dab6f6b7.3) #45
@@ -1946,17 +1946,17 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
   %9 = extractvalue { i64, ptr } %6, 1
   %10 = icmp eq ptr %9, null
   %or.cond = select i1 %8, i1 true, i1 %10
-  br i1 %or.cond, label %11, label %.thread
+  br i1 %or.cond, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = tail call { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h171becdb8f2f147dE"(ptr noundef nonnull align 8 %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %17, label %.thread
+  br i1 %14, label %17, label %.critedge
 
-.thread:                                          ; preds = %2, %17, %11, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit"
-  %.sroa.5.0 = phi ptr [ undef, %11 ], [ %18, %17 ], [ %9, %2 ], [ null, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %11 ], [ %.mux34, %17 ], [ 0, %2 ], [ 0, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit" ]
+.critedge:                                        ; preds = %2, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit", %11, %17
+  %.sroa.5.0 = phi ptr [ null, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit" ], [ %18, %17 ], [ %9, %2 ], [ undef, %11 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit" ], [ %.mux33, %17 ], [ 0, %2 ], [ 1, %11 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.5.0, 1
   ret { i64, ptr } %16
@@ -1966,8 +1966,8 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
   %19 = icmp ne ptr %18, null
   %brmerge = or i1 %8, %19
   %not. = xor i1 %19, true
-  %.mux34 = zext i1 %not. to i64
-  br i1 %brmerge, label %.thread, label %20
+  %.mux33 = zext i1 %not. to i64
+  br i1 %brmerge, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %0, align 8, !range !82, !noundef !4
@@ -2048,7 +2048,7 @@ common.resume:                                    ; preds = %42, %27, %30
 
 "_ZN12futures_util6future14try_maybe_done23TryMaybeDone$LT$Fut$GT$11take_output17hfaa7de300d292cc5E.exit": ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %35
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d607a7b00f5887b24066a7f5dab6f6b7.3) #45

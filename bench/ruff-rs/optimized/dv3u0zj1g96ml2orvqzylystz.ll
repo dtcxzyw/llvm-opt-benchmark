@@ -7930,9 +7930,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
 
 728:                                              ; preds = %725
   %729 = getelementptr inbounds nuw i8, ptr %.sroa.0324.1737, i64 40
-  %.val13.i.i = load ptr, ptr %729, align 8, !alias.scope !906, !noalias !907, !nonnull !3, !noundef !3
+  %.val12.i.i = load ptr, ptr %729, align 8, !alias.scope !906, !noalias !907, !nonnull !3, !noundef !3
   %730 = getelementptr inbounds nuw i8, ptr %.sroa.0324.1737, i64 48
-  %.val14.i.i = load i64, ptr %730, align 8, !alias.scope !906, !noalias !907, !noundef !3
+  %.val13.i.i = load i64, ptr %730, align 8, !alias.scope !906, !noalias !907, !noundef !3
   %731 = invoke noundef nonnull align 8 ptr %720(ptr noundef nonnull align 1 %.val412)
           to label %.noexc506 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -7941,14 +7941,14 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
           to label %.noexc507 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc507:                                        ; preds = %.noexc506
-  %733 = invoke noundef zeroext i1 @_ZN21ruff_python_formatter9statement5suite25contains_only_an_ellipsis17hb0c42029e871696aE(ptr noalias noundef nonnull readonly align 8 %.val13.i.i, i64 noundef %.val14.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %732)
+  %733 = invoke noundef zeroext i1 @_ZN21ruff_python_formatter9statement5suite25contains_only_an_ellipsis17hb0c42029e871696aE(ptr noalias noundef nonnull readonly align 8 %.val12.i.i, i64 noundef %.val13.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %732)
           to label %.noexc508 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc508:                                        ; preds = %.noexc507
   %734 = load i64, ptr %321, align 8, !range !779, !alias.scope !908, !noalias !909
   %735 = icmp eq i64 %734, -9223372036854775808
-  %or.cond9.i.i = select i1 %733, i1 %735, i1 false
-  br i1 %or.cond9.i.i, label %736, label %_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i
+  %or.cond.i.i = select i1 %733, i1 %735, i1 false
+  br i1 %or.cond.i.i, label %736, label %_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i
 
 736:                                              ; preds = %.noexc508
   %737 = getelementptr inbounds nuw i8, ptr %321, i64 40
@@ -7981,8 +7981,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
   %749 = icmp sgt i64 %726, -9223372036854775785
   %750 = load i64, ptr %321, align 8, !range !779, !alias.scope !908, !noalias !909
   %751 = icmp eq i64 %750, -9223372036854775808
-  %or.cond11.i.i = select i1 %749, i1 %751, i1 false
-  br i1 %or.cond11.i.i, label %752, label %757
+  %or.cond10.i.i = select i1 %749, i1 %751, i1 false
+  br i1 %or.cond10.i.i, label %752, label %757
 
 752:                                              ; preds = %"_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line28_$u7b$$u7b$closure$u7d$$u7d$17h9f704a25ae37c8d1E.exit.i.i"
   %753 = getelementptr inbounds nuw i8, ptr %321, i64 24
@@ -7996,12 +7996,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
   br i1 %749, label %758, label %_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i
 
 758:                                              ; preds = %757, %752
-  %.sroa.07.07.i.i = phi i1 [ %756, %752 ], [ false, %757 ]
+  %.sroa.07.04.i.i = phi i1 [ %756, %752 ], [ false, %757 ]
   %759 = phi i64 [ -9223372036854775808, %752 ], [ %750, %757 ]
   %760 = getelementptr inbounds nuw i8, ptr %.sroa.0324.1737, i64 32
-  %.val19.i.i = load ptr, ptr %760, align 8, !alias.scope !906, !noalias !907, !nonnull !3, !noundef !3
+  %.val18.i.i = load ptr, ptr %760, align 8, !alias.scope !906, !noalias !907, !nonnull !3, !noundef !3
   %761 = getelementptr inbounds nuw i8, ptr %.sroa.0324.1737, i64 40
-  %.val20.i.i = load i64, ptr %761, align 8, !alias.scope !906, !noalias !907, !noundef !3
+  %.val19.i.i = load i64, ptr %761, align 8, !alias.scope !906, !noalias !907, !noundef !3
   %762 = invoke noundef nonnull align 8 ptr %720(ptr noundef nonnull align 1 %.val412)
           to label %.noexc512 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8010,7 +8010,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
           to label %.noexc513 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc513:                                        ; preds = %.noexc512
-  %764 = invoke noundef zeroext i1 @_ZN21ruff_python_formatter9statement5suite25contains_only_an_ellipsis17hb0c42029e871696aE(ptr noalias noundef nonnull readonly align 8 %.val19.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %763)
+  %764 = invoke noundef zeroext i1 @_ZN21ruff_python_formatter9statement5suite25contains_only_an_ellipsis17hb0c42029e871696aE(ptr noalias noundef nonnull readonly align 8 %.val18.i.i, i64 noundef %.val19.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %763)
           to label %.noexc514 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc514:                                        ; preds = %.noexc513
@@ -8018,12 +8018,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4accd7013eb6830cE.exit.thread.
 
 765:                                              ; preds = %.noexc514
   %766 = icmp sgt i64 %759, -9223372036854775785
-  %767 = select i1 %.sroa.07.07.i.i, i1 true, i1 %766
+  %767 = select i1 %.sroa.07.04.i.i, i1 true, i1 %766
   br label %_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i
 
 _ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i: ; preds = %765, %.noexc514, %757, %744, %.noexc511, %.noexc508
-  %or.cond.i.i = phi i1 [ %767, %765 ], [ false, %757 ], [ %.sroa.07.07.i.i, %.noexc514 ], [ false, %.noexc511 ], [ %748, %744 ], [ false, %.noexc508 ]
-  %768 = xor i1 %or.cond.i.i, true
+  %.sroa.07.03.i.i = phi i1 [ %767, %765 ], [ false, %757 ], [ %.sroa.07.04.i.i, %.noexc514 ], [ false, %.noexc511 ], [ %748, %744 ], [ false, %.noexc508 ]
+  %768 = xor i1 %.sroa.07.03.i.i, true
   br label %769
 
 769:                                              ; preds = %_ZN21ruff_python_formatter9statement5suite30stub_suite_can_omit_empty_line17hc485272d31cce7f7E.exit.i, %.noexc505

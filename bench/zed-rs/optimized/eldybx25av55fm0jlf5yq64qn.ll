@@ -26339,13 +26339,13 @@ _ZN4core5slice5ascii8is_ascii17h5071ebf1b0665860E.llvm.15197529079933137319.exit
   %.val6.i.i.i.i = load i8, ptr %51, align 1, !alias.scope !5352, !noalias !5357, !noundef !18
   %52 = add i8 %.val.i.i.i.i, -65
   %53 = icmp ult i8 %52, 26
-  %.sroa.0.0.i.i7.i.i.i.i = select i1 %53, i8 32, i8 0
-  %54 = add i8 %.val6.i.i.i.i, -65
-  %55 = icmp ult i8 %54, 26
-  %.sroa.01.0.i.i.i.i.i.i = select i1 %55, i8 32, i8 0
-  %56 = or i8 %.sroa.0.0.i.i7.i.i.i.i, %.val.i.i.i.i
-  %57 = or i8 %.sroa.01.0.i.i.i.i.i.i, %.val6.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %56, %57
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i.i.i = or i8 %54, %.val.i.i.i.i
+  %55 = add i8 %.val6.i.i.i.i, -65
+  %56 = icmp ult i8 %55, 26
+  %57 = select i1 %56, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i.i = or i8 %57, %.val6.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i.i.i, %.sroa.01.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %.preheader.i.i4.i, label %"_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h55fa9174f533a44bE.exit.thread.i"
 
 "_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h55fa9174f533a44bE.exit.i": ; preds = %.loopexit.i
@@ -26788,13 +26788,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h8e2443887a8cc04cE.exit.threa
   %.val6.i.i.i.i.i.i = load i8, ptr %239, align 1, !alias.scope !5425, !noalias !5430, !noundef !18
   %240 = add i8 %.val.i.i.i.i.i.i, -65
   %241 = icmp ult i8 %240, 26
-  %.sroa.0.0.i.i7.i.i.i.i.i.i = select i1 %241, i8 32, i8 0
-  %242 = add i8 %.val6.i.i.i.i.i.i, -65
-  %243 = icmp ult i8 %242, 26
-  %.sroa.01.0.i.i.i.i.i.i.i.i = select i1 %243, i8 32, i8 0
-  %244 = or i8 %.sroa.0.0.i.i7.i.i.i.i.i.i, %.val.i.i.i.i.i.i
-  %245 = or i8 %.sroa.01.0.i.i.i.i.i.i.i.i, %.val6.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i = icmp eq i8 %244, %245
+  %242 = select i1 %241, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i.i.i.i.i = or i8 %242, %.val.i.i.i.i.i.i
+  %243 = add i8 %.val6.i.i.i.i.i.i, -65
+  %244 = icmp ult i8 %243, 26
+  %245 = select i1 %244, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i.i.i.i = or i8 %245, %.val6.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i.i.i.i.i, %.sroa.01.0.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i4.i.i.i, label %.backedge.i.i
 
 246:                                              ; preds = %.loopexit.i.i.i
@@ -26929,13 +26929,13 @@ _ZN4core5slice5ascii8is_ascii17h5071ebf1b0665860E.llvm.15197529079933137319.exit
   %.val6.i.i.i.i = load i8, ptr %46, align 1, !alias.scope !5448, !noalias !5453, !noundef !18
   %47 = add i8 %.val.i.i.i.i, -65
   %48 = icmp ult i8 %47, 26
-  %.sroa.0.0.i.i7.i.i.i.i = select i1 %48, i8 32, i8 0
-  %49 = add i8 %.val6.i.i.i.i, -65
-  %50 = icmp ult i8 %49, 26
-  %.sroa.01.0.i.i.i.i.i.i = select i1 %50, i8 32, i8 0
-  %51 = or i8 %.sroa.0.0.i.i7.i.i.i.i, %.val.i.i.i.i
-  %52 = or i8 %.sroa.01.0.i.i.i.i.i.i, %.val6.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %51, %52
+  %49 = select i1 %48, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i.i.i = or i8 %49, %.val.i.i.i.i
+  %50 = add i8 %.val6.i.i.i.i, -65
+  %51 = icmp ult i8 %50, 26
+  %52 = select i1 %51, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i.i = or i8 %52, %.val6.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i.i.i, %.sroa.01.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %.preheader.i.i4.i, label %.loopexit
 
 "_ZN101_$LT$unicase..UniCase$LT$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$unicase..UniCase$LT$S2$GT$$GT$$GT$2eq17h55fa9174f533a44bE.exit.i": ; preds = %.loopexit.i
@@ -27254,27 +27254,27 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i: ; pr
 "_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i": ; preds = %119, %115, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5589
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5582
+  %123 = or i1 %27, %108
   br label %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit"
 
 "_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i"
-  %.sroa.02.0.i.i = phi i1 [ %108, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i" ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i ]
-  %brmerge.i = or i1 %27, %.sroa.02.0.i.i
-  %.8.i = zext i1 %brmerge.i to i64
+  %.sroa.02.0.i.i = phi i1 [ %123, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i" ], [ %27, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i ]
+  %.8.i = zext i1 %.sroa.02.0.i.i to i64
   %.sroa.0.0.i = select i1 %.not.not.not.i.not.i, i64 %.8.i, i64 2
   %.not = icmp eq i64 %.sroa.0.0.i, 0
-  br i1 %.not, label %123, label %124
-
-123:                                              ; preds = %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit"
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %125
+  br i1 %.not, label %124, label %125
 
 124:                                              ; preds = %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit"
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %126
+
+125:                                              ; preds = %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit"
   call fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %125
+  br label %126
 
-125:                                              ; preds = %124, %123
+126:                                              ; preds = %125, %124
   ret void
 }
 

@@ -54416,6 +54416,7 @@ define linkonce_odr dso_local void @_ZNK12AstNodeDType16prettyDTypeNameQB5cxx11E
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !34, !alias.scope !560
+  store ptr %11, ptr %8, align 8, !tbaa !31
   store i64 0, ptr %17, align 8, !tbaa !34
   store i8 0, ptr %11, align 8, !tbaa !8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -84685,6 +84686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %34, ptr %38, align 8, !tbaa !34, !alias.scope !889
+  store ptr %31, ptr %28, align 8, !tbaa !31
   store i64 0, ptr %37, align 8, !tbaa !34
   store i8 0, ptr %31, align 8, !tbaa !8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

@@ -2056,10 +2056,10 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %27 = load ptr, ptr %26, align 8, !tbaa !347
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !348, !noalias !412
-  %.not7487 = icmp eq ptr %29, null
-  br i1 %.not7487, label %._crit_edge, label %.lr.ph90
+  %.not7688 = icmp eq ptr %29, null
+  br i1 %.not7688, label %._crit_edge, label %.lr.ph91
 
-.lr.ph90:                                         ; preds = %24
+.lr.ph91:                                         ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !365, !noalias !412
   %32 = zext i32 %11 to i64
@@ -2077,7 +2077,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %45 = ptrtoint ptr %1 to i64
   %46 = and i64 %45, -7
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.4.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = or i64 %45, 6
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 600
   br label %49
@@ -2085,11 +2085,11 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
 ._crit_edge:                                      ; preds = %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit, %24
   ret void
 
-49:                                               ; preds = %.lr.ph90, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit
-  %.sroa.565.089 = phi ptr [ %38, %.lr.ph90 ], [ %77, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
-  %.sroa.063.088 = phi i32 [ %39, %.lr.ph90 ], [ %80, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
+49:                                               ; preds = %.lr.ph91, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit
+  %.sroa.565.090 = phi ptr [ %38, %.lr.ph91 ], [ %77, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
+  %.sroa.063.089 = phi i32 [ %39, %.lr.ph91 ], [ %80, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
   %50 = load ptr, ptr %41, align 8, !tbaa !287
-  %51 = zext i32 %.sroa.063.088 to i64
+  %51 = zext i32 %.sroa.063.089 to i64
   %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !345
   %54 = zext i16 %53 to i32
@@ -2107,7 +2107,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %59 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !371
-  %62 = icmp eq i32 %.sroa.063.088, %61
+  %62 = icmp eq i32 %.sroa.063.089, %61
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %57
@@ -2142,22 +2142,22 @@ _ZN4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE4findERKj.exit: ; 
   %.pre = load ptr, ptr %40, align 8, !tbaa !25
   br label %.lr.ph
 
-_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit: ; preds = %171, %..critedge.loopexit.i_crit_edge.i, %49, %_ZN4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE4findERKj.exit
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.565.089, i64 2
-  %78 = load i16, ptr %.sroa.565.089, align 2, !tbaa !345
+_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit: ; preds = %172, %..critedge.loopexit.i_crit_edge.i, %49, %_ZN4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE4findERKj.exit
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.565.090, i64 2
+  %78 = load i16, ptr %.sroa.565.090, align 2, !tbaa !345
   %79 = sext i16 %78 to i32
-  %80 = add i32 %.sroa.063.088, %79
+  %80 = add i32 %.sroa.063.089, %79
   %.not.i.i42 = icmp eq i16 %78, 0
   br i1 %.not.i.i42, label %._crit_edge, label %49
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %171
-  %81 = phi ptr [ %172, %171 ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.7.086 = phi i64 [ %.sroa.7.8.insert.ext, %171 ], [ %76, %.lr.ph.preheader ]
-  %82 = and i64 %.sroa.7.086, 4294967295
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %172
+  %81 = phi ptr [ %173, %172 ], [ %.pre, %.lr.ph.preheader ]
+  %.sroa.7.087 = phi i64 [ %.sroa.7.8.insert.ext, %172 ], [ %76, %.lr.ph.preheader ]
+  %82 = and i64 %.sroa.7.087, 4294967295
   %83 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !368
   %85 = icmp eq ptr %84, %1
-  br i1 %85, label %171, label %86
+  br i1 %85, label %172, label %86
 
 86:                                               ; preds = %.lr.ph
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -2166,183 +2166,189 @@ _ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIP
   store i64 0, ptr %4, align 8
   store i32 0, ptr %43, align 4, !tbaa !407
   %89 = icmp slt i32 %88, 0
-  br i1 %89, label %162, label %90
+  br i1 %89, label %90, label %91
 
 90:                                               ; preds = %86
-  %91 = load i16, ptr %44, align 8
-  %92 = or i16 %91, 64
-  store i16 %92, ptr %44, align 8
-  %93 = load ptr, ptr %84, align 8, !tbaa !309
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !332
-  %96 = zext nneg i32 %88 to i64
-  %97 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %95, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !309
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !331
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  %103 = load i16, ptr %102, align 2, !tbaa !340
-  %104 = zext i16 %103 to i32
-  %.not41 = icmp samesign ult i32 %88, %104
-  br i1 %.not41, label %162, label %105
+  store i64 %47, ptr %4, align 8, !tbaa !309
+  store i32 3, ptr %.sroa.4.0..sroa_idx75, align 8, !tbaa !309
+  br i1 %25, label %167, label %164
 
-105:                                              ; preds = %90
-  %106 = load i16, ptr %101, align 8, !tbaa !342
-  %107 = zext i16 %106 to i64
-  %108 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %101, i64 %107
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 10
-  %111 = load i16, ptr %110, align 2, !tbaa !343
-  %112 = zext i16 %111 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %109, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %115 = load i8, ptr %114, align 8, !tbaa !344
-  %116 = zext i8 %115 to i64
-  %.idx4.i.i = shl nuw nsw i64 %116, 1
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx4.i.i
-  %118 = lshr i64 %116, 2
-  %.not.i.i43 = icmp eq i64 %118, 0
+91:                                               ; preds = %86
+  %92 = load i16, ptr %44, align 8
+  %93 = or i16 %92, 64
+  store i16 %93, ptr %44, align 8
+  %94 = load ptr, ptr %84, align 8, !tbaa !309
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8, !tbaa !332
+  %97 = zext nneg i32 %88 to i64
+  %98 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !309
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !331
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  %104 = load i16, ptr %103, align 2, !tbaa !340
+  %105 = zext i16 %104 to i32
+  %.not41 = icmp samesign ult i32 %88, %105
+  br i1 %.not41, label %163, label %106
+
+106:                                              ; preds = %91
+  %107 = load i16, ptr %102, align 8, !tbaa !342
+  %108 = zext i16 %107 to i64
+  %109 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %102, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 10
+  %112 = load i16, ptr %111, align 2, !tbaa !343
+  %113 = zext i16 %112 to i64
+  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %116 = load i8, ptr %115, align 8, !tbaa !344
+  %117 = zext i8 %116 to i64
+  %.idx4.i.i = shl nuw nsw i64 %117, 1
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx4.i.i
+  %119 = lshr i64 %117, 2
+  %.not.i.i43 = icmp eq i64 %119, 0
   br i1 %.not.i.i43, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %105
-  %119 = and i64 %.idx4.i.i, 504
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %113, i64 %119
-  br label %120
+.lr.ph.i.i.i.i.i:                                 ; preds = %106
+  %120 = and i64 %.idx4.i.i, 504
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %114, i64 %120
+  br label %121
 
-120:                                              ; preds = %139, %.lr.ph.i.i.i.i.i
-  %.047.i.i.i.i.i = phi i64 [ %118, %.lr.ph.i.i.i.i.i ], [ %141, %139 ]
-  %.02946.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i ], [ %140, %139 ]
-  %121 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !345
-  %122 = zext i16 %121 to i32
-  %123 = icmp eq i32 %99, %122
-  br i1 %123, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %124
+121:                                              ; preds = %140, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %119, %.lr.ph.i.i.i.i.i ], [ %142, %140 ]
+  %.02946.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i ], [ %141, %140 ]
+  %122 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !345
+  %123 = zext i16 %122 to i32
+  %124 = icmp eq i32 %100, %123
+  br i1 %124, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %125
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
-  %126 = load i16, ptr %125, align 2, !tbaa !345
-  %127 = zext i16 %126 to i32
-  %128 = icmp eq i32 %99, %127
-  br i1 %128, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, label %129
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
+  %127 = load i16, ptr %126, align 2, !tbaa !345
+  %128 = zext i16 %127 to i32
+  %129 = icmp eq i32 %100, %128
+  br i1 %129, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, label %130
 
-129:                                              ; preds = %124
-  %130 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
-  %131 = load i16, ptr %130, align 2, !tbaa !345
-  %132 = zext i16 %131 to i32
-  %133 = icmp eq i32 %99, %132
-  br i1 %133, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111, label %134
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
+  %132 = load i16, ptr %131, align 2, !tbaa !345
+  %133 = zext i16 %132 to i32
+  %134 = icmp eq i32 %100, %133
+  br i1 %134, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111, label %135
 
-134:                                              ; preds = %129
-  %135 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
-  %136 = load i16, ptr %135, align 2, !tbaa !345
-  %137 = zext i16 %136 to i32
-  %138 = icmp eq i32 %99, %137
-  br i1 %138, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113, label %139
+135:                                              ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
+  %137 = load i16, ptr %136, align 2, !tbaa !345
+  %138 = zext i16 %137 to i32
+  %139 = icmp eq i32 %100, %138
+  br i1 %139, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113, label %140
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
-  %141 = add nsw i64 %.047.i.i.i.i.i, -1
-  %142 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %142, label %120, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !346
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
+  %142 = add nsw i64 %.047.i.i.i.i.i, -1
+  %143 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %143, label %121, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !346
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %139
-  %143 = and i8 %115, 3
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %140
+  %144 = and i8 %116, 3
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %105
-  %.pre-phi56.i.i.i.i.i = phi i8 [ %143, %._crit_edge.loopexit.i.i.i.i.i ], [ %115, %105 ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %113, %105 ]
-  switch i8 %.pre-phi56.i.i.i.i.i, label %158 [
-    i8 3, label %144
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %106
+  %.pre-phi56.i.i.i.i.i = phi i8 [ %144, %._crit_edge.loopexit.i.i.i.i.i ], [ %116, %106 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %114, %106 ]
+  switch i8 %.pre-phi56.i.i.i.i.i, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread [
+    i8 3, label %145
     i8 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i8 1, label %._crit_edge._crit_edge52.i.i.i.i.i
   ]
 
-144:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %145 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !345
-  %146 = zext i16 %145 to i32
-  %147 = icmp eq i32 %99, %146
-  br i1 %147, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %148
+145:                                              ; preds = %._crit_edge.i.i.i.i.i
+  %146 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !345
+  %147 = zext i16 %146 to i32
+  %148 = icmp eq i32 %100, %147
+  br i1 %148, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %149
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 2
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %148, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %149, %148 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %150 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !345
-  %151 = zext i16 %150 to i32
-  %152 = icmp eq i32 %99, %151
-  br i1 %152, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %153
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %149, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %150, %149 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %151 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !345
+  %152 = zext i16 %151 to i32
+  %153 = icmp eq i32 %100, %152
+  br i1 %153, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %154
 
-153:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 2
+154:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %155 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %153, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %154, %153 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %155 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !345
-  %156 = zext i16 %155 to i32
-  %157 = icmp eq i32 %99, %156
-  br i1 %157, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %158
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %154, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %155, %154 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %156 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !345
+  %157 = zext i16 %156 to i32
+  %158 = icmp eq i32 %100, %157
+  br i1 %158, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread
 
-158:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread: ; preds = %._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
+  store i64 %46, ptr %4, align 8, !tbaa !309
+  store i32 %100, ptr %.sroa.4.0..sroa_idx75, align 8, !tbaa !309
+  br label %167
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit: ; preds = %124
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit: ; preds = %125
   %159 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111: ; preds = %129
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111: ; preds = %130
   %160 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113: ; preds = %134
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113: ; preds = %135
   %161 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit: ; preds = %120, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113, %144, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %158
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %117, %158 ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %144 ], [ %161, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113 ], [ %160, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111 ], [ %159, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %120 ]
-  %.not75 = icmp eq ptr %.028.i.i.i.i.i, %117
-  br label %162
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit: ; preds = %121, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113, %145, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %145 ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %160, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit111 ], [ %159, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit ], [ %161, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit113 ], [ %.02946.i.i.i.i.i, %121 ]
+  %.not77 = icmp eq ptr %.028.i.i.i.i.i, %118
+  %162 = or i1 %25, %.not77
+  store i64 %46, ptr %4, align 8, !tbaa !309
+  store i32 %100, ptr %.sroa.4.0..sroa_idx75, align 8, !tbaa !309
+  store i32 1, ptr %43, align 4, !tbaa !66
+  br i1 %162, label %167, label %164
 
-162:                                              ; preds = %90, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, %86
-  %storemerge108 = phi i64 [ %47, %86 ], [ %46, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %46, %90 ]
-  %storemerge107 = phi i32 [ 3, %86 ], [ %99, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %99, %90 ]
-  %storemerge = phi i32 [ 0, %86 ], [ 1, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ 1, %90 ]
-  %.037 = phi i1 [ false, %86 ], [ %.not75, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ false, %90 ]
-  %.0 = phi ptr [ null, %86 ], [ %93, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %93, %90 ]
-  store i64 %storemerge108, ptr %4, align 8, !tbaa !309
-  store i32 %storemerge107, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !309
-  store i32 %storemerge, ptr %43, align 4, !tbaa !66
-  %or.cond = or i1 %25, %.037
-  br i1 %or.cond, label %166, label %163
+163:                                              ; preds = %91
+  store i64 %46, ptr %4, align 8, !tbaa !309
+  store i32 %100, ptr %.sroa.4.0..sroa_idx75, align 8, !tbaa !309
+  store i32 1, ptr %43, align 4, !tbaa !66
+  br i1 %25, label %167, label %164
 
-163:                                              ; preds = %162
-  %164 = load ptr, ptr %1, align 8, !tbaa !309
-  %165 = call noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j(ptr noundef nonnull align 8 dereferenceable(280) %48, ptr noundef %164, i32 noundef %2, ptr noundef %.0, i32 noundef %88) #25
-  br label %166
+164:                                              ; preds = %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, %90, %163
+  %.074 = phi ptr [ null, %90 ], [ %94, %163 ], [ %94, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ]
+  %165 = load ptr, ptr %1, align 8, !tbaa !309
+  %166 = call noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j(ptr noundef nonnull align 8 dereferenceable(280) %48, ptr noundef %165, i32 noundef %2, ptr noundef %.074, i32 noundef %88) #25
+  br label %167
 
-166:                                              ; preds = %162, %163
-  %storemerge76 = phi i32 [ %165, %163 ], [ 0, %162 ]
-  store i32 %storemerge76, ptr %43, align 4, !tbaa !407
-  %167 = load ptr, ptr %15, align 8, !tbaa !3
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 344
-  %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(304) %15, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %84, i32 noundef %88, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %48) #25
-  %170 = call noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr noundef nonnull align 8 dereferenceable(255) %84, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true) #25
+167:                                              ; preds = %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread, %163, %90, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, %164
+  %storemerge = phi i32 [ %166, %164 ], [ 0, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ 0, %90 ], [ 0, %163 ], [ 0, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread ]
+  store i32 %storemerge, ptr %43, align 4, !tbaa !407
+  %168 = load ptr, ptr %15, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 344
+  %170 = load ptr, ptr %169, align 8
+  call void %170(ptr noundef nonnull align 8 dereferenceable(304) %15, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %84, i32 noundef %88, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %48) #25
+  %171 = call noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr noundef nonnull align 8 dereferenceable(255) %84, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre96 = load ptr, ptr %40, align 8, !tbaa !25
-  br label %171
+  %.pre97 = load ptr, ptr %40, align 8, !tbaa !25
+  br label %172
 
-171:                                              ; preds = %.lr.ph, %166
-  %172 = phi ptr [ %81, %.lr.ph ], [ %.pre96, %166 ]
-  %173 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %172, i64 %82
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 20
-  %175 = load i32, ptr %174, align 4, !tbaa !374
-  %.sroa.7.8.insert.ext = zext i32 %175 to i64
-  %176 = icmp eq i32 %175, -1
-  br i1 %176, label %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit, label %.lr.ph, !llvm.loop !415
+172:                                              ; preds = %.lr.ph, %167
+  %173 = phi ptr [ %81, %.lr.ph ], [ %.pre97, %167 ]
+  %174 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %173, i64 %82
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 20
+  %176 = load i32, ptr %175, align 4, !tbaa !374
+  %.sroa.7.8.insert.ext = zext i32 %176 to i64
+  %177 = icmp eq i32 %176, -1
+  br i1 %177, label %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit, label %.lr.ph, !llvm.loop !415
 }
 
 declare noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32), i32, ptr noundef) local_unnamed_addr #3

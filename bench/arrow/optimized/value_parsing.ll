@@ -1816,6 +1816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i
   %15 = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %15, i1 false), !noalias !44
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %10, ptr %1, align 8, !tbaa !53, !noalias !44
   store i64 0, ptr %12, align 8, !tbaa !56, !noalias !44
   store i8 0, ptr %10, align 8, !tbaa !6, !noalias !44
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 16), ptr %7, align 8, !tbaa !51, !noalias !44
@@ -3379,10 +3380,10 @@ _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheade
   %124 = icmp sgt i32 %123, 63
   %125 = zext nneg i32 %.sroa.speculated88 to i64
   %126 = lshr i64 %1, %125
-  %storemerge.i.i51 = select i1 %124, i64 0, i64 %126
-  %..i.i = and i64 %.not.i.i52, %storemerge.i.i51
+  %storemerge.i51 = select i1 %124, i64 0, i64 %126
+  %..i.i = and i64 %.not.i.i52, %storemerge.i51
   %narrow.i = select i1 %121, i64 1, i64 %..i.i
-  %127 = add i64 %narrow.i, %storemerge.i.i51
+  %127 = add i64 %narrow.i, %storemerge.i51
   %128 = icmp ugt i64 %127, 8388607
   %129 = zext i1 %128 to i32
   br label %_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
@@ -4431,10 +4432,10 @@ _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheade
   %125 = icmp sgt i32 %124, 63
   %126 = zext nneg i32 %.sroa.speculated88 to i64
   %127 = lshr i64 %1, %126
-  %storemerge.i.i51 = select i1 %125, i64 0, i64 %127
-  %..i.i = and i64 %.not.i.i52, %storemerge.i.i51
+  %storemerge.i51 = select i1 %125, i64 0, i64 %127
+  %..i.i = and i64 %.not.i.i52, %storemerge.i51
   %narrow.i = select i1 %122, i64 1, i64 %..i.i
-  %128 = add i64 %narrow.i, %storemerge.i.i51
+  %128 = add i64 %narrow.i, %storemerge.i51
   %129 = icmp ugt i64 %128, 4503599627370495
   %130 = zext i1 %129 to i32
   br label %_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit

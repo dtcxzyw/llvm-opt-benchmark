@@ -124,17 +124,17 @@ bytestream2_get_byte.exit:                        ; preds = %49, %51
   %64 = load i8, ptr %58, align 1, !tbaa !40
   %65 = zext i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 8
+  %67 = or disjoint i32 %66, %.0.i93
   %.pre137 = ptrtoint ptr %63 to i64
   br label %bytestream2_get_byte.exit95
 
 bytestream2_get_byte.exit95:                      ; preds = %bytestream2_get_byte.exit, %62
   %.pre-phi138 = phi i64 [ %.pre137, %62 ], [ %44, %bytestream2_get_byte.exit ]
-  %67 = phi ptr [ %63, %62 ], [ %42, %bytestream2_get_byte.exit ]
-  %.0.i94 = phi i32 [ %66, %62 ], [ 0, %bytestream2_get_byte.exit ]
-  %68 = or disjoint i32 %.0.i94, %.0.i93
+  %68 = phi ptr [ %63, %62 ], [ %42, %bytestream2_get_byte.exit ]
+  %.0.i94 = phi i32 [ %67, %62 ], [ %.0.i93, %bytestream2_get_byte.exit ]
   %69 = sub i64 %44, %.pre-phi138
   %..i91 = tail call i64 @llvm.smin.i64(i64 %69, i64 1)
-  %70 = getelementptr inbounds i8, ptr %67, i64 %..i91
+  %70 = getelementptr inbounds i8, ptr %68, i64 %..i91
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %44, %71
   %73 = icmp slt i64 %72, 1
@@ -145,17 +145,17 @@ bytestream2_get_byte.exit95:                      ; preds = %bytestream2_get_byt
   store ptr %75, ptr %6, align 8, !tbaa !39
   %76 = load i8, ptr %70, align 1, !tbaa !40
   %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %.0.i94, %77
   %.pre139 = ptrtoint ptr %75 to i64
   br label %bytestream2_get_byte.exit97
 
 bytestream2_get_byte.exit97:                      ; preds = %bytestream2_get_byte.exit95, %74
   %.pre-phi140 = phi i64 [ %.pre139, %74 ], [ %44, %bytestream2_get_byte.exit95 ]
-  %78 = phi ptr [ %75, %74 ], [ %42, %bytestream2_get_byte.exit95 ]
-  %.0.i96 = phi i32 [ %77, %74 ], [ 0, %bytestream2_get_byte.exit95 ]
-  %79 = or disjoint i32 %.0.i96, %68
+  %79 = phi ptr [ %75, %74 ], [ %42, %bytestream2_get_byte.exit95 ]
+  %.0.i96 = phi i32 [ %78, %74 ], [ %.0.i94, %bytestream2_get_byte.exit95 ]
   %80 = sub i64 %44, %.pre-phi140
   %..i92 = tail call i64 @llvm.smin.i64(i64 %80, i64 1)
-  %81 = getelementptr inbounds i8, ptr %78, i64 %..i92
+  %81 = getelementptr inbounds i8, ptr %79, i64 %..i92
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %44, %82
   %84 = icmp slt i64 %83, 1
@@ -175,7 +175,7 @@ bytestream2_get_byte.exit99:                      ; preds = %bytestream2_get_byt
   br i1 %.not84, label %92, label %89
 
 89:                                               ; preds = %bytestream2_get_byte.exit99
-  %90 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 1024, i32 noundef 1024, i32 noundef %79, ptr noundef %1)
+  %90 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 1024, i32 noundef 1024, i32 noundef %.0.i96, ptr noundef %1)
   %91 = sub nsw i32 %.075135, %90
   br label %92
 
@@ -186,7 +186,7 @@ bytestream2_get_byte.exit99:                      ; preds = %bytestream2_get_byt
   br i1 %.not85, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 256, i32 noundef 256, i32 noundef %79, ptr noundef %1)
+  %95 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 256, i32 noundef 256, i32 noundef %.0.i96, ptr noundef %1)
   %96 = sub nsw i32 %.378, %95
   br label %97
 
@@ -197,7 +197,7 @@ bytestream2_get_byte.exit99:                      ; preds = %bytestream2_get_byt
   br i1 %.not86, label %102, label %99
 
 99:                                               ; preds = %97
-  %100 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 64, i32 noundef 64, i32 noundef %79, ptr noundef %1)
+  %100 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 64, i32 noundef 64, i32 noundef %.0.i96, ptr noundef %1)
   %101 = sub nsw i32 %.4, %100
   br label %102
 
@@ -208,7 +208,7 @@ bytestream2_get_byte.exit99:                      ; preds = %bytestream2_get_byt
   br i1 %.not87, label %107, label %104
 
 104:                                              ; preds = %102
-  %105 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 16, i32 noundef 16, i32 noundef %79, ptr noundef %1)
+  %105 = tail call fastcc i32 @fill_tileX(ptr noundef nonnull %0, i32 noundef 16, i32 noundef 16, i32 noundef %.0.i96, ptr noundef %1)
   %106 = sub nsw i32 %.5, %105
   br label %107
 
@@ -255,10 +255,10 @@ bytestream2_get_le16.exit63.i:                    ; preds = %119, %118
   br i1 %or.cond.i, label %.lr.ph.i, label %.thread127
 
 .lr.ph.i:                                         ; preds = %bytestream2_get_le16.exit63.i
-  %132 = trunc nuw i32 %.0.i96 to i8
-  %133 = lshr exact i32 %.0.i94, 8
-  %134 = trunc nuw i32 %133 to i8
-  %135 = lshr i32 %68, 16
+  %132 = trunc i32 %.0.i96 to i8
+  %133 = lshr i32 %.0.i96, 8
+  %134 = trunc i32 %133 to i8
+  %135 = lshr i32 %.0.i96, 16
   %136 = trunc nuw i32 %135 to i8
   br label %137
 

@@ -14843,9 +14843,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %49 = load ptr, ptr %48, align 8, !tbaa !131, !noalias !145
   %50 = load i32, ptr %47, align 4, !tbaa !33, !noalias !145
   %51 = load i32, ptr %46, align 8, !tbaa !33, !noalias !145
+  store ptr %4, ptr %1, align 8, !tbaa !135
   store i32 %51, ptr %40, align 8, !tbaa !33
   store i32 %50, ptr %41, align 4, !tbaa !33
   store ptr %49, ptr %42, align 8, !tbaa !131
+  store ptr %5, ptr %0, align 8, !tbaa !135
   store i32 %45, ptr %46, align 8, !tbaa !33
   store i32 %44, ptr %47, align 4, !tbaa !33
   store ptr %43, ptr %48, align 8, !tbaa !131
@@ -15630,9 +15632,11 @@ define weak_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
   %18 = load ptr, ptr %17, align 8, !tbaa !131, !noalias !161
   %19 = load i32, ptr %16, align 4, !tbaa !33, !noalias !161
   %20 = load i32, ptr %15, align 8, !tbaa !33, !noalias !161
+  store ptr %5, ptr %1, align 8, !tbaa !135
   store i32 %20, ptr %9, align 8, !tbaa !33
   store i32 %19, ptr %10, align 4, !tbaa !33
   store ptr %18, ptr %11, align 8, !tbaa !131
+  store ptr %6, ptr %0, align 8, !tbaa !135
   store i32 %14, ptr %15, align 8, !tbaa !33
   store i32 %13, ptr %16, align 4, !tbaa !33
   store ptr %12, ptr %17, align 8, !tbaa !131

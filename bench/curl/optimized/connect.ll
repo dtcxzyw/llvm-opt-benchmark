@@ -3289,9 +3289,8 @@ define internal fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %39, label %addr_next_match.exit, label %32, !llvm.loop !143
 
 addr_next_match.exit:                             ; preds = %32, %33, %36
-  %.0.i = phi i1 [ true, %36 ], [ false, %32 ], [ false, %33 ]
-  %or.cond = and i1 %15, %.0.i
-  %40 = zext i1 %or.cond to i64
+  %.0.i = phi i1 [ %15, %36 ], [ false, %32 ], [ false, %33 ]
+  %40 = zext i1 %.0.i to i64
   %41 = lshr i64 %3, %40
   store i64 %41, ptr %16, align 8, !tbaa !144
   %42 = load ptr, ptr %17, align 8, !tbaa !105

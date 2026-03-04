@@ -212,9 +212,9 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h7d725f77
   %7 = load i8, ptr %.sroa.09.011, align 1, !noundef !3
   %8 = add i8 %7, -65
   %9 = icmp ult i8 %8, 26
-  %.sroa.08.0 = select i1 %9, i8 32, i8 0
-  %10 = or i8 %.sroa.08.0, %7
-  %11 = zext i8 %10 to i64
+  %10 = select i1 %9, i8 32, i8 0
+  %.sroa.08.0 = or i8 %10, %7
+  %11 = zext i8 %.sroa.08.0 to i64
   %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = add i64 %13, %.sroa.02.010
@@ -261,9 +261,9 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17h28
   %7 = load i8, ptr %.sroa.040.049, align 1, !noundef !3
   %8 = add i8 %7, -65
   %9 = icmp ult i8 %8, 26
-  %.sroa.039.0 = select i1 %9, i8 32, i8 0
-  %10 = or i8 %.sroa.039.0, %7
-  %11 = zext i8 %10 to i64
+  %10 = select i1 %9, i8 32, i8 0
+  %.sroa.039.0 = or i8 %10, %7
+  %11 = zext i8 %.sroa.039.0 to i64
   %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8

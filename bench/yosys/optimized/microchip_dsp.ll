@@ -53484,10 +53484,11 @@ _ZN12_GLOBAL__N_116microchip_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exi
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i:        ; preds = %593, %586, %.critedge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %597 = or i1 %spec.select169.i.i.i, %581
   br label %.critedge66.i.i.i
 
 .critedge66.i.i.i:                                ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i
-  %597 = phi i1 [ %581, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i ]
+  %or.cond.i.i.i = phi i1 [ %597, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i ], [ %spec.select169.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i ]
   %598 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !141, !range !142, !noundef !143
   %599 = trunc nuw i8 %598 to i1
   %600 = icmp ne i32 %546, 0
@@ -53681,10 +53682,11 @@ _ZN12_GLOBAL__N_116microchip_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exi
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i:        ; preds = %682, %675, %.critedge68.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %686 = or i1 %or.cond.i.i.i, %670
   br label %.critedge69.i.i.i
 
 .critedge69.i.i.i:                                ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i
-  %686 = phi i1 [ %670, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i ]
+  %spec.select.i.i.i = phi i1 [ %686, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i ], [ %or.cond.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i ]
   %687 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !141, !range !142, !noundef !143
   %688 = trunc nuw i8 %687 to i1
   %689 = icmp ne i32 %635, 0
@@ -53745,8 +53747,6 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i.i.i:       ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit103.i.i.i:       ; preds = %711, %704, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i.i.i
-  %or.cond.i.i.i = or i1 %spec.select169.i.i.i, %597
-  %spec.select.i.i.i = or i1 %or.cond.i.i.i, %686
   br i1 %spec.select.i.i.i, label %715, label %893
 
 715:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit103.i.i.i
@@ -66152,10 +66152,11 @@ _ZN12_GLOBAL__N_121microchip_dsp_CREG_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdString
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i.i.i.i.i: ; preds = %1162, %1155, %.critedge.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %1166 = or i1 %spec.select169.i.i.i.i.i.i.i, %1150
   br label %.critedge66.i.i.i.i.i.i.i
 
 .critedge66.i.i.i.i.i.i.i:                        ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i.i.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i.i.i.i.i
-  %1166 = phi i1 [ %1150, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i.i.i.i.i ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i.i.i.i.i ]
+  %or.cond.i.i.i.i.i.i.i = phi i1 [ %1166, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit82.i.i.i.i.i.i.i ], [ %spec.select169.i.i.i.i.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit77.i.i.i.i.i.i.i ]
   %1167 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !141, !range !142, !noundef !143
   %1168 = trunc nuw i8 %1167 to i1
   %1169 = icmp ne i32 %1115, 0
@@ -66349,10 +66350,11 @@ _ZN12_GLOBAL__N_121microchip_dsp_CREG_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdString
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i.i.i.i.i: ; preds = %1251, %1244, %.critedge68.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %1255 = or i1 %or.cond.i.i.i.i.i.i.i, %1239
   br label %.critedge69.i.i.i.i.i.i.i
 
 .critedge69.i.i.i.i.i.i.i:                        ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i.i.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i.i.i.i.i
-  %1255 = phi i1 [ %1239, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i.i.i.i.i ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i.i.i.i.i ]
+  %spec.select.i.i.i.i.i.i.i = phi i1 [ %1255, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit99.i.i.i.i.i.i.i ], [ %or.cond.i.i.i.i.i.i.i, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit90.i.i.i.i.i.i.i ]
   %1256 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !141, !range !142, !noundef !143
   %1257 = trunc nuw i8 %1256 to i1
   %1258 = icmp ne i32 %1204, 0
@@ -66413,8 +66415,6 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i.i.i.i.i.i.i: ; preds = %._ZN5Yosys5RTLIL8
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit103.i.i.i.i.i.i.i: ; preds = %1280, %1273, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i.i.i.i.i.i.i
-  %or.cond.i.i.i.i.i.i.i = or i1 %spec.select169.i.i.i.i.i.i.i, %1166
-  %spec.select.i.i.i.i.i.i.i = or i1 %or.cond.i.i.i.i.i.i.i, %1255
   br i1 %spec.select.i.i.i.i.i.i.i, label %1284, label %1462
 
 1284:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit103.i.i.i.i.i.i.i

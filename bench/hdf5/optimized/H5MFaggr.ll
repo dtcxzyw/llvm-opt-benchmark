@@ -1008,7 +1008,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %.thread35, !prof !9
+  br i1 %7, label %8, label %101, !prof !9
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1039,7 +1039,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %24 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %25 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !20
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggrs_try_shrink_eoa, i32 noundef 898, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #6
-  br label %.thread35
+  br label %101
 
 27:                                               ; preds = %16
   %28 = load ptr, ptr %9, align 8, !tbaa !11
@@ -1074,7 +1074,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %48 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %49 = load i64, ptr @H5E_CANTSHRINK_g, align 8, !tbaa !20
   %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggrs_try_shrink_eoa, i32 noundef 901, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.9) #6
-  br label %.thread35
+  br label %101
 
 .thread:                                          ; preds = %27, %42, %16, %13
   %.0.i.ph30 = phi i32 [ 1, %27 ], [ 0, %16 ], [ 0, %13 ], [ 1, %42 ]
@@ -1114,7 +1114,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %72 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %73 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !20
   %74 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggrs_try_shrink_eoa, i32 noundef 904, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.6) #6
-  br label %.thread35
+  br label %101
 
 75:                                               ; preds = %64
   %76 = load ptr, ptr %9, align 8, !tbaa !11
@@ -1149,10 +1149,16 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %96 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %97 = load i64, ptr @H5E_CANTSHRINK_g, align 8, !tbaa !20
   %98 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggrs_try_shrink_eoa, i32 noundef 907, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.9) #6
-  br label %.thread35
+  br label %101
 
-.thread35:                                        ; preds = %.thread, %61, %64, %90, %75, %20, %44, %68, %92, %1
-  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ -1, %1 ], [ 1, %75 ], [ %.0.i.ph30, %64 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ 1, %90 ]
+.thread35:                                        ; preds = %75, %90, %64, %61, %.thread
+  %.0.i20.ph38 = phi i32 [ 1, %75 ], [ %.0.i.ph30, %64 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ 1, %90 ]
+  %99 = icmp ne i32 %.0.i20.ph38, 0
+  %100 = zext i1 %99 to i32
+  br label %101
+
+101:                                              ; preds = %20, %44, %68, %92, %.thread35, %1
+  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ %100, %.thread35 ], [ -1, %1 ]
   ret i32 %.0
 }
 

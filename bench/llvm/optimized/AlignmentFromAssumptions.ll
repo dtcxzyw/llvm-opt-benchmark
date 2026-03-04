@@ -828,7 +828,7 @@ _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49: ; preds 
   %120 = zext nneg i32 %119 to i64
   %121 = shl i64 %117, %120
   %122 = ashr exact i64 %121, %120
-  br i1 %118, label %.critedge.i59, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52
+  br i1 %118, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52
 
 123:                                              ; preds = %109
   %124 = load ptr, ptr %112, align 8, !tbaa !46
@@ -838,48 +838,45 @@ _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49: ; preds 
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52:  ; preds = %123, %116
   %.0.i.i.i53 = phi i64 [ %122, %116 ], [ %125, %123 ]
   %.not15.i54 = icmp eq i64 %.0.i.i.i53, 0
-  br i1 %.not15.i54, label %.critedge.i59, label %_ZN4llvm13isPowerOf2_64Em.exit.i55
-
-.critedge.i59:                                    ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52, %116
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !41
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %130 = load i32, ptr %129, align 8, !tbaa !44
-  %131 = icmp ult i32 %130, 65
-  %132 = load ptr, ptr %128, align 8
-  %.0.in.i.i.i.i.i60 = select i1 %131, ptr %128, ptr %132
-  %.0.i.i.i.i.i61 = load i64, ptr %.0.in.i.i.i.i.i60, align 8, !tbaa !46
-  %.not.i.not.i.i.i62 = icmp eq i64 %.0.i.i.i.i.i61, 0
-  %133 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i61, i1 true)
-  %134 = trunc nuw nsw i64 %133 to i16
-  %135 = xor i16 %134, 63
-  %.sroa.0.0.i.i.i.i63 = select i1 %.not.i.not.i.i.i62, i16 0, i16 %135
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
+  br i1 %.not15.i54, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64, label %_ZN4llvm13isPowerOf2_64Em.exit.i55
 
 _ZN4llvm13isPowerOf2_64Em.exit.i55:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52
-  %136 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i53, i1 true)
-  %137 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %136)
-  %138 = icmp samesign ult i64 %137, 2
-  br i1 %138, label %139, label %.critedge34
+  %126 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i53, i1 true)
+  %127 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %126)
+  %128 = icmp samesign ult i64 %127, 2
+  br i1 %128, label %129, label %.critedge34
 
-139:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i55
-  %140 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %136, i1 true)
-  %141 = trunc nuw nsw i64 %140 to i16
-  %142 = xor i16 %141, 63
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
-
-_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64: ; preds = %.critedge.i59, %139
-  %.sroa.018.2.i56 = phi i16 [ %142, %139 ], [ %.sroa.0.0.i.i.i.i63, %.critedge.i59 ]
+129:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i55
+  %130 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %126, i1 true)
+  %131 = trunc nuw nsw i64 %130 to i16
+  %132 = xor i16 %131, 63
   br i1 %104, label %143, label %.critedge34
 
-143:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
-  %spec.select.v = call i16 @llvm.umin.i16(i16 %.sroa.018.2.i41, i16 %.sroa.018.2.i56)
+_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64: ; preds = %116, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i52
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !41
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %137 = load i32, ptr %136, align 8, !tbaa !44
+  %138 = icmp ult i32 %137, 65
+  %139 = load ptr, ptr %135, align 8
+  %.0.in.i.i.i.i.i60 = select i1 %138, ptr %135, ptr %139
+  %.0.i.i.i.i.i61 = load i64, ptr %.0.in.i.i.i.i.i60, align 8, !tbaa !46
+  %.not.i.not.i.i.i62 = icmp eq i64 %.0.i.i.i.i.i61, 0
+  %140 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i61, i1 true)
+  %141 = trunc nuw nsw i64 %140 to i16
+  %142 = xor i16 %141, 63
+  %.sroa.0.0.i.i.i.i63 = select i1 %.not.i.not.i.i.i62, i16 0, i16 %142
+  br i1 %104, label %143, label %.critedge34
+
+143:                                              ; preds = %129, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
+  %.sroa.018.2.i5684 = phi i16 [ %132, %129 ], [ %.sroa.0.0.i.i.i.i63, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64 ]
+  %spec.select.v = call i16 @llvm.umin.i16(i16 %.sroa.018.2.i41, i16 %.sroa.018.2.i5684)
   %spec.select = trunc nuw nsw i16 %spec.select.v to i8
   br label %.critedge34
 
-.critedge34:                                      ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i55, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49, %54, %.critedge.i, %143, %.critedge, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64, %5
-  %.sroa.070.0 = phi i8 [ 0, %.critedge ], [ 0, %5 ], [ %spec.select, %143 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64 ], [ %57, %54 ], [ %.sroa.0.0.i.i.i.i, %.critedge.i ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i55 ]
+.critedge34:                                      ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i55, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49, %129, %54, %.critedge.i, %143, %.critedge, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64, %5
+  %.sroa.070.0 = phi i8 [ 0, %.critedge ], [ 0, %5 ], [ %spec.select, %143 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64 ], [ %57, %54 ], [ %.sroa.0.0.i.i.i.i, %.critedge.i ], [ 0, %129 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i55 ]
   ret i8 %.sroa.070.0
 }
 

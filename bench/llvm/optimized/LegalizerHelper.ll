@@ -26747,14 +26747,13 @@ _ZNK4llvm3LLT9isPointerEv.exit:                   ; preds = %_ZNK4llvm3LLT13getS
 ._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge: ; preds = %59
   %.pre = and i64 %.sroa.04.0.i54, 4
   %60 = icmp ne i64 %.pre, 0
-  br label %_ZNK4llvm3LLT15isPointerVectorEv.exit
-
-_ZNK4llvm3LLT15isPointerVectorEv.exit:            ; preds = %._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge, %_ZNK4llvm3LLT9isPointerEv.exit
-  %.pre-phi = phi i1 [ %60, %._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge ], [ true, %_ZNK4llvm3LLT9isPointerEv.exit ]
-  %61 = and i1 %spec.select.i.i.i, %.pre-phi
+  %61 = and i1 %spec.select.i.i.i, %60
   br i1 %61, label %62, label %_ZNK4llvm3LLT15isPointerVectorEv.exit.thread
 
-62:                                               ; preds = %_ZNK4llvm3LLT15isPointerVectorEv.exit
+_ZNK4llvm3LLT15isPointerVectorEv.exit:            ; preds = %_ZNK4llvm3LLT9isPointerEv.exit
+  br i1 %spec.select.i.i.i, label %62, label %_ZNK4llvm3LLT15isPointerVectorEv.exit.thread
+
+62:                                               ; preds = %._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge, %_ZNK4llvm3LLT15isPointerVectorEv.exit
   %63 = load ptr, ptr %0, align 8, !tbaa !139
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %storemerge.i.i.i, ptr %5, align 8
@@ -26777,8 +26776,8 @@ _ZNK4llvm3LLT15isPointerVectorEv.exit:            ; preds = %._ZNK4llvm3LLT15isP
   %72 = load i32, ptr %71, align 4, !tbaa !173
   br label %_ZNK4llvm3LLT15isPointerVectorEv.exit.thread
 
-_ZNK4llvm3LLT15isPointerVectorEv.exit.thread:     ; preds = %59, %62, %_ZNK4llvm3LLT15isPointerVectorEv.exit
-  %.sroa.05.0 = phi i32 [ %72, %62 ], [ %1, %_ZNK4llvm3LLT15isPointerVectorEv.exit ], [ %1, %59 ]
+_ZNK4llvm3LLT15isPointerVectorEv.exit.thread:     ; preds = %._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge, %59, %62, %_ZNK4llvm3LLT15isPointerVectorEv.exit
+  %.sroa.05.0 = phi i32 [ %72, %62 ], [ %1, %_ZNK4llvm3LLT15isPointerVectorEv.exit ], [ %1, %59 ], [ %1, %._ZNK4llvm3LLT15isPointerVectorEv.exit_crit_edge ]
   %73 = load ptr, ptr %0, align 8, !tbaa !139
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %storemerge.i.i.i, ptr %3, align 8

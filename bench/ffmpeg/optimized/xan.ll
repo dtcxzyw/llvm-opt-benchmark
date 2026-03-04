@@ -597,13 +597,13 @@ bytestream2_get_be16.exit70.i.i:                  ; preds = %285, %278
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.0.7.i.i, i64 1
   %297 = load i8, ptr %.sroa.0.7.i.i, align 1, !tbaa !43
   %298 = zext i8 %297 to i32
+  %299 = or disjoint i32 %292, %298
   br label %bytestream2_get_byte.exit67.i.i
 
 bytestream2_get_byte.exit67.i.i:                  ; preds = %295, %bytestream2_get_be16.exit70.i.i
   %.sroa.0.5.i.i = phi ptr [ %296, %295 ], [ %229, %bytestream2_get_be16.exit70.i.i ]
-  %.0.i66.i.i = phi i32 [ %298, %295 ], [ 0, %bytestream2_get_be16.exit70.i.i ]
-  %299 = or disjoint i32 %292, 5
-  %300 = add nuw nsw i32 %299, %.0.i66.i.i
+  %.0.i66.i.i = phi i32 [ %299, %295 ], [ %292, %bytestream2_get_be16.exit70.i.i ]
+  %300 = add nuw nsw i32 %.0.i66.i.i, 5
   br label %301
 
 301:                                              ; preds = %bytestream2_get_byte.exit67.i.i, %bytestream2_get_be16.exit.i.i, %bytestream2_get_byte.exit65.i.i

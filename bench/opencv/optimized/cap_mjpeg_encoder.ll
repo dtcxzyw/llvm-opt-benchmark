@@ -297,15 +297,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 
 57:                                               ; preds = %47, %77
   %58 = phi i1 [ true, %47 ], [ false, %77 ]
-  %.not132 = phi i1 [ false, %47 ], [ true, %77 ]
+  %.not132 = phi i1 [ false, %47 ], [ %48, %77 ]
   %indvars.iv173.sroa.phi = phi ptr [ %10, %47 ], [ %indvars.iv173.sroa.gep226, %77 ]
   %indvars.iv173 = phi i32 [ 0, %47 ], [ 1, %77 ]
   %_ZN2cv5mjpegL13jpegTableK1_TE._ZN2cv5mjpegL13jpegTableK2_TE = select i1 %58, ptr @_ZN2cv5mjpegL13jpegTableK1_TE, ptr @_ZN2cv5mjpegL13jpegTableK2_TE
-  %.not133 = and i1 %48, %.not132
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65499)
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 67)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %indvars.iv173)
-  %59 = select i1 %.not133, i32 2, i32 0
+  %59 = select i1 %.not132, i32 2, i32 0
   br label %60
 
 60:                                               ; preds = %57, %60

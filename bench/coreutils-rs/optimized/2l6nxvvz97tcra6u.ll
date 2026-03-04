@@ -836,9 +836,9 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %23 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !103, !noalias !101, !noundef !4
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.0.i.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i, %23
-  store i8 %26, ptr %.sroa.0.06.i.i, align 1, !alias.scope !103, !noalias !101
+  %26 = select i1 %25, i8 32, i8 0
+  %.0.i.i = or i8 %26, %23
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !103, !noalias !101
   %27 = icmp eq ptr %22, %20
   br i1 %27, label %"_ZN5alloc5slice30_$LT$impl$u20$$u5b$u8$u5d$$GT$18to_ascii_lowercase17h8f9c8eb4822b2cb4E.exit", label %.lr.ph.i.i
 
@@ -868,9 +868,9 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %34 = load i8, ptr %.sroa.0.06.i.i12, align 1, !alias.scope !110, !noalias !113, !noundef !4
   %35 = add i8 %34, -65
   %36 = icmp ult i8 %35, 26
-  %.0.i.i13 = select i1 %36, i8 32, i8 0
-  %37 = or i8 %.0.i.i13, %34
-  store i8 %37, ptr %.sroa.0.06.i.i12, align 1, !alias.scope !110, !noalias !113
+  %37 = select i1 %36, i8 32, i8 0
+  %.0.i.i13 = or i8 %37, %34
+  store i8 %.0.i.i13, ptr %.sroa.0.06.i.i12, align 1, !alias.scope !110, !noalias !113
   %38 = icmp eq ptr %33, %31
   br i1 %38, label %.loopexit.loopexit, label %.lr.ph.i.i11
 

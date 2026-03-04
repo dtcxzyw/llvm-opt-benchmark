@@ -746,11 +746,11 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: ;
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %43, align 8, !tbaa !54
   %47 = icmp eq i32 %46, 5
+  %48 = or i1 %.0108442, %47
   br label %_ZN3mbp20arith_project_plugin3imp8is_arithEP4expr.exit
 
 _ZN3mbp20arith_project_plugin3imp8is_arithEP4expr.exit: ; preds = %.lr.ph, %45
-  %48 = phi i1 [ %47, %45 ], [ false, %.lr.ph ]
-  %49 = or i1 %.0108442, %48
+  %49 = phi i1 [ %48, %45 ], [ %.0108442, %.lr.ph ]
   %50 = getelementptr inbounds nuw i8, ptr %.0109441, i64 8
   %.not = icmp eq ptr %50, %39
   br i1 %.not, label %._crit_edge, label %.lr.ph

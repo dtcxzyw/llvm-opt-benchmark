@@ -4730,12 +4730,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
   %61 = sext i32 %60 to i64
+  %62 = mul nsw i64 %45, %61
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %46, %.preheader.i
-  %.024.i = phi i64 [ 0, %46 ], [ 1, %.preheader.i ], [ %61, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
-  %62 = mul nsw i64 %45, %.024.i
-  %63 = add nsw i64 %62, %.01622
+  %.024.i = phi i64 [ 0, %46 ], [ %45, %.preheader.i ], [ %62, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
+  %63 = add nsw i64 %.024.i, %.01622
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %43
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !168

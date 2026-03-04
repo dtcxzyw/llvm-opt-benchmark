@@ -22123,7 +22123,7 @@ define linkonce_odr hidden void @_ZN4llvm15SCCPInstVisitor26solveWhileResolvedUn
   br label %8
 
 .loopexit:                                        ; preds = %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
-  br i1 %31, label %8, label %.critedge, !llvm.loop !510
+  br i1 %.0.lcssa.i, label %8, label %.critedge, !llvm.loop !510
 
 8:                                                ; preds = %2, %.loopexit
   tail call void @_ZN4llvm15SCCPInstVisitor5solveEv(ptr noundef nonnull align 8 dereferenceable(2424) %0)
@@ -22133,7 +22133,7 @@ define linkonce_odr hidden void @_ZN4llvm15SCCPInstVisitor26solveWhileResolvedUn
 
 .lr.ph:                                           ; preds = %8, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
   %.sroa.06.013 = phi ptr [ %.sroa.06.0, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ %.sroa.06.010, %8 ]
-  %.112 = phi i1 [ %31, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ false, %8 ]
+  %.112 = phi i1 [ %.0.lcssa.i, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ false, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 16
   %.sroa.020.035.i = load ptr, ptr %9, align 8, !tbaa !167
@@ -22196,11 +22196,14 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i: ; preds
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.020.038.i, i64 8
   %.sroa.020.0.i = load ptr, ptr %30, align 8, !tbaa !167
   %.not28.i = icmp eq ptr %.sroa.020.0.i, %10
-  br i1 %.not28.i, label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit, label %.lr.ph39.i
+  br i1 %.not28.i, label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit, label %.lr.ph39.i
 
-_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i, %.lr.ph
-  %.0.lcssa.i = phi i1 [ false, %.lr.ph ], [ %.1.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i ]
-  %31 = or i1 %.112, %.0.lcssa.i
+_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i
+  %31 = or i1 %.112, %.1.i
+  br label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
+
+_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit: ; preds = %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit, %.lr.ph
+  %.0.lcssa.i = phi i1 [ %.112, %.lr.ph ], [ %31, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 8
   %.sroa.06.0 = load ptr, ptr %32, align 8, !tbaa !167
   %.not = icmp eq ptr %.sroa.06.0, %4
@@ -22226,7 +22229,7 @@ define linkonce_odr hidden void @_ZN4llvm15SCCPInstVisitor26solveWhileResolvedUn
   br label %7
 
 .loopexit:                                        ; preds = %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
-  br i1 %35, label %7, label %.critedge, !llvm.loop !511
+  br i1 %.0.lcssa.i, label %7, label %.critedge, !llvm.loop !511
 
 7:                                                ; preds = %2, %.loopexit
   tail call void @_ZN4llvm15SCCPInstVisitor5solveEv(ptr noundef nonnull align 8 dereferenceable(2424) %0)
@@ -22239,7 +22242,7 @@ define linkonce_odr hidden void @_ZN4llvm15SCCPInstVisitor26solveWhileResolvedUn
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
-  %.114 = phi i1 [ %35, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ false, %7 ]
+  %.114 = phi i1 [ %.0.lcssa.i, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ false, %7 ]
   %.01013 = phi ptr [ %36, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit ], [ %8, %7 ]
   %12 = load ptr, ptr %.01013, align 8, !tbaa !166
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -22304,11 +22307,14 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i: ; preds
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.020.038.i, i64 8
   %.sroa.020.0.i = load ptr, ptr %34, align 8, !tbaa !167
   %.not28.i = icmp eq ptr %.sroa.020.0.i, %14
-  br i1 %.not28.i, label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit, label %.lr.ph39.i
+  br i1 %.not28.i, label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit, label %.lr.ph39.i
 
-_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i, %.lr.ph
-  %.0.lcssa.i = phi i1 [ false, %.lr.ph ], [ %.1.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i ]
-  %35 = or i1 %.114, %.0.lcssa.i
+_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i
+  %35 = or i1 %.114, %.1.i
+  br label %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit
+
+_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit: ; preds = %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit, %.lr.ph
+  %.0.lcssa.i = phi i1 [ %.114, %.lr.ph ], [ %35, %_ZN4llvm15SCCPInstVisitor16resolvedUndefsInERNS_8FunctionE.exit.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %.01013, i64 8
   %.not = icmp eq ptr %36, %11
   br i1 %.not, label %.loopexit, label %.lr.ph

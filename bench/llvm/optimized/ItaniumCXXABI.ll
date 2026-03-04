@@ -18214,64 +18214,558 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118ItaniumRTTIBuilder13Build
   %44 = icmp ne i8 %43, 13
   %.not.not18.i = icmp eq ptr %41, null
   %.not.not.i = or i1 %.not.not18.i, %44
-  br i1 %.not.not.i, label %47, label %45
+  br i1 %.not.not.i, label %45, label %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i
 
 45:                                               ; preds = %38
-  %.val.i = load i32, ptr %42, align 16
-  %46 = call fastcc noundef zeroext i1 @_ZL27TypeInfoIsInStandardLibraryPKN5clang11BuiltinTypeE(i32 %.val.i)
-  br i1 %46, label %71, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread
+  %46 = icmp eq i8 %43, 41
+  br i1 %46, label %47, label %69
 
-47:                                               ; preds = %38
-  %48 = icmp eq i8 %43, 41
-  br i1 %48, label %49, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread
+47:                                               ; preds = %45
+  %48 = getelementptr i8, ptr %41, i64 32
+  %.val12.i = load i64, ptr %48, align 16, !tbaa !384
+  %49 = and i64 %.val12.i, -16
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %50, align 16, !tbaa !740
+  %52 = getelementptr i8, ptr %51, i64 16
+  %53 = load i8, ptr %52, align 16
+  %54 = icmp ne i8 %53, 13
+  %.not4.i.i = icmp eq ptr %51, null
+  %.not.i.i = or i1 %.not4.i.i, %54
+  br i1 %.not.i.i, label %69, label %55
 
-49:                                               ; preds = %47
-  %50 = getelementptr i8, ptr %41, i64 32
-  %.val12.i = load i64, ptr %50, align 16, !tbaa !384
-  %51 = and i64 %.val12.i, -16
-  %52 = inttoptr i64 %51 to ptr
-  %53 = load ptr, ptr %52, align 16, !tbaa !740
-  %54 = getelementptr i8, ptr %53, i64 16
-  %55 = load i8, ptr %54, align 16
-  %56 = icmp ne i8 %55, 13
-  %.not4.i.i = icmp eq ptr %53, null
-  %.not.i.i = or i1 %.not4.i.i, %56
-  br i1 %.not.i.i, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread, label %57
+55:                                               ; preds = %47
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
+  %57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 8
+  %.not.i.i.i.i = icmp eq i64 %57, 0
+  br i1 %.not.i.i.i.i, label %_ZNK5clang8QualType13getQualifiersEv.exit.i.i, label %58
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %58, align 8
-  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 8
-  %.not.i.i.i.i = icmp eq i64 %59, 0
-  br i1 %.not.i.i.i.i, label %_ZNK5clang8QualType13getQualifiersEv.exit.i.i, label %60
-
-60:                                               ; preds = %57
-  %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
-  %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %63, align 8, !tbaa !382
-  %64 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -2
+58:                                               ; preds = %55
+  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
+  %60 = inttoptr i64 %59 to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %61, align 8, !tbaa !382
+  %62 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -2
   br label %_ZNK5clang8QualType13getQualifiersEv.exit.i.i
 
-_ZNK5clang8QualType13getQualifiersEv.exit.i.i:    ; preds = %60, %57
-  %.sroa.0.0.i.i.i.i = phi i64 [ %64, %60 ], [ 0, %57 ]
-  %65 = or i64 %.0.copyload.i.i.i.i.i.i.i.i, %.val12.i
-  %66 = and i64 %65, 6
-  %67 = or i64 %.sroa.0.0.i.i.i.i, %66
-  %.not.i.i.i = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread
+_ZNK5clang8QualType13getQualifiersEv.exit.i.i:    ; preds = %58, %55
+  %.sroa.0.0.i.i.i.i = phi i64 [ %62, %58 ], [ 0, %55 ]
+  %63 = or i64 %.0.copyload.i.i.i.i.i.i.i.i, %.val12.i
+  %64 = and i64 %63, 6
+  %65 = or i64 %.sroa.0.0.i.i.i.i, %64
+  %.not.i.i.i = icmp eq i64 %65, 0
+  br i1 %.not.i.i.i, label %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, label %69
 
-_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit: ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i.i
-  %.val.i.i = load i32, ptr %54, align 16
-  %68 = call fastcc noundef zeroext i1 @_ZL27TypeInfoIsInStandardLibraryPKN5clang11BuiltinTypeE(i32 %.val.i.i)
-  br i1 %68, label %71, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread
+_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i: ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i.i, %38
+  %.val.i.sink.in.i = phi ptr [ %42, %38 ], [ %52, %_ZNK5clang8QualType13getQualifiersEv.exit.i.i ]
+  %.val.i.sink.i = load i32, ptr %.val.i.sink.in.i, align 16
+  %66 = lshr i32 %.val.i.sink.i, 19
+  %67 = and i32 %66, 511
+  switch i32 %67, label %68 [
+    i32 434, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 487, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 435, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 449, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 438, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 436, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 447, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 437, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 448, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 450, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 442, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 451, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 443, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 452, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 444, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 453, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 445, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 479, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 480, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 481, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 482, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 483, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 485, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 486, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 439, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 440, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 441, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 454, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 446, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+    i32 0, label %69
+    i32 1, label %69
+    i32 2, label %69
+    i32 3, label %69
+    i32 4, label %69
+    i32 5, label %69
+    i32 6, label %69
+    i32 7, label %69
+    i32 8, label %69
+    i32 9, label %69
+    i32 10, label %69
+    i32 11, label %69
+    i32 12, label %69
+    i32 13, label %69
+    i32 14, label %69
+    i32 15, label %69
+    i32 16, label %69
+    i32 17, label %69
+    i32 18, label %69
+    i32 19, label %69
+    i32 20, label %69
+    i32 21, label %69
+    i32 22, label %69
+    i32 23, label %69
+    i32 24, label %69
+    i32 25, label %69
+    i32 26, label %69
+    i32 27, label %69
+    i32 28, label %69
+    i32 29, label %69
+    i32 30, label %69
+    i32 31, label %69
+    i32 32, label %69
+    i32 33, label %69
+    i32 34, label %69
+    i32 35, label %69
+    i32 36, label %69
+    i32 37, label %69
+    i32 38, label %69
+    i32 39, label %69
+    i32 40, label %69
+    i32 41, label %69
+    i32 42, label %69
+    i32 43, label %69
+    i32 44, label %69
+    i32 45, label %69
+    i32 46, label %69
+    i32 47, label %69
+    i32 491, label %69
+    i32 492, label %69
+    i32 493, label %69
+    i32 494, label %69
+    i32 495, label %69
+    i32 48, label %69
+    i32 49, label %69
+    i32 50, label %69
+    i32 51, label %69
+    i32 52, label %69
+    i32 53, label %69
+    i32 54, label %69
+    i32 55, label %69
+    i32 56, label %69
+    i32 57, label %69
+    i32 58, label %69
+    i32 59, label %69
+    i32 60, label %69
+    i32 61, label %69
+    i32 62, label %69
+    i32 63, label %69
+    i32 64, label %69
+    i32 65, label %69
+    i32 66, label %69
+    i32 67, label %69
+    i32 68, label %69
+    i32 69, label %69
+    i32 70, label %69
+    i32 71, label %69
+    i32 72, label %69
+    i32 73, label %69
+    i32 74, label %69
+    i32 75, label %69
+    i32 76, label %69
+    i32 77, label %69
+    i32 78, label %69
+    i32 79, label %69
+    i32 80, label %69
+    i32 81, label %69
+    i32 82, label %69
+    i32 83, label %69
+    i32 84, label %69
+    i32 85, label %69
+    i32 86, label %69
+    i32 87, label %69
+    i32 88, label %69
+    i32 89, label %69
+    i32 90, label %69
+    i32 91, label %69
+    i32 92, label %69
+    i32 93, label %69
+    i32 94, label %69
+    i32 95, label %69
+    i32 96, label %69
+    i32 97, label %69
+    i32 98, label %69
+    i32 99, label %69
+    i32 100, label %69
+    i32 101, label %69
+    i32 102, label %69
+    i32 103, label %69
+    i32 104, label %69
+    i32 105, label %69
+    i32 106, label %69
+    i32 107, label %69
+    i32 108, label %69
+    i32 109, label %69
+    i32 110, label %69
+    i32 111, label %69
+    i32 112, label %69
+    i32 113, label %69
+    i32 114, label %69
+    i32 115, label %69
+    i32 116, label %69
+    i32 117, label %69
+    i32 118, label %69
+    i32 119, label %69
+    i32 120, label %69
+    i32 121, label %69
+    i32 122, label %69
+    i32 123, label %69
+    i32 124, label %69
+    i32 125, label %69
+    i32 126, label %69
+    i32 127, label %69
+    i32 128, label %69
+    i32 129, label %69
+    i32 130, label %69
+    i32 131, label %69
+    i32 132, label %69
+    i32 133, label %69
+    i32 134, label %69
+    i32 135, label %69
+    i32 136, label %69
+    i32 137, label %69
+    i32 138, label %69
+    i32 139, label %69
+    i32 140, label %69
+    i32 141, label %69
+    i32 142, label %69
+    i32 143, label %69
+    i32 144, label %69
+    i32 145, label %69
+    i32 146, label %69
+    i32 147, label %69
+    i32 148, label %69
+    i32 149, label %69
+    i32 150, label %69
+    i32 151, label %69
+    i32 152, label %69
+    i32 153, label %69
+    i32 154, label %69
+    i32 155, label %69
+    i32 156, label %69
+    i32 157, label %69
+    i32 158, label %69
+    i32 159, label %69
+    i32 160, label %69
+    i32 161, label %69
+    i32 162, label %69
+    i32 163, label %69
+    i32 164, label %69
+    i32 165, label %69
+    i32 166, label %69
+    i32 167, label %69
+    i32 168, label %69
+    i32 169, label %69
+    i32 170, label %69
+    i32 171, label %69
+    i32 172, label %69
+    i32 173, label %69
+    i32 174, label %69
+    i32 175, label %69
+    i32 176, label %69
+    i32 177, label %69
+    i32 178, label %69
+    i32 179, label %69
+    i32 180, label %69
+    i32 181, label %69
+    i32 182, label %69
+    i32 183, label %69
+    i32 184, label %69
+    i32 185, label %69
+    i32 186, label %69
+    i32 187, label %69
+    i32 188, label %69
+    i32 189, label %69
+    i32 190, label %69
+    i32 191, label %69
+    i32 192, label %69
+    i32 193, label %69
+    i32 194, label %69
+    i32 195, label %69
+    i32 196, label %69
+    i32 197, label %69
+    i32 198, label %69
+    i32 199, label %69
+    i32 200, label %69
+    i32 201, label %69
+    i32 202, label %69
+    i32 203, label %69
+    i32 204, label %69
+    i32 205, label %69
+    i32 206, label %69
+    i32 207, label %69
+    i32 208, label %69
+    i32 209, label %69
+    i32 210, label %69
+    i32 211, label %69
+    i32 212, label %69
+    i32 213, label %69
+    i32 214, label %69
+    i32 215, label %69
+    i32 216, label %69
+    i32 217, label %69
+    i32 218, label %69
+    i32 219, label %69
+    i32 220, label %69
+    i32 221, label %69
+    i32 222, label %69
+    i32 223, label %69
+    i32 224, label %69
+    i32 225, label %69
+    i32 226, label %69
+    i32 227, label %69
+    i32 228, label %69
+    i32 229, label %69
+    i32 230, label %69
+    i32 231, label %69
+    i32 232, label %69
+    i32 233, label %69
+    i32 234, label %69
+    i32 235, label %69
+    i32 236, label %69
+    i32 237, label %69
+    i32 238, label %69
+    i32 239, label %69
+    i32 240, label %69
+    i32 241, label %69
+    i32 242, label %69
+    i32 243, label %69
+    i32 244, label %69
+    i32 245, label %69
+    i32 246, label %69
+    i32 247, label %69
+    i32 248, label %69
+    i32 249, label %69
+    i32 250, label %69
+    i32 251, label %69
+    i32 252, label %69
+    i32 253, label %69
+    i32 254, label %69
+    i32 255, label %69
+    i32 256, label %69
+    i32 257, label %69
+    i32 258, label %69
+    i32 259, label %69
+    i32 260, label %69
+    i32 261, label %69
+    i32 262, label %69
+    i32 263, label %69
+    i32 264, label %69
+    i32 265, label %69
+    i32 266, label %69
+    i32 267, label %69
+    i32 268, label %69
+    i32 269, label %69
+    i32 270, label %69
+    i32 271, label %69
+    i32 272, label %69
+    i32 273, label %69
+    i32 274, label %69
+    i32 275, label %69
+    i32 276, label %69
+    i32 277, label %69
+    i32 278, label %69
+    i32 279, label %69
+    i32 280, label %69
+    i32 281, label %69
+    i32 282, label %69
+    i32 283, label %69
+    i32 284, label %69
+    i32 285, label %69
+    i32 286, label %69
+    i32 287, label %69
+    i32 288, label %69
+    i32 289, label %69
+    i32 290, label %69
+    i32 291, label %69
+    i32 292, label %69
+    i32 293, label %69
+    i32 294, label %69
+    i32 295, label %69
+    i32 296, label %69
+    i32 297, label %69
+    i32 298, label %69
+    i32 299, label %69
+    i32 300, label %69
+    i32 301, label %69
+    i32 302, label %69
+    i32 303, label %69
+    i32 304, label %69
+    i32 305, label %69
+    i32 306, label %69
+    i32 307, label %69
+    i32 308, label %69
+    i32 309, label %69
+    i32 310, label %69
+    i32 311, label %69
+    i32 312, label %69
+    i32 313, label %69
+    i32 314, label %69
+    i32 315, label %69
+    i32 316, label %69
+    i32 317, label %69
+    i32 318, label %69
+    i32 319, label %69
+    i32 320, label %69
+    i32 321, label %69
+    i32 322, label %69
+    i32 323, label %69
+    i32 324, label %69
+    i32 325, label %69
+    i32 326, label %69
+    i32 327, label %69
+    i32 328, label %69
+    i32 329, label %69
+    i32 330, label %69
+    i32 331, label %69
+    i32 332, label %69
+    i32 333, label %69
+    i32 334, label %69
+    i32 335, label %69
+    i32 336, label %69
+    i32 337, label %69
+    i32 338, label %69
+    i32 339, label %69
+    i32 340, label %69
+    i32 341, label %69
+    i32 342, label %69
+    i32 343, label %69
+    i32 344, label %69
+    i32 345, label %69
+    i32 346, label %69
+    i32 347, label %69
+    i32 348, label %69
+    i32 349, label %69
+    i32 350, label %69
+    i32 351, label %69
+    i32 352, label %69
+    i32 353, label %69
+    i32 354, label %69
+    i32 355, label %69
+    i32 356, label %69
+    i32 357, label %69
+    i32 358, label %69
+    i32 359, label %69
+    i32 360, label %69
+    i32 361, label %69
+    i32 362, label %69
+    i32 363, label %69
+    i32 364, label %69
+    i32 365, label %69
+    i32 366, label %69
+    i32 367, label %69
+    i32 368, label %69
+    i32 369, label %69
+    i32 370, label %69
+    i32 371, label %69
+    i32 372, label %69
+    i32 373, label %69
+    i32 374, label %69
+    i32 375, label %69
+    i32 376, label %69
+    i32 377, label %69
+    i32 378, label %69
+    i32 379, label %69
+    i32 380, label %69
+    i32 381, label %69
+    i32 382, label %69
+    i32 383, label %69
+    i32 384, label %69
+    i32 385, label %69
+    i32 386, label %69
+    i32 387, label %69
+    i32 388, label %69
+    i32 389, label %69
+    i32 390, label %69
+    i32 391, label %69
+    i32 392, label %69
+    i32 393, label %69
+    i32 394, label %69
+    i32 395, label %69
+    i32 396, label %69
+    i32 397, label %69
+    i32 398, label %69
+    i32 399, label %69
+    i32 400, label %69
+    i32 401, label %69
+    i32 402, label %69
+    i32 403, label %69
+    i32 404, label %69
+    i32 405, label %69
+    i32 406, label %69
+    i32 407, label %69
+    i32 408, label %69
+    i32 409, label %69
+    i32 410, label %69
+    i32 411, label %69
+    i32 412, label %69
+    i32 413, label %69
+    i32 414, label %69
+    i32 415, label %69
+    i32 416, label %69
+    i32 417, label %69
+    i32 418, label %69
+    i32 419, label %69
+    i32 420, label %69
+    i32 421, label %69
+    i32 422, label %69
+    i32 423, label %69
+    i32 424, label %69
+    i32 425, label %69
+    i32 426, label %69
+    i32 427, label %69
+    i32 428, label %69
+    i32 429, label %69
+    i32 430, label %69
+    i32 431, label %69
+    i32 432, label %69
+    i32 433, label %69
+    i32 455, label %69
+    i32 456, label %69
+    i32 457, label %69
+    i32 458, label %69
+    i32 459, label %69
+    i32 460, label %69
+    i32 461, label %69
+    i32 462, label %69
+    i32 463, label %69
+    i32 464, label %69
+    i32 465, label %69
+    i32 466, label %69
+    i32 467, label %69
+    i32 468, label %69
+    i32 469, label %69
+    i32 470, label %69
+    i32 471, label %69
+    i32 472, label %69
+    i32 473, label %69
+    i32 474, label %69
+    i32 475, label %69
+    i32 476, label %69
+    i32 477, label %69
+    i32 478, label %69
+    i32 484, label %69
+  ]
 
-_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread: ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i.i, %49, %47, %45, %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
-  %69 = load ptr, ptr %0, align 8, !tbaa !1728
-  %70 = call fastcc noundef zeroext i1 @_ZL31ShouldUseExternalRTTIDescriptorRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %69, i64 %13)
-  br i1 %70, label %71, label %167
+68:                                               ; preds = %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i
+  unreachable
 
-71:                                               ; preds = %45, %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread, %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+69:                                               ; preds = %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZNK5clang8QualType13getQualifiersEv.exit.i.i, %45, %47
+  %70 = load ptr, ptr %0, align 8, !tbaa !1728
+  %71 = call fastcc noundef zeroext i1 @_ZL31ShouldUseExternalRTTIDescriptorRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %70, i64 %13)
+  br i1 %71, label %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit, label %167
+
+_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit: ; preds = %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %_ZL27TypeInfoIsInStandardLibraryPKN5clang11PointerTypeE.exit.sink.split.i, %69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %72, ptr %3, align 8, !tbaa !1547
@@ -18310,7 +18804,7 @@ _ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread: ; preds = %_Z
   %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %94, label %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.thread.i
 
-94:                                               ; preds = %71
+94:                                               ; preds = %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
   %95 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 88, i32 1) #22
   %96 = load ptr, ptr %0, align 8, !tbaa !1728
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 200
@@ -18346,12 +18840,12 @@ _ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread: ; preds = %_Z
 
 117:                                              ; preds = %94
   %118 = getelementptr i8, ptr %107, i64 80
-  %.val.i30 = load ptr, ptr %118, align 8, !tbaa !1730
-  %.not1114.not.i.i = icmp eq ptr %.val.i30, null
+  %.val.i = load ptr, ptr %118, align 8, !tbaa !1730
+  %.not1114.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not1114.not.i.i, label %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %117, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i
-  %.sroa.0.015.i.i = phi ptr [ %158, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i ], [ %.val.i30, %117 ]
+  %.sroa.0.015.i.i = phi ptr [ %158, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i ], [ %.val.i, %117 ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i.i, i64 28
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 126
@@ -18367,8 +18861,8 @@ _ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread: ; preds = %_Z
 
 128:                                              ; preds = %124
   %129 = and i32 %126, 2048
-  %.not.i.i.i31 = icmp eq i32 %129, 0
-  br i1 %.not.i.i.i31, label %130, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i.i
+  %.not.i.i.i30 = icmp eq i32 %129, 0
+  br i1 %.not.i.i.i30, label %130, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i.i
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i.i, i64 128
@@ -18403,8 +18897,8 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i.i: ; preds = %12
   %148 = zext i32 %147 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %148, 3
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx.i.i.i.i
-  %.not.i.i.i.i32 = icmp eq i32 %147, 0
-  br i1 %.not.i.i.i.i32, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  %.not.i.i.i.i31 = icmp eq i32 %147, 0
+  br i1 %.not.i.i.i.i31, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %143, %154
   %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %155, %154 ], [ %145, %143 ]
@@ -18420,8 +18914,8 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1731
 
 _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not.i.i33 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %149
-  br i1 %.not.i.i33, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, label %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i
+  %.not.i.i32 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %149
+  br i1 %.not.i.i32, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, label %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i: ; preds = %154, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.i.i, %143, %139, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i.i, %130, %124, %.lr.ph.i.i
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i.i, i64 8
@@ -18441,8 +18935,8 @@ _ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.e
   call void @_ZNK5clang7CodeGen13CodeGenModule11setDSOLocalEPN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(3608) %163, ptr noundef nonnull %95) #22
   br label %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.thread.i
 
-_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.thread.i: ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i, %117, %94, %71
-  %.0.i = phi ptr [ %93, %71 ], [ %95, %94 ], [ %95, %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i ], [ %95, %117 ], [ %95, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i ]
+_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.thread.i: ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i, %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i, %117, %94, %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit
+  %.0.i = phi ptr [ %93, %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit ], [ %95, %94 ], [ %95, %_ZL25CXXRecordNonInlineHasAttrIN5clang13DLLImportAttrEEbPKNS0_13CXXRecordDeclE.exit.i ], [ %95, %117 ], [ %95, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.i.i ]
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %164 = load ptr, ptr %3, align 8, !tbaa !1547
@@ -18457,7 +18951,7 @@ _ZN12_GLOBAL__N_118ItaniumRTTIBuilder31GetAddrOfExternalRTTIDescriptorEN5clang8Q
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %313
 
-167:                                              ; preds = %_ZL31IsStandardLibraryRTTIDescriptorN5clang8QualTypeE.exit.thread
+167:                                              ; preds = %69
   %168 = load ptr, ptr %0, align 8, !tbaa !1728
   %169 = call fastcc noundef zeroext i1 @_ZL27ContainsIncompleteClassTypeN5clang8QualTypeE(i64 %13)
   br i1 %169, label %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit, label %170
@@ -18475,8 +18969,8 @@ _ZN12_GLOBAL__N_118ItaniumRTTIBuilder31GetAddrOfExternalRTTIDescriptorEN5clang8Q
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i64, ptr %176, align 8
   %178 = and i64 %177, 2251799813685248
-  %.not.i35 = icmp eq i64 %178, 0
-  br i1 %.not.i35, label %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread, label %179
+  %.not.i34 = icmp eq i64 %178, 0
+  br i1 %.not.i34, label %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread, label %179
 
 179:                                              ; preds = %173
   %180 = load ptr, ptr %40, align 16, !tbaa !740
@@ -18492,8 +18986,8 @@ _ZN12_GLOBAL__N_118ItaniumRTTIBuilder31GetAddrOfExternalRTTIDescriptorEN5clang8Q
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 28
   %187 = load i32, ptr %186, align 4
   %188 = and i32 %187, 256
-  %.not.i.i36 = icmp eq i32 %188, 0
-  br i1 %.not.i.i36, label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread23.i, label %189
+  %.not.i.i35 = icmp eq i32 %188, 0
+  br i1 %.not.i.i35, label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread23.i, label %189
 
 189:                                              ; preds = %184
   %190 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %185) #22
@@ -18503,8 +18997,8 @@ _ZN12_GLOBAL__N_118ItaniumRTTIBuilder31GetAddrOfExternalRTTIDescriptorEN5clang8Q
   %194 = zext i32 %193 to i64
   %.idx.i.i.i = shl nuw nsw i64 %194, 3
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx.i.i.i
-  %.not.i.i.i37 = icmp eq i32 %193, 0
-  br i1 %.not.i.i.i37, label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread23.i, label %.lr.ph.i.i.i.i.i.i
+  %.not.i.i.i36 = icmp eq i32 %193, 0
+  br i1 %.not.i.i.i36, label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread23.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %189, %200
   %.sroa.07.1.i.i.i.i.i = phi ptr [ %201, %200 ], [ %191, %189 ]
@@ -18582,11 +19076,11 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i: ; preds = %_ZNK5clang
 _ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i
   %241 = call noundef i32 @_ZN5clang7CodeGen13CodeGenModule16getVTableLinkageEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %168, ptr noundef nonnull %185) #22
   %242 = add i32 %241, -7
-  %spec.select.i38 = icmp ult i32 %242, 2
-  br i1 %spec.select.i38, label %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit, label %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
+  %spec.select.i = icmp ult i32 %242, 2
+  br i1 %spec.select.i, label %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit, label %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
 
 _ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread: ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.i, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i, %179, %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.i, %213, %173, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
-  %.0.i3460 = phi i32 [ %241, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ 3, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.i ], [ 3, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i ], [ 3, %179 ], [ 5, %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.i ], [ 0, %213 ], [ 3, %173 ]
+  %.0.i3358 = phi i32 [ %241, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ 3, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.i ], [ 3, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i ], [ 3, %179 ], [ 5, %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.i ], [ 0, %213 ], [ 3, %173 ]
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %244 = load ptr, ptr %243, align 8, !tbaa !1733
   %245 = load ptr, ptr %244, align 8, !tbaa !369
@@ -18596,7 +19090,7 @@ _ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
   br i1 %248, label %255, label %249
 
 249:                                              ; preds = %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
-  switch i32 %.0.i3460, label %255 [
+  switch i32 %.0.i3358, label %255 [
     i32 5, label %250
     i32 3, label %250
   ]
@@ -18605,9 +19099,9 @@ _ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
   %251 = load ptr, ptr %40, align 16, !tbaa !740
   %252 = call i8 @_ZNK5clang4Type23getLinkageAndVisibilityEv(ptr noundef nonnull align 16 dereferenceable(24) %251) #22
   %253 = and i8 %252, 24
-  %.not.i39 = icmp eq i8 %253, 16
-  %254 = icmp eq i32 %.0.i3460, 3
-  %or.cond = and i1 %254, %.not.i39
+  %.not.i37 = icmp eq i8 %253, 16
+  %254 = icmp eq i32 %.0.i3358, 3
+  %or.cond = and i1 %254, %.not.i37
   br i1 %or.cond, label %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit, label %255
 
 255:                                              ; preds = %250, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread, %249
@@ -18631,7 +19125,7 @@ _ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.thread
   unreachable
 
 _ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit: ; preds = %250, %167, %170, %261, %260, %255, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
-  %.0.i3461 = phi i32 [ 3, %250 ], [ %241, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ %.0.i3460, %261 ], [ %.0.i3460, %255 ], [ %.0.i3460, %260 ], [ 7, %170 ], [ 7, %167 ]
+  %.0.i3359 = phi i32 [ 3, %250 ], [ %241, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ %.0.i3358, %261 ], [ %.0.i3358, %255 ], [ %.0.i3358, %260 ], [ 7, %170 ], [ 7, %167 ]
   %or.cond.not = phi i1 [ true, %250 ], [ true, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ true, %261 ], [ false, %255 ], [ true, %260 ], [ true, %170 ], [ true, %167 ]
   %.024 = phi i32 [ 1, %250 ], [ 0, %_ZL18getTypeInfoLinkageRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit ], [ 2, %261 ], [ 0, %255 ], [ 1, %260 ], [ 0, %170 ], [ 0, %167 ]
   %263 = load ptr, ptr %40, align 16, !tbaa !740
@@ -18650,14 +19144,14 @@ _ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llv
   %273 = load i32, ptr %272, align 8
   %274 = icmp eq i32 %273, 28
   %275 = select i1 %271, i1 %274, i1 false
-  br i1 %275, label %276, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69
+  br i1 %275, label %276, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67
 
 276:                                              ; preds = %265
   %277 = getelementptr inbounds nuw i8, ptr %264, i64 28
   %278 = load i32, ptr %277, align 4
   %279 = and i32 %278, 256
-  %.not.i43 = icmp eq i32 %279, 0
-  br i1 %.not.i43, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69, label %280
+  %.not.i41 = icmp eq i32 %279, 0
+  br i1 %.not.i41, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67, label %280
 
 280:                                              ; preds = %276
   %281 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %264) #22
@@ -18667,8 +19161,8 @@ _ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llv
   %285 = zext i32 %284 to i64
   %.idx.i.i = shl nuw nsw i64 %285, 3
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 %.idx.i.i
-  %.not.i.i44 = icmp eq i32 %284, 0
-  br i1 %.not.i.i44, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69, label %.lr.ph.i.i.i.i.i
+  %.not.i.i42 = icmp eq i32 %284, 0
+  br i1 %.not.i.i42, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %280, %291
   %.sroa.07.1.i.i.i.i = phi ptr [ %292, %291 ], [ %282, %280 ]
@@ -18681,23 +19175,23 @@ _ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llv
 291:                                              ; preds = %.lr.ph.i.i.i.i.i
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %292, %286
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69, label %.lr.ph.i.i.i.i.i, !llvm.loop !1734
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67, label %.lr.ph.i.i.i.i.i, !llvm.loop !1734
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
   %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %286
-  br i1 %.not, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69, label %311
+  br i1 %.not, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67, label %311
 
-_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69: ; preds = %291, %280, %276, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %265
+_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67: ; preds = %291, %280, %276, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %265
   %293 = load ptr, ptr %0, align 8, !tbaa !1728
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 152
   %295 = load ptr, ptr %294, align 8, !tbaa !880
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 192
   %297 = load i64, ptr %296, align 8
   %298 = and i64 %297, 3377699720527872
-  %.not73 = icmp eq i64 %298, 0
-  br i1 %.not73, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, label %299
+  %.not71 = icmp eq i64 %298, 0
+  br i1 %.not71, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, label %299
 
-299:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69
+299:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67
   %300 = call i8 @_ZNK5clang9NamedDecl23getLinkageAndVisibilityEv(ptr noundef nonnull align 8 dereferenceable(48) %264) #22
   %301 = and i8 %300, 24
   %302 = icmp eq i8 %301, 16
@@ -18709,7 +19203,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69: ; preds = %291, %
   %306 = load i64, ptr %305, align 8
   %307 = and i64 %306, 3377699720527872
   switch i64 %307, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread [
-    i64 2251799813685248, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread71
+    i64 2251799813685248, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread69
     i64 1125899906842624, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit
   ]
 
@@ -18717,18 +19211,18 @@ _ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDec
   %308 = call i8 @_ZNK5clang9NamedDecl23getLinkageAndVisibilityEv(ptr noundef nonnull align 8 dereferenceable(48) %264) #22
   %309 = and i8 %308, 32
   %310 = icmp eq i8 %309, 0
-  %or.cond72 = or i1 %or.cond.not, %310
-  br i1 %or.cond72, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, label %311
+  %or.cond70 = or i1 %or.cond.not, %310
+  br i1 %or.cond70, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, label %311
 
-_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread71: ; preds = %303
+_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread69: ; preds = %303
   br i1 %or.cond.not, label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, label %311
 
-311:                                              ; preds = %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread71, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit
+311:                                              ; preds = %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread69, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit
   br label %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread
 
-_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread: ; preds = %303, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69, %299, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread71, %311, %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit
-  %.023 = phi i32 [ 2, %311 ], [ 0, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread71 ], [ 0, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit ], [ 0, %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit ], [ 0, %299 ], [ 0, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread69 ], [ 0, %303 ]
-  %312 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118ItaniumRTTIBuilder13BuildTypeInfoEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesENS4_15VisibilityTypesENS4_20DLLStorageClassTypesE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %13, i32 noundef %.0.i3461, i32 noundef %.024, i32 noundef %.023)
+_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread: ; preds = %303, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67, %299, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread69, %311, %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit
+  %.023 = phi i32 [ 2, %311 ], [ 0, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread69 ], [ 0, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit ], [ 0, %_ZNK12_GLOBAL__N_113ItaniumCXXABI22classifyRTTIUniquenessEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesE.exit ], [ 0, %299 ], [ 0, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread67 ], [ 0, %303 ]
+  %312 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118ItaniumRTTIBuilder13BuildTypeInfoEN5clang8QualTypeEN4llvm11GlobalValue12LinkageTypesENS4_15VisibilityTypesENS4_20DLLStorageClassTypesE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %13, i32 noundef %.0.i3359, i32 noundef %.024, i32 noundef %.023)
   br label %313
 
 313:                                              ; preds = %36, %_ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDeclE.exit.thread, %_ZN12_GLOBAL__N_118ItaniumRTTIBuilder31GetAddrOfExternalRTTIDescriptorEN5clang8QualTypeE.exit
@@ -20576,517 +21070,6 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm11GlobalVal
 
 declare noundef ptr @_ZNK4llvm6Module17getGlobalVariableENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(841), ptr, i64, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL27TypeInfoIsInStandardLibraryPKN5clang11BuiltinTypeE(i32 %.16.val) unnamed_addr #6 {
-  %1 = lshr i32 %.16.val, 19
-  %2 = and i32 %1, 511
-  switch i32 %2, label %4 [
-    i32 434, label %5
-    i32 487, label %5
-    i32 435, label %5
-    i32 449, label %5
-    i32 438, label %5
-    i32 436, label %5
-    i32 447, label %5
-    i32 437, label %5
-    i32 448, label %5
-    i32 450, label %5
-    i32 442, label %5
-    i32 451, label %5
-    i32 443, label %5
-    i32 452, label %5
-    i32 444, label %5
-    i32 453, label %5
-    i32 445, label %5
-    i32 479, label %5
-    i32 480, label %5
-    i32 481, label %5
-    i32 482, label %5
-    i32 483, label %5
-    i32 485, label %5
-    i32 486, label %5
-    i32 439, label %5
-    i32 440, label %5
-    i32 441, label %5
-    i32 454, label %5
-    i32 446, label %5
-    i32 0, label %3
-    i32 1, label %3
-    i32 2, label %3
-    i32 3, label %3
-    i32 4, label %3
-    i32 5, label %3
-    i32 6, label %3
-    i32 7, label %3
-    i32 8, label %3
-    i32 9, label %3
-    i32 10, label %3
-    i32 11, label %3
-    i32 12, label %3
-    i32 13, label %3
-    i32 14, label %3
-    i32 15, label %3
-    i32 16, label %3
-    i32 17, label %3
-    i32 18, label %3
-    i32 19, label %3
-    i32 20, label %3
-    i32 21, label %3
-    i32 22, label %3
-    i32 23, label %3
-    i32 24, label %3
-    i32 25, label %3
-    i32 26, label %3
-    i32 27, label %3
-    i32 28, label %3
-    i32 29, label %3
-    i32 30, label %3
-    i32 31, label %3
-    i32 32, label %3
-    i32 33, label %3
-    i32 34, label %3
-    i32 35, label %3
-    i32 36, label %3
-    i32 37, label %3
-    i32 38, label %3
-    i32 39, label %3
-    i32 40, label %3
-    i32 41, label %3
-    i32 42, label %3
-    i32 43, label %3
-    i32 44, label %3
-    i32 45, label %3
-    i32 46, label %3
-    i32 47, label %3
-    i32 491, label %3
-    i32 492, label %3
-    i32 493, label %3
-    i32 494, label %3
-    i32 495, label %3
-    i32 48, label %3
-    i32 49, label %3
-    i32 50, label %3
-    i32 51, label %3
-    i32 52, label %3
-    i32 53, label %3
-    i32 54, label %3
-    i32 55, label %3
-    i32 56, label %3
-    i32 57, label %3
-    i32 58, label %3
-    i32 59, label %3
-    i32 60, label %3
-    i32 61, label %3
-    i32 62, label %3
-    i32 63, label %3
-    i32 64, label %3
-    i32 65, label %3
-    i32 66, label %3
-    i32 67, label %3
-    i32 68, label %3
-    i32 69, label %3
-    i32 70, label %3
-    i32 71, label %3
-    i32 72, label %3
-    i32 73, label %3
-    i32 74, label %3
-    i32 75, label %3
-    i32 76, label %3
-    i32 77, label %3
-    i32 78, label %3
-    i32 79, label %3
-    i32 80, label %3
-    i32 81, label %3
-    i32 82, label %3
-    i32 83, label %3
-    i32 84, label %3
-    i32 85, label %3
-    i32 86, label %3
-    i32 87, label %3
-    i32 88, label %3
-    i32 89, label %3
-    i32 90, label %3
-    i32 91, label %3
-    i32 92, label %3
-    i32 93, label %3
-    i32 94, label %3
-    i32 95, label %3
-    i32 96, label %3
-    i32 97, label %3
-    i32 98, label %3
-    i32 99, label %3
-    i32 100, label %3
-    i32 101, label %3
-    i32 102, label %3
-    i32 103, label %3
-    i32 104, label %3
-    i32 105, label %3
-    i32 106, label %3
-    i32 107, label %3
-    i32 108, label %3
-    i32 109, label %3
-    i32 110, label %3
-    i32 111, label %3
-    i32 112, label %3
-    i32 113, label %3
-    i32 114, label %3
-    i32 115, label %3
-    i32 116, label %3
-    i32 117, label %3
-    i32 118, label %3
-    i32 119, label %3
-    i32 120, label %3
-    i32 121, label %3
-    i32 122, label %3
-    i32 123, label %3
-    i32 124, label %3
-    i32 125, label %3
-    i32 126, label %3
-    i32 127, label %3
-    i32 128, label %3
-    i32 129, label %3
-    i32 130, label %3
-    i32 131, label %3
-    i32 132, label %3
-    i32 133, label %3
-    i32 134, label %3
-    i32 135, label %3
-    i32 136, label %3
-    i32 137, label %3
-    i32 138, label %3
-    i32 139, label %3
-    i32 140, label %3
-    i32 141, label %3
-    i32 142, label %3
-    i32 143, label %3
-    i32 144, label %3
-    i32 145, label %3
-    i32 146, label %3
-    i32 147, label %3
-    i32 148, label %3
-    i32 149, label %3
-    i32 150, label %3
-    i32 151, label %3
-    i32 152, label %3
-    i32 153, label %3
-    i32 154, label %3
-    i32 155, label %3
-    i32 156, label %3
-    i32 157, label %3
-    i32 158, label %3
-    i32 159, label %3
-    i32 160, label %3
-    i32 161, label %3
-    i32 162, label %3
-    i32 163, label %3
-    i32 164, label %3
-    i32 165, label %3
-    i32 166, label %3
-    i32 167, label %3
-    i32 168, label %3
-    i32 169, label %3
-    i32 170, label %3
-    i32 171, label %3
-    i32 172, label %3
-    i32 173, label %3
-    i32 174, label %3
-    i32 175, label %3
-    i32 176, label %3
-    i32 177, label %3
-    i32 178, label %3
-    i32 179, label %3
-    i32 180, label %3
-    i32 181, label %3
-    i32 182, label %3
-    i32 183, label %3
-    i32 184, label %3
-    i32 185, label %3
-    i32 186, label %3
-    i32 187, label %3
-    i32 188, label %3
-    i32 189, label %3
-    i32 190, label %3
-    i32 191, label %3
-    i32 192, label %3
-    i32 193, label %3
-    i32 194, label %3
-    i32 195, label %3
-    i32 196, label %3
-    i32 197, label %3
-    i32 198, label %3
-    i32 199, label %3
-    i32 200, label %3
-    i32 201, label %3
-    i32 202, label %3
-    i32 203, label %3
-    i32 204, label %3
-    i32 205, label %3
-    i32 206, label %3
-    i32 207, label %3
-    i32 208, label %3
-    i32 209, label %3
-    i32 210, label %3
-    i32 211, label %3
-    i32 212, label %3
-    i32 213, label %3
-    i32 214, label %3
-    i32 215, label %3
-    i32 216, label %3
-    i32 217, label %3
-    i32 218, label %3
-    i32 219, label %3
-    i32 220, label %3
-    i32 221, label %3
-    i32 222, label %3
-    i32 223, label %3
-    i32 224, label %3
-    i32 225, label %3
-    i32 226, label %3
-    i32 227, label %3
-    i32 228, label %3
-    i32 229, label %3
-    i32 230, label %3
-    i32 231, label %3
-    i32 232, label %3
-    i32 233, label %3
-    i32 234, label %3
-    i32 235, label %3
-    i32 236, label %3
-    i32 237, label %3
-    i32 238, label %3
-    i32 239, label %3
-    i32 240, label %3
-    i32 241, label %3
-    i32 242, label %3
-    i32 243, label %3
-    i32 244, label %3
-    i32 245, label %3
-    i32 246, label %3
-    i32 247, label %3
-    i32 248, label %3
-    i32 249, label %3
-    i32 250, label %3
-    i32 251, label %3
-    i32 252, label %3
-    i32 253, label %3
-    i32 254, label %3
-    i32 255, label %3
-    i32 256, label %3
-    i32 257, label %3
-    i32 258, label %3
-    i32 259, label %3
-    i32 260, label %3
-    i32 261, label %3
-    i32 262, label %3
-    i32 263, label %3
-    i32 264, label %3
-    i32 265, label %3
-    i32 266, label %3
-    i32 267, label %3
-    i32 268, label %3
-    i32 269, label %3
-    i32 270, label %3
-    i32 271, label %3
-    i32 272, label %3
-    i32 273, label %3
-    i32 274, label %3
-    i32 275, label %3
-    i32 276, label %3
-    i32 277, label %3
-    i32 278, label %3
-    i32 279, label %3
-    i32 280, label %3
-    i32 281, label %3
-    i32 282, label %3
-    i32 283, label %3
-    i32 284, label %3
-    i32 285, label %3
-    i32 286, label %3
-    i32 287, label %3
-    i32 288, label %3
-    i32 289, label %3
-    i32 290, label %3
-    i32 291, label %3
-    i32 292, label %3
-    i32 293, label %3
-    i32 294, label %3
-    i32 295, label %3
-    i32 296, label %3
-    i32 297, label %3
-    i32 298, label %3
-    i32 299, label %3
-    i32 300, label %3
-    i32 301, label %3
-    i32 302, label %3
-    i32 303, label %3
-    i32 304, label %3
-    i32 305, label %3
-    i32 306, label %3
-    i32 307, label %3
-    i32 308, label %3
-    i32 309, label %3
-    i32 310, label %3
-    i32 311, label %3
-    i32 312, label %3
-    i32 313, label %3
-    i32 314, label %3
-    i32 315, label %3
-    i32 316, label %3
-    i32 317, label %3
-    i32 318, label %3
-    i32 319, label %3
-    i32 320, label %3
-    i32 321, label %3
-    i32 322, label %3
-    i32 323, label %3
-    i32 324, label %3
-    i32 325, label %3
-    i32 326, label %3
-    i32 327, label %3
-    i32 328, label %3
-    i32 329, label %3
-    i32 330, label %3
-    i32 331, label %3
-    i32 332, label %3
-    i32 333, label %3
-    i32 334, label %3
-    i32 335, label %3
-    i32 336, label %3
-    i32 337, label %3
-    i32 338, label %3
-    i32 339, label %3
-    i32 340, label %3
-    i32 341, label %3
-    i32 342, label %3
-    i32 343, label %3
-    i32 344, label %3
-    i32 345, label %3
-    i32 346, label %3
-    i32 347, label %3
-    i32 348, label %3
-    i32 349, label %3
-    i32 350, label %3
-    i32 351, label %3
-    i32 352, label %3
-    i32 353, label %3
-    i32 354, label %3
-    i32 355, label %3
-    i32 356, label %3
-    i32 357, label %3
-    i32 358, label %3
-    i32 359, label %3
-    i32 360, label %3
-    i32 361, label %3
-    i32 362, label %3
-    i32 363, label %3
-    i32 364, label %3
-    i32 365, label %3
-    i32 366, label %3
-    i32 367, label %3
-    i32 368, label %3
-    i32 369, label %3
-    i32 370, label %3
-    i32 371, label %3
-    i32 372, label %3
-    i32 373, label %3
-    i32 374, label %3
-    i32 375, label %3
-    i32 376, label %3
-    i32 377, label %3
-    i32 378, label %3
-    i32 379, label %3
-    i32 380, label %3
-    i32 381, label %3
-    i32 382, label %3
-    i32 383, label %3
-    i32 384, label %3
-    i32 385, label %3
-    i32 386, label %3
-    i32 387, label %3
-    i32 388, label %3
-    i32 389, label %3
-    i32 390, label %3
-    i32 391, label %3
-    i32 392, label %3
-    i32 393, label %3
-    i32 394, label %3
-    i32 395, label %3
-    i32 396, label %3
-    i32 397, label %3
-    i32 398, label %3
-    i32 399, label %3
-    i32 400, label %3
-    i32 401, label %3
-    i32 402, label %3
-    i32 403, label %3
-    i32 404, label %3
-    i32 405, label %3
-    i32 406, label %3
-    i32 407, label %3
-    i32 408, label %3
-    i32 409, label %3
-    i32 410, label %3
-    i32 411, label %3
-    i32 412, label %3
-    i32 413, label %3
-    i32 414, label %3
-    i32 415, label %3
-    i32 416, label %3
-    i32 417, label %3
-    i32 418, label %3
-    i32 419, label %3
-    i32 420, label %3
-    i32 421, label %3
-    i32 422, label %3
-    i32 423, label %3
-    i32 424, label %3
-    i32 425, label %3
-    i32 426, label %3
-    i32 427, label %3
-    i32 428, label %3
-    i32 429, label %3
-    i32 430, label %3
-    i32 431, label %3
-    i32 432, label %3
-    i32 433, label %3
-    i32 455, label %3
-    i32 456, label %3
-    i32 457, label %3
-    i32 458, label %3
-    i32 459, label %3
-    i32 460, label %3
-    i32 461, label %3
-    i32 462, label %3
-    i32 463, label %3
-    i32 464, label %3
-    i32 465, label %3
-    i32 466, label %3
-    i32 467, label %3
-    i32 468, label %3
-    i32 469, label %3
-    i32 470, label %3
-    i32 471, label %3
-    i32 472, label %3
-    i32 473, label %3
-    i32 474, label %3
-    i32 475, label %3
-    i32 476, label %3
-    i32 477, label %3
-    i32 478, label %3
-    i32 484, label %3
-  ]
-
-3:                                                ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
-  br label %5
-
-4:                                                ; preds = %0
-  unreachable
-
-5:                                                ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ], [ true, %0 ]
-  ret i1 %.0
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -21139,10 +21122,14 @@ declare void @_ZNK5clang7CodeGen13CodeGenModule11setDSOLocalEPN4llvm11GlobalValu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL27ContainsIncompleteClassTypeN5clang8QualTypeE(i64 %0) unnamed_addr #0 {
+  br label %tailrecurse46
+
+tailrecurse46:                                    ; preds = %25, %1
+  %.tr47 = phi i64 [ %0, %1 ], [ %.sroa.0.0.copyload.i26, %25 ]
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %16, %1
-  %.tr = phi i64 [ %0, %1 ], [ %.sroa.0.0.copyload.i, %16 ]
+tailrecurse:                                      ; preds = %16, %tailrecurse46
+  %.tr = phi i64 [ %.tr47, %tailrecurse46 ], [ %.sroa.0.0.copyload.i, %16 ]
   %2 = and i64 %.tr, -16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 16, !tbaa !740
@@ -21169,8 +21156,10 @@ tailrecurse:                                      ; preds = %16, %1
 13:                                               ; preds = %._crit_edge, %tailrecurse
   %14 = phi i8 [ %.pre40, %._crit_edge ], [ %6, %tailrecurse ]
   %15 = phi ptr [ %.pre, %._crit_edge ], [ %4, %tailrecurse ]
-  %.not44 = icmp eq i8 %14, 41
-  br i1 %.not44, label %16, label %18
+  switch i8 %14, label %.loopexit [
+    i8 41, label %16
+    i8 32, label %18
+  ]
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -21178,31 +21167,21 @@ tailrecurse:                                      ; preds = %16, %1
   br label %tailrecurse
 
 18:                                               ; preds = %13
-  %19 = icmp eq i8 %14, 32
-  br i1 %19, label %20, label %30
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !746
+  %21 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %20) #22
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %23 = load i8, ptr %22, align 2
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %.loopexit
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !746
-  %23 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %22) #22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 74
-  %25 = load i8, ptr %24, align 2
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %30
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sroa.0.0.copyload.i26 = load i64, ptr %26, align 16, !tbaa !384
+  br label %tailrecurse46
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sroa.0.0.copyload.i26 = load i64, ptr %28, align 16, !tbaa !384
-  %29 = tail call fastcc noundef zeroext i1 @_ZL27ContainsIncompleteClassTypeN5clang8QualTypeE(i64 %.sroa.0.0.copyload.i26)
-  br label %30
-
-30:                                               ; preds = %18, %27, %20
-  %.4 = phi i1 [ true, %20 ], [ %29, %27 ], [ true, %18 ]
-  %spec.select = and i1 %19, %.4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %8, %30
-  %.1 = phi i1 [ %spec.select, %30 ], [ true, %8 ]
+.loopexit:                                        ; preds = %8, %13, %18
+  %.1 = phi i1 [ true, %18 ], [ true, %8 ], [ false, %13 ]
   ret i1 %.1
 }
 

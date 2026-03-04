@@ -10647,10 +10647,9 @@ _ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97:    ; preds = %255, %202
   %.sroa.8.0.lcssa266283 = phi float [ %.sroa.8.1, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ %.sroa.8.1, %201 ], [ %.sroa.8.1, %194 ], [ 0.000000e+00, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.0129.1.lcssa267282 = phi <2 x float> [ %.sroa.0129.2, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ %.sroa.0129.2, %201 ], [ %.sroa.0129.2, %194 ], [ zeroinitializer, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.8136.0.lcssa268281 = phi float [ %.sroa.8136.1, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ %.sroa.8136.1, %201 ], [ %.sroa.8136.1, %194 ], [ 0.000000e+00, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
-  %.not = phi i1 [ false, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ true, %201 ], [ true, %194 ], [ true, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
+  %.not = phi i1 [ false, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ %.0.lcssa.i, %201 ], [ %.0.lcssa.i, %194 ], [ %.0.lcssa.i, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.064 = phi i1 [ %257, %_ZN3vcg8AreaMode6InsideENS_6Point3IfEE.exit97 ], [ false, %201 ], [ false, %194 ], [ false, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
-  %or.cond4 = and i1 %.0.lcssa.i, %.not
-  br i1 %or.cond4, label %261, label %258
+  br i1 %.not, label %261, label %258
 
 258:                                              ; preds = %.thread
   br i1 %.064, label %259, label %260

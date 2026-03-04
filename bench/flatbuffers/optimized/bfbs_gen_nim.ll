@@ -23277,6 +23277,7 @@ _ZNK10reflection5Field15default_integerEv.exit57.i: ; preds = %1342, %_ZNK11flat
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1348, ptr noundef nonnull align 8 dereferenceable(1) %1350, i64 %1355, i1 false), !noalias !552
   %1356 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1353, ptr %1356, align 8, !tbaa !16, !alias.scope !557, !noalias !552
+  store ptr %1350, ptr %1347, align 8, !tbaa !37, !noalias !552
   store i64 0, ptr %1352, align 8, !tbaa !16, !noalias !552
   store i8 0, ptr %1350, align 8, !tbaa !18, !noalias !552
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
@@ -28001,6 +28002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   %257 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %254, ptr %258, align 8, !tbaa !16, !alias.scope !671
+  store ptr %251, ptr %248, align 8, !tbaa !37
   store i64 0, ptr %257, align 8, !tbaa !16
   store i8 0, ptr %251, align 8, !tbaa !18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

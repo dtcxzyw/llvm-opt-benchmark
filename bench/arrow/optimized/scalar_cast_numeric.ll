@@ -129509,12 +129509,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_8Int8TypeEtaE14CheckMaybeNullEatb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_8Int8TypeEtaE14CheckMaybeNullEatb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2350
@@ -129724,12 +129724,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int16TypeEtsE14CheckMaybeNullEstb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int16TypeEtsE14CheckMaybeNullEstb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2358
@@ -129939,12 +129939,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int32TypeEtiE14CheckMaybeNullEitb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int32TypeEtiE14CheckMaybeNullEitb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2366
@@ -130154,12 +130154,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int64TypeEtlE14CheckMaybeNullEltb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9Int64TypeEtlE14CheckMaybeNullEltb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2374
@@ -130369,12 +130369,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9UInt8TypeEthE14CheckMaybeNullEhtb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_9UInt8TypeEthE14CheckMaybeNullEhtb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2382
@@ -130584,12 +130584,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt16TypeEttE14CheckMaybeNullEttb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt16TypeEttE14CheckMaybeNullEttb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2390
@@ -130799,12 +130799,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt32TypeEtjE14CheckMaybeNullEjtb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt32TypeEtjE14CheckMaybeNullEjtb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2398
@@ -131014,12 +131014,12 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_13
   store i16 %49, ptr %6, align 2
   %60 = call noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
   %61 = fcmp une float %60, %59
+  %62 = or i1 %.27194, %61
   br label %_ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt64TypeEtmE14CheckMaybeNullEmtb.exit
 
 _ZN5arrow7compute8internal12WasTruncatedINS_13HalfFloatTypeENS_10UInt64TypeEtmE14CheckMaybeNullEmtb.exit: ; preds = %.lr.ph, %58
-  %62 = phi i1 [ false, %.lr.ph ], [ %61, %58 ]
+  %63 = phi i1 [ %.27194, %.lr.ph ], [ %62, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = or i1 %.27194, %62
   %64 = add nuw nsw i64 %.06795, 1
   %exitcond.not = icmp eq i64 %64, %44
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !2406

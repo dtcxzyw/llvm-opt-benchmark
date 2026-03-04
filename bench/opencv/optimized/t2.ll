@@ -85,7 +85,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
   %.1131215 = phi i32 [ %.0130218, %.preheader189 ], [ %.3133.lcssa, %61 ]
   %.1136214 = phi ptr [ %.0135217, %.preheader189 ], [ %.3138.lcssa, %61 ]
   %.0143213 = phi i32 [ 0, %.preheader189 ], [ %.2145.lcssa, %61 ]
-  %.not175220 = phi i1 [ true, %.preheader189 ], [ false, %61 ]
+  %.not175220 = phi i1 [ %24, %.preheader189 ], [ false, %61 ]
   %.0150212 = phi i32 [ 0, %.preheader189 ], [ 1, %61 ]
   %.0151211 = phi ptr [ %35, %.preheader189 ], [ %62, %61 ]
   tail call void @opj_pi_create_encode(ptr noundef nonnull %35, ptr noundef nonnull %18, i32 noundef %1, i32 noundef %.0150212, i32 noundef %.0149216, i32 noundef %10, i32 noundef 0) #6
@@ -148,8 +148,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
 
 61:                                               ; preds = %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %.0151211, i64 256
-  %.not175 = and i1 %24, %.not175220
-  br i1 %.not175, label %38, label %.thread181, !llvm.loop !40
+  br i1 %.not175220, label %38, label %.thread181, !llvm.loop !40
 
 .thread181:                                       ; preds = %61
   %63 = add nuw i32 %.0149216, 1

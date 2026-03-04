@@ -7000,6 +7000,7 @@ _ZN5vcpkg15LocalizedStringC2EOS0_.exit.thread:    ; preds = %18
   %26 = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %19, align 8, !tbaa !56
   store i64 0, ptr %27, align 8, !tbaa !64
   store i8 0, ptr %21, align 8, !tbaa !59
   store ptr %16, ptr %5, align 8, !tbaa !63

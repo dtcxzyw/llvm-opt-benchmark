@@ -3184,10 +3184,10 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he5925e6adc547f1
   %20 = load i8, ptr %.sroa.0.015.i.i.i, align 1, !noalias !507, !noundef !7
   %21 = add i8 %20, -65
   %22 = icmp ult i8 %21, 26
-  %.0.i.i.i = select i1 %22, i8 32, i8 0
-  %23 = or i8 %.0.i.i.i, %20
+  %23 = select i1 %22, i8 32, i8 0
+  %.0.i.i.i = or i8 %23, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !519
-  store i8 %23, ptr %3, align 1, !noalias !519
+  store i8 %.0.i.i.i, ptr %3, align 1, !noalias !519
   call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !518
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !519
   %24 = icmp eq ptr %19, %17
@@ -3288,10 +3288,10 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %13 = load i8, ptr %.sroa.0.015.i.i, align 1, !noalias !527, !noundef !7
   %14 = add i8 %13, -65
   %15 = icmp ult i8 %14, 26
-  %.0.i.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.0.i.i, %13
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i.i = or i8 %16, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !535
-  store i8 %16, ptr %3, align 1, !noalias !535
+  store i8 %.0.i.i, ptr %3, align 1, !noalias !535
   call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !535
   %17 = icmp eq ptr %12, %10
@@ -4060,10 +4060,10 @@ define hidden void @"_ZN68_$LT$http..uri..authority..Authority$u20$as$u20$core..
   %12 = load i8, ptr %.sroa.0.015, align 1, !noundef !7
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %.0 = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.0, %12
+  %15 = select i1 %14, i8 32, i8 0
+  %.0 = or i8 %15, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !646
-  store i8 %15, ptr %3, align 1, !noalias !646
+  store i8 %.0, ptr %3, align 1, !noalias !646
   call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !646
   %16 = icmp eq ptr %11, %9
@@ -16260,10 +16260,10 @@ define hidden void @"_ZN59_$LT$awc..client..pool..Key$u20$as$u20$core..hash..Has
   %12 = load i8, ptr %.sroa.0.015.i, align 1, !noalias !2096, !noundef !7
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.0.i, %12
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i = or i8 %15, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2102
-  store i8 %15, ptr %3, align 1, !noalias !2102
+  store i8 %.0.i, ptr %3, align 1, !noalias !2102
   call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2102
   %16 = icmp eq ptr %11, %9

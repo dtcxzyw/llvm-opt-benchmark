@@ -7251,8 +7251,8 @@ _ZL15isParameterPackPN5clang4ExprE.exit:          ; preds = %7
 _ZL15isParameterPackPN5clang4ExprE.exit.thread:   ; preds = %7, %_ZL15isParameterPackPN5clang4ExprE.exit
   %20 = load i24, ptr %2, align 8
   %21 = and i24 %20, 262144
-  %.not19 = icmp eq i24 %21, 0
-  br i1 %.not19, label %22, label %72
+  %.not18 = icmp eq i24 %21, 0
+  br i1 %.not18, label %22, label %72
 
 22:                                               ; preds = %_ZL15isParameterPackPN5clang4ExprE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

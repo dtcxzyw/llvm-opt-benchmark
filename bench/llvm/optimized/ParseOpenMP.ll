@@ -34369,14 +34369,13 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit
-  %.not = phi i1 [ true, %46 ], [ false, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ]
+  %.not = phi i1 [ true, %46 ], [ %.031, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ]
   %.sroa.04.0.i44 = phi i64 [ %.sroa.04.0.i43, %46 ], [ %44, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ]
   %51 = load i32, ptr %8, align 8, !tbaa !764
   %52 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
   %.sroa.0.0.copyload.i = load i32, ptr %20, align 4
   %spec.select = select i1 %52, i32 %51, i32 %.sroa.0.0.copyload.i
-  %or.cond = or i1 %.031, %.not
-  %or.cond45 = or i1 %2, %or.cond
+  %or.cond45 = or i1 %2, %.not
   br i1 %or.cond45, label %78, label %53
 
 53:                                               ; preds = %50

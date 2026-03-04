@@ -5291,7 +5291,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 239
   %45 = load i8, ptr %44, align 1, !tbaa !895, !range !183, !noundef !184
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread, label %47
+  br i1 %46, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38, label %47
 
 47:                                               ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
   %48 = load ptr, ptr %4, align 8, !tbaa !354
@@ -5304,14 +5304,14 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2152
   %55 = load ptr, ptr %54, align 8, !tbaa !894
   %56 = tail call noundef zeroext i1 @_ZN5clang4ento15AnalysisManager12isInCodeFileENS_14SourceLocationERKNS_13SourceManagerE(i32 %.sroa.0.0.copyload.i30, ptr noundef nonnull align 8 dereferenceable(696) %55)
-  br i1 %56, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread, label %57
+  br i1 %56, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38, label %57
 
 57:                                               ; preds = %47
   %58 = load i32, ptr %21, align 4
   %59 = and i32 %58, 127
   %60 = add nsw i32 %59, -33
   %61 = icmp ult i32 %60, 4
-  br i1 %61, label %62, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread
+  br i1 %61, label %62, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 72
@@ -5350,15 +5350,15 @@ _ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit: ; preds =
   %81 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %.val7.i.i, ptr nonnull @.str.27, i64 17)
   %82 = ptrtoint ptr %81 to i64
   %83 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl13hasMemberNameENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(144) %72, i64 %82) #19
-  br i1 %83, label %_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread
+  br i1 %83, label %_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit, label %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38
 
-_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread: ; preds = %57, %47, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
+_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38: ; preds = %57, %47, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 234
   %85 = load i8, ptr %84, align 2, !tbaa !897, !range !183, !noundef !184
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %.critedge, label %87
 
-87:                                               ; preds = %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread
+87:                                               ; preds = %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38
   %88 = load i32, ptr %21, align 4
   %89 = and i32 %88, 127
   %.not.i = icmp eq i32 %89, 34
@@ -5405,7 +5405,7 @@ _ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i: ; preds = %104
   %112 = icmp eq i32 %bcmp.i.i, 0
   br i1 %112, label %_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit, label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i33, %104, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i, %87, %20, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread, %13
+.critedge:                                        ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i33, %104, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i, %87, %20, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit.thread38, %13
   %113 = tail call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(256) %1) #19
   %.not28 = icmp eq ptr %113, null
   br i1 %.not28, label %_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit, label %114
@@ -5461,8 +5461,8 @@ _ZNSt10unique_ptrIN5clang13LiveVariablesESt14default_deleteIS1_EED2Ev.exit.i: ; 
   %137 = icmp ne ptr %.pre.i, null
   br label %_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit
 
-_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit: ; preds = %77, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNSt10unique_ptrIN5clang13LiveVariablesESt14default_deleteIS1_EED2Ev.exit.i, %124, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit, %42, %30, %114, %.critedge, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %30 ], [ true, %124 ], [ false, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit ], [ false, %42 ], [ false, %.critedge ], [ false, %114 ], [ false, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i ], [ %137, %_ZNSt10unique_ptrIN5clang13LiveVariablesESt14default_deleteIS1_EED2Ev.exit.i ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ false, %77 ]
+_ZL18isCXXSharedPtrDtorPKN5clang12FunctionDeclE.exit: ; preds = %_ZNSt10unique_ptrIN5clang13LiveVariablesESt14default_deleteIS1_EED2Ev.exit.i, %124, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %77, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit, %42, %30, %114, %.critedge, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %30 ], [ false, %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit.i ], [ false, %_ZL17isContainerMethodRKN5clang10ASTContextEPKNS_12FunctionDeclE.exit ], [ false, %42 ], [ false, %.critedge ], [ false, %114 ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ false, %77 ], [ %137, %_ZNSt10unique_ptrIN5clang13LiveVariablesESt14default_deleteIS1_EED2Ev.exit.i ], [ true, %124 ]
   ret i1 %.0
 }
 

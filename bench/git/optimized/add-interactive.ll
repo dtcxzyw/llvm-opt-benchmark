@@ -2924,7 +2924,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_modified_files(ptr noundef %0, 
 _.exit:                                           ; preds = %17, %19
   %.0.i = phi ptr [ %20, %19 ], [ @.str.51, %17 ]
   %21 = call i32 (ptr, ...) @error(ptr noundef %.0.i) #18
-  br label %104
+  br label %100
 
 22:                                               ; preds = %6
   %.not = icmp eq ptr %12, null
@@ -2955,204 +2955,200 @@ _.exit:                                           ; preds = %17, %19
 .split.us:                                        ; preds = %22
   br i1 %.not29, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %52
-  %38 = phi i1 [ true, %52 ], [ false, %.split.us ]
-  %39 = phi i1 [ false, %52 ], [ true, %.split.us ]
-  %.030.us.us = phi i32 [ 1, %52 ], [ 0, %.split.us ]
+.split.us.split.us:                               ; preds = %.split.us, %51
+  %38 = phi i1 [ %30, %51 ], [ false, %.split.us ]
+  %39 = phi i1 [ false, %51 ], [ true, %.split.us ]
+  %.030.us.us = phi i32 [ 1, %51 ], [ 0, %.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %storemerge.us.us = xor i32 %.030.us.us, %29
   store i32 %storemerge.us.us, ptr %8, align 8, !tbaa !144
-  %40 = and i1 %30, %38
-  %41 = zext i1 %40 to i8
-  %42 = load i8, ptr %31, align 8
-  %43 = and i8 %42, -2
-  %44 = or disjoint i8 %43, %41
-  store i8 %44, ptr %31, align 8
-  %45 = load ptr, ptr %32, align 8, !tbaa !81
-  %46 = call ptr @empty_tree_oid_hex(ptr noundef %45) #18
-  store ptr %46, ptr %10, align 8, !tbaa !145
+  %40 = zext i1 %38 to i8
+  %41 = load i8, ptr %31, align 8
+  %42 = and i8 %41, -2
+  %43 = or disjoint i8 %42, %40
+  store i8 %43, ptr %31, align 8
+  %44 = load ptr, ptr %32, align 8, !tbaa !81
+  %45 = call ptr @empty_tree_oid_hex(ptr noundef %44) #18
+  store ptr %45, ptr %10, align 8, !tbaa !145
   call void @repo_init_revisions(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null) #18
-  %47 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %46 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   store i32 4096, ptr %33, align 4, !tbaa !147
   store ptr @collect_changes_cb, ptr %34, align 8, !tbaa !177
   store ptr %8, ptr %35, align 8, !tbaa !178
-  %48 = load i32, ptr %8, align 8, !tbaa !144
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %51, label %50
+  %47 = load i32, ptr %8, align 8, !tbaa !144
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %50, label %49
 
-50:                                               ; preds = %.split.us.split.us
+49:                                               ; preds = %.split.us.split.us
   store i32 1, ptr %37, align 8, !tbaa !179
   call void @run_diff_files(ptr noundef nonnull %9, i32 noundef 0) #18
-  br label %52
+  br label %51
 
-51:                                               ; preds = %.split.us.split.us
+50:                                               ; preds = %.split.us.split.us
   call void @run_diff_index(ptr noundef nonnull %9, i32 noundef 1) #18
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %50
+51:                                               ; preds = %50, %49
   call void @release_revisions(ptr noundef nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %39, label %.split.us.split.us, label %.split32.us, !llvm.loop !180
 
-.split.us.split:                                  ; preds = %.split.us, %67
-  %53 = phi i1 [ true, %67 ], [ false, %.split.us ]
-  %54 = phi i1 [ false, %67 ], [ true, %.split.us ]
-  %.030.us = phi i32 [ 1, %67 ], [ 0, %.split.us ]
+.split.us.split:                                  ; preds = %.split.us, %65
+  %52 = phi i1 [ %30, %65 ], [ false, %.split.us ]
+  %53 = phi i1 [ false, %65 ], [ true, %.split.us ]
+  %.030.us = phi i32 [ 1, %65 ], [ 0, %.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %storemerge.us = xor i32 %.030.us, %29
   store i32 %storemerge.us, ptr %8, align 8, !tbaa !144
-  %55 = and i1 %30, %53
-  %56 = zext i1 %55 to i8
-  %57 = load i8, ptr %31, align 8
-  %58 = and i8 %57, -2
-  %59 = or disjoint i8 %58, %56
-  store i8 %59, ptr %31, align 8
-  %60 = load ptr, ptr %32, align 8, !tbaa !81
-  %61 = call ptr @empty_tree_oid_hex(ptr noundef %60) #18
-  store ptr %61, ptr %10, align 8, !tbaa !145
+  %54 = zext i1 %52 to i8
+  %55 = load i8, ptr %31, align 8
+  %56 = and i8 %55, -2
+  %57 = or disjoint i8 %56, %54
+  store i8 %57, ptr %31, align 8
+  %58 = load ptr, ptr %32, align 8, !tbaa !81
+  %59 = call ptr @empty_tree_oid_hex(ptr noundef %58) #18
+  store ptr %59, ptr %10, align 8, !tbaa !145
   call void @repo_init_revisions(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null) #18
-  %62 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %60 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   store i32 4096, ptr %33, align 4, !tbaa !147
   store ptr @collect_changes_cb, ptr %34, align 8, !tbaa !177
   store ptr %8, ptr %35, align 8, !tbaa !178
   call void @copy_pathspec(ptr noundef nonnull %36, ptr noundef nonnull %3) #18
-  %63 = load i32, ptr %8, align 8, !tbaa !144
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %66, label %65
+  %61 = load i32, ptr %8, align 8, !tbaa !144
+  %62 = icmp eq i32 %61, 1
+  br i1 %62, label %64, label %63
 
-65:                                               ; preds = %.split.us.split
+63:                                               ; preds = %.split.us.split
   store i32 1, ptr %37, align 8, !tbaa !179
   call void @run_diff_files(ptr noundef nonnull %9, i32 noundef 0) #18
-  br label %67
+  br label %65
 
-66:                                               ; preds = %.split.us.split
+64:                                               ; preds = %.split.us.split
   call void @run_diff_index(ptr noundef nonnull %9, i32 noundef 1) #18
-  br label %67
+  br label %65
 
-67:                                               ; preds = %66, %65
+65:                                               ; preds = %64, %63
   call void @release_revisions(ptr noundef nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %54, label %.split.us.split, label %.split32.us, !llvm.loop !180
+  br i1 %53, label %.split.us.split, label %.split32.us, !llvm.loop !180
 
 .split:                                           ; preds = %22
   br i1 %.not29, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %81
-  %68 = phi i1 [ true, %81 ], [ false, %.split ]
-  %69 = phi i1 [ false, %81 ], [ true, %.split ]
-  %.030.us33 = phi i32 [ 1, %81 ], [ 0, %.split ]
+.split.split.us:                                  ; preds = %.split, %78
+  %66 = phi i1 [ %30, %78 ], [ false, %.split ]
+  %67 = phi i1 [ false, %78 ], [ true, %.split ]
+  %.030.us33 = phi i32 [ 1, %78 ], [ 0, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %storemerge.us34 = xor i32 %.030.us33, %29
   store i32 %storemerge.us34, ptr %8, align 8, !tbaa !144
-  %70 = and i1 %30, %68
-  %71 = zext i1 %70 to i8
-  %72 = load i8, ptr %31, align 8
-  %73 = and i8 %72, -2
-  %74 = or disjoint i8 %73, %71
-  store i8 %74, ptr %31, align 8
-  %75 = call ptr @oid_to_hex(ptr noundef nonnull %7) #18
-  store ptr %75, ptr %10, align 8, !tbaa !145
+  %68 = zext i1 %66 to i8
+  %69 = load i8, ptr %31, align 8
+  %70 = and i8 %69, -2
+  %71 = or disjoint i8 %70, %68
+  store i8 %71, ptr %31, align 8
+  %72 = call ptr @oid_to_hex(ptr noundef nonnull %7) #18
+  store ptr %72, ptr %10, align 8, !tbaa !145
   call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %9, ptr noundef null) #18
-  %76 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %73 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   store i32 4096, ptr %33, align 4, !tbaa !147
   store ptr @collect_changes_cb, ptr %34, align 8, !tbaa !177
   store ptr %8, ptr %35, align 8, !tbaa !178
-  %77 = load i32, ptr %8, align 8, !tbaa !144
-  %78 = icmp eq i32 %77, 1
-  br i1 %78, label %80, label %79
+  %74 = load i32, ptr %8, align 8, !tbaa !144
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %77, label %76
 
-79:                                               ; preds = %.split.split.us
+76:                                               ; preds = %.split.split.us
   store i32 1, ptr %37, align 8, !tbaa !179
   call void @run_diff_files(ptr noundef nonnull %9, i32 noundef 0) #18
-  br label %81
+  br label %78
 
-80:                                               ; preds = %.split.split.us
+77:                                               ; preds = %.split.split.us
   call void @run_diff_index(ptr noundef nonnull %9, i32 noundef 1) #18
-  br label %81
+  br label %78
 
-81:                                               ; preds = %80, %79
+78:                                               ; preds = %77, %76
   call void @release_revisions(ptr noundef nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %69, label %.split.split.us, label %.split32.us, !llvm.loop !180
+  br i1 %67, label %.split.split.us, label %.split32.us, !llvm.loop !180
 
-.split.split:                                     ; preds = %.split, %95
-  %82 = phi i1 [ true, %95 ], [ false, %.split ]
-  %83 = phi i1 [ false, %95 ], [ true, %.split ]
-  %.030 = phi i32 [ 1, %95 ], [ 0, %.split ]
+.split.split:                                     ; preds = %.split, %91
+  %79 = phi i1 [ %30, %91 ], [ false, %.split ]
+  %80 = phi i1 [ false, %91 ], [ true, %.split ]
+  %.030 = phi i32 [ 1, %91 ], [ 0, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %storemerge = xor i32 %.030, %29
   store i32 %storemerge, ptr %8, align 8, !tbaa !144
-  %84 = and i1 %30, %82
-  %85 = zext i1 %84 to i8
-  %86 = load i8, ptr %31, align 8
-  %87 = and i8 %86, -2
-  %88 = or disjoint i8 %87, %85
-  store i8 %88, ptr %31, align 8
-  %89 = call ptr @oid_to_hex(ptr noundef nonnull %7) #18
-  store ptr %89, ptr %10, align 8, !tbaa !145
+  %81 = zext i1 %79 to i8
+  %82 = load i8, ptr %31, align 8
+  %83 = and i8 %82, -2
+  %84 = or disjoint i8 %83, %81
+  store i8 %84, ptr %31, align 8
+  %85 = call ptr @oid_to_hex(ptr noundef nonnull %7) #18
+  store ptr %85, ptr %10, align 8, !tbaa !145
   call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %9, ptr noundef null) #18
-  %90 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %86 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   store i32 4096, ptr %33, align 4, !tbaa !147
   store ptr @collect_changes_cb, ptr %34, align 8, !tbaa !177
   store ptr %8, ptr %35, align 8, !tbaa !178
   call void @copy_pathspec(ptr noundef nonnull %36, ptr noundef nonnull %3) #18
-  %91 = load i32, ptr %8, align 8, !tbaa !144
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %94
+  %87 = load i32, ptr %8, align 8, !tbaa !144
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %89, label %90
 
-93:                                               ; preds = %.split.split
+89:                                               ; preds = %.split.split
   call void @run_diff_index(ptr noundef nonnull %9, i32 noundef 1) #18
-  br label %95
+  br label %91
 
-94:                                               ; preds = %.split.split
+90:                                               ; preds = %.split.split
   store i32 1, ptr %37, align 8, !tbaa !179
   call void @run_diff_files(ptr noundef nonnull %9, i32 noundef 0) #18
-  br label %95
+  br label %91
 
-95:                                               ; preds = %94, %93
+91:                                               ; preds = %90, %89
   call void @release_revisions(ptr noundef nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %83, label %.split.split, label %.split32.us, !llvm.loop !180
+  br i1 %80, label %.split.split, label %.split32.us, !llvm.loop !180
 
-.split32.us:                                      ; preds = %95, %81, %67, %52
+.split32.us:                                      ; preds = %91, %78, %65, %51
   call void @hashmap_clear_(ptr noundef nonnull %27, i64 noundef 0) #18
   %.not27 = icmp eq ptr %4, null
-  br i1 %.not27, label %99, label %96
+  br i1 %.not27, label %95, label %92
 
-96:                                               ; preds = %.split32.us
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %98 = load i64, ptr %97, align 8, !tbaa !181
-  store i64 %98, ptr %4, align 8, !tbaa !118
+92:                                               ; preds = %.split32.us
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %94 = load i64, ptr %93, align 8, !tbaa !181
+  store i64 %94, ptr %4, align 8, !tbaa !118
+  br label %95
+
+95:                                               ; preds = %92, %.split32.us
+  %.not28 = icmp eq ptr %5, null
+  br i1 %.not28, label %99, label %96
+
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %98 = load i64, ptr %97, align 8, !tbaa !182
+  store i64 %98, ptr %5, align 8, !tbaa !118
   br label %99
 
-99:                                               ; preds = %96, %.split32.us
-  %.not28 = icmp eq ptr %5, null
-  br i1 %.not28, label %103, label %100
-
-100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %102 = load i64, ptr %101, align 8, !tbaa !182
-  store i64 %102, ptr %5, align 8, !tbaa !118
-  br label %103
-
-103:                                              ; preds = %100, %99
+99:                                               ; preds = %96, %95
   call void @string_list_sort(ptr noundef %2) #18
-  br label %104
+  br label %100
 
-104:                                              ; preds = %103, %_.exit
-  %.023 = phi i32 [ -1, %_.exit ], [ 0, %103 ]
+100:                                              ; preds = %99, %_.exit
+  %.023 = phi i32 [ -1, %_.exit ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.023

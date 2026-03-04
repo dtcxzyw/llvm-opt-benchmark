@@ -32809,8 +32809,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %125 unwind label %.loopexit
 
 125:                                              ; preds = %111
-  %.not60.not = icmp eq i32 %124, 0
-  br i1 %.not60.not, label %.critedge2.loopexit, label %126
+  %.not60 = icmp eq i32 %124, 0
+  br i1 %.not60, label %.critedge2.loopexit, label %126
 
 126:                                              ; preds = %125
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
@@ -32822,7 +32822,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge.thread146
-  %.055.lcssa149154 = phi i32 [ %99, %.critedge2.loopexit ], [ 0, %.critedge.thread146 ]
+  %.055.lcssa149153 = phi i32 [ %99, %.critedge2.loopexit ], [ 0, %.critedge.thread146 ]
   %.056.lcssa = phi i32 [ %127, %.critedge2.loopexit ], [ 0, %.critedge.thread146 ]
   %128 = icmp eq i32 %.056.lcssa, %66
   br i1 %128, label %.critedge2.thread, label %140
@@ -32865,7 +32865,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 141:                                              ; preds = %140
   %142 = load ptr, ptr %69, align 8, !tbaa !682
-  %143 = mul nsw i32 %.055.lcssa149154, %66
+  %143 = mul nsw i32 %.055.lcssa149153, %66
   %144 = add nsw i32 %.056.lcssa, %143
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i32, ptr %142, i64 %145
@@ -32873,7 +32873,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %148 = or i32 %147, %4
   store i32 %148, ptr %146, align 4, !tbaa !162
   %149 = mul nsw i32 %.056.lcssa, %66
-  %150 = add nsw i32 %149, %.055.lcssa149154
+  %150 = add nsw i32 %149, %.055.lcssa149153
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i32, ptr %142, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !162

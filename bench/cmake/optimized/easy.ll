@@ -281,7 +281,7 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   %36 = load i64, ptr %35, align 2
   %37 = and i64 %36, 1073741824
   %.not.i.not.i = icmp eq i64 %37, 0
-  br i1 %.not.i.not.i, label %38, label %sigpipe_apply.exit.i.preheader
+  br i1 %.not.i.not.i, label %38, label %sigpipe_apply.exit.i
 
 38:                                               ; preds = %33
   store i8 0, ptr %34, align 8, !tbaa !84
@@ -291,76 +291,78 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8, !tbaa !79
   %40 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %sigpipe_apply.exit.i.preheader
-
-sigpipe_apply.exit.i.preheader:                   ; preds = %38, %33
   br label %sigpipe_apply.exit.i
 
-sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.i.preheader, %.thread.i.i
-  %.01225.i.i = phi i32 [ %.113.i.i, %.thread.i.i ], [ 0, %sigpipe_apply.exit.i.preheader ]
+sigpipe_apply.exit.i:                             ; preds = %38, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %41 = call i32 @curl_multi_poll(ptr noundef nonnull %.026.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
-  %.not20.i.i = icmp eq i32 %41, 0
-  br i1 %.not20.i.i, label %44, label %.thread35.i.i
+  %.not20.i.i6 = icmp eq i32 %41, 0
+  br i1 %.not20.i.i6, label %.lr.ph, label %.thread35.i.i
 
-.thread35.i.i:                                    ; preds = %sigpipe_apply.exit.i
+.thread35.i.i:                                    ; preds = %.backedge.i, %sigpipe_apply.exit.i
+  %.lcssa2 = phi i32 [ %41, %sigpipe_apply.exit.i ], [ %51, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %42 = icmp eq i32 %41, 3
+  %42 = icmp eq i32 %.lcssa2, 3
   %43 = select i1 %42, i32 27, i32 43
   br label %easy_transfer.exit.i
 
-44:                                               ; preds = %sigpipe_apply.exit.i
-  %45 = call i32 @curl_multi_perform(ptr noundef nonnull %.026.i, ptr noundef nonnull %2) #12
-  %.fr.i.i = freeze i32 %45
-  %46 = icmp ne i32 %.fr.i.i, 0
-  %47 = load i32, ptr %2, align 4
-  %48 = icmp ne i32 %47, 0
-  %or.cond.i.i = select i1 %46, i1 true, i1 %48
-  br i1 %or.cond.i.i, label %.thread.i.i, label %49
+.lr.ph:                                           ; preds = %sigpipe_apply.exit.i, %.backedge.i
+  %44 = call i32 @curl_multi_perform(ptr noundef nonnull %.026.i, ptr noundef nonnull %2) #12
+  %.fr.i.i = freeze i32 %44
+  %45 = icmp ne i32 %.fr.i.i, 0
+  %46 = load i32, ptr %2, align 4
+  %47 = icmp ne i32 %46, 0
+  %or.cond.i.i = select i1 %45, i1 true, i1 %47
+  br i1 %or.cond.i.i, label %.thread.i.i, label %48
 
-49:                                               ; preds = %44
+48:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %50 = call ptr @curl_multi_info_read(ptr noundef nonnull %.026.i, ptr noundef nonnull %3) #12
-  %.not21.i.i = icmp ne ptr %50, null
-  br i1 %.not21.i.i, label %51, label %54
+  %49 = call ptr @curl_multi_info_read(ptr noundef nonnull %.026.i, ptr noundef nonnull %3) #12
+  %.not21.i.not.i = icmp eq ptr %49, null
+  br i1 %.not21.i.not.i, label %50, label %.loopexit.i
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !79
-  br label %54
-
-54:                                               ; preds = %51, %49
-  %.214.i.i = phi i32 [ %53, %51 ], [ %.01225.i.i, %49 ]
+50:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread.i.i
-
-.thread.i.i:                                      ; preds = %54, %44
-  %.113.i.i = phi i32 [ %.01225.i.i, %44 ], [ %.214.i.i, %54 ]
-  %.1.i.i = phi i1 [ false, %44 ], [ %.not21.i.i, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not19.i.i = or i1 %46, %.1.i.i
-  br i1 %.not19.i.i, label %55, label %sigpipe_apply.exit.i, !llvm.loop !90
+  br label %.backedge.i
 
-55:                                               ; preds = %.thread.i.i
-  %56 = icmp eq i32 %.fr.i.i, 3
-  %57 = select i1 %56, i32 27, i32 43
-  %spec.select.i.i = select i1 %46, i32 %57, i32 %.113.i.i
+.thread.i.i:                                      ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %45, label %54, label %.backedge.i
+
+.backedge.i:                                      ; preds = %.thread.i.i, %50
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store i32 0, ptr %2, align 4, !tbaa !4
+  %51 = call i32 @curl_multi_poll(ptr noundef nonnull %.026.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
+  %.not20.i.i = icmp eq i32 %51, 0
+  br i1 %.not20.i.i, label %.lr.ph, label %.thread35.i.i, !llvm.loop !90
+
+.loopexit.i:                                      ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %easy_transfer.exit.i
 
-easy_transfer.exit.i:                             ; preds = %55, %.thread35.i.i
-  %58 = phi i32 [ %spec.select.i.i, %55 ], [ %43, %.thread35.i.i ]
-  %59 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.026.i, ptr noundef nonnull %0) #12
-  %60 = load i8, ptr %34, align 8, !tbaa !84, !range !92, !noundef !93
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %easy_perform.exit, label %62
+54:                                               ; preds = %.thread.i.i
+  %55 = icmp eq i32 %.fr.i.i, 3
+  %56 = select i1 %55, i32 27, i32 43
+  br label %easy_transfer.exit.i
 
-62:                                               ; preds = %easy_transfer.exit.i
-  %63 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #12
+easy_transfer.exit.i:                             ; preds = %54, %.loopexit.i, %.thread35.i.i
+  %57 = phi i32 [ %43, %.thread35.i.i ], [ %56, %54 ], [ %53, %.loopexit.i ]
+  %58 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.026.i, ptr noundef nonnull %0) #12
+  %59 = load i8, ptr %34, align 8, !tbaa !84, !range !92, !noundef !93
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %easy_perform.exit, label %61
+
+61:                                               ; preds = %easy_transfer.exit.i
+  %62 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #12
   br label %easy_perform.exit
 
-easy_perform.exit:                                ; preds = %1, %14, %18, %20, %30, %easy_transfer.exit.i, %62
-  %.0.i = phi i32 [ 2, %14 ], [ 27, %18 ], [ %..i, %30 ], [ 93, %20 ], [ 43, %1 ], [ %58, %easy_transfer.exit.i ], [ %58, %62 ]
+easy_perform.exit:                                ; preds = %1, %14, %18, %20, %30, %easy_transfer.exit.i, %61
+  %.0.i = phi i32 [ 2, %14 ], [ 27, %18 ], [ %..i, %30 ], [ 93, %20 ], [ 43, %1 ], [ %57, %easy_transfer.exit.i ], [ %57, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }

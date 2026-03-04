@@ -1980,11 +1980,11 @@ define dso_local void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3Rigi
   %209 = getelementptr inbounds i32, ptr %207, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !110
   %211 = sitofp i32 %210 to float
+  %212 = fmul float %.088169, %211
   br label %.thread158
 
 .thread158:                                       ; preds = %204, %199
-  %212 = phi float [ %211, %204 ], [ 1.000000e+00, %199 ]
-  %213 = fmul float %.088169, %212
+  %213 = phi float [ %212, %204 ], [ %.088169, %199 ]
   %214 = tail call float @llvm.fmuladd.f32(float %.087157167, float %200, float %213)
   %215 = fdiv float %12, %214
   br label %216
@@ -3034,7 +3034,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver22setupContactConstraintEP15b3Rigid
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 68
   %214 = load float, ptr %213, align 4, !tbaa !102
   %215 = fcmp une float %214, 0.000000e+00
-  br i1 %215, label %216, label %224
+  br i1 %215, label %216, label %225
 
 216:                                              ; preds = %211
   %217 = load i32, ptr %25, align 16, !tbaa !20
@@ -3044,17 +3044,17 @@ define dso_local void @_ZN17b3PgsJacobiSolver22setupContactConstraintEP15b3Rigid
   %221 = getelementptr inbounds i32, ptr %219, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !110
   %223 = sitofp i32 %222 to float
-  br label %224
+  %224 = fmul float %.0160, %223
+  br label %225
 
-224:                                              ; preds = %211, %216
-  %225 = phi float [ %223, %216 ], [ 1.000000e+00, %211 ]
-  %226 = fmul float %.0160, %225
+225:                                              ; preds = %211, %216
+  %226 = phi float [ %224, %216 ], [ %.0160, %211 ]
   %227 = tail call float @llvm.fmuladd.f32(float %.0159311, float %212, float %226)
   %228 = fdiv float %196, %227
   br label %229
 
-229:                                              ; preds = %191, %224
-  %.0158 = phi float [ %228, %224 ], [ %198, %191 ]
+229:                                              ; preds = %191, %225
+  %.0158 = phi float [ %228, %225 ], [ %198, %191 ]
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store float %198, ptr %230, align 4, !tbaa !93
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 16

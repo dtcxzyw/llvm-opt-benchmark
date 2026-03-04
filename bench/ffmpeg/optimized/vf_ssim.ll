@@ -605,7 +605,7 @@ define internal noundef i32 @ssim_plane_16bit(ptr readnone captures(none) %0, pt
   %.06289 = phi i32 [ %47, %.preheader.lr.ph ], [ %170, %ssim_endn_16bit.exit ]
   %.06388 = phi ptr [ %58, %.preheader.lr.ph ], [ %.1.lcssa122, %ssim_endn_16bit.exit ]
   %.06487 = phi ptr [ %13, %.preheader.lr.ph ], [ %.165.lcssa121, %ssim_endn_16bit.exit ]
-  %.06686 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %169, %ssim_endn_16bit.exit ]
+  %.06686 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %.037.lcssa.i, %ssim_endn_16bit.exit ]
   %.06785 = phi i32 [ %59, %.preheader.lr.ph ], [ %.168.lcssa120, %ssim_endn_16bit.exit ]
   %indvars.iv = add i32 %indvars.iv.in, 1
   %.not77 = icmp sgt i32 %.06785, %.06289
@@ -703,7 +703,7 @@ ssim_4x4xn_16bit.exit.loopexit.us:                ; preds = %100
   br i1 %exitcond108.not, label %._crit_edge, label %.preheader56.preheader.i.us, !llvm.loop !92
 
 ._crit_edge91:                                    ; preds = %ssim_endn_16bit.exit, %35
-  %.066.lcssa = phi double [ 0.000000e+00, %35 ], [ %169, %ssim_endn_16bit.exit ]
+  %.066.lcssa = phi double [ 0.000000e+00, %35 ], [ %.037.lcssa.i, %ssim_endn_16bit.exit ]
   %107 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv110
   store double %.066.lcssa, ptr %107, align 8, !tbaa !41
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -809,14 +809,14 @@ ssim_4x4xn_16bit.exit:                            ; preds = %.lr.ph, %ssim_4x4xn
 
 ssim_endn_16bit.exit.loopexit:                    ; preds = %109
   %168 = fpext nsz float %167 to double
+  %169 = fadd nsz double %.06686, %168
   br label %ssim_endn_16bit.exit
 
 ssim_endn_16bit.exit:                             ; preds = %ssim_4x4xn_16bit.exit, %ssim_endn_16bit.exit.loopexit, %._crit_edge
   %.1.lcssa122 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.16579, %ssim_4x4xn_16bit.exit ]
   %.165.lcssa121 = phi ptr [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %.180, %ssim_4x4xn_16bit.exit ]
   %.168.lcssa120 = phi i32 [ %.168.lcssa, %._crit_edge ], [ %.168.lcssa, %ssim_endn_16bit.exit.loopexit ], [ %indvars.iv, %ssim_4x4xn_16bit.exit ]
-  %.037.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ %168, %ssim_endn_16bit.exit.loopexit ], [ 0.000000e+00, %ssim_4x4xn_16bit.exit ]
-  %169 = fadd nsz double %.06686, %.037.lcssa.i
+  %.037.lcssa.i = phi double [ %.06686, %._crit_edge ], [ %169, %ssim_endn_16bit.exit.loopexit ], [ %.06686, %ssim_4x4xn_16bit.exit ]
   %170 = add nuw nsw i32 %.06289, 1
   %exitcond109.not = icmp eq i32 %170, %46
   br i1 %exitcond109.not, label %._crit_edge91, label %.preheader, !llvm.loop !95

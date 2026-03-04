@@ -110563,9 +110563,9 @@ define void @"_ZN110_$LT$deltalake_core..operations..convert_to_delta..Partition
   %17 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !28862, !noalias !28859, !noundef !22
   %18 = add i8 %17, -65
   %19 = icmp ult i8 %18, 26
-  %.0.i.i = select i1 %19, i8 32, i8 0
-  %20 = or i8 %.0.i.i, %17
-  store i8 %20, ptr %.sroa.0.06.i.i, align 1, !alias.scope !28862, !noalias !28859
+  %20 = select i1 %19, i8 32, i8 0
+  %.0.i.i = or i8 %20, %17
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !28862, !noalias !28859
   %21 = icmp eq ptr %16, %13
   br i1 %21, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 

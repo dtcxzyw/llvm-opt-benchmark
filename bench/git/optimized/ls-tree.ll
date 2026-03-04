@@ -656,8 +656,8 @@ define internal range(i32 0, 2) i32 @show_tree_fmt(ptr noundef %0, ptr noundef %
   %.not37 = icmp eq i32 %44, 0
   br i1 %.not37, label %174, label %.thread
 
-.thread:                                          ; preds = %.critedge.i, %26, %5, %.loopexit
-  %.03582 = phi i32 [ 0, %5 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %.critedge.i ]
+.thread:                                          ; preds = %.critedge.i, %5, %26, %.loopexit
+  %.03582 = phi i32 [ 0, %26 ], [ 1, %.loopexit ], [ 0, %5 ], [ 0, %.critedge.i ]
   %45 = icmp eq i32 %15, 3
   br i1 %45, label %46, label %50
 

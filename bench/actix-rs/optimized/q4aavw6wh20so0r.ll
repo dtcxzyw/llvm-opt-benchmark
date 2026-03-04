@@ -284,9 +284,9 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %41 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !22, !noalias !19, !noundef !4
   %42 = add i8 %41, -65
   %43 = icmp ult i8 %42, 26
-  %.0.i.i = select i1 %43, i8 32, i8 0
-  %44 = or i8 %.0.i.i, %41
-  store i8 %44, ptr %.sroa.0.06.i.i, align 1, !alias.scope !22, !noalias !19
+  %44 = select i1 %43, i8 32, i8 0
+  %.0.i.i = or i8 %44, %41
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !22, !noalias !19
   %45 = icmp eq ptr %40, %37
   br i1 %45, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 

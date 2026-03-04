@@ -11663,6 +11663,7 @@ define noundef zeroext i1 @_ZNK6casadi8External11has_forwardEx(ptr noundef nonnu
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %15, ptr %19, align 8, !tbaa !9, !alias.scope !357
+  store ptr %12, ptr %9, align 8, !tbaa !13
   store i64 0, ptr %18, align 8, !tbaa !9
   store i8 0, ptr %12, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -12269,6 +12270,7 @@ define noundef zeroext i1 @_ZNK6casadi8External11has_reverseEx(ptr noundef nonnu
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %15, ptr %19, align 8, !tbaa !9, !alias.scope !374
+  store ptr %12, ptr %9, align 8, !tbaa !13
   store i64 0, ptr %18, align 8, !tbaa !9
   store i8 0, ptr %12, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

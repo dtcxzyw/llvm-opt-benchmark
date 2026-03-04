@@ -10668,9 +10668,9 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit54:     ; preds = %_ZNK11ast_manager6i
   %97 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %95, i32 %96)
   br label %.thread80
 
-98:                                               ; preds = %.lr.ph, %148
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
-  %.03886 = phi i32 [ 0, %.lr.ph ], [ %.240, %148 ]
+98:                                               ; preds = %.lr.ph, %149
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
+  %.03886 = phi i32 [ 0, %.lr.ph ], [ %.240, %149 ]
   %99 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8, !tbaa !305
   %101 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
@@ -10744,26 +10744,26 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i61:        ; preds = %129
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %146 = load ptr, ptr %145, align 8, !tbaa !305
+  %147 = xor i1 %.0.i55, true
   br label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit62:     ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit58, %129, %_ZNK11ast_manager6is_notEPK4expr.exit.i61, %140, %144
   %.076 = phi ptr [ %102, %129 ], [ %146, %144 ], [ %102, %140 ], [ %102, %_ZNK11ast_manager6is_notEPK4expr.exit.i61 ], [ %102, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit58 ]
-  %.0.i59 = phi i1 [ false, %129 ], [ true, %144 ], [ false, %140 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i61 ], [ false, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit58 ]
-  %147 = tail call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.077, ptr noundef %.076, i32 noundef %93)
-  %.not48 = icmp eq i32 %147, 0
-  br i1 %.not48, label %148, label %.thread80
+  %.0.i59 = phi i1 [ %.0.i55, %129 ], [ %147, %144 ], [ %.0.i55, %140 ], [ %.0.i55, %_ZNK11ast_manager6is_notEPK4expr.exit.i61 ], [ %.0.i55, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit58 ]
+  %148 = tail call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.077, ptr noundef %.076, i32 noundef %93)
+  %.not48 = icmp eq i32 %148, 0
+  br i1 %.not48, label %149, label %.thread80
 
-148:                                              ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62
-  %149 = icmp eq i32 %.03886, 0
-  %150 = xor i1 %.0.i55, %.0.i59
+149:                                              ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62
+  %150 = icmp eq i32 %.03886, 0
   %151 = select i1 %.0.i55, i32 -1, i32 1
-  %spec.select = select i1 %150, i32 %151, i32 0
-  %.240 = select i1 %149, i32 %spec.select, i32 %.03886
+  %spec.select = select i1 %.0.i59, i32 %151, i32 0
+  %.240 = select i1 %150, i32 %spec.select, i32 %.03886
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !486
 
-._crit_edge:                                      ; preds = %148
+._crit_edge:                                      ; preds = %149
   %.not50 = icmp eq i32 %.240, 0
   br i1 %.not50, label %._crit_edge.thread, label %.thread80
 
@@ -10774,7 +10774,7 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit62:     ; preds = %_ZNK11ast_manager6i
   br label %.thread80
 
 .thread80:                                        ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62, %67, %52, %68, %72, %._crit_edge.thread, %._crit_edge, %94, %87, %78, %4
-  %.0 = phi i32 [ 0, %4 ], [ %57, %52 ], [ 1, %72 ], [ %.240, %._crit_edge ], [ %71, %68 ], [ %81, %78 ], [ %88, %87 ], [ %97, %94 ], [ -1, %67 ], [ %154, %._crit_edge.thread ], [ %147, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62 ]
+  %.0 = phi i32 [ 0, %4 ], [ %57, %52 ], [ 1, %72 ], [ %.240, %._crit_edge ], [ %71, %68 ], [ %81, %78 ], [ %88, %87 ], [ %97, %94 ], [ -1, %67 ], [ %154, %._crit_edge.thread ], [ %148, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit62 ]
   ret i32 %.0
 }
 
@@ -11243,11 +11243,11 @@ _ZNK11ast_manager6is_notEPK4expr.exit39:          ; preds = %156, %162, %167
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 8
   %191 = select i1 %187, i1 %190, i1 false
+  %192 = xor i1 %174, %191
   br label %_ZNK11ast_manager6is_notEPK4expr.exit41
 
 _ZNK11ast_manager6is_notEPK4expr.exit41:          ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit39, %180, %185
-  %192 = phi i1 [ false, %_ZNK11ast_manager6is_notEPK4expr.exit39 ], [ false, %180 ], [ %191, %185 ]
-  %193 = xor i1 %174, %192
+  %193 = phi i1 [ %174, %_ZNK11ast_manager6is_notEPK4expr.exit39 ], [ %174, %180 ], [ %192, %185 ]
   %194 = xor i1 %3, %193
   %195 = load ptr, ptr %0, align 8, !tbaa !459
   br i1 %194, label %.sink.split, label %196

@@ -8801,6 +8801,7 @@ define internal fastcc void @_ZN20grpc_swift_generator12_GLOBAL__N_115GenerateMe
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !10, !alias.scope !115
+  store ptr %9, ptr %6, align 8, !tbaa !25
   store i64 0, ptr %15, align 8, !tbaa !10
   store i8 0, ptr %9, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

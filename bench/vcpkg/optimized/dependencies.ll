@@ -134414,6 +134414,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg7VersionESt
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %35, ptr %39, align 8, !tbaa !23, !alias.scope !1276
+  store ptr %32, ptr %29, align 8, !tbaa !25
   store i64 0, ptr %38, align 8, !tbaa !23
   store i8 0, ptr %32, align 8, !tbaa !22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

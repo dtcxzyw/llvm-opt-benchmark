@@ -507,20 +507,20 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define hidden range(i32 0, 2) i32 @compare_headers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #3 {
   %10 = load i32, ptr %0, align 8
   %11 = load i32, ptr %4, align 8
-  %or.cond41.not = icmp eq i32 %10, %11
-  br i1 %or.cond41.not, label %12, label %cmp_address.exit.thread
+  %or.cond43.not = icmp eq i32 %10, %11
+  br i1 %or.cond43.not, label %12, label %cmp_address.exit.thread
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %16 = load i32, ptr %15, align 4
-  %or.cond42.not = icmp eq i32 %14, %16
-  br i1 %or.cond42.not, label %17, label %cmp_address.exit.thread
+  %or.cond44.not = icmp eq i32 %14, %16
+  br i1 %or.cond44.not, label %17, label %cmp_address.exit.thread
 
 17:                                               ; preds = %12
   %18 = icmp eq i32 %14, 0
-  br i1 %18, label %cmp_address.exit.thread33, label %cmp_address.exit
+  br i1 %18, label %cmp_address.exit.thread32, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -530,25 +530,25 @@ cmp_address.exit:                                 ; preds = %17
   %23 = sext i32 %14 to i64
   %bcmp = tail call i32 @bcmp(ptr %20, ptr %22, i64 %23)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %cmp_address.exit.thread33, label %cmp_address.exit.thread
+  br i1 %.not, label %cmp_address.exit.thread32, label %cmp_address.exit.thread
 
-cmp_address.exit.thread33:                        ; preds = %17, %cmp_address.exit
+cmp_address.exit.thread32:                        ; preds = %17, %cmp_address.exit
   %24 = load i32, ptr %1, align 8
   %25 = load i32, ptr %5, align 8
-  %or.cond48.not = icmp eq i32 %24, %25
-  br i1 %or.cond48.not, label %26, label %cmp_address.exit26
+  %or.cond52.not = icmp eq i32 %24, %25
+  br i1 %or.cond52.not, label %26, label %cmp_address.exit25
 
-26:                                               ; preds = %cmp_address.exit.thread33
+26:                                               ; preds = %cmp_address.exit.thread32
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = load i32, ptr %29, align 4
-  %or.cond49.not = icmp eq i32 %28, %30
-  br i1 %or.cond49.not, label %31, label %cmp_address.exit26
+  %or.cond53.not = icmp eq i32 %28, %30
+  br i1 %or.cond53.not, label %31, label %cmp_address.exit25
 
 31:                                               ; preds = %26
   %32 = icmp eq i32 %28, 0
-  br i1 %32, label %cmp_address.exit26, label %33
+  br i1 %32, label %cmp_address.exit25, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -556,66 +556,66 @@ cmp_address.exit.thread33:                        ; preds = %17, %cmp_address.ex
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %28 to i64
-  %bcmp45 = tail call i32 @bcmp(ptr %35, ptr %37, i64 %38)
-  %39 = icmp eq i32 %bcmp45, 0
-  br label %cmp_address.exit26
+  %bcmp49 = tail call i32 @bcmp(ptr %35, ptr %37, i64 %38)
+  %39 = icmp eq i32 %bcmp49, 0
+  br label %cmp_address.exit25
 
-cmp_address.exit26:                               ; preds = %cmp_address.exit.thread33, %26, %31, %33
-  %.0.i25 = phi i1 [ %39, %33 ], [ false, %cmp_address.exit.thread33 ], [ true, %31 ], [ false, %26 ]
+cmp_address.exit25:                               ; preds = %cmp_address.exit.thread32, %26, %31, %33
+  %.0.i24 = phi i1 [ %39, %33 ], [ false, %cmp_address.exit.thread32 ], [ true, %31 ], [ false, %26 ]
   %40 = icmp eq i16 %2, %6
-  %or.cond = and i1 %40, %.0.i25
+  %or.cond = and i1 %40, %.0.i24
   %41 = icmp eq i16 %3, %7
   %spec.select = and i1 %41, %or.cond
   br label %cmp_address.exit.thread
 
-cmp_address.exit.thread:                          ; preds = %12, %9, %cmp_address.exit26, %cmp_address.exit
-  %42 = phi i1 [ false, %cmp_address.exit ], [ %spec.select, %cmp_address.exit26 ], [ false, %9 ], [ false, %12 ]
+cmp_address.exit.thread:                          ; preds = %12, %9, %cmp_address.exit25, %cmp_address.exit
+  %42 = phi i1 [ false, %cmp_address.exit ], [ %spec.select, %cmp_address.exit25 ], [ false, %9 ], [ false, %12 ]
   %43 = icmp eq i32 %8, 0
-  br i1 %43, label %77, label %44
+  br i1 %43, label %cmp_address.exit27.thread, label %44
 
 44:                                               ; preds = %cmp_address.exit.thread
   %45 = load i32, ptr %5, align 8
-  %or.cond43.not = icmp eq i32 %10, %45
-  br i1 %or.cond43.not, label %46, label %cmp_address.exit28.thread
+  %or.cond45.not = icmp eq i32 %10, %45
+  br i1 %or.cond45.not, label %46, label %cmp_address.exit27.thread
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %50 = load i32, ptr %49, align 4
-  %or.cond44.not = icmp eq i32 %48, %50
-  br i1 %or.cond44.not, label %51, label %cmp_address.exit28.thread
+  %or.cond46.not = icmp eq i32 %48, %50
+  br i1 %or.cond46.not, label %51, label %cmp_address.exit27.thread
 
 51:                                               ; preds = %46
   %52 = icmp eq i32 %48, 0
-  br i1 %52, label %cmp_address.exit28.thread38, label %cmp_address.exit28
+  br i1 %52, label %cmp_address.exit27.thread37, label %cmp_address.exit27
 
-cmp_address.exit28:                               ; preds = %51
+cmp_address.exit27:                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %48 to i64
-  %bcmp46 = tail call i32 @bcmp(ptr %54, ptr %56, i64 %57)
-  %.not21 = icmp eq i32 %bcmp46, 0
-  br i1 %.not21, label %cmp_address.exit28.thread38, label %cmp_address.exit28.thread
+  %bcmp50 = tail call i32 @bcmp(ptr %54, ptr %56, i64 %57)
+  %.not21 = icmp eq i32 %bcmp50, 0
+  br i1 %.not21, label %cmp_address.exit27.thread37, label %cmp_address.exit27.thread
 
-cmp_address.exit28.thread38:                      ; preds = %51, %cmp_address.exit28
+cmp_address.exit27.thread37:                      ; preds = %51, %cmp_address.exit27
   %58 = load i32, ptr %1, align 8
-  %or.cond50.not = icmp eq i32 %58, %11
-  br i1 %or.cond50.not, label %59, label %cmp_address.exit30
+  %or.cond47.not = icmp eq i32 %58, %11
+  br i1 %or.cond47.not, label %59, label %cmp_address.exit27.thread
 
-59:                                               ; preds = %cmp_address.exit28.thread38
+59:                                               ; preds = %cmp_address.exit27.thread37
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %63 = load i32, ptr %62, align 4
-  %or.cond51.not = icmp eq i32 %61, %63
-  br i1 %or.cond51.not, label %64, label %cmp_address.exit30
+  %or.cond48.not = icmp eq i32 %61, %63
+  br i1 %or.cond48.not, label %64, label %cmp_address.exit27.thread
 
 64:                                               ; preds = %59
   %65 = icmp eq i32 %61, 0
-  br i1 %65, label %cmp_address.exit30, label %66
+  br i1 %65, label %cmp_address.exit29, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -623,25 +623,23 @@ cmp_address.exit28.thread38:                      ; preds = %51, %cmp_address.ex
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %61 to i64
-  %bcmp47 = tail call i32 @bcmp(ptr %68, ptr %70, i64 %71)
-  %72 = icmp eq i32 %bcmp47, 0
-  br label %cmp_address.exit30
+  %bcmp51 = tail call i32 @bcmp(ptr %68, ptr %70, i64 %71)
+  %72 = icmp eq i32 %bcmp51, 0
+  br label %cmp_address.exit29
 
-cmp_address.exit30:                               ; preds = %cmp_address.exit28.thread38, %59, %64, %66
-  %.0.i29 = phi i1 [ %72, %66 ], [ false, %cmp_address.exit28.thread38 ], [ true, %64 ], [ false, %59 ]
+cmp_address.exit29:                               ; preds = %64, %66
+  %.0.i28 = phi i1 [ %72, %66 ], [ true, %64 ]
   %73 = icmp eq i16 %2, %7
-  %or.cond23 = and i1 %73, %.0.i29
-  %74 = icmp eq i16 %3, %6
-  %spec.select24 = and i1 %74, %or.cond23
-  br label %cmp_address.exit28.thread
+  %or.cond23 = and i1 %73, %.0.i28
+  br i1 %or.cond23, label %74, label %cmp_address.exit27.thread
 
-cmp_address.exit28.thread:                        ; preds = %46, %44, %cmp_address.exit30, %cmp_address.exit28
-  %75 = phi i1 [ false, %cmp_address.exit28 ], [ %spec.select24, %cmp_address.exit30 ], [ false, %44 ], [ false, %46 ]
-  %76 = or i1 %42, %75
-  br label %77
+74:                                               ; preds = %cmp_address.exit29
+  %75 = icmp eq i16 %3, %6
+  %76 = or i1 %75, %42
+  br label %cmp_address.exit27.thread
 
-77:                                               ; preds = %cmp_address.exit.thread, %cmp_address.exit28.thread
-  %.0.in = phi i1 [ %76, %cmp_address.exit28.thread ], [ %42, %cmp_address.exit.thread ]
+cmp_address.exit27.thread:                        ; preds = %59, %cmp_address.exit27.thread37, %46, %44, %cmp_address.exit27, %cmp_address.exit29, %74, %cmp_address.exit.thread
+  %.0.in = phi i1 [ %42, %cmp_address.exit.thread ], [ %76, %74 ], [ %42, %cmp_address.exit29 ], [ %42, %cmp_address.exit27 ], [ %42, %59 ], [ %42, %44 ], [ %42, %cmp_address.exit27.thread37 ], [ %42, %46 ]
   %.0 = zext i1 %.0.in to i32
   ret i32 %.0
 }
@@ -677,19 +675,19 @@ define hidden i32 @get_num_dsegs(ptr noundef readonly captures(none) %0) local_u
   %19 = getelementptr inbounds nuw i8, ptr %.017, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = load i32, ptr %15, align 8
-  %or.cond41.not.i = icmp eq i32 %9, %21
-  br i1 %or.cond41.not.i, label %22, label %compare_headers.exit
+  %or.cond43.not.i = icmp eq i32 %9, %21
+  br i1 %or.cond43.not.i, label %22, label %compare_headers.exit
 
 22:                                               ; preds = %14
   %23 = load i32, ptr %10, align 4
   %24 = getelementptr inbounds nuw i8, ptr %.017, i64 60
   %25 = load i32, ptr %24, align 4
-  %or.cond42.not.i = icmp eq i32 %23, %25
-  br i1 %or.cond42.not.i, label %26, label %compare_headers.exit
+  %or.cond44.not.i = icmp eq i32 %23, %25
+  br i1 %or.cond44.not.i, label %26, label %compare_headers.exit
 
 26:                                               ; preds = %22
   %27 = icmp eq i32 %23, 0
-  br i1 %27, label %cmp_address.exit.thread33.i, label %cmp_address.exit.i
+  br i1 %27, label %cmp_address.exit.thread32.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %26
   %28 = load ptr, ptr %11, align 8
@@ -698,45 +696,45 @@ cmp_address.exit.i:                               ; preds = %26
   %31 = sext i32 %23 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %28, ptr %30, i64 %31)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %cmp_address.exit.thread33.i, label %compare_headers.exit
+  br i1 %.not.i, label %cmp_address.exit.thread32.i, label %compare_headers.exit
 
-cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i, %26
+cmp_address.exit.thread32.i:                      ; preds = %cmp_address.exit.i, %26
   %32 = load i32, ptr %4, align 8
   %33 = load i32, ptr %16, align 8
-  %or.cond48.not.i = icmp eq i32 %32, %33
-  br i1 %or.cond48.not.i, label %34, label %cmp_address.exit26.i
+  %or.cond52.not.i = icmp eq i32 %32, %33
+  br i1 %or.cond52.not.i, label %34, label %cmp_address.exit25.i
 
-34:                                               ; preds = %cmp_address.exit.thread33.i
+34:                                               ; preds = %cmp_address.exit.thread32.i
   %35 = load i32, ptr %12, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.017, i64 84
   %37 = load i32, ptr %36, align 4
-  %or.cond49.not.i = icmp eq i32 %35, %37
-  br i1 %or.cond49.not.i, label %38, label %cmp_address.exit26.i
+  %or.cond53.not.i = icmp eq i32 %35, %37
+  br i1 %or.cond53.not.i, label %38, label %cmp_address.exit25.i
 
 38:                                               ; preds = %34
   %39 = icmp eq i32 %35, 0
-  br i1 %39, label %cmp_address.exit26.i, label %40
+  br i1 %39, label %cmp_address.exit25.i, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %13, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.017, i64 88
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %35 to i64
-  %bcmp45.i = tail call i32 @bcmp(ptr %41, ptr %43, i64 %44)
-  %45 = icmp eq i32 %bcmp45.i, 0
-  br label %cmp_address.exit26.i
+  %bcmp49.i = tail call i32 @bcmp(ptr %41, ptr %43, i64 %44)
+  %45 = icmp eq i32 %bcmp49.i, 0
+  br label %cmp_address.exit25.i
 
-cmp_address.exit26.i:                             ; preds = %40, %38, %34, %cmp_address.exit.thread33.i
-  %.0.i25.i = phi i1 [ %45, %40 ], [ false, %cmp_address.exit.thread33.i ], [ true, %38 ], [ false, %34 ]
+cmp_address.exit25.i:                             ; preds = %40, %38, %34, %cmp_address.exit.thread32.i
+  %.0.i24.i = phi i1 [ %45, %40 ], [ false, %cmp_address.exit.thread32.i ], [ true, %38 ], [ false, %34 ]
   %46 = icmp eq i16 %6, %18
-  %or.cond.i = and i1 %46, %.0.i25.i
+  %or.cond.i = and i1 %46, %.0.i24.i
   %47 = icmp eq i16 %8, %20
   %spec.select.i = and i1 %47, %or.cond.i
   %48 = zext i1 %spec.select.i to i32
   br label %compare_headers.exit
 
-compare_headers.exit:                             ; preds = %14, %22, %cmp_address.exit.i, %cmp_address.exit26.i
-  %not..0.i = phi i32 [ 0, %cmp_address.exit.i ], [ %48, %cmp_address.exit26.i ], [ 0, %14 ], [ 0, %22 ]
+compare_headers.exit:                             ; preds = %14, %22, %cmp_address.exit.i, %cmp_address.exit25.i
+  %not..0.i = phi i32 [ 0, %cmp_address.exit.i ], [ %48, %cmp_address.exit25.i ], [ 0, %14 ], [ 0, %22 ]
   %spec.select = add i32 %not..0.i, %.01216
   %.0 = load ptr, ptr %.017, align 8
   %.not = icmp eq ptr %.0, null
@@ -778,19 +776,19 @@ define hidden i32 @get_num_acks(ptr noundef readonly captures(none) %0, ptr noun
   %20 = load i16, ptr %19, align 2
   %21 = load i32, ptr %4, align 8
   %22 = load i32, ptr %15, align 8
-  %or.cond41.not.i = icmp eq i32 %21, %22
-  br i1 %or.cond41.not.i, label %23, label %compare_headers.exit.thread
+  %or.cond43.not.i = icmp eq i32 %21, %22
+  br i1 %or.cond43.not.i, label %23, label %compare_headers.exit.thread
 
 23:                                               ; preds = %12
   %24 = load i32, ptr %8, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.028, i64 60
   %26 = load i32, ptr %25, align 4
-  %or.cond42.not.i = icmp eq i32 %24, %26
-  br i1 %or.cond42.not.i, label %27, label %compare_headers.exit.thread
+  %or.cond44.not.i = icmp eq i32 %24, %26
+  br i1 %or.cond44.not.i, label %27, label %compare_headers.exit.thread
 
 27:                                               ; preds = %23
   %28 = icmp eq i32 %24, 0
-  br i1 %28, label %cmp_address.exit.thread33.i, label %cmp_address.exit.i
+  br i1 %28, label %cmp_address.exit.thread32.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %27
   %29 = load ptr, ptr %9, align 8
@@ -799,20 +797,20 @@ cmp_address.exit.i:                               ; preds = %27
   %32 = sext i32 %24 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %29, ptr %31, i64 %32)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %cmp_address.exit.thread33.i, label %compare_headers.exit.thread
+  br i1 %.not.i, label %cmp_address.exit.thread32.i, label %compare_headers.exit.thread
 
-cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i, %27
+cmp_address.exit.thread32.i:                      ; preds = %cmp_address.exit.i, %27
   %33 = load i32, ptr %5, align 8
   %34 = load i32, ptr %16, align 8
-  %or.cond48.not.i = icmp eq i32 %33, %34
-  br i1 %or.cond48.not.i, label %35, label %compare_headers.exit.thread
+  %or.cond52.not.i = icmp eq i32 %33, %34
+  br i1 %or.cond52.not.i, label %35, label %compare_headers.exit.thread
 
-35:                                               ; preds = %cmp_address.exit.thread33.i
+35:                                               ; preds = %cmp_address.exit.thread32.i
   %36 = load i32, ptr %10, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.028, i64 84
   %38 = load i32, ptr %37, align 4
-  %or.cond49.not.i = icmp eq i32 %36, %38
-  br i1 %or.cond49.not.i, label %39, label %compare_headers.exit.thread
+  %or.cond53.not.i = icmp eq i32 %36, %38
+  br i1 %or.cond53.not.i, label %39, label %compare_headers.exit.thread
 
 39:                                               ; preds = %35
   %40 = icmp eq i32 %36, 0
@@ -823,19 +821,19 @@ cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i,
   %43 = getelementptr inbounds nuw i8, ptr %.028, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %36 to i64
-  %bcmp45.i = tail call i32 @bcmp(ptr %42, ptr %44, i64 %45)
-  %46 = icmp eq i32 %bcmp45.i, 0
+  %bcmp49.i = tail call i32 @bcmp(ptr %42, ptr %44, i64 %45)
+  %46 = icmp eq i32 %bcmp49.i, 0
   br label %compare_headers.exit
 
 compare_headers.exit:                             ; preds = %39, %41
-  %.0.i25.i = phi i1 [ %46, %41 ], [ true, %39 ]
+  %.0.i24.i = phi i1 [ %46, %41 ], [ true, %39 ]
   %47 = icmp eq i16 %13, %18
-  %or.cond.i = and i1 %47, %.0.i25.i
+  %or.cond.i = and i1 %47, %.0.i24.i
   %48 = icmp eq i16 %14, %20
   %spec.select.i = and i1 %48, %or.cond.i
   br i1 %spec.select.i, label %55, label %compare_headers.exit.thread
 
-compare_headers.exit.thread:                      ; preds = %35, %cmp_address.exit.thread33.i, %23, %12, %cmp_address.exit.i, %compare_headers.exit
+compare_headers.exit.thread:                      ; preds = %35, %cmp_address.exit.thread32.i, %23, %12, %cmp_address.exit.i, %compare_headers.exit
   %49 = add i32 %.01427, 1
   %50 = getelementptr inbounds nuw i8, ptr %.028, i64 105
   %51 = load i8, ptr %50, align 1
@@ -1051,19 +1049,19 @@ define internal noundef i32 @tap_tcpip_packet(ptr noundef captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %24 = load i16, ptr %23, align 4
   %25 = load i32, ptr %21, align 8
-  %or.cond41.not.i = icmp eq i32 %25, %13
-  br i1 %or.cond41.not.i, label %26, label %compare_headers.exit.thread
+  %or.cond43.not.i = icmp eq i32 %25, %13
+  br i1 %or.cond43.not.i, label %26, label %compare_headers.exit.thread
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %14, align 4
-  %or.cond42.not.i = icmp eq i32 %28, %29
-  br i1 %or.cond42.not.i, label %30, label %compare_headers.exit.thread
+  %or.cond44.not.i = icmp eq i32 %28, %29
+  br i1 %or.cond44.not.i, label %30, label %compare_headers.exit.thread
 
 30:                                               ; preds = %26
   %31 = icmp eq i32 %28, 0
-  br i1 %31, label %cmp_address.exit.thread33.i, label %cmp_address.exit.i
+  br i1 %31, label %cmp_address.exit.thread32.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -1072,20 +1070,20 @@ cmp_address.exit.i:                               ; preds = %30
   %35 = sext i32 %28 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %33, ptr %34, i64 %35)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %cmp_address.exit.thread33.i, label %compare_headers.exit.thread
+  br i1 %.not.i, label %cmp_address.exit.thread32.i, label %compare_headers.exit.thread
 
-cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i, %30
+cmp_address.exit.thread32.i:                      ; preds = %cmp_address.exit.i, %30
   %36 = load i32, ptr %22, align 8
   %37 = load i32, ptr %10, align 8
-  %or.cond48.not.i = icmp eq i32 %36, %37
-  br i1 %or.cond48.not.i, label %38, label %compare_headers.exit.thread
+  %or.cond52.not.i = icmp eq i32 %36, %37
+  br i1 %or.cond52.not.i, label %38, label %compare_headers.exit.thread
 
-38:                                               ; preds = %cmp_address.exit.thread33.i
+38:                                               ; preds = %cmp_address.exit.thread32.i
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %16, align 4
-  %or.cond49.not.i = icmp eq i32 %40, %41
-  br i1 %or.cond49.not.i, label %42, label %compare_headers.exit.thread
+  %or.cond53.not.i = icmp eq i32 %40, %41
+  br i1 %or.cond53.not.i, label %42, label %compare_headers.exit.thread
 
 42:                                               ; preds = %38
   %43 = icmp eq i32 %40, 0
@@ -1096,17 +1094,17 @@ cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i,
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %17, align 8
   %48 = sext i32 %40 to i64
-  %bcmp45.i = tail call i32 @bcmp(ptr %46, ptr %47, i64 %48)
-  %49 = icmp eq i32 %bcmp45.i, 0
+  %bcmp49.i = tail call i32 @bcmp(ptr %46, ptr %47, i64 %48)
+  %49 = icmp eq i32 %bcmp49.i, 0
   br label %compare_headers.exit
 
 compare_headers.exit:                             ; preds = %42, %44
-  %.0.i25.i = phi i1 [ %49, %44 ], [ true, %42 ]
+  %.0.i24.i = phi i1 [ %49, %44 ], [ true, %42 ]
   %50 = icmp eq i16 %24, %12
-  %or.cond.i = and i1 %50, %.0.i25.i
+  %or.cond.i = and i1 %50, %.0.i24.i
   br i1 %or.cond.i, label %compare_headers.exit._crit_edge.thread, label %compare_headers.exit.thread
 
-compare_headers.exit.thread:                      ; preds = %38, %cmp_address.exit.thread33.i, %26, %18, %cmp_address.exit.i, %compare_headers.exit
+compare_headers.exit.thread:                      ; preds = %38, %cmp_address.exit.thread32.i, %26, %18, %cmp_address.exit.i, %compare_headers.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %compare_headers.exit._crit_edge, label %18, !llvm.loop !13

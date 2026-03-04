@@ -296,170 +296,169 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
 
 5:                                                ; preds = %3, %2
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #22
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %11
+  %.not67 = icmp eq ptr %6, null
+  br i1 %.not67, label %10, label %7
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.19) #23
-  %10 = icmp eq i32 %9, 0
-  br label %11
+7:                                                ; preds = %5
+  %8 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.19) #23
+  %9 = icmp eq i32 %8, 0
+  br label %10
 
-11:                                               ; preds = %8, %5
-  %.057 = phi i1 [ false, %5 ], [ %10, %8 ]
-  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #22
-  %13 = icmp eq i32 %0, -1
-  br i1 %13, label %.preheader, label %18
+10:                                               ; preds = %7, %5
+  %.057 = phi i1 [ false, %5 ], [ %9, %7 ]
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #22
+  %12 = icmp eq i32 %0, -1
+  br i1 %12, label %.preheader, label %17
 
-.preheader:                                       ; preds = %11, %17
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 8, !tbaa !34, !range !26, !noundef !27
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %.loopexit.loopexit
+.preheader:                                       ; preds = %10, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %10 ]
+  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %indvars.iv
+  %14 = load i8, ptr %13, align 8, !tbaa !34, !range !26, !noundef !27
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %.loopexit.loopexit
 
-17:                                               ; preds = %.preheader
+16:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !44
 
-18:                                               ; preds = %11
+17:                                               ; preds = %10
   tail call fastcc void @free_descriptor(i32 noundef %0)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %18
-  %.1 = phi i32 [ %0, %18 ], [ %19, %.loopexit.loopexit ]
-  %20 = icmp eq ptr %1, null
-  %spec.store.select = select i1 %20, ptr @verbose, ptr %1
-  %21 = sext i32 %.1 to i64
-  %22 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21
-  store i8 1, ptr %22, align 8, !tbaa !34
-  %23 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 152
-  %24 = load i8, ptr %23, align 8, !tbaa !45, !range !26, !noundef !27
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %26 = xor i8 %24, 1
-  store i8 %26, ptr %25, align 1, !tbaa !36
-  %27 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 120
-  %28 = load i32, ptr %27, align 8, !tbaa !46
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !47
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i8 0, ptr %30, align 8, !tbaa !37
-  %31 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 136
-  %32 = load ptr, ptr %31, align 8, !tbaa !48
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %38, label %33
+.loopexit:                                        ; preds = %.loopexit.loopexit, %17
+  %.1 = phi i32 [ %0, %17 ], [ %18, %.loopexit.loopexit ]
+  %19 = icmp eq ptr %1, null
+  %spec.store.select = select i1 %19, ptr @verbose, ptr %1
+  %20 = sext i32 %.1 to i64
+  %21 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %20
+  store i8 1, ptr %21, align 8, !tbaa !34
+  %22 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 152
+  %23 = load i8, ptr %22, align 8, !tbaa !45, !range !26, !noundef !27
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %25 = xor i8 %23, 1
+  store i8 %25, ptr %24, align 1, !tbaa !36
+  %26 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 120
+  %27 = load i32, ptr %26, align 8, !tbaa !46
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 %27, ptr %28, align 4, !tbaa !47
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i8 0, ptr %29, align 8, !tbaa !37
+  %30 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 136
+  %31 = load ptr, ptr %30, align 8, !tbaa !48
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %37, label %32
 
-33:                                               ; preds = %.loopexit
-  %34 = tail call noalias ptr @strdup(ptr noundef nonnull %32) #22
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %34, ptr %35, align 8, !tbaa !49
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #23
-  %37 = trunc i64 %36 to i32
-  br label %40
+32:                                               ; preds = %.loopexit
+  %33 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #22
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %33, ptr %34, align 8, !tbaa !49
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #23
+  %36 = trunc i64 %35 to i32
+  br label %39
 
-38:                                               ; preds = %.loopexit
-  %39 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr null, ptr %39, align 8, !tbaa !49
-  br label %40
+37:                                               ; preds = %.loopexit
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr null, ptr %38, align 8, !tbaa !49
+  br label %39
 
-40:                                               ; preds = %38, %33
-  %.sink = phi i32 [ 0, %38 ], [ %37, %33 ]
-  %41 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i32 %.sink, ptr %41, align 8, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 144
-  %43 = load ptr, ptr %42, align 8, !tbaa !51
-  %.not65 = icmp eq ptr %43, null
-  br i1 %.not65, label %49, label %44
+39:                                               ; preds = %37, %32
+  %.sink = phi i32 [ 0, %37 ], [ %36, %32 ]
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i32 %.sink, ptr %40, align 8, !tbaa !50
+  %41 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 144
+  %42 = load ptr, ptr %41, align 8, !tbaa !51
+  %.not65 = icmp eq ptr %42, null
+  br i1 %.not65, label %48, label %43
 
-44:                                               ; preds = %40
-  %45 = tail call noalias ptr @strdup(ptr noundef nonnull %43) #22
-  %46 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr %45, ptr %46, align 8, !tbaa !52
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #23
-  %48 = trunc i64 %47 to i32
-  br label %51
+43:                                               ; preds = %39
+  %44 = tail call noalias ptr @strdup(ptr noundef nonnull %42) #22
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store ptr %44, ptr %45, align 8, !tbaa !52
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #23
+  %47 = trunc i64 %46 to i32
+  br label %50
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr null, ptr %50, align 8, !tbaa !52
-  br label %51
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store ptr null, ptr %49, align 8, !tbaa !52
+  br label %50
 
-51:                                               ; preds = %49, %44
-  %.sink71 = phi i32 [ 0, %49 ], [ %48, %44 ]
-  %52 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store i32 %.sink71, ptr %52, align 8, !tbaa !53
-  %53 = load i8, ptr @pmix_output_redirected_to_syslog, align 1, !tbaa !15, !range !26, !noundef !27
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %60
+50:                                               ; preds = %48, %43
+  %.sink72 = phi i32 [ 0, %48 ], [ %47, %43 ]
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store i32 %.sink72, ptr %51, align 8, !tbaa !53
+  %52 = load i8, ptr @pmix_output_redirected_to_syslog, align 1, !tbaa !15, !range !26, !noundef !27
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %59
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  store i8 0, ptr %56, align 4, !tbaa !54
-  %57 = getelementptr inbounds nuw i8, ptr %22, i64 53
-  store i8 0, ptr %57, align 1, !tbaa !55
-  %58 = getelementptr inbounds nuw i8, ptr %22, i64 54
-  store i8 0, ptr %58, align 2, !tbaa !38
-  %59 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i32 -1, ptr %59, align 8, !tbaa !41
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 52
+  store i8 0, ptr %55, align 4, !tbaa !54
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 53
+  store i8 0, ptr %56, align 1, !tbaa !55
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 54
+  store i8 0, ptr %57, align 2, !tbaa !38
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  store i32 -1, ptr %58, align 8, !tbaa !41
   br label %.thread
 
-60:                                               ; preds = %51
-  %or.cond = and i1 %7, %.057
-  br i1 %or.cond, label %69, label %61
+59:                                               ; preds = %50
+  br i1 %.057, label %68, label %60
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 154
-  %63 = load i8, ptr %62, align 2, !tbaa !32, !range !26, !noundef !27
-  %64 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 155
-  %65 = load i8, ptr %64, align 1, !tbaa !31, !range !26, !noundef !27
-  %66 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i32 -1, ptr %66, align 8, !tbaa !41
-  %67 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 156
-  %68 = load i8, ptr %67, align 4, !tbaa !56, !range !26, !noundef !27
-  br label %69
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 154
+  %62 = load i8, ptr %61, align 2, !tbaa !32, !range !26, !noundef !27
+  %63 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 155
+  %64 = load i8, ptr %63, align 1, !tbaa !31, !range !26, !noundef !27
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  store i32 -1, ptr %65, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 156
+  %67 = load i8, ptr %66, align 4, !tbaa !56, !range !26, !noundef !27
+  br label %68
 
-69:                                               ; preds = %60, %61
-  %.sink74 = phi i8 [ %63, %61 ], [ 0, %60 ]
-  %.sink73 = phi i8 [ %65, %61 ], [ 0, %60 ]
-  %.sink72 = phi i8 [ %68, %61 ], [ 1, %60 ]
-  %70 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  store i8 %.sink74, ptr %70, align 4, !tbaa !54
-  %71 = getelementptr inbounds nuw i8, ptr %22, i64 53
-  store i8 %.sink73, ptr %71, align 1, !tbaa !55
-  %72 = getelementptr inbounds nuw i8, ptr %22, i64 54
-  store i8 %.sink72, ptr %72, align 2, !tbaa !38
-  %.not66 = icmp eq ptr %12, null
-  br i1 %.not66, label %73, label %.sink.split
+68:                                               ; preds = %59, %60
+  %.sink75 = phi i8 [ %62, %60 ], [ 0, %59 ]
+  %.sink74 = phi i8 [ %64, %60 ], [ 0, %59 ]
+  %.sink73 = phi i8 [ %67, %60 ], [ 1, %59 ]
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 52
+  store i8 %.sink75, ptr %69, align 4, !tbaa !54
+  %70 = getelementptr inbounds nuw i8, ptr %21, i64 53
+  store i8 %.sink74, ptr %70, align 1, !tbaa !55
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 54
+  store i8 %.sink73, ptr %71, align 2, !tbaa !38
+  %.not66 = icmp eq ptr %11, null
+  br i1 %.not66, label %72, label %.sink.split
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 160
-  %75 = load ptr, ptr %74, align 8, !tbaa !3
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %78, label %.sink.split
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 160
+  %74 = load ptr, ptr %73, align 8, !tbaa !3
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %77, label %.sink.split
 
-.sink.split:                                      ; preds = %73, %69
-  %.sink84 = phi ptr [ %12, %69 ], [ %75, %73 ]
-  %77 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink84) #22
-  br label %78
+.sink.split:                                      ; preds = %72, %68
+  %.sink85 = phi ptr [ %11, %68 ], [ %74, %72 ]
+  %76 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink85) #22
+  br label %77
 
-78:                                               ; preds = %.sink.split, %73
-  %.sink82 = phi ptr [ null, %73 ], [ %77, %.sink.split ]
-  %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store ptr %.sink82, ptr %79, align 8, !tbaa !39
-  %80 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 157
-  %81 = load i8, ptr %80, align 1, !tbaa !57, !range !26, !noundef !27
-  %82 = getelementptr inbounds nuw i8, ptr %22, i64 55
-  store i8 %81, ptr %82, align 1, !tbaa !40
-  %83 = getelementptr inbounds nuw i8, ptr %22, i64 68
-  store i32 0, ptr %83, align 4, !tbaa !42
+77:                                               ; preds = %.sink.split, %72
+  %.sink83 = phi ptr [ null, %72 ], [ %76, %.sink.split ]
+  %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  store ptr %.sink83, ptr %78, align 8, !tbaa !39
+  %79 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 157
+  %80 = load i8, ptr %79, align 1, !tbaa !57, !range !26, !noundef !27
+  %81 = getelementptr inbounds nuw i8, ptr %21, i64 55
+  store i8 %80, ptr %81, align 1, !tbaa !40
+  %82 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  store i32 0, ptr %82, align 4, !tbaa !42
   br label %.thread
 
-.thread:                                          ; preds = %17, %55, %78
-  %.0 = phi i32 [ %.1, %55 ], [ %.1, %78 ], [ -29, %17 ]
+.thread:                                          ; preds = %16, %54, %77
+  %.0 = phi i32 [ %.1, %54 ], [ %.1, %77 ], [ -29, %16 ]
   ret i32 %.0
 }
 

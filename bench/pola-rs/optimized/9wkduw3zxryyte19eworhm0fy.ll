@@ -58130,21 +58130,21 @@ define internal fastcc noundef range(i8 1, 5) i8 @_ZN10polars_sql7context31ExprS
   call void @"_ZN11polars_plan5plans8iterator104_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_plan..dsl..expr..Expr$GT$9into_iter17h7e4ee5be576f76a6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull align 16 %0)
   br label %3
 
-3:                                                ; preds = %23, %1
-  %.sroa.07.0 = phi i1 [ false, %1 ], [ %24, %23 ]
-  %.sroa.09.0 = phi i1 [ false, %1 ], [ %12, %23 ]
+3:                                                ; preds = %22, %1
+  %.sroa.07.0 = phi i1 [ false, %1 ], [ %23, %22 ]
+  %.sroa.09.0 = phi i1 [ false, %1 ], [ %..sroa.09.0, %22 ]
   %4 = invoke noundef align 16 ptr @"_ZN97_$LT$polars_plan..plans..iterator..ExprIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3cb5e0308bc14343E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %7 unwind label %5
 
-5:                                                ; preds = %29, %25, %16, %3
+5:                                                ; preds = %28, %24, %15, %3
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_plan..plans..iterator..ExprIter$GT$17hfe585006608ab132E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #28
-          to label %35 unwind label %33
+          to label %34 unwind label %32
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %15, label %8
+  br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %7
   %9 = load i64, ptr %4, align 16, !range !612, !noundef !4
@@ -58153,72 +58153,72 @@ define internal fastcc noundef range(i8 1, 5) i8 @_ZN10polars_sql7context31ExprS
   call void @llvm.assume(i1 %11)
   %.off = add i64 %9, 9223372036854775807
   %switch = icmp ult i64 %.off, 4
-  %12 = or i1 %.sroa.09.0, %switch
-  %13 = icmp ult i64 %10, 28
-  %14 = select i1 %13, i64 %10, i64 25
-  switch i64 %14, label %23 [
-    i64 5, label %16
-    i64 9, label %19
-    i64 11, label %19
-    i64 13, label %25
-    i64 14, label %19
-    i64 15, label %19
-    i64 18, label %19
-    i64 21, label %19
-    i64 25, label %20
+  %..sroa.09.0 = select i1 %switch, i1 true, i1 %.sroa.09.0
+  %12 = icmp ult i64 %10, 28
+  %13 = select i1 %12, i64 %10, i64 25
+  switch i64 %13, label %22 [
+    i64 5, label %15
+    i64 9, label %18
+    i64 11, label %18
+    i64 13, label %24
+    i64 14, label %18
+    i64 15, label %18
+    i64 18, label %18
+    i64 21, label %18
+    i64 25, label %19
   ]
 
-15:                                               ; preds = %7
+14:                                               ; preds = %7
   call void @"_ZN4core3ptr59drop_in_place$LT$polars_plan..plans..iterator..ExprIter$GT$17hfe585006608ab132E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.12 = select i1 %.sroa.09.0, i8 1, i8 4
-  %.sroa.0.0 = select i1 %.sroa.07.0, i8 2, i8 %.12
+  %. = select i1 %.sroa.09.0, i8 1, i8 4
+  %.sroa.0.0 = select i1 %.sroa.07.0, i8 2, i8 %.
   ret i8 %.sroa.0.0
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = invoke noundef zeroext i1 @_ZN11polars_plan5plans3lit12LiteralValue9is_scalar17h7327dc9ab12b0e33E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %17)
-          to label %21 unwind label %5
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = invoke noundef zeroext i1 @_ZN11polars_plan5plans3lit12LiteralValue9is_scalar17h7327dc9ab12b0e33E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %16)
+          to label %20 unwind label %5
 
-19:                                               ; preds = %8, %8, %8, %8, %8, %8
-  br label %23
+18:                                               ; preds = %8, %8, %8, %8, %8, %8
+  br label %22
 
-20:                                               ; preds = %8
-  br label %25
+19:                                               ; preds = %8
+  br label %24
 
-21:                                               ; preds = %16
-  %22 = xor i1 %18, true
-  br label %23
+20:                                               ; preds = %15
+  %21 = xor i1 %17, true
+  br label %22
 
-23:                                               ; preds = %28, %8, %31, %21, %19
-  %.sroa.04.0.shrunk = phi i1 [ true, %28 ], [ %22, %21 ], [ false, %8 ], [ %32, %31 ], [ true, %19 ]
-  %24 = or i1 %.sroa.07.0, %.sroa.04.0.shrunk
+22:                                               ; preds = %27, %8, %30, %20, %18
+  %.sroa.04.0.shrunk = phi i1 [ true, %27 ], [ %21, %20 ], [ false, %8 ], [ %31, %30 ], [ true, %18 ]
+  %23 = or i1 %.sroa.07.0, %.sroa.04.0.shrunk
   br label %3
 
-25:                                               ; preds = %8, %20
-  %.sink = phi i64 [ 168, %20 ], [ 112, %8 ]
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
-  %27 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions14returns_scalar17hc15f71281df41755E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
-          to label %28 unwind label %5
+24:                                               ; preds = %8, %19
+  %.sink = phi i64 [ 168, %19 ], [ 112, %8 ]
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
+  %26 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions14returns_scalar17hc15f71281df41755E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
+          to label %27 unwind label %5
 
-28:                                               ; preds = %25
-  br i1 %27, label %23, label %29
+27:                                               ; preds = %24
+  br i1 %26, label %22, label %28
 
-29:                                               ; preds = %28
-  %30 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions20is_length_preserving17h9225389308c31582E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
-          to label %31 unwind label %5
+28:                                               ; preds = %27
+  %29 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions20is_length_preserving17h9225389308c31582E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
+          to label %30 unwind label %5
 
-31:                                               ; preds = %29
-  %32 = xor i1 %30, true
-  br label %23
+30:                                               ; preds = %28
+  %31 = xor i1 %29, true
+  br label %22
 
-33:                                               ; preds = %5
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %5
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #29
   unreachable
 
-35:                                               ; preds = %5
+34:                                               ; preds = %5
   resume { ptr, i32 } %6
 }
 

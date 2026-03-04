@@ -123,9 +123,9 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit:
   br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ; preds = %16, %26
-  %.014.idx62.us = phi i64 [ %.014.add.us, %26 ], [ 0, %16 ]
+  %.014.idx60.us = phi i64 [ %.014.add.us, %26 ], [ 0, %16 ]
   %20 = phi i32 [ %27, %26 ], [ 0, %16 ]
-  %.014.ptr.us = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx62.us
+  %.014.ptr.us = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx60.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %.014.ptr.us, align 8, !tbaa !15
   store ptr %21, ptr %6, align 8, !tbaa !14
@@ -144,14 +144,14 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19.us:
 
 26:                                               ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19.us
   %27 = add nuw nsw i32 %20, 1
-  %.014.add.us = add nuw nsw i64 %.014.idx62.us, 8
+  %.014.add.us = add nuw nsw i64 %.014.idx60.us, 8
   %.not.us.not = icmp eq i64 %.014.add.us, 16
   br i1 %.not.us.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %16, %37
-  %.014.idx62 = phi i64 [ %.014.add, %37 ], [ 0, %16 ]
+  %.014.idx60 = phi i64 [ %.014.add, %37 ], [ 0, %16 ]
   %28 = phi i32 [ %38, %37 ], [ 0, %16 ]
-  %.014.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx62
+  %.014.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx60
   store ptr %17, ptr %5, align 8, !tbaa !14
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
   store i64 %29, ptr %18, align 8, !tbaa !9
@@ -181,12 +181,12 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19: ; 
 
 37:                                               ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19
   %38 = add nuw nsw i32 %28, 1
-  %.014.add = add nuw nsw i64 %.014.idx62, 8
+  %.014.add = add nuw nsw i64 %.014.idx60, 8
   %.not.not = icmp eq i64 %.014.add, 16
   br i1 %.not.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
 .loopexit:                                        ; preds = %37, %26, %.thread
-  %.not60 = phi i1 [ %36, %.thread ], [ false, %26 ], [ false, %37 ]
+  %.1 = phi i1 [ %36, %.thread ], [ false, %26 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
@@ -233,7 +233,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN11OpenImageIO6v3
   br label %54
 
 54:                                               ; preds = %50, %42, %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.loopexit
-  %.4 = phi i1 [ %.not60, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %42 ], [ true, %50 ], [ false, %46 ]
+  %.4 = phi i1 [ %.1, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %42 ], [ true, %50 ], [ false, %46 ]
   ret i1 %.4
 }
 

@@ -912,8 +912,8 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15btree_range_set8RangeSet8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !78
   %6 = call { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h92384f581464aec5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4), !noalias !82
   %7 = extractvalue { ptr, ptr } %6, 0
-  %.not.i = icmp ne ptr %7, null
-  br i1 %.not.i, label %8, label %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit
+  %.not.i.not = icmp eq ptr %7, null
+  br i1 %.not.i.not, label %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit, label %8
 
 8:                                                ; preds = %2
   %9 = extractvalue { ptr, ptr } %6, 1
@@ -925,8 +925,7 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15btree_range_set8RangeSet8
 _ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit: ; preds = %2, %8
   %.sroa.5.0 = phi i1 [ false, %2 ], [ %11, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !78
-  %.sroa.0.0 = and i1 %.not.i, %.sroa.5.0
-  ret i1 %.sroa.0.0
+  ret i1 %.sroa.5.0
 }
 
 ; Function Attrs: nonlazybind uwtable

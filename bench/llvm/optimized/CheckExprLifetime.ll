@@ -165,7 +165,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_
   %4 = load ptr, ptr %3, align 16, !tbaa !3
   %5 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %4) #17
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %50, label %6
+  br i1 %.not, label %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -208,7 +208,7 @@ _ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit: ; preds = %6, %10, %_ZN5clan
   %25 = load i32, ptr %7, align 4
   %26 = and i32 %25, 126
   %.not21 = icmp eq i32 %26, 58
-  br i1 %.not21, label %27, label %50
+  br i1 %.not21, label %27, label %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19
 
 27:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit
   %28 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %5) #17
@@ -247,15 +247,11 @@ _ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit: ; preds = %6, %10, %_ZN5clan
 _ZN5clangneENS_22specific_attr_iteratorINS_11PointerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17: ; preds = %45, %.lr.ph.i.i.i.i.i14
   %.sroa.07.0.i.i.ph.i.i18 = phi ptr [ %40, %45 ], [ %.sroa.07.1.i.i.i.i15, %.lr.ph.i.i.i.i.i14 ]
   %47 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i18, %40
+  %48 = or i1 %24, %47
   br label %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19
 
-_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19: ; preds = %27, %34, %_ZN5clangneENS_22specific_attr_iteratorINS_11PointerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17
-  %48 = phi i1 [ false, %27 ], [ false, %34 ], [ %47, %_ZN5clangneENS_22specific_attr_iteratorINS_11PointerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17 ]
-  %49 = or i1 %24, %48
-  br label %50
-
-50:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19, %1
-  %.0 = phi i1 [ false, %1 ], [ %49, %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19 ], [ %24, %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit ]
+_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11PointerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17, %34, %27, %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ %24, %_ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit ], [ %24, %27 ], [ %24, %34 ], [ %48, %_ZN5clangneENS_22specific_attr_iteratorINS_11PointerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17 ]
   ret i1 %.0
 }
 
@@ -5913,7 +5909,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_
   %4 = load ptr, ptr %3, align 16, !tbaa !3
   %5 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %4) #17
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %50, label %6
+  br i1 %.not, label %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -5956,7 +5952,7 @@ _ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit:  ; preds = %6, %10, %_ZN5clangn
   %25 = load i32, ptr %7, align 4
   %26 = and i32 %25, 126
   %.not21 = icmp eq i32 %26, 58
-  br i1 %.not21, label %27, label %50
+  br i1 %.not21, label %27, label %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19
 
 27:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit
   %28 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %5) #17
@@ -5995,15 +5991,11 @@ _ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit:  ; preds = %6, %10, %_ZN5clangn
 _ZN5clangneENS_22specific_attr_iteratorINS_9OwnerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17: ; preds = %45, %.lr.ph.i.i.i.i.i14
   %.sroa.07.0.i.i.ph.i.i18 = phi ptr [ %40, %45 ], [ %.sroa.07.1.i.i.i.i15, %.lr.ph.i.i.i.i.i14 ]
   %47 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i18, %40
+  %48 = or i1 %24, %47
   br label %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19
 
-_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19: ; preds = %27, %34, %_ZN5clangneENS_22specific_attr_iteratorINS_9OwnerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17
-  %48 = phi i1 [ false, %27 ], [ false, %34 ], [ %47, %_ZN5clangneENS_22specific_attr_iteratorINS_9OwnerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17 ]
-  %49 = or i1 %24, %48
-  br label %50
-
-50:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19, %1
-  %.0 = phi i1 [ false, %1 ], [ %49, %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19 ], [ %24, %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit ]
+_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit19: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_9OwnerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17, %34, %27, %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ %24, %_ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit ], [ %24, %27 ], [ %24, %34 ], [ %48, %_ZN5clangneENS_22specific_attr_iteratorINS_9OwnerAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i17 ]
   ret i1 %.0
 }
 

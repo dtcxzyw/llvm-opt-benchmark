@@ -31806,12 +31806,12 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i:  ; preds = %357, %_ZNK3fmt3v116
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i:  ; preds = %365, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i
   %371 = phi i64 [ %370, %365 ], [ %.03554.i, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i ]
-  %372 = icmp samesign ugt i64 %363, %371
+  %372 = icmp ugt i64 %363, %371
   br i1 %372, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit, label %373
 
 373:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i
   %374 = sub nuw nsw i64 %371, %363
-  %375 = icmp samesign ugt i64 %374, 1
+  %375 = icmp ugt i64 %374, 1
   br i1 %375, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit, label %376
 
 376:                                              ; preds = %373
@@ -32219,12 +32219,12 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349: ; preds = %540, %_ZNK3fmt3v1
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i352: ; preds = %548, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349
   %554 = phi i64 [ %553, %548 ], [ %.03554.i342, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349 ]
-  %555 = icmp samesign ugt i64 %546, %554
+  %555 = icmp ugt i64 %546, %554
   br i1 %555, label %.thread844, label %556
 
 556:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i352
   %557 = sub nuw nsw i64 %554, %546
-  %558 = icmp samesign ugt i64 %557, 1
+  %558 = icmp ugt i64 %557, 1
   br i1 %558, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit355, label %559
 
 559:                                              ; preds = %556
@@ -32343,12 +32343,12 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368: ; preds = %600, %602
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i371: ; preds = %610, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368
   %616 = phi i64 [ %615, %610 ], [ %.03554.i361, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368 ]
-  %617 = icmp samesign ugt i64 %608, %616
+  %617 = icmp ugt i64 %608, %616
   br i1 %617, label %.thread557.sink.split, label %618
 
 618:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i371
   %619 = sub nuw nsw i64 %616, %608
-  %620 = icmp samesign ugt i64 %619, 1
+  %620 = icmp ugt i64 %619, 1
   br i1 %620, label %.thread557, label %621
 
 621:                                              ; preds = %618
@@ -32710,7 +32710,7 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445: ; preds = %754, %756
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i448: ; preds = %764, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445
   %770 = phi i64 [ %769, %764 ], [ %.03554.i438, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445 ]
-  %771 = icmp samesign ugt i64 %762, %770
+  %771 = icmp ugt i64 %762, %770
   br i1 %771, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit451, label %772
 
 772:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i448
@@ -32933,12 +32933,12 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483: ; preds = %856, %858
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i486: ; preds = %866, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483
   %872 = phi i64 [ %871, %866 ], [ %.03554.i476, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483 ]
-  %873 = icmp samesign ugt i64 %864, %872
+  %873 = icmp ugt i64 %864, %872
   br i1 %873, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit489, label %874
 
 874:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i486
   %875 = sub nuw nsw i64 %872, %864
-  %876 = icmp samesign ugt i64 %875, 1
+  %876 = icmp ugt i64 %875, 1
   br i1 %876, label %.thread566, label %877
 
 877:                                              ; preds = %874

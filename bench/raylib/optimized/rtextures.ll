@@ -12268,7 +12268,7 @@ define noundef zeroext i1 @ExportImage(ptr noundef readonly byval(%struct.Image)
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, null
   %or.cond5 = select i1 %or.cond, i1 true, i1 %14
-  br i1 %or.cond5, label %69, label %15
+  br i1 %or.cond5, label %70, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -12307,7 +12307,7 @@ define noundef zeroext i1 @ExportImage(ptr noundef readonly byval(%struct.Image)
   %29 = zext i1 %28 to i32
   tail call void @free(ptr noundef %26) #58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %64
+  br label %65
 
 30:                                               ; preds = %22
   %31 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.15) #58
@@ -12333,7 +12333,7 @@ define noundef zeroext i1 @ExportImage(ptr noundef readonly byval(%struct.Image)
 stbi_write_bmp.exit:                              ; preds = %32, %36
   %.0.i = phi i32 [ %37, %36 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %64
+  br label %65
 
 39:                                               ; preds = %30
   %40 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.17) #58
@@ -12362,71 +12362,71 @@ stbi_write_bmp.exit:                              ; preds = %32, %36
 stbi_write_jpg.exit:                              ; preds = %43, %47
   %.0.i45 = phi i32 [ %48, %47 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %64
+  br label %65
 
 50:                                               ; preds = %41
   %51 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.21) #58
-  br i1 %51, label %52, label %58
+  br i1 %51, label %52, label %59
 
 52:                                               ; preds = %50
   switch i32 %17, label %53 [
-    i32 4, label %.thread
-    i32 7, label %.thread.fold.split
+    i32 4, label %54
+    i32 7, label %.fold.split
   ]
 
 53:                                               ; preds = %52
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.31) #58
-  br label %64
+  br label %65
 
-.thread.fold.split:                               ; preds = %52
-  br label %.thread
+.fold.split:                                      ; preds = %52
+  br label %54
 
-.thread:                                          ; preds = %52, %.thread.fold.split
-  %.148 = phi i8 [ 3, %52 ], [ 4, %.thread.fold.split ]
+54:                                               ; preds = %52, %.fold.split
+  %.1.ph = phi i8 [ 3, %52 ], [ 4, %.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %55, align 4
   store i32 %8, ptr %6, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %11, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 %.148, ptr %56, align 4
-  %57 = call i32 @qoi_write(ptr noundef %1, ptr noundef %.038, ptr noundef nonnull %6)
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %11, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 %.1.ph, ptr %57, align 4
+  %58 = call i32 @qoi_write(ptr noundef %1, ptr noundef %.038, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %64
+  br label %65
 
-58:                                               ; preds = %50
-  %59 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.32) #58
-  br i1 %59, label %60, label %64
+59:                                               ; preds = %50
+  %60 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.32) #58
+  br i1 %60, label %61, label %65
 
-60:                                               ; preds = %58
-  %61 = tail call i32 @GetPixelDataSize(i32 noundef %8, i32 noundef %11, i32 noundef %17)
-  %62 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %61) #58
-  %63 = zext i1 %62 to i32
-  br label %64
+61:                                               ; preds = %59
+  %62 = tail call i32 @GetPixelDataSize(i32 noundef %8, i32 noundef %11, i32 noundef %17)
+  %63 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %62) #58
+  %64 = zext i1 %63 to i32
+  br label %65
 
-64:                                               ; preds = %53, %stbi_write_bmp.exit, %.thread, %60, %58, %stbi_write_jpg.exit, %24
-  %.041 = phi i32 [ %29, %24 ], [ %.0.i, %stbi_write_bmp.exit ], [ %.0.i45, %stbi_write_jpg.exit ], [ %57, %.thread ], [ 0, %53 ], [ %63, %60 ], [ 0, %58 ]
-  br i1 %.039, label %65, label %66
+65:                                               ; preds = %53, %stbi_write_bmp.exit, %54, %61, %59, %stbi_write_jpg.exit, %24
+  %.041 = phi i32 [ %29, %24 ], [ %.0.i, %stbi_write_bmp.exit ], [ %.0.i45, %stbi_write_jpg.exit ], [ %58, %54 ], [ 0, %53 ], [ %64, %61 ], [ 0, %59 ]
+  br i1 %.039, label %66, label %67
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   call void @free(ptr noundef %.038) #58
-  br label %66
+  br label %67
 
-66:                                               ; preds = %65, %64
+67:                                               ; preds = %66, %65
   %.not = icmp eq i32 %.041, 0
-  br i1 %.not, label %68, label %67
+  br i1 %.not, label %69, label %68
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef %1) #58
-  br label %69
+  br label %70
 
-68:                                               ; preds = %66
+69:                                               ; preds = %67
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef %1) #58
-  br label %69
+  br label %70
 
-69:                                               ; preds = %67, %68, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %68 ], [ true, %67 ]
+70:                                               ; preds = %68, %69, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %69 ], [ true, %68 ]
   ret i1 %.0
 }
 

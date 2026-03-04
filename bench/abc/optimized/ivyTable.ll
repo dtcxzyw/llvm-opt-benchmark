@@ -45,43 +45,43 @@ define ptr @Ivy_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
 23:                                               ; preds = %16, %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %25 = load i32, ptr %24, align 8, !tbaa !12
+  %26 = icmp eq i32 %4, 6
+  %27 = select i1 %26, i32 1699, i32 0
   %.not.i.i = icmp eq ptr %.val26, null
-  br i1 %.not.i.i, label %Ivy_ObjFaninId0.exit.i, label %26
+  br i1 %.not.i.i, label %Ivy_ObjFaninId0.exit.i, label %28
 
-26:                                               ; preds = %23
+28:                                               ; preds = %23
   %.val.i.i = load i32, ptr %10, align 8, !tbaa !19
-  %27 = mul nsw i32 %.val.i.i, 7937
+  %29 = mul nsw i32 %.val.i.i, 7937
+  %30 = xor i32 %29, %27
   br label %Ivy_ObjFaninId0.exit.i
 
-Ivy_ObjFaninId0.exit.i:                           ; preds = %26, %23
-  %28 = phi i32 [ %27, %26 ], [ 0, %23 ]
-  br i1 %.not24, label %Ivy_Hash.exit, label %29
+Ivy_ObjFaninId0.exit.i:                           ; preds = %28, %23
+  %31 = phi i32 [ %30, %28 ], [ %27, %23 ]
+  br i1 %.not24, label %Ivy_Hash.exit, label %32
 
-29:                                               ; preds = %Ivy_ObjFaninId0.exit.i
-  %30 = ptrtoint ptr %.val27 to i64
-  %31 = and i64 %30, -2
-  %32 = inttoptr i64 %31 to ptr
-  %.val.i18.i = load i32, ptr %32, align 8, !tbaa !19
-  %33 = mul nsw i32 %.val.i18.i, 2971
-  %34 = trunc i64 %30 to i1
-  %35 = select i1 %34, i32 353, i32 0
+32:                                               ; preds = %Ivy_ObjFaninId0.exit.i
+  %33 = ptrtoint ptr %.val27 to i64
+  %34 = and i64 %33, -2
+  %35 = inttoptr i64 %34 to ptr
+  %.val.i18.i = load i32, ptr %35, align 8, !tbaa !19
+  %36 = mul nsw i32 %.val.i18.i, 2971
+  %37 = xor i32 %36, %31
+  %38 = trunc i64 %33 to i1
+  %39 = select i1 %38, i32 353, i32 0
   br label %Ivy_Hash.exit
 
-Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exit.i, %29
-  %.pre-phi.i = phi i32 [ %35, %29 ], [ 0, %Ivy_ObjFaninId0.exit.i ]
-  %36 = phi i32 [ %33, %29 ], [ 0, %Ivy_ObjFaninId0.exit.i ]
-  %37 = icmp eq i32 %4, 6
-  %38 = select i1 %37, i32 1699, i32 0
-  %39 = trunc i64 %8 to i1
-  %40 = select i1 %39, i32 911, i32 0
-  %41 = lshr i32 %.val, 9
-  %42 = and i32 %41, 3
-  %43 = mul nuw nsw i32 %42, 911
-  %44 = xor i32 %43, %38
-  %45 = xor i32 %44, %40
-  %46 = xor i32 %45, %28
+Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exit.i, %32
+  %.pre-phi.i = phi i32 [ %39, %32 ], [ 0, %Ivy_ObjFaninId0.exit.i ]
+  %40 = phi i32 [ %37, %32 ], [ %31, %Ivy_ObjFaninId0.exit.i ]
+  %41 = trunc i64 %8 to i1
+  %42 = select i1 %41, i32 911, i32 0
+  %43 = lshr i32 %.val, 9
+  %44 = and i32 %43, 3
+  %45 = mul nuw nsw i32 %44, 911
+  %46 = xor i32 %42, %45
   %47 = xor i32 %46, %.pre-phi.i
-  %48 = xor i32 %47, %36
+  %48 = xor i32 %47, %40
   %49 = urem i32 %48, %25
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !20
@@ -120,7 +120,7 @@ Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exi
   %.val31 = load i32, ptr %68, align 8
   %69 = lshr i32 %.val31, 9
   %70 = and i32 %69, 3
-  %71 = icmp eq i32 %70, %42
+  %71 = icmp eq i32 %70, %44
   %72 = and i32 %.val31, 15
   %73 = icmp eq i32 %72, %4
   %or.cond = and i1 %73, %71
@@ -243,53 +243,53 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %55, i64 8
   %.val.i.i.i = load i32, ptr %56, align 8
-  %57 = getelementptr i8, ptr %55, i64 16
-  %.val12.i.i.i = load ptr, ptr %57, align 8, !tbaa !3
+  %57 = and i32 %.val.i.i.i, 15
+  %58 = icmp eq i32 %57, 6
+  %59 = select i1 %58, i32 1699, i32 0
+  %60 = getelementptr i8, ptr %55, i64 16
+  %.val12.i.i.i = load ptr, ptr %60, align 8, !tbaa !3
   %.not.i.i.i.i = icmp eq ptr %.val12.i.i.i, null
-  br i1 %.not.i.i.i.i, label %Ivy_ObjFaninId0.exit.i.i.i, label %58
+  br i1 %.not.i.i.i.i, label %Ivy_ObjFaninId0.exit.i.i.i, label %61
 
-58:                                               ; preds = %51
-  %59 = ptrtoint ptr %.val12.i.i.i to i64
-  %60 = and i64 %59, -2
-  %61 = inttoptr i64 %60 to ptr
-  %.val.i.i.i.i = load i32, ptr %61, align 8, !tbaa !19
-  %62 = mul nsw i32 %.val.i.i.i.i, 7937
+61:                                               ; preds = %51
+  %62 = ptrtoint ptr %.val12.i.i.i to i64
+  %63 = and i64 %62, -2
+  %64 = inttoptr i64 %63 to ptr
+  %.val.i.i.i.i = load i32, ptr %64, align 8, !tbaa !19
+  %65 = mul nsw i32 %.val.i.i.i.i, 7937
+  %66 = xor i32 %65, %59
   br label %Ivy_ObjFaninId0.exit.i.i.i
 
-Ivy_ObjFaninId0.exit.i.i.i:                       ; preds = %58, %51
-  %63 = phi i32 [ %62, %58 ], [ 0, %51 ]
-  %64 = getelementptr i8, ptr %55, i64 24
-  %.val13.i.i.i = load ptr, ptr %64, align 8, !tbaa !11
+Ivy_ObjFaninId0.exit.i.i.i:                       ; preds = %61, %51
+  %67 = phi i32 [ %66, %61 ], [ %59, %51 ]
+  %68 = getelementptr i8, ptr %55, i64 24
+  %.val13.i.i.i = load ptr, ptr %68, align 8, !tbaa !11
   %.not.i17.i.i.i = icmp eq ptr %.val13.i.i.i, null
-  br i1 %.not.i17.i.i.i, label %Ivy_Hash.exit.i.i, label %65
+  br i1 %.not.i17.i.i.i, label %Ivy_Hash.exit.i.i, label %69
 
-65:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i.i
-  %66 = ptrtoint ptr %.val13.i.i.i to i64
-  %67 = and i64 %66, -2
-  %68 = inttoptr i64 %67 to ptr
-  %.val.i18.i.i.i = load i32, ptr %68, align 8, !tbaa !19
-  %69 = mul nsw i32 %.val.i18.i.i.i, 2971
-  %70 = trunc i64 %66 to i1
-  %71 = select i1 %70, i32 353, i32 0
+69:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i.i
+  %70 = ptrtoint ptr %.val13.i.i.i to i64
+  %71 = and i64 %70, -2
+  %72 = inttoptr i64 %71 to ptr
+  %.val.i18.i.i.i = load i32, ptr %72, align 8, !tbaa !19
+  %73 = mul nsw i32 %.val.i18.i.i.i, 2971
+  %74 = xor i32 %73, %67
+  %75 = trunc i64 %70 to i1
+  %76 = select i1 %75, i32 353, i32 0
   br label %Ivy_Hash.exit.i.i
 
-Ivy_Hash.exit.i.i:                                ; preds = %65, %Ivy_ObjFaninId0.exit.i.i.i
-  %.pre-phi.i.i.i = phi i32 [ %71, %65 ], [ 0, %Ivy_ObjFaninId0.exit.i.i.i ]
-  %72 = phi i32 [ %69, %65 ], [ 0, %Ivy_ObjFaninId0.exit.i.i.i ]
-  %73 = and i32 %.val.i.i.i, 15
-  %74 = icmp eq i32 %73, 6
-  %75 = select i1 %74, i32 1699, i32 0
-  %76 = ptrtoint ptr %.val12.i.i.i to i64
-  %77 = trunc i64 %76 to i1
-  %78 = select i1 %77, i32 911, i32 0
-  %79 = lshr i32 %.val.i.i.i, 9
-  %80 = and i32 %79, 3
-  %81 = mul nuw nsw i32 %80, 911
-  %82 = xor i32 %81, %75
-  %83 = xor i32 %82, %78
-  %84 = xor i32 %83, %63
+Ivy_Hash.exit.i.i:                                ; preds = %69, %Ivy_ObjFaninId0.exit.i.i.i
+  %.pre-phi.i.i.i = phi i32 [ %76, %69 ], [ 0, %Ivy_ObjFaninId0.exit.i.i.i ]
+  %77 = phi i32 [ %74, %69 ], [ %67, %Ivy_ObjFaninId0.exit.i.i.i ]
+  %78 = ptrtoint ptr %.val12.i.i.i to i64
+  %79 = trunc i64 %78 to i1
+  %80 = select i1 %79, i32 911, i32 0
+  %81 = lshr i32 %.val.i.i.i, 9
+  %82 = and i32 %81, 3
+  %83 = mul nuw nsw i32 %82, 911
+  %84 = xor i32 %80, %83
   %85 = xor i32 %84, %.pre-phi.i.i.i
-  %86 = xor i32 %85, %72
+  %86 = xor i32 %85, %77
   %87 = urem i32 %86, %36
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %calloc.i, i64 %88
@@ -342,53 +342,53 @@ Ivy_TableResize.exit:                             ; preds = %102, %._crit_edge.i
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %104 = load i32, ptr %103, align 8, !tbaa !12
   %.val.i.i = load i32, ptr %4, align 8
-  %105 = getelementptr i8, ptr %1, i64 16
-  %.val12.i.i = load ptr, ptr %105, align 8, !tbaa !3
+  %105 = and i32 %.val.i.i, 15
+  %106 = icmp eq i32 %105, 6
+  %107 = select i1 %106, i32 1699, i32 0
+  %108 = getelementptr i8, ptr %1, i64 16
+  %.val12.i.i = load ptr, ptr %108, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.val12.i.i, null
-  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %106
+  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %109
 
-106:                                              ; preds = %Ivy_TableResize.exit
-  %107 = ptrtoint ptr %.val12.i.i to i64
-  %108 = and i64 %107, -2
-  %109 = inttoptr i64 %108 to ptr
-  %.val.i.i.i9 = load i32, ptr %109, align 8, !tbaa !19
-  %110 = mul nsw i32 %.val.i.i.i9, 7937
+109:                                              ; preds = %Ivy_TableResize.exit
+  %110 = ptrtoint ptr %.val12.i.i to i64
+  %111 = and i64 %110, -2
+  %112 = inttoptr i64 %111 to ptr
+  %.val.i.i.i9 = load i32, ptr %112, align 8, !tbaa !19
+  %113 = mul nsw i32 %.val.i.i.i9, 7937
+  %114 = xor i32 %113, %107
   br label %Ivy_ObjFaninId0.exit.i.i
 
-Ivy_ObjFaninId0.exit.i.i:                         ; preds = %106, %Ivy_TableResize.exit
-  %111 = phi i32 [ %110, %106 ], [ 0, %Ivy_TableResize.exit ]
-  %112 = getelementptr i8, ptr %1, i64 24
-  %.val13.i.i = load ptr, ptr %112, align 8, !tbaa !11
+Ivy_ObjFaninId0.exit.i.i:                         ; preds = %109, %Ivy_TableResize.exit
+  %115 = phi i32 [ %114, %109 ], [ %107, %Ivy_TableResize.exit ]
+  %116 = getelementptr i8, ptr %1, i64 24
+  %.val13.i.i = load ptr, ptr %116, align 8, !tbaa !11
   %.not.i17.i.i = icmp eq ptr %.val13.i.i, null
-  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %113
+  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %117
 
-113:                                              ; preds = %Ivy_ObjFaninId0.exit.i.i
-  %114 = ptrtoint ptr %.val13.i.i to i64
-  %115 = and i64 %114, -2
-  %116 = inttoptr i64 %115 to ptr
-  %.val.i18.i.i = load i32, ptr %116, align 8, !tbaa !19
-  %117 = mul nsw i32 %.val.i18.i.i, 2971
-  %118 = trunc i64 %114 to i1
-  %119 = select i1 %118, i32 353, i32 0
+117:                                              ; preds = %Ivy_ObjFaninId0.exit.i.i
+  %118 = ptrtoint ptr %.val13.i.i to i64
+  %119 = and i64 %118, -2
+  %120 = inttoptr i64 %119 to ptr
+  %.val.i18.i.i = load i32, ptr %120, align 8, !tbaa !19
+  %121 = mul nsw i32 %.val.i18.i.i, 2971
+  %122 = xor i32 %121, %115
+  %123 = trunc i64 %118 to i1
+  %124 = select i1 %123, i32 353, i32 0
   br label %Ivy_Hash.exit.i
 
-Ivy_Hash.exit.i:                                  ; preds = %113, %Ivy_ObjFaninId0.exit.i.i
-  %.pre-phi.i.i = phi i32 [ %119, %113 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %120 = phi i32 [ %117, %113 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %121 = and i32 %.val.i.i, 15
-  %122 = icmp eq i32 %121, 6
-  %123 = select i1 %122, i32 1699, i32 0
-  %124 = ptrtoint ptr %.val12.i.i to i64
-  %125 = trunc i64 %124 to i1
-  %126 = select i1 %125, i32 911, i32 0
-  %127 = lshr i32 %.val.i.i, 9
-  %128 = and i32 %127, 3
-  %129 = mul nuw nsw i32 %128, 911
-  %130 = xor i32 %129, %123
-  %131 = xor i32 %130, %126
-  %132 = xor i32 %131, %111
+Ivy_Hash.exit.i:                                  ; preds = %117, %Ivy_ObjFaninId0.exit.i.i
+  %.pre-phi.i.i = phi i32 [ %124, %117 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
+  %125 = phi i32 [ %122, %117 ], [ %115, %Ivy_ObjFaninId0.exit.i.i ]
+  %126 = ptrtoint ptr %.val12.i.i to i64
+  %127 = trunc i64 %126 to i1
+  %128 = select i1 %127, i32 911, i32 0
+  %129 = lshr i32 %.val.i.i, 9
+  %130 = and i32 %129, 3
+  %131 = mul nuw nsw i32 %130, 911
+  %132 = xor i32 %128, %131
   %133 = xor i32 %132, %.pre-phi.i.i
-  %134 = xor i32 %133, %120
+  %134 = xor i32 %133, %125
   %135 = urem i32 %134, %104
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %137 = load ptr, ptr %136, align 8, !tbaa !20
@@ -440,52 +440,52 @@ define void @Ivy_TableDelete(ptr noundef captures(none) %0, ptr noundef readonly
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !12
-  %9 = getelementptr i8, ptr %1, i64 16
-  %.val12.i.i = load ptr, ptr %9, align 8, !tbaa !3
+  %9 = icmp eq i32 %4, 6
+  %10 = select i1 %9, i32 1699, i32 0
+  %11 = getelementptr i8, ptr %1, i64 16
+  %.val12.i.i = load ptr, ptr %11, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.val12.i.i, null
-  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %10
+  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %12
 
-10:                                               ; preds = %6
-  %11 = ptrtoint ptr %.val12.i.i to i64
-  %12 = and i64 %11, -2
-  %13 = inttoptr i64 %12 to ptr
-  %.val.i.i.i = load i32, ptr %13, align 8, !tbaa !19
-  %14 = mul nsw i32 %.val.i.i.i, 7937
+12:                                               ; preds = %6
+  %13 = ptrtoint ptr %.val12.i.i to i64
+  %14 = and i64 %13, -2
+  %15 = inttoptr i64 %14 to ptr
+  %.val.i.i.i = load i32, ptr %15, align 8, !tbaa !19
+  %16 = mul nsw i32 %.val.i.i.i, 7937
+  %17 = xor i32 %16, %10
   br label %Ivy_ObjFaninId0.exit.i.i
 
-Ivy_ObjFaninId0.exit.i.i:                         ; preds = %10, %6
-  %15 = phi i32 [ %14, %10 ], [ 0, %6 ]
-  %16 = getelementptr i8, ptr %1, i64 24
-  %.val13.i.i = load ptr, ptr %16, align 8, !tbaa !11
+Ivy_ObjFaninId0.exit.i.i:                         ; preds = %12, %6
+  %18 = phi i32 [ %17, %12 ], [ %10, %6 ]
+  %19 = getelementptr i8, ptr %1, i64 24
+  %.val13.i.i = load ptr, ptr %19, align 8, !tbaa !11
   %.not.i17.i.i = icmp eq ptr %.val13.i.i, null
-  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %17
+  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %20
 
-17:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i
-  %18 = ptrtoint ptr %.val13.i.i to i64
-  %19 = and i64 %18, -2
-  %20 = inttoptr i64 %19 to ptr
-  %.val.i18.i.i = load i32, ptr %20, align 8, !tbaa !19
-  %21 = mul nsw i32 %.val.i18.i.i, 2971
-  %22 = trunc i64 %18 to i1
-  %23 = select i1 %22, i32 353, i32 0
+20:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i
+  %21 = ptrtoint ptr %.val13.i.i to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  %.val.i18.i.i = load i32, ptr %23, align 8, !tbaa !19
+  %24 = mul nsw i32 %.val.i18.i.i, 2971
+  %25 = xor i32 %24, %18
+  %26 = trunc i64 %21 to i1
+  %27 = select i1 %26, i32 353, i32 0
   br label %Ivy_Hash.exit.i
 
-Ivy_Hash.exit.i:                                  ; preds = %17, %Ivy_ObjFaninId0.exit.i.i
-  %.pre-phi.i.i = phi i32 [ %23, %17 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %24 = phi i32 [ %21, %17 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %25 = icmp eq i32 %4, 6
-  %26 = select i1 %25, i32 1699, i32 0
-  %27 = ptrtoint ptr %.val12.i.i to i64
-  %28 = trunc i64 %27 to i1
-  %29 = select i1 %28, i32 911, i32 0
-  %30 = lshr i32 %.val, 9
-  %31 = and i32 %30, 3
-  %32 = mul nuw nsw i32 %31, 911
-  %33 = xor i32 %32, %26
-  %34 = xor i32 %33, %29
-  %35 = xor i32 %34, %15
+Ivy_Hash.exit.i:                                  ; preds = %20, %Ivy_ObjFaninId0.exit.i.i
+  %.pre-phi.i.i = phi i32 [ %27, %20 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
+  %28 = phi i32 [ %25, %20 ], [ %18, %Ivy_ObjFaninId0.exit.i.i ]
+  %29 = ptrtoint ptr %.val12.i.i to i64
+  %30 = trunc i64 %29 to i1
+  %31 = select i1 %30, i32 911, i32 0
+  %32 = lshr i32 %.val, 9
+  %33 = and i32 %32, 3
+  %34 = mul nuw nsw i32 %33, 911
+  %35 = xor i32 %31, %34
   %36 = xor i32 %35, %.pre-phi.i.i
-  %37 = xor i32 %36, %24
+  %37 = xor i32 %36, %28
   %38 = urem i32 %37, %8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %40 = load ptr, ptr %39, align 8, !tbaa !20
@@ -573,52 +573,52 @@ define void @Ivy_TableUpdate(ptr noundef readonly captures(none) %0, ptr noundef
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load i32, ptr %8, align 8, !tbaa !12
-  %10 = getelementptr i8, ptr %1, i64 16
-  %.val12.i.i = load ptr, ptr %10, align 8, !tbaa !3
+  %10 = icmp eq i32 %5, 6
+  %11 = select i1 %10, i32 1699, i32 0
+  %12 = getelementptr i8, ptr %1, i64 16
+  %.val12.i.i = load ptr, ptr %12, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.val12.i.i, null
-  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %11
+  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %13
 
-11:                                               ; preds = %7
-  %12 = ptrtoint ptr %.val12.i.i to i64
-  %13 = and i64 %12, -2
-  %14 = inttoptr i64 %13 to ptr
-  %.val.i.i.i = load i32, ptr %14, align 8, !tbaa !19
-  %15 = mul nsw i32 %.val.i.i.i, 7937
+13:                                               ; preds = %7
+  %14 = ptrtoint ptr %.val12.i.i to i64
+  %15 = and i64 %14, -2
+  %16 = inttoptr i64 %15 to ptr
+  %.val.i.i.i = load i32, ptr %16, align 8, !tbaa !19
+  %17 = mul nsw i32 %.val.i.i.i, 7937
+  %18 = xor i32 %17, %11
   br label %Ivy_ObjFaninId0.exit.i.i
 
-Ivy_ObjFaninId0.exit.i.i:                         ; preds = %11, %7
-  %16 = phi i32 [ %15, %11 ], [ 0, %7 ]
-  %17 = getelementptr i8, ptr %1, i64 24
-  %.val13.i.i = load ptr, ptr %17, align 8, !tbaa !11
+Ivy_ObjFaninId0.exit.i.i:                         ; preds = %13, %7
+  %19 = phi i32 [ %18, %13 ], [ %11, %7 ]
+  %20 = getelementptr i8, ptr %1, i64 24
+  %.val13.i.i = load ptr, ptr %20, align 8, !tbaa !11
   %.not.i17.i.i = icmp eq ptr %.val13.i.i, null
-  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %18
+  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %21
 
-18:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i
-  %19 = ptrtoint ptr %.val13.i.i to i64
-  %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %.val.i18.i.i = load i32, ptr %21, align 8, !tbaa !19
-  %22 = mul nsw i32 %.val.i18.i.i, 2971
-  %23 = trunc i64 %19 to i1
-  %24 = select i1 %23, i32 353, i32 0
+21:                                               ; preds = %Ivy_ObjFaninId0.exit.i.i
+  %22 = ptrtoint ptr %.val13.i.i to i64
+  %23 = and i64 %22, -2
+  %24 = inttoptr i64 %23 to ptr
+  %.val.i18.i.i = load i32, ptr %24, align 8, !tbaa !19
+  %25 = mul nsw i32 %.val.i18.i.i, 2971
+  %26 = xor i32 %25, %19
+  %27 = trunc i64 %22 to i1
+  %28 = select i1 %27, i32 353, i32 0
   br label %Ivy_Hash.exit.i
 
-Ivy_Hash.exit.i:                                  ; preds = %18, %Ivy_ObjFaninId0.exit.i.i
-  %.pre-phi.i.i = phi i32 [ %24, %18 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %25 = phi i32 [ %22, %18 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %26 = icmp eq i32 %5, 6
-  %27 = select i1 %26, i32 1699, i32 0
-  %28 = ptrtoint ptr %.val12.i.i to i64
-  %29 = trunc i64 %28 to i1
-  %30 = select i1 %29, i32 911, i32 0
-  %31 = lshr i32 %.val, 9
-  %32 = and i32 %31, 3
-  %33 = mul nuw nsw i32 %32, 911
-  %34 = xor i32 %33, %27
-  %35 = xor i32 %34, %30
-  %36 = xor i32 %35, %16
+Ivy_Hash.exit.i:                                  ; preds = %21, %Ivy_ObjFaninId0.exit.i.i
+  %.pre-phi.i.i = phi i32 [ %28, %21 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
+  %29 = phi i32 [ %26, %21 ], [ %19, %Ivy_ObjFaninId0.exit.i.i ]
+  %30 = ptrtoint ptr %.val12.i.i to i64
+  %31 = trunc i64 %30 to i1
+  %32 = select i1 %31, i32 911, i32 0
+  %33 = lshr i32 %.val, 9
+  %34 = and i32 %33, 3
+  %35 = mul nuw nsw i32 %34, 911
+  %36 = xor i32 %32, %35
   %37 = xor i32 %36, %.pre-phi.i.i
-  %38 = xor i32 %37, %25
+  %38 = xor i32 %37, %29
   %39 = urem i32 %38, %9
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load ptr, ptr %40, align 8, !tbaa !20

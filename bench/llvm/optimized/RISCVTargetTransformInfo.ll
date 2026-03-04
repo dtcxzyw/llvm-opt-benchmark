@@ -4274,11 +4274,11 @@ define internal fastcc noundef zeroext i1 @_ZL20isRepeatedConcatMaskN4llvm8Array
   br i1 %or.cond, label %.lr.ph, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 .lr.ph:                                           ; preds = %3, %18
-  %.02139 = phi i32 [ %19, %18 ], [ 0, %3 ]
-  %6 = zext i32 %.02139 to i64
+  %.02137 = phi i32 [ %19, %18 ], [ 0, %3 ]
+  %6 = zext i32 %.02137 to i64
   %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !49
-  %9 = icmp eq i32 %8, %.02139
+  %9 = icmp eq i32 %8, %.02137
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %.lr.ph
@@ -4286,12 +4286,12 @@ define internal fastcc noundef zeroext i1 @_ZL20isRepeatedConcatMaskN4llvm8Array
   br i1 %.not26, label %11, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 11:                                               ; preds = %10
-  %12 = urem i32 %4, %.02139
+  %12 = urem i32 %4, %.02137
   %.not27 = icmp eq i32 %12, 0
   br i1 %.not27, label %.preheader, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 .preheader:                                       ; preds = %11, %13
-  %.0.in = phi i32 [ %.0, %13 ], [ %.02139, %11 ]
+  %.0.in = phi i32 [ %.0, %13 ], [ %.02137, %11 ]
   %.0 = add i32 %.0.in, 1
   %.not28 = icmp eq i32 %.0, %4
   br i1 %.not28, label %.critedge, label %13
@@ -4300,16 +4300,16 @@ define internal fastcc noundef zeroext i1 @_ZL20isRepeatedConcatMaskN4llvm8Array
   %14 = zext i32 %.0 to i64
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !49
-  %17 = urem i32 %.0, %.02139
+  %17 = urem i32 %.0, %.02137
   %.not29 = icmp eq i32 %16, %17
   br i1 %.not29, label %.preheader, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, !llvm.loop !341
 
 .critedge:                                        ; preds = %.preheader
-  store i32 %.02139, ptr %2, align 4, !tbaa !49
+  store i32 %.02137, ptr %2, align 4, !tbaa !49
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 18:                                               ; preds = %.lr.ph
-  %19 = add nuw i32 %.02139, 1
+  %19 = add i32 %.02137, 1
   %.not.not = icmp eq i32 %19, %4
   br i1 %.not.not, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %.lr.ph, !llvm.loop !342
 
@@ -6578,14 +6578,14 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZNK4llvm9BitVector5countEv.exit.loopexit:        ; preds = %.lr.ph.i
   %124 = zext i32 %122 to i64
+  %125 = mul nsw i64 %.sroa.0271.1, %124
   br label %_ZNK4llvm9BitVector5countEv.exit
 
 _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %_ZNK4llvm9BitVector5countEv.exit.loopexit, %._crit_edge300
-  %.0.lcssa.i = phi i64 [ 0, %._crit_edge300 ], [ %124, %_ZNK4llvm9BitVector5countEv.exit.loopexit ]
-  %125 = mul nsw i64 %.sroa.0271.1, %.0.lcssa.i
-  %126 = icmp ne i64 %125, 0
+  %.0.lcssa.i = phi i64 [ 0, %._crit_edge300 ], [ %125, %_ZNK4llvm9BitVector5countEv.exit.loopexit ]
+  %126 = icmp ne i64 %.0.lcssa.i, 0
   %127 = zext i1 %126 to i64
-  %128 = sub i64 %125, %127
+  %128 = sub i64 %.0.lcssa.i, %127
   %129 = zext i32 %80 to i64
   %130 = udiv i64 %128, %129
   %131 = add i64 %130, %127

@@ -6577,14 +6577,14 @@ define hidden void @_ZN3h3i12recordreplay4qlog10map_header17h69c1f70c074f9f28E(p
   %14 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !688, !noalias !691, !noundef !4
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %.sroa.04.0.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.sroa.04.0.i, %14
+  %17 = select i1 %16, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %17, %14
   %18 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !691, !noalias !688, !noundef !4
   %19 = add i8 %18, -65
   %20 = icmp ult i8 %19, 26
-  %.sroa.05.0.i = select i1 %20, i8 32, i8 0
-  %21 = or i8 %.sroa.05.0.i, %18
-  %22 = icmp eq i8 %17, %21
+  %21 = select i1 %20, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %21, %18
+  %22 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %22, label %.preheader.i, label %.loopexit
 
 .loopexit:                                        ; preds = %10, %4
@@ -6607,14 +6607,14 @@ define hidden void @_ZN3h3i12recordreplay4qlog10map_header17h69c1f70c074f9f28E(p
   %28 = load i8, ptr %.sroa.01.0.i9, align 1, !alias.scope !693, !noalias !696, !noundef !4
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.04.0.i11 = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.04.0.i11, %28
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.04.0.i11 = or i8 %31, %28
   %32 = load i8, ptr %.sroa.02.0.i7, align 1, !alias.scope !696, !noalias !693, !noundef !4
   %33 = add i8 %32, -65
   %34 = icmp ult i8 %33, 26
-  %.sroa.05.0.i12 = select i1 %34, i8 32, i8 0
-  %35 = or i8 %.sroa.05.0.i12, %32
-  %36 = icmp eq i8 %31, %35
+  %35 = select i1 %34, i8 32, i8 0
+  %.sroa.05.0.i12 = or i8 %35, %32
+  %36 = icmp eq i8 %.sroa.04.0.i11, %.sroa.05.0.i12
   br i1 %36, label %.preheader.i5, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit13.thread"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit13": ; preds = %.preheader.i5

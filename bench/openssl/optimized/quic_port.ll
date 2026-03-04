@@ -628,7 +628,7 @@ port_update_addressing_mode.exit:                 ; preds = %28, %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, -449
-  %40 = or disjoint i16 %.0.i10, %39
+  %40 = or disjoint i16 %39, %.0.i10
   store i16 %40, ptr %37, align 2
   br label %41
 
@@ -733,7 +733,7 @@ port_update_addressing_mode.exit:                 ; preds = %29, %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, -449
-  %40 = or disjoint i16 %.0.i15, %39
+  %40 = or disjoint i16 %39, %.0.i15
   store i16 %40, ptr %37, align 2
   br label %41
 

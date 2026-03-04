@@ -71,9 +71,9 @@ define dso_local void @_ZN4llvm17ObjCARCAPElimPass3runERNS_6ModuleERNS_15Analysi
   %18 = getelementptr inbounds i8, ptr %13, i64 %.idx.i
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %.lr.ph.preheader.i
-  %.01832.i = phi i1 [ %.119.i, %72 ], [ false, %.lr.ph.preheader.i ]
-  %.02031.i = phi ptr [ %73, %72 ], [ %18, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, %.lr.ph.preheader.i
+  %.01832.i = phi i1 [ %.119.i, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i ], [ false, %.lr.ph.preheader.i ]
+  %.02031.i = phi ptr [ %72, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i ], [ %18, %.lr.ph.preheader.i ]
   %19 = load ptr, ptr %.02031.i, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
@@ -85,11 +85,11 @@ define dso_local void @_ZN4llvm17ObjCARCAPElimPass3runERNS_6ModuleERNS_15Analysi
   %27 = load ptr, ptr %26, align 8, !tbaa !9
   %28 = load i8, ptr %27, align 8, !tbaa !16
   %.not28.i = icmp eq i8 %28, 0
-  br i1 %.not28.i, label %29, label %72
+  br i1 %.not28.i, label %29, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i
 
 29:                                               ; preds = %.lr.ph.i
   %30 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %27) #3
-  br i1 %30, label %72, label %.preheader.i.i.i.i
+  br i1 %30, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 80
@@ -98,7 +98,7 @@ define dso_local void @_ZN4llvm17ObjCARCAPElimPass3runERNS_6ModuleERNS_15Analysi
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %.not29.i = icmp eq ptr %34, %35
-  br i1 %.not29.i, label %36, label %72
+  br i1 %.not29.i, label %36, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i
 
 36:                                               ; preds = %.preheader.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -179,47 +179,46 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i: ; preds = 
   %.114.i.i = phi ptr [ %.01330.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %42, %56 ], [ %spec.select.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ null, %57 ], [ null, %67 ], [ null, %58 ], [ %.01330.i.i, %.lr.ph.i.i ]
   %.1.i.i = phi i1 [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %.031.i.i, %56 ], [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ %.031.i.i, %57 ], [ true, %67 ], [ %.031.i.i, %58 ], [ %.031.i.i, %.lr.ph.i.i ]
   %.not27.i.i = icmp eq ptr %41, %39
-  br i1 %.not27.i.i, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
+  br i1 %.not27.i.i, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.loopexit.i, label %.lr.ph.i.i
 
-_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i, %36
-  %.0.lcssa.i.i = phi i1 [ false, %36 ], [ %.1.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i ]
-  %71 = or i1 %.01832.i, %.0.lcssa.i.i
-  br label %72
+_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.loopexit.i: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i
+  %71 = or i1 %.01832.i, %.1.i.i
+  br label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i
 
-72:                                               ; preds = %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, %.preheader.i.i.i.i, %29, %.lr.ph.i
-  %.119.i = phi i1 [ %.01832.i, %.lr.ph.i ], [ %.01832.i, %29 ], [ %71, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i ], [ %.01832.i, %.preheader.i.i.i.i ]
-  %73 = getelementptr inbounds nuw i8, ptr %.02031.i, i64 32
-  %.not23.i = icmp eq ptr %73, %13
+_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i: ; preds = %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.loopexit.i, %36, %.preheader.i.i.i.i, %29, %.lr.ph.i
+  %.119.i = phi i1 [ %.01832.i, %.lr.ph.i ], [ %.01832.i, %29 ], [ %.01832.i, %.preheader.i.i.i.i ], [ %.01832.i, %36 ], [ %71, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.loopexit.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %.02031.i, i64 32
+  %.not23.i = icmp eq ptr %72, %13
   br i1 %.not23.i, label %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit, label %.lr.ph.i, !llvm.loop !52
 
-_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit:   ; preds = %72
+_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit:   ; preds = %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i
   %spec.select = select i1 %.119.i, ptr @_ZN4llvm11CFGAnalyses6SetKeyE, ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE
   br label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
 
 _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit, %7, %4, %9, %11
   %_ZN4llvm11CFGAnalyses6SetKeyE.sink = phi ptr [ %spec.select, %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %11 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %9 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %4 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %7 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %74, ptr %0, align 8, !tbaa !54
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %75, align 8, !tbaa !56
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %77, align 8, !tbaa !57
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %78, align 4, !tbaa !58
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %80, ptr %79, align 8, !tbaa !54
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %81, align 8, !tbaa !56
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %82, align 4, !tbaa !59
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %83, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %84, align 4, !tbaa !58
-  store i32 1, ptr %76, align 4, !tbaa !59, !noalias !8
-  store ptr %_ZN4llvm11CFGAnalyses6SetKeyE.sink, ptr %74, align 8, !tbaa !60, !noalias !8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %73, ptr %0, align 8, !tbaa !54
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %74, align 8, !tbaa !56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %76, align 8, !tbaa !57
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %77, align 4, !tbaa !58
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %79, ptr %78, align 8, !tbaa !54
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %80, align 8, !tbaa !56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %81, align 4, !tbaa !59
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %82, align 8, !tbaa !57
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %83, align 4, !tbaa !58
+  store i32 1, ptr %75, align 4, !tbaa !59, !noalias !8
+  store ptr %_ZN4llvm11CFGAnalyses6SetKeyE.sink, ptr %73, align 8, !tbaa !60, !noalias !8
   ret void
 }
 

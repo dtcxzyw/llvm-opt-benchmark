@@ -2118,7 +2118,7 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit: ; preds = %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.critedge
 
-_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread: ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %53, %55, %47, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %58
+_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread: ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit, %47, %53, %55, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %58
   %83 = load ptr, ptr %8, align 8, !tbaa !150
   %.not.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i, label %88, label %84
@@ -2191,8 +2191,8 @@ _ZN4llvm8dyn_castIN5clang4ento14ObjCMethodCallENS2_12CallEventRefINS2_9CallEvent
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.753") align 8 %0, ptr noundef nonnull align 8 dereferenceable(580) %1, ptr noundef nonnull align 8 dereferenceable(1000) %4, ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull %2) #26
   %126 = load ptr, ptr %0, align 8, !tbaa !71
-  %.not54 = icmp eq ptr %126, null
-  br i1 %.not54, label %127, label %.critedge
+  %.not52 = icmp eq ptr %126, null
+  br i1 %.not52, label %127, label %.critedge
 
 127:                                              ; preds = %122
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2308,8 +2308,8 @@ _ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i43: ; preds = %176,
   br label %_ZN4llvm8dyn_castIN5clang4ento18CXXConstructorCallENS2_12CallEventRefINS2_9CallEventEEEEEDcRT0_.exit
 
 _ZN4llvm8dyn_castIN5clang4ento18CXXConstructorCallENS2_12CallEventRefINS2_9CallEventEEEEEDcRT0_.exit: ; preds = %156, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i43
-  %.not56 = icmp eq i32 %160, 5
-  br i1 %.not56, label %190, label %.critedge31
+  %.not54 = icmp eq i32 %160, 5
+  br i1 %.not54, label %190, label %.critedge31
 
 190:                                              ; preds = %_ZN4llvm8dyn_castIN5clang4ento18CXXConstructorCallENS2_12CallEventRefINS2_9CallEventEEEEEDcRT0_.exit
   %191 = load ptr, ptr %1, align 8, !tbaa !52
@@ -3583,7 +3583,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destr
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, %303, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit70.i
-  %spec.select168.i = phi i1 [ %.1.ph.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.1.ph.i, %303 ], [ false, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit70.i ]
+  %.1167.i = phi i1 [ %.1.ph.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.1.ph.i, %303 ], [ false, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit70.i ]
   %310 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %304, %303 ], [ %274, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit70.i ]
   %311 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %312 = icmp eq ptr %310, %311
@@ -3625,7 +3625,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit74.i: ; preds = %317
 _ZL25potentiallyWritesIntoIvarPKN5clang4DeclEPKNS_12ObjCIvarDeclE.exit: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit74.i, %321, %325
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0134.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %spec.select168.i, label %.critedge13, label %337
+  br i1 %.1167.i, label %.critedge13, label %337
 
 .critedge13:                                      ; preds = %_ZL25potentiallyWritesIntoIvarPKN5clang4DeclEPKNS_12ObjCIvarDeclE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)

@@ -5396,16 +5396,16 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #14
-  %.not498488 = icmp eq i32 %41, 0
-  br i1 %.not498488, label %.outer._crit_edge, label %.lr.ph85
+  %.not498387 = icmp eq i32 %41, 0
+  br i1 %.not498387, label %.outer._crit_edge, label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %37, %.thread
+.lr.ph84:                                         ; preds = %37, %.thread
   %42 = phi i32 [ %98, %.thread ], [ %41, %37 ]
-  %.039.ph89 = phi ptr [ %97, %.thread ], [ null, %37 ]
+  %.039.ph88 = phi ptr [ %97, %.thread ], [ null, %37 ]
   br label %43
 
-43:                                               ; preds = %.lr.ph85, %94
-  %44 = phi i32 [ %42, %.lr.ph85 ], [ %95, %94 ]
+43:                                               ; preds = %.lr.ph84, %94
+  %44 = phi i32 [ %42, %.lr.ph84 ], [ %95, %94 ]
   %45 = icmp eq i32 %44, 3
   %46 = icmp eq i32 %44, 1
   %or.cond = or i1 %45, %46
@@ -5506,11 +5506,11 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   %. = select i1 %96, ptr %7, ptr null
   %97 = call ptr @pushJsonbValue(ptr noundef nonnull %5, i32 noundef %44, ptr noundef %.) #14
   %98 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext true) #14
-  %.not4984 = icmp eq i32 %98, 0
-  br i1 %.not4984, label %.outer._crit_edge, label %.lr.ph85, !llvm.loop !30
+  %.not4983 = icmp eq i32 %98, 0
+  br i1 %.not4983, label %.outer._crit_edge, label %.lr.ph84, !llvm.loop !30
 
 .outer._crit_edge:                                ; preds = %.thread, %94, %37
-  %.039.ph.lcssa = phi ptr [ %.039.ph89, %94 ], [ null, %37 ], [ %97, %.thread ]
+  %.039.ph.lcssa = phi ptr [ %.039.ph88, %94 ], [ null, %37 ], [ %97, %.thread ]
   %99 = call ptr @JsonbValueToJsonb(ptr noundef %.039.ph.lcssa) #14
   br label %100
 

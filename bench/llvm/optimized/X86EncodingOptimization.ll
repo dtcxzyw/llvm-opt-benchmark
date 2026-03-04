@@ -4757,9 +4757,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %294, %286
   br label %_ZL27optimizeToFixedRegisterFormRN4llvm6MCInstE.exit
 
 _ZL27optimizeToFixedRegisterFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit, %281, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
-  %.0.i3 = phi i1 [ false, %_ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i ], [ false, %281 ]
-  %302 = or i1 %.0.i, %.0.i3
-  ret i1 %302
+  %.0.i3 = phi i1 [ %.0.i, %_ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i ], [ %.0.i, %281 ]
+  ret i1 %.0.i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

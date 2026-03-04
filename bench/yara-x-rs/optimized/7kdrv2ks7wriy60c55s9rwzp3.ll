@@ -871,9 +871,9 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 
 22:                                               ; preds = %16
   %23 = icmp samesign ugt i8 %18, 96
-  %.sroa.04.0.i.i = select i1 %23, i8 32, i8 0
-  %24 = xor i8 %.sroa.04.0.i.i, %18
-  %.sroa.02.1.insert.ext.i = zext i8 %24 to i64
+  %24 = xor i8 %18, 32
+  %.sroa.04.0.i.i = select i1 %23, i8 %24, i8 %18
+  %.sroa.02.1.insert.ext.i = zext i8 %.sroa.04.0.i.i to i64
   %.sroa.02.1.insert.shift.i = shl nuw nsw i64 %.sroa.02.1.insert.ext.i, 8
   br label %"_ZN6yara_x8compiler5atoms16CaseCombinations3new28_$u7b$$u7b$closure$u7d$$u7d$17h8004be9b36af0e8fE.exit.i"
 

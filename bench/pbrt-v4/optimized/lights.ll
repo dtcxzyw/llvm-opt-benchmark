@@ -25247,8 +25247,8 @@ define dso_local void @_ZNK4pbrt9SpotLight8SampleLeENS_6Point2IfEES2_RNS_18Sampl
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.sroa.077.0.vec.extract = extractelement <2 x float> %3, i64 0
-  %20 = fmul float %.sroa.077.0.vec.extract, %23
+  %.sroa.075.0.vec.extract = extractelement <2 x float> %3, i64 0
+  %20 = fmul float %.sroa.075.0.vec.extract, %23
   %21 = fcmp oeq float %20, %23
   br i1 %21, label %24, label %_ZN4pbrt13NextFloatDownEf.exit.i
 
@@ -25357,7 +25357,7 @@ _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit: ; preds = %30
   %73 = fsub float %69, %68
   %74 = fdiv float 2.000000e+00, %73
   %75 = fcmp oeq float %68, %69
-  br i1 %75, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %76
+  br i1 %75, label %_ZN4pbrt13SmoothStepPDFEfff.exit, label %76
 
 76:                                               ; preds = %72
   %77 = fsub float %57, %68
@@ -25370,22 +25370,18 @@ _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit: ; preds = %30
   %82 = fmul float %.0.i.i.i, 2.000000e+00
   %83 = fsub float 3.000000e+00, %82
   %84 = fmul float %81, %83
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i
-
-_ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %76, %72
-  %.0.i.i31 = phi float [ %84, %76 ], [ 1.000000e+00, %72 ]
-  %85 = fmul float %74, %.0.i.i31
+  %85 = fmul float %74, %84
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit
 
-_ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %56, %_ZN4pbrt10SmoothStepEfff.exit.i
-  %.0.i32 = phi float [ %85, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %56 ]
-  %86 = fmul float %35, %.0.i32
+_ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %56, %72, %76
+  %.0.i31 = phi float [ 0.000000e+00, %56 ], [ %85, %76 ], [ %74, %72 ]
+  %86 = fmul float %35, %.0.i31
   %87 = fdiv float %86, 0x401921FB60000000
   br label %88
 
 88:                                               ; preds = %_ZN4pbrt13SmoothStepPDFEfff.exit, %39
-  %.sroa.071.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %39 ], [ %.sroa.0.4.vec.insert.i, %_ZN4pbrt13SmoothStepPDFEfff.exit ]
-  %.sroa.974.0 = phi float [ %.0.i8.i.i, %39 ], [ %.0.i8.i, %_ZN4pbrt13SmoothStepPDFEfff.exit ]
+  %.sroa.069.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %39 ], [ %.sroa.0.4.vec.insert.i, %_ZN4pbrt13SmoothStepPDFEfff.exit ]
+  %.sroa.972.0 = phi float [ %.0.i8.i.i, %39 ], [ %.0.i8.i, %_ZN4pbrt13SmoothStepPDFEfff.exit ]
   %.0 = phi float [ %55, %39 ], [ %87, %_ZN4pbrt13SmoothStepPDFEfff.exit ]
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -25400,16 +25396,16 @@ _ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %56, %_ZN4pbrt10Smoo
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr dead_on_unwind nonnull writable sret(%"class.pbrt::Point3fi") align 4 %9, ptr noundef nonnull align 4 dereferenceable(128) %89, ptr noundef nonnull align 4 dereferenceable(24) %10), !noalias !590
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !590
   %94 = load float, ptr %89, align 4, !tbaa !77, !noalias !590
-  %.sroa.03.0.vec.extract.i.i = extractelement <2 x float> %.sroa.071.0, i64 0
+  %.sroa.03.0.vec.extract.i.i = extractelement <2 x float> %.sroa.069.0, i64 0
   %95 = fmul float %.sroa.03.0.vec.extract.i.i, %94
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load float, ptr %96, align 8, !tbaa !77, !noalias !590
-  %.sroa.03.4.vec.extract.i.i = extractelement <2 x float> %.sroa.071.0, i64 1
+  %.sroa.03.4.vec.extract.i.i = extractelement <2 x float> %.sroa.069.0, i64 1
   %98 = fmul float %.sroa.03.4.vec.extract.i.i, %97
   %99 = fadd float %95, %98
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %101 = load float, ptr %100, align 4, !tbaa !77, !noalias !590
-  %102 = fmul float %.sroa.974.0, %101
+  %102 = fmul float %.sroa.972.0, %101
   %103 = fadd float %99, %102
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %105 = load float, ptr %104, align 4, !tbaa !77, !noalias !590
@@ -25420,7 +25416,7 @@ _ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %56, %_ZN4pbrt10Smoo
   %110 = fadd float %106, %109
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %112 = load float, ptr %111, align 4, !tbaa !77, !noalias !590
-  %113 = fmul float %.sroa.974.0, %112
+  %113 = fmul float %.sroa.972.0, %112
   %114 = fadd float %110, %113
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %116 = load float, ptr %115, align 4, !tbaa !77, !noalias !590
@@ -25431,7 +25427,7 @@ _ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %56, %_ZN4pbrt10Smoo
   %121 = fadd float %117, %120
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %123 = load float, ptr %122, align 4, !tbaa !77, !noalias !590
-  %124 = fmul float %.sroa.974.0, %123
+  %124 = fmul float %.sroa.972.0, %123
   %125 = fadd float %121, %124
   %126 = fmul float %103, %103
   %127 = fmul float %114, %114
@@ -25497,26 +25493,26 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %88, %132
   br i1 %165, label %166, label %169
 
 166:                                              ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %167 = fcmp uge float %.sroa.974.0, %163
+  %167 = fcmp uge float %.sroa.972.0, %163
   %168 = uitofp i1 %167 to float
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i36
+  br label %_ZN4pbrt10SmoothStepEfff.exit.i
 
 169:                                              ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %170 = fsub float %.sroa.974.0, %163
+  %170 = fsub float %.sroa.972.0, %163
   %171 = fsub float %164, %163
   %172 = fdiv float %170, %171
   %173 = fcmp olt float %172, 0.000000e+00
   %174 = fcmp ogt float %172, 1.000000e+00
-  %..i.i.i34 = select i1 %174, float 1.000000e+00, float %172
-  %.0.i.i.i35 = select i1 %173, float 0.000000e+00, float %..i.i.i34
-  %175 = fmul float %.0.i.i.i35, %.0.i.i.i35
-  %176 = fmul float %.0.i.i.i35, 2.000000e+00
+  %..i.i.i33 = select i1 %174, float 1.000000e+00, float %172
+  %.0.i.i.i34 = select i1 %173, float 0.000000e+00, float %..i.i.i33
+  %175 = fmul float %.0.i.i.i34, %.0.i.i.i34
+  %176 = fmul float %.0.i.i.i34, 2.000000e+00
   %177 = fsub float 3.000000e+00, %176
   %178 = fmul float %175, %177
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i36
+  br label %_ZN4pbrt10SmoothStepEfff.exit.i
 
-_ZN4pbrt10SmoothStepEfff.exit.i36:                ; preds = %169, %166
-  %.0.i.i37 = phi float [ %168, %166 ], [ %178, %169 ]
+_ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %169, %166
+  %.0.i.i35 = phi float [ %168, %166 ], [ %178, %169 ]
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %180 = load float, ptr %179, align 8, !tbaa !583
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -25529,8 +25525,8 @@ _ZN4pbrt10SmoothStepEfff.exit.i36:                ; preds = %169, %166
   %186 = load ptr, ptr %185, align 8
   br label %187
 
-187:                                              ; preds = %200, %_ZN4pbrt10SmoothStepEfff.exit.i36
-  %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit.i36 ], [ %indvars.iv.next.i.i, %200 ]
+187:                                              ; preds = %200, %_ZN4pbrt10SmoothStepEfff.exit.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ %indvars.iv.next.i.i, %200 ]
   %188 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i
   %189 = load float, ptr %188, align 4, !tbaa !77
   %190 = call noundef i64 @lroundf(float noundef %189) #39, !tbaa !86
@@ -25559,7 +25555,7 @@ _ZN4pbrt10SmoothStepEfff.exit.i36:                ; preds = %169, %166
   br i1 %exitcond.not.i.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i, label %187, !llvm.loop !111
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; preds = %200
-  %202 = fmul float %.0.i.i37, %180
+  %202 = fmul float %.0.i.i35, %180
   %.fca.0.load.i.i = load <2 x float>, ptr %7, align 8
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.fca.1.gep.i.i, align 8
@@ -25598,8 +25594,8 @@ _ZN4pbrt13LightLeSampleD2Ev.exit:                 ; preds = %203
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 1, ptr %213, align 8, !tbaa !116
   store <2 x float> %.fca.0.load.i.i.i, ptr %0, align 8
-  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !16
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.071.4.vec.insert.i, ptr %214, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25616,8 +25612,8 @@ _ZN4pbrt13LightLeSampleD2Ev.exit:                 ; preds = %203
   store i8 0, ptr %216, align 8, !tbaa !118
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1065353216, ptr %217, align 8
-  %.sroa_idx41 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %.0, ptr %.sroa_idx41, align 4
+  %.sroa_idx39 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store float %.0, ptr %.sroa_idx39, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
@@ -25671,7 +25667,7 @@ define dso_local void @_ZNK4pbrt9SpotLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef no
   %37 = fsub float %24, %34
   %38 = fdiv float 2.000000e+00, %37
   %39 = fcmp oeq float %34, %24
-  br i1 %39, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %40
+  br i1 %39, label %_ZN4pbrt13SmoothStepPDFEfff.exit, label %40
 
 40:                                               ; preds = %36
   %41 = fsub float %23, %34
@@ -25684,15 +25680,11 @@ define dso_local void @_ZNK4pbrt9SpotLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef no
   %46 = fmul float %.0.i.i.i, 2.000000e+00
   %47 = fsub float 3.000000e+00, %46
   %48 = fmul float %45, %47
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i
-
-_ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %40, %36
-  %.0.i.i = phi float [ %48, %40 ], [ 1.000000e+00, %36 ]
-  %49 = fmul float %38, %.0.i.i
+  %49 = fmul float %38, %48
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit
 
-_ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %33, %_ZN4pbrt10SmoothStepEfff.exit.i
-  %.0.i = phi float [ %49, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %33 ]
+_ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %33, %36, %40
+  %.0.i = phi float [ 0.000000e+00, %33 ], [ %49, %40 ], [ %38, %36 ]
   %50 = fmul float %11, %.0.i
   %51 = fadd float %7, %11
   %52 = fmul float %51, 0x401921FB60000000
@@ -27191,7 +27183,7 @@ define dso_local void @_ZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnul
   %138 = fsub float %125, %135
   %139 = fdiv float 2.000000e+00, %138
   %140 = fcmp oeq float %135, %125
-  br i1 %140, label %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i, label %141
+  br i1 %140, label %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i, label %141
 
 141:                                              ; preds = %137
   %142 = fsub float %124, %135
@@ -27204,15 +27196,11 @@ define dso_local void @_ZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnul
   %147 = fmul float %.0.i.i.i.i.i.i.i, 2.000000e+00
   %148 = fsub float 3.000000e+00, %147
   %149 = fmul float %146, %148
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i
-
-_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i:          ; preds = %141, %137
-  %.0.i.i.i.i.i.i = phi float [ %149, %141 ], [ 1.000000e+00, %137 ]
-  %150 = fmul float %139, %.0.i.i.i.i.i.i
+  %150 = fmul float %139, %149
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i
 
-_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i:         ; preds = %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i, %134
-  %.0.i.i.i.i.i = phi float [ %150, %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i ], [ 0.000000e+00, %134 ]
+_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i:         ; preds = %141, %137, %134
+  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %134 ], [ %150, %141 ], [ %139, %137 ]
   %151 = fmul float %112, %.0.i.i.i.i.i
   %152 = fadd float %108, %112
   %153 = fmul float %152, 0x401921FB60000000
@@ -58831,10 +58819,10 @@ declare float @acosf(float noundef) local_unnamed_addr #30
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN4pbrt15NewtonBisectionIZNS_16SampleSmoothStepEfffEUlfE_EEfffT_ff(float noundef %0, float noundef %1, <2 x float> %2, float %3, float noundef %4, float noundef %5) local_unnamed_addr #32 comdat {
 _ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit:
-  %.sroa.0.0.vec.extract66 = extractelement <2 x float> %2, i64 0
-  %6 = fsub float %0, %.sroa.0.0.vec.extract66
-  %.sroa.0.4.vec.extract71 = extractelement <2 x float> %2, i64 1
-  %7 = fsub float %.sroa.0.4.vec.extract71, %.sroa.0.0.vec.extract66
+  %.sroa.0.0.vec.extract62 = extractelement <2 x float> %2, i64 0
+  %6 = fsub float %0, %.sroa.0.0.vec.extract62
+  %.sroa.0.4.vec.extract67 = extractelement <2 x float> %2, i64 1
+  %7 = fsub float %.sroa.0.4.vec.extract67, %.sroa.0.0.vec.extract62
   %8 = fdiv float %6, %7
   %9 = fmul float %8, %8
   %10 = fmul float %8, %9
@@ -58842,7 +58830,7 @@ _ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit:
   %12 = fmul float %9, %9
   %13 = fsub float %11, %12
   %14 = fsub float %13, %3
-  %15 = fsub float %1, %.sroa.0.0.vec.extract66
+  %15 = fsub float %1, %.sroa.0.0.vec.extract62
   %16 = fdiv float %15, %7
   %17 = fmul float %16, %16
   %18 = fmul float %16, %17
@@ -58868,7 +58856,7 @@ _ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit:
   %34 = fdiv float %32, %33
   %35 = fadd float %0, %34
   %36 = fdiv float 2.000000e+00, %7
-  %37 = fcmp oeq float %.sroa.0.0.vec.extract66, %.sroa.0.4.vec.extract71
+  %37 = fcmp oeq float %.sroa.0.0.vec.extract62, %.sroa.0.4.vec.extract67
   %.fr = freeze i1 %37
   br i1 %.fr, label %.split.us, label %.split
 
@@ -58882,7 +58870,7 @@ _ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit:
   %40 = fadd float %.045.us, %.042.us
   %41 = fmul float %40, 5.000000e-01
   %.140.us = select i1 %or.cond.us, float %.039.us, float %41
-  %42 = fsub float %.140.us, %.sroa.0.0.vec.extract66
+  %42 = fsub float %.140.us, %.sroa.0.0.vec.extract62
   %43 = fdiv float %42, %7
   %44 = fmul float %43, %43
   %45 = fmul float %43, %44
@@ -58898,73 +58886,73 @@ _ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit:
   %53 = fcmp olt float %52, %4
   %54 = tail call float @llvm.fabs.f32(float %49)
   %55 = fcmp olt float %54, %5
-  %or.cond82.us = or i1 %55, %53
-  br i1 %or.cond82.us, label %.thread, label %56
+  %or.cond78.us = or i1 %55, %53
+  br i1 %or.cond78.us, label %.thread, label %56
 
 56:                                               ; preds = %.split.us
-  %57 = fcmp olt float %.140.us, %.sroa.0.0.vec.extract66
-  %58 = fcmp ogt float %.140.us, %.sroa.0.4.vec.extract71
-  %or.cond.i.i57.us = or i1 %57, %58
-  %spec.select = select i1 %or.cond.i.i57.us, float 0.000000e+00, float %36
+  %57 = fcmp olt float %.140.us, %.sroa.0.0.vec.extract62
+  %58 = fcmp ogt float %.140.us, %.sroa.0.4.vec.extract67
+  %or.cond.i.i55.us = or i1 %57, %58
+  %spec.select = select i1 %or.cond.i.i55.us, float 0.000000e+00, float %36
   %59 = fdiv float %49, %spec.select
   %60 = fsub float %.140.us, %59
   br label %.split.us, !llvm.loop !1239
 
-.split:                                           ; preds = %28, %88
-  %.045 = phi float [ %.146, %88 ], [ %1, %28 ]
-  %.042 = phi float [ %.143, %88 ], [ %0, %28 ]
-  %.039 = phi float [ %90, %88 ], [ %35, %28 ]
+.split:                                           ; preds = %28, %89
+  %.045 = phi float [ %.146, %89 ], [ %1, %28 ]
+  %.042 = phi float [ %.143, %89 ], [ %0, %28 ]
+  %.039 = phi float [ %91, %89 ], [ %35, %28 ]
   %61 = fcmp olt float %.042, %.039
   %62 = fcmp olt float %.039, %.045
   %or.cond = and i1 %61, %62
   %63 = fadd float %.045, %.042
   %64 = fmul float %63, 5.000000e-01
   %.140 = select i1 %or.cond, float %.039, float %64
-  %65 = fsub float %.140, %.sroa.0.0.vec.extract66
+  %65 = fsub float %.140, %.sroa.0.0.vec.extract62
   %66 = fdiv float %65, %7
-  %67 = fcmp olt float %.140, %.sroa.0.0.vec.extract66
-  %68 = fcmp ogt float %.140, %.sroa.0.4.vec.extract71
-  %or.cond.i.i57 = or i1 %67, %68
-  br i1 %or.cond.i.i57, label %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65, label %_ZN4pbrt10SmoothStepEfff.exit.i.i60
+  %67 = fcmp olt float %.140, %.sroa.0.0.vec.extract62
+  %68 = fcmp ogt float %.140, %.sroa.0.4.vec.extract67
+  %or.cond.i.i55 = or i1 %67, %68
+  br i1 %or.cond.i.i55, label %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61, label %69
 
-_ZN4pbrt10SmoothStepEfff.exit.i.i60:              ; preds = %.split
-  %69 = fcmp olt float %66, 0.000000e+00
-  %70 = fcmp ogt float %66, 1.000000e+00
-  %..i.i.i.i58 = select i1 %70, float 1.000000e+00, float %66
-  %.0.i.i.i.i59 = select i1 %69, float 0.000000e+00, float %..i.i.i.i58
-  %71 = fmul float %.0.i.i.i.i59, %.0.i.i.i.i59
-  %72 = fmul float %.0.i.i.i.i59, 2.000000e+00
-  %73 = fsub float 3.000000e+00, %72
-  %74 = fmul float %71, %73
-  %75 = fmul float %36, %74
-  br label %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65
+69:                                               ; preds = %.split
+  %70 = fcmp olt float %66, 0.000000e+00
+  %71 = fcmp ogt float %66, 1.000000e+00
+  %..i.i.i.i56 = select i1 %71, float 1.000000e+00, float %66
+  %.0.i.i.i.i57 = select i1 %70, float 0.000000e+00, float %..i.i.i.i56
+  %72 = fmul float %.0.i.i.i.i57, %.0.i.i.i.i57
+  %73 = fmul float %.0.i.i.i.i57, 2.000000e+00
+  %74 = fsub float 3.000000e+00, %73
+  %75 = fmul float %72, %74
+  %76 = fmul float %36, %75
+  br label %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61
 
-_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65: ; preds = %.split, %_ZN4pbrt10SmoothStepEfff.exit.i.i60
-  %.0.i.i62 = phi float [ %75, %_ZN4pbrt10SmoothStepEfff.exit.i.i60 ], [ 0.000000e+00, %.split ]
-  %76 = fmul float %66, %66
-  %77 = fmul float %66, %76
-  %78 = fmul float %77, 2.000000e+00
-  %79 = fmul float %76, %76
-  %80 = fsub float %78, %79
-  %81 = fsub float %80, %3
-  %82 = fcmp uge float %81, 0.000000e+00
-  %83 = xor i1 %29, %82
-  %.146 = select i1 %83, float %.045, float %.140
-  %.143 = select i1 %83, float %.140, float %.042
-  %84 = fsub float %.146, %.143
-  %85 = fcmp olt float %84, %4
-  %86 = tail call float @llvm.fabs.f32(float %81)
-  %87 = fcmp olt float %86, %5
-  %or.cond82 = or i1 %87, %85
-  br i1 %or.cond82, label %.thread, label %88
+_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61: ; preds = %.split, %69
+  %.0.i.i58 = phi float [ 0.000000e+00, %.split ], [ %76, %69 ]
+  %77 = fmul float %66, %66
+  %78 = fmul float %66, %77
+  %79 = fmul float %78, 2.000000e+00
+  %80 = fmul float %77, %77
+  %81 = fsub float %79, %80
+  %82 = fsub float %81, %3
+  %83 = fcmp uge float %82, 0.000000e+00
+  %84 = xor i1 %29, %83
+  %.146 = select i1 %84, float %.045, float %.140
+  %.143 = select i1 %84, float %.140, float %.042
+  %85 = fsub float %.146, %.143
+  %86 = fcmp olt float %85, %4
+  %87 = tail call float @llvm.fabs.f32(float %82)
+  %88 = fcmp olt float %87, %5
+  %or.cond78 = or i1 %88, %86
+  br i1 %or.cond78, label %.thread, label %89
 
-88:                                               ; preds = %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65
-  %89 = fdiv float %81, %.0.i.i62
-  %90 = fsub float %.140, %89
+89:                                               ; preds = %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61
+  %90 = fdiv float %82, %.0.i.i58
+  %91 = fsub float %.140, %90
   br label %.split, !llvm.loop !1239
 
-.thread:                                          ; preds = %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65, %.split.us, %25, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit
-  %.0 = phi float [ %1, %25 ], [ %0, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit ], [ %.140.us, %.split.us ], [ %.140, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit65 ]
+.thread:                                          ; preds = %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61, %.split.us, %25, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit
+  %.0 = phi float [ %1, %25 ], [ %0, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit ], [ %.140.us, %.split.us ], [ %.140, %_ZZN4pbrt16SampleSmoothStepEfffENKUlfE_clEf.exit61 ]
   ret float %.0
 }
 

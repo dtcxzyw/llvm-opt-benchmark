@@ -2059,11 +2059,11 @@ _ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit: ; preds = %_
   %72 = zext i16 %71 to i32
   %73 = mul nuw i32 %72, %72
   %74 = icmp ne i32 %69, %73
+  %75 = or i1 %53, %74
   br label %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit7.i"
 
 "_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit7.i": ; preds = %60, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %75 = phi i1 [ false, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %74, %60 ]
-  %76 = or i1 %53, %75
+  %76 = phi i1 [ %53, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %75, %60 ]
   %77 = add i16 %1, -1
   %78 = zext i16 %77 to i64
   %79 = getelementptr inbounds nuw %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex", ptr %0, i64 %78
@@ -2087,11 +2087,11 @@ _ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit: ; preds = %_
   %95 = zext i16 %94 to i32
   %96 = mul nuw i32 %95, %95
   %97 = icmp ne i32 %92, %96
+  %98 = or i1 %76, %97
   br label %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
 "_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit8.i": ; preds = %83, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit7.i"
-  %98 = phi i1 [ false, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %97, %83 ]
-  %99 = or i1 %76, %98
+  %99 = phi i1 [ %76, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %98, %83 ]
   %100 = add i16 %1, -21
   %101 = zext i16 %100 to i64
   %102 = getelementptr inbounds nuw %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex", ptr %0, i64 %101
@@ -2115,30 +2115,29 @@ _ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit: ; preds = %_
   %118 = zext i16 %117 to i32
   %119 = mul nuw i32 %118, %118
   %120 = icmp ne i32 %115, %119
-  br label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
+  %121 = or i1 %99, %120
+  br i1 %121, label %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread, label %122
 
-"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit8.i", %106
-  %121 = phi i1 [ false, %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %120, %106 ]
-  %122 = or i1 %99, %121
-  br i1 %122, label %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread, label %123
+"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZNK10open_spiel10phantom_go14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEENK3$_0clEt.exit8.i"
+  br i1 %99, label %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread, label %122
 
-123:                                              ; preds = %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
+122:                                              ; preds = %106, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
   store i8 0, ptr %4, align 1
   store ptr %0, ptr %5, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %2, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %125, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %2, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %124, align 8
   call fastcc void @"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_1EEvtRKT_"(i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %126 = load i8, ptr %4, align 1
-  %127 = trunc i8 %126 to i1
+  %125 = load i8, ptr %4, align 1
+  %126 = trunc i8 %125 to i1
   br label %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread
 
 _ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread.fold.split: ; preds = %3
   br label %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread
 
-_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread: ; preds = %3, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread.fold.split, %_ZN10open_spiel10phantom_go21VirtualPointTo2DPointEt.exit.i, %123, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit", %22, %13, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit
-  %.0 = phi i1 [ true, %3 ], [ false, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit ], [ false, %13 ], [ true, %22 ], [ %127, %123 ], [ true, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ false, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread.fold.split ], [ false, %_ZN10open_spiel10phantom_go21VirtualPointTo2DPointEt.exit.i ]
+_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread: ; preds = %106, %3, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread.fold.split, %_ZN10open_spiel10phantom_go21VirtualPointTo2DPointEt.exit.i, %122, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit", %22, %13, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit
+  %.0 = phi i1 [ true, %3 ], [ false, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit ], [ false, %13 ], [ true, %22 ], [ %126, %122 ], [ true, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNKS0_14PhantomGoBoard19IsLegalMoveObserverEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ false, %_ZNK10open_spiel10phantom_go14PhantomGoBoard13IsInBoardAreaEt.exit.thread.fold.split ], [ false, %_ZN10open_spiel10phantom_go21VirtualPointTo2DPointEt.exit.i ], [ true, %106 ]
   ret i1 %.0
 }
 

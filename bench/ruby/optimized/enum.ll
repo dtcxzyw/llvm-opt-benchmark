@@ -4425,14 +4425,14 @@ RB_FLOAT_TYPE_P.exit30:                           ; preds = %56
   br i1 %64, label %RB_FLOAT_TYPE_P.exit30.thread, label %RB_FLOAT_TYPE_P.exit30.thread48
 
 RB_FLOAT_TYPE_P.exit30.thread:                    ; preds = %RB_FLOAT_TYPE_P.exit.thread42, %RB_FLOAT_TYPE_P.exit30
+  %65 = or disjoint i8 %53, 2
   br label %RB_FLOAT_TYPE_P.exit30.thread48
 
 RB_FLOAT_TYPE_P.exit30.thread48:                  ; preds = %56, %RB_FLOAT_TYPE_P.exit30, %RB_FLOAT_TYPE_P.exit30.thread
-  %65 = phi i8 [ 2, %RB_FLOAT_TYPE_P.exit30.thread ], [ 0, %RB_FLOAT_TYPE_P.exit30 ], [ 0, %56 ]
-  %66 = trunc i64 %.0.i26 to i8
-  %67 = and i8 %66, 1
-  %68 = or disjoint i8 %53, %67
-  %69 = or disjoint i8 %68, %65
+  %66 = phi i8 [ %65, %RB_FLOAT_TYPE_P.exit30.thread ], [ %53, %RB_FLOAT_TYPE_P.exit30 ], [ %53, %56 ]
+  %67 = trunc i64 %.0.i26 to i8
+  %68 = and i8 %67, 1
+  %69 = or disjoint i8 %66, %68
   %70 = and i8 %69, %39
   store i8 %70, ptr %38, align 1, !tbaa !50
   br label %71

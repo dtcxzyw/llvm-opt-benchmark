@@ -1020,20 +1020,16 @@ _ZN4pbrt4SincEf.exit.i.i:                         ; preds = %61, %56
   %66 = fmul float %65, %65
   %67 = fsub float 1.000000e+00, %66
   %68 = fcmp oeq float %67, 1.000000e+00
-  br i1 %68, label %_ZN4pbrt4SincEf.exit7.i.i, label %69
+  br i1 %68, label %_ZN4pbrt12WindowedSincEfff.exit.i, label %69
 
 69:                                               ; preds = %_ZN4pbrt4SincEf.exit.i.i
   %70 = tail call noundef float @sinf(float noundef %65) #23, !tbaa !99
   %71 = fdiv float %70, %65
-  br label %_ZN4pbrt4SincEf.exit7.i.i
-
-_ZN4pbrt4SincEf.exit7.i.i:                        ; preds = %69, %_ZN4pbrt4SincEf.exit.i.i
-  %.0.i.i6.i.i = phi float [ %71, %69 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i.i ]
-  %72 = fmul float %.0.i.i.i.i, %.0.i.i6.i.i
+  %72 = fmul float %.0.i.i.i.i, %71
   br label %_ZN4pbrt12WindowedSincEfff.exit.i
 
-_ZN4pbrt12WindowedSincEfff.exit.i:                ; preds = %_ZN4pbrt4SincEf.exit7.i.i, %16
-  %.0.i.i = phi float [ %72, %_ZN4pbrt4SincEf.exit7.i.i ], [ 0.000000e+00, %16 ]
+_ZN4pbrt12WindowedSincEfff.exit.i:                ; preds = %69, %_ZN4pbrt4SincEf.exit.i.i, %16
+  %.0.i.i = phi float [ 0.000000e+00, %16 ], [ %72, %69 ], [ %.0.i.i.i.i, %_ZN4pbrt4SincEf.exit.i.i ]
   %73 = tail call noundef float @llvm.fabs.f32(float %53)
   %74 = fcmp ogt float %73, %4
   br i1 %74, label %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit, label %75
@@ -1057,21 +1053,17 @@ _ZN4pbrt4SincEf.exit.i1.i:                        ; preds = %80, %75
   %85 = fmul float %84, %84
   %86 = fsub float 1.000000e+00, %85
   %87 = fcmp oeq float %86, 1.000000e+00
-  br i1 %87, label %_ZN4pbrt4SincEf.exit7.i3.i, label %88
+  br i1 %87, label %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit, label %88
 
 88:                                               ; preds = %_ZN4pbrt4SincEf.exit.i1.i
   %89 = tail call noundef float @sinf(float noundef %84) #23, !tbaa !99
   %90 = fdiv float %89, %84
-  br label %_ZN4pbrt4SincEf.exit7.i3.i
-
-_ZN4pbrt4SincEf.exit7.i3.i:                       ; preds = %88, %_ZN4pbrt4SincEf.exit.i1.i
-  %.0.i.i6.i4.i = phi float [ %90, %88 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i1.i ]
-  %91 = fmul float %.0.i.i.i2.i, %.0.i.i6.i4.i
+  %91 = fmul float %.0.i.i.i2.i, %90
   br label %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit
 
-_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit: ; preds = %_ZN4pbrt12WindowedSincEfff.exit.i, %_ZN4pbrt4SincEf.exit7.i3.i
-  %.0.i5.i = phi float [ %91, %_ZN4pbrt4SincEf.exit7.i3.i ], [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i ]
-  %92 = fmul float %.0.i.i, %.0.i5.i
+_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit: ; preds = %_ZN4pbrt12WindowedSincEfff.exit.i, %_ZN4pbrt4SincEf.exit.i1.i, %88
+  %.0.i3.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i ], [ %91, %88 ], [ %.0.i.i.i2.i, %_ZN4pbrt4SincEf.exit.i1.i ]
+  %92 = fmul float %.0.i.i, %.0.i3.i
   %93 = fadd float %.126, %92
   %94 = add nuw nsw i32 %.01625, 1
   %exitcond.not = icmp eq i32 %94, 64
@@ -1975,20 +1967,16 @@ _ZN4pbrt4SincEf.exit.i.i.i.i:                     ; preds = %294, %289
   %299 = fmul float %298, %298
   %300 = fsub float 1.000000e+00, %299
   %301 = fcmp oeq float %300, 1.000000e+00
-  br i1 %301, label %_ZN4pbrt4SincEf.exit7.i.i.i.i, label %302
+  br i1 %301, label %_ZN4pbrt12WindowedSincEfff.exit.i.i.i, label %302
 
 302:                                              ; preds = %_ZN4pbrt4SincEf.exit.i.i.i.i
   %303 = tail call noundef float @sinf(float noundef %298) #23, !tbaa !99
   %304 = fdiv float %303, %298
-  br label %_ZN4pbrt4SincEf.exit7.i.i.i.i
-
-_ZN4pbrt4SincEf.exit7.i.i.i.i:                    ; preds = %302, %_ZN4pbrt4SincEf.exit.i.i.i.i
-  %.0.i.i6.i.i.i.i = phi float [ %304, %302 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i.i.i.i ]
-  %305 = fmul float %.0.i.i.i.i.i.i, %.0.i.i6.i.i.i.i
+  %305 = fmul float %.0.i.i.i.i.i.i, %304
   br label %_ZN4pbrt12WindowedSincEfff.exit.i.i.i
 
-_ZN4pbrt12WindowedSincEfff.exit.i.i.i:            ; preds = %_ZN4pbrt4SincEf.exit7.i.i.i.i, %284
-  %.0.i.i.i.i = phi float [ %305, %_ZN4pbrt4SincEf.exit7.i.i.i.i ], [ 0.000000e+00, %284 ]
+_ZN4pbrt12WindowedSincEfff.exit.i.i.i:            ; preds = %302, %_ZN4pbrt4SincEf.exit.i.i.i.i, %284
+  %.0.i.i.i.i = phi float [ 0.000000e+00, %284 ], [ %305, %302 ], [ %.0.i.i.i.i.i.i, %_ZN4pbrt4SincEf.exit.i.i.i.i ]
   %306 = load float, ptr %68, align 4, !tbaa !94
   %307 = tail call noundef float @llvm.fabs.f32(float %105)
   %308 = fcmp ogt float %307, %306
@@ -2013,21 +2001,17 @@ _ZN4pbrt4SincEf.exit.i1.i.i.i:                    ; preds = %314, %309
   %319 = fmul float %318, %318
   %320 = fsub float 1.000000e+00, %319
   %321 = fcmp oeq float %320, 1.000000e+00
-  br i1 %321, label %_ZN4pbrt4SincEf.exit7.i3.i.i.i, label %322
+  br i1 %321, label %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i, label %322
 
 322:                                              ; preds = %_ZN4pbrt4SincEf.exit.i1.i.i.i
   %323 = tail call noundef float @sinf(float noundef %318) #23, !tbaa !99
   %324 = fdiv float %323, %318
-  br label %_ZN4pbrt4SincEf.exit7.i3.i.i.i
-
-_ZN4pbrt4SincEf.exit7.i3.i.i.i:                   ; preds = %322, %_ZN4pbrt4SincEf.exit.i1.i.i.i
-  %.0.i.i6.i4.i.i.i = phi float [ %324, %322 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i1.i.i.i ]
-  %325 = fmul float %.0.i.i.i2.i.i.i, %.0.i.i6.i4.i.i.i
+  %325 = fmul float %.0.i.i.i2.i.i.i, %324
   br label %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i
 
-_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i: ; preds = %_ZN4pbrt4SincEf.exit7.i3.i.i.i, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i
-  %.0.i5.i.i.i = phi float [ %325, %_ZN4pbrt4SincEf.exit7.i3.i.i.i ], [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i ]
-  %326 = fmul float %.0.i.i.i.i, %.0.i5.i.i.i
+_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i: ; preds = %322, %_ZN4pbrt4SincEf.exit.i1.i.i.i, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i
+  %.0.i3.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i ], [ %325, %322 ], [ %.0.i.i.i2.i.i.i, %_ZN4pbrt4SincEf.exit.i1.i.i.i ]
+  %326 = fmul float %.0.i.i.i.i, %.0.i3.i.i.i
   br label %337
 
 327:                                              ; preds = %83

@@ -2715,11 +2715,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeGenRegister15inheritRegUnitsE
   br label %9
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit, %2
-  %.0.lcssa = phi i1 [ false, %2 ], [ %61, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit ]
+  %.0.lcssa = phi i1 [ false, %2 ], [ %.0.i, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit ]
   ret i1 %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit
-  %.011 = phi i1 [ false, %.lr.ph ], [ %61, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit ]
+  %.011 = phi i1 [ false, %.lr.ph ], [ %.0.i, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit ]
   %.sroa.06.010 = phi ptr [ %4, %.lr.ph ], [ %62, %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !307
@@ -2824,11 +2824,11 @@ _ZN4llvm22SparseBitVectorElementILj128EE9unionWithERKS1_.exit.i: ; preds = %51
   %59 = load ptr, ptr %6, align 8, !tbaa !281
   store ptr %59, ptr %8, align 8, !tbaa !315
   %60 = trunc nuw i8 %.19.i to i1
+  %61 = or i1 %.011, %60
   br label %_ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit
 
 _ZN4llvm15SparseBitVectorILj128EEoRERKS1_.exit:   ; preds = %9, %14, %58
-  %.0.i = phi i1 [ false, %9 ], [ %60, %58 ], [ false, %14 ]
-  %61 = or i1 %.011, %.0.i
+  %.0.i = phi i1 [ %.011, %9 ], [ %61, %58 ], [ %.011, %14 ]
   %62 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010) #31
   %.not = icmp eq ptr %62, %5
   br i1 %.not, label %._crit_edge, label %9

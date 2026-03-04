@@ -288,7 +288,7 @@ open_midx_bitmap.exit:                            ; preds = %.lr.ph.i
 7:                                                ; preds = %open_midx_bitmap.exit
   %8 = tail call i32 @trace2_is_enabled() #22
   %.not6 = icmp eq i32 %8, 0
-  br i1 %.not6, label %76, label %open_midx_bitmap.exit.thread
+  br i1 %.not6, label %77, label %open_midx_bitmap.exit.thread
 
 open_midx_bitmap.exit.thread:                     ; preds = %2, %7, %open_midx_bitmap.exit
   %.not13.not = phi i1 [ true, %open_midx_bitmap.exit ], [ false, %7 ], [ true, %2 ]
@@ -457,16 +457,16 @@ open_pack_bitmap_1.exit.thread.i:                 ; preds = %58, %48, %bitmap_re
 open_pack_bitmap.exit.loopexit:                   ; preds = %71, %69
   %.1.i.ph = phi i32 [ 0, %69 ], [ %.2.i, %71 ]
   %74 = icmp ne i32 %.1.i.ph, 0
+  %75 = and i1 %.not13.not, %74
   br label %open_pack_bitmap.exit
 
 open_pack_bitmap.exit:                            ; preds = %open_pack_bitmap.exit.loopexit, %open_midx_bitmap.exit.thread
-  %.1.i = phi i1 [ true, %open_midx_bitmap.exit.thread ], [ %74, %open_pack_bitmap.exit.loopexit ]
-  %.not14 = and i1 %.not13.not, %.1.i
-  %75 = sext i1 %.not14 to i32
-  br label %76
+  %.1.i = phi i1 [ %.not13.not, %open_midx_bitmap.exit.thread ], [ %75, %open_pack_bitmap.exit.loopexit ]
+  %76 = sext i1 %.1.i to i32
+  br label %77
 
-76:                                               ; preds = %open_pack_bitmap.exit, %7
-  %.0.in = phi i32 [ %75, %open_pack_bitmap.exit ], [ 0, %7 ]
+77:                                               ; preds = %open_pack_bitmap.exit, %7
+  %.0.in = phi i32 [ %76, %open_pack_bitmap.exit ], [ 0, %7 ]
   ret i32 %.0.in
 }
 

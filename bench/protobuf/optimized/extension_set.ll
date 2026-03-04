@@ -7326,12 +7326,14 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
+  store ptr %1, ptr %this, align 8
+  store ptr %0, ptr %other, align 8
   %flat_capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %flat_capacity_3.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %2 = load i16, ptr %flat_capacity_.i, align 8
-  %3 = load i16, ptr %flat_capacity_3.i, align 2
+  %3 = load i16, ptr %flat_capacity_3.i, align 8
   store i16 %3, ptr %flat_capacity_.i, align 8
-  store i16 %2, ptr %flat_capacity_3.i, align 2
+  store i16 %2, ptr %flat_capacity_3.i, align 8
   %flat_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %flat_size_4.i = getelementptr inbounds nuw i8, ptr %other, i64 10
   %4 = load i16, ptr %flat_size_.i, align 2

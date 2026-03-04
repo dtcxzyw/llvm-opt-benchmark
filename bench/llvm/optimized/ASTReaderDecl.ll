@@ -48886,13 +48886,13 @@ define dso_local noundef zeroext i1 @_ZN5clang9ASTReader22isConsumerInterestedIn
 7:                                                ; preds = %2
   %8 = add nsw i32 %5, -38
   %9 = icmp ult i32 %8, 7
-  br i1 %9, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
+  br i1 %9, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43
 
 _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit: ; preds = %7
   %10 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #27
   %11 = and i32 %10, -3
   %.not7.i = icmp eq i32 %11, 0
-  br i1 %.not7.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit._ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread_crit_edge, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
+  br i1 %.not7.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit._ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread_crit_edge, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43
 
 _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit._ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread_crit_edge: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit
   %.pre = load i32, ptr %3, align 4
@@ -48902,33 +48902,33 @@ _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread: 
   %12 = phi i32 [ %.pre, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit._ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread_crit_edge ], [ %4, %2 ]
   %13 = and i32 %12, 32768
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, label %14
+  br i1 %.not.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, label %14
 
 14:                                               ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %15, align 8
   %16 = and i64 %.0.copyload.i.i.i.i.i.i, 7
   %.not2.i = icmp eq i64 %16, 0
-  br i1 %.not2.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, label %_ZNK5clang4Decl23getImportedOwningModuleEv.exit
+  br i1 %.not2.i, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, label %_ZNK5clang4Decl23getImportedOwningModuleEv.exit
 
 _ZNK5clang4Decl23getImportedOwningModuleEv.exit:  ; preds = %14
   %17 = tail call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #27
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, label %18
+  br i1 %.not, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, label %18
 
 18:                                               ; preds = %_ZNK5clang4Decl23getImportedOwningModuleEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !1829
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
+  br i1 %21, label %22, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %24 = load ptr, ptr %23, align 8, !tbaa !115
   %25 = tail call noundef zeroext i1 @_ZN5clang10ASTContext17DeclMustBeEmittedEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %24, ptr noundef nonnull %1) #27
-  br i1 %25, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
+  br i1 %25, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43
 
-_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread, %14, %22, %18, %_ZNK5clang4Decl23getImportedOwningModuleEv.exit, %7, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit
+_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread, %14, %22, %18, %_ZNK5clang4Decl23getImportedOwningModuleEv.exit, %7, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit
   %26 = load i32, ptr %3, align 4
   %27 = and i32 %26, 127
   switch i32 %27, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit [
@@ -48939,7 +48939,7 @@ _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
     i32 17, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
   ]
 
-_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44
+_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43
   %28 = icmp eq i32 %27, 80
   %29 = and i32 %26, 126
   %spec.select.i.i.i.i.i.i = icmp eq i32 %29, 10
@@ -48980,12 +48980,12 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %_ZN4llvm3isaIN5clan
   %44 = icmp ult i16 %switch.tableidx, 16
   %switch.shifted = lshr i16 -32575, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond80 = select i1 %44, i1 %switch.lobit, i1 false
-  br i1 %or.cond80, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %45
+  %or.cond78 = select i1 %44, i1 %switch.lobit, i1 false
+  br i1 %or.cond78, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %45
 
 45:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
   %46 = add nsw i16 %43, -38
-  %spec.select.i30 = icmp ult i16 %46, -6
+  %spec.select.i = icmp ult i16 %46, -6
   br label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
 47:                                               ; preds = %_ZN4llvm3isaIN5clang20OMPThreadPrivateDeclENS1_23OMPDeclareReductionDeclEJNS1_20OMPDeclareMapperDeclENS1_15OMPAllocateDeclENS1_15OMPRequiresDeclEEPNS1_4DeclEEEbRKT2_.exit
@@ -49019,8 +49019,8 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i:  ; preds = %58, %52
   %63 = load i16, ptr %62, align 8
   %64 = and i16 %63, 127
   switch i16 %64, label %65 [
-    i16 22, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52
-    i16 0, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52
+    i16 22, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50
+    i16 0, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50
   ]
 
 65:                                               ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i
@@ -49047,15 +49047,15 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit:         ; preds = %68, %73
   %76 = load i16, ptr %75, align 8
   %77 = and i16 %76, 124
   %spec.select.i.i.i = icmp eq i16 %77, 56
-  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
+  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
-_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52: ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit
+_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50: ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit
   %78 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #29
   %79 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23216) %78) #27
   %80 = icmp eq i32 %79, 2
   br i1 %80, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %81
 
-81:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52
+81:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50
   %82 = tail call i64 @_ZN5clang24OMPDeclareTargetDeclAttr26isDeclareTargetDeclarationEPKNS_9ValueDeclE(ptr noundef nonnull %1) #27
   %83 = and i64 %82, 4294967296
   %84 = icmp ne i64 %83, 0
@@ -49064,14 +49064,14 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52: ; preds = %_ZNK5clang4Decl21g
 85:                                               ; preds = %47
   %86 = add nsw i32 %29, -38
   %87 = icmp ult i32 %86, -6
-  br i1 %87, label %.thread59, label %88
+  br i1 %87, label %.thread57, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %90 = load i32, ptr %89, align 2
   %91 = and i32 %90, 2048
-  %.not.i33 = icmp eq i32 %91, 0
-  br i1 %.not.i33, label %92, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
+  %.not.i32 = icmp eq i32 %91, 0
+  br i1 %.not.i32, label %92, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -49087,8 +49087,8 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52: ; preds = %_ZNK5clang4Decl21g
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %88
   %.old = and i32 %90, 16384
-  %.old67.not = icmp eq i32 %.old, 0
-  br i1 %.old67.not, label %101, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
+  %.old65.not = icmp eq i32 %.old, 0
+  br i1 %.old65.not, label %101, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
 101:                                              ; preds = %92, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4064
@@ -49116,9 +49116,9 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %88
   %120 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1748", ptr %107, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !882
   %122 = icmp eq ptr %1, %121
-  br i1 %122, label %.thread62, label %.lr.ph.i.i.i.i.i, !prof !901
+  br i1 %122, label %.thread60, label %.lr.ph.i.i.i.i.i, !prof !901
 
-.thread62:                                        ; preds = %112
+.thread60:                                        ; preds = %112
   %123 = icmp ne i32 %.01826.i.i.i.i.i, %110
   br label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
@@ -49145,24 +49145,24 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %88
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %126
-  %.pre70 = zext i32 %110 to i64
+  %.pre68 = zext i32 %110 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.i.i.i
-  %.pre-phi = phi i64 [ %.pre70, %.loopexit.loopexit ], [ %133, %.loopexit.i.i.i ]
+  %.pre-phi = phi i64 [ %.pre68, %.loopexit.loopexit ], [ %133, %.loopexit.i.i.i ]
   %.sroa.0.1.i.i.i = phi ptr [ %130, %.loopexit.loopexit ], [ %134, %.loopexit.i.i.i ]
   %135 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1748", ptr %107, i64 %.pre-phi
   %136 = icmp ne ptr %.sroa.0.1.i.i.i, %135
   br label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
-.thread59:                                        ; preds = %85
+.thread57:                                        ; preds = %85
   %137 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #29
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 18200
   %139 = load ptr, ptr %138, align 8, !tbaa !1832
   %.not24 = icmp eq ptr %139, null
   br i1 %.not24, label %146, label %140
 
-140:                                              ; preds = %.thread59
+140:                                              ; preds = %.thread57
   %141 = load ptr, ptr %139, align 8, !tbaa !909
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %143 = load ptr, ptr %142, align 8
@@ -49170,11 +49170,11 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %88
   %145 = icmp eq i32 %144, 1
   br i1 %145, label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %146
 
-146:                                              ; preds = %.thread59, %140
+146:                                              ; preds = %.thread57, %140
   br label %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
 
-_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %45, %.loopexit, %92, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %65, %50, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52, %81, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44, %146, %140, %.thread62, %22, %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit
-  %.2 = phi i1 [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44 ], [ true, %92 ], [ true, %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit ], [ %123, %.thread62 ], [ %136, %.loopexit ], [ false, %22 ], [ true, %140 ], [ false, %65 ], [ false, %146 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread44 ], [ false, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit ], [ %84, %81 ], [ true, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread52 ], [ false, %50 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ %spec.select.i30, %45 ], [ false, %_ZN5clang4Decl14getDeclContextEv.exit ]
+_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %45, %.loopexit, %92, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %65, %50, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50, %81, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43, %146, %140, %.thread60, %22, %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit
+  %.2 = phi i1 [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43 ], [ true, %92 ], [ true, %_ZN4llvm3isaIN5clang16FileScopeAsmDeclENS1_16TopLevelStmtDeclEJNS1_16ObjCProtocolDeclENS1_12ObjCImplDeclENS1_10ImportDeclENS1_17PragmaCommentDeclENS1_24PragmaDetectMismatchDeclEEPNS1_4DeclEEEbRKT2_.exit ], [ %123, %.thread60 ], [ %136, %.loopexit ], [ false, %22 ], [ true, %140 ], [ false, %65 ], [ false, %146 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43 ], [ true, %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread43 ], [ false, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit ], [ %84, %81 ], [ true, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread50 ], [ false, %50 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ %spec.select.i, %45 ], [ false, %_ZN5clang4Decl14getDeclContextEv.exit ]
   ret i1 %.2
 }
 

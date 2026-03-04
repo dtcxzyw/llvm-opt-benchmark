@@ -7587,11 +7587,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51.then:       ; preds = %_ZNK6vectorIjLb0EjE
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %173
   %.pre.i54.then.val = load i32, ptr %209, align 4, !tbaa !109
   %210 = icmp ne i32 %.pre.i54.then.val, 0
+  %211 = or i1 %.0131, %210
   br label %_ZNK3euf9ac_plugin10ref_countsixEj.exit55
 
 _ZNK3euf9ac_plugin10ref_countsixEj.exit55:        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51.then, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51, %.critedge
-  %211 = phi i1 [ false, %.critedge ], [ %210, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51.then ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51 ]
-  %212 = or i1 %.0131, %211
+  %212 = phi i1 [ %.0131, %.critedge ], [ %211, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51.then ], [ %.0131, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i51 ]
   %213 = getelementptr inbounds nuw i8, ptr %.032130, i64 8
   %.not = icmp eq ptr %213, %84
   br i1 %.not, label %._crit_edge, label %87

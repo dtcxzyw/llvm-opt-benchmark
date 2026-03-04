@@ -66340,9 +66340,9 @@ common.resume:                                    ; preds = %125, %21
   %120 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14031, !noalias !14034, !noundef !4
   %121 = add i8 %120, -65
   %122 = icmp ult i8 %121, 26
-  %.0.i.i = select i1 %122, i8 32, i8 0
-  %123 = or i8 %.0.i.i, %120
-  store i8 %123, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14031, !noalias !14034
+  %123 = select i1 %122, i8 32, i8 0
+  %.0.i.i = or i8 %123, %120
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14031, !noalias !14034
   %124 = icmp eq ptr %119, %117
   br i1 %124, label %.loopexit, label %.lr.ph.i.i
 
@@ -67416,9 +67416,9 @@ define void @_ZN14deltalake_core12data_catalog5unity19UnityCatalogBuilder8from_e
   %150 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14236, !noalias !14239, !noundef !4
   %151 = add i8 %150, -65
   %152 = icmp ult i8 %151, 26
-  %.0.i.i = select i1 %152, i8 32, i8 0
-  %153 = or i8 %.0.i.i, %150
-  store i8 %153, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14236, !noalias !14239
+  %153 = select i1 %152, i8 32, i8 0
+  %.0.i.i = or i8 %153, %150
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !14236, !noalias !14239
   %154 = icmp eq ptr %149, %148
   br i1 %154, label %156, label %.lr.ph.i.i
 
@@ -112386,9 +112386,9 @@ define void @"_ZN92_$LT$deltalake_core..operations..write..SchemaMode$u20$as$u20
   %17 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !21934, !noalias !21931, !noundef !4
   %18 = add i8 %17, -65
   %19 = icmp ult i8 %18, 26
-  %.0.i.i = select i1 %19, i8 32, i8 0
-  %20 = or i8 %.0.i.i, %17
-  store i8 %20, ptr %.sroa.0.06.i.i, align 1, !alias.scope !21934, !noalias !21931
+  %20 = select i1 %19, i8 32, i8 0
+  %.0.i.i = or i8 %20, %17
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !21934, !noalias !21931
   %21 = icmp eq ptr %16, %13
   br i1 %21, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 
@@ -131409,9 +131409,9 @@ define void @"_ZN92_$LT$deltalake_core..table..config..IsolationLevel$u20$as$u20
   %11 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25015, !noalias !25013, !noundef !4
   %12 = add i8 %11, -65
   %13 = icmp ult i8 %12, 26
-  %.0.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i, %11
-  store i8 %14, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25015, !noalias !25013
+  %14 = select i1 %13, i8 32, i8 0
+  %.0.i.i = or i8 %14, %11
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25015, !noalias !25013
   %15 = icmp eq ptr %10, %8
   br i1 %15, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 
@@ -131600,9 +131600,9 @@ define void @"_ZN94_$LT$deltalake_core..table..config..CheckpointPolicy$u20$as$u
   %12 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25054, !noalias !25051, !noundef !4
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i.i = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.0.i.i, %12
-  store i8 %15, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25054, !noalias !25051
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i = or i8 %15, %12
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25054, !noalias !25051
   %16 = icmp eq ptr %11, %8
   br i1 %16, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 
@@ -131747,9 +131747,9 @@ define void @"_ZN95_$LT$deltalake_core..table..config..ColumnMappingMode$u20$as$
   %12 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25080, !noalias !25077, !noundef !4
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i.i = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.0.i.i, %12
-  store i8 %15, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25080, !noalias !25077
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i = or i8 %15, %12
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !25080, !noalias !25077
   %16 = icmp eq ptr %11, %8
   br i1 %16, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 
@@ -157527,13 +157527,13 @@ default.unreachable452:                           ; preds = %3
   %.val6.i.i.i = load i8, ptr %255, align 1, !noalias !29260, !noundef !4
   %256 = add i8 %.val.i.i.i, -65
   %257 = icmp ult i8 %256, 26
-  %.0.i.i.i.i.i.i = select i1 %257, i8 32, i8 0
-  %258 = add i8 %.val6.i.i.i, -65
-  %259 = icmp ult i8 %258, 26
-  %.02.i.i.i.i.i.i = select i1 %259, i8 32, i8 0
-  %260 = or i8 %.0.i.i.i.i.i.i, %.val.i.i.i
-  %261 = or i8 %.02.i.i.i.i.i.i, %.val6.i.i.i
-  %.not.i.i.i = icmp eq i8 %260, %261
+  %258 = select i1 %257, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %258, %.val.i.i.i
+  %259 = add i8 %.val6.i.i.i, -65
+  %260 = icmp ult i8 %259, 26
+  %261 = select i1 %260, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %261, %.val6.i.i.i
+  %.not.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %250, label %.loopexit
 
 262:                                              ; preds = %.noexc135, %242

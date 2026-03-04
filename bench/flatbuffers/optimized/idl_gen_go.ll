@@ -42784,6 +42784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %77, ptr %81, align 8, !tbaa !19, !alias.scope !1434
+  store ptr %74, ptr %71, align 8, !tbaa !16
   store i64 0, ptr %80, align 8, !tbaa !19
   store i8 0, ptr %74, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14
@@ -43568,6 +43569,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator11GenReceive
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %21, align 8, !tbaa !19, !alias.scope !1462
+  store ptr %14, ptr %11, align 8, !tbaa !16
   store i64 0, ptr %20, align 8, !tbaa !19
   store i8 0, ptr %14, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -50557,6 +50559,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator13GetUnionFi
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %24, ptr %28, align 8, !tbaa !19, !alias.scope !1647
+  store ptr %21, ptr %18, align 8, !tbaa !16
   store i64 0, ptr %27, align 8, !tbaa !19
   store i8 0, ptr %21, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -52372,6 +52375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %58, ptr %62, align 8, !tbaa !19, !alias.scope !1704
+  store ptr %55, ptr %52, align 8, !tbaa !16
   store i64 0, ptr %61, align 8, !tbaa !19
   store i8 0, ptr %55, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14

@@ -32424,6 +32424,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6csharp15CSharpGenerator12G
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %30, align 8, !tbaa !19, !alias.scope !839
+  store ptr %23, ptr %20, align 8, !tbaa !7
   store i64 0, ptr %29, align 8, !tbaa !19
   store i8 0, ptr %23, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -45672,6 +45673,7 @@ _ZN11flatbuffers8IsSeriesERKNS_4TypeE.exit:       ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %33, ptr %37, align 8, !tbaa !19, !alias.scope !1204
+  store ptr %30, ptr %27, align 8, !tbaa !7
   store i64 0, ptr %36, align 8, !tbaa !19
   store i8 0, ptr %30, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -45977,6 +45979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %73, ptr %77, align 8, !tbaa !19, !alias.scope !1219
+  store ptr %70, ptr %67, align 8, !tbaa !7
   store i64 0, ptr %76, align 8, !tbaa !19
   store i8 0, ptr %70, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i19
@@ -47107,6 +47110,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6csharp15CSharpGenerator13G
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !19, !alias.scope !1253
+  store ptr %9, ptr %6, align 8, !tbaa !7
   store i64 0, ptr %15, align 8, !tbaa !19
   store i8 0, ptr %9, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

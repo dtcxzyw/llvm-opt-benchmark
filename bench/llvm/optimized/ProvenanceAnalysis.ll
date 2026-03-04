@@ -391,13 +391,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = trunc i32 %11 to i8
   switch i8 %12, label %14 [
-    i8 0, label %47
+    i8 0, label %45
     i8 3, label %13
     i8 2, label %13
   ]
 
 13:                                               ; preds = %3, %3
-  br label %47
+  br label %45
 
 14:                                               ; preds = %3
   %15 = call noundef zeroext i1 @_ZN4llvm7objcarc22IsObjCIdentifiedObjectEPKNS_5ValueE(ptr noundef %1)
@@ -411,19 +411,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
 
 20:                                               ; preds = %17
   %21 = call fastcc noundef zeroext i1 @_ZL19IsStoredObjCPointerPKN4llvm5ValueE(ptr noundef %1)
-  br label %47
+  br label %45
 
 22:                                               ; preds = %17
-  %.pre62 = load i8, ptr %1, align 8, !tbaa !3
+  %.pre63 = load i8, ptr %1, align 8, !tbaa !3
   br i1 %16, label %23, label %31
 
 23:                                               ; preds = %22
-  %24 = icmp eq i8 %.pre62, 61
-  br i1 %24, label %25, label %47
+  %24 = icmp eq i8 %.pre63, 61
+  br i1 %24, label %25, label %45
 
 25:                                               ; preds = %23
   %26 = call fastcc noundef zeroext i1 @_ZL19IsStoredObjCPointerPKN4llvm5ValueE(ptr noundef nonnull %2)
-  br label %47
+  br label %45
 
 27:                                               ; preds = %14
   %.pre = load i8, ptr %1, align 8, !tbaa !3
@@ -433,16 +433,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
 
 29:                                               ; preds = %27
   %30 = call fastcc noundef zeroext i1 @_ZL19IsStoredObjCPointerPKN4llvm5ValueE(ptr noundef %2)
-  br label %47
+  br label %45
 
 31:                                               ; preds = %27, %22
-  %32 = phi i8 [ %.pre, %27 ], [ %.pre62, %22 ]
+  %32 = phi i8 [ %.pre, %27 ], [ %.pre63, %22 ]
   %.not = icmp eq i8 %32, 84
   br i1 %.not, label %33, label %35
 
 33:                                               ; preds = %31
   %34 = call noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis10relatedPHIEPKNS_7PHINodeEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2)
-  br label %47
+  br label %45
 
 35:                                               ; preds = %31
   %36 = load i8, ptr %2, align 8, !tbaa !3
@@ -451,7 +451,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
 
 37:                                               ; preds = %35
   %38 = call noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis10relatedPHIEPKNS_7PHINodeEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, ptr noundef nonnull %1)
-  br label %47
+  br label %45
 
 39:                                               ; preds = %35
   %.not60 = icmp eq i8 %32, 86
@@ -459,23 +459,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
 
 40:                                               ; preds = %39
   %41 = call noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis13relatedSelectEPKNS_10SelectInstEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  br label %47
+  br label %45
 
 42:                                               ; preds = %39
-  %43 = icmp ne i8 %36, 86
-  br i1 %43, label %46, label %44
+  %.not62 = icmp eq i8 %36, 86
+  br i1 %.not62, label %43, label %45
 
-44:                                               ; preds = %42
-  %45 = call noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis13relatedSelectEPKNS_10SelectInstEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, ptr noundef nonnull %1)
-  br label %46
+43:                                               ; preds = %42
+  %44 = call noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis13relatedSelectEPKNS_10SelectInstEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, ptr noundef nonnull %1)
+  br label %45
 
-46:                                               ; preds = %42, %44
-  %.5 = phi i1 [ %45, %44 ], [ undef, %42 ]
-  %spec.select = or i1 %43, %.5
-  br label %47
-
-47:                                               ; preds = %40, %37, %33, %46, %20, %25, %29, %23, %3, %13
-  %.0 = phi i1 [ false, %3 ], [ true, %13 ], [ %21, %20 ], [ %26, %25 ], [ %30, %29 ], [ false, %23 ], [ %spec.select, %46 ], [ %41, %40 ], [ %38, %37 ], [ %34, %33 ]
+45:                                               ; preds = %43, %42, %40, %37, %33, %20, %25, %29, %23, %3, %13
+  %.0 = phi i1 [ false, %3 ], [ true, %13 ], [ %21, %20 ], [ %26, %25 ], [ %30, %29 ], [ false, %23 ], [ %34, %33 ], [ %41, %40 ], [ %38, %37 ], [ %44, %43 ], [ true, %42 ]
   ret i1 %.0
 }
 

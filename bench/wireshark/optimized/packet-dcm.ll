@@ -9458,11 +9458,11 @@ sub_2466:                                         ; preds = %sub_1465
   %276 = getelementptr inbounds nuw i8, ptr %.0328366379, i64 2
   %277 = load i8, ptr %276, align 1
   %278 = icmp eq i8 %277, 0
+  %279 = or i1 %261, %278
   br label %dcm_tag_summary.exit.tail
 
 dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465, %sub_2466
-  %279 = phi i1 [ false, %sub_0464 ], [ false, %sub_1465 ], [ %278, %sub_2466 ]
-  %280 = or i1 %261, %279
+  %280 = phi i1 [ %261, %sub_0464 ], [ %261, %sub_1465 ], [ %279, %sub_2466 ]
   %281 = icmp eq i16 %.0321, -8192
   %282 = and i1 %113, %281
   %283 = or i1 %282, %280

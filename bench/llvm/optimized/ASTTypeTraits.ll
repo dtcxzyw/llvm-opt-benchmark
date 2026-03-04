@@ -1326,8 +1326,8 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
   br i1 %brmerge, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %.split
-  %.018 = phi i32 [ %14, %.split ], [ %0, %2 ]
-  %.not.i = icmp eq i32 %.fr9, %.018
+  %.017 = phi i32 [ %14, %.split ], [ %0, %2 ]
+  %.not.i = icmp eq i32 %.fr9, %.017
   br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -1335,24 +1335,24 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
   %5 = zext i32 %.011.i to i64
   %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
-  %8 = icmp ne i32 %7, %.018
+  %8 = icmp ne i32 %7, %.017
   %9 = icmp ne i32 %7, 0
   %10 = and i1 %8, %9
   br i1 %10, label %.lr.ph.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, !llvm.loop !12
 
 _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i
-  %11 = icmp eq i32 %7, %.018
+  %11 = icmp eq i32 %7, %.017
   br i1 %11, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.split
 
 .split:                                           ; preds = %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit
-  %12 = zext i32 %.018 to i64
+  %12 = zext i32 %.017 to i64
   %13 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %12
   %14 = load i32, ptr %13, align 16, !tbaa !8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i, !llvm.loop !19
 
 _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread: ; preds = %.preheader.i, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, %.split, %2
-  %.us-phi = phi i32 [ 0, %2 ], [ %.fr9, %.preheader.i ], [ %.018, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ 0, %.split ]
+  %.us-phi = phi i32 [ 0, %2 ], [ %.fr9, %.preheader.i ], [ %.017, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ 0, %.split ]
   ret i32 %.us-phi
 }
 

@@ -3033,22 +3033,22 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %70 = load float, ptr %69, align 4, !tbaa !37
   %71 = fcmp reassoc nsz arcp contract afn ugt float %70, 0.000000e+00
-  %72 = select reassoc nsz arcp contract afn i1 %71, float %70, float 1.000000e+00
-  %73 = fmul reassoc nsz arcp contract afn float %72, %68
+  %72 = fmul reassoc nsz arcp contract afn float %70, %68
+  %73 = select i1 %71, float %72, float %68
   store float %73, ptr %38, align 16, !tbaa !37
   %74 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 260
   %76 = load float, ptr %75, align 4, !tbaa !37
   %77 = fcmp reassoc nsz arcp contract afn ugt float %76, 0.000000e+00
-  %78 = select reassoc nsz arcp contract afn i1 %77, float %76, float 1.000000e+00
-  %79 = fmul reassoc nsz arcp contract afn float %78, %68
+  %78 = fmul reassoc nsz arcp contract afn float %76, %68
+  %79 = select i1 %77, float %78, float %68
   store float %79, ptr %74, align 4, !tbaa !37
   %80 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 264
   %82 = load float, ptr %81, align 4, !tbaa !37
   %83 = fcmp reassoc nsz arcp contract afn ugt float %82, 0.000000e+00
-  %84 = select reassoc nsz arcp contract afn i1 %83, float %82, float 1.000000e+00
-  %85 = fmul reassoc nsz arcp contract afn float %84, %68
+  %84 = fmul reassoc nsz arcp contract afn float %82, %68
+  %85 = select i1 %83, float %84, float %68
   store float %85, ptr %80, align 8, !tbaa !37
   %86 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store float %79, ptr %86, align 4, !tbaa !37

@@ -523,14 +523,14 @@ define internal noundef zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$20eq_igno
   %3 = load i8, ptr %0, align 1, !noundef !4
   %4 = add i8 %3, -65
   %5 = icmp ult i8 %4, 26
-  %.sroa.0.0 = select i1 %5, i8 32, i8 0
-  %6 = load i8, ptr %1, align 1, !noundef !4
-  %7 = add i8 %6, -65
-  %8 = icmp ult i8 %7, 26
-  %.sroa.01.0 = select i1 %8, i8 32, i8 0
-  %9 = or i8 %.sroa.0.0, %3
-  %10 = or i8 %.sroa.01.0, %6
-  %11 = icmp eq i8 %9, %10
+  %6 = select i1 %5, i8 32, i8 0
+  %.sroa.0.0 = or i8 %6, %3
+  %7 = load i8, ptr %1, align 1, !noundef !4
+  %8 = add i8 %7, -65
+  %9 = icmp ult i8 %8, 26
+  %10 = select i1 %9, i8 32, i8 0
+  %.sroa.01.0 = or i8 %10, %7
+  %11 = icmp eq i8 %.sroa.0.0, %.sroa.01.0
   ret i1 %11
 }
 

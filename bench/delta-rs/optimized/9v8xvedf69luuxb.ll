@@ -80300,9 +80300,9 @@ define void @"_ZN102_$LT$deltalake_core..kernel..models..actions..IsolationLevel
   %11 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !13815, !noalias !13813, !noundef !19
   %12 = add i8 %11, -65
   %13 = icmp ult i8 %12, 26
-  %.0.i.i = select i1 %13, i8 32, i8 0
-  %14 = or i8 %.0.i.i, %11
-  store i8 %14, ptr %.sroa.0.06.i.i, align 1, !alias.scope !13815, !noalias !13813
+  %14 = select i1 %13, i8 32, i8 0
+  %.0.i.i = or i8 %14, %11
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !13815, !noalias !13813
   %15 = icmp eq ptr %10, %8
   br i1 %15, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 
@@ -105971,9 +105971,9 @@ define void @"_ZN81_$LT$deltalake_core..protocol..SaveMode$u20$as$u20$core..str.
   %16 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !17942, !noalias !17940, !noundef !19
   %17 = add i8 %16, -65
   %18 = icmp ult i8 %17, 26
-  %.0.i.i = select i1 %18, i8 32, i8 0
-  %19 = or i8 %.0.i.i, %16
-  store i8 %19, ptr %.sroa.0.06.i.i, align 1, !alias.scope !17942, !noalias !17940
+  %19 = select i1 %18, i8 32, i8 0
+  %.0.i.i = or i8 %19, %16
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !17942, !noalias !17940
   %20 = icmp eq ptr %15, %13
   br i1 %20, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 

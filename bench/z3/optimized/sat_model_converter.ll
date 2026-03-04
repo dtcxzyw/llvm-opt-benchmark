@@ -702,45 +702,44 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %43
 64:                                               ; preds = %62
   %65 = load i32, ptr %52, align 4, !tbaa !196
   %.not68 = icmp eq i32 %65, 5
-  br i1 %.not68, label %66, label %71
+  br i1 %.not68, label %66, label %72
 
 66:                                               ; preds = %64
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 79, ptr noundef nonnull @.str.9)
-          to label %67 unwind label %69
+          to label %67 unwind label %70
 
 67:                                               ; preds = %66
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
-          to label %._crit_edge97 unwind label %69
+          to label %._crit_edge97 unwind label %70
 
 ._crit_edge97:                                    ; preds = %67
   %.pre98 = load i32, ptr %52, align 4, !tbaa !196
   %68 = icmp ne i32 %.pre98, 5
-  br label %71
+  %69 = and i1 %53, %68
+  br i1 %69, label %73, label %82
 
-69:                                               ; preds = %173, %135, %77, %76, %73, %67, %66
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %173, %135, %77, %76, %73, %67, %66
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-71:                                               ; preds = %._crit_edge97, %64
-  %72 = phi i1 [ %68, %._crit_edge97 ], [ true, %64 ]
-  %or.cond = and i1 %53, %72
-  br i1 %or.cond, label %73, label %82
+72:                                               ; preds = %64
+  br i1 %53, label %73, label %82
 
-73:                                               ; preds = %71
+73:                                               ; preds = %._crit_edge97, %72
   %74 = invoke noundef zeroext i1 @_ZNK3sat15model_converter13legal_to_flipEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %32)
-          to label %75 unwind label %69
+          to label %75 unwind label %70
 
 75:                                               ; preds = %73
   br i1 %74, label %78, label %76
 
 76:                                               ; preds = %75
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 81, ptr noundef nonnull @.str.10)
-          to label %77 unwind label %69
+          to label %77 unwind label %70
 
 77:                                               ; preds = %76
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
-          to label %78 unwind label %69
+          to label %78 unwind label %70
 
 78:                                               ; preds = %77, %75
   %79 = select i1 %.05690, i32 -1, i32 1
@@ -749,7 +748,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %43
   store i32 %79, ptr %81, align 4, !tbaa !184
   br label %82
 
-82:                                               ; preds = %71, %78, %62
+82:                                               ; preds = %._crit_edge97, %72, %78, %62
   %83 = load ptr, ptr %55, align 8, !tbaa !197
   %84 = zext i32 %.05989 to i64
   %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
@@ -867,7 +866,7 @@ _ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjER
 
 135:                                              ; preds = %127
   %136 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
-          to label %.noexc81 unwind label %69
+          to label %.noexc81 unwind label %70
 
 .noexc81:                                         ; preds = %135
   store i32 2, ptr %136, align 4, !tbaa !9
@@ -966,7 +965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 173:                                              ; preds = %145
   %174 = zext i32 %144 to i64
   %175 = invoke noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %132, i64 noundef %174)
-          to label %.noexc82 unwind label %69
+          to label %.noexc82 unwind label %70
 
 .noexc82:                                         ; preds = %173
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -1080,8 +1079,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit75:   ; preds = %199, %125, %_ZNK3sa
   %.not = icmp eq ptr %223, %51
   br i1 %.not, label %.loopexit, label %56
 
-.body:                                            ; preds = %122, %197, %69, %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %41
-  %.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %123, %122 ], [ %198, %197 ], [ %70, %69 ], [ %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %172, %171 ]
+.body:                                            ; preds = %122, %197, %70, %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %41
+  %.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %123, %122 ], [ %198, %197 ], [ %71, %70 ], [ %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %172, %171 ]
   call void @_ZN6vectorIN3sat7literalELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn

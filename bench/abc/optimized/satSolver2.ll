@@ -2982,11 +2982,11 @@ Vec_WrdMemory.exit.i:                             ; preds = %16, %11
   %26 = sext i32 %25 to i64
   %27 = uitofp i64 %26 to double
   %28 = tail call double @llvm.fmuladd.f64(double %27, double 4.000000e+00, double 1.600000e+01)
+  %29 = fadd double %21, %28
   br label %Prf_ManMemory.exit
 
 Prf_ManMemory.exit:                               ; preds = %Vec_WrdMemory.exit.i, %24
-  %29 = phi double [ %28, %24 ], [ 0.000000e+00, %Vec_WrdMemory.exit.i ]
-  %30 = fadd double %21, %29
+  %30 = phi double [ %29, %24 ], [ %21, %Vec_WrdMemory.exit.i ]
   %31 = fadd double %30, 4.800000e+01
   %32 = fcmp ogt double %13, %31
   %33 = select i1 %32, double %13, double %31

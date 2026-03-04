@@ -34005,13 +34005,13 @@ _ZN4core3str7pattern8Searcher11next_reject17h4f8bd1807e79b618E.llvm.168496218932
   %.val6.i.i.i.i.i = load i8, ptr %121, align 1, !alias.scope !8811, !noalias !8812, !noundef !22
   %122 = add i8 %.val.i.i.i.i.i, -65
   %123 = icmp ult i8 %122, 26
-  %.0.i.i.i.i.i.i.i.i = select i1 %123, i8 32, i8 0
-  %124 = add i8 %.val6.i.i.i.i.i, -65
-  %125 = icmp ult i8 %124, 26
-  %.02.i.i.i.i.i.i.i.i = select i1 %125, i8 32, i8 0
-  %126 = or i8 %.0.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i
-  %127 = or i8 %.02.i.i.i.i.i.i.i.i, %.val6.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i8 %126, %127
+  %124 = select i1 %123, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i.i = or i8 %124, %.val.i.i.i.i.i
+  %125 = add i8 %.val6.i.i.i.i.i, -65
+  %126 = icmp ult i8 %125, 26
+  %127 = select i1 %126, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i.i = or i8 %127, %.val6.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN3ide11inlay_hints10param_name31is_param_name_suffix_of_fn_name17h2bec0de94f8a2e27E.exit.thread
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i.i.i": ; preds = %.preheader.i.i.i.i
@@ -34232,13 +34232,13 @@ _ZN4core3str7pattern8Searcher11next_reject17h4f8bd1807e79b618E.llvm.168496218932
   %.val6.i.i.i = load i8, ptr %193, align 1, !alias.scope !8865, !noalias !8866, !noundef !22
   %194 = add i8 %.val.i.i.i, -65
   %195 = icmp ult i8 %194, 26
-  %.0.i.i.i.i.i.i = select i1 %195, i8 32, i8 0
-  %196 = add i8 %.val6.i.i.i, -65
-  %197 = icmp ult i8 %196, 26
-  %.02.i.i.i.i.i.i = select i1 %197, i8 32, i8 0
-  %198 = or i8 %.0.i.i.i.i.i.i, %.val.i.i.i
-  %199 = or i8 %.02.i.i.i.i.i.i, %.val6.i.i.i
-  %.not.i.i.i = icmp eq i8 %198, %199
+  %196 = select i1 %195, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %196, %.val.i.i.i
+  %197 = add i8 %.val6.i.i.i, -65
+  %198 = icmp ult i8 %197, 26
+  %199 = select i1 %198, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %199, %.val6.i.i.i
+  %.not.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %.preheader.i.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i": ; preds = %190, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %174
@@ -34347,13 +34347,13 @@ _ZN4core3str7pattern8Searcher11next_reject17h4f8bd1807e79b618E.llvm.168496218932
   %.val6.i.i34.i = load i8, ptr %237, align 1, !alias.scope !8896, !noalias !8902, !noundef !22
   %238 = add i8 %.val.i.i33.i, -65
   %239 = icmp ult i8 %238, 26
-  %.0.i.i.i.i.i35.i = select i1 %239, i8 32, i8 0
-  %240 = add i8 %.val6.i.i34.i, -65
-  %241 = icmp ult i8 %240, 26
-  %.02.i.i.i.i.i36.i = select i1 %241, i8 32, i8 0
-  %242 = or i8 %.0.i.i.i.i.i35.i, %.val.i.i33.i
-  %243 = or i8 %.02.i.i.i.i.i36.i, %.val6.i.i34.i
-  %.not.i.i37.i = icmp eq i8 %242, %243
+  %240 = select i1 %239, i8 32, i8 0
+  %.0.i.i.i.i.i35.i = or i8 %240, %.val.i.i33.i
+  %241 = add i8 %.val6.i.i34.i, -65
+  %242 = icmp ult i8 %241, 26
+  %243 = select i1 %242, i8 32, i8 0
+  %.02.i.i.i.i.i36.i = or i8 %243, %.val6.i.i34.i
+  %.not.i.i37.i = icmp eq i8 %.0.i.i.i.i.i35.i, %.02.i.i.i.i.i36.i
   br i1 %.not.i.i37.i, label %.preheader.i31.i, label %"_ZN3ide11inlay_hints10param_name33is_argument_similar_to_param_name28_$u7b$$u7b$closure$u7d$$u7d$17h31833b6aaeb071abE.exit.thread.i"
 
 "_ZN3ide11inlay_hints10param_name33is_argument_similar_to_param_name28_$u7b$$u7b$closure$u7d$$u7d$17h31833b6aaeb071abE.exit.thread.i": ; preds = %234, %230, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %216, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i"

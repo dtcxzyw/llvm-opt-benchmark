@@ -20013,13 +20013,13 @@ define hidden void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_confi
   %.fca.1.extract.val.i.i = load i8, ptr %21, align 1, !alias.scope !2595, !noalias !2600, !noundef !5
   %22 = add i8 %.fca.0.extract.val.i.i, -65
   %23 = icmp ult i8 %22, 26
-  %.0.i.i.i.i.i = select i1 %23, i8 32, i8 0
-  %24 = add i8 %.fca.1.extract.val.i.i, -65
-  %25 = icmp ult i8 %24, 26
-  %.02.i.i.i.i.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.0.i.i.i.i.i, %.fca.0.extract.val.i.i
-  %27 = or i8 %.02.i.i.i.i.i, %.fca.1.extract.val.i.i
-  %.not.i.i = icmp eq i8 %26, %27
+  %24 = select i1 %23, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %24, %.fca.0.extract.val.i.i
+  %25 = add i8 %.fca.1.extract.val.i.i, -65
+  %26 = icmp ult i8 %25, 26
+  %27 = select i1 %26, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %27, %.fca.1.extract.val.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.i, label %.loopexit55
 
 28:                                               ; preds = %2
@@ -20058,13 +20058,13 @@ define hidden void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_confi
   %.fca.1.extract.val.i.i34 = load i8, ptr %36, align 1, !alias.scope !2604, !noalias !2609, !noundef !5
   %37 = add i8 %.fca.0.extract.val.i.i33, -65
   %38 = icmp ult i8 %37, 26
-  %.0.i.i.i.i.i35 = select i1 %38, i8 32, i8 0
-  %39 = add i8 %.fca.1.extract.val.i.i34, -65
-  %40 = icmp ult i8 %39, 26
-  %.02.i.i.i.i.i36 = select i1 %40, i8 32, i8 0
-  %41 = or i8 %.0.i.i.i.i.i35, %.fca.0.extract.val.i.i33
-  %42 = or i8 %.02.i.i.i.i.i36, %.fca.1.extract.val.i.i34
-  %.not.i.i37 = icmp eq i8 %41, %42
+  %39 = select i1 %38, i8 32, i8 0
+  %.0.i.i.i.i.i35 = or i8 %39, %.fca.0.extract.val.i.i33
+  %40 = add i8 %.fca.1.extract.val.i.i34, -65
+  %41 = icmp ult i8 %40, 26
+  %42 = select i1 %41, i8 32, i8 0
+  %.02.i.i.i.i.i36 = or i8 %42, %.fca.1.extract.val.i.i34
+  %.not.i.i37 = icmp eq i8 %.0.i.i.i.i.i35, %.02.i.i.i.i.i36
   br i1 %.not.i.i37, label %.preheader.i31, label %.loopexit54
 
 .loopexit54:                                      ; preds = %33, %.loopexit55
@@ -20086,13 +20086,13 @@ define hidden void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_confi
   %.fca.1.extract.val.i.i43 = load i8, ptr %48, align 1, !alias.scope !2613, !noalias !2618, !noundef !5
   %49 = add i8 %.fca.0.extract.val.i.i42, -65
   %50 = icmp ult i8 %49, 26
-  %.0.i.i.i.i.i44 = select i1 %50, i8 32, i8 0
-  %51 = add i8 %.fca.1.extract.val.i.i43, -65
-  %52 = icmp ult i8 %51, 26
-  %.02.i.i.i.i.i45 = select i1 %52, i8 32, i8 0
-  %53 = or i8 %.0.i.i.i.i.i44, %.fca.0.extract.val.i.i42
-  %54 = or i8 %.02.i.i.i.i.i45, %.fca.1.extract.val.i.i43
-  %.not.i.i46 = icmp eq i8 %53, %54
+  %51 = select i1 %50, i8 32, i8 0
+  %.0.i.i.i.i.i44 = or i8 %51, %.fca.0.extract.val.i.i42
+  %52 = add i8 %.fca.1.extract.val.i.i43, -65
+  %53 = icmp ult i8 %52, 26
+  %54 = select i1 %53, i8 32, i8 0
+  %.02.i.i.i.i.i45 = or i8 %54, %.fca.1.extract.val.i.i43
+  %.not.i.i46 = icmp eq i8 %.0.i.i.i.i.i44, %.02.i.i.i.i.i45
   br i1 %.not.i.i46, label %.preheader.i40, label %.loopexit
 
 .loopexit:                                        ; preds = %45, %.loopexit54

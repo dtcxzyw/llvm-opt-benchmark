@@ -2297,10 +2297,10 @@ define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %.preheader10, label %28
+  br i1 %3, label %.preheader10, label %27
 
-.preheader10:                                     ; preds = %2, %is_acpi_graph_node.exit
-  %4 = phi ptr [ %5, %is_acpi_graph_node.exit ], [ null, %2 ]
+.preheader10:                                     ; preds = %2, %.preheader10.backedge
+  %4 = phi ptr [ %5, %.preheader10.backedge ], [ null, %2 ]
   %5 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef %4) #17
   %6 = icmp eq ptr %5, null
   %7 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
@@ -2332,113 +2332,115 @@ define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1
 
 24:                                               ; preds = %20, %17, %13
   %25 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #17
-  br label %is_acpi_graph_node.exit
+  %26 = or i1 %6, %25
+  br i1 %26, label %.thread, label %.preheader10.backedge
 
-is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %24
-  %26 = phi i1 [ false, %9 ], [ %25, %24 ], [ false, %.preheader10 ]
-  %27 = or i1 %6, %26
-  br i1 %27, label %.loopexit11, label %.preheader10, !llvm.loop !33
+is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9
+  br i1 %6, label %.loopexit11, label %.preheader10.backedge
 
-28:                                               ; preds = %2
-  %29 = tail call ptr @fwnode_get_parent(ptr noundef nonnull %1) #17
+.preheader10.backedge:                            ; preds = %is_acpi_graph_node.exit, %24
+  br label %.preheader10, !llvm.loop !33
+
+27:                                               ; preds = %2
+  %28 = tail call ptr @fwnode_get_parent(ptr noundef nonnull %1) #17
   br label %.loopexit11
 
-.loopexit11:                                      ; preds = %is_acpi_graph_node.exit, %28
-  %30 = phi ptr [ %29, %28 ], [ %5, %is_acpi_graph_node.exit ]
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %is_acpi_graph_node.exit6.thread, label %.thread
+.loopexit11:                                      ; preds = %is_acpi_graph_node.exit, %27
+  %29 = phi ptr [ %28, %27 ], [ null, %is_acpi_graph_node.exit ]
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %is_acpi_graph_node.exit6.thread, label %.thread
 
-.thread:                                          ; preds = %20, %.loopexit11
-  %32 = phi ptr [ %30, %.loopexit11 ], [ %5, %20 ]
-  %33 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %32, ptr noundef %1) #17
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.preheader, label %.loopexit
+.thread:                                          ; preds = %24, %20, %.loopexit11
+  %31 = phi ptr [ %29, %.loopexit11 ], [ %5, %20 ], [ %5, %24 ]
+  %32 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %31, ptr noundef %1) #17
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread, %59
-  %35 = phi ptr [ %36, %59 ], [ %32, %.thread ]
-  %36 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %35) #17
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %is_acpi_graph_node.exit6.thread, label %38
+.preheader:                                       ; preds = %.thread, %58
+  %34 = phi ptr [ %35, %58 ], [ %31, %.thread ]
+  %35 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %34) #17
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %is_acpi_graph_node.exit6.thread, label %37
 
-38:                                               ; preds = %.preheader
-  %39 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
-  br i1 %39, label %59, label %40
+37:                                               ; preds = %.preheader
+  %38 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
+  br i1 %38, label %58, label %39
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, @acpi_data_fwnode_ops
-  br i1 %43, label %44, label %59
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, @acpi_data_fwnode_ops
+  br i1 %42, label %43, label %58
 
-44:                                               ; preds = %40
-  %45 = getelementptr i8, ptr %36, i64 -16
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.19) #17
-  br i1 %47, label %48, label %55
+43:                                               ; preds = %39
+  %44 = getelementptr i8, ptr %35, i64 -16
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %35, ptr noundef nonnull @.str.19) #17
+  br i1 %46, label %47, label %54
 
-48:                                               ; preds = %44
-  %49 = tail call i32 @strncmp(ptr noundef %46, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #17
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %55
+47:                                               ; preds = %43
+  %48 = tail call i32 @strncmp(ptr noundef %45, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #17
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %54
 
-51:                                               ; preds = %48
-  %52 = getelementptr i8, ptr %46, i64 4
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 64
-  br i1 %54, label %57, label %55
+50:                                               ; preds = %47
+  %51 = getelementptr i8, ptr %45, i64 4
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 64
+  br i1 %53, label %56, label %54
 
-55:                                               ; preds = %51, %48, %44
-  %56 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.17) #17
-  br i1 %56, label %57, label %59
+54:                                               ; preds = %50, %47, %43
+  %55 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %35, ptr noundef nonnull @.str.17) #17
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %55, %51
-  %58 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %36, ptr noundef null) #17
-  br label %59
+56:                                               ; preds = %54, %50
+  %57 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %35, ptr noundef null) #17
+  br label %58
 
-59:                                               ; preds = %57, %55, %40, %38
-  %60 = phi ptr [ %58, %57 ], [ null, %55 ], [ null, %38 ], [ null, %40 ]
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !34
+58:                                               ; preds = %56, %54, %39, %37
+  %59 = phi ptr [ %57, %56 ], [ null, %54 ], [ null, %37 ], [ null, %39 ]
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.preheader, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %59, %.thread
-  %62 = phi ptr [ %33, %.thread ], [ %60, %59 ]
-  %63 = icmp ugt ptr %62, inttoptr (i64 -4096 to ptr)
-  br i1 %63, label %is_acpi_graph_node.exit6.thread, label %64
+.loopexit:                                        ; preds = %58, %.thread
+  %61 = phi ptr [ %32, %.thread ], [ %59, %58 ]
+  %62 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
+  br i1 %62, label %is_acpi_graph_node.exit6.thread, label %63
 
-64:                                               ; preds = %.loopexit
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, @acpi_data_fwnode_ops
-  br i1 %67, label %68, label %is_acpi_graph_node.exit6.thread
+63:                                               ; preds = %.loopexit
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, @acpi_data_fwnode_ops
+  br i1 %66, label %67, label %is_acpi_graph_node.exit6.thread
 
-68:                                               ; preds = %64
-  %69 = getelementptr i8, ptr %62, i64 -16
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.19) #17
-  br i1 %71, label %72, label %is_acpi_graph_node.exit6
+67:                                               ; preds = %63
+  %68 = getelementptr i8, ptr %61, i64 -16
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %61, ptr noundef nonnull @.str.19) #17
+  br i1 %70, label %71, label %is_acpi_graph_node.exit6
 
-72:                                               ; preds = %68
-  %73 = tail call i32 @strncmp(ptr noundef %70, ptr noundef nonnull dereferenceable(9) @.str.18, i64 noundef 8) #17
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %is_acpi_graph_node.exit6
+71:                                               ; preds = %67
+  %72 = tail call i32 @strncmp(ptr noundef %69, ptr noundef nonnull dereferenceable(9) @.str.18, i64 noundef 8) #17
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %is_acpi_graph_node.exit6
 
-75:                                               ; preds = %72
-  %76 = getelementptr i8, ptr %70, i64 8
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %77, 64
-  br i1 %78, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6
+74:                                               ; preds = %71
+  %75 = getelementptr i8, ptr %69, i64 8
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 64
+  br i1 %77, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6
 
-is_acpi_graph_node.exit6:                         ; preds = %68, %72, %75
-  %79 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.18) #17
-  %cond.fr = freeze i1 %79
+is_acpi_graph_node.exit6:                         ; preds = %67, %71, %74
+  %78 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %61, ptr noundef nonnull @.str.18) #17
+  %cond.fr = freeze i1 %78
   br i1 %cond.fr, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6.thread
 
-is_acpi_graph_node.exit6.thread8:                 ; preds = %75, %is_acpi_graph_node.exit6
+is_acpi_graph_node.exit6.thread8:                 ; preds = %74, %is_acpi_graph_node.exit6
   br label %is_acpi_graph_node.exit6.thread
 
-is_acpi_graph_node.exit6.thread:                  ; preds = %.preheader, %.loopexit, %64, %is_acpi_graph_node.exit6.thread8, %is_acpi_graph_node.exit6, %.loopexit11
-  %80 = phi ptr [ null, %.loopexit11 ], [ %62, %is_acpi_graph_node.exit6.thread8 ], [ null, %is_acpi_graph_node.exit6 ], [ null, %64 ], [ null, %.loopexit ], [ null, %.preheader ]
-  ret ptr %80
+is_acpi_graph_node.exit6.thread:                  ; preds = %.preheader, %.loopexit, %63, %is_acpi_graph_node.exit6.thread8, %is_acpi_graph_node.exit6, %.loopexit11
+  %79 = phi ptr [ null, %.loopexit11 ], [ %61, %is_acpi_graph_node.exit6.thread8 ], [ null, %is_acpi_graph_node.exit6 ], [ null, %63 ], [ null, %.loopexit ], [ null, %.preheader ]
+  ret ptr %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

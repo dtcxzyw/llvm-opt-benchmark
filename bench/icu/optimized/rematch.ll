@@ -19742,7 +19742,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %.not55 = icmp slt i64 %93, %92
   br i1 %.not55, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %91, %.thread, %57, %50, %48
+.critedge:                                        ; preds = %91, %57, %.thread, %50, %48
   %.1 = phi i8 [ 0, %50 ], [ 0, %48 ], [ %90, %.thread ], [ %.048, %57 ], [ %.048, %91 ]
   ret i8 %.1
 }

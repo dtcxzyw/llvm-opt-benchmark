@@ -1613,7 +1613,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10s
 
 dynamic_cast.end3.i148:                           ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
   %55 = phi ptr [ %48, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ %53, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
-  %cmp.i157741 = phi i1 [ true, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ %cmp.i157, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
+  %cmp.i157740 = phi i1 [ true, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ %cmp.i157, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
   %.pre.i185732738 = phi ptr [ %.pre.i185733, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ %.pre.i185732, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
   %56 = tail call ptr @__dynamic_cast(ptr nonnull %55, ptr nonnull @_ZTIN8QuantLib6PayoffE, ptr nonnull @_ZTIN8QuantLib15MaxBasketPayoffE, i64 0) #25, !noalias !96
   %tobool.not.i149 = icmp eq ptr %56, null
@@ -1634,10 +1634,10 @@ if.then.i.i.i154:                                 ; preds = %cond.true.i150
   br label %do.end120
 
 _ZN5boost20dynamic_pointer_castIN8QuantLib15MaxBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit: ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit, %dynamic_cast.end3.i148
-  %cmp.i157742 = phi i1 [ %cmp.i157741, %dynamic_cast.end3.i148 ], [ %cmp.i157, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
+  %cmp.i157741 = phi i1 [ %cmp.i157740, %dynamic_cast.end3.i148 ], [ %cmp.i157, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
   %.pre.i185732739 = phi ptr [ %.pre.i185732738, %dynamic_cast.end3.i148 ], [ %.pre.i185732, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MinBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_basket, i8 0, i64 16, i1 false), !alias.scope !96
-  br i1 %cmp.i157742, label %do.end120, label %if.then80
+  br i1 %cmp.i157741, label %do.end120, label %if.then80
 
 if.then80:                                        ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib15MaxBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream81)
@@ -1783,9 +1783,9 @@ ehcleanup117:                                     ; preds = %ehcleanup116, %lpad
   br label %ehcleanup478
 
 do.end120:                                        ; preds = %if.then.i.i.i154, %cond.true.i150, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MaxBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
-  %.pre.i185732737747 = phi ptr [ %.pre.i185732739, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MaxBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ], [ %.pre.i185732738, %cond.true.i150 ], [ %.pre.i185732738, %if.then.i.i.i154 ]
+  %.pre.i185732737744 = phi ptr [ %.pre.i185732739, %_ZN5boost20dynamic_pointer_castIN8QuantLib15MaxBasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit ], [ %.pre.i185732738, %cond.true.i150 ], [ %.pre.i185732738, %if.then.i.i.i154 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %payoff121)
-  %cmp.not.i183 = icmp eq ptr %.pre.i185732737747, null
+  %cmp.not.i183 = icmp eq ptr %.pre.i185732737744, null
   br i1 %cmp.not.i183, label %cond.false.i184, label %invoke.cont124, !prof !72
 
 cond.false.i184:                                  ; preds = %do.end120
@@ -1793,9 +1793,9 @@ cond.false.i184:                                  ; preds = %do.end120
           to label %invoke.cont124 unwind label %lpad123
 
 invoke.cont124:                                   ; preds = %cond.false.i184, %do.end120
-  %basePayoff_.i = getelementptr inbounds nuw i8, ptr %.pre.i185732737747, i64 8
+  %basePayoff_.i = getelementptr inbounds nuw i8, ptr %.pre.i185732737744, i64 8
   %77 = load ptr, ptr %basePayoff_.i, align 8, !tbaa !88, !noalias !101
-  %pn3.i.i = getelementptr inbounds nuw i8, ptr %.pre.i185732737747, i64 16
+  %pn3.i.i = getelementptr inbounds nuw i8, ptr %.pre.i185732737744, i64 16
   %78 = load ptr, ptr %pn3.i.i, align 8, !tbaa !37, !noalias !101
   %cmp.not.i.i.i187 = icmp eq ptr %78, null
   br i1 %cmp.not.i.i.i187, label %_ZN8QuantLib12BasketPayoff10basePayoffEv.exit, label %if.then.i.i.i188

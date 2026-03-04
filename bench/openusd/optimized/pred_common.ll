@@ -455,9 +455,9 @@ define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr noundef re
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = add i8 %23, -5
-  %narrow54 = icmp ult i8 %24, 3
-  %25 = xor i1 %narrow53, %narrow54
-  %26 = zext i1 %25 to i32
+  %25 = icmp ult i8 %24, 3
+  %.v = xor i1 %narrow53, %25
+  %26 = zext i1 %.v to i32
   br label %53
 
 27:                                               ; preds = %17

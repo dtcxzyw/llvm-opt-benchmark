@@ -921,7 +921,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = and i32 %2, 2
-  %.not = icmp ne i32 %11, 0
+  %.not = icmp eq i32 %11, 0
   %12 = load i32, ptr %1, align 4
   %13 = lshr i32 %12, 8
   %14 = lshr i32 %12, 16
@@ -1166,195 +1166,192 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %188
+  br label %186
 
-186:                                              ; preds = %295
-  %187 = and i1 %.not, %189
-  br i1 %187, label %188, label %.thread70, !llvm.loop !25
-
-188:                                              ; preds = %171, %186
-  %.279 = phi i32 [ %.1, %171 ], [ %.1.i66, %186 ]
-  %189 = phi i1 [ true, %171 ], [ false, %186 ]
-  %190 = call i32 @stb__RefineBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.279)
-  %.not46 = icmp eq i32 %190, 0
+186:                                              ; preds = %292, %171
+  %.279 = phi i32 [ %.1, %171 ], [ %.1.i66, %292 ]
+  %.not89 = phi i1 [ %.not, %171 ], [ true, %292 ]
+  %187 = call i32 @stb__RefineBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.279)
+  %.not46 = icmp eq i32 %187, 0
   %.pre.pre = load i16, ptr %8, align 2, !tbaa !20
   %.pre82.pre = load i16, ptr %9, align 2, !tbaa !20
-  br i1 %.not46, label %.thread70, label %191
+  br i1 %.not46, label %.thread70, label %188
 
-191:                                              ; preds = %188
+188:                                              ; preds = %186
   %.not47 = icmp eq i16 %.pre.pre, %.pre82.pre
-  br i1 %.not47, label %.thread70, label %192
+  br i1 %.not47, label %.thread70, label %189
 
-192:                                              ; preds = %191
-  %193 = lshr i16 %.pre.pre, 11
-  %194 = lshr i16 %.pre.pre, 5
-  %195 = and i16 %194, 63
-  %196 = and i16 %.pre.pre, 31
-  %197 = mul nuw nsw i16 %193, 33
-  %198 = lshr i16 %197, 2
+189:                                              ; preds = %188
+  %190 = lshr i16 %.pre.pre, 11
+  %191 = lshr i16 %.pre.pre, 5
+  %192 = and i16 %191, 63
+  %193 = and i16 %.pre.pre, 31
+  %194 = mul nuw nsw i16 %190, 33
+  %195 = lshr i16 %194, 2
+  %196 = trunc nuw i16 %195 to i8
+  store i8 %196, ptr %10, align 16, !tbaa !3
+  %197 = mul nuw nsw i16 %192, 65
+  %198 = lshr i16 %197, 4
   %199 = trunc nuw i16 %198 to i8
-  store i8 %199, ptr %10, align 16, !tbaa !3
-  %200 = mul nuw nsw i16 %195, 65
-  %201 = lshr i16 %200, 4
-  %202 = trunc nuw i16 %201 to i8
-  store i8 %202, ptr %172, align 1, !tbaa !3
-  %narrow.i.i48 = mul nuw nsw i16 %196, 33
-  %203 = lshr i16 %narrow.i.i48, 2
-  %204 = trunc nuw i16 %203 to i8
-  store i8 %204, ptr %173, align 2, !tbaa !3
-  %205 = lshr i16 %.pre82.pre, 11
-  %206 = lshr i16 %.pre82.pre, 5
-  %207 = and i16 %206, 63
-  %208 = and i16 %.pre82.pre, 31
-  %209 = mul nuw nsw i16 %205, 33
-  %210 = lshr i16 %209, 2
+  store i8 %199, ptr %172, align 1, !tbaa !3
+  %narrow.i.i48 = mul nuw nsw i16 %193, 33
+  %200 = lshr i16 %narrow.i.i48, 2
+  %201 = trunc nuw i16 %200 to i8
+  store i8 %201, ptr %173, align 2, !tbaa !3
+  %202 = lshr i16 %.pre82.pre, 11
+  %203 = lshr i16 %.pre82.pre, 5
+  %204 = and i16 %203, 63
+  %205 = and i16 %.pre82.pre, 31
+  %206 = mul nuw nsw i16 %202, 33
+  %207 = lshr i16 %206, 2
+  %208 = trunc nuw i16 %207 to i8
+  store i8 %208, ptr %174, align 4, !tbaa !3
+  %209 = mul nuw nsw i16 %204, 65
+  %210 = lshr i16 %209, 4
   %211 = trunc nuw i16 %210 to i8
-  store i8 %211, ptr %174, align 4, !tbaa !3
-  %212 = mul nuw nsw i16 %207, 65
-  %213 = lshr i16 %212, 4
-  %214 = trunc nuw i16 %213 to i8
-  store i8 %214, ptr %175, align 1, !tbaa !3
-  %narrow.i9.i49 = mul nuw nsw i16 %208, 33
-  %215 = lshr i16 %narrow.i9.i49, 2
+  store i8 %211, ptr %175, align 1, !tbaa !3
+  %narrow.i9.i49 = mul nuw nsw i16 %205, 33
+  %212 = lshr i16 %narrow.i9.i49, 2
+  %213 = trunc nuw i16 %212 to i8
+  store i8 %213, ptr %176, align 2, !tbaa !3
+  %214 = shl nuw nsw i16 %195, 1
+  %.lhs.trunc.i.i50 = add nuw nsw i16 %214, %207
+  %215 = udiv i16 %.lhs.trunc.i.i50, 3
   %216 = trunc nuw i16 %215 to i8
-  store i8 %216, ptr %176, align 2, !tbaa !3
+  store i8 %216, ptr %177, align 8, !tbaa !3
   %217 = shl nuw nsw i16 %198, 1
-  %.lhs.trunc.i.i50 = add nuw nsw i16 %217, %210
-  %218 = udiv i16 %.lhs.trunc.i.i50, 3
+  %.lhs.trunc9.i.i51 = add nuw nsw i16 %217, %210
+  %218 = udiv i16 %.lhs.trunc9.i.i51, 3
   %219 = trunc nuw i16 %218 to i8
-  store i8 %219, ptr %177, align 8, !tbaa !3
-  %220 = shl nuw nsw i16 %201, 1
-  %.lhs.trunc9.i.i51 = add nuw nsw i16 %220, %213
-  %221 = udiv i16 %.lhs.trunc9.i.i51, 3
+  store i8 %219, ptr %178, align 1, !tbaa !3
+  %220 = shl nuw nsw i16 %200, 1
+  %.lhs.trunc11.i.i52 = add nuw nsw i16 %220, %212
+  %221 = udiv i16 %.lhs.trunc11.i.i52, 3
   %222 = trunc nuw i16 %221 to i8
-  store i8 %222, ptr %178, align 1, !tbaa !3
-  %223 = shl nuw nsw i16 %203, 1
-  %.lhs.trunc11.i.i52 = add nuw nsw i16 %223, %215
-  %224 = udiv i16 %.lhs.trunc11.i.i52, 3
+  store i8 %222, ptr %179, align 2, !tbaa !3
+  %223 = shl nuw nsw i16 %207, 1
+  %.lhs.trunc.i10.i53 = add nuw nsw i16 %223, %195
+  %224 = udiv i16 %.lhs.trunc.i10.i53, 3
   %225 = trunc nuw i16 %224 to i8
-  store i8 %225, ptr %179, align 2, !tbaa !3
+  store i8 %225, ptr %180, align 4, !tbaa !3
   %226 = shl nuw nsw i16 %210, 1
-  %.lhs.trunc.i10.i53 = add nuw nsw i16 %226, %198
-  %227 = udiv i16 %.lhs.trunc.i10.i53, 3
+  %.lhs.trunc9.i11.i54 = add nuw nsw i16 %226, %198
+  %227 = udiv i16 %.lhs.trunc9.i11.i54, 3
   %228 = trunc nuw i16 %227 to i8
-  store i8 %228, ptr %180, align 4, !tbaa !3
-  %229 = shl nuw nsw i16 %213, 1
-  %.lhs.trunc9.i11.i54 = add nuw nsw i16 %229, %201
-  %230 = udiv i16 %.lhs.trunc9.i11.i54, 3
+  store i8 %228, ptr %181, align 1, !tbaa !3
+  %229 = shl nuw nsw i16 %212, 1
+  %.lhs.trunc11.i12.i55 = add nuw nsw i16 %229, %200
+  %230 = udiv i16 %.lhs.trunc11.i12.i55, 3
   %231 = trunc nuw i16 %230 to i8
-  store i8 %231, ptr %181, align 1, !tbaa !3
-  %232 = shl nuw nsw i16 %215, 1
-  %.lhs.trunc11.i12.i55 = add nuw nsw i16 %232, %203
-  %233 = udiv i16 %.lhs.trunc11.i12.i55, 3
-  %234 = trunc nuw i16 %233 to i8
-  store i8 %234, ptr %182, align 2, !tbaa !3
+  store i8 %231, ptr %182, align 2, !tbaa !3
+  %232 = zext nneg i16 %195 to i32
+  %233 = zext nneg i16 %207 to i32
+  %234 = sub nsw i32 %232, %233
   %235 = zext nneg i16 %198 to i32
   %236 = zext nneg i16 %210 to i32
   %237 = sub nsw i32 %235, %236
-  %238 = zext nneg i16 %201 to i32
-  %239 = zext nneg i16 %213 to i32
+  %238 = zext nneg i16 %200 to i32
+  %239 = zext nneg i16 %212 to i32
   %240 = sub nsw i32 %238, %239
-  %241 = zext nneg i16 %203 to i32
-  %242 = zext nneg i16 %215 to i32
-  %243 = sub nsw i32 %241, %242
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %244
+  br label %241
 
-244:                                              ; preds = %244, %192
-  %indvars.iv.i56 = phi i64 [ 0, %192 ], [ %indvars.iv.next.i57, %244 ]
-  %245 = shl nuw nsw i64 %indvars.iv.i56, 2
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 %245
-  %247 = load i8, ptr %246, align 1, !tbaa !3
-  %248 = zext i8 %247 to i32
-  %249 = mul nsw i32 %237, %248
-  %250 = getelementptr inbounds nuw i8, ptr %246, i64 1
-  %251 = load i8, ptr %250, align 1, !tbaa !3
-  %252 = zext i8 %251 to i32
-  %253 = mul nsw i32 %240, %252
-  %254 = add nsw i32 %253, %249
-  %255 = getelementptr inbounds nuw i8, ptr %246, i64 2
-  %256 = load i8, ptr %255, align 1, !tbaa !3
-  %257 = zext i8 %256 to i32
-  %258 = mul nsw i32 %243, %257
-  %259 = add nsw i32 %254, %258
-  %260 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i56
-  store i32 %259, ptr %260, align 4, !tbaa !6
+241:                                              ; preds = %241, %189
+  %indvars.iv.i56 = phi i64 [ 0, %189 ], [ %indvars.iv.next.i57, %241 ]
+  %242 = shl nuw nsw i64 %indvars.iv.i56, 2
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 %242
+  %244 = load i8, ptr %243, align 1, !tbaa !3
+  %245 = zext i8 %244 to i32
+  %246 = mul nsw i32 %234, %245
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 1
+  %248 = load i8, ptr %247, align 1, !tbaa !3
+  %249 = zext i8 %248 to i32
+  %250 = mul nsw i32 %237, %249
+  %251 = add nsw i32 %250, %246
+  %252 = getelementptr inbounds nuw i8, ptr %243, i64 2
+  %253 = load i8, ptr %252, align 1, !tbaa !3
+  %254 = zext i8 %253 to i32
+  %255 = mul nsw i32 %240, %254
+  %256 = add nsw i32 %251, %255
+  %257 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i56
+  store i32 %256, ptr %257, align 4, !tbaa !6
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 16
-  br i1 %exitcond.not.i58, label %.preheader.i59, label %244, !llvm.loop !8
+  br i1 %exitcond.not.i58, label %.preheader.i59, label %241, !llvm.loop !8
 
-.preheader.i59:                                   ; preds = %244, %.preheader.i59
-  %indvars.iv51.i60 = phi i64 [ %indvars.iv.next52.i61, %.preheader.i59 ], [ 0, %244 ]
-  %261 = shl nuw nsw i64 %indvars.iv51.i60, 2
-  %262 = getelementptr inbounds nuw i8, ptr %10, i64 %261
-  %263 = load i8, ptr %262, align 4, !tbaa !3
-  %264 = zext i8 %263 to i32
-  %265 = mul nsw i32 %237, %264
-  %266 = getelementptr inbounds nuw i8, ptr %262, i64 1
-  %267 = load i8, ptr %266, align 1, !tbaa !3
-  %268 = zext i8 %267 to i32
-  %269 = mul nsw i32 %240, %268
-  %270 = add nsw i32 %269, %265
-  %271 = getelementptr inbounds nuw i8, ptr %262, i64 2
-  %272 = load i8, ptr %271, align 2, !tbaa !3
-  %273 = zext i8 %272 to i32
-  %274 = mul nsw i32 %243, %273
-  %275 = add nsw i32 %270, %274
-  %276 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv51.i60
-  store i32 %275, ptr %276, align 4, !tbaa !6
+.preheader.i59:                                   ; preds = %241, %.preheader.i59
+  %indvars.iv51.i60 = phi i64 [ %indvars.iv.next52.i61, %.preheader.i59 ], [ 0, %241 ]
+  %258 = shl nuw nsw i64 %indvars.iv51.i60, 2
+  %259 = getelementptr inbounds nuw i8, ptr %10, i64 %258
+  %260 = load i8, ptr %259, align 4, !tbaa !3
+  %261 = zext i8 %260 to i32
+  %262 = mul nsw i32 %234, %261
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 1
+  %264 = load i8, ptr %263, align 1, !tbaa !3
+  %265 = zext i8 %264 to i32
+  %266 = mul nsw i32 %237, %265
+  %267 = add nsw i32 %266, %262
+  %268 = getelementptr inbounds nuw i8, ptr %259, i64 2
+  %269 = load i8, ptr %268, align 2, !tbaa !3
+  %270 = zext i8 %269 to i32
+  %271 = mul nsw i32 %240, %270
+  %272 = add nsw i32 %267, %271
+  %273 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv51.i60
+  store i32 %272, ptr %273, align 4, !tbaa !6
   %indvars.iv.next52.i61 = add nuw nsw i64 %indvars.iv51.i60, 1
   %exitcond54.not.i62 = icmp eq i64 %indvars.iv.next52.i61, 4
-  br i1 %exitcond54.not.i62, label %277, label %.preheader.i59, !llvm.loop !10
+  br i1 %exitcond54.not.i62, label %274, label %.preheader.i59, !llvm.loop !10
 
-277:                                              ; preds = %.preheader.i59
-  %278 = load i32, ptr %183, align 4, !tbaa !6
-  %279 = load i32, ptr %184, align 4, !tbaa !6
-  %280 = add nsw i32 %279, %278
-  %281 = load i32, ptr %185, align 8, !tbaa !6
-  %282 = add nsw i32 %281, %279
-  %283 = load i32, ptr %5, align 16, !tbaa !6
-  %284 = add nsw i32 %283, %281
-  br label %285
+274:                                              ; preds = %.preheader.i59
+  %275 = load i32, ptr %183, align 4, !tbaa !6
+  %276 = load i32, ptr %184, align 4, !tbaa !6
+  %277 = add nsw i32 %276, %275
+  %278 = load i32, ptr %185, align 8, !tbaa !6
+  %279 = add nsw i32 %278, %276
+  %280 = load i32, ptr %5, align 16, !tbaa !6
+  %281 = add nsw i32 %280, %278
+  br label %282
 
-285:                                              ; preds = %285, %277
-  %indvars.iv55.i63 = phi i64 [ 15, %277 ], [ %indvars.iv.next56.i67, %285 ]
-  %.049.i64 = phi i32 [ 0, %277 ], [ %.1.i66, %285 ]
-  %286 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv55.i63
-  %287 = load i32, ptr %286, align 4, !tbaa !6
-  %288 = shl nsw i32 %287, 1
-  %289 = shl i32 %.049.i64, 2
-  %290 = icmp slt i32 %288, %282
-  %291 = icmp slt i32 %288, %280
-  %292 = select i1 %291, i32 1, i32 3
-  %293 = icmp slt i32 %288, %284
-  %294 = select i1 %293, i32 2, i32 0
-  %.pn.i65 = select i1 %290, i32 %292, i32 %294
-  %.1.i66 = or disjoint i32 %.pn.i65, %289
+282:                                              ; preds = %282, %274
+  %indvars.iv55.i63 = phi i64 [ 15, %274 ], [ %indvars.iv.next56.i67, %282 ]
+  %.049.i64 = phi i32 [ 0, %274 ], [ %.1.i66, %282 ]
+  %283 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv55.i63
+  %284 = load i32, ptr %283, align 4, !tbaa !6
+  %285 = shl nsw i32 %284, 1
+  %286 = shl i32 %.049.i64, 2
+  %287 = icmp slt i32 %285, %279
+  %288 = icmp slt i32 %285, %277
+  %289 = select i1 %288, i32 1, i32 3
+  %290 = icmp slt i32 %285, %281
+  %291 = select i1 %290, i32 2, i32 0
+  %.pn.i65 = select i1 %287, i32 %289, i32 %291
+  %.1.i66 = or disjoint i32 %.pn.i65, %286
   %indvars.iv.next56.i67 = add nsw i64 %indvars.iv55.i63, -1
   %.not.i68 = icmp eq i64 %indvars.iv55.i63, 0
-  br i1 %.not.i68, label %295, label %285, !llvm.loop !11
+  br i1 %.not.i68, label %292, label %282, !llvm.loop !11
 
-295:                                              ; preds = %285
+292:                                              ; preds = %282
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %296 = icmp eq i32 %.1.i66, %.279
-  br i1 %296, label %.thread70, label %186
+  %293 = icmp eq i32 %.1.i66, %.279
+  %brmerge = or i1 %293, %.not89
+  br i1 %brmerge, label %.thread70, label %186
 
-.thread70:                                        ; preds = %188, %295, %191, %186, %19
-  %297 = phi i16 [ %51, %19 ], [ %.pre82.pre, %186 ], [ %.pre82.pre, %191 ], [ %.pre82.pre, %295 ], [ %.pre82.pre, %188 ]
-  %298 = phi i16 [ %38, %19 ], [ %.pre.pre, %186 ], [ %.pre.pre, %191 ], [ %.pre.pre, %295 ], [ %.pre.pre, %188 ]
-  %.0 = phi i32 [ -1431655766, %19 ], [ %.279, %188 ], [ %.279, %295 ], [ 0, %191 ], [ %.1.i66, %186 ]
-  %299 = icmp ult i16 %298, %297
-  %300 = xor i32 %.0, 1431655765
-  %301 = tail call i16 @llvm.umin.i16(i16 %298, i16 %297)
-  %302 = tail call i16 @llvm.umax.i16(i16 %298, i16 %297)
-  %.5 = select i1 %299, i32 %300, i32 %.0
-  store i16 %302, ptr %0, align 1
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %301, ptr %303, align 1
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.5, ptr %304, align 1
+.thread70:                                        ; preds = %186, %188, %292, %19
+  %294 = phi i16 [ %51, %19 ], [ %.pre82.pre, %292 ], [ %.pre82.pre, %188 ], [ %.pre82.pre, %186 ]
+  %295 = phi i16 [ %38, %19 ], [ %.pre.pre, %292 ], [ %.pre.pre, %188 ], [ %.pre.pre, %186 ]
+  %.0 = phi i32 [ -1431655766, %19 ], [ %.279, %186 ], [ 0, %188 ], [ %.1.i66, %292 ]
+  %296 = icmp ult i16 %295, %294
+  %297 = xor i32 %.0, 1431655765
+  %298 = tail call i16 @llvm.umin.i16(i16 %295, i16 %294)
+  %299 = tail call i16 @llvm.umax.i16(i16 %295, i16 %294)
+  %.5 = select i1 %296, i32 %297, i32 %.0
+  store i16 %299, ptr %0, align 1
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %298, ptr %300, align 1
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.5, ptr %301, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1382,7 +1379,7 @@ define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, pt
   %.166 = select i1 %12, i32 %.06586, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !26
+  br i1 %exitcond.not, label %13, label %7, !llvm.loop !25
 
 13:                                               ; preds = %7
   %14 = trunc nuw i32 %.166 to i8
@@ -1449,7 +1446,7 @@ define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, pt
   %.1 = phi ptr [ %47, %45 ], [ %.091, %26 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 16
-  br i1 %exitcond96.not, label %51, label %26, !llvm.loop !27
+  br i1 %exitcond96.not, label %51, label %26, !llvm.loop !26
 
 51:                                               ; preds = %50
   ret void
@@ -1482,7 +1479,7 @@ define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %15, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %16, label %10, !llvm.loop !26
+  br i1 %exitcond.not.i, label %16, label %10, !llvm.loop !25
 
 16:                                               ; preds = %10
   %17 = trunc nuw i32 %.166.i to i8
@@ -1549,7 +1546,7 @@ define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %50, %48 ], [ %.091.i, %29 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %29, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %29, !llvm.loop !26
 
 stb__CompressAlphaBlock.exit:                     ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
@@ -1562,7 +1559,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %53
   store i8 -1, ptr %56, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1595,7 +1592,7 @@ define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %9, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !25
 
 10:                                               ; preds = %5
   %11 = trunc nuw i32 %.166.i to i8
@@ -1661,7 +1658,7 @@ define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %43, %41 ], [ %.091.i, %23 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %23, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %23, !llvm.loop !26
 
 stb__CompressAlphaBlock.exit:                     ; preds = %46
   ret void
@@ -1687,7 +1684,7 @@ define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %10, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !25
 
 11:                                               ; preds = %5
   %12 = trunc nuw i32 %.166.i to i8
@@ -1754,7 +1751,7 @@ define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %45, %43 ], [ %.091.i, %24 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %24, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %24, !llvm.loop !26
 
 stb__CompressAlphaBlock.exit:                     ; preds = %48
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1776,7 +1773,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %48
   %.166.i9 = select i1 %57, i32 %.06586.i5, i32 %spec.select.i7
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 16
-  br i1 %exitcond.not.i11, label %58, label %52, !llvm.loop !26
+  br i1 %exitcond.not.i11, label %58, label %52, !llvm.loop !25
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1844,7 +1841,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %48
   %.1.i27 = phi ptr [ %93, %91 ], [ %.091.i13, %72 ]
   %indvars.iv.next94.i28 = add nuw nsw i64 %indvars.iv93.i12, 1
   %exitcond96.not.i29 = icmp eq i64 %indvars.iv.next94.i28, 16
-  br i1 %exitcond96.not.i29, label %stb__CompressAlphaBlock.exit30, label %72, !llvm.loop !27
+  br i1 %exitcond96.not.i29, label %stb__CompressAlphaBlock.exit30, label %72, !llvm.loop !26
 
 stb__CompressAlphaBlock.exit30:                   ; preds = %96
   ret void
@@ -1912,4 +1909,3 @@ attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind specul
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}

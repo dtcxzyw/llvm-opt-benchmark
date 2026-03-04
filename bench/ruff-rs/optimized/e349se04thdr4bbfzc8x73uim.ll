@@ -2025,14 +2025,14 @@ _ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.thread136
   %523 = load i8, ptr %.sroa.01.0.i.i.i.i, align 1, !alias.scope !189, !noalias !195, !noundef !3
   %524 = add i8 %523, -65
   %525 = icmp ult i8 %524, 26
-  %.sroa.04.0.i.i.i.i = select i1 %525, i8 32, i8 0
-  %526 = or i8 %.sroa.04.0.i.i.i.i, %523
+  %526 = select i1 %525, i8 32, i8 0
+  %.sroa.04.0.i.i.i.i = or i8 %526, %523
   %527 = load i8, ptr %.sroa.02.0.i.i.i.i, align 1, !alias.scope !192, !noalias !196, !noundef !3
   %528 = add i8 %527, -65
   %529 = icmp ult i8 %528, 26
-  %.sroa.05.0.i.i.i.i = select i1 %529, i8 32, i8 0
-  %530 = or i8 %.sroa.05.0.i.i.i.i, %527
-  %531 = icmp eq i8 %526, %530
+  %530 = select i1 %529, i8 32, i8 0
+  %.sroa.05.0.i.i.i.i = or i8 %530, %527
+  %531 = icmp eq i8 %.sroa.04.0.i.i.i.i, %.sroa.05.0.i.i.i.i
   br i1 %531, label %.preheader.i.i.i.i, label %.loopexit.i.i.i, !prof !194
 
 .loopexit.i.i.i:                                  ; preds = %516, %519

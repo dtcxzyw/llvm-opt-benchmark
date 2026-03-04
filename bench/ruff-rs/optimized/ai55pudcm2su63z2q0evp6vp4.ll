@@ -31149,14 +31149,14 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread18.i.i40.i: ; preds 
   %324 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !4531, !noundef !3
   %325 = add i8 %324, -65
   %326 = icmp ult i8 %325, 26
-  %.sroa.04.0.i = select i1 %326, i8 32, i8 0
-  %327 = or i8 %.sroa.04.0.i, %324
+  %327 = select i1 %326, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %327, %324
   %328 = load i8, ptr %.sroa.02.0.i, align 1, !noalias !4531, !noundef !3
   %329 = add i8 %328, -65
   %330 = icmp ult i8 %329, 26
-  %.sroa.05.0.i = select i1 %330, i8 32, i8 0
-  %331 = or i8 %.sroa.05.0.i, %328
-  %332 = icmp eq i8 %327, %331
+  %331 = select i1 %330, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %331, %328
+  %332 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %332, label %.preheader.i, label %.outer.outer.backedge
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E.exit303": ; preds = %311
@@ -36778,7 +36778,7 @@ _ZN18ty_python_semantic5types4call4bind8Bindings11return_type17had8f79362eb928f2
 
 .lr.ph214:                                        ; preds = %1538, %1568
   %.sroa.017.0213 = phi ptr [ %1545, %1568 ], [ %.sink11.i, %1538 ]
-  %.sroa.014.1212 = phi i1 [ %1570, %1568 ], [ %.not6.not.not.i.not.not.not.i.not, %1538 ]
+  %.sroa.014.1212 = phi i1 [ %.sroa.08.0, %1568 ], [ %.not6.not.not.i.not.not.not.i.not, %1538 ]
   %.sroa.011.1211 = phi i1 [ %.sroa.011.2, %1568 ], [ %not..not6.not.not.i.not.not.not.i.not, %1538 ]
   %.sroa.09.1210 = phi i1 [ %1569, %1568 ], [ %.not6.not.not.i.not.not.not.i.not, %1538 ]
   %1545 = getelementptr inbounds nuw i8, ptr %.sroa.017.0213, i64 128
@@ -36815,8 +36815,8 @@ _ZN18ty_python_semantic5types4call4bind8Bindings11return_type17had8f79362eb928f2
 ._crit_edge:                                      ; preds = %1568, %1538
   %.sroa.09.1.lcssa = phi i1 [ %.not6.not.not.i.not.not.not.i.not, %1538 ], [ %1569, %1568 ]
   %.sroa.011.1.lcssa = phi i1 [ %not..not6.not.not.i.not.not.not.i.not, %1538 ], [ %.sroa.011.2, %1568 ]
-  %.sroa.014.1.lcssa = phi i1 [ %.not6.not.not.i.not.not.not.i.not, %1538 ], [ %1570, %1568 ]
-  br i1 %.sroa.09.1.lcssa, label %1573, label %1572
+  %.sroa.014.1.lcssa = phi i1 [ %.not6.not.not.i.not.not.not.i.not, %1538 ], [ %.sroa.08.0, %1568 ]
+  br i1 %.sroa.09.1.lcssa, label %1572, label %1571
 
 _ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit: ; preds = %1558
   %1563 = getelementptr inbounds nuw i8, ptr %.sroa.017.0213, i64 120
@@ -36825,153 +36825,152 @@ _ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e
   br i1 %1565, label %1568, label %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread
 
 _ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread: ; preds = %1555, %.lr.ph214, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit
-  %1566 = phi i1 [ false, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ], [ false, %.lr.ph214 ], [ true, %1555 ]
-  %1567 = or i1 %.sroa.011.1211, %1566
+  %1566 = phi i1 [ %.sroa.011.1211, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ], [ %.sroa.011.1211, %.lr.ph214 ], [ true, %1555 ]
+  %1567 = and i1 %.sroa.014.1212, %.not.i
   br label %1568
 
 1568:                                             ; preds = %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread
   %1569 = phi i1 [ false, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread ], [ %.sroa.09.1210, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ]
-  %.sroa.08.0 = phi i1 [ %.not.i, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread ], [ false, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ]
-  %.sroa.011.2 = phi i1 [ %1567, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread ], [ %.sroa.011.1211, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ]
-  %1570 = and i1 %.sroa.014.1212, %.sroa.08.0
-  %1571 = icmp eq ptr %1545, %1543
-  br i1 %1571, label %._crit_edge, label %.lr.ph214
+  %.sroa.08.0 = phi i1 [ %1567, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread ], [ false, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ]
+  %.sroa.011.2 = phi i1 [ %1566, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit.thread ], [ %.sroa.011.1211, %_ZN18ty_python_semantic5types4call4bind15CallableBinding9as_result17h73620e29c2e2492aE.exit ]
+  %1570 = icmp eq ptr %1545, %1543
+  br i1 %1570, label %._crit_edge, label %.lr.ph214
+
+1571:                                             ; preds = %._crit_edge
+  br i1 %.sroa.011.1.lcssa, label %1574, label %1573
 
 1572:                                             ; preds = %._crit_edge
-  br i1 %.sroa.011.1.lcssa, label %1575, label %1574
-
-1573:                                             ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
-  br label %1605
+  br label %1604
 
-1574:                                             ; preds = %1572
-  br i1 %.sroa.014.1.lcssa, label %1593, label %1584
+1573:                                             ; preds = %1571
+  br i1 %.sroa.014.1.lcssa, label %1592, label %1583
 
-1575:                                             ; preds = %1572
+1574:                                             ; preds = %1571
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %139, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
-  %1576 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5295
-  %1577 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5295
-  %1578 = icmp eq ptr %1577, null
-  br i1 %1578, label %1579, label %1609, !prof !828
+  %1575 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5295
+  %1576 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5295
+  %1577 = icmp eq ptr %1576, null
+  br i1 %1577, label %1578, label %1608, !prof !828
 
-1579:                                             ; preds = %1575
+1578:                                             ; preds = %1574
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 328) #34
-          to label %.noexc169 unwind label %1580
+          to label %.noexc169 unwind label %1579
 
-.noexc169:                                        ; preds = %1579
+.noexc169:                                        ; preds = %1578
   unreachable
 
-1580:                                             ; preds = %1579
-  %1581 = landingpad { ptr, i32 }
+1579:                                             ; preds = %1578
+  %1580 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %139) #35
-          to label %.body unwind label %1582
+          to label %.body unwind label %1581
 
-1582:                                             ; preds = %1580
-  %1583 = landingpad { ptr, i32 }
+1581:                                             ; preds = %1579
+  %1582 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #36
   unreachable
 
-1584:                                             ; preds = %1574
+1583:                                             ; preds = %1573
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %137, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
-  %1585 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5298
-  %1586 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5298
-  %1587 = icmp eq ptr %1586, null
-  br i1 %1587, label %1588, label %1602, !prof !828
+  %1584 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5298
+  %1585 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5298
+  %1586 = icmp eq ptr %1585, null
+  br i1 %1586, label %1587, label %1601, !prof !828
 
-1588:                                             ; preds = %1584
+1587:                                             ; preds = %1583
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 328) #34
-          to label %.noexc170 unwind label %1589
+          to label %.noexc170 unwind label %1588
 
-.noexc170:                                        ; preds = %1588
+.noexc170:                                        ; preds = %1587
   unreachable
 
-1589:                                             ; preds = %1588
-  %1590 = landingpad { ptr, i32 }
+1588:                                             ; preds = %1587
+  %1589 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %137) #35
-          to label %.body unwind label %1591
+          to label %.body unwind label %1590
 
-1591:                                             ; preds = %1589
-  %1592 = landingpad { ptr, i32 }
+1590:                                             ; preds = %1588
+  %1591 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #36
   unreachable
 
-1593:                                             ; preds = %1574
+1592:                                             ; preds = %1573
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %138, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
-  %1594 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5301
-  %1595 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5301
-  %1596 = icmp eq ptr %1595, null
-  br i1 %1596, label %1597, label %1606, !prof !828
+  %1593 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !5301
+  %1594 = call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 4, 329) 328, i64 noundef range(i64 4, 9) 8) #37, !noalias !5301
+  %1595 = icmp eq ptr %1594, null
+  br i1 %1595, label %1596, label %1605, !prof !828
 
-1597:                                             ; preds = %1593
+1596:                                             ; preds = %1592
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 328) #34
-          to label %.noexc172 unwind label %1598
+          to label %.noexc172 unwind label %1597
 
-.noexc172:                                        ; preds = %1597
+.noexc172:                                        ; preds = %1596
   unreachable
 
-1598:                                             ; preds = %1597
-  %1599 = landingpad { ptr, i32 }
+1597:                                             ; preds = %1596
+  %1598 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %138) #35
-          to label %.body unwind label %1600
+          to label %.body unwind label %1599
 
-1600:                                             ; preds = %1598
-  %1601 = landingpad { ptr, i32 }
+1599:                                             ; preds = %1597
+  %1600 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #36
   unreachable
 
-1602:                                             ; preds = %1584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1586, ptr noundef nonnull align 8 dereferenceable(328) %137, i64 328, i1 false)
+1601:                                             ; preds = %1583
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1585, ptr noundef nonnull align 8 dereferenceable(328) %137, i64 328, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  %1603 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1586, ptr %1603, align 8
-  %1604 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %1604, align 8
+  %1602 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1585, ptr %1602, align 8
+  %1603 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %1603, align 8
   store i8 29, ptr %0, align 8
-  br label %1605
+  br label %1604
 
-1605:                                             ; preds = %1609, %1606, %1602, %1573
+1604:                                             ; preds = %1608, %1605, %1601, %1572
   ret void
 
-1606:                                             ; preds = %1593
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1595, ptr noundef nonnull align 8 dereferenceable(328) %138, i64 328, i1 false)
+1605:                                             ; preds = %1592
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1594, ptr noundef nonnull align 8 dereferenceable(328) %138, i64 328, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
-  %1607 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1595, ptr %1607, align 8
-  %1608 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %1608, align 8
+  %1606 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1594, ptr %1606, align 8
+  %1607 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %1607, align 8
   store i8 29, ptr %0, align 8
-  br label %1605
+  br label %1604
 
-1609:                                             ; preds = %1575
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1577, ptr noundef nonnull align 8 dereferenceable(328) %139, i64 328, i1 false)
+1608:                                             ; preds = %1574
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1576, ptr noundef nonnull align 8 dereferenceable(328) %139, i64 328, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  %1610 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1577, ptr %1610, align 8
-  %1611 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %1611, align 8
+  %1609 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1576, ptr %1609, align 8
+  %1610 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %1610, align 8
   store i8 29, ptr %0, align 8
-  br label %1605
+  br label %1604
 
-.body:                                            ; preds = %1598, %1589, %1580, %.loopexit.split-lp
-  %eh.lpad-body180 = phi { ptr, i32 } [ %eh.lpad-body.ph, %.loopexit.split-lp ], [ %1590, %1589 ], [ %1581, %1580 ], [ %1599, %1598 ]
+.body:                                            ; preds = %1597, %1588, %1579, %.loopexit.split-lp
+  %eh.lpad-body180 = phi { ptr, i32 } [ %eh.lpad-body.ph, %.loopexit.split-lp ], [ %1589, %1588 ], [ %1580, %1579 ], [ %1598, %1597 ]
   resume { ptr, i32 } %eh.lpad-body180
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %179, %.body.i, %1441, %1433, %1405, %.body290.i, %1352, %1162, %1154, %1132, %.body.i40, %1080, %871
   %eh.lpad-body.ph = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %1434, %1433 ], [ %eh.lpad-body.i, %179 ], [ %1406, %1405 ], [ %.pn104.i, %1441 ], [ %1081, %1080 ], [ %1133, %1132 ], [ %1155, %1154 ], [ %1353, %1352 ], [ %.pn147.i, %871 ], [ %.pn135.i, %.body.i40 ], [ %.pn130.i, %1162 ], [ %.pn115.i, %.body290.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit188, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %1) #35
-          to label %.body unwind label %1612
+          to label %.body unwind label %1611
 
-1612:                                             ; preds = %.loopexit.split-lp
-  %1613 = landingpad { ptr, i32 }
+1611:                                             ; preds = %.loopexit.split-lp
+  %1612 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #36
   unreachable

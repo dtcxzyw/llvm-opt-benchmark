@@ -3265,6 +3265,7 @@ _ZN5boost15program_options6detail18prefix_name_mapperC2EOS2_.exit.thread: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !31
+  store ptr %8, ptr %1, align 8, !tbaa !34
   store i64 0, ptr %14, align 8, !tbaa !31
   store i8 0, ptr %8, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8925,6 +8926,7 @@ _ZN5boost15program_options6detail18prefix_name_mapperC2EOS2_.exit.thread: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !31
+  store ptr %8, ptr %1, align 8, !tbaa !34
   store i64 0, ptr %14, align 8, !tbaa !31
   store i8 0, ptr %8, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

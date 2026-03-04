@@ -7264,7 +7264,7 @@ membr_fill.exit.i33:                              ; preds = %110, %membr_bits.ex
 
 membr_bits.exit39:                                ; preds = %98, %membr_fill.exit.thread.i38, %membr_fill.exit.i33
   %.0.i34 = phi i32 [ %127, %membr_fill.exit.i33 ], [ %96, %membr_fill.exit.thread.i38 ], [ %96, %98 ]
-  %128 = add nuw nsw i32 %.0.i34, -256
+  %128 = or i32 %.0.i34, -256
   br label %membr_bits.exit19
 
 129:                                              ; preds = %membr_bits.exit

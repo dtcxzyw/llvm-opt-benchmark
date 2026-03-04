@@ -5338,19 +5338,19 @@ _ZNK8facebook4yoga5Style19flexEndMarginIsAutoENS0_13FlexDirectionENS0_9Direction
   %.sroa.0.0.in.i.i221.i = phi i64 [ %2076, %2075 ], [ %2074, %2073 ], [ %2077, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i222.i ]
   %2078 = and i64 %.sroa.0.0.in.i.i221.i, 1095216660480
   %2079 = icmp eq i64 %2078, 12884901888
+  %2080 = and i1 %8, %2079
   br label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit217.i.thread2083
 
 _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit217.i.thread2083: ; preds = %2061, %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i212.i, %_ZNK8facebook4yoga5Style19flexEndMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit223.i, %_ZNK8facebook4yoga5Style21flexStartMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit220.i
-  %2080 = phi i1 [ true, %_ZNK8facebook4yoga5Style21flexStartMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit220.i ], [ true, %2061 ], [ true, %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i212.i ], [ %2079, %_ZNK8facebook4yoga5Style19flexEndMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit223.i ]
-  %2081 = select i1 %616, float %1966, float %.12015
-  %2082 = select i1 %616, float %.12015, float %1966
-  %2083 = select i1 %616, i32 0, i32 %.12018
-  %2084 = select i1 %616, i32 %.12018, i32 0
-  %2085 = and i1 %8, %2080
+  %2081 = phi i1 [ %8, %_ZNK8facebook4yoga5Style21flexStartMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit220.i ], [ %8, %2061 ], [ %8, %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i212.i ], [ %2080, %_ZNK8facebook4yoga5Style19flexEndMarginIsAutoENS0_13FlexDirectionENS0_9DirectionE.exit223.i ]
+  %2082 = select i1 %616, float %1966, float %.12015
+  %2083 = select i1 %616, float %.12015, float %1966
+  %2084 = select i1 %616, i32 0, i32 %.12018
+  %2085 = select i1 %616, i32 %.12018, i32 0
   %2086 = load i8, ptr %1437, align 4
   %2087 = and i8 %2086, 3
-  %2088 = select i1 %2085, i32 4, i32 7
-  %2089 = invoke noundef zeroext i1 @_ZN8facebook4yoga23calculateLayoutInternalEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %1589, float noundef %2081, float noundef %2082, i8 noundef zeroext %2087, i32 noundef %2083, i32 noundef %2084, float noundef %.0.i951, float noundef %.0.i952, i1 noundef zeroext %2085, i32 noundef %2088, ptr noundef nonnull align 4 dereferenceable(56) %10, i32 noundef %11, i32 noundef %12)
+  %2088 = select i1 %2081, i32 4, i32 7
+  %2089 = invoke noundef zeroext i1 @_ZN8facebook4yoga23calculateLayoutInternalEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %1589, float noundef %2082, float noundef %2083, i8 noundef zeroext %2087, i32 noundef %2084, i32 noundef %2085, float noundef %.0.i951, float noundef %.0.i952, i1 noundef zeroext %2081, i32 noundef %2088, ptr noundef nonnull align 4 dereferenceable(56) %10, i32 noundef %11, i32 noundef %12)
           to label %.noexc1776 unwind label %.loopexit.split-lp2367.loopexit
 
 .noexc1776:                                       ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit217.i.thread2083

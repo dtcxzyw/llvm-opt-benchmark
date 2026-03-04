@@ -50,7 +50,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %46, %14, %13, %6, %1, %17
-  %.0 = phi i8 [ %.021, %17 ], [ 0, %1 ], [ -128, %6 ], [ %.33, %46 ], [ %., %13 ], [ %.32, %14 ]
+  %.0 = phi i8 [ %.021, %17 ], [ 0, %1 ], [ -128, %6 ], [ %.32, %46 ], [ %., %13 ], [ %.31, %14 ]
   ret i8 %.0
 
 9:                                                ; preds = %6
@@ -66,7 +66,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 14:                                               ; preds = %11
-  %.32 = select i1 %.not, i8 64, i8 -64
+  %.31 = select i1 %.not, i8 64, i8 -64
   br label %8
 
 15:                                               ; preds = %11
@@ -99,8 +99,8 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   %39 = trunc nuw i32 %38 to i8
   %40 = sub nuw nsw i32 127, %19
   %41 = icmp ne i32 %20, 0
-  %.34 = sext i1 %41 to i8
-  %.026.neg = select i1 %21, i8 1, i8 %.34
+  %.33 = sext i1 %41 to i8
+  %.026.neg = select i1 %21, i8 1, i8 %.33
   %.022 = select i1 %21, i32 %40, i32 %20
   %42 = add nsw i32 %.022, -8
   %43 = icmp ult i32 %42, 56
@@ -111,7 +111,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 46:                                               ; preds = %15
-  %.33 = select i1 %.not, i8 1, i8 -1
+  %.32 = select i1 %.not, i8 1, i8 -1
   br label %8
 }
 
@@ -129,7 +129,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %46, %14, %13, %6, %1, %17
-  %.0 = phi i8 [ %.021, %17 ], [ 0, %1 ], [ -128, %6 ], [ %.33, %46 ], [ %., %13 ], [ %.32, %14 ]
+  %.0 = phi i8 [ %.021, %17 ], [ 0, %1 ], [ -128, %6 ], [ %.32, %46 ], [ %., %13 ], [ %.31, %14 ]
   ret i8 %.0
 
 9:                                                ; preds = %6
@@ -145,7 +145,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 14:                                               ; preds = %11
-  %.32 = select i1 %.not, i8 64, i8 -64
+  %.31 = select i1 %.not, i8 64, i8 -64
   br label %8
 
 15:                                               ; preds = %11
@@ -178,8 +178,8 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   %39 = trunc nuw i64 %38 to i8
   %40 = sub nuw nsw i64 1023, %19
   %41 = icmp ne i64 %20, 0
-  %.34 = sext i1 %41 to i8
-  %.026.neg = select i1 %21, i8 1, i8 %.34
+  %.33 = sext i1 %41 to i8
+  %.026.neg = select i1 %21, i8 1, i8 %.33
   %.022 = select i1 %21, i64 %40, i64 %20
   %42 = add nsw i64 %.022, -8
   %43 = icmp ult i64 %42, 504
@@ -190,7 +190,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 46:                                               ; preds = %15
-  %.33 = select i1 %.not, i8 1, i8 -1
+  %.32 = select i1 %.not, i8 1, i8 -1
   br label %8
 }
 
@@ -2095,7 +2095,7 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 20:                                               ; preds = %17
-  %.32.i = select i1 %.not.i, i8 64, i8 -64
+  %.31.i = select i1 %.not.i, i8 64, i8 -64
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 21:                                               ; preds = %17
@@ -2128,8 +2128,8 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   %45 = trunc nuw i64 %44 to i8
   %46 = sub nuw nsw i64 1023, %25
   %47 = icmp ne i64 %26, 0
-  %.34.i = sext i1 %47 to i8
-  %.026.neg.i = select i1 %27, i8 1, i8 %.34.i
+  %.33.i = sext i1 %47 to i8
+  %.026.neg.i = select i1 %27, i8 1, i8 %.33.i
   %.022.i = select i1 %27, i64 %46, i64 %26
   %48 = add nsw i64 %.022.i, -8
   %49 = icmp ult i64 %48, 504
@@ -2140,7 +2140,7 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 52:                                               ; preds = %21
-  %.33.i = select i1 %.not.i, i8 1, i8 -1
+  %.32.i = select i1 %.not.i, i8 1, i8 -1
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 53:                                               ; preds = %3
@@ -2150,7 +2150,7 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 "_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit": ; preds = %52, %23, %20, %19, %13, %6, %53
-  %.sroa.3.0 = phi i8 [ %55, %53 ], [ %.021.i, %23 ], [ 0, %6 ], [ -128, %13 ], [ %.33.i, %52 ], [ %..i, %19 ], [ %.32.i, %20 ]
+  %.sroa.3.0 = phi i8 [ %55, %53 ], [ %.021.i, %23 ], [ 0, %6 ], [ -128, %13 ], [ %.32.i, %52 ], [ %..i, %19 ], [ %.31.i, %20 ]
   %56 = insertvalue { i1, i8 } poison, i1 %trunc, 0
   %57 = insertvalue { i1, i8 } %56, i8 %.sroa.3.0, 1
   ret { i1, i8 } %57

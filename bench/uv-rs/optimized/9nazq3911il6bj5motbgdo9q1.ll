@@ -10407,14 +10407,14 @@ define internal fastcc noundef zeroext i1 @_ZN6uv_git3git16is_short_hash_of17h89
   %37 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1862, !noalias !1865, !noundef !4
   %38 = add i8 %37, -65
   %39 = icmp ult i8 %38, 26
-  %.sroa.04.0.i = select i1 %39, i8 32, i8 0
-  %40 = or i8 %.sroa.04.0.i, %37
+  %40 = select i1 %39, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %40, %37
   %41 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1865, !noalias !1862, !noundef !4
   %42 = add i8 %41, -65
   %43 = icmp ult i8 %42, 26
-  %.sroa.05.0.i = select i1 %43, i8 32, i8 0
-  %44 = or i8 %.sroa.05.0.i, %41
-  %45 = icmp eq i8 %40, %44
+  %44 = select i1 %43, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %44, %41
+  %45 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %45, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hb5faa0411e81ad20E.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hb5faa0411e81ad20E.exit": ; preds = %33, %.preheader.i, %25, %27

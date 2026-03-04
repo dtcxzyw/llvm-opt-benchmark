@@ -35028,8 +35028,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb19ParquetScanFunction15TryOpen
   %13 = sext i32 %12 to i64
   %14 = add i64 %10, %13
   %15 = load atomic i64, ptr %9 seq_cst, align 8
-  %.not58118 = icmp ult i64 %15, %14
-  br i1 %.not58118, label %.lr.ph, label %.loopexit
+  %.not58116 = icmp ult i64 %15, %14
+  br i1 %.not58116, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -35037,14 +35037,14 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb19ParquetScanFunction15TryOpen
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge
-  %.042119 = phi i64 [ %15, %.lr.ph ], [ %282, %.critedge ]
+  %.042117 = phi i64 [ %15, %.lr.ph ], [ %282, %.critedge ]
   %19 = load ptr, ptr %17, align 8, !tbaa !1064
   %20 = load ptr, ptr %16, align 8, !tbaa !1063
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
-  %.not = icmp ult i64 %.042119, %24
+  %.not = icmp ult i64 %.042117, %24
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %18
@@ -35052,7 +35052,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb19ParquetScanFunction15TryOpen
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %25, %18
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %.042119)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %.042117)
   %29 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i8, ptr %30, align 8, !tbaa !1085
@@ -35478,7 +35478,7 @@ _ZN6duckdb10shared_ptrINS_13ParquetReaderELb1EED2Ev.exit: ; preds = %_ZN6duckdb1
 205:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ParquetReaderELb1EED2Ev.exit
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.sroa.0.0.copyload = load ptr, ptr %206, align 8, !tbaa !1015
-  invoke void @_ZN6duckdb12optional_idxC2Em(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %.042119)
+  invoke void @_ZN6duckdb12optional_idxC2Em(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %.042117)
           to label %207 unwind label %213
 
 207:                                              ; preds = %205
@@ -35670,13 +35670,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit102:         ; preds = %278, %218
   br label %common.resume
 
 .critedge:                                        ; preds = %27
-  %282 = add nuw i64 %.042119, 1
+  %282 = add nuw i64 %.042117, 1
   %.not58 = icmp ult i64 %282, %14
   br i1 %.not58, label %18, label %.loopexit, !llvm.loop !1260
 
 .loopexit:                                        ; preds = %.critedge, %25, %5, %_ZNSt11unique_lockISt5mutexED2Ev.exit
-  %spec.select = phi i1 [ true, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ false, %5 ], [ false, %25 ], [ false, %.critedge ]
-  ret i1 %spec.select
+  %.1 = phi i1 [ true, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ false, %5 ], [ false, %25 ], [ false, %.critedge ]
+  ret i1 %.1
 
 283:                                              ; preds = %218
   %284 = landingpad { ptr, i32 }

@@ -599,12 +599,15 @@ if.then12.i:                                      ; preds = %for.inc.i.i, %if.en
 if.end15.i:                                       ; preds = %land.lhs.true.i.i34, %if.then12.i, %while.body.i.i.i.preheader.i
   %changed.1.i30 = phi i1 [ true, %if.then12.i ], [ %changed.012.i, %while.body.i.i.i.preheader.i ], [ %changed.012.i, %land.lhs.true.i.i34 ]
   %cmp.i.not.i31 = icmp eq ptr %77, %InstList.i7.i
-  br i1 %cmp.i.not.i31, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %while.body.i.i.i.preheader.i, !llvm.loop !13
+  br i1 %cmp.i.not.i31, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit.loopexit, label %while.body.i.i.i.preheader.i, !llvm.loop !13
 
-_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %if.end15.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, %if.end.i26
-  %retval.0.i32 = phi i1 [ false, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ], [ false, %if.end.i26 ], [ %changed.1.i30, %if.end15.i ]
-  %81 = or i1 %changed.0.lcssa.i, %retval.0.i32
-  %or3611 = or i1 %changed.273, %81
+_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit.loopexit: ; preds = %if.end15.i
+  %81 = or i1 %changed.0.lcssa.i, %changed.1.i30
+  br label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit
+
+_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit.loopexit, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, %if.end.i26
+  %retval.0.i32 = phi i1 [ %changed.0.lcssa.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ], [ %changed.0.lcssa.i, %if.end.i26 ], [ %81, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit.loopexit ]
+  %or3611 = or i1 %changed.273, %retval.0.i32
   %incdec.ptr.i35 = getelementptr inbounds nuw i8, ptr %__begin114.sroa.0.072, i64 8
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i35, %52
   br i1 %cmp.i16.not, label %for.end41, label %for.body22

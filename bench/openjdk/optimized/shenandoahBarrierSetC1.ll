@@ -1743,14 +1743,20 @@ define hidden i64 @_ZN22ShenandoahBarrierSetC115resolve_addressER9LIRAccessb(ptr
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -2
   %or.cond.i.i = icmp eq i8 %6, 12
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = and i64 %8, 2147483648
-  %10 = icmp ne i64 %9, 0
-  %11 = select i1 %or.cond.i.i, i1 %10, i1 false
+  br i1 %or.cond.i.i, label %7, label %13
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %9, 2147483648
+  %11 = icmp ne i64 %10, 0
   %12 = or i1 %2, %11
-  %13 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %12) #8
-  ret i64 %13
+  br label %13
+
+13:                                               ; preds = %7, %3
+  %14 = phi i1 [ %2, %3 ], [ %12, %7 ]
+  %15 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %14) #8
+  ret i64 %15
 }
 
 declare i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(80), i1 noundef zeroext) unnamed_addr #1

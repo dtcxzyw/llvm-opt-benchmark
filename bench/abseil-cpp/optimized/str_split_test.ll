@@ -215221,12 +215221,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %11, ptr %4, align 8, !tbaa !97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.168, i64 3, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 0, ptr %13, align 1, !tbaa !27
   %14 = load i32, ptr %11, align 8, !noalias !5352
+  store ptr %11, ptr %4, align 8, !tbaa !23, !noalias !5352
   store i64 0, ptr %12, align 8, !tbaa !98, !noalias !5352
   call void @llvm.experimental.noalias.scope.decl(metadata !5355)
   %15 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35

@@ -20035,7 +20035,7 @@ Vec_MemHashKey.exit.i176:                         ; preds = %.lr.ph.i.i191, %Abc
   br label %Vec_MemHashLookup.exit196, !llvm.loop !146
 
 Vec_MemHashLookup.exit196:                        ; preds = %229, %.lr.ph.i181, %.Vec_MemHashLookup.exit196.loopexit_crit_edge, %Vec_MemHashKey.exit.i176
-  %.not109.not = phi i1 [ false, %Vec_MemHashKey.exit.i176 ], [ true, %.lr.ph.i181 ], [ false, %.Vec_MemHashLookup.exit196.loopexit_crit_edge ], [ true, %229 ]
+  %.not109.not = phi i1 [ %.not108.not, %Vec_MemHashKey.exit.i176 ], [ true, %.lr.ph.i181 ], [ %.not108.not, %.Vec_MemHashLookup.exit196.loopexit_crit_edge ], [ true, %229 ]
   br i1 %143, label %.lr.ph.i199, label %Abc_TtNot.exit203
 
 .lr.ph.i199:                                      ; preds = %Vec_MemHashLookup.exit196, %.lr.ph.i199
@@ -20063,8 +20063,7 @@ Abc_TtNot.exit203:                                ; preds = %.lr.ph.i199, %Vec_M
   %narrow.i205 = select i1 %or.cond.not.i, i1 %.not4.i, i1 false
   %253 = zext i1 %narrow.i205 to i32
   %254 = add nsw i32 %.0100266, %253
-  %brmerge = or i1 %.not108.not, %.not109.not
-  br i1 %brmerge, label %255, label %257
+  br i1 %.not109.not, label %255, label %257
 
 255:                                              ; preds = %Abc_TtNot.exit203
   %256 = add nsw i32 %.098267, 1

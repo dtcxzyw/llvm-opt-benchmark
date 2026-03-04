@@ -2342,7 +2342,7 @@ select.unfold164:                                 ; preds = %select.unfold164.cr
   br i1 %301, label %.thread169, label %311
 
 .thread169:                                       ; preds = %.lr.ph.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit132, %266, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit, %select.unfold164, %297, %220, %299, %_ZNSt7__cxx114listIN5clang11CXXBasePathESaIS2_EE9push_backERKS2_.exit, %217
-  %.085 = phi i1 [ true, %_ZNSt7__cxx114listIN5clang11CXXBasePathESaIS2_EE9push_backERKS2_.exit ], [ true, %217 ], [ true, %299 ], [ false, %220 ], [ false, %297 ], [ false, %select.unfold164 ], [ false, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit ], [ false, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ false, %266 ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit132 ], [ false, %.lr.ph.i.i ]
+  %.085 = phi i1 [ true, %_ZNSt7__cxx114listIN5clang11CXXBasePathESaIS2_EE9push_backERKS2_.exit ], [ true, %217 ], [ true, %299 ], [ %.not4, %220 ], [ %.not4, %297 ], [ %.not4, %select.unfold164 ], [ %.not4, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit ], [ %.not4, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.not4, %266 ], [ %.not4, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit132 ], [ %.not4, %.lr.ph.i.i ]
   %.470 = phi i1 [ true, %_ZNSt7__cxx114listIN5clang11CXXBasePathESaIS2_EE9push_backERKS2_.exit ], [ true, %217 ], [ true, %299 ], [ %.066188, %220 ], [ %.066188, %297 ], [ %.066188, %select.unfold164 ], [ %.066188, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit ], [ %.066188, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.066188, %266 ], [ %.066188, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit132 ], [ %.066188, %.lr.ph.i.i ]
   %302 = load i8, ptr %47, align 1, !tbaa !182, !range !38, !noundef !39
   %303 = trunc nuw i8 %302 to i1
@@ -2355,8 +2355,7 @@ select.unfold164:                                 ; preds = %select.unfold164.cr
   br label %307
 
 307:                                              ; preds = %304, %.thread169
-  %or.cond6 = or i1 %.not4, %.085
-  br i1 %or.cond6, label %309, label %308
+  br i1 %.085, label %309, label %308
 
 308:                                              ; preds = %307
   store ptr null, ptr %46, align 8, !tbaa !60

@@ -470,7 +470,7 @@ thread-pre-split:                                 ; preds = %60
 
 74:                                               ; preds = %67, %67, %72
   %75 = phi ptr [ %73, %72 ], [ %65, %67 ], [ %65, %67 ]
-  %.031.not = phi i1 [ false, %72 ], [ true, %67 ], [ true, %67 ]
+  %.031.not = phi i1 [ %.0326387, %72 ], [ true, %67 ], [ true, %67 ]
   %76 = call i32 @sigaction(i32 noundef %55, ptr noundef null, ptr noundef nonnull %2) #15
   %.not45 = icmp eq i32 %76, 0
   br i1 %.not45, label %77, label %.critedge
@@ -481,8 +481,7 @@ thread-pre-split:                                 ; preds = %60
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %77
-  %or.cond9.not = or i1 %.0326387, %.031.not
-  br i1 %or.cond9.not, label %.thread55, label %81
+  br i1 %.031.not, label %.thread55, label %81
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr @prte_signal_string, align 8, !tbaa !10

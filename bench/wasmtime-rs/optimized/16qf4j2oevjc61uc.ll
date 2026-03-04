@@ -25373,56 +25373,58 @@ define { i1, i8 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cr
   %or.cond = select i1 %9, i1 %11, i1 false
   %12 = and i8 %.sroa.5.0.copyload, 7
   %13 = icmp eq i8 %12, 2
-  %or.cond75 = select i1 %or.cond, i1 %13, i1 false
+  %or.cond80 = select i1 %or.cond, i1 %13, i1 false
   %14 = and i8 %.sroa.636.0.copyload, 7
   %15 = icmp eq i8 %14, 3
-  %or.cond77 = select i1 %or.cond75, i1 %15, i1 false
+  %or.cond82 = select i1 %or.cond80, i1 %15, i1 false
   %16 = and i8 %.sroa.7.0.copyload, 7
   %17 = icmp eq i8 %16, 4
-  %or.cond79 = select i1 %or.cond77, i1 %17, i1 false
+  %or.cond84 = select i1 %or.cond82, i1 %17, i1 false
   %18 = and i8 %.sroa.837.0.copyload, 7
   %19 = icmp eq i8 %18, 5
-  %or.cond81 = select i1 %or.cond79, i1 %19, i1 false
+  %or.cond86 = select i1 %or.cond84, i1 %19, i1 false
   %20 = and i8 %.sroa.938.0.copyload, 7
   %21 = icmp eq i8 %20, 6
-  %or.cond83 = select i1 %or.cond81, i1 %21, i1 false
-  %22 = and i8 %.sroa.1039.0.copyload, 7
-  %23 = icmp eq i8 %22, 7
-  %or.cond85 = select i1 %or.cond83, i1 %23, i1 false
-  br i1 %or.cond85, label %24, label %40
+  %or.cond88 = select i1 %or.cond86, i1 %21, i1 false
+  br i1 %or.cond88, label %22, label %43
 
-24:                                               ; preds = %6
-  %25 = icmp ugt i8 %.sroa.035.0.copyload, 7
-  %. = zext i1 %25 to i8
-  %26 = icmp ult i8 %.sroa.1039.0.copyload, 8
-  %.54 = select i1 %26, i8 0, i8 -128
-  %27 = icmp ult i8 %.sroa.4.0.copyload, 8
-  %.42 = select i1 %27, i8 0, i8 2
-  %28 = or disjoint i8 %.42, %.
-  %29 = icmp ult i8 %.sroa.5.0.copyload, 8
-  %.44 = select i1 %29, i8 0, i8 4
-  %30 = or disjoint i8 %28, %.44
-  %31 = icmp ult i8 %.sroa.636.0.copyload, 8
-  %.46 = select i1 %31, i8 0, i8 8
-  %32 = or disjoint i8 %30, %.46
-  %33 = icmp ult i8 %.sroa.7.0.copyload, 8
-  %.48 = select i1 %33, i8 0, i8 16
-  %34 = or disjoint i8 %32, %.48
-  %35 = icmp ult i8 %.sroa.837.0.copyload, 8
-  %.50 = select i1 %35, i8 0, i8 32
-  %36 = or disjoint i8 %34, %.50
-  %37 = icmp ult i8 %.sroa.938.0.copyload, 8
-  %.52 = select i1 %37, i8 0, i8 64
-  %38 = or i8 %36, %.52
-  %39 = or i8 %38, %.54
-  br label %40
+22:                                               ; preds = %6
+  %23 = icmp ult i8 %.sroa.938.0.copyload, 8
+  %24 = icmp ult i8 %.sroa.837.0.copyload, 8
+  %25 = icmp ult i8 %.sroa.7.0.copyload, 8
+  %26 = icmp ult i8 %.sroa.636.0.copyload, 8
+  %27 = icmp ult i8 %.sroa.5.0.copyload, 8
+  %28 = icmp ult i8 %.sroa.4.0.copyload, 8
+  %29 = icmp ugt i8 %.sroa.035.0.copyload, 7
+  %. = zext i1 %29 to i8
+  %30 = or disjoint i8 %., 2
+  %spec.select = select i1 %28, i8 %., i8 %30
+  %31 = or disjoint i8 %spec.select, 4
+  %spec.select49 = select i1 %27, i8 %spec.select, i8 %31
+  %32 = or disjoint i8 %spec.select49, 8
+  %spec.select51 = select i1 %26, i8 %spec.select49, i8 %32
+  %33 = or i8 %spec.select51, 16
+  %spec.select53 = select i1 %25, i8 %spec.select51, i8 %33
+  %34 = or i8 %spec.select53, 32
+  %spec.select55 = select i1 %24, i8 %spec.select53, i8 %34
+  %35 = or i8 %spec.select55, 64
+  %spec.select57 = select i1 %23, i8 %spec.select55, i8 %35
+  %36 = and i8 %.sroa.1039.0.copyload, 7
+  %37 = icmp eq i8 %36, 7
+  %38 = icmp ult i8 %.sroa.1039.0.copyload, 8
+  %39 = or i8 %spec.select57, -128
+  %spec.select59 = select i1 %38, i8 %spec.select57, i8 %39
+  br i1 %37, label %40, label %43
 
-40:                                               ; preds = %5, %6, %24
-  %.sroa.11.0 = phi i8 [ %39, %24 ], [ undef, %5 ], [ undef, %6 ]
-  %.sroa.0.0 = phi i1 [ true, %24 ], [ false, %5 ], [ false, %6 ]
+40:                                               ; preds = %5, %22, %43
+  %.sroa.11.0 = phi i8 [ undef, %5 ], [ undef, %43 ], [ %spec.select59, %22 ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ false, %43 ], [ true, %22 ]
   %41 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %42 = insertvalue { i1, i8 } %41, i8 %.sroa.11.0, 1
   ret { i1, i8 } %42
+
+43:                                               ; preds = %22, %6
+  br label %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

@@ -2496,7 +2496,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   %16 = alloca %"class.gmx::ExceptionInitializer", align 8
   %17 = alloca %"class.gmx::ExceptionInfo", align 8
   %18 = icmp eq i32 %2, 1
-  br i1 %18, label %91, label %19
+  br i1 %18, label %90, label %19
 
 19:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2513,7 +2513,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 
 24:                                               ; preds = %23
   %25 = icmp eq i32 %2, 2
-  br i1 %25, label %26, label %81
+  br i1 %25, label %26, label %80
 
 26:                                               ; preds = %24
   %27 = call ptr @__cxa_allocate_exception(i64 24) #21
@@ -2541,12 +2541,12 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 
 32:                                               ; preds = %30
   invoke void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
-          to label %92 unwind label %37
+          to label %91 unwind label %37
 
 33:                                               ; preds = %40, %19
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %85
 
 .thread:                                          ; preds = %26
   %35 = landingpad { ptr, i32 }
@@ -2568,7 +2568,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.025, label %39, label %86
+  br i1 %.025, label %39, label %85
 
 .sink.split:                                      ; preds = %.thread, %.thread65
   %.pn.pn64.ph = phi { ptr, i32 } [ %36, %.thread65 ], [ %35, %.thread ]
@@ -2578,7 +2578,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 39:                                               ; preds = %.sink.split, %37
   %.pn.pn64 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn64.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %27) #21
-  br label %86
+  br label %85
 
 40:                                               ; preds = %23
   %41 = invoke noundef zeroext i1 @_ZN3gmx28inputSupportsListedForcesGpuERK10t_inputrecRK10gmx_mtop_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(880) %3, ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %8)
@@ -2589,7 +2589,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   br i1 %41, label %57, label %44
 
 44:                                               ; preds = %42
-  br i1 %43, label %45, label %81
+  br i1 %43, label %45, label %80
 
 45:                                               ; preds = %44
   %46 = call ptr @__cxa_allocate_exception(i64 24) #21
@@ -2617,7 +2617,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 
 51:                                               ; preds = %49
   invoke void @__cxa_throw(ptr %46, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
-          to label %92 unwind label %54
+          to label %91 unwind label %54
 
 .thread68:                                        ; preds = %45
   %52 = landingpad { ptr, i32 }
@@ -2639,7 +2639,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.022, label %56, label %86
+  br i1 %.022, label %56, label %85
 
 .sink.split90:                                    ; preds = %.thread68, %.thread72
   %.pn41.pn71.ph = phi { ptr, i32 } [ %53, %.thread72 ], [ %52, %.thread68 ]
@@ -2649,13 +2649,13 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 56:                                               ; preds = %.sink.split90, %54
   %.pn41.pn71 = phi { ptr, i32 } [ %55, %54 ], [ %.pn41.pn71.ph, %.sink.split90 ]
   call void @__cxa_free_exception(ptr %46) #21
-  br label %86
+  br label %85
 
 57:                                               ; preds = %42
   br i1 %0, label %70, label %58
 
 58:                                               ; preds = %57
-  br i1 %43, label %59, label %81
+  br i1 %43, label %59, label %80
 
 59:                                               ; preds = %58
   %60 = call ptr @__cxa_allocate_exception(i64 24) #21
@@ -2682,7 +2682,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 
 64:                                               ; preds = %62
   invoke void @__cxa_throw(ptr %60, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
-          to label %92 unwind label %67
+          to label %91 unwind label %67
 
 .thread75:                                        ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -2704,7 +2704,7 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.020, label %69, label %86
+  br i1 %.020, label %69, label %85
 
 .sink.split91:                                    ; preds = %.thread75, %.thread79
   %.pn44.pn78.ph = phi { ptr, i32 } [ %66, %.thread79 ], [ %65, %.thread75 ]
@@ -2714,16 +2714,16 @@ define noundef zeroext i1 @_ZN3gmx31decideWhetherToUseGpusForBondedEbbNS_10TaskT
 69:                                               ; preds = %.sink.split91, %67
   %.pn44.pn78 = phi { ptr, i32 } [ %68, %67 ], [ %.pn44.pn78.ph, %.sink.split91 ]
   call void @__cxa_free_exception(ptr %60) #21
-  br label %86
+  br label %85
 
 70:                                               ; preds = %57
-  br i1 %43, label %81, label %71
+  br i1 %43, label %80, label %71
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %.val = load i32, ptr %72, align 8, !tbaa !149
   %73 = icmp eq i32 %.val, 5
-  br i1 %73, label %78, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
+  br i1 %73, label %80, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
 
 _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 364
@@ -2736,53 +2736,50 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %71
   %76 = icmp ne i32 %.val48, 4
   %.not84 = and i1 %76, %.not83
   %or.cond = or i1 %1, %.not84
-  %77 = icmp slt i32 %5, 1
-  %not.or.cond = xor i1 %or.cond, true
-  %spec.select = and i1 %77, %not.or.cond
-  br label %78
+  br i1 %or.cond, label %80, label %77
 
-78:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit, %71
-  %79 = phi i1 [ true, %71 ], [ %spec.select, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit ]
-  %80 = and i1 %6, %79
-  br label %81
+77:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
+  %78 = icmp slt i32 %5, 1
+  %79 = and i1 %6, %78
+  br label %80
 
-81:                                               ; preds = %70, %58, %44, %24, %78
-  %.1 = phi i1 [ false, %58 ], [ %80, %78 ], [ false, %44 ], [ false, %24 ], [ true, %70 ]
-  %82 = load ptr, ptr %8, align 8, !tbaa !3
-  %83 = icmp eq ptr %82, %20
-  br i1 %83, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+80:                                               ; preds = %71, %77, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit, %70, %58, %44, %24
+  %.1 = phi i1 [ false, %58 ], [ true, %70 ], [ false, %44 ], [ false, %24 ], [ %6, %71 ], [ %79, %77 ], [ false, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit ]
+  %81 = load ptr, ptr %8, align 8, !tbaa !3
+  %82 = icmp eq ptr %81, %20
+  br i1 %82, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %81
-  %84 = load i64, ptr %20, align 8, !tbaa !11
-  %85 = add i64 %84, 1
-  call void @_ZdlPvm(ptr noundef %82, i64 noundef %85) #20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %80
+  %83 = load i64, ptr %20, align 8, !tbaa !11
+  %84 = add i64 %83, 1
+  call void @_ZdlPvm(ptr noundef %81, i64 noundef %84) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %91
+  br label %90
 
-86:                                               ; preds = %67, %69, %54, %56, %37, %39, %33
+85:                                               ; preds = %67, %69, %54, %56, %37, %39, %33
   %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44.pn78, %69 ], [ %68, %67 ], [ %.pn41.pn71, %56 ], [ %55, %54 ], [ %34, %33 ], [ %.pn.pn64, %39 ], [ %38, %37 ]
-  %87 = load ptr, ptr %8, align 8, !tbaa !3
-  %88 = icmp eq ptr %87, %20
-  br i1 %88, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
+  %86 = load ptr, ptr %8, align 8, !tbaa !3
+  %87 = icmp eq ptr %86, %20
+  br i1 %87, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51: ; preds = %86
-  %89 = load i64, ptr %20, align 8, !tbaa !11
-  %90 = add i64 %89, 1
-  call void @_ZdlPvm(ptr noundef %87, i64 noundef %90) #20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51: ; preds = %85
+  %88 = load i64, ptr %20, align 8, !tbaa !11
+  %89 = add i64 %88, 1
+  call void @_ZdlPvm(ptr noundef %86, i64 noundef %89) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn44.pn.pn
 
-91:                                               ; preds = %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+90:                                               ; preds = %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.0 = phi i1 [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
   ret i1 %.0
 
-92:                                               ; preds = %64, %51, %32
+91:                                               ; preds = %64, %51, %32
   unreachable
 }
 

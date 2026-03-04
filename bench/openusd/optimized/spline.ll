@@ -1877,24 +1877,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit: ; preds = %7
   br i1 %26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6, label %27
 
 27:                                               ; preds = %25
-  %28 = fcmp oeq double %11, %.sroa.311.0.copyload
-  br i1 %28, label %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread
-
-29:                                               ; preds = %27
-  %30 = trunc i8 %.sroa.412.0.copyload to i1
-  %31 = xor i1 %30, true
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6
-
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6: ; preds = %25, %29
-  %.not = phi i1 [ %31, %29 ], [ false, %25 ]
-  %or.cond = or i1 %21, %.not
+  %28 = fcmp une double %11, %.sroa.311.0.copyload
+  %29 = trunc i8 %.sroa.412.0.copyload to i1
+  %30 = xor i1 %29, true
+  %31 = or i1 %21, %30
+  %or.cond = select i1 %28, i1 true, i1 %31
   br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread, label %32
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6: ; preds = %25
+  br i1 %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread, label %32
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit, %27, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6, %2
   br label %32
 
-32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread
-  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6 ]
+32:                                               ; preds = %27, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread
+  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6 ], [ true, %27 ]
   ret i1 %.0
 }
 

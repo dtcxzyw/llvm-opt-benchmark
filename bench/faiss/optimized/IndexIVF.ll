@@ -3963,12 +3963,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %87,
 
 106:                                              ; preds = %102
   store ptr null, ptr %25, align 8, !tbaa !117
-  br label %107
-
-107:                                              ; preds = %100, %106
   br i1 %8, label %108, label %.thread133
 
-108:                                              ; preds = %107
+107:                                              ; preds = %100
+  br i1 %8, label %108, label %.thread133
+
+108:                                              ; preds = %106, %107
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %109 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %109, ptr %26, align 8, !tbaa !62
@@ -4025,7 +4025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %123
   store ptr null, ptr %.sink, align 8, !tbaa !111
   br label %.thread133
 
-.thread133:                                       ; preds = %.thread133.sink.split, %107
+.thread133:                                       ; preds = %.thread133.sink.split, %106, %107
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %129 = load ptr, ptr %128, align 8, !tbaa !97
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24

@@ -1740,27 +1740,27 @@ define internal range(i32 -2147483648, 1) i32 @dash_init(ptr noundef %0) #0 {
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 1352
   %43 = load i32, ptr %42, align 8, !tbaa !117
   %.not375 = icmp eq i32 %43, 0
-  br i1 %.not375, label %44, label %.thread657
+  br i1 %.not375, label %44, label %.thread656
 
 44:                                               ; preds = %41
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.240) #15
   store i32 1, ptr %42, align 8, !tbaa !117
   %.pr.pre = load i32, ptr %34, align 4, !tbaa !118
   %45 = icmp eq i32 %.pr.pre, 0
-  br i1 %45, label %.thread456, label %.thread657
+  br i1 %45, label %.thread456, label %.thread656
 
-.thread657:                                       ; preds = %41, %44
+.thread656:                                       ; preds = %41, %44
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 1304
   %47 = load i32, ptr %46, align 8, !tbaa !138
   %.not377 = icmp eq i32 %47, 0
   br i1 %.not377, label %48, label %.thread456
 
-48:                                               ; preds = %.thread657
+48:                                               ; preds = %.thread656
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.241) #15
   store i32 1, ptr %46, align 8, !tbaa !138
   br label %.thread456
 
-.thread456:                                       ; preds = %33, %48, %.thread657, %44
+.thread456:                                       ; preds = %33, %48, %.thread656, %44
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 1400
   %50 = load i32, ptr %49, align 8, !tbaa !146
   %.not378 = icmp eq i32 %50, 0
@@ -2722,11 +2722,11 @@ parse_adaptation_sets.exit._crit_edge:            ; preds = %284
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.284, ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.pre605 = load i32, ptr %140, align 4, !tbaa !4
+  %.pre604 = load i32, ptr %140, align 4, !tbaa !4
   br label %457
 
 457:                                              ; preds = %parse_adaptation_sets.exit._crit_edge, %parse_adaptation_sets.exit.thread473
-  %458 = phi i32 [ %.pre605, %parse_adaptation_sets.exit._crit_edge ], [ %436, %parse_adaptation_sets.exit.thread473 ]
+  %458 = phi i32 [ %.pre604, %parse_adaptation_sets.exit._crit_edge ], [ %436, %parse_adaptation_sets.exit.thread473 ]
   %459 = load ptr, ptr %16, align 8, !tbaa !24
   %.not3960.not.i = icmp eq i32 %458, 0
   br i1 %.not3960.not.i, label %._crit_edge.i450, label %.lr.ph.i443
@@ -2856,13 +2856,13 @@ select_segment_type.exit.us81.i:                  ; preds = %select_segment_type
 502:                                              ; preds = %._crit_edge.i450
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.302) #15
   store i32 0, ptr %499, align 8, !tbaa !138
-  %.pre606 = load i32, ptr %140, align 4, !tbaa !4
+  %.pre605 = load i32, ptr %140, align 4, !tbaa !4
   br label %init_segment_types.exit
 
 init_segment_types.exit:                          ; preds = %._crit_edge.i450, %502
-  %503 = phi i32 [ %458, %._crit_edge.i450 ], [ %.pre606, %502 ]
-  %.not553 = icmp eq i32 %503, 0
-  br i1 %.not553, label %._crit_edge, label %.lr.ph
+  %503 = phi i32 [ %458, %._crit_edge.i450 ], [ %.pre605, %502 ]
+  %.not552 = icmp eq i32 %503, 0
+  br i1 %.not552, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %select_segment_type.exit.us72.i, %init_segment_types.exit
   %504 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2883,11 +2883,11 @@ init_segment_types.exit:                          ; preds = %._crit_edge.i450, %
   %519 = getelementptr inbounds nuw i8, ptr %17, i64 1432
   %520 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %521 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %.pre607 = load ptr, ptr %505, align 8, !tbaa !45
+  %.pre606 = load ptr, ptr %505, align 8, !tbaa !45
   br label %522
 
 522:                                              ; preds = %.lr.ph, %894
-  %523 = phi ptr [ %.pre607, %.lr.ph ], [ %884, %894 ]
+  %523 = phi ptr [ %.pre606, %.lr.ph ], [ %884, %894 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %894 ]
   %524 = load ptr, ptr %145, align 8, !tbaa !25
   %525 = getelementptr inbounds nuw %struct.OutputStream, ptr %524, i64 %indvars.iv
@@ -2919,16 +2919,16 @@ init_segment_types.exit:                          ; preds = %._crit_edge.i450, %
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %542, ptr noundef nonnull @.str.253, i32 noundef %543) #15
   %544 = load i32, ptr %506, align 8, !tbaa !145
   %545 = icmp slt i32 %544, 1
-  br i1 %545, label %._crit_edge608, label %.thread499
+  br i1 %545, label %._crit_edge607, label %.thread499
 
-._crit_edge608:                                   ; preds = %539
-  %.pre609 = load ptr, ptr %505, align 8, !tbaa !45
-  %.phi.trans.insert610 = getelementptr inbounds nuw ptr, ptr %.pre609, i64 %indvars.iv
-  %.pre611 = load ptr, ptr %.phi.trans.insert610, align 8, !tbaa !50
+._crit_edge607:                                   ; preds = %539
+  %.pre608 = load ptr, ptr %505, align 8, !tbaa !45
+  %.phi.trans.insert609 = getelementptr inbounds nuw ptr, ptr %.pre608, i64 %indvars.iv
+  %.pre610 = load ptr, ptr %.phi.trans.insert609, align 8, !tbaa !50
   br label %546
 
-546:                                              ; preds = %._crit_edge608, %522
-  %547 = phi ptr [ %.pre611, %._crit_edge608 ], [ %532, %522 ]
+546:                                              ; preds = %._crit_edge607, %522
+  %547 = phi ptr [ %.pre610, %._crit_edge607 ], [ %532, %522 ]
   %548 = getelementptr i8, ptr %530, i64 -64
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 80
   %550 = load ptr, ptr %549, align 8, !tbaa !170
@@ -3499,7 +3499,7 @@ thread-pre-split491:                              ; preds = %755, %763, %thread-
 851:                                              ; preds = %848
   %852 = load i64, ptr %641, align 8
   store i64 %852, ptr %850, align 8
-  %.pre613 = load ptr, ptr %633, align 8, !tbaa !54
+  %.pre612 = load ptr, ptr %633, align 8, !tbaa !54
   %sext = shl i64 %852, 32
   %853 = ashr exact i64 %sext, 32
   %854 = ashr i64 %852, 32
@@ -3514,7 +3514,7 @@ thread-pre-split491:                              ; preds = %755, %763, %thread-
 856:                                              ; preds = %855, %851
   %857 = phi i64 [ 1, %855 ], [ %854, %851 ]
   %858 = phi i64 [ 1, %855 ], [ %853, %851 ]
-  %859 = phi ptr [ %808, %855 ], [ %.pre613, %851 ]
+  %859 = phi ptr [ %808, %855 ], [ %.pre612, %851 ]
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 72
   %861 = load i32, ptr %860, align 8, !tbaa !193
   %862 = sext i32 %861 to i64
@@ -3527,20 +3527,20 @@ thread-pre-split491:                              ; preds = %755, %763, %thread-
   %869 = getelementptr i8, ptr %530, i64 -12
   %870 = load i32, ptr %869, align 4, !tbaa !198
   %.not437 = icmp eq i32 %870, 0
-  %.pre614 = load i64, ptr %15, align 8
+  %.pre613 = load i64, ptr %15, align 8
   br i1 %.not437, label %.thread495, label %871
 
 871:                                              ; preds = %856
   %872 = load i64, ptr %869, align 4
-  %873 = call fastcc i32 @av_cmp_q(i64 %.pre614, i64 %872)
+  %873 = call fastcc i32 @av_cmp_q(i64 %.pre613, i64 %872)
   %.not438 = icmp eq i32 %873, 0
   br i1 %.not438, label %.thread495, label %874
 
 .thread495:                                       ; preds = %856, %871
-  store i64 %.pre614, ptr %869, align 4
+  store i64 %.pre613, ptr %869, align 4
   store i32 1, ptr %521, align 8, !tbaa !98
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.pre615 = load ptr, ptr %633, align 8, !tbaa !54
+  %.pre614 = load ptr, ptr %633, align 8, !tbaa !54
   br label %877
 
 874:                                              ; preds = %871
@@ -3551,7 +3551,7 @@ thread-pre-split491:                              ; preds = %755, %763, %thread-
   br label %.thread499
 
 877:                                              ; preds = %.thread495, %797
-  %878 = phi ptr [ %.pre615, %.thread495 ], [ %808, %797 ]
+  %878 = phi ptr [ %.pre614, %.thread495 ], [ %808, %797 ]
   %879 = getelementptr inbounds nuw i8, ptr %525, i64 1232
   call fastcc void @set_codec_str(ptr noundef nonnull %0, ptr noundef %878, ptr noundef nonnull %653, ptr noundef nonnull %879)
   %880 = getelementptr inbounds nuw i8, ptr %525, i64 1136

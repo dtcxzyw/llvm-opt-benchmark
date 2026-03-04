@@ -18482,7 +18482,7 @@ _ZN9rapidjson8internal19CountDecimalDigit32Ej.exit: ; preds = %6, %20, %22, %24,
   ]
 
 ..thread_crit_edge:                               ; preds = %35
-  %.pre120 = load i32, ptr %4, align 4
+  %.pre123 = load i32, ptr %4, align 4
   br label %.thread
 
 36:                                               ; preds = %35
@@ -18529,7 +18529,7 @@ _ZN9rapidjson8internal19CountDecimalDigit32Ej.exit: ; preds = %6, %20, %22, %24,
   %.073 = phi i32 [ %58, %57 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %46, %45 ], [ %49, %48 ], [ %52, %51 ], [ %55, %54 ], [ %.069, %35 ]
   %.1 = phi i32 [ %59, %57 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ 0, %35 ]
   %.not83 = icmp eq i32 %.073, 0
-  %.pre121 = load i32, ptr %4, align 4
+  %.pre124 = load i32, ptr %4, align 4
   br i1 %.not83, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %60
@@ -18538,13 +18538,13 @@ _ZN9rapidjson8internal19CountDecimalDigit32Ej.exit: ; preds = %6, %20, %22, %24,
   br label %64
 
 .thread:                                          ; preds = %..thread_crit_edge, %60
-  %63 = phi i32 [ %.pre121, %60 ], [ %.pre120, %..thread_crit_edge ]
+  %63 = phi i32 [ %.pre124, %60 ], [ %.pre123, %..thread_crit_edge ]
   %.1108 = phi i32 [ %.1, %60 ], [ %.069, %..thread_crit_edge ]
   %.not84 = icmp eq i32 %63, 0
   br i1 %.not84, label %69, label %64
 
 64:                                               ; preds = %._crit_edge, %.thread
-  %65 = phi i32 [ %63, %.thread ], [ %.pre121, %._crit_edge ]
+  %65 = phi i32 [ %63, %.thread ], [ %.pre124, %._crit_edge ]
   %.1106 = phi i32 [ %.1108, %.thread ], [ %.1, %._crit_edge ]
   %.073104 = phi i8 [ 48, %.thread ], [ %62, %._crit_edge ]
   %66 = add nsw i32 %65, 1

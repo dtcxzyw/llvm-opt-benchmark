@@ -256,7 +256,7 @@ _ZL10div_nstepsii.exit112:                        ; preds = %139, %140
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %153 = load ptr, ptr %152, align 8, !tbaa !141
   %.not123 = icmp eq ptr %153, null
-  br i1 %.not123, label %173, label %154
+  br i1 %.not123, label %_ZL10div_nstepsii.exit116, label %154
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 20
@@ -284,19 +284,15 @@ _ZL10div_nstepsii.exit114:                        ; preds = %154, %158
   %169 = sdiv i32 %168, %165
   %170 = mul nsw i32 %169, 20
   %171 = sitofp i32 %170 to double
+  %172 = fadd double %163, %171
   br label %_ZL10div_nstepsii.exit116
 
-_ZL10div_nstepsii.exit116:                        ; preds = %_ZL10div_nstepsii.exit114, %167
-  %.0.i115 = phi double [ %171, %167 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit114 ]
-  %172 = fadd double %163, %.0.i115
-  br label %173
-
-173:                                              ; preds = %_ZL10div_nstepsii.exit116, %151
-  %.287 = phi double [ %172, %_ZL10div_nstepsii.exit116 ], [ %.085, %151 ]
-  %174 = sitofp i32 %4 to double
-  %175 = fmul double %.287, %174
-  %176 = fmul double %175, 0x3EB0000000000000
-  ret double %176
+_ZL10div_nstepsii.exit116:                        ; preds = %167, %_ZL10div_nstepsii.exit114, %151
+  %.287 = phi double [ %.085, %151 ], [ %172, %167 ], [ %163, %_ZL10div_nstepsii.exit114 ]
+  %173 = sitofp i32 %4 to double
+  %174 = fmul double %.287, %173
+  %175 = fmul double %174, 0x3EB0000000000000
+  ret double %175
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

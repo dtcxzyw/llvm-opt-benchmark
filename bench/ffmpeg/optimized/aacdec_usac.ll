@@ -259,30 +259,30 @@ define i32 @ff_aac_usac_config_decode(ptr noundef %0, ptr noundef %1, ptr nounde
     i8 3, label %.thread244
   ]
 
-.thread244:                                       ; preds = %42
-  br label %.thread
-
 60:                                               ; preds = %42
   %61 = icmp eq i32 %51, 4
   %62 = zext i1 %61 to i32
-  br label %.thread
+  br label %.thread244
 
-.thread:                                          ; preds = %42, %.thread244, %60
-  %63 = phi i32 [ %62, %60 ], [ 3, %.thread244 ], [ 2, %42 ]
-  %.0186 = phi i32 [ 1, %60 ], [ 1, %.thread244 ], [ 3, %42 ]
-  %.0183 = phi i32 [ 0, %60 ], [ 1, %.thread244 ], [ 3, %42 ]
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  store i32 %.0195, ptr %64, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 %.0195, ptr %65, align 4, !tbaa !61
-  %66 = mul nuw nsw i32 %.0186, %.0195
-  %67 = lshr i32 %66, %.0183
+.thread:                                          ; preds = %42
+  %63 = mul nuw nsw i32 %.0195, 3
+  br label %.thread244
+
+.thread244:                                       ; preds = %42, %60, %.thread
+  %64 = phi i32 [ 2, %.thread ], [ %62, %60 ], [ 3, %42 ]
+  %.0186 = phi i32 [ %63, %.thread ], [ %.0195, %60 ], [ %.0195, %42 ]
+  %.0183 = phi i32 [ 3, %.thread ], [ 0, %60 ], [ 1, %42 ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  store i32 %.0195, ptr %65, align 8, !tbaa !44
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 %.0195, ptr %66, align 4, !tbaa !61
+  %67 = lshr i32 %.0186, %.0183
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %67, ptr %68, align 4, !tbaa !62
   %69 = icmp samesign ugt i32 %67, 92016
   br i1 %69, label %ff_aac_sample_rate_idx.exit, label %70
 
-70:                                               ; preds = %.thread
+70:                                               ; preds = %.thread244
   %71 = icmp samesign ugt i32 %67, 75131
   br i1 %71, label %ff_aac_sample_rate_idx.exit, label %72
 
@@ -323,11 +323,11 @@ define i32 @ff_aac_usac_config_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   %..i = select i1 %89, i32 10, i32 11
   br label %ff_aac_sample_rate_idx.exit
 
-ff_aac_sample_rate_idx.exit:                      ; preds = %.thread, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88
-  %.0.i = phi i32 [ 9, %86 ], [ 0, %.thread ], [ 1, %70 ], [ 2, %72 ], [ 3, %74 ], [ 4, %76 ], [ 5, %78 ], [ 6, %80 ], [ 7, %82 ], [ 8, %84 ], [ %..i, %88 ]
+ff_aac_sample_rate_idx.exit:                      ; preds = %.thread244, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88
+  %.0.i = phi i32 [ 9, %86 ], [ 0, %.thread244 ], [ 1, %70 ], [ 2, %72 ], [ 3, %74 ], [ 4, %76 ], [ 5, %78 ], [ 6, %80 ], [ 7, %82 ], [ 8, %84 ], [ %..i, %88 ]
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.0.i, ptr %90, align 4, !tbaa !63
-  %91 = icmp ne i32 %63, 0
+  %91 = icmp ne i32 %64, 0
   %92 = zext i1 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %92, ptr %93, align 4, !tbaa !64
@@ -543,7 +543,7 @@ get_escaped_value.exit230:                        ; preds = %185
   %214 = phi ptr [ %184, %get_escaped_value.exit230.thread355 ], [ %212, %get_escaped_value.exit230 ]
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not.i = icmp eq i32 %63, 0
+  %.not.i = icmp eq i32 %64, 0
   br label %222
 
 217:                                              ; preds = %get_escaped_value.exit230.thread, %get_escaped_value.exit230
@@ -645,7 +645,7 @@ get_escaped_value.exit230:                        ; preds = %185
   %280 = or disjoint i8 %278, %279
   store i8 %280, ptr %259, align 4
   %281 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i32 %63, ptr %281, align 8, !tbaa !19
+  store i32 %64, ptr %281, align 8, !tbaa !19
   br i1 %.not.i, label %285, label %282
 
 282:                                              ; preds = %244
@@ -712,7 +712,7 @@ get_escaped_value.exit230:                        ; preds = %185
   %329 = or disjoint i8 %327, %328
   store i8 %329, ptr %308, align 4
   %330 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i32 %63, ptr %330, align 8, !tbaa !19
+  store i32 %64, ptr %330, align 8, !tbaa !19
   %331 = getelementptr inbounds nuw i8, ptr %225, i64 5
   store i8 0, ptr %331, align 1, !tbaa !77
   br i1 %.not.i, label %513, label %332

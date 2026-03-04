@@ -2256,6 +2256,7 @@ ogg_find_codec.exit.thread:                       ; preds = %15, %ogg_find_codec
 
 25:                                               ; preds = %ogg_find_codec.exit.thread
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr %.08.i27, ptr %23, align 8, !tbaa !39
   store i32 %1, ptr %26, align 8, !tbaa !125
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 396

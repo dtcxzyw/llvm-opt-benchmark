@@ -5249,12 +5249,12 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RK
   %45 = load i32, ptr %26, align 4, !noalias !418
   %46 = load i32, ptr %43, align 4, !noalias !418
   %47 = icmp uge i32 %45, %46
+  %48 = xor i1 %.sroa.07.0.i.i, %47
   br label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit12
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit12: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i3, %44
-  %.sroa.07.0.i.i5 = phi i1 [ false, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i3 ], [ %47, %44 ]
-  %48 = xor i1 %.sroa.07.0.i.i, %.sroa.07.0.i.i5
-  %49 = xor i1 %48, true
+  %.sroa.07.0.i.i5 = phi i1 [ %.sroa.07.0.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i3 ], [ %48, %44 ]
+  %49 = xor i1 %.sroa.07.0.i.i5, true
   ret i1 %49
 }
 

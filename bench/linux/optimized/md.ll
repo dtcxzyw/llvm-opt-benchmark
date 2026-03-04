@@ -11814,40 +11814,40 @@ define dso_local void @md_reap_sync_thread(ptr noundef %0) #0 align 16 {
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1928
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 972
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, 2
   %90 = or i1 %60, %89
-  br i1 %90, label %.thread, label %91
+  br i1 %90, label %.critedge, label %91
 
 91:                                               ; preds = %86
   %92 = load volatile i64, ptr %72, align 8
   %93 = and i64 %92, 2
   %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %.thread
+  br i1 %94, label %95, label %.critedge
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr @md_cluster_ops, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 160
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef %0, i64 noundef %3) #32
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %81, %95, %91, %86
+.critedge:                                        ; preds = %81, %95, %91, %86
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i32 32, ptr nonnull elementtype(i8) %13) #32, !srcloc !9
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %103, label %102
 
-102:                                              ; preds = %.thread
+102:                                              ; preds = %.critedge
   tail call void @kernfs_notify(ptr noundef nonnull %100) #32
   br label %103
 
-103:                                              ; preds = %102, %.thread
+103:                                              ; preds = %102, %.critedge
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null

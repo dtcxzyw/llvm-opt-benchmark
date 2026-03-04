@@ -89347,7 +89347,7 @@ _ZN7testing15AssertionResultD2Ev.exit1580:        ; preds = %_ZN20TestDeformatio
   br label %2384
 
 2382:                                             ; preds = %2386
-  %2383 = add nuw nsw i32 %.0296.i, 1
+  %2383 = add nuw nsw i32 %.0295.i, 1
   %exitcond.not.i = icmp eq i32 %2383, 10
   br i1 %exitcond.not.i, label %.loopexit, label %2384, !llvm.loop !1046
 
@@ -89355,7 +89355,7 @@ _ZN7testing15AssertionResultD2Ev.exit1580:        ; preds = %_ZN20TestDeformatio
   %.01823 = phi double [ %2381, %_ZN7testing15AssertionResultD2Ev.exit1580 ], [ %2395, %2382 ]
   %.01821 = phi double [ %2380, %_ZN7testing15AssertionResultD2Ev.exit1580 ], [ %2394, %2382 ]
   %.0 = phi double [ %2379, %_ZN7testing15AssertionResultD2Ev.exit1580 ], [ %2393, %2382 ]
-  %.0296.i = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit1580 ], [ %2383, %2382 ]
+  %.0295.i = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit1580 ], [ %2383, %2382 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -91517,67 +91517,68 @@ define internal fastcc noundef zeroext i1 @_ZN20TestDeformationModel9EvaluatorIZ
   %.in.v.i = select i1 %31, i64 48, i64 16
   %.in.i375 = getelementptr inbounds nuw i8, ptr %34, i64 %.in.v.i
   %36 = load double, ptr %.in.i375, align 8, !tbaa !68
-  br i1 %31, label %.preheader303, label %..loopexit_crit_edge
+  br i1 %31, label %.preheader295, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %8
   %.pre = fadd double %35, -1.000000e-05
-  %.pre358 = fadd double %36, 1.000000e-05
+  %.pre350 = fadd double %36, 1.000000e-05
   br label %.loopexit
 
-.preheader303:                                    ; preds = %8
+.preheader295:                                    ; preds = %8
   %37 = fadd double %35, -1.000000e-10
   %38 = fcmp olt double %1, %37
   br i1 %38, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader303
-  %.0.lcssa = phi double [ %1, %.preheader303 ], [ %41, %.lr.ph ]
+.preheader:                                       ; preds = %.lr.ph, %.preheader295
+  %.0.lcssa = phi double [ %1, %.preheader295 ], [ %41, %.lr.ph ]
   %39 = fadd double %36, 1.000000e-10
   %40 = fcmp ogt double %.0.lcssa, %39
-  br i1 %40, label %.lr.ph330, label %.loopexit
+  br i1 %40, label %.lr.ph322, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader303, %.lr.ph
-  %.0328 = phi double [ %41, %.lr.ph ], [ %1, %.preheader303 ]
-  %41 = fadd double %.0328, 0x401921FB54442D18
+.lr.ph:                                           ; preds = %.preheader295, %.lr.ph
+  %.0320 = phi double [ %41, %.lr.ph ], [ %1, %.preheader295 ]
+  %41 = fadd double %.0320, 0x401921FB54442D18
   %42 = fcmp olt double %41, %37
   br i1 %42, label %.lr.ph, label %.preheader, !llvm.loop !1078
 
-.lr.ph330:                                        ; preds = %.preheader, %.lr.ph330
-  %.1100329 = phi double [ %43, %.lr.ph330 ], [ %.0.lcssa, %.preheader ]
-  %43 = fadd double %.1100329, 0xC01921FB54442D18
+.lr.ph322:                                        ; preds = %.preheader, %.lr.ph322
+  %.1100321 = phi double [ %43, %.lr.ph322 ], [ %.0.lcssa, %.preheader ]
+  %43 = fadd double %.1100321, 0xC01921FB54442D18
   %44 = fcmp ogt double %43, %39
-  br i1 %44, label %.lr.ph330, label %.loopexit, !llvm.loop !1079
+  br i1 %44, label %.lr.ph322, label %.loopexit, !llvm.loop !1079
 
-.loopexit:                                        ; preds = %.lr.ph330, %..loopexit_crit_edge, %.preheader
-  %.pre-phi359 = phi double [ %.pre358, %..loopexit_crit_edge ], [ %39, %.preheader ], [ %39, %.lr.ph330 ]
-  %.pre-phi = phi double [ %.pre, %..loopexit_crit_edge ], [ %37, %.preheader ], [ %37, %.lr.ph330 ]
-  %45 = phi double [ 1.000000e+04, %..loopexit_crit_edge ], [ 0x3F5C987103B761F5, %.preheader ], [ 0x3F5C987103B761F5, %.lr.ph330 ]
-  %.in.v.i378 = phi i64 [ 24, %..loopexit_crit_edge ], [ 56, %.preheader ], [ 56, %.lr.ph330 ]
-  %.in.v.i376 = phi i64 [ 8, %..loopexit_crit_edge ], [ 40, %.preheader ], [ 40, %.lr.ph330 ]
-  %.2 = phi double [ %1, %..loopexit_crit_edge ], [ %.0.lcssa, %.preheader ], [ %43, %.lr.ph330 ]
+.loopexit:                                        ; preds = %.lr.ph322, %..loopexit_crit_edge, %.preheader
+  %.pre-phi351 = phi double [ %.pre350, %..loopexit_crit_edge ], [ %39, %.preheader ], [ %39, %.lr.ph322 ]
+  %.pre-phi = phi double [ %.pre, %..loopexit_crit_edge ], [ %37, %.preheader ], [ %37, %.lr.ph322 ]
+  %45 = phi double [ 1.000000e+04, %..loopexit_crit_edge ], [ 0x3F5C987103B761F5, %.preheader ], [ 0x3F5C987103B761F5, %.lr.ph322 ]
+  %.in.v.i378 = phi i64 [ 24, %..loopexit_crit_edge ], [ 56, %.preheader ], [ 56, %.lr.ph322 ]
+  %.in.v.i376 = phi i64 [ 8, %..loopexit_crit_edge ], [ 40, %.preheader ], [ 40, %.lr.ph322 ]
+  %.2 = phi double [ %1, %..loopexit_crit_edge ], [ %.0.lcssa, %.preheader ], [ %43, %.lr.ph322 ]
   %.in.i377 = getelementptr inbounds nuw i8, ptr %34, i64 %.in.v.i376
   %46 = load double, ptr %.in.i377, align 8, !tbaa !68
   %.in.i379 = getelementptr inbounds nuw i8, ptr %34, i64 %.in.v.i378
   %47 = load double, ptr %.in.i379, align 8, !tbaa !68
   %48 = fcmp olt double %.2, %.pre-phi
-  %49 = fcmp ogt double %.2, %.pre-phi359
+  %49 = fcmp ogt double %.2, %.pre-phi351
   %or.cond.i = or i1 %48, %49
   br i1 %or.cond.i, label %55, label %50
 
 50:                                               ; preds = %.loopexit
   %51 = fsub double %46, %32
-  %52 = fcmp olt double %2, %51
+  %52 = fcmp uge double %2, %51
   %53 = fadd double %32, %47
-  %54 = fcmp ogt double %2, %53
-  %or.cond71.not82.i.not298 = or i1 %52, %54
-  %brmerge.i.not = and i1 %4, %or.cond71.not82.i.not298
-  br i1 %brmerge.i.not, label %56, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
+  %54 = fcmp ule double %2, %53
+  %or.cond71.not82.i = and i1 %52, %54
+  %.not.i = xor i1 %4, true
+  %brmerge.i = or i1 %or.cond71.not82.i, %.not.i
+  br i1 %brmerge.i, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit, label %56
 
 55:                                               ; preds = %.loopexit
   br i1 %4, label %56, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 56:                                               ; preds = %55, %50
   %57 = fcmp ult double %.2, %.pre-phi
-  %58 = fcmp ugt double %.2, %.pre-phi359
+  %58 = fcmp ugt double %.2, %.pre-phi351
   %or.cond73.i = or i1 %57, %58
   br i1 %or.cond73.i, label %59, label %67
 
@@ -91606,32 +91607,32 @@ define internal fastcc noundef zeroext i1 @_ZN20TestDeformationModel9EvaluatorIZ
   %70 = fadd double %32, %47
   %71 = fcmp ugt double %2, %70
   %or.cond77.i = or i1 %69, %71
-  br i1 %or.cond77.i, label %72, label %.sink.split87.i
+  br i1 %or.cond77.i, label %72, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
 
 72:                                               ; preds = %67
   %73 = fsub double %46, %45
   %74 = fcmp ogt double %2, %73
   %75 = fcmp olt double %2, %46
   %or.cond78.i = and i1 %75, %74
-  br i1 %or.cond78.i, label %.sink.split87.i, label %76
+  br i1 %or.cond78.i, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit, label %76
 
 76:                                               ; preds = %72
   %77 = fadd double %45, %47
   %78 = fcmp olt double %2, %77
   %79 = fcmp ogt double %2, %47
-  %or.cond79.i = and i1 %79, %78
-  br i1 %or.cond79.i, label %.sink.split87.i, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond79.i.not290.not293 = and i1 %79, %78
+  %brmerge.not = and i1 %or.cond79.i.not290.not293, %.055.i
+  br i1 %brmerge.not, label %80, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split87.i:                                  ; preds = %76, %72, %67
-  %.0101 = phi double [ %2, %67 ], [ %46, %72 ], [ %47, %76 ]
-  br i1 %.055.i, label %80, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %72, %50, %67
+  %.0101 = phi double [ %2, %50 ], [ %46, %72 ], [ %2, %67 ]
+  %.4 = phi double [ %.2, %50 ], [ %.3, %72 ], [ %.3, %67 ]
+  %.056.i = phi i1 [ %or.cond71.not82.i, %50 ], [ %.055.i, %72 ], [ %.055.i, %67 ]
+  br i1 %.056.i, label %80, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %50
-  br i1 %or.cond71.not82.i.not298, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %80
-
-80:                                               ; preds = %.sink.split87.i, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
-  %.4161 = phi double [ %.3, %.sink.split87.i ], [ %.2, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ]
-  %.1102160 = phi double [ %.0101, %.sink.split87.i ], [ %2, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ]
+80:                                               ; preds = %76, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
+  %.4159 = phi double [ %.3, %76 ], [ %.4, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ]
+  %.0101158 = phi double [ %47, %76 ], [ %.0101, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ]
   %81 = getelementptr inbounds nuw i8, ptr %33, i64 856
   %82 = load double, ptr %81, align 8, !tbaa !16
   %83 = fcmp ogt double %82, 2.018000e+03
@@ -91648,10 +91649,11 @@ _ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %50
   %.val349 = load ptr, ptr %88, align 8, !tbaa !1080
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load ptr, ptr %89, align 8, !tbaa !1080
-  %.not299332 = icmp eq ptr %.val349, %.val
-  br i1 %.not299332, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit, label %.lr.ph342
+  %.not294324 = icmp eq ptr %.val349, %.val
+  br i1 %.not294324, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit, label %.lr.ph334
 
-.lr.ph342:                                        ; preds = %.critedge
+.lr.ph334:                                        ; preds = %.critedge
+  %.not.i390 = xor i1 %4, true
   %90 = fneg double %32
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -91665,22 +91667,22 @@ _ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %50
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
   br label %93
 
-93:                                               ; preds = %.lr.ph342, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
-  %.0261341 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.2263.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0272340 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.2274.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0283339 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.2285.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0299338 = phi i8 [ 0, %.lr.ph342 ], [ %.2301.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0311337 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.2313.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0324336 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.2326.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0103335 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.5.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.0108334 = phi double [ 0.000000e+00, %.lr.ph342 ], [ %.5113.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.sroa.080.0333 = phi ptr [ %.val349, %.lr.ph342 ], [ %430, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread ]
-  %.val364 = load ptr, ptr %.sroa.080.0333, align 8, !tbaa !1040
+93:                                               ; preds = %.lr.ph334, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
+  %.0261333 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.2263.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0272332 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.2274.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0283331 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.2285.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0299330 = phi i8 [ 0, %.lr.ph334 ], [ %.2301.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0311329 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.2313.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0324328 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.2326.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0102327 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.5.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.0107326 = phi double [ 0.000000e+00, %.lr.ph334 ], [ %.5112.ph, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.sroa.080.0325 = phi ptr [ %.val349, %.lr.ph334 ], [ %430, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread ]
+  %.val364 = load ptr, ptr %.sroa.080.0325, align 8, !tbaa !1040
   %94 = load ptr, ptr %.val364, align 8, !tbaa !1081
   %95 = getelementptr inbounds nuw i8, ptr %.val364, i64 12
   %96 = load i32, ptr %95, align 4, !tbaa !1070
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread, label %98
+  br i1 %97, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread, label %98
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -91699,51 +91701,49 @@ _ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %50
   %.in.i387 = getelementptr inbounds nuw i8, ptr %99, i64 %.in.v.i386
   %105 = load double, ptr %.in.i387, align 8, !tbaa !68
   %106 = fsub double %102, %32
-  %107 = fcmp olt double %.4161, %106
+  %107 = fcmp olt double %.4159, %106
   %108 = fadd double %32, %103
-  %109 = fcmp ogt double %.4161, %108
+  %109 = fcmp ogt double %.4159, %108
   %or.cond.i388 = or i1 %107, %109
   br i1 %or.cond.i388, label %115, label %110
 
 110:                                              ; preds = %98
   %111 = fsub double %104, %32
-  %112 = fcmp olt double %.1102160, %111
+  %112 = fcmp uge double %.0101158, %111
   %113 = fadd double %32, %105
-  %114 = fcmp ogt double %.1102160, %113
-  %or.cond71.not82.i389.not302 = or i1 %112, %114
-  %brmerge.i391.not = and i1 %4, %or.cond71.not82.i389.not302
-  br i1 %brmerge.i391.not, label %116, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405
+  %114 = fcmp ule double %.0101158, %113
+  %or.cond71.not82.i389 = and i1 %112, %114
+  %brmerge.i391 = or i1 %or.cond71.not82.i389, %.not.i390
+  br i1 %brmerge.i391, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404, label %116
 
 115:                                              ; preds = %98
-  br i1 %4, label %._crit_edge, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+  br i1 %4, label %._crit_edge, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
 ._crit_edge:                                      ; preds = %115
-  %.pre360 = fsub double %104, %32
-  %.pre362 = fadd double %32, %105
+  %.pre352 = fsub double %104, %32
+  %.pre354 = fadd double %32, %105
   br label %116
 
 116:                                              ; preds = %._crit_edge, %110
-  %.pre-phi363 = phi double [ %.pre362, %._crit_edge ], [ %113, %110 ]
-  %.pre-phi361 = phi double [ %.pre360, %._crit_edge ], [ %111, %110 ]
-  %117 = fcmp ult double %.1102160, %.pre-phi361
-  %118 = fcmp ugt double %.1102160, %.pre-phi363
-  %or.cond77.i394 = or i1 %117, %118
-  br i1 %or.cond77.i394, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread, label %.sink.split87.i399
+  %.pre-phi355 = phi double [ %.pre354, %._crit_edge ], [ %113, %110 ]
+  %.pre-phi353 = phi double [ %.pre352, %._crit_edge ], [ %111, %110 ]
+  %117 = fcmp oge double %.4159, %106
+  %118 = fcmp ole double %.4159, %108
+  %or.cond73.i392.not = and i1 %117, %118
+  %119 = fcmp ult double %.0101158, %.pre-phi353
+  %120 = fcmp ugt double %.0101158, %.pre-phi355
+  %or.cond77.i394 = or i1 %119, %120
+  br i1 %or.cond77.i394, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404
 
-.sink.split87.i399:                               ; preds = %116
-  %119 = fcmp ole double %.4161, %108
-  %120 = fcmp oge double %.4161, %106
-  %or.cond73.i392.not = and i1 %120, %119
-  br i1 %or.cond73.i392.not, label %121, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404: ; preds = %110, %116
+  %.056.i395 = phi i1 [ %or.cond71.not82.i389, %110 ], [ %or.cond73.i392.not, %116 ]
+  br i1 %.056.i395, label %121, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
-_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405: ; preds = %110
-  br i1 %or.cond71.not82.i389.not302, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread, label %121
-
-121:                                              ; preds = %.sink.split87.i399, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405
-  %122 = fcmp olt double %.4161, %102
-  %.sroa.speculated66 = select i1 %122, double %102, double %.4161
-  %123 = fcmp olt double %.1102160, %104
-  %.sroa.speculated56 = select i1 %123, double %104, double %.1102160
+121:                                              ; preds = %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404
+  %122 = fcmp olt double %.4159, %102
+  %.sroa.speculated66 = select i1 %122, double %102, double %.4159
+  %123 = fcmp olt double %.0101158, %104
+  %.sroa.speculated56 = select i1 %123, double %104, double %.0101158
   %124 = fcmp olt double %103, %.sroa.speculated66
   %.sroa.speculated61 = select i1 %124, double %103, double %.sroa.speculated66
   %125 = fcmp olt double %105, %.sroa.speculated56
@@ -91771,22 +91771,22 @@ _ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405: ; preds = %110
   br label %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit
 
 _ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit: ; preds = %129, %132
-  %.0.i409 = phi double [ %131, %129 ], [ %138, %132 ]
-  %140 = fcmp oeq double %.0.i409, 0.000000e+00
-  br i1 %140, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread, label %141
+  %.0.i = phi double [ %131, %129 ], [ %138, %132 ]
+  %140 = fcmp oeq double %.0.i, 0.000000e+00
+  br i1 %140, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread, label %141
 
 141:                                              ; preds = %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit
-  %.val361 = load ptr, ptr %.sroa.080.0333, align 8, !tbaa !1040
+  %.val361 = load ptr, ptr %.sroa.080.0325, align 8, !tbaa !1040
   %142 = getelementptr inbounds nuw i8, ptr %.val361, i64 16
   %.val367 = load ptr, ptr %142, align 8, !tbaa !1042
-  %.not.i410 = icmp eq ptr %.val367, null
-  br i1 %.not.i410, label %143, label %155
+  %.not.i408 = icmp eq ptr %.val367, null
+  br i1 %.not.i408, label %143, label %155
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %94, i64 240
   %145 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull @.str.438) #41, !noalias !1084
-  %.not.i411 = icmp eq i32 %145, 0
-  br i1 %.not.i411, label %146, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.not.i409 = icmp eq i32 %145, 0
+  br i1 %.not.i409, label %146, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 146:                                              ; preds = %143
   %147 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43, !noalias !1084
@@ -91805,7 +91805,7 @@ _ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_hor
 
 _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %143, %146
   %storemerge.i = phi ptr [ %147, %146 ], [ null, %143 ]
-  %.val360 = load ptr, ptr %.sroa.080.0333, align 8, !tbaa !1040
+  %.val360 = load ptr, ptr %.sroa.080.0325, align 8, !tbaa !1040
   %153 = getelementptr inbounds nuw i8, ptr %.val360, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !1042
   store ptr %storemerge.i, ptr %153, align 8, !tbaa !1042
@@ -91814,7 +91814,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14
 
 _ZNKSt14default_deleteIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetEclEPS2_.exit.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef 40) #42
-  %.val359.pre = load ptr, ptr %.sroa.080.0333, align 8, !tbaa !1040
+  %.val359.pre = load ptr, ptr %.sroa.080.0325, align 8, !tbaa !1040
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val359.pre, i64 16
   %.val368.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1042
   br label %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit
@@ -91822,8 +91822,8 @@ _ZNKSt14default_deleteIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 _ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetEclEPS2_.exit.i.i.i.i, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.val368 = phi ptr [ %.val368.pre, %_ZNKSt14default_deleteIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetEclEPS2_.exit.i.i.i.i ], [ %storemerge.i, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %.val359 = phi ptr [ %.val359.pre, %_ZNKSt14default_deleteIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetEclEPS2_.exit.i.i.i.i ], [ %.val360, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %.not.i413 = icmp eq ptr %.val368, null
-  br i1 %.not.i413, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %155
+  %.not.i411 = icmp eq ptr %.val368, null
+  br i1 %.not.i411, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %155
 
 155:                                              ; preds = %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit, %141
   %.val369 = phi ptr [ %.val368, %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit ], [ %.val367, %141 ]
@@ -91854,21 +91854,21 @@ _ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Tes
   %175 = fcmp olt double %168, %90
   %176 = fcmp olt double %174, %90
   %or.cond = select i1 %175, i1 true, i1 %176
-  br i1 %or.cond, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread, label %177
+  br i1 %or.cond, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread, label %177
 
 177:                                              ; preds = %163
   %178 = fadd double %168, 1.000000e+00
   %179 = uitofp nneg i32 %157 to double
   %180 = fadd double %32, %179
   %181 = fcmp ult double %178, %180
-  br i1 %181, label %182, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+  br i1 %181, label %182, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
 182:                                              ; preds = %177
   %183 = fadd double %174, 1.000000e+00
   %184 = uitofp nneg i32 %161 to double
   %185 = fadd double %32, %184
   %186 = fcmp ult double %183, %185
-  br i1 %186, label %187, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+  br i1 %186, label %187, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
 187:                                              ; preds = %182
   %188 = fptosi double %168 to i32
@@ -91897,96 +91897,96 @@ _ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Tes
 207:                                              ; preds = %187
   %208 = icmp ult i32 %.sroa.speculated32, 2
   %209 = or i32 %.sroa.speculated, %.sroa.speculated32
-  %or.cond.i416 = icmp ult i32 %209, 2
-  br i1 %or.cond.i416, label %.sink.split.i418, label %210
+  %or.cond.i414 = icmp ult i32 %209, 2
+  br i1 %or.cond.i414, label %.sink.split.i416, label %210
 
 210:                                              ; preds = %207
   %211 = icmp ult i32 %.sroa.speculated, 2
   %212 = icmp eq i32 %.sroa.speculated32, 2
   %or.cond3.i = and i1 %212, %211
-  br i1 %or.cond3.i, label %.sink.split.i418, label %213
+  br i1 %or.cond3.i, label %.sink.split.i416, label %213
 
 213:                                              ; preds = %210
   %214 = icmp eq i32 %.sroa.speculated, 2
   %or.cond5.i = and i1 %208, %214
-  br i1 %or.cond5.i, label %.sink.split.i418, label %215
+  br i1 %or.cond5.i, label %.sink.split.i416, label %215
 
 215:                                              ; preds = %213
   %or.cond7.i = and i1 %212, %214
-  br i1 %or.cond7.i, label %.sink.split.i418, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  br i1 %or.cond7.i, label %.sink.split.i416, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i418:                                 ; preds = %215, %213, %210, %207
-  %.0119.ph = phi double [ 0x3FEAE147A0000000, %207 ], [ 0x3FD70A3D80000000, %213 ], [ 7.500000e-01, %210 ], [ 0.000000e+00, %215 ]
+.sink.split.i416:                                 ; preds = %215, %213, %210, %207
+  %.0117.ph = phi double [ 0x3FEAE147A0000000, %207 ], [ 0x3FD70A3D80000000, %213 ], [ 7.500000e-01, %210 ], [ 0.000000e+00, %215 ]
   %216 = icmp ult i32 %192, 2
   %217 = or i32 %.sroa.speculated, %192
-  %or.cond.i420 = icmp ult i32 %217, 2
-  br i1 %or.cond.i420, label %.sink.split.i425, label %218
+  %or.cond.i418 = icmp ult i32 %217, 2
+  br i1 %or.cond.i418, label %.sink.split.i423, label %218
 
-218:                                              ; preds = %.sink.split.i418
+218:                                              ; preds = %.sink.split.i416
   %219 = icmp samesign ult i32 %.sroa.speculated, 2
   %220 = icmp eq i32 %192, 2
-  %or.cond3.i421 = and i1 %220, %219
-  br i1 %or.cond3.i421, label %.sink.split.i425, label %221
+  %or.cond3.i419 = and i1 %220, %219
+  br i1 %or.cond3.i419, label %.sink.split.i423, label %221
 
 221:                                              ; preds = %218
   %222 = icmp eq i32 %.sroa.speculated, 2
-  %or.cond5.i422 = and i1 %216, %222
-  br i1 %or.cond5.i422, label %.sink.split.i425, label %223
+  %or.cond5.i420 = and i1 %216, %222
+  br i1 %or.cond5.i420, label %.sink.split.i423, label %223
 
 223:                                              ; preds = %221
-  %or.cond7.i423 = and i1 %220, %222
-  br i1 %or.cond7.i423, label %.sink.split.i425, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i421 = and i1 %220, %222
+  br i1 %or.cond7.i421, label %.sink.split.i423, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i425:                                 ; preds = %223, %221, %218, %.sink.split.i418
-  %.0155.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i418 ], [ 0x3FD70A3D80000000, %221 ], [ 7.500000e-01, %218 ], [ 0.000000e+00, %223 ]
+.sink.split.i423:                                 ; preds = %223, %221, %218, %.sink.split.i416
+  %.0153.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i416 ], [ 0x3FD70A3D80000000, %221 ], [ 7.500000e-01, %218 ], [ 0.000000e+00, %223 ]
   %224 = or i32 %193, %.sroa.speculated32
-  %or.cond.i428 = icmp ult i32 %224, 2
-  br i1 %or.cond.i428, label %.sink.split.i433, label %225
+  %or.cond.i426 = icmp ult i32 %224, 2
+  br i1 %or.cond.i426, label %.sink.split.i431, label %225
 
-225:                                              ; preds = %.sink.split.i425
+225:                                              ; preds = %.sink.split.i423
   %226 = icmp ult i32 %193, 2
   %227 = icmp eq i32 %.sroa.speculated32, 2
-  %or.cond3.i429 = and i1 %227, %226
-  br i1 %or.cond3.i429, label %.sink.split.i433, label %228
+  %or.cond3.i427 = and i1 %227, %226
+  br i1 %or.cond3.i427, label %.sink.split.i431, label %228
 
 228:                                              ; preds = %225
   %229 = icmp eq i32 %193, 2
-  %or.cond5.i430 = and i1 %208, %229
-  br i1 %or.cond5.i430, label %.sink.split.i433, label %230
+  %or.cond5.i428 = and i1 %208, %229
+  br i1 %or.cond5.i428, label %.sink.split.i431, label %230
 
 230:                                              ; preds = %228
-  %or.cond7.i431 = and i1 %227, %229
-  br i1 %or.cond7.i431, label %.sink.split.i433, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i429 = and i1 %227, %229
+  br i1 %or.cond7.i429, label %.sink.split.i431, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i433:                                 ; preds = %230, %228, %225, %.sink.split.i425
-  %.0156.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i425 ], [ 0x3FD70A3D80000000, %228 ], [ 7.500000e-01, %225 ], [ 0.000000e+00, %230 ]
+.sink.split.i431:                                 ; preds = %230, %228, %225, %.sink.split.i423
+  %.0154.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i423 ], [ 0x3FD70A3D80000000, %228 ], [ 7.500000e-01, %225 ], [ 0.000000e+00, %230 ]
   %231 = or i32 %193, %192
-  %or.cond.i436 = icmp samesign ult i32 %231, 2
-  br i1 %or.cond.i436, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %232
+  %or.cond.i434 = icmp samesign ult i32 %231, 2
+  br i1 %or.cond.i434, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %232
 
-232:                                              ; preds = %.sink.split.i433
+232:                                              ; preds = %.sink.split.i431
   %233 = icmp eq i32 %.sroa.speculated, 0
   %234 = icmp eq i32 %192, 2
-  %or.cond3.i437 = and i1 %234, %233
-  br i1 %or.cond3.i437, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %235
+  %or.cond3.i435 = and i1 %234, %233
+  br i1 %or.cond3.i435, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %235
 
 235:                                              ; preds = %232
   %236 = icmp eq i32 %193, 2
-  %or.cond5.i438 = and i1 %216, %236
-  br i1 %or.cond5.i438, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %237
+  %or.cond5.i436 = and i1 %216, %236
+  br i1 %or.cond5.i436, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %237
 
 237:                                              ; preds = %235
-  %or.cond7.i439 = and i1 %234, %236
-  br i1 %or.cond7.i439, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i437 = and i1 %234, %236
+  br i1 %or.cond7.i437, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit: ; preds = %237, %.sink.split.i433, %232, %235
-  %.0154.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i433 ], [ 0x3FD70A3D80000000, %235 ], [ 7.500000e-01, %232 ], [ 0.000000e+00, %237 ]
-  %238 = fmul double %202, %.0156.ph
-  %239 = call double @llvm.fmuladd.f64(double %.0119.ph, double %200, double %238)
-  %240 = call double @llvm.fmuladd.f64(double %.0155.ph, double %201, double %239)
-  %241 = call double @llvm.fmuladd.f64(double %.0154.ph, double %203, double %240)
-  %242 = call double @llvm.fmuladd.f64(double %.0.i409, double %241, double %.0283339)
-  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit: ; preds = %237, %.sink.split.i431, %232, %235
+  %.0152.ph = phi double [ 0x3FEAE147A0000000, %.sink.split.i431 ], [ 0x3FD70A3D80000000, %235 ], [ 7.500000e-01, %232 ], [ 0.000000e+00, %237 ]
+  %238 = fmul double %202, %.0154.ph
+  %239 = call double @llvm.fmuladd.f64(double %.0117.ph, double %200, double %238)
+  %240 = call double @llvm.fmuladd.f64(double %.0153.ph, double %201, double %239)
+  %241 = call double @llvm.fmuladd.f64(double %.0152.ph, double %203, double %240)
+  %242 = call double @llvm.fmuladd.f64(double %.0.i, double %241, double %.0283331)
+  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
 243:                                              ; preds = %187
   %244 = load i8, ptr %91, align 8, !tbaa !1054, !range !132, !noundef !133
@@ -92015,19 +92015,19 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
 
 248:                                              ; preds = %246
   %249 = call noundef zeroext i1 @_ZNK20TestDeformationModel13GridPrototype16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(40) %.val369, i32 noundef %.sroa.speculated32, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  br i1 %249, label %250, label %.thread186
+  br i1 %249, label %250, label %.thread184
 
 250:                                              ; preds = %248
   %251 = call noundef zeroext i1 @_ZNK20TestDeformationModel13GridPrototype16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(40) %.val369, i32 noundef %192, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  br i1 %251, label %252, label %.thread186
+  br i1 %251, label %252, label %.thread184
 
 252:                                              ; preds = %250
   %253 = call noundef zeroext i1 @_ZNK20TestDeformationModel13GridPrototype16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(40) %.val369, i32 noundef %.sroa.speculated32, i32 noundef %193, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %253, label %254, label %.thread186
+  br i1 %253, label %254, label %.thread184
 
 254:                                              ; preds = %252
   %255 = call noundef zeroext i1 @_ZNK20TestDeformationModel13GridPrototype16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(40) %.val369, i32 noundef %192, i32 noundef %193, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  br i1 %255, label %274, label %.thread186
+  br i1 %255, label %274, label %.thread184
 
 256:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -92058,7 +92058,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread186
+  br label %.thread184
 
 264:                                              ; preds = %262
   %265 = load double, ptr %17, align 8, !tbaa !68
@@ -92069,14 +92069,14 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   %270 = call double @llvm.fmuladd.f64(double %269, double %201, double %268)
   %271 = load double, ptr %20, align 8, !tbaa !68
   %272 = call double @llvm.fmuladd.f64(double %271, double %203, double %270)
-  %273 = call double @llvm.fmuladd.f64(double %.0.i409, double %272, double %.0283339)
+  %273 = call double @llvm.fmuladd.f64(double %.0.i, double %272, double %.0283331)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %274
 
-.thread186:                                       ; preds = %254, %252, %250, %248, %.thread
+.thread184:                                       ; preds = %254, %252, %250, %248, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -92088,7 +92088,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 274:                                              ; preds = %254, %264
-  %.11294 = phi double [ %.0283339, %254 ], [ %273, %264 ]
+  %.11294 = phi double [ %.0283331, %254 ], [ %273, %264 ]
   %275 = load double, ptr %9, align 8, !tbaa !68
   %276 = load double, ptr %11, align 8, !tbaa !68
   %277 = fmul double %202, %276
@@ -92105,8 +92105,8 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   %288 = call double @llvm.fmuladd.f64(double %287, double %201, double %286)
   %289 = load double, ptr %16, align 8, !tbaa !68
   %290 = call double @llvm.fmuladd.f64(double %289, double %203, double %288)
-  %291 = call double @llvm.fmuladd.f64(double %.0.i409, double %282, double %.0103335)
-  %292 = call double @llvm.fmuladd.f64(double %.0.i409, double %290, double %.0108334)
+  %291 = call double @llvm.fmuladd.f64(double %.0.i, double %282, double %.0102327)
+  %292 = call double @llvm.fmuladd.f64(double %.0.i, double %290, double %.0107326)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -92115,102 +92115,102 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
 293:                                              ; preds = %243
   %294 = icmp eq i32 %205, 1
   %295 = icmp ult i32 %.sroa.speculated32, 2
   %296 = or i32 %.sroa.speculated, %.sroa.speculated32
-  %or.cond.i444 = icmp ult i32 %296, 2
+  %or.cond.i442 = icmp ult i32 %296, 2
   br i1 %294, label %297, label %326
 
 297:                                              ; preds = %293
-  br i1 %or.cond.i444, label %.sink.split.i449, label %298
+  br i1 %or.cond.i442, label %.sink.split.i447, label %298
 
 298:                                              ; preds = %297
   %299 = icmp ult i32 %.sroa.speculated, 2
   %300 = icmp eq i32 %.sroa.speculated32, 2
-  %or.cond3.i445 = and i1 %300, %299
-  br i1 %or.cond3.i445, label %.sink.split.i449, label %301
+  %or.cond3.i443 = and i1 %300, %299
+  br i1 %or.cond3.i443, label %.sink.split.i447, label %301
 
 301:                                              ; preds = %298
   %302 = icmp eq i32 %.sroa.speculated, 2
-  %or.cond5.i446 = and i1 %295, %302
-  br i1 %or.cond5.i446, label %.sink.split.i449, label %303
+  %or.cond5.i444 = and i1 %295, %302
+  br i1 %or.cond5.i444, label %.sink.split.i447, label %303
 
 303:                                              ; preds = %301
-  %or.cond7.i447 = and i1 %300, %302
-  br i1 %or.cond7.i447, label %.sink.split.i449, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i445 = and i1 %300, %302
+  br i1 %or.cond7.i445, label %.sink.split.i447, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i449:                                 ; preds = %303, %301, %298, %297
-  %.0151.ph = phi double [ 0x3FD99999A0000000, %297 ], [ 0x3FE99999A0000000, %301 ], [ 5.000000e-01, %298 ], [ 1.000000e+00, %303 ]
-  %.0148.ph = phi double [ 0xBFC99999A0000000, %297 ], [ 0xBFD99999A0000000, %301 ], [ -2.500000e-01, %298 ], [ 0xBFD3333340000000, %303 ]
+.sink.split.i447:                                 ; preds = %303, %301, %298, %297
+  %.0149.ph = phi double [ 0x3FD99999A0000000, %297 ], [ 0x3FE99999A0000000, %301 ], [ 5.000000e-01, %298 ], [ 1.000000e+00, %303 ]
+  %.0146.ph = phi double [ 0xBFC99999A0000000, %297 ], [ 0xBFD99999A0000000, %301 ], [ -2.500000e-01, %298 ], [ 0xBFD3333340000000, %303 ]
   %304 = icmp ult i32 %192, 2
   %305 = or i32 %.sroa.speculated, %192
-  %or.cond.i451 = icmp ult i32 %305, 2
-  br i1 %or.cond.i451, label %.sink.split.i456, label %306
+  %or.cond.i449 = icmp ult i32 %305, 2
+  br i1 %or.cond.i449, label %.sink.split.i454, label %306
 
-306:                                              ; preds = %.sink.split.i449
+306:                                              ; preds = %.sink.split.i447
   %307 = icmp samesign ult i32 %.sroa.speculated, 2
   %308 = icmp eq i32 %192, 2
-  %or.cond3.i452 = and i1 %308, %307
-  br i1 %or.cond3.i452, label %.sink.split.i456, label %309
+  %or.cond3.i450 = and i1 %308, %307
+  br i1 %or.cond3.i450, label %.sink.split.i454, label %309
 
 309:                                              ; preds = %306
   %310 = icmp eq i32 %.sroa.speculated, 2
-  %or.cond5.i453 = and i1 %304, %310
-  br i1 %or.cond5.i453, label %.sink.split.i456, label %311
+  %or.cond5.i451 = and i1 %304, %310
+  br i1 %or.cond5.i451, label %.sink.split.i454, label %311
 
 311:                                              ; preds = %309
-  %or.cond7.i454 = and i1 %308, %310
-  br i1 %or.cond7.i454, label %.sink.split.i456, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i452 = and i1 %308, %310
+  br i1 %or.cond7.i452, label %.sink.split.i454, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i456:                                 ; preds = %311, %309, %306, %.sink.split.i449
-  %.0136.ph = phi double [ 0x3FD99999A0000000, %.sink.split.i449 ], [ 0x3FE99999A0000000, %309 ], [ 5.000000e-01, %306 ], [ 1.000000e+00, %311 ]
-  %.0132.ph = phi double [ 0xBFC99999A0000000, %.sink.split.i449 ], [ 0xBFD99999A0000000, %309 ], [ -2.500000e-01, %306 ], [ 0xBFD3333340000000, %311 ]
+.sink.split.i454:                                 ; preds = %311, %309, %306, %.sink.split.i447
+  %.0134.ph = phi double [ 0x3FD99999A0000000, %.sink.split.i447 ], [ 0x3FE99999A0000000, %309 ], [ 5.000000e-01, %306 ], [ 1.000000e+00, %311 ]
+  %.0130.ph = phi double [ 0xBFC99999A0000000, %.sink.split.i447 ], [ 0xBFD99999A0000000, %309 ], [ -2.500000e-01, %306 ], [ 0xBFD3333340000000, %311 ]
   %312 = or i32 %193, %.sroa.speculated32
-  %or.cond.i460 = icmp ult i32 %312, 2
-  br i1 %or.cond.i460, label %.sink.split.i465, label %313
+  %or.cond.i458 = icmp ult i32 %312, 2
+  br i1 %or.cond.i458, label %.sink.split.i463, label %313
 
-313:                                              ; preds = %.sink.split.i456
+313:                                              ; preds = %.sink.split.i454
   %314 = icmp ult i32 %193, 2
   %315 = icmp eq i32 %.sroa.speculated32, 2
-  %or.cond3.i461 = and i1 %315, %314
-  br i1 %or.cond3.i461, label %.sink.split.i465, label %316
+  %or.cond3.i459 = and i1 %315, %314
+  br i1 %or.cond3.i459, label %.sink.split.i463, label %316
 
 316:                                              ; preds = %313
   %317 = icmp eq i32 %193, 2
-  %or.cond5.i462 = and i1 %295, %317
-  br i1 %or.cond5.i462, label %.sink.split.i465, label %318
+  %or.cond5.i460 = and i1 %295, %317
+  br i1 %or.cond5.i460, label %.sink.split.i463, label %318
 
 318:                                              ; preds = %316
-  %or.cond7.i463 = and i1 %315, %317
-  br i1 %or.cond7.i463, label %.sink.split.i465, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i461 = and i1 %315, %317
+  br i1 %or.cond7.i461, label %.sink.split.i463, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i465:                                 ; preds = %318, %316, %313, %.sink.split.i456
-  %.0144.ph = phi double [ 0x3FD99999A0000000, %.sink.split.i456 ], [ 0x3FE99999A0000000, %316 ], [ 5.000000e-01, %313 ], [ 1.000000e+00, %318 ]
-  %.0140.ph = phi double [ 0xBFC99999A0000000, %.sink.split.i456 ], [ 0xBFD99999A0000000, %316 ], [ -2.500000e-01, %313 ], [ 0xBFD3333340000000, %318 ]
+.sink.split.i463:                                 ; preds = %318, %316, %313, %.sink.split.i454
+  %.0142.ph = phi double [ 0x3FD99999A0000000, %.sink.split.i454 ], [ 0x3FE99999A0000000, %316 ], [ 5.000000e-01, %313 ], [ 1.000000e+00, %318 ]
+  %.0138.ph = phi double [ 0xBFC99999A0000000, %.sink.split.i454 ], [ 0xBFD99999A0000000, %316 ], [ -2.500000e-01, %313 ], [ 0xBFD3333340000000, %318 ]
   %319 = or i32 %193, %192
-  %or.cond.i469 = icmp samesign ult i32 %319, 2
-  br i1 %or.cond.i469, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %320
+  %or.cond.i467 = icmp samesign ult i32 %319, 2
+  br i1 %or.cond.i467, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread, label %320
 
-320:                                              ; preds = %.sink.split.i465
+320:                                              ; preds = %.sink.split.i463
   %321 = icmp eq i32 %.sroa.speculated, 0
   %322 = icmp eq i32 %192, 2
-  %or.cond3.i470 = and i1 %322, %321
-  br i1 %or.cond3.i470, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %323
+  %or.cond3.i468 = and i1 %322, %321
+  br i1 %or.cond3.i468, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread, label %323
 
 323:                                              ; preds = %320
   %324 = icmp eq i32 %193, 2
-  %or.cond5.i471 = and i1 %304, %324
-  br i1 %or.cond5.i471, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %325
+  %or.cond5.i469 = and i1 %304, %324
+  br i1 %or.cond5.i469, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread, label %325
 
 325:                                              ; preds = %323
-  %or.cond7.i472 = and i1 %322, %324
-  br i1 %or.cond7.i472, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i470 = and i1 %322, %324
+  br i1 %or.cond7.i470, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 326:                                              ; preds = %293
-  br i1 %or.cond.i444, label %.sink.split.i12.i, label %327
+  br i1 %or.cond.i442, label %.sink.split.i12.i, label %327
 
 327:                                              ; preds = %326
   %328 = icmp ult i32 %.sroa.speculated, 2
@@ -92228,115 +92228,115 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br i1 %or.cond7.i.i, label %.sink.split.i12.i, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 .sink.split.i12.i:                                ; preds = %332, %330, %327, %326
-  %.1152.ph = phi double [ 5.000000e-01, %327 ], [ 0x3FE99999A0000000, %330 ], [ 0x3FD99999A0000000, %326 ], [ 1.000000e+00, %332 ]
-  %.1149.ph = phi double [ -2.500000e-01, %327 ], [ 0xBFD99999A0000000, %330 ], [ 0xBFC99999A0000000, %326 ], [ 0xBFD3333340000000, %332 ]
-  %.0123.ph = phi double [ 7.500000e-01, %327 ], [ 0x3FD70A3D80000000, %330 ], [ 0x3FEAE147A0000000, %326 ], [ 0.000000e+00, %332 ]
+  %.1150.ph = phi double [ 5.000000e-01, %327 ], [ 0x3FE99999A0000000, %330 ], [ 0x3FD99999A0000000, %326 ], [ 1.000000e+00, %332 ]
+  %.1147.ph = phi double [ -2.500000e-01, %327 ], [ 0xBFD99999A0000000, %330 ], [ 0xBFC99999A0000000, %326 ], [ 0xBFD3333340000000, %332 ]
+  %.0121.ph = phi double [ 7.500000e-01, %327 ], [ 0x3FD70A3D80000000, %330 ], [ 0x3FEAE147A0000000, %326 ], [ 0.000000e+00, %332 ]
   %333 = icmp ult i32 %192, 2
   %334 = or i32 %.sroa.speculated, %192
-  %or.cond.i.i479 = icmp ult i32 %334, 2
-  br i1 %or.cond.i.i479, label %.sink.split.i12.i483, label %335
+  %or.cond.i.i477 = icmp ult i32 %334, 2
+  br i1 %or.cond.i.i477, label %.sink.split.i12.i481, label %335
 
 335:                                              ; preds = %.sink.split.i12.i
   %336 = icmp samesign ult i32 %.sroa.speculated, 2
   %337 = icmp eq i32 %192, 2
-  %or.cond3.i.i480 = and i1 %337, %336
-  br i1 %or.cond3.i.i480, label %.sink.split.i12.i483, label %338
+  %or.cond3.i.i478 = and i1 %337, %336
+  br i1 %or.cond3.i.i478, label %.sink.split.i12.i481, label %338
 
 338:                                              ; preds = %335
   %339 = icmp eq i32 %.sroa.speculated, 2
-  %or.cond5.i.i481 = and i1 %333, %339
-  br i1 %or.cond5.i.i481, label %.sink.split.i12.i483, label %340
+  %or.cond5.i.i479 = and i1 %333, %339
+  br i1 %or.cond5.i.i479, label %.sink.split.i12.i481, label %340
 
 340:                                              ; preds = %338
-  %or.cond7.i.i482 = and i1 %337, %339
-  br i1 %or.cond7.i.i482, label %.sink.split.i12.i483, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i.i480 = and i1 %337, %339
+  br i1 %or.cond7.i.i480, label %.sink.split.i12.i481, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i12.i483:                             ; preds = %340, %338, %335, %.sink.split.i12.i
-  %.1137.ph = phi double [ 5.000000e-01, %335 ], [ 0x3FE99999A0000000, %338 ], [ 0x3FD99999A0000000, %.sink.split.i12.i ], [ 1.000000e+00, %340 ]
-  %.1133.ph = phi double [ -2.500000e-01, %335 ], [ 0xBFD99999A0000000, %338 ], [ 0xBFC99999A0000000, %.sink.split.i12.i ], [ 0xBFD3333340000000, %340 ]
-  %.0121.ph = phi double [ 7.500000e-01, %335 ], [ 0x3FD70A3D80000000, %338 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i ], [ 0.000000e+00, %340 ]
+.sink.split.i12.i481:                             ; preds = %340, %338, %335, %.sink.split.i12.i
+  %.1135.ph = phi double [ 5.000000e-01, %335 ], [ 0x3FE99999A0000000, %338 ], [ 0x3FD99999A0000000, %.sink.split.i12.i ], [ 1.000000e+00, %340 ]
+  %.1131.ph = phi double [ -2.500000e-01, %335 ], [ 0xBFD99999A0000000, %338 ], [ 0xBFC99999A0000000, %.sink.split.i12.i ], [ 0xBFD3333340000000, %340 ]
+  %.0119.ph = phi double [ 7.500000e-01, %335 ], [ 0x3FD70A3D80000000, %338 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i ], [ 0.000000e+00, %340 ]
   %341 = or i32 %193, %.sroa.speculated32
-  %or.cond.i.i488 = icmp ult i32 %341, 2
-  br i1 %or.cond.i.i488, label %.sink.split.i12.i492, label %342
+  %or.cond.i.i486 = icmp ult i32 %341, 2
+  br i1 %or.cond.i.i486, label %.sink.split.i12.i490, label %342
 
-342:                                              ; preds = %.sink.split.i12.i483
+342:                                              ; preds = %.sink.split.i12.i481
   %343 = icmp ult i32 %193, 2
   %344 = icmp eq i32 %.sroa.speculated32, 2
-  %or.cond3.i.i489 = and i1 %344, %343
-  br i1 %or.cond3.i.i489, label %.sink.split.i12.i492, label %345
+  %or.cond3.i.i487 = and i1 %344, %343
+  br i1 %or.cond3.i.i487, label %.sink.split.i12.i490, label %345
 
 345:                                              ; preds = %342
   %346 = icmp eq i32 %193, 2
-  %or.cond5.i.i490 = and i1 %295, %346
-  br i1 %or.cond5.i.i490, label %.sink.split.i12.i492, label %347
+  %or.cond5.i.i488 = and i1 %295, %346
+  br i1 %or.cond5.i.i488, label %.sink.split.i12.i490, label %347
 
 347:                                              ; preds = %345
-  %or.cond7.i.i491 = and i1 %344, %346
-  br i1 %or.cond7.i.i491, label %.sink.split.i12.i492, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i.i489 = and i1 %344, %346
+  br i1 %or.cond7.i.i489, label %.sink.split.i12.i490, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-.sink.split.i12.i492:                             ; preds = %347, %345, %342, %.sink.split.i12.i483
-  %.1145.ph = phi double [ 5.000000e-01, %342 ], [ 0x3FE99999A0000000, %345 ], [ 0x3FD99999A0000000, %.sink.split.i12.i483 ], [ 1.000000e+00, %347 ]
-  %.1141.ph = phi double [ -2.500000e-01, %342 ], [ 0xBFD99999A0000000, %345 ], [ 0xBFC99999A0000000, %.sink.split.i12.i483 ], [ 0xBFD3333340000000, %347 ]
-  %.0122.ph = phi double [ 7.500000e-01, %342 ], [ 0x3FD70A3D80000000, %345 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i483 ], [ 0.000000e+00, %347 ]
+.sink.split.i12.i490:                             ; preds = %347, %345, %342, %.sink.split.i12.i481
+  %.1143.ph = phi double [ 5.000000e-01, %342 ], [ 0x3FE99999A0000000, %345 ], [ 0x3FD99999A0000000, %.sink.split.i12.i481 ], [ 1.000000e+00, %347 ]
+  %.1139.ph = phi double [ -2.500000e-01, %342 ], [ 0xBFD99999A0000000, %345 ], [ 0xBFC99999A0000000, %.sink.split.i12.i481 ], [ 0xBFD3333340000000, %347 ]
+  %.0120.ph = phi double [ 7.500000e-01, %342 ], [ 0x3FD70A3D80000000, %345 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i481 ], [ 0.000000e+00, %347 ]
   %348 = or i32 %193, %192
-  %or.cond.i.i497 = icmp samesign ult i32 %348, 2
-  br i1 %or.cond.i.i497, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %349
+  %or.cond.i.i495 = icmp samesign ult i32 %348, 2
+  br i1 %or.cond.i.i495, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %349
 
-349:                                              ; preds = %.sink.split.i12.i492
+349:                                              ; preds = %.sink.split.i12.i490
   %350 = icmp eq i32 %.sroa.speculated, 0
   %351 = icmp eq i32 %192, 2
-  %or.cond3.i.i498 = and i1 %351, %350
-  br i1 %or.cond3.i.i498, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %352
+  %or.cond3.i.i496 = and i1 %351, %350
+  br i1 %or.cond3.i.i496, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %352
 
 352:                                              ; preds = %349
   %353 = icmp eq i32 %193, 2
-  %or.cond5.i.i499 = and i1 %333, %353
-  br i1 %or.cond5.i.i499, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %354
+  %or.cond5.i.i497 = and i1 %333, %353
+  br i1 %or.cond5.i.i497, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %354
 
 354:                                              ; preds = %352
-  %or.cond7.i.i500 = and i1 %351, %353
-  br i1 %or.cond7.i.i500, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
+  %or.cond7.i.i498 = and i1 %351, %353
+  br i1 %or.cond7.i.i498, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit: ; preds = %354, %.sink.split.i12.i492, %349, %352
-  %.1129.ph = phi double [ 5.000000e-01, %349 ], [ 0x3FE99999A0000000, %352 ], [ 0x3FD99999A0000000, %.sink.split.i12.i492 ], [ 1.000000e+00, %354 ]
-  %.1125.ph = phi double [ -2.500000e-01, %349 ], [ 0xBFD99999A0000000, %352 ], [ 0xBFC99999A0000000, %.sink.split.i12.i492 ], [ 0xBFD3333340000000, %354 ]
-  %.0120.ph = phi double [ 7.500000e-01, %349 ], [ 0x3FD70A3D80000000, %352 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i492 ], [ 0.000000e+00, %354 ]
-  %355 = fmul double %202, %.0122.ph
-  %356 = call double @llvm.fmuladd.f64(double %.0123.ph, double %200, double %355)
-  %357 = call double @llvm.fmuladd.f64(double %.0121.ph, double %201, double %356)
-  %358 = call double @llvm.fmuladd.f64(double %.0120.ph, double %203, double %357)
-  %359 = call double @llvm.fmuladd.f64(double %.0.i409, double %358, double %.0283339)
-  br label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread
+_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit: ; preds = %354, %.sink.split.i12.i490, %349, %352
+  %.1127.ph = phi double [ 5.000000e-01, %349 ], [ 0x3FE99999A0000000, %352 ], [ 0x3FD99999A0000000, %.sink.split.i12.i490 ], [ 1.000000e+00, %354 ]
+  %.1123.ph = phi double [ -2.500000e-01, %349 ], [ 0xBFD99999A0000000, %352 ], [ 0xBFC99999A0000000, %.sink.split.i12.i490 ], [ 0xBFD3333340000000, %354 ]
+  %.0118.ph = phi double [ 7.500000e-01, %349 ], [ 0x3FD70A3D80000000, %352 ], [ 0x3FEAE147A0000000, %.sink.split.i12.i490 ], [ 0.000000e+00, %354 ]
+  %355 = fmul double %202, %.0120.ph
+  %356 = call double @llvm.fmuladd.f64(double %.0121.ph, double %200, double %355)
+  %357 = call double @llvm.fmuladd.f64(double %.0119.ph, double %201, double %356)
+  %358 = call double @llvm.fmuladd.f64(double %.0118.ph, double %203, double %357)
+  %359 = call double @llvm.fmuladd.f64(double %.0.i, double %358, double %.0283331)
+  br label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread
 
-_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread: ; preds = %325, %.sink.split.i465, %320, %323, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit
-  %.2153 = phi double [ %.1152.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0151.ph, %323 ], [ %.0151.ph, %320 ], [ %.0151.ph, %.sink.split.i465 ], [ %.0151.ph, %325 ]
-  %.2150 = phi double [ %.1149.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0148.ph, %323 ], [ %.0148.ph, %320 ], [ %.0148.ph, %.sink.split.i465 ], [ %.0148.ph, %325 ]
-  %.3147 = phi double [ %.1145.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0144.ph, %323 ], [ %.0144.ph, %320 ], [ %.0144.ph, %.sink.split.i465 ], [ %.0144.ph, %325 ]
-  %.3143 = phi double [ %.1141.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0140.ph, %323 ], [ %.0140.ph, %320 ], [ %.0140.ph, %.sink.split.i465 ], [ %.0140.ph, %325 ]
-  %.3139 = phi double [ %.1137.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0136.ph, %323 ], [ %.0136.ph, %320 ], [ %.0136.ph, %.sink.split.i465 ], [ %.0136.ph, %325 ]
-  %.3135 = phi double [ %.1133.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0132.ph, %323 ], [ %.0132.ph, %320 ], [ %.0132.ph, %.sink.split.i465 ], [ %.0132.ph, %325 ]
-  %.3131 = phi double [ %.1129.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ 0x3FE99999A0000000, %323 ], [ 5.000000e-01, %320 ], [ 0x3FD99999A0000000, %.sink.split.i465 ], [ 1.000000e+00, %325 ]
-  %.3127 = phi double [ %.1125.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ 0xBFD99999A0000000, %323 ], [ -2.500000e-01, %320 ], [ 0xBFC99999A0000000, %.sink.split.i465 ], [ 0xBFD3333340000000, %325 ]
-  %.14297 = phi double [ %359, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0283339, %323 ], [ %.0283339, %320 ], [ %.0283339, %.sink.split.i465 ], [ %.0283339, %325 ]
+_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread: ; preds = %325, %.sink.split.i463, %320, %323, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit
+  %.2151 = phi double [ %.1150.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0149.ph, %323 ], [ %.0149.ph, %320 ], [ %.0149.ph, %.sink.split.i463 ], [ %.0149.ph, %325 ]
+  %.2148 = phi double [ %.1147.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0146.ph, %323 ], [ %.0146.ph, %320 ], [ %.0146.ph, %.sink.split.i463 ], [ %.0146.ph, %325 ]
+  %.3145 = phi double [ %.1143.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0142.ph, %323 ], [ %.0142.ph, %320 ], [ %.0142.ph, %.sink.split.i463 ], [ %.0142.ph, %325 ]
+  %.3141 = phi double [ %.1139.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0138.ph, %323 ], [ %.0138.ph, %320 ], [ %.0138.ph, %.sink.split.i463 ], [ %.0138.ph, %325 ]
+  %.3137 = phi double [ %.1135.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0134.ph, %323 ], [ %.0134.ph, %320 ], [ %.0134.ph, %.sink.split.i463 ], [ %.0134.ph, %325 ]
+  %.3133 = phi double [ %.1131.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0130.ph, %323 ], [ %.0130.ph, %320 ], [ %.0130.ph, %.sink.split.i463 ], [ %.0130.ph, %325 ]
+  %.3129 = phi double [ %.1127.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ 0x3FE99999A0000000, %323 ], [ 5.000000e-01, %320 ], [ 0x3FD99999A0000000, %.sink.split.i463 ], [ 1.000000e+00, %325 ]
+  %.3125 = phi double [ %.1123.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ 0xBFD99999A0000000, %323 ], [ -2.500000e-01, %320 ], [ 0xBFC99999A0000000, %.sink.split.i463 ], [ 0xBFD3333340000000, %325 ]
+  %.14297 = phi double [ %359, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit ], [ %.0283331, %323 ], [ %.0283331, %320 ], [ %.0283331, %.sink.split.i463 ], [ %.0283331, %325 ]
   %360 = getelementptr inbounds nuw i8, ptr %.val356, i64 8
   %361 = load i8, ptr %360, align 8, !tbaa !1057, !range !132, !noundef !133
   %362 = trunc nuw i8 %361 to i1
   br i1 %362, label %363, label %374
 
-363:                                              ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread
-  %364 = fmul double %202, %.3147
-  %365 = call double @llvm.fmuladd.f64(double %.2153, double %200, double %364)
-  %366 = call double @llvm.fmuladd.f64(double %.3139, double %201, double %365)
-  %367 = call double @llvm.fmuladd.f64(double %.3131, double %203, double %366)
-  %368 = fmul double %202, %.3143
-  %369 = call double @llvm.fmuladd.f64(double %.2150, double %200, double %368)
-  %370 = call double @llvm.fmuladd.f64(double %.3135, double %201, double %369)
-  %371 = call double @llvm.fmuladd.f64(double %.3127, double %203, double %370)
-  %372 = call double @llvm.fmuladd.f64(double %.0.i409, double %367, double %.0261341)
-  %373 = call double @llvm.fmuladd.f64(double %.0.i409, double %371, double %.0272340)
-  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+363:                                              ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread
+  %364 = fmul double %202, %.3145
+  %365 = call double @llvm.fmuladd.f64(double %.2151, double %200, double %364)
+  %366 = call double @llvm.fmuladd.f64(double %.3137, double %201, double %365)
+  %367 = call double @llvm.fmuladd.f64(double %.3129, double %203, double %366)
+  %368 = fmul double %202, %.3141
+  %369 = call double @llvm.fmuladd.f64(double %.2148, double %200, double %368)
+  %370 = call double @llvm.fmuladd.f64(double %.3133, double %201, double %369)
+  %371 = call double @llvm.fmuladd.f64(double %.3125, double %203, double %370)
+  %372 = call double @llvm.fmuladd.f64(double %.0.i, double %367, double %.0261333)
+  %373 = call double @llvm.fmuladd.f64(double %.0.i, double %371, double %.0272332)
+  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
-374:                                              ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread
+374:                                              ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit475.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -92396,18 +92396,18 @@ _ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8Test
 393:                                              ; preds = %_ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridN20TestDeformationModel6GridExIS2_EESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit.thread, %_ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridN20TestDeformationModel6GridExIS2_EESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit
   %.sroa.03.0 = phi ptr [ %392, %_ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridN20TestDeformationModel6GridExIS2_EESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit.thread ], [ %.19.i.i.i, %_ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridN20TestDeformationModel6GridExIS2_EESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit ]
   %394 = getelementptr inbounds nuw i8, ptr %.sroa.03.0, i64 40
-  call fastcc void @_ZN20TestDeformationModel6GridExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridE21getBilinearGeocentricEiiddddddddddddRdS5_S5_(ptr noundef nonnull align 8 dereferenceable(184) %394, i32 noundef %.sroa.speculated32, i32 noundef %.sroa.speculated, double noundef %.2153, double noundef %.2150, double noundef %.3147, double noundef %.3143, double noundef %.3139, double noundef %.3135, double noundef %.3131, double noundef %.3127, double noundef %200, double noundef %202, double noundef %201, double noundef %203, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %395 = trunc nuw i8 %.0299338 to i1
+  call fastcc void @_ZN20TestDeformationModel6GridExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridE21getBilinearGeocentricEiiddddddddddddRdS5_S5_(ptr noundef nonnull align 8 dereferenceable(184) %394, i32 noundef %.sroa.speculated32, i32 noundef %.sroa.speculated, double noundef %.2151, double noundef %.2148, double noundef %.3145, double noundef %.3141, double noundef %.3137, double noundef %.3133, double noundef %.3129, double noundef %.3125, double noundef %200, double noundef %202, double noundef %201, double noundef %203, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %395 = trunc nuw i8 %.0299330 to i1
   br i1 %395, label %399, label %396
 
 396:                                              ; preds = %393
-  %397 = call double @sin(double noundef %.1102160) #41, !tbaa !19
-  %398 = call double @cos(double noundef %.1102160) #41, !tbaa !19
+  %397 = call double @sin(double noundef %.0101158) #41, !tbaa !19
+  %398 = call double @cos(double noundef %.0101158) #41, !tbaa !19
   br label %399
 
 399:                                              ; preds = %396, %393
-  %.11335 = phi double [ %.0324336, %393 ], [ %398, %396 ]
-  %.11322 = phi double [ %.0311337, %393 ], [ %397, %396 ]
+  %.11335 = phi double [ %.0324328, %393 ], [ %398, %396 ]
+  %.11322 = phi double [ %.0311329, %393 ], [ %397, %396 ]
   %400 = fadd double %195, -5.000000e-01
   %401 = load double, ptr %166, align 8, !tbaa !944
   %402 = fmul double %400, %401
@@ -92442,33 +92442,33 @@ _ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8Test
   %425 = load double, ptr %23, align 8, !tbaa !68
   %426 = fmul double %.11335, %425
   %427 = call double @llvm.fmuladd.f64(double %424, double %.11322, double %426)
-  %428 = call double @llvm.fmuladd.f64(double %.0.i409, double %421, double %.0261341)
-  %429 = call double @llvm.fmuladd.f64(double %.0.i409, double %427, double %.0272340)
+  %428 = call double @llvm.fmuladd.f64(double %.0.i, double %421, double %.0261333)
+  %429 = call double @llvm.fmuladd.f64(double %.0.i, double %427, double %.0272332)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+  br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
 
-_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread: ; preds = %116, %115, %93, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405, %.sink.split87.i399, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit, %163, %182, %177, %414, %363, %274, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit
-  %.5113.ph = phi double [ %.0108334, %414 ], [ %.0108334, %363 ], [ %292, %274 ], [ %.0108334, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0108334, %182 ], [ %.0108334, %177 ], [ %.0108334, %163 ], [ %.0108334, %93 ], [ %.0108334, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0108334, %.sink.split87.i399 ], [ %.0108334, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0108334, %115 ], [ %.0108334, %116 ]
-  %.5.ph = phi double [ %.0103335, %414 ], [ %.0103335, %363 ], [ %291, %274 ], [ %.0103335, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0103335, %182 ], [ %.0103335, %177 ], [ %.0103335, %163 ], [ %.0103335, %93 ], [ %.0103335, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0103335, %.sink.split87.i399 ], [ %.0103335, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0103335, %115 ], [ %.0103335, %116 ]
-  %.2326.ph = phi double [ %.11335, %414 ], [ %.0324336, %363 ], [ %.0324336, %274 ], [ %.0324336, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0324336, %182 ], [ %.0324336, %177 ], [ %.0324336, %163 ], [ %.0324336, %93 ], [ %.0324336, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0324336, %.sink.split87.i399 ], [ %.0324336, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0324336, %115 ], [ %.0324336, %116 ]
-  %.2313.ph = phi double [ %.11322, %414 ], [ %.0311337, %363 ], [ %.0311337, %274 ], [ %.0311337, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0311337, %182 ], [ %.0311337, %177 ], [ %.0311337, %163 ], [ %.0311337, %93 ], [ %.0311337, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0311337, %.sink.split87.i399 ], [ %.0311337, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0311337, %115 ], [ %.0311337, %116 ]
-  %.2301.ph = phi i8 [ 1, %414 ], [ %.0299338, %363 ], [ %.0299338, %274 ], [ %.0299338, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0299338, %182 ], [ %.0299338, %177 ], [ %.0299338, %163 ], [ %.0299338, %93 ], [ %.0299338, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0299338, %.sink.split87.i399 ], [ %.0299338, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0299338, %115 ], [ %.0299338, %116 ]
-  %.2285.ph = phi double [ %.14297, %414 ], [ %.14297, %363 ], [ %.11294, %274 ], [ %242, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0283339, %182 ], [ %.0283339, %177 ], [ %.0283339, %163 ], [ %.0283339, %93 ], [ %.0283339, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0283339, %.sink.split87.i399 ], [ %.0283339, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0283339, %115 ], [ %.0283339, %116 ]
-  %.2274.ph = phi double [ %429, %414 ], [ %373, %363 ], [ %.0272340, %274 ], [ %.0272340, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0272340, %182 ], [ %.0272340, %177 ], [ %.0272340, %163 ], [ %.0272340, %93 ], [ %.0272340, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0272340, %.sink.split87.i399 ], [ %.0272340, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0272340, %115 ], [ %.0272340, %116 ]
-  %.2263.ph = phi double [ %428, %414 ], [ %372, %363 ], [ %.0261341, %274 ], [ %.0261341, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0261341, %182 ], [ %.0261341, %177 ], [ %.0261341, %163 ], [ %.0261341, %93 ], [ %.0261341, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405 ], [ %.0261341, %.sink.split87.i399 ], [ %.0261341, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0261341, %115 ], [ %.0261341, %116 ]
-  %430 = getelementptr inbounds nuw i8, ptr %.sroa.080.0333, i64 8
-  %.not299 = icmp eq ptr %430, %.val
-  br i1 %.not299, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit, label %93
+_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread: ; preds = %116, %115, %93, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit, %163, %182, %177, %414, %363, %274, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit
+  %.5112.ph = phi double [ %.0107326, %414 ], [ %.0107326, %363 ], [ %292, %274 ], [ %.0107326, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0107326, %182 ], [ %.0107326, %177 ], [ %.0107326, %163 ], [ %.0107326, %93 ], [ %.0107326, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0107326, %115 ], [ %.0107326, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0107326, %116 ]
+  %.5.ph = phi double [ %.0102327, %414 ], [ %.0102327, %363 ], [ %291, %274 ], [ %.0102327, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0102327, %182 ], [ %.0102327, %177 ], [ %.0102327, %163 ], [ %.0102327, %93 ], [ %.0102327, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0102327, %115 ], [ %.0102327, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0102327, %116 ]
+  %.2326.ph = phi double [ %.11335, %414 ], [ %.0324328, %363 ], [ %.0324328, %274 ], [ %.0324328, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0324328, %182 ], [ %.0324328, %177 ], [ %.0324328, %163 ], [ %.0324328, %93 ], [ %.0324328, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0324328, %115 ], [ %.0324328, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0324328, %116 ]
+  %.2313.ph = phi double [ %.11322, %414 ], [ %.0311329, %363 ], [ %.0311329, %274 ], [ %.0311329, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0311329, %182 ], [ %.0311329, %177 ], [ %.0311329, %163 ], [ %.0311329, %93 ], [ %.0311329, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0311329, %115 ], [ %.0311329, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0311329, %116 ]
+  %.2301.ph = phi i8 [ 1, %414 ], [ %.0299330, %363 ], [ %.0299330, %274 ], [ %.0299330, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0299330, %182 ], [ %.0299330, %177 ], [ %.0299330, %163 ], [ %.0299330, %93 ], [ %.0299330, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0299330, %115 ], [ %.0299330, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0299330, %116 ]
+  %.2285.ph = phi double [ %.14297, %414 ], [ %.14297, %363 ], [ %.11294, %274 ], [ %242, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0283331, %182 ], [ %.0283331, %177 ], [ %.0283331, %163 ], [ %.0283331, %93 ], [ %.0283331, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0283331, %115 ], [ %.0283331, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0283331, %116 ]
+  %.2274.ph = phi double [ %429, %414 ], [ %373, %363 ], [ %.0272332, %274 ], [ %.0272332, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0272332, %182 ], [ %.0272332, %177 ], [ %.0272332, %163 ], [ %.0272332, %93 ], [ %.0272332, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0272332, %115 ], [ %.0272332, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0272332, %116 ]
+  %.2263.ph = phi double [ %428, %414 ], [ %372, %363 ], [ %.0261333, %274 ], [ %.0261333, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit ], [ %.0261333, %182 ], [ %.0261333, %177 ], [ %.0261333, %163 ], [ %.0261333, %93 ], [ %.0261333, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404 ], [ %.0261333, %115 ], [ %.0261333, %_ZNK20TestDeformationModel11ComponentExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE10evaluateAtEd.exit ], [ %.0261333, %116 ]
+  %430 = getelementptr inbounds nuw i8, ptr %.sroa.080.0325, i64 8
+  %.not294 = icmp eq ptr %430, %.val
+  br i1 %.not294, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit, label %93
 
-_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit: ; preds = %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit405.thread
+_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit: ; preds = %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit404.thread
   %431 = trunc nuw i8 %.2301.ph to i1
   br label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit
 
 _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit: ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit, %.critedge
-  %.0108.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.5113.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
-  %.0103.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.5.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
+  %.0107.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.5112.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
+  %.0102.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.5.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
   %.0324.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.2326.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
   %.0311.lcssa = phi double [ 0.000000e+00, %.critedge ], [ %.2313.ph, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
   %.0299.lcssa = phi i1 [ false, %.critedge ], [ %431, %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit.loopexit ]
@@ -92482,10 +92482,10 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
 
 435:                                              ; preds = %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit
   %436 = load double, ptr %5, align 8, !tbaa !68
-  %437 = fadd double %.0103.lcssa, %436
+  %437 = fadd double %.0102.lcssa, %436
   store double %437, ptr %5, align 8, !tbaa !68
   %438 = load double, ptr %6, align 8, !tbaa !68
-  %439 = fadd double %.0108.lcssa, %438
+  %439 = fadd double %.0107.lcssa, %438
   store double %439, ptr %6, align 8, !tbaa !68
   br label %507
 
@@ -92515,7 +92515,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br i1 %.0299.lcssa, label %455, label %453
 
 453:                                              ; preds = %452
-  %454 = call double @cos(double noundef %.1102160) #41, !tbaa !19
+  %454 = call double @cos(double noundef %.0101158) #41, !tbaa !19
   br label %455
 
 455:                                              ; preds = %453, %452
@@ -92551,15 +92551,15 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br i1 %.0299.lcssa, label %483, label %480
 
 480:                                              ; preds = %479
-  %481 = call double @sin(double noundef %.1102160) #41, !tbaa !19
-  %482 = call double @cos(double noundef %.1102160) #41, !tbaa !19
+  %481 = call double @sin(double noundef %.0101158) #41, !tbaa !19
+  %482 = call double @cos(double noundef %.0101158) #41, !tbaa !19
   br label %483
 
 483:                                              ; preds = %480, %479
   %.13337 = phi double [ %.0324.lcssa, %479 ], [ %482, %480 ]
   %.12323 = phi double [ %.0311.lcssa, %479 ], [ %481, %480 ]
-  %484 = call double @sin(double noundef %.4161) #41, !tbaa !19
-  %485 = call double @cos(double noundef %.4161) #41, !tbaa !19
+  %484 = call double @sin(double noundef %.4159) #41, !tbaa !19
+  %485 = call double @cos(double noundef %.4159) #41, !tbaa !19
   %486 = fmul double %.0272.lcssa, %.12323
   %487 = fneg double %.0261.lcssa
   %488 = fneg double %485
@@ -92576,7 +92576,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   %496 = load double, ptr %495, align 8, !tbaa !1047
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %498 = load double, ptr %497, align 8, !tbaa !1053
-  call fastcc void @_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface22geographicToGeocentricEddddddRdS2_S2_(double noundef %.4161, double noundef %.1102160, double noundef %496, double noundef %498, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  call fastcc void @_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvEN14EvaluatorIface22geographicToGeocentricEddddddRdS2_S2_(double noundef %.4159, double noundef %.0101158, double noundef %496, double noundef %498, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
   %499 = load double, ptr %25, align 8, !tbaa !68
   %500 = fadd double %490, %499
   %501 = load double, ptr %26, align 8, !tbaa !68
@@ -92599,8 +92599,8 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   store double %509, ptr %7, align 8, !tbaa !68
   br label %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread: ; preds = %354, %332, %340, %347, %325, %303, %311, %318, %237, %215, %223, %230, %159, %155, %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit, %76, %.thread186, %55, %507, %.sink.split87.i, %84, %80, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
-  %.1 = phi i1 [ false, %.sink.split87.i ], [ false, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ], [ false, %80 ], [ false, %84 ], [ true, %507 ], [ false, %.thread186 ], [ false, %55 ], [ false, %76 ], [ false, %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit ], [ false, %155 ], [ false, %159 ], [ false, %230 ], [ false, %223 ], [ false, %215 ], [ false, %237 ], [ false, %318 ], [ false, %311 ], [ false, %303 ], [ false, %325 ], [ false, %347 ], [ false, %340 ], [ false, %332 ], [ false, %354 ]
+_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.thread: ; preds = %354, %332, %340, %347, %325, %303, %311, %318, %237, %215, %223, %230, %159, %155, %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit, %76, %.thread184, %55, %507, %84, %80, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit
+  %.1 = phi i1 [ false, %.thread184 ], [ false, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit ], [ false, %80 ], [ false, %84 ], [ true, %507 ], [ false, %76 ], [ false, %55 ], [ false, %_ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit ], [ false, %155 ], [ false, %159 ], [ false, %230 ], [ false, %223 ], [ false, %215 ], [ false, %237 ], [ false, %318 ], [ false, %311 ], [ false, %303 ], [ false, %325 ], [ false, %347 ], [ false, %340 ], [ false, %332 ], [ false, %354 ]
   ret i1 %.1
 }
 

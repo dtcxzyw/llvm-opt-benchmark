@@ -2630,7 +2630,7 @@ avio_rl16.exit.thread:                            ; preds = %avio_r8.exit.thread
   %26 = load i8, ptr %24, align 1, !tbaa !33
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 16
-  %29 = or disjoint i32 %28, %.0.i6.i10
+  %29 = add nuw nsw i32 %28, %.0.i6.i10
   br label %avio_r8.exit
 
 avio_r8.exit:                                     ; preds = %avio_rl16.exit.thread, %.thread.i

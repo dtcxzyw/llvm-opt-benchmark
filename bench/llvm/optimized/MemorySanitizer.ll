@@ -2880,18 +2880,18 @@ define dso_local void @_ZN4llvm19MemorySanitizerPass3runERNS_6ModuleERNS_15Analy
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %130
 
-._crit_edge:                                      ; preds = %340, %39
-  %.1.lcssa = phi i1 [ %.0, %39 ], [ %.2, %340 ]
-  br i1 %.1.lcssa, label %353, label %342
+._crit_edge:                                      ; preds = %339, %39
+  %.1.lcssa = phi i1 [ %.0, %39 ], [ %.2, %339 ]
+  br i1 %.1.lcssa, label %352, label %341
 
-130:                                              ; preds = %.lr.ph, %340
-  %.sroa.024.035 = phi ptr [ %.sroa.024.032, %.lr.ph ], [ %.sroa.024.0, %340 ]
-  %.134 = phi i1 [ %.0, %.lr.ph ], [ %.2, %340 ]
+130:                                              ; preds = %.lr.ph, %339
+  %.sroa.024.035 = phi ptr [ %.sroa.024.032, %.lr.ph ], [ %.sroa.024.0, %339 ]
+  %.134 = phi i1 [ %.0, %.lr.ph ], [ %.2, %339 ]
   %131 = getelementptr inbounds i8, ptr %.sroa.024.035, i64 -56
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !109
   %134 = icmp eq ptr %132, %133
-  br i1 %134, label %340, label %135
+  br i1 %134, label %339, label %135
 
 135:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -3519,78 +3519,77 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitorD2Ev.exit.i: ; preds = %334, %_ZN4llvm1
   br label %_ZN12_GLOBAL__N_115MemorySanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_17TargetLibraryInfoE.exit
 
 _ZN12_GLOBAL__N_115MemorySanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_17TargetLibraryInfoE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread34.i, %_ZN12_GLOBAL__N_122MemorySanitizerVisitorD2Ev.exit.i
-  %.0.i = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %_ZN12_GLOBAL__N_122MemorySanitizerVisitorD2Ev.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread34.i ]
-  %335 = or i1 %.134, %.0.i
-  %336 = load ptr, ptr %48, align 8, !tbaa !11
-  %337 = icmp eq ptr %336, %49
-  br i1 %337, label %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i19
+  %.0.i = phi i1 [ %.134, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %_ZN12_GLOBAL__N_122MemorySanitizerVisitorD2Ev.exit.i ], [ %.134, %_ZN4llvmeqENS_9StringRefES0_.exit.thread34.i ]
+  %335 = load ptr, ptr %48, align 8, !tbaa !11
+  %336 = icmp eq ptr %335, %49
+  br i1 %336, label %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i19
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i19: ; preds = %_ZN12_GLOBAL__N_115MemorySanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_17TargetLibraryInfoE.exit
-  %338 = load i64, ptr %49, align 8, !tbaa !13
-  %339 = add i64 %338, 1
-  call void @_ZdlPvm(ptr noundef %336, i64 noundef %339) #28
+  %337 = load i64, ptr %49, align 8, !tbaa !13
+  %338 = add i64 %337, 1
+  call void @_ZdlPvm(ptr noundef %335, i64 noundef %338) #28
   br label %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit
 
 _ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit:      ; preds = %_ZN12_GLOBAL__N_115MemorySanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_17TargetLibraryInfoE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %340
+  br label %339
 
-340:                                              ; preds = %130, %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit
-  %.2 = phi i1 [ %335, %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit ], [ %.134, %130 ]
-  %341 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 8
-  %.sroa.024.0 = load ptr, ptr %341, align 8, !tbaa !106
+339:                                              ; preds = %130, %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit
+  %.2 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_115MemorySanitizerD2Ev.exit ], [ %.134, %130 ]
+  %340 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 8
+  %.sroa.024.0 = load ptr, ptr %340, align 8, !tbaa !106
   %.not = icmp eq ptr %.sroa.024.0, %44
   br i1 %.not, label %._crit_edge, label %130
 
-342:                                              ; preds = %._crit_edge
+341:                                              ; preds = %._crit_edge
   %.ptr1.i20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i20, ptr %0, align 8, !tbaa !35, !alias.scope !315
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %343, align 8, !tbaa !36, !alias.scope !315
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %345, align 8, !tbaa !38, !alias.scope !315
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %346, align 4, !tbaa !39, !alias.scope !315
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %348, ptr %347, align 8, !tbaa !35, !alias.scope !315
-  %349 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %349, align 8, !tbaa !36, !alias.scope !315
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %350, align 4, !tbaa !37, !alias.scope !315
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %351, align 8, !tbaa !38, !alias.scope !315
-  %352 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %352, align 4, !tbaa !39, !alias.scope !315
-  store i32 1, ptr %344, align 4, !tbaa !37, !alias.scope !315, !noalias !318
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %342, align 8, !tbaa !36, !alias.scope !315
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %344, align 8, !tbaa !38, !alias.scope !315
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %345, align 4, !tbaa !39, !alias.scope !315
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %347, ptr %346, align 8, !tbaa !35, !alias.scope !315
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %348, align 8, !tbaa !36, !alias.scope !315
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %349, align 4, !tbaa !37, !alias.scope !315
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %350, align 8, !tbaa !38, !alias.scope !315
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %351, align 4, !tbaa !39, !alias.scope !315
+  store i32 1, ptr %343, align 4, !tbaa !37, !alias.scope !315, !noalias !318
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i20, align 8, !tbaa !95, !alias.scope !315, !noalias !318
   br label %_ZN4llvm17PreservedAnalyses7abandonINS_9GlobalsAAEEEvv.exit
 
-353:                                              ; preds = %._crit_edge
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %354, i8 0, i64 64, i1 false), !alias.scope !321
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %355, ptr %0, align 8, !tbaa !35, !alias.scope !321
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %356, align 8, !tbaa !36, !alias.scope !321
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %357, align 4, !tbaa !37, !alias.scope !321
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %358, align 4, !tbaa !39, !alias.scope !321
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %360, ptr %359, align 8, !tbaa !35, !alias.scope !321
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %361, align 8, !tbaa !36, !alias.scope !321
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %362, align 4, !tbaa !39, !alias.scope !321
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %363, align 4, !tbaa !37, !noalias !324
-  store ptr @_ZN4llvm9GlobalsAA3KeyE, ptr %360, align 8, !tbaa !95, !noalias !324
+352:                                              ; preds = %._crit_edge
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %353, i8 0, i64 64, i1 false), !alias.scope !321
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %354, ptr %0, align 8, !tbaa !35, !alias.scope !321
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %355, align 8, !tbaa !36, !alias.scope !321
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %356, align 4, !tbaa !37, !alias.scope !321
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %357, align 4, !tbaa !39, !alias.scope !321
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %359, ptr %358, align 8, !tbaa !35, !alias.scope !321
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %360, align 8, !tbaa !36, !alias.scope !321
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %361, align 4, !tbaa !39, !alias.scope !321
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 1, ptr %362, align 4, !tbaa !37, !noalias !324
+  store ptr @_ZN4llvm9GlobalsAA3KeyE, ptr %359, align 8, !tbaa !95, !noalias !324
   br label %_ZN4llvm17PreservedAnalyses7abandonINS_9GlobalsAAEEEvv.exit
 
-_ZN4llvm17PreservedAnalyses7abandonINS_9GlobalsAAEEEvv.exit: ; preds = %353, %342, %22
+_ZN4llvm17PreservedAnalyses7abandonINS_9GlobalsAAEEEvv.exit: ; preds = %352, %341, %22
   ret void
 }
 

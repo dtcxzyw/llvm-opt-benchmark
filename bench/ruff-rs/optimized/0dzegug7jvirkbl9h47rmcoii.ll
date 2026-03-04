@@ -67685,9 +67685,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_upp
   %15 = load i8, ptr %14, align 1, !alias.scope !3325, !noundef !3
   %16 = add i8 %15, -97
   %17 = icmp ult i8 %16, 26
-  %.sroa.03.0.i = select i1 %17, i8 32, i8 0
-  %18 = xor i8 %.sroa.03.0.i, %15
-  store i8 %18, ptr %14, align 1, !alias.scope !3325
+  %18 = select i1 %17, i8 32, i8 0
+  %.sroa.03.0.i = xor i8 %18, %15
+  store i8 %.sroa.03.0.i, ptr %14, align 1, !alias.scope !3325
   %19 = add nuw i64 %.sroa.0.05.i, 1
   %exitcond.not.i = icmp eq i64 %19, %2
   br i1 %exitcond.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_uppercase17h5298d085089bdcf5E.exit", label %.lr.ph.i

@@ -197,11 +197,11 @@ close_tempfile_gently.exit:                       ; preds = %3, %19
 
 26:                                               ; preds = %close_tempfile_gently.exit
   %27 = tail call i32 @rmdir_or_warn(ptr noundef nonnull %.val) #14
+  %28 = or i32 %27, %24
   br label %remove_template_directory.exit
 
 remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %26
-  %.0.i12 = phi i32 [ 0, %close_tempfile_gently.exit ], [ %27, %26 ]
-  %28 = or i32 %24, %.0.i12
+  %.0.i12 = phi i32 [ %24, %close_tempfile_gently.exit ], [ %28, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load volatile ptr, ptr %29, align 8, !tbaa !25
   %31 = load volatile ptr, ptr %2, align 8, !tbaa !26
@@ -214,7 +214,7 @@ remove_template_directory.exit:                   ; preds = %close_tempfile_gent
   tail call void @free(ptr noundef %34) #14
   tail call void @free(ptr noundef nonnull %2) #14
   store ptr null, ptr %0, align 8, !tbaa !21
-  %.not11 = icmp ne i32 %28, 0
+  %.not11 = icmp ne i32 %.0.i12, 0
   %35 = sext i1 %.not11 to i32
   br label %36
 

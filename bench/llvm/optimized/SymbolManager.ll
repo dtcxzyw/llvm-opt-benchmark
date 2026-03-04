@@ -2894,30 +2894,30 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper6isLiveEPKNS0_
   %5 = alloca ptr, align 8
   %6 = tail call noundef ptr @_ZNK5clang4ento9VarRegion13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %63, label %7
+  br i1 %.not, label %62, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !240
   %.not25 = icmp eq ptr %9, null
-  br i1 %.not25, label %63, label %10
+  br i1 %.not25, label %62, label %10
 
 10:                                               ; preds = %7
   %11 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #21
   %12 = icmp eq ptr %6, %11
-  br i1 %12, label %13, label %61
+  br i1 %12, label %13, label %60
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !241
   %.not26 = icmp eq ptr %15, null
-  br i1 %.not26, label %63, label %16
+  br i1 %.not26, label %62, label %16
 
 16:                                               ; preds = %13
   %17 = load i16, ptr %15, align 8
   %18 = and i16 %17, 511
   %19 = icmp eq i16 %18, 109
-  br i1 %19, label %63, label %20
+  br i1 %19, label %62, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %8, align 8, !tbaa !240
@@ -2970,7 +2970,7 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
   %42 = call noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_4StmtEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %37, ptr noundef %41) #21
   %.not29 = xor i1 %2, true
   %brmerge = or i1 %42, %.not29
-  br i1 %brmerge, label %63, label %43
+  br i1 %brmerge, label %62, label %43
 
 43:                                               ; preds = %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2984,13 +2984,13 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
 
 47:                                               ; preds = %43
   %48 = icmp eq i32 %46, 1
-  br label %63
+  br label %62
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8, !tbaa !247
-  %.not28 = icmp ne ptr %51, null
-  br i1 %.not28, label %52, label %60
+  %.not28.not = icmp eq ptr %51, null
+  br i1 %.not28.not, label %62, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3001,19 +3001,14 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
   %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull %51, ptr noundef nonnull %1) #21
   %59 = select i1 %58, i32 1, i32 2
   store i32 %59, ptr %45, align 4, !tbaa !246
-  br label %60
+  br label %62
 
-60:                                               ; preds = %49, %52
-  %.3 = phi i1 [ %58, %52 ], [ undef, %49 ]
-  %spec.select = and i1 %.not28, %.3
-  br label %63
+60:                                               ; preds = %10
+  %61 = tail call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %11) #21
+  br label %62
 
-61:                                               ; preds = %10
-  %62 = tail call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %11) #21
-  br label %63
-
-63:                                               ; preds = %60, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit, %61, %13, %16, %47, %7, %3
-  %.0 = phi i1 [ false, %7 ], [ true, %3 ], [ true, %13 ], [ true, %16 ], [ %spec.select, %60 ], [ %42, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ %62, %61 ], [ %48, %47 ]
+62:                                               ; preds = %52, %49, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit, %60, %13, %16, %47, %7, %3
+  %.0 = phi i1 [ false, %7 ], [ true, %3 ], [ true, %13 ], [ true, %16 ], [ %48, %47 ], [ %42, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ %61, %60 ], [ %58, %52 ], [ false, %49 ]
   ret i1 %.0
 }
 

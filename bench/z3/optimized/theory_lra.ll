@@ -46985,11 +46985,11 @@ _ZNK3smt10theory_lra3imp6is_intEi.exit:           ; preds = %_ZNK4decl13get_fami
   %70 = load i32, ptr %65, align 8
   %71 = icmp eq i32 %70, 1
   %72 = select i1 %69, i1 %71, i1 false
+  %73 = and i1 %.020.in53, %72
   br label %_ZNK3smt10theory_lra3imp6is_intEi.exit.thread
 
 _ZNK3smt10theory_lra3imp6is_intEi.exit.thread:    ; preds = %.noexc, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i, %64, %_ZNK3smt10theory_lra3imp6is_intEi.exit
-  %73 = phi i1 [ false, %_ZNK3smt10theory_lra3imp6is_intEi.exit ], [ %72, %64 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i ], [ false, %.noexc ]
-  %74 = and i1 %.020.in53, %73
+  %74 = phi i1 [ false, %_ZNK3smt10theory_lra3imp6is_intEi.exit ], [ %73, %64 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i ], [ false, %.noexc ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.047.052, i64 48
   %.not1.i.i = icmp eq ptr %75, %37
   br i1 %.not1.i.i, label %_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv.exit, label %.lr.ph.i.i

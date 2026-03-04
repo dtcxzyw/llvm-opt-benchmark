@@ -7123,7 +7123,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
   br i1 %43, label %.thread61, label %79
 
 .thread61:                                        ; preds = %8, %20, %29, %.thread56
-  %.0335564 = phi i1 [ true, %.thread56 ], [ false, %29 ], [ true, %20 ], [ true, %8 ]
+  %.0335564 = phi i1 [ %.not39, %.thread56 ], [ false, %29 ], [ %.not39, %20 ], [ false, %8 ]
   %44 = load i64, ptr %2, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, i8 0, i64 552, i1 false)
@@ -7173,11 +7173,10 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %44, ptr %73, align 8, !tbaa !109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %or.cond = and i1 %.not39, %.0335564
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
-  %or.cond44 = select i1 %or.cond, i1 %76, i1 false
+  %or.cond44 = select i1 %.0335564, i1 %76, i1 false
   br i1 %or.cond44, label %77, label %79
 
 77:                                               ; preds = %48

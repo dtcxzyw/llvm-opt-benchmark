@@ -7704,42 +7704,41 @@ get_type_kind.exit.thread26:                      ; preds = %8, %get_type_kind.e
   %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %28 ], [ %spec.select, %8 ], [ @reflection_union_type_ptr, %15 ], [ @reflection_union_type_ptr, %get_type_kind.exit ]
   %31 = phi i1 [ %29, %28 ], [ true, %8 ], [ %18, %15 ], [ %27, %get_type_kind.exit ]
   %32 = phi i1 [ %30, %28 ], [ %10, %8 ], [ %16, %15 ], [ true, %get_type_kind.exit ]
-  %33 = phi i1 [ true, %28 ], [ false, %8 ], [ false, %15 ], [ false, %get_type_kind.exit ]
-  %34 = load ptr, ptr %reflection_named_type_ptr.sink, align 8, !tbaa !36
-  %35 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %34) #13
-  %36 = load ptr, ptr %2, align 8, !tbaa !26
-  %37 = tail call noalias ptr @_emalloc_24() #13
-  store ptr %0, ptr %37, align 8, !tbaa !104
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %or.cond = phi i1 [ %3, %28 ], [ false, %8 ], [ false, %15 ], [ false, %get_type_kind.exit ]
+  %33 = load ptr, ptr %reflection_named_type_ptr.sink, align 8, !tbaa !36
+  %34 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %33) #13
+  %35 = load ptr, ptr %2, align 8, !tbaa !26
+  %36 = tail call noalias ptr @_emalloc_24() #13
+  store ptr %0, ptr %36, align 8, !tbaa !104
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !176
-  %or.cond = and i1 %3, %33
-  %38 = and i1 %31, %32
-  %39 = and i1 %38, %or.cond
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %41 = zext i1 %39 to i8
-  store i8 %41, ptr %40, align 8, !tbaa !177
-  %42 = getelementptr inbounds i8, ptr %36, i64 -24
-  store ptr %37, ptr %42, align 8, !tbaa !27
-  %43 = getelementptr inbounds i8, ptr %36, i64 -8
-  store i32 5, ptr %43, align 8, !tbaa !32
-  %44 = and i32 %1, 16777216
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %zend_string_addref.exit, label %45
+  %37 = and i1 %31, %32
+  %38 = and i1 %or.cond, %37
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %40 = zext i1 %38 to i8
+  store i8 %40, ptr %39, align 8, !tbaa !177
+  %41 = getelementptr inbounds i8, ptr %35, i64 -24
+  store ptr %36, ptr %41, align 8, !tbaa !27
+  %42 = getelementptr inbounds i8, ptr %35, i64 -8
+  store i32 5, ptr %42, align 8, !tbaa !32
+  %43 = and i32 %1, 16777216
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %zend_string_addref.exit, label %44
 
-45:                                               ; preds = %get_type_kind.exit.thread26
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !26
-  %48 = and i32 %47, 64
-  %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %49, label %zend_string_addref.exit
+44:                                               ; preds = %get_type_kind.exit.thread26
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !26
+  %47 = and i32 %46, 64
+  %.not.i = icmp eq i32 %47, 0
+  br i1 %.not.i, label %48, label %zend_string_addref.exit
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %0, align 4, !tbaa !35
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %0, align 4, !tbaa !35
+48:                                               ; preds = %44
+  %49 = load i32, ptr %0, align 4, !tbaa !35
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %0, align 4, !tbaa !35
   br label %zend_string_addref.exit
 
-zend_string_addref.exit:                          ; preds = %49, %45, %get_type_kind.exit.thread26
+zend_string_addref.exit:                          ; preds = %48, %44, %get_type_kind.exit.thread26
   ret void
 }
 

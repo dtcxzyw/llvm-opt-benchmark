@@ -143,31 +143,31 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre161.pre = load i32, ptr %1, align 4, !tbaa !3
+  %80 = mul nsw i32 %.pre161.pre, %77
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %50
   %.pre161 = phi i32 [ %58, %50 ], [ %.pre161.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 1, %50 ], [ %77, %._crit_edge.loopexit ]
-  %80 = load i32, ptr %0, align 4, !tbaa !3
-  %.not148.not = icmp slt i32 %54, %80
-  br i1 %.not148.not, label %81, label %91
+  %.0.lcssa = phi i32 [ %58, %50 ], [ %80, %._crit_edge.loopexit ]
+  %81 = load i32, ptr %0, align 4, !tbaa !3
+  %.not148.not = icmp slt i32 %54, %81
+  br i1 %.not148.not, label %82, label %91
 
-81:                                               ; preds = %._crit_edge
-  %82 = add nsw i32 %55, %15
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds double, ptr %17, i64 %83
-  %85 = mul nsw i32 %.pre161, %.0.lcssa
-  %86 = add nsw i32 %85, 1
+82:                                               ; preds = %._crit_edge
+  %83 = add nsw i32 %55, %15
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds double, ptr %17, i64 %84
+  %86 = add nsw i32 %.0.lcssa, 1
   %87 = mul nsw i32 %86, %18
   %88 = sext i32 %87 to i64
   %89 = getelementptr double, ptr %20, i64 %88
   %90 = getelementptr i8, ptr %89, i64 8
-  call void @dtpqrt_(ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull @c__0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %84, ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
+  call void @dtpqrt_(ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull @c__0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %85, ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %.pre = load i32, ptr %1, align 4, !tbaa !3
   br label %91
 
-91:                                               ; preds = %81, %._crit_edge
-  %92 = phi i32 [ %.pre, %81 ], [ %.pre161, %._crit_edge ]
+91:                                               ; preds = %82, %._crit_edge
+  %92 = phi i32 [ %.pre, %82 ], [ %.pre161, %._crit_edge ]
   %93 = load i32, ptr %3, align 4, !tbaa !3
   %94 = mul nsw i32 %93, %92
   %95 = sitofp i32 %94 to double

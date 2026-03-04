@@ -295,12 +295,12 @@ define void @_ZN5ZXing19CenterOfDoubleCrossERKNS_9BitMatrixENS_6PointTIiEEii(ptr
   br label %12
 
 12:                                               ; preds = %5, %.critedge
-  %.0.idx81 = phi i64 [ 0, %5 ], [ %.0.add, %.critedge ]
-  %.sroa.066.080 = phi double [ 0.000000e+00, %5 ], [ %73, %.critedge ]
-  %.sroa.768.079 = phi double [ 0.000000e+00, %5 ], [ %74, %.critedge ]
-  %.sroa.559.078 = phi double [ undef, %5 ], [ %.sroa.559.1, %.critedge ]
-  %.sroa.058.077 = phi double [ undef, %5 ], [ %.sroa.058.1, %.critedge ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx81
+  %.0.idx82 = phi i64 [ 0, %5 ], [ %.0.add, %.critedge ]
+  %.sroa.066.081 = phi double [ 0.000000e+00, %5 ], [ %73, %.critedge ]
+  %.sroa.768.080 = phi double [ 0.000000e+00, %5 ], [ %74, %.critedge ]
+  %.sroa.559.079 = phi double [ undef, %5 ], [ %.sroa.559.1, %.critedge ]
+  %.sroa.058.078 = phi double [ undef, %5 ], [ %.sroa.058.1, %.critedge ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx82
   %13 = load i64, ptr %.0.ptr, align 4
   %.sroa.563.0.extract.shift = and i64 %13, -4294967296
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -368,8 +368,8 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i: ; preds = %15
   br label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit
 
 _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit: ; preds = %.lr.ph.i, %15, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i, %.critedge.i
-  %.sroa.058.1 = phi double [ %40, %.critedge.i ], [ %.sroa.058.077, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.058.077, %15 ], [ %.sroa.058.077, %.lr.ph.i ]
-  %.sroa.559.1 = phi double [ %41, %.critedge.i ], [ %.sroa.559.078, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.559.078, %15 ], [ %.sroa.559.078, %.lr.ph.i ]
+  %.sroa.058.1 = phi double [ %40, %.critedge.i ], [ %.sroa.058.078, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.058.078, %15 ], [ %.sroa.058.078, %.lr.ph.i ]
+  %.sroa.559.1 = phi double [ %41, %.critedge.i ], [ %.sroa.559.079, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.559.079, %15 ], [ %.sroa.559.079, %.lr.ph.i ]
   %.sink.i = phi i1 [ true, %.critedge.i ], [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ false, %15 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = sub i64 0, %13
@@ -379,7 +379,7 @@ _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit: ; pre
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 %.sroa.0.0.insert.insert.i, ptr %.sroa.3.0..sroa_idx, align 8
-  br i1 %.not43.i, label %.lr.ph.i30, label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48
+  br i1 %.not43.i, label %.lr.ph.i30, label %.critedge.i25
 
 .lr.ph.i30:                                       ; preds = %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit, %50
   %.sroa.0.0.copyload.i.i32 = phi i64 [ %.sroa.02.0.copyload.i43, %50 ], [ %2, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit ]
@@ -391,20 +391,20 @@ _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit: ; pre
   %.sroa.3.0.extract.shift.i.i.i.i37 = lshr i64 %.sroa.0.0.copyload.i.i32, 32
   %.sroa.3.0.extract.trunc.i.i.i.i38 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.i37 to i32
   %.not.i.i.i.i39 = icmp slt i32 %.sroa.0.0.extract.trunc.i.i.i.i36, 0
-  br i1 %.not.i.i.i.i39, label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread, label %44
+  br i1 %.not.i.i.i.i39, label %.critedge70, label %44
 
 44:                                               ; preds = %.lr.ph.i30
   %45 = load i32, ptr %43, align 8, !tbaa !11, !noalias !37
   %46 = icmp sle i32 %45, %.sroa.0.0.extract.trunc.i.i.i.i36
   %.not6.i.i.i.i40 = icmp slt i64 %.sroa.0.0.copyload.i.i32, 0
   %or.cond.i.i.i.i41 = or i1 %.not6.i.i.i.i40, %46
-  br i1 %or.cond.i.i.i.i41, label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42
+  br i1 %or.cond.i.i.i.i41, label %.critedge70, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42
 
 _ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42: ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !18, !noalias !37
   %49 = icmp sgt i32 %48, %.sroa.3.0.extract.trunc.i.i.i.i38
-  br i1 %49, label %50, label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread
+  br i1 %49, label %50, label %.critedge70
 
 50:                                               ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42
   %51 = call noundef i32 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10stepToEdgeEiib(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1, i32 noundef %3, i1 noundef zeroext false), !noalias !37
@@ -430,26 +430,26 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42: ; preds = %44
   %67 = fadd double %.sroa.7.044.i35, %65
   %68 = add nuw nsw i32 %.046.i33, 1
   %exitcond.not.i47 = icmp eq i32 %68, %4
-  br i1 %exitcond.not.i47, label %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48, label %.lr.ph.i30, !llvm.loop !21
+  br i1 %exitcond.not.i47, label %.critedge.i25, label %.lr.ph.i30, !llvm.loop !21
 
-_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread: ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42, %44, %.lr.ph.i30
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit
-
-_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48: ; preds = %50, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit
+.critedge.i25:                                    ; preds = %50, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit
   %.sroa.7.0.lcssa.i26 = phi double [ 0.000000e+00, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit ], [ %67, %50 ]
   %.sroa.038.0.lcssa.i27 = phi double [ 0.000000e+00, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit ], [ %66, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.sink.i, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48
+.critedge70:                                      ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i42, %44, %.lr.ph.i30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.loopexit
+
+.critedge:                                        ; preds = %.critedge.i25
   %69 = fdiv double %.sroa.7.0.lcssa.i26, %10
   %70 = fdiv double %.sroa.038.0.lcssa.i27, %10
   %71 = fadd double %.sroa.058.1, %70
   %72 = fadd double %.sroa.559.1, %69
-  %73 = fadd double %.sroa.066.080, %71
-  %74 = fadd double %.sroa.768.079, %72
-  %.0.add = add nuw nsw i64 %.0.idx81, 8
+  %73 = fadd double %.sroa.066.081, %71
+  %74 = fadd double %.sroa.768.080, %72
+  %.0.add = add nuw nsw i64 %.0.idx82, 8
   %.not = icmp eq i64 %.0.add, 32
   br i1 %.not, label %75, label %12
 
@@ -461,8 +461,8 @@ _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48: ; p
   store double %77, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread, %75
-  %.sink = phi i8 [ 1, %75 ], [ 0, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48.thread ], [ 0, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48 ]
+.loopexit:                                        ; preds = %.critedge.i25, %.critedge70, %75
+  %.sink = phi i8 [ 1, %75 ], [ 0, %.critedge70 ], [ 0, %.critedge.i25 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %78, align 8, !tbaa !25
   ret void

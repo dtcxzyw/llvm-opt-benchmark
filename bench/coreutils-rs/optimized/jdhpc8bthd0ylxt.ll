@@ -728,13 +728,13 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   %.val6.i.i.i.i = load i8, ptr %150, align 1, !noalias !63, !noundef !4
   %151 = add i8 %.val.i.i.i.i, -65
   %152 = icmp ult i8 %151, 26
-  %.0.i.i.i.i.i.i.i = select i1 %152, i8 32, i8 0
-  %153 = add i8 %.val6.i.i.i.i, -65
-  %154 = icmp ult i8 %153, 26
-  %.02.i.i.i.i.i.i.i = select i1 %154, i8 32, i8 0
-  %155 = or i8 %.0.i.i.i.i.i.i.i, %.val.i.i.i.i
-  %156 = or i8 %.02.i.i.i.i.i.i.i, %.val6.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %155, %156
+  %153 = select i1 %152, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %153, %.val.i.i.i.i
+  %154 = add i8 %.val6.i.i.i.i, -65
+  %155 = icmp ult i8 %154, 26
+  %156 = select i1 %155, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %156, %.val6.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %145, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit": ; preds = %145
@@ -1114,9 +1114,9 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17h0d0d1cfa8bfca
   %.val.i = load i8, ptr %255, align 1, !noalias !85, !noundef !4
   %258 = add i8 %.val.i, -65
   %259 = icmp ult i8 %258, 26
-  %.0.i.i = select i1 %259, i8 32, i8 0
-  %260 = or i8 %.0.i.i, %.val.i
-  %261 = icmp ne i8 %260, 101
+  %260 = select i1 %259, i8 32, i8 0
+  %.0.i.i = or i8 %260, %.val.i
+  %261 = icmp ne i8 %.0.i.i, 101
   %brmerge.i356 = or i1 %261, %257
   br i1 %brmerge.i356, label %262, label %263
 
@@ -1748,13 +1748,13 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hd935762b08a3c594E
   %.val6.i.i.i.i = load i8, ptr %151, align 1, !noalias !153, !noundef !4
   %152 = add i8 %.val.i.i.i.i, -65
   %153 = icmp ult i8 %152, 26
-  %.0.i.i.i.i.i.i.i = select i1 %153, i8 32, i8 0
-  %154 = add i8 %.val6.i.i.i.i, -65
-  %155 = icmp ult i8 %154, 26
-  %.02.i.i.i.i.i.i.i = select i1 %155, i8 32, i8 0
-  %156 = or i8 %.0.i.i.i.i.i.i.i, %.val.i.i.i.i
-  %157 = or i8 %.02.i.i.i.i.i.i.i, %.val6.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %156, %157
+  %154 = select i1 %153, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %154, %.val.i.i.i.i
+  %155 = add i8 %.val6.i.i.i.i, -65
+  %156 = icmp ult i8 %155, 26
+  %157 = select i1 %156, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %157, %.val6.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit": ; preds = %146
@@ -2363,9 +2363,9 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17hde7253470a30a
   %.val.i = load i8, ptr %332, align 1, !noalias !192, !noundef !4
   %335 = add i8 %.val.i, -65
   %336 = icmp ult i8 %335, 26
-  %.0.i.i357 = select i1 %336, i8 32, i8 0
-  %337 = or i8 %.0.i.i357, %.val.i
-  %338 = icmp ne i8 %337, 101
+  %337 = select i1 %336, i8 32, i8 0
+  %.0.i.i357 = or i8 %337, %.val.i
+  %338 = icmp ne i8 %.0.i.i357, 101
   %brmerge.i358 = or i1 %338, %334
   br i1 %brmerge.i358, label %339, label %340
 
@@ -3635,13 +3635,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
   %.val19 = load i8, ptr %.sroa.0.0.ptr21, align 1, !noundef !4
   %51 = add i8 %.val, -65
   %52 = icmp ult i8 %51, 26
-  %.0.i20 = select i1 %52, i8 32, i8 0
-  %53 = add i8 %.val19, -65
-  %54 = icmp ult i8 %53, 26
-  %.02.i = select i1 %54, i8 32, i8 0
-  %55 = or i8 %.0.i20, %.val
-  %56 = or i8 %.02.i, %.val19
-  %57 = icmp eq i8 %55, %56
+  %53 = select i1 %52, i8 32, i8 0
+  %.0.i20 = or i8 %53, %.val
+  %54 = add i8 %.val19, -65
+  %55 = icmp ult i8 %54, 26
+  %56 = select i1 %55, i8 32, i8 0
+  %.02.i = or i8 %56, %.val19
+  %57 = icmp eq i8 %.0.i20, %.02.i
   br i1 %57, label %61, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %50
@@ -4242,13 +4242,13 @@ thread-pre-split:                                 ; preds = %172, %.critedge
   %.val6.i.i.i.i = load i8, ptr %204, align 1, !noalias !469, !noundef !4
   %205 = add i8 %.val.i.i.i.i, -65
   %206 = icmp ult i8 %205, 26
-  %.0.i.i.i.i.i.i.i = select i1 %206, i8 32, i8 0
-  %207 = add i8 %.val6.i.i.i.i, -65
-  %208 = icmp ult i8 %207, 26
-  %.02.i.i.i.i.i.i.i = select i1 %208, i8 32, i8 0
-  %209 = or i8 %.0.i.i.i.i.i.i.i, %.val.i.i.i.i
-  %210 = or i8 %.02.i.i.i.i.i.i.i, %.val6.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %209, %210
+  %207 = select i1 %206, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %207, %.val.i.i.i.i
+  %208 = add i8 %.val6.i.i.i.i, -65
+  %209 = icmp ult i8 %208, 26
+  %210 = select i1 %209, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %210, %.val6.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %199, label %.loopexit.loopexit
 
 211:                                              ; preds = %177
@@ -4711,13 +4711,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit55:  ; preds = %"_ZN106_$LT$core..o
   %.val50 = load i8, ptr %.sroa.062.0.ptr83, align 1, !noundef !4
   %94 = add i8 %.val, -65
   %95 = icmp ult i8 %94, 26
-  %.0.i56 = select i1 %95, i8 32, i8 0
-  %96 = add i8 %.val50, -65
-  %97 = icmp ult i8 %96, 26
-  %.02.i = select i1 %97, i8 32, i8 0
-  %98 = or i8 %.0.i56, %.val
-  %99 = or i8 %.02.i, %.val50
-  %100 = icmp eq i8 %98, %99
+  %96 = select i1 %95, i8 32, i8 0
+  %.0.i56 = or i8 %96, %.val
+  %97 = add i8 %.val50, -65
+  %98 = icmp ult i8 %97, 26
+  %99 = select i1 %98, i8 32, i8 0
+  %.02.i = or i8 %99, %.val50
+  %100 = icmp eq i8 %.0.i56, %.02.i
   br i1 %100, label %104, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit61
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit61:  ; preds = %93

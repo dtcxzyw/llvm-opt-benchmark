@@ -599,11 +599,11 @@ get_virtual_boundary.exit157:                     ; preds = %69, %65, %.preheade
   %100 = load i16, ptr %99, align 2, !tbaa !84
   %101 = zext i16 %100 to i32
   %102 = icmp eq i32 %15, %101
-  %103 = zext i1 %102 to i32
+  %103 = zext i1 %102 to i8
   br label %104
 
 104:                                              ; preds = %95, %94
-  %105 = phi i32 [ 0, %94 ], [ %103, %95 ]
+  %105 = phi i8 [ 0, %94 ], [ %103, %95 ]
   br i1 %92, label %106, label %115
 
 106:                                              ; preds = %104
@@ -613,12 +613,12 @@ get_virtual_boundary.exit157:                     ; preds = %69, %65, %.preheade
   %110 = load i16, ptr %109, align 2, !tbaa !84
   %111 = zext i16 %110 to i32
   %112 = icmp eq i32 %15, %111
-  %113 = zext i1 %112 to i32
-  %114 = or i32 %105, %113
+  %113 = zext i1 %112 to i8
+  %114 = or i8 %105, %113
   br label %115
 
 115:                                              ; preds = %106, %104
-  %116 = phi i32 [ %105, %104 ], [ %114, %106 ]
+  %116 = phi i8 [ %105, %104 ], [ %114, %106 ]
   %117 = shl i32 %15, %14
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 1970
   br i1 %.not142, label %is_virtual_boundary.exit.i, label %.preheader.i.i.i
@@ -657,8 +657,8 @@ get_virtual_boundary.exit157:                     ; preds = %69, %65, %.preheade
 is_virtual_boundary.exit.i:                       ; preds = %129, %125, %.preheader.i.i.i, %115
   %.3.i.i.i = phi i32 [ 0, %115 ], [ 0, %.preheader.i.i.i ], [ %122, %125 ], [ 0, %129 ]
   %130 = icmp eq i32 %.3.i.i.i, %117
-  %131 = zext i1 %130 to i32
-  %132 = or i32 %116, %131
+  %131 = zext i1 %130 to i8
+  %132 = or i8 %116, %131
   br i1 %93, label %133, label %sao_can_cross_slices.exit.i
 
 133:                                              ; preds = %is_virtual_boundary.exit.i
@@ -676,7 +676,7 @@ is_virtual_boundary.exit.i:                       ; preds = %129, %125, %.prehea
 
 sao_can_cross_slices.exit.i:                      ; preds = %133, %is_virtual_boundary.exit.i
   %.not162.i = phi i1 [ false, %is_virtual_boundary.exit.i ], [ %143, %133 ]
-  %144 = icmp ne i32 %132, 0
+  %144 = icmp ne i8 %132, 0
   %145 = select i1 %.not162.i, i1 true, i1 %144
   %146 = zext i1 %145 to i8
   store i8 %146, ptr %5, align 2, !tbaa !59
@@ -698,11 +698,11 @@ sao_can_cross_slices.exit.i:                      ; preds = %133, %is_virtual_bo
   %155 = getelementptr i8, ptr %153, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !84
   %157 = icmp ne i16 %154, %156
-  %158 = zext i1 %157 to i32
+  %158 = zext i1 %157 to i8
   br label %159
 
 159:                                              ; preds = %149, %148
-  %160 = phi i32 [ 0, %148 ], [ %158, %149 ]
+  %160 = phi i8 [ 0, %148 ], [ %158, %149 ]
   br i1 %92, label %161, label %175
 
 161:                                              ; preds = %159
@@ -717,12 +717,12 @@ sao_can_cross_slices.exit.i:                      ; preds = %133, %is_virtual_bo
   %170 = zext i16 %169 to i32
   %171 = add nuw nsw i32 %170, %166
   %172 = icmp eq i32 %171, %15
-  %173 = zext i1 %172 to i32
-  %174 = or i32 %160, %173
+  %173 = zext i1 %172 to i8
+  %174 = or i8 %160, %173
   br label %175
 
 175:                                              ; preds = %161, %159
-  %176 = phi i32 [ %160, %159 ], [ %174, %161 ]
+  %176 = phi i8 [ %160, %159 ], [ %174, %161 ]
   %177 = add nsw i32 %15, 1
   %178 = shl i32 %177, %14
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 1970
@@ -762,8 +762,8 @@ sao_can_cross_slices.exit.i:                      ; preds = %133, %is_virtual_bo
 is_virtual_boundary.exit192.i:                    ; preds = %190, %186, %.preheader.i.i181.i, %175
   %.3.i.i191.i = phi i32 [ 0, %175 ], [ 0, %.preheader.i.i181.i ], [ %183, %186 ], [ 0, %190 ]
   %191 = icmp eq i32 %.3.i.i191.i, %178
-  %192 = zext i1 %191 to i32
-  %193 = or i32 %176, %192
+  %192 = zext i1 %191 to i8
+  %193 = or i8 %176, %192
   br i1 %93, label %194, label %sao_can_cross_slices.exit194.i
 
 194:                                              ; preds = %is_virtual_boundary.exit192.i
@@ -780,7 +780,7 @@ is_virtual_boundary.exit192.i:                    ; preds = %190, %186, %.prehea
 
 sao_can_cross_slices.exit194.i:                   ; preds = %194, %is_virtual_boundary.exit192.i
   %.not164.i = phi i1 [ false, %is_virtual_boundary.exit192.i ], [ %203, %194 ]
-  %204 = icmp ne i32 %193, 0
+  %204 = icmp ne i8 %193, 0
   %205 = select i1 %.not164.i, i1 true, i1 %204
   %206 = zext i1 %205 to i8
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -802,11 +802,11 @@ sao_can_cross_slices.exit194.i:                   ; preds = %194, %is_virtual_bo
   %215 = load i16, ptr %214, align 2, !tbaa !84
   %216 = zext i16 %215 to i32
   %217 = icmp eq i32 %16, %216
-  %218 = zext i1 %217 to i32
+  %218 = zext i1 %217 to i8
   br label %219
 
 219:                                              ; preds = %210, %209
-  %220 = phi i32 [ 0, %209 ], [ %218, %210 ]
+  %220 = phi i8 [ 0, %209 ], [ %218, %210 ]
   br i1 %92, label %221, label %230
 
 221:                                              ; preds = %219
@@ -816,12 +816,12 @@ sao_can_cross_slices.exit194.i:                   ; preds = %194, %is_virtual_bo
   %225 = load i16, ptr %224, align 2, !tbaa !84
   %226 = zext i16 %225 to i32
   %227 = icmp eq i32 %16, %226
-  %228 = zext i1 %227 to i32
-  %229 = or i32 %220, %228
+  %228 = zext i1 %227 to i8
+  %229 = or i8 %220, %228
   br label %230
 
 230:                                              ; preds = %221, %219
-  %231 = phi i32 [ %220, %219 ], [ %229, %221 ]
+  %231 = phi i8 [ %220, %219 ], [ %229, %221 ]
   %232 = shl i32 %16, %14
   %233 = getelementptr inbounds nuw i8, ptr %9, i64 1978
   br i1 %.not142, label %is_virtual_boundary.exit207.i, label %.preheader.i.i196.i
@@ -860,8 +860,8 @@ sao_can_cross_slices.exit194.i:                   ; preds = %194, %is_virtual_bo
 is_virtual_boundary.exit207.i:                    ; preds = %244, %240, %.preheader.i.i196.i, %230
   %.3.i.i206.i = phi i32 [ 0, %230 ], [ 0, %.preheader.i.i196.i ], [ %237, %240 ], [ 0, %244 ]
   %245 = icmp eq i32 %.3.i.i206.i, %232
-  %246 = zext i1 %245 to i32
-  %247 = or i32 %231, %246
+  %246 = zext i1 %245 to i8
+  %247 = or i8 %231, %246
   br i1 %93, label %248, label %sao_can_cross_slices.exit209.i
 
 248:                                              ; preds = %is_virtual_boundary.exit207.i
@@ -880,11 +880,11 @@ is_virtual_boundary.exit207.i:                    ; preds = %244, %240, %.prehea
 
 sao_can_cross_slices.exit209.i:                   ; preds = %248, %is_virtual_boundary.exit207.i
   %.not166.i = phi i1 [ false, %is_virtual_boundary.exit207.i ], [ %259, %248 ]
-  %260 = icmp ne i32 %247, 0
+  %260 = icmp ne i8 %247, 0
   %261 = select i1 %.not166.i, i1 true, i1 %260
   %262 = zext i1 %261 to i8
   store i8 %262, ptr %6, align 2, !tbaa !59
-  %263 = trunc nuw nsw i32 %247 to i8
+  %263 = zext i1 %260 to i8
   br label %264
 
 264:                                              ; preds = %sao_can_cross_slices.exit209.i, %208
@@ -903,11 +903,11 @@ sao_can_cross_slices.exit209.i:                   ; preds = %248, %is_virtual_bo
   %272 = getelementptr i8, ptr %270, i64 2
   %273 = load i16, ptr %272, align 2, !tbaa !84
   %274 = icmp ne i16 %271, %273
-  %275 = zext i1 %274 to i32
+  %275 = zext i1 %274 to i8
   br label %276
 
 276:                                              ; preds = %266, %265
-  %277 = phi i32 [ 0, %265 ], [ %275, %266 ]
+  %277 = phi i8 [ 0, %265 ], [ %275, %266 ]
   br i1 %92, label %278, label %292
 
 278:                                              ; preds = %276
@@ -922,12 +922,12 @@ sao_can_cross_slices.exit209.i:                   ; preds = %248, %is_virtual_bo
   %287 = zext i16 %286 to i32
   %288 = add nuw nsw i32 %287, %283
   %289 = icmp eq i32 %288, %16
-  %290 = zext i1 %289 to i32
-  %291 = or i32 %277, %290
+  %290 = zext i1 %289 to i8
+  %291 = or i8 %277, %290
   br label %292
 
 292:                                              ; preds = %278, %276
-  %293 = phi i32 [ %277, %276 ], [ %291, %278 ]
+  %293 = phi i8 [ %277, %276 ], [ %291, %278 ]
   %294 = add nsw i32 %16, 1
   %295 = shl i32 %294, %14
   %296 = getelementptr inbounds nuw i8, ptr %9, i64 1978
@@ -967,8 +967,8 @@ sao_can_cross_slices.exit209.i:                   ; preds = %248, %is_virtual_bo
 is_virtual_boundary.exit222.i:                    ; preds = %307, %303, %.preheader.i.i211.i, %292
   %.3.i.i221.i = phi i32 [ 0, %292 ], [ 0, %.preheader.i.i211.i ], [ %300, %303 ], [ 0, %307 ]
   %308 = icmp eq i32 %.3.i.i221.i, %295
-  %309 = zext i1 %308 to i32
-  %310 = or i32 %293, %309
+  %309 = zext i1 %308 to i8
+  %310 = or i8 %293, %309
   br i1 %93, label %311, label %sao_can_cross_slices.exit224.i
 
 311:                                              ; preds = %is_virtual_boundary.exit222.i
@@ -986,12 +986,12 @@ is_virtual_boundary.exit222.i:                    ; preds = %307, %303, %.prehea
 
 sao_can_cross_slices.exit224.i:                   ; preds = %311, %is_virtual_boundary.exit222.i
   %.not168.i = phi i1 [ false, %is_virtual_boundary.exit222.i ], [ %321, %311 ]
-  %322 = icmp ne i32 %310, 0
+  %322 = icmp ne i8 %310, 0
   %323 = select i1 %.not168.i, i1 true, i1 %322
   %324 = zext i1 %323 to i8
   %325 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %324, ptr %325, align 1, !tbaa !59
-  %326 = trunc nuw nsw i32 %310 to i8
+  %326 = zext i1 %322 to i8
   br label %327
 
 327:                                              ; preds = %sao_can_cross_slices.exit224.i, %264

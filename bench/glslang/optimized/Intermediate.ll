@@ -4988,16 +4988,16 @@ _ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thr
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 255
-  %or.cond86.not.i = icmp eq i32 %59, 0
-  br i1 %or.cond86.not.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
+  %or.cond84.not.i = icmp eq i32 %59, 0
+  br i1 %or.cond84.not.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
 
 _ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i: ; preds = %53, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i
   br i1 %46, label %.thread, label %60
 
 60:                                               ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i
   %61 = and i32 %3, -2
-  %switch67.i = icmp eq i32 %61, 6
-  br i1 %switch67.i, label %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit, label %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread
+  %switch66.i = icmp eq i32 %61, 6
+  br i1 %switch66.i, label %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit, label %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread
 
 _ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit: ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 1480
@@ -5006,7 +5006,7 @@ _ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperat
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %.thread, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
 
-_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread: ; preds = %44, %60, %42
+_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread: ; preds = %60, %44, %42
   %65 = icmp eq i32 %3, 3
   br i1 %65, label %66, label %.thread
 
@@ -5036,13 +5036,13 @@ _ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thr
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 255
-  %or.cond86.not.i81 = icmp eq i32 %80, 0
-  br i1 %or.cond86.not.i81, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i77, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
+  %or.cond84.not.i81 = icmp eq i32 %80, 0
+  br i1 %or.cond84.not.i81, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i77, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
 
 _ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i77: ; preds = %74, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i80
   %81 = and i32 %2, -2
-  %switch67.i78 = icmp ne i32 %81, 6
-  %or.cond.not = or i1 %switch67.i78, %68
+  %switch66.i78 = icmp ne i32 %81, 6
+  %or.cond.not = or i1 %switch66.i78, %68
   br i1 %or.cond.not, label %.thread, label %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit83
 
 _ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit83: ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.i77
@@ -7545,354 +7545,358 @@ define noundef zeroext i1 @_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_
   %or.cond64 = select i1 %7, i1 %10, i1 false
   %11 = icmp eq i32 %9, 110
   %or.cond = select i1 %or.cond64, i1 true, i1 %11
-  br i1 %or.cond, label %132, label %12
+  br i1 %or.cond, label %137, label %12
 
 12:                                               ; preds = %4
   %13 = icmp eq i32 %1, %2
-  br i1 %13, label %132, label %14
+  br i1 %13, label %137, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %switch.edge, label %23
+  br i1 %17, label %switch.edge, label %28
 
 switch.edge:                                      ; preds = %14
-  switch i32 %2, label %switch.edge65.thread [
-    i32 9, label %switch.edge65
-    i32 8, label %switch.edge65
-    i32 2, label %switch.edge65
-    i32 1, label %switch.edge65
-    i32 12, label %switch.edge65
-  ]
-
-switch.edge65:                                    ; preds = %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge
   %18 = icmp ult i32 %1, 13
   %switch.cast = trunc i32 %1 to i13
   %switch.downshift = lshr i13 -3322, %switch.cast
   %switch.masked = trunc i13 %switch.downshift to i1
   %19 = select i1 %18, i1 %switch.masked, i1 false
-  br i1 %19, label %20, label %switch.edge65.thread
-
-20:                                               ; preds = %switch.edge65
-  switch i32 %3, label %switch.edge65.thread [
-    i32 595, label %132
-    i32 596, label %132
-    i32 597, label %132
-    i32 585, label %132
-    i32 586, label %132
-    i32 587, label %132
-    i32 588, label %132
-    i32 590, label %132
-    i32 591, label %132
-    i32 593, label %132
-    i32 594, label %132
-    i32 469, label %132
-    i32 4, label %132
-    i32 9, label %132
-    i32 181, label %132
-    i32 179, label %132
-    i32 180, label %132
-    i32 577, label %132
+  switch i32 %2, label %20 [
+    i32 9, label %23
+    i32 8, label %23
+    i32 2, label %23
+    i32 1, label %23
   ]
 
-switch.edge65.thread:                             ; preds = %switch.edge, %switch.edge65, %20
-  %21 = icmp eq i32 %1, 12
-  br i1 %21, label %22, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+20:                                               ; preds = %switch.edge
+  %21 = icmp eq i32 %2, 12
+  %22 = and i1 %21, %19
+  br i1 %22, label %24, label %25
 
-22:                                               ; preds = %switch.edge65.thread
+23:                                               ; preds = %switch.edge, %switch.edge, %switch.edge, %switch.edge
+  br i1 %19, label %24, label %25
+
+24:                                               ; preds = %20, %23
+  switch i32 %3, label %25 [
+    i32 595, label %137
+    i32 596, label %137
+    i32 597, label %137
+    i32 585, label %137
+    i32 586, label %137
+    i32 587, label %137
+    i32 588, label %137
+    i32 590, label %137
+    i32 591, label %137
+    i32 593, label %137
+    i32 594, label %137
+    i32 469, label %137
+    i32 4, label %137
+    i32 9, label %137
+    i32 181, label %137
+    i32 179, label %137
+    i32 180, label %137
+    i32 577, label %137
+  ]
+
+25:                                               ; preds = %20, %23, %24
+  %26 = icmp eq i32 %1, 12
+  br i1 %26, label %27, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+
+27:                                               ; preds = %25
   switch i32 %2, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit [
-    i32 9, label %132
-    i32 8, label %132
-    i32 1, label %132
+    i32 9, label %137
+    i32 8, label %137
+    i32 1, label %137
   ]
 
-23:                                               ; preds = %14
-  %24 = icmp eq i32 %2, 8
-  %25 = and i32 %1, -4
-  %switch.i = icmp eq i32 %25, 4
-  %or.cond.i = and i1 %24, %switch.i
-  br i1 %or.cond.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %26
+28:                                               ; preds = %14
+  %29 = icmp eq i32 %2, 8
+  %30 = and i32 %1, -4
+  %switch.i = icmp eq i32 %30, 4
+  %or.cond.i = and i1 %29, %switch.i
+  br i1 %or.cond.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %31
 
-26:                                               ; preds = %23
-  %27 = icmp eq i32 %2, 2
-  %28 = add i32 %1, -1
-  %switch.and.i = and i32 %28, -3
+31:                                               ; preds = %28
+  %32 = icmp eq i32 %2, 2
+  %33 = add i32 %1, -1
+  %switch.and.i = and i32 %33, -3
   %switch.selectcmp.i = icmp eq i32 %switch.and.i, 0
-  %.0.i = and i1 %27, %switch.selectcmp.i
-  br i1 %.0.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %29
-
-29:                                               ; preds = %26
-  %30 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20isIntegralConversionENS_10TBasicTypeES1_(ptr noundef nonnull align 8 dereferenceable(2024) %0, i32 noundef %1, i32 noundef %2)
-  br i1 %30, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %31
-
-31:                                               ; preds = %29
-  %32 = icmp eq i32 %2, 1
-  %33 = icmp eq i32 %1, 3
-  %or.cond.i68 = and i1 %33, %32
-  br i1 %or.cond.i68, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %34
+  %.0.i = and i1 %32, %switch.selectcmp.i
+  br i1 %.0.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %34
 
 34:                                               ; preds = %31
+  %35 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20isIntegralConversionENS_10TBasicTypeES1_(ptr noundef nonnull align 8 dereferenceable(2024) %0, i32 noundef %1, i32 noundef %2)
+  br i1 %35, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %36
+
+36:                                               ; preds = %34
+  %37 = icmp eq i32 %2, 1
+  %38 = icmp eq i32 %1, 3
+  %or.cond.i67 = and i1 %38, %37
+  br i1 %or.cond.i67, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %39
+
+39:                                               ; preds = %36
   switch i32 %1, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit [
-    i32 8, label %35
-    i32 9, label %35
-    i32 4, label %36
-    i32 5, label %36
-    i32 6, label %36
-    i32 7, label %36
-    i32 10, label %37
-    i32 11, label %37
+    i32 8, label %40
+    i32 9, label %40
+    i32 4, label %41
+    i32 5, label %41
+    i32 6, label %41
+    i32 7, label %41
+    i32 10, label %42
+    i32 11, label %42
   ]
 
-35:                                               ; preds = %34, %34
+40:                                               ; preds = %39, %39
   %.off.i = add i32 %2, -1
-  %switch.i70 = icmp ult i32 %.off.i, 2
-  br i1 %switch.i70, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+  %switch.i69 = icmp ult i32 %.off.i, 2
+  br i1 %switch.i69, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
 
-36:                                               ; preds = %34, %34, %34, %34
+41:                                               ; preds = %39, %39, %39, %39
   %.off4.i = add i32 %2, -1
   %switch5.i = icmp ult i32 %.off4.i, 3
   br i1 %switch5.i, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
 
-37:                                               ; preds = %34, %34
-  br i1 %27, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+42:                                               ; preds = %39, %39
+  br i1 %32, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
 
-_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread: ; preds = %37, %35, %36, %31, %29, %26, %23
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 255
-  %or.cond86.not = icmp eq i32 %40, 0
-  br i1 %or.cond86.not, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit, label %132
+_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread: ; preds = %42, %40, %41, %36, %34, %31, %28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 255
+  %or.cond84.not = icmp eq i32 %45, 0
+  br i1 %or.cond84.not, label %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit, label %137
 
-_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit: ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, %37, %36, %35, %34, %22, %switch.edge65.thread
-  br i1 %7, label %41, label %55
+_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit: ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, %42, %41, %40, %39, %27, %25
+  br i1 %7, label %46, label %60
 
-41:                                               ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
-  switch i32 %2, label %132 [
-    i32 1, label %42
-    i32 9, label %49
+46:                                               ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+  switch i32 %2, label %137 [
+    i32 1, label %47
+    i32 9, label %54
   ]
 
-42:                                               ; preds = %41
-  %43 = and i32 %1, -2
-  %switch = icmp eq i32 %43, 8
-  br i1 %switch, label %44, label %132
+47:                                               ; preds = %46
+  %48 = and i32 %1, -2
+  %switch = icmp eq i32 %48, 8
+  br i1 %switch, label %49, label %137
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %46 = load i32, ptr %45, align 8
-  %47 = and i32 %46, 256
-  %48 = icmp ne i32 %47, 0
-  br label %132
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %51, 256
+  %53 = icmp ne i32 %52, 0
+  br label %137
 
-49:                                               ; preds = %41
+54:                                               ; preds = %46
   %cond1 = icmp eq i32 %1, 8
-  br i1 %cond1, label %50, label %132
+  br i1 %cond1, label %55, label %137
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %52 = load i32, ptr %51, align 8
-  %53 = and i32 %52, 256
-  %54 = icmp ne i32 %53, 0
-  br label %132
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 256
+  %59 = icmp ne i32 %58, 0
+  br label %137
 
-55:                                               ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
-  switch i32 %2, label %132 [
-    i32 2, label %56
-    i32 1, label %74
-    i32 9, label %87
-    i32 8, label %98
-    i32 11, label %105
-    i32 10, label %112
-    i32 3, label %119
-    i32 7, label %126
+60:                                               ; preds = %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit
+  switch i32 %2, label %137 [
+    i32 2, label %61
+    i32 1, label %79
+    i32 9, label %92
+    i32 8, label %103
+    i32 11, label %110
+    i32 10, label %117
+    i32 3, label %124
+    i32 7, label %131
   ]
 
-56:                                               ; preds = %55
-  switch i32 %1, label %132 [
-    i32 8, label %57
-    i32 9, label %57
-    i32 10, label %57
-    i32 11, label %57
-    i32 1, label %57
-    i32 6, label %64
-    i32 7, label %64
-    i32 3, label %69
+61:                                               ; preds = %60
+  switch i32 %1, label %137 [
+    i32 8, label %62
+    i32 9, label %62
+    i32 10, label %62
+    i32 11, label %62
+    i32 1, label %62
+    i32 6, label %69
+    i32 7, label %69
+    i32 3, label %74
   ]
 
-57:                                               ; preds = %56, %56, %56, %56, %56
-  %58 = icmp sgt i32 %9, 399
-  br i1 %58, label %132, label %59
+62:                                               ; preds = %61, %61, %61, %61, %61
+  %63 = icmp sgt i32 %9, 399
+  br i1 %63, label %137, label %64
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %61 = load i32, ptr %60, align 8
-  %62 = and i32 %61, 512
-  %63 = icmp ne i32 %62, 0
-  br label %132
-
-64:                                               ; preds = %56, %56
-  %65 = icmp slt i32 %9, 400
-  %.phi.trans.insert89 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %.pre90 = load i32, ptr %.phi.trans.insert89, align 8
-  %66 = and i32 %.pre90, 512
-  %.not87 = icmp eq i32 %66, 0
-  %or.cond94 = select i1 %65, i1 %.not87, i1 false
-  br i1 %or.cond94, label %132, label %._crit_edge88
-
-._crit_edge88:                                    ; preds = %64
-  %67 = and i32 %.pre90, 1024
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %66 = load i32, ptr %65, align 8
+  %67 = and i32 %66, 512
   %68 = icmp ne i32 %67, 0
-  br label %132
+  br label %137
 
-69:                                               ; preds = %56
+69:                                               ; preds = %61, %61
   %70 = icmp slt i32 %9, 400
+  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %.pre88 = load i32, ptr %.phi.trans.insert87, align 8
+  %71 = and i32 %.pre88, 512
+  %.not85 = icmp eq i32 %71, 0
+  %or.cond92 = select i1 %70, i1 %.not85, i1 false
+  br i1 %or.cond92, label %137, label %._crit_edge86
+
+._crit_edge86:                                    ; preds = %69
+  %72 = and i32 %.pre88, 1024
+  %73 = icmp ne i32 %72, 0
+  br label %137
+
+74:                                               ; preds = %61
+  %75 = icmp slt i32 %9, 400
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %71 = and i32 %.pre, 512
-  %.not = icmp eq i32 %71, 0
-  %or.cond95 = select i1 %70, i1 %.not, i1 false
-  br i1 %or.cond95, label %132, label %._crit_edge
+  %76 = and i32 %.pre, 512
+  %.not = icmp eq i32 %76, 0
+  %or.cond93 = select i1 %75, i1 %.not, i1 false
+  br i1 %or.cond93, label %137, label %._crit_edge
 
-._crit_edge:                                      ; preds = %69
-  %72 = and i32 %.pre, 2048
-  %73 = icmp ne i32 %72, 0
-  br label %132
+._crit_edge:                                      ; preds = %74
+  %77 = and i32 %.pre, 2048
+  %78 = icmp ne i32 %77, 0
+  br label %137
 
-74:                                               ; preds = %55
-  switch i32 %1, label %86 [
-    i32 8, label %132
-    i32 9, label %132
-    i32 12, label %75
-    i32 6, label %76
-    i32 7, label %76
-    i32 3, label %81
+79:                                               ; preds = %60
+  switch i32 %1, label %91 [
+    i32 8, label %137
+    i32 9, label %137
+    i32 12, label %80
+    i32 6, label %81
+    i32 7, label %81
+    i32 3, label %86
   ]
 
-75:                                               ; preds = %74
-  br label %132
+80:                                               ; preds = %79
+  br label %137
 
-76:                                               ; preds = %74, %74
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %78 = load i32, ptr %77, align 8
-  %79 = and i32 %78, 1024
-  %80 = icmp ne i32 %79, 0
-  br label %132
-
-81:                                               ; preds = %74
+81:                                               ; preds = %79, %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, 2048
+  %84 = and i32 %83, 1024
   %85 = icmp ne i32 %84, 0
-  %spec.select = or i1 %17, %85
-  br label %132
+  br label %137
 
-86:                                               ; preds = %74
-  br label %132
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %88 = load i32, ptr %87, align 8
+  %89 = and i32 %88, 2048
+  %90 = icmp ne i32 %89, 0
+  %spec.select = or i1 %17, %90
+  br label %137
 
-87:                                               ; preds = %55
-  switch i32 %1, label %132 [
-    i32 8, label %88
-    i32 12, label %92
-    i32 6, label %93
-    i32 7, label %93
+91:                                               ; preds = %79
+  br label %137
+
+92:                                               ; preds = %60
+  switch i32 %1, label %137 [
+    i32 8, label %93
+    i32 12, label %97
+    i32 6, label %98
+    i32 7, label %98
   ]
 
-88:                                               ; preds = %87
-  %89 = icmp sgt i32 %9, 399
-  %brmerge = or i1 %89, %17
-  br i1 %brmerge, label %132, label %90
+93:                                               ; preds = %92
+  %94 = icmp sgt i32 %9, 399
+  %brmerge = or i1 %94, %17
+  br i1 %brmerge, label %137, label %95
 
-90:                                               ; preds = %88
-  %91 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20IsRequestedExtensionEPKc(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull @.str.1)
-  br label %132
+95:                                               ; preds = %93
+  %96 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20IsRequestedExtensionEPKc(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull @.str.1)
+  br label %137
 
-92:                                               ; preds = %87
-  br label %132
+97:                                               ; preds = %92
+  br label %137
 
-93:                                               ; preds = %87, %87
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, 1024
-  %97 = icmp ne i32 %96, 0
-  br label %132
+98:                                               ; preds = %92, %92
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %100 = load i32, ptr %99, align 8
+  %101 = and i32 %100, 1024
+  %102 = icmp ne i32 %101, 0
+  br label %137
 
-98:                                               ; preds = %55
-  switch i32 %1, label %132 [
-    i32 12, label %99
-    i32 6, label %100
+103:                                              ; preds = %60
+  switch i32 %1, label %137 [
+    i32 12, label %104
+    i32 6, label %105
   ]
 
-99:                                               ; preds = %98
-  br label %132
+104:                                              ; preds = %103
+  br label %137
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 1024
-  %104 = icmp ne i32 %103, 0
-  br label %132
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 1024
+  %109 = icmp ne i32 %108, 0
+  br label %137
 
-105:                                              ; preds = %55
-  switch i32 %1, label %111 [
-    i32 8, label %132
-    i32 9, label %132
-    i32 10, label %132
-    i32 6, label %106
-    i32 7, label %106
+110:                                              ; preds = %60
+  switch i32 %1, label %116 [
+    i32 8, label %137
+    i32 9, label %137
+    i32 10, label %137
+    i32 6, label %111
+    i32 7, label %111
   ]
 
-106:                                              ; preds = %105, %105
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %108 = load i32, ptr %107, align 8
-  %109 = and i32 %108, 1024
-  %110 = icmp ne i32 %109, 0
-  br label %132
+111:                                              ; preds = %110, %110
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, 1024
+  %115 = icmp ne i32 %114, 0
+  br label %137
 
-111:                                              ; preds = %105
-  br label %132
+116:                                              ; preds = %110
+  br label %137
 
-112:                                              ; preds = %55
-  switch i32 %1, label %118 [
-    i32 8, label %132
-    i32 6, label %113
+117:                                              ; preds = %60
+  switch i32 %1, label %123 [
+    i32 8, label %137
+    i32 6, label %118
   ]
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %115 = load i32, ptr %114, align 8
-  %116 = and i32 %115, 1024
-  %117 = icmp ne i32 %116, 0
-  br label %132
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %120 = load i32, ptr %119, align 8
+  %121 = and i32 %120, 1024
+  %122 = icmp ne i32 %121, 0
+  br label %137
 
-118:                                              ; preds = %112
-  br label %132
+123:                                              ; preds = %117
+  br label %137
 
-119:                                              ; preds = %55
-  %120 = and i32 %1, -2
-  %switch67 = icmp eq i32 %120, 6
-  br i1 %switch67, label %121, label %132
+124:                                              ; preds = %60
+  %125 = and i32 %1, -2
+  %switch66 = icmp eq i32 %125, 6
+  br i1 %switch66, label %126, label %137
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %123 = load i32, ptr %122, align 8
-  %124 = and i32 %123, 1024
-  %125 = icmp ne i32 %124, 0
-  br label %132
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %128 = load i32, ptr %127, align 8
+  %129 = and i32 %128, 1024
+  %130 = icmp ne i32 %129, 0
+  br label %137
 
-126:                                              ; preds = %55
+131:                                              ; preds = %60
   %cond = icmp eq i32 %1, 6
-  br i1 %cond, label %127, label %132
+  br i1 %cond, label %132, label %137
 
-127:                                              ; preds = %126
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %129 = load i32, ptr %128, align 8
-  %130 = and i32 %129, 1024
-  %131 = icmp ne i32 %130, 0
-  br label %132
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 1024
+  %136 = icmp ne i32 %135, 0
+  br label %137
 
-132:                                              ; preds = %69, %64, %81, %88, %55, %126, %119, %112, %105, %105, %105, %98, %87, %90, %74, %74, %56, %._crit_edge, %._crit_edge88, %57, %59, %41, %49, %42, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, %22, %22, %22, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %12, %4, %127, %121, %118, %113, %111, %106, %100, %99, %93, %92, %86, %76, %75, %50, %44
-  %.0 = phi i1 [ true, %12 ], [ false, %55 ], [ true, %20 ], [ false, %49 ], [ true, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread ], [ %48, %44 ], [ %54, %50 ], [ false, %42 ], [ false, %126 ], [ %73, %._crit_edge ], [ false, %41 ], [ %63, %59 ], [ %68, %._crit_edge88 ], [ false, %86 ], [ false, %56 ], [ %17, %75 ], [ %80, %76 ], [ true, %74 ], [ %91, %90 ], [ false, %64 ], [ %17, %92 ], [ %97, %93 ], [ false, %87 ], [ %17, %99 ], [ %104, %100 ], [ false, %111 ], [ false, %98 ], [ %110, %106 ], [ false, %118 ], [ true, %105 ], [ %117, %113 ], [ true, %112 ], [ %125, %121 ], [ %131, %127 ], [ false, %119 ], [ true, %22 ], [ false, %4 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %22 ], [ true, %22 ], [ false, %69 ], [ true, %74 ], [ true, %57 ], [ %spec.select, %81 ], [ true, %88 ], [ true, %105 ], [ true, %105 ]
+137:                                              ; preds = %74, %69, %86, %93, %60, %131, %124, %117, %110, %110, %110, %103, %92, %95, %79, %79, %61, %._crit_edge, %._crit_edge86, %62, %64, %46, %54, %47, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, %27, %27, %27, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %12, %4, %132, %126, %123, %118, %116, %111, %105, %104, %98, %97, %91, %81, %80, %55, %49
+  %.0 = phi i1 [ true, %12 ], [ false, %60 ], [ true, %24 ], [ false, %54 ], [ true, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread ], [ %53, %49 ], [ %59, %55 ], [ false, %47 ], [ false, %131 ], [ %78, %._crit_edge ], [ false, %46 ], [ %68, %64 ], [ %73, %._crit_edge86 ], [ false, %91 ], [ false, %61 ], [ %17, %80 ], [ %85, %81 ], [ true, %79 ], [ %96, %95 ], [ false, %69 ], [ %17, %97 ], [ %102, %98 ], [ false, %92 ], [ %17, %104 ], [ %109, %105 ], [ false, %116 ], [ false, %103 ], [ %115, %111 ], [ false, %123 ], [ true, %110 ], [ %122, %118 ], [ true, %117 ], [ %130, %126 ], [ %136, %132 ], [ false, %124 ], [ true, %27 ], [ false, %4 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %27 ], [ true, %27 ], [ false, %74 ], [ true, %79 ], [ true, %62 ], [ %spec.select, %86 ], [ true, %93 ], [ true, %110 ], [ true, %110 ]
   ret i1 %.0
 }
 

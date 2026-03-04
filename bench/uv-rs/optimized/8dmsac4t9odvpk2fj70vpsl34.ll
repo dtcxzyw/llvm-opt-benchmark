@@ -5511,9 +5511,9 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_lowercase17
   %4 = load i8, ptr %3, align 1, !noundef !11
   %5 = add i8 %4, -65
   %6 = icmp ult i8 %5, 26
-  %.sroa.03.0 = select i1 %6, i8 32, i8 0
-  %7 = or i8 %.sroa.03.0, %4
-  store i8 %7, ptr %3, align 1
+  %7 = select i1 %6, i8 32, i8 0
+  %.sroa.03.0 = or i8 %7, %4
+  store i8 %.sroa.03.0, ptr %3, align 1
   %8 = add nuw i64 %.sroa.0.05, 1
   %exitcond.not = icmp eq i64 %8, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -6976,9 +6976,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h
   %14 = load i8, ptr %13, align 1, !alias.scope !1804, !noundef !11
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %.sroa.03.0.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.sroa.03.0.i, %14
-  store i8 %17, ptr %13, align 1, !alias.scope !1804
+  %17 = select i1 %16, i8 32, i8 0
+  %.sroa.03.0.i = or i8 %17, %14
+  store i8 %.sroa.03.0.i, ptr %13, align 1, !alias.scope !1804
   %18 = add nuw i64 %.sroa.0.05.i, 1
   %exitcond.not.i = icmp eq i64 %18, %2
   br i1 %exitcond.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_lowercase17h3032e33d37af1d5fE.llvm.10896961552849713402.exit", label %.lr.ph.i
@@ -12596,9 +12596,9 @@ define void @"_ZN92_$LT$uv_python..implementation..ImplementationName$u20$as$u20
   %17 = load i8, ptr %16, align 1, !alias.scope !2767, !noalias !2770, !noundef !11
   %18 = add i8 %17, -65
   %19 = icmp ult i8 %18, 26
-  %.sroa.03.0.i.i = select i1 %19, i8 32, i8 0
-  %20 = or i8 %.sroa.03.0.i.i, %17
-  store i8 %20, ptr %16, align 1, !alias.scope !2767, !noalias !2770
+  %20 = select i1 %19, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %20, %17
+  store i8 %.sroa.03.0.i.i, ptr %16, align 1, !alias.scope !2767, !noalias !2770
   %21 = add nuw i64 %.sroa.0.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %21, %2
   br i1 %exitcond.not.i.i, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hf92b7f7fa9f745e4E.llvm.10896961552849713402.exit", label %.lr.ph.i.i
@@ -12882,9 +12882,9 @@ define noundef zeroext i1 @"_ZN91_$LT$uv_python..implementation..LenientImplemen
   %22 = load i8, ptr %21, align 1, !alias.scope !2845, !noalias !2848, !noundef !11
   %23 = add i8 %22, -65
   %24 = icmp ult i8 %23, 26
-  %.sroa.03.0.i.i = select i1 %24, i8 32, i8 0
-  %25 = or i8 %.sroa.03.0.i.i, %22
-  store i8 %25, ptr %21, align 1, !alias.scope !2845, !noalias !2848
+  %25 = select i1 %24, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %25, %22
+  store i8 %.sroa.03.0.i.i, ptr %21, align 1, !alias.scope !2845, !noalias !2848
   %26 = add nuw i64 %.sroa.0.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, %12
   br i1 %exitcond.not.i.i, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hf92b7f7fa9f745e4E.llvm.10896961552849713402.exit", label %.lr.ph.i.i

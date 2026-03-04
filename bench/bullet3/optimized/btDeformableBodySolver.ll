@@ -9862,36 +9862,36 @@ define dso_local void @_ZN22btDeformableBodySolver23predictDeformableMotionEP10b
 
 89:                                               ; preds = %84
   %90 = fcmp ult float %87, 0x3D10000000000000
-  br i1 %90, label %96, label %91
+  br i1 %90, label %97, label %91
 
 91:                                               ; preds = %89
   %92 = fdiv float 1.000000e+00, %sqrt.i.i49
   %93 = fmul float %70, %92
   %94 = fmul float %73, %92
   %95 = fmul float %76, %92
-  br label %98
+  %96 = fmul float %56, %93
+  br label %99
 
-96:                                               ; preds = %89
-  %97 = getelementptr inbounds nuw i8, ptr %65, i64 60
-  store float 0.000000e+00, ptr %97, align 4, !tbaa !45
-  br label %98
+97:                                               ; preds = %89
+  %98 = getelementptr inbounds nuw i8, ptr %65, i64 60
+  store float 0.000000e+00, ptr %98, align 4, !tbaa !45
+  br label %99
 
-98:                                               ; preds = %96, %91
-  %.sink7.i = phi float [ 1.000000e+00, %96 ], [ %93, %91 ]
-  %.sink6.i = phi float [ 0.000000e+00, %96 ], [ %94, %91 ]
-  %.sink.i = phi float [ 0.000000e+00, %96 ], [ %95, %91 ]
-  %99 = fmul float %56, %.sink7.i
-  store float %99, ptr %68, align 4, !tbaa !45
+99:                                               ; preds = %97, %91
+  %.sink7.i = phi float [ %56, %97 ], [ %96, %91 ]
+  %.sink6.i = phi float [ 0.000000e+00, %97 ], [ %94, %91 ]
+  %.sink.i = phi float [ 0.000000e+00, %97 ], [ %95, %91 ]
+  store float %.sink7.i, ptr %68, align 4, !tbaa !45
   %100 = fmul float %56, %.sink6.i
   store float %100, ptr %71, align 4, !tbaa !45
   %101 = fmul float %56, %.sink.i
   store float %101, ptr %74, align 4, !tbaa !45
   br label %102
 
-102:                                              ; preds = %98, %84
-  %103 = phi float [ %101, %98 ], [ %76, %84 ]
-  %104 = phi float [ %100, %98 ], [ %73, %84 ]
-  %105 = phi float [ %99, %98 ], [ %70, %84 ]
+102:                                              ; preds = %99, %84
+  %103 = phi float [ %101, %99 ], [ %76, %84 ]
+  %104 = phi float [ %100, %99 ], [ %73, %84 ]
+  %105 = phi float [ %.sink7.i, %99 ], [ %70, %84 ]
   %106 = fmul float %2, %105
   %107 = fmul float %2, %104
   %108 = fmul float %2, %103

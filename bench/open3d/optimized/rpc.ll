@@ -18092,129 +18092,121 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %2, %_ZNSt15__except
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt9exceptionTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt9exception, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt14overflow_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt11range_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12out_of_rangeTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12length_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16invalid_argumentTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12domain_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt9bad_allocTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -18223,17 +18215,16 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #23
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionINS_17error_already_setETnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8pybind1117error_already_setE, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: nounwind
@@ -53690,6 +53681,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRNS0_16valu
   %15 = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %15, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %10, ptr %7, align 8, !tbaa !89
   store i64 0, ptr %12, align 8, !tbaa !154
   store i8 0, ptr %10, align 8, !tbaa !155
   %17 = load i32, ptr %0, align 8, !tbaa !320

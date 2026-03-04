@@ -94715,9 +94715,9 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %54 = icmp eq i64 %52, 1
   %55 = trunc i64 %48 to i1
   %56 = and i1 %54, %55
-  %narrow = or i1 %53, %56
-  %57 = select i1 %narrow, i64 %41, i64 0
-  %58 = and i64 %57, %1
+  %57 = or i1 %53, %56
+  %.neg45.ph = select i1 %57, i64 %41, i64 0
+  %58 = and i64 %.neg45.ph, %1
   br label %75
 
 59:                                               ; preds = %28
@@ -94736,17 +94736,17 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %70 = icmp eq i64 %68, 1
   %71 = trunc i64 %48 to i1
   %72 = and i1 %70, %71
-  %narrow62 = or i1 %69, %72
-  %73 = select i1 %narrow62, i64 %67, i64 0
-  %74 = and i64 %73, %1
+  %73 = or i1 %69, %72
+  %.neg47 = select i1 %73, i64 %67, i64 0
+  %74 = and i64 %.neg47, %1
   br label %75
 
 75:                                               ; preds = %.thread, %59, %62, %18
   %.0 = phi i64 [ %26, %18 ], [ %74, %62 ], [ %60, %59 ], [ %58, %.thread ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %77 = load ptr, ptr %76, align 8, !tbaa !253
-  %.not63 = icmp eq ptr %77, null
-  br i1 %.not63, label %84, label %78
+  %.not62 = icmp eq ptr %77, null
+  br i1 %.not62, label %84, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %77, align 8, !tbaa !3

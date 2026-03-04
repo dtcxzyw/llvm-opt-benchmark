@@ -1577,10 +1577,11 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175: ; preds =
   store ptr null, ptr %418, align 8, !tbaa !284, !alias.scope !290
   %530 = shl nuw nsw i32 %529, 23
   %.not.i176 = icmp eq i32 %528, 0
+  %531 = select i1 %.not.i176, i32 0, i32 67108864
   store i32 %477, ptr %419, align 4, !tbaa !25, !alias.scope !290
-  %531 = and i32 %530, 285212672
-  %532 = select i1 %.not.i176, i32 33554432, i32 100663296
-  %533 = or disjoint i32 %532, %531
+  %532 = and i32 %530, 285212672
+  %.masked.i.i179 = or disjoint i32 %531, %532
+  %533 = or disjoint i32 %.masked.i.i179, 33554432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %420, i8 0, i64 16, i1 false), !alias.scope !290
   store i32 %533, ptr %4, align 8, !alias.scope !290
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %88, ptr noundef nonnull align 8 dereferenceable(1065) %54, ptr noundef nonnull align 8 dereferenceable(32) %4) #15

@@ -4590,9 +4590,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8CallBase25hasFnAttrOnCalledFuncti
   br label %10
 
 10:                                               ; preds = %2, %7
-  %.05 = phi i1 [ %9, %7 ], [ undef, %2 ]
-  %spec.select = and i1 %.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %9, %7 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 declare noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5
@@ -4616,9 +4615,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8CallBase25hasFnAttrOnCalledFuncti
   br label %11
 
 11:                                               ; preds = %3, %8
-  %.06 = phi i1 [ %10, %8 ], [ undef, %3 ]
-  %spec.select = and i1 %.not, %.06
-  ret i1 %spec.select
+  %.06 = phi i1 [ %10, %8 ], [ false, %3 ]
+  ret i1 %.06
 }
 
 declare noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64) local_unnamed_addr #5
@@ -12667,17 +12665,17 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %49 ], [ %54, %52 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
-  %.not55103 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not55103, label %.critedge, label %.lr.ph106
+  %.not55104 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not55104, label %.critedge, label %.lr.ph107
 
-.lr.ph106:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
+.lr.ph107:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
   %59 = shl i32 %39, 1
   %60 = zext i32 %59 to i64
   br label %61
 
-61:                                               ; preds = %.lr.ph106, %68
-  %.046104 = phi ptr [ %57, %.lr.ph106 ], [ %69, %68 ]
-  %62 = load ptr, ptr %.046104, align 8, !tbaa !75
+61:                                               ; preds = %.lr.ph107, %68
+  %.046105 = phi ptr [ %57, %.lr.ph107 ], [ %69, %68 ]
+  %62 = load ptr, ptr %.046105, align 8, !tbaa !75
   %63 = load i8, ptr %62, align 8, !tbaa !80
   %.not97 = icmp eq i8 %63, 17
   br i1 %.not97, label %64, label %66
@@ -12692,20 +12690,20 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   br i1 %spec.select.i.i.i.i.i.i.i.i66, label %68, label %.critedge
 
 68:                                               ; preds = %66, %64
-  %69 = getelementptr inbounds nuw i8, ptr %.046104, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.046105, i64 32
   %.not55 = icmp eq ptr %69, %58
   br i1 %.not55, label %.critedge, label %61
 
 .thread85:                                        ; preds = %37
   %70 = add i8 %35, -15
   %spec.select.i.i.i.i.i.i.i.i67 = icmp ult i8 %70, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i67, label %71, label %.loopexit
+  br i1 %spec.select.i.i.i.i.i.i.i.i67, label %71, label %.critedge
 
 71:                                               ; preds = %.thread85
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !96
   %.not5899 = icmp eq i32 %73, 0
-  br i1 %.not5899, label %.loopexit, label %.lr.ph
+  br i1 %.not5899, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71
   %74 = shl i32 %39, 1
@@ -12718,16 +12716,11 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   %.not59 = icmp ult i64 %77, %75
   %78 = add nuw i32 %.039100, 1
   %.not58 = icmp ne i32 %78, %73
-  %or.cond118.not = select i1 %.not59, i1 %.not58, i1 false
-  br i1 %or.cond118.not, label %76, label %.loopexit, !llvm.loop !288
+  %or.cond123.not = select i1 %.not59, i1 %.not58, i1 false
+  br i1 %or.cond123.not, label %76, label %.critedge, !llvm.loop !288
 
-.loopexit:                                        ; preds = %76, %71, %.thread85
-  %.9 = phi i1 [ undef, %.thread85 ], [ true, %71 ], [ %.not59, %76 ]
-  %spec.select61 = and i1 %spec.select.i.i.i.i.i.i.i.i67, %.9
-  br label %.critedge
-
-.critedge:                                        ; preds = %66, %64, %68, %_ZNK4llvm4User8operandsEv.exit, %34, %24, %.loopexit, %13, %20, %40, %3, %10
-  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ false, %13 ], [ false, %24 ], [ %or.cond, %34 ], [ %spec.select61, %.loopexit ], [ false, %20 ], [ %44, %40 ], [ true, %_ZNK4llvm4User8operandsEv.exit ], [ false, %66 ], [ false, %64 ], [ true, %68 ]
+.critedge:                                        ; preds = %66, %64, %68, %76, %71, %_ZNK4llvm4User8operandsEv.exit, %.thread85, %34, %24, %13, %20, %40, %3, %10
+  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ false, %13 ], [ false, %24 ], [ %or.cond, %34 ], [ %.not59, %76 ], [ false, %20 ], [ %44, %40 ], [ false, %.thread85 ], [ true, %_ZNK4llvm4User8operandsEv.exit ], [ true, %71 ], [ false, %66 ], [ false, %64 ], [ true, %68 ]
   ret i1 %.0
 }
 
@@ -19343,7 +19336,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CmpInst13isEquivalenceEb(ptr noun
 7:                                                ; preds = %2
   switch i16 %6, label %8 [
     i16 32, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread
-    i16 33, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3
+    i16 33, label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
     i16 34, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread
     i16 36, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread
     i16 35, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread
@@ -19375,14 +19368,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CmpInst13isEquivalenceEb(ptr noun
 
 _ZNK4llvm7CmpInst19getInversePredicateEv.exit:    ; preds = %2
   switch i16 %6, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread [
-    i16 32, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3
+    i16 32, label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
     i16 9, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4
     i16 1, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5
   ]
 
 _ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4: ; preds = %7, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit
   %9 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNoNaNsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #33
-  br i1 %9, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3
+  br i1 %9, label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5, label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
 
 _ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5: ; preds = %7, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit
   %10 = getelementptr i8, ptr %0, i64 -64
@@ -19397,8 +19390,8 @@ _ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5: ; preds = %7, %_ZNK4llvm7
   %spec.select.i.i11.i = select i1 %15, ptr %.val2, ptr null
   %.not.i = icmp eq ptr %spec.select.i.i.i, null
   %16 = select i1 %.not.i, ptr %spec.select.i.i11.i, ptr %spec.select.i.i.i
-  %.not10.i = icmp ne ptr %16, null
-  br i1 %.not10.i, label %17, label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
+  %.not10.not.i = icmp eq ptr %16, null
+  br i1 %.not10.not.i, label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit, label %17
 
 17:                                               ; preds = %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -19417,16 +19410,11 @@ _ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_27is_non_zero
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
 
-_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit:  ; preds = %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_27is_non_zero_not_denormal_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit.i
-  %.08.i = phi i1 [ %18, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_27is_non_zero_not_denormal_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit.i ], [ undef, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5 ]
-  %spec.select.i = and i1 %.not10.i, %.08.i
-  br label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3
-
 _ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread: ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit
-  br label %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3
+  br label %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
 
-_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread3: ; preds = %7, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread, %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread ], [ true, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit ], [ %spec.select.i, %_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit ], [ false, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4 ], [ true, %7 ]
+_ZL20hasNonZeroFPOperandsPKN4llvm7CmpInstE.exit:  ; preds = %7, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_27is_non_zero_not_denormal_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit.i, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread
+  %.0 = phi i1 [ false, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread ], [ true, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit ], [ false, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread5 ], [ false, %_ZNK4llvm7CmpInst19getInversePredicateEv.exit.thread4 ], [ %18, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_27is_non_zero_not_denormal_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit.i ], [ true, %7 ]
   ret i1 %.0
 }
 

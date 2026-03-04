@@ -2246,7 +2246,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 .thread43:                                        ; preds = %233
   tail call void @__rcu_read_unlock() #13
-  br label %253
+  br label %255
 
 240:                                              ; preds = %233
   %241 = load ptr, ptr %238, align 8
@@ -2258,45 +2258,45 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %246 = getelementptr ptr, ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
-  br i1 %248, label %253, label %249
+  br i1 %248, label %255, label %249
 
 249:                                              ; preds = %240
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 52
   %251 = load i8, ptr %250, align 4, !range !7, !noundef !8
   %252 = icmp ne i8 %251, 0
-  br label %253
+  %253 = and i1 %234, %252
+  %254 = select i1 %253, i8 32, i8 0
+  br label %255
 
-253:                                              ; preds = %.thread43, %249, %240
-  %254 = phi i1 [ false, %240 ], [ %252, %249 ], [ false, %.thread43 ]
-  %255 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 10) #13
-  %256 = getelementptr i8, ptr %255, i64 1
-  store i8 127, ptr %255, align 1
-  %257 = getelementptr i8, ptr %255, i64 2
-  store i8 8, ptr %256, align 1
-  %258 = getelementptr i8, ptr %255, i64 3
-  store i8 0, ptr %257, align 1
-  %259 = getelementptr i8, ptr %255, i64 4
-  store i8 0, ptr %258, align 1
-  %260 = getelementptr i8, ptr %255, i64 5
+255:                                              ; preds = %.thread43, %249, %240
+  %256 = phi i8 [ 0, %240 ], [ %254, %249 ], [ 0, %.thread43 ]
+  %257 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 10) #13
+  %258 = getelementptr i8, ptr %257, i64 1
+  store i8 127, ptr %257, align 1
+  %259 = getelementptr i8, ptr %257, i64 2
+  store i8 8, ptr %258, align 1
+  %260 = getelementptr i8, ptr %257, i64 3
   store i8 0, ptr %259, align 1
-  %261 = lshr i32 %224, 22
-  %262 = trunc i32 %261 to i8
-  %263 = and i8 %262, 64
-  %264 = lshr i64 %235, 35
-  %265 = trunc i64 %264 to i8
-  %266 = and i8 %265, 16
-  %267 = or disjoint i8 %266, %263
-  %268 = getelementptr i8, ptr %255, i64 6
-  store i8 %267, ptr %260, align 1
-  %269 = getelementptr i8, ptr %255, i64 7
-  store i8 32, ptr %268, align 1
-  %270 = getelementptr i8, ptr %255, i64 8
-  store i8 0, ptr %269, align 1
-  %271 = getelementptr i8, ptr %255, i64 9
-  store i8 0, ptr %270, align 1
-  %272 = and i1 %234, %254
-  %273 = select i1 %272, i8 32, i8 0
-  store i8 %273, ptr %271, align 1
+  %261 = getelementptr i8, ptr %257, i64 4
+  store i8 0, ptr %260, align 1
+  %262 = getelementptr i8, ptr %257, i64 5
+  store i8 0, ptr %261, align 1
+  %263 = lshr i32 %224, 22
+  %264 = trunc i32 %263 to i8
+  %265 = and i8 %264, 64
+  %266 = lshr i64 %235, 35
+  %267 = trunc i64 %266 to i8
+  %268 = and i8 %267, 16
+  %269 = or disjoint i8 %268, %265
+  %270 = getelementptr i8, ptr %257, i64 6
+  store i8 %269, ptr %262, align 1
+  %271 = getelementptr i8, ptr %257, i64 7
+  store i8 32, ptr %270, align 1
+  %272 = getelementptr i8, ptr %257, i64 8
+  store i8 0, ptr %271, align 1
+  %273 = getelementptr i8, ptr %257, i64 9
+  store i8 0, ptr %272, align 1
+  store i8 %256, ptr %273, align 1
   %274 = getelementptr inbounds nuw i8, ptr %181, i64 120
   %275 = load i16, ptr %274, align 8
   %276 = icmp ugt i16 %275, 3
@@ -2304,12 +2304,12 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %278 = and i1 %277, %276
   br i1 %278, label %279, label %282
 
-279:                                              ; preds = %253
+279:                                              ; preds = %255
   %280 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 9) #13
   %281 = tail call ptr @ieee80211_add_wmm_info_ie(ptr noundef %280, i8 noundef zeroext 0) #13
   br label %282
 
-282:                                              ; preds = %279, %253
+282:                                              ; preds = %279, %255
   br i1 %210, label %290, label %283
 
 283:                                              ; preds = %282

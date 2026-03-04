@@ -367,6 +367,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %25, ptr %29, align 8, !tbaa !42, !alias.scope !34
+  store ptr %22, ptr %19, align 8, !tbaa !40
   store i64 0, ptr %28, align 8, !tbaa !42
   store i8 0, ptr %22, align 8, !tbaa !43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

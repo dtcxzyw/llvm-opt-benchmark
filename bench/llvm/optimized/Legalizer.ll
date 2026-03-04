@@ -8776,8 +8776,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm28LegalizationArtifactCom
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !267
   %18 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 67, i32 %15, ptr noundef nonnull align 8 dereferenceable(504) %17) #26
-  %.not = icmp ne ptr %18, null
-  br i1 %.not, label %19, label %178
+  %.not.not = icmp eq ptr %18, null
+  br i1 %.not.not, label %178, label %19
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr %0, align 8, !tbaa !268
@@ -9039,9 +9039,8 @@ _ZN4llvm28LegalizationArtifactCombiner18markInstAndDefDeadERNS_12MachineInstrES2
   br label %178
 
 178:                                              ; preds = %5, %_ZN4llvm28LegalizationArtifactCombiner18markInstAndDefDeadERNS_12MachineInstrES2_RNS_15SmallVectorImplIPS1_EEj.exit, %100, %135
-  %.1 = phi i1 [ false, %135 ], [ false, %100 ], [ true, %_ZN4llvm28LegalizationArtifactCombiner18markInstAndDefDeadERNS_12MachineInstrES2_RNS_15SmallVectorImplIPS1_EEj.exit ], [ undef, %5 ]
-  %spec.select = and i1 %.not, %.1
-  ret i1 %spec.select
+  %.1 = phi i1 [ false, %135 ], [ false, %100 ], [ true, %_ZN4llvm28LegalizationArtifactCombiner18markInstAndDefDeadERNS_12MachineInstrES2_RNS_15SmallVectorImplIPS1_EEj.exit ], [ false, %5 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

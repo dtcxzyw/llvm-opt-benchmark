@@ -1478,7 +1478,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit138: ; preds = %_ZNK4ll
   %312 = icmp eq i64 %311, 128
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  br i1 %312, label %313, label %323
+  br i1 %312, label %313, label %324
 
 313:                                              ; preds = %308
   %314 = call { i64, i8 } @_ZNK4llvm3LLT13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -1500,18 +1500,18 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit138: ; preds = %_ZNK4ll
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %319 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #14
   %320 = icmp eq i64 %319, 64
-  br i1 %320, label %321, label %323
+  br i1 %320, label %321, label %324
 
 321:                                              ; preds = %317, %313
   %322 = icmp eq i16 %35, 131
-  br label %323
+  %323 = or i1 %322, %309
+  br label %324
 
-323:                                              ; preds = %321, %317, %308
-  %324 = phi i1 [ false, %317 ], [ false, %308 ], [ %322, %321 ]
+324:                                              ; preds = %321, %317, %308
+  %325 = phi i1 [ %309, %317 ], [ %309, %308 ], [ %323, %321 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %325 = or i1 %309, %324
   call void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(504) %33, i1 noundef zeroext %325, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1563,7 +1563,7 @@ _ZNK4llvm19X86RegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19Machine
   call void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(504) %33, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %350
 
-350:                                              ; preds = %_ZNK4llvm19X86RegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoEj.exit, %337, %349, %326, %323, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit132, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130, %201
+350:                                              ; preds = %_ZNK4llvm19X86RegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoEj.exit, %337, %349, %326, %324, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit132, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %351 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %351, ptr %21, align 8, !tbaa !302

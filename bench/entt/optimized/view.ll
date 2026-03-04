@@ -90293,10 +90293,9 @@ _ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS2_IN4t
   br label %.lr.ph.i.i723
 
 .lr.ph.i.i723:                                    ; preds = %.lr.ph.i.i723, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS2_IN4test14pointer_stableES3_SaIS7_EvEEEEENS_9exclude_tIJKNS2_IdS3_SaIdEvEEEEEvEC2Ev.exit.i720
-  %.not1017 = phi i1 [ true, %.lr.ph.i.i723 ], [ false, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS2_IN4test14pointer_stableES3_SaIS7_EvEEEEENS_9exclude_tIJKNS2_IdS3_SaIdEvEEEEEvEC2Ev.exit.i720 ]
+  %.not1017 = phi i1 [ true, %.lr.ph.i.i723 ], [ %1076, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS2_IN4test14pointer_stableES3_SaIS7_EvEEEEENS_9exclude_tIJKNS2_IdS3_SaIdEvEEEEEvEC2Ev.exit.i720 ]
   %.06.i.i724.sroa.phi.sroa.speculated = phi i1 [ false, %.lr.ph.i.i723 ], [ %1076, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS2_IN4test14pointer_stableES3_SaIS7_EvEEEEENS_9exclude_tIJKNS2_IdS3_SaIdEvEEEEEvEC2Ev.exit.i720 ]
-  %brmerge = or i1 %.06.i.i724.sroa.phi.sroa.speculated, %.not1017
-  br i1 %brmerge, label %_ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS4_IN4test14pointer_stableES5_SaIS9_EvEEEEENS_9exclude_tIJKNS4_IdS5_SaIdEvEEEEEvEENS2_INS3_IJS7_EEESI_vEENS2_INS3_IJSC_EEENSE_IJEEEvEEJLm0EEJLm0EEJLm0EETpTnmJEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEESW_ImJXspT3_EEESW_ImJXspT4_EEESW_ImJXspT5_EEE.exit729, label %.lr.ph.i.i723
+  br i1 %.not1017, label %_ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS4_IN4test14pointer_stableES5_SaIS9_EvEEEEENS_9exclude_tIJKNS4_IdS5_SaIdEvEEEEEvEENS2_INS3_IJS7_EEESI_vEENS2_INS3_IJSC_EEENSE_IJEEEvEEJLm0EEJLm0EEJLm0EETpTnmJEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEESW_ImJXspT3_EEESW_ImJXspT4_EEESW_ImJXspT5_EEE.exit729, label %.lr.ph.i.i723
 
 _ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS4_IN4test14pointer_stableES5_SaIS9_EvEEEEENS_9exclude_tIJKNS4_IdS5_SaIdEvEEEEEvEENS2_INS3_IJS7_EEESI_vEENS2_INS3_IJSC_EEENSE_IJEEEvEEJLm0EEJLm0EEJLm0EETpTnmJEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEESW_ImJXspT3_EEESW_ImJXspT4_EEESW_ImJXspT5_EEE.exit729: ; preds = %.lr.ph.i.i723
   %1077 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8, !noalias !2513

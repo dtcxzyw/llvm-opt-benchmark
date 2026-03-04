@@ -9077,6 +9077,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN7datalog4ruleE7s
   br i1 %33, label %34, label %67
 
 34:                                               ; preds = %30
+  store ptr %32, ptr %.04572, align 8, !tbaa !420
   %35 = getelementptr inbounds nuw i8, ptr %.04572, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = icmp eq ptr %.04572, %1
@@ -9194,6 +9195,7 @@ _ZN7obj_mapIN7datalog4ruleE7svectorIjjEE13obj_map_entry8set_dataEONS4_8key_dataE
   br i1 %78, label %79, label %112
 
 79:                                               ; preds = %75
+  store ptr %77, ptr %.14675, align 8, !tbaa !420
   %80 = getelementptr inbounds nuw i8, ptr %.14675, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = icmp eq ptr %.14675, %1

@@ -18012,6 +18012,7 @@ define internal fastcc void @"_ZZN4llvm20UpgradeIntrinsicCallEPNS_8CallBaseEPNS_
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %1
+  store ptr %15, ptr %9, align 8, !tbaa !312
   %18 = getelementptr inbounds i8, ptr %8, i64 -32
   %19 = load ptr, ptr %18, align 8, !tbaa !223
   %.not.i.i.i.i.i = icmp eq ptr %19, null

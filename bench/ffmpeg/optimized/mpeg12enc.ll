@@ -5667,7 +5667,7 @@ define internal void @mpeg12_encode_mb(ptr noundef %0, ptr noundef readonly capt
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 3076
   %99 = load i32, ptr %98, align 4, !tbaa !120
   %100 = sub nsw i32 %97, %99
-  %101 = or i32 %100, %95
+  %101 = or i32 %95, %100
   %102 = or i32 %101, %88
   br label %103
 
@@ -7353,7 +7353,7 @@ put_bits.exit116:                                 ; preds = %998, %1017
   %1124 = getelementptr inbounds nuw i8, ptr %0, i64 3076
   %1125 = load i32, ptr %1124, align 4, !tbaa !120
   %1126 = sub nsw i32 %1123, %1125
-  %1127 = or i32 %1126, %1121
+  %1127 = or i32 %1121, %1126
   %1128 = or i32 %1127, %1114
   br label %1129
 

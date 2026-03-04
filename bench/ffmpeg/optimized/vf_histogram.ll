@@ -2025,10 +2025,10 @@ define internal noundef i32 @config_output(ptr noundef captures(none) %0) #0 {
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 262240
   %36 = load i32, ptr %35, align 8, !tbaa !74
   %37 = icmp eq i32 %36, 1
-  %spec.select51 = select i1 %37, i32 %.0.lcssa, i32 1
-  %38 = mul nsw i32 %spec.select51, %34
+  %38 = select i1 %37, i32 %.0.lcssa, i32 1
+  %spec.select51 = mul nsw i32 %38, %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %38, ptr %39, align 8, !tbaa !56
+  store i32 %spec.select51, ptr %39, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 262164
   %41 = load i32, ptr %40, align 4, !tbaa !62
   br label %55
@@ -2039,10 +2039,10 @@ define internal noundef i32 @config_output(ptr noundef captures(none) %0) #0 {
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 262240
   %46 = load i32, ptr %45, align 8, !tbaa !74
   %47 = icmp eq i32 %46, 1
-  %spec.select52 = select i1 %47, i32 %.0.lcssa, i32 1
-  %48 = mul nsw i32 %spec.select52, %44
+  %48 = select i1 %47, i32 %.0.lcssa, i32 1
+  %spec.select52 = mul nsw i32 %48, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %48, ptr %49, align 8, !tbaa !56
+  store i32 %spec.select52, ptr %49, align 8, !tbaa !56
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 262232
   %51 = load i32, ptr %50, align 8, !tbaa !76
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 262236

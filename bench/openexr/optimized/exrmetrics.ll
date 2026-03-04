@@ -503,22 +503,22 @@ _ZNSt6vectorIS_IcSaIcEESaIS1_EE6resizeEm.exit:    ; preds = %46, %48, %54, %_ZSt
 
 ._crit_edge.loopexit:                             ; preds = %81
   %72 = sext i32 %85 to i64
+  %73 = mul i64 %20, %72
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE6resizeEm.exit
-  %.034.lcssa = phi i64 [ 0, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE6resizeEm.exit ], [ %72, %._crit_edge.loopexit ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %74, i8 0, i64 18, i1 false)
-  store i32 10, ptr %73, align 4, !tbaa !30
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %76, ptr %75, align 8, !tbaa !4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %77, align 8, !tbaa !15
-  store i8 0, ptr %76, align 8, !tbaa !14
-  %78 = mul i64 %20, %.034.lcssa
-  store i64 %78, ptr %0, align 8, !tbaa !34
+  %.034.lcssa = phi i64 [ 0, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE6resizeEm.exit ], [ %73, %._crit_edge.loopexit ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %75, i8 0, i64 18, i1 false)
+  store i32 10, ptr %74, align 4, !tbaa !30
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %77, ptr %76, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %78, align 8, !tbaa !15
+  store i8 0, ptr %77, align 8, !tbaa !14
+  store i64 %.034.lcssa, ptr %0, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %79, align 8, !tbaa !35
   %80 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_49InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -562,7 +562,7 @@ _ZNSt6vectorIS_IcSaIcEESaIS1_EE6resizeEm.exit:    ; preds = %46, %48, %54, %_ZSt
           to label %104 unwind label %111
 
 104:                                              ; preds = %102
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %103)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %103)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %111
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %104
@@ -575,7 +575,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 
 108:                                              ; preds = %106
   %109 = load i32, ptr %107, align 4, !tbaa !40
-  store i32 %109, ptr %73, align 4, !tbaa !30
+  store i32 %109, ptr %74, align 4, !tbaa !30
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0.lcssa.i63, ptr %110, align 8, !tbaa !41
   ret void
@@ -583,12 +583,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 111:                                              ; preds = %104, %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %102, %._crit_edge
   %112 = landingpad { ptr, i32 }
           cleanup
-  %113 = load ptr, ptr %75, align 8, !tbaa !12
-  %114 = icmp eq ptr %113, %76
+  %113 = load ptr, ptr %76, align 8, !tbaa !12
+  %114 = icmp eq ptr %113, %77
   br i1 %114, label %_ZN12partSizeDataD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %111
-  %115 = load i64, ptr %76, align 8, !tbaa !14
+  %115 = load i64, ptr %77, align 8, !tbaa !14
   %116 = add i64 %115, 1
   call void @_ZdlPvm(ptr noundef %113, i64 noundef %116) #30
   br label %_ZN12partSizeDataD2Ev.exit

@@ -6321,15 +6321,14 @@ write_channel_section_info.exit:                  ; preds = %proto_item_set_hidd
 347:                                              ; preds = %.lr.ph1712, %._crit_edge
   %.014301711 = phi i32 [ %331, %.lr.ph1712 ], [ %420, %._crit_edge ]
   %.014311710 = phi i32 [ 56, %.lr.ph1712 ], [ %.21433.lcssa, %._crit_edge ]
-  %.01434.not1709 = phi i1 [ false, %.lr.ph1712 ], [ true, %._crit_edge ]
+  %.01434.not1709 = phi i1 [ false, %.lr.ph1712 ], [ %335, %._crit_edge ]
   %.01708 = phi i8 [ 0, %.lr.ph1712 ], [ %.11643, %._crit_edge ]
   %348 = load i32, ptr @hf_oran_samples_prb, align 4
   %349 = lshr i32 %.014311710, 3
   %350 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %107, i32 noundef %348, ptr noundef %0, i32 noundef %349, i32 noundef 0, ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1278, i32 noundef %.014301711)
   %351 = load i32, ptr @ett_oran_prb_cisamples, align 4
   %352 = call ptr @proto_item_add_subtree(ptr noundef %350, i32 noundef %351)
-  %or.cond12.not1683 = and i1 %335, %.01434.not1709
-  %or.cond = or i1 %336, %or.cond12.not1683
+  %or.cond = or i1 %336, %.01434.not1709
   br i1 %or.cond, label %dissect_ciCompParam.exit, label %353
 
 353:                                              ; preds = %347

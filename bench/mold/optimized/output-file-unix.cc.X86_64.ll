@@ -1907,6 +1907,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %213, ptr noundef nonnull align 8 dereferenceable(1) %182, i64 %218, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %216, ptr %219, align 8, !tbaa !14, !alias.scope !322
+  store ptr %182, ptr %17, align 8, !tbaa !18, !noalias !322
   store i64 0, ptr %192, align 8, !tbaa !14, !noalias !322
   store i8 0, ptr %182, align 8, !tbaa !17, !noalias !322
   %220 = getelementptr inbounds nuw i8, ptr %15, i64 16

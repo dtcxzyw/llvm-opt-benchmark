@@ -5515,16 +5515,19 @@ vm_check_ints_blocking.exit:                      ; preds = %35, %24, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = and i32 %1, 2
   %.not22 = icmp eq i32 %40, 0
-  br i1 %.not20, label %vm_check_ints_blocking.exit.split.us, label %vm_check_ints_blocking.exit.split
-
-vm_check_ints_blocking.exit.split.us:             ; preds = %vm_check_ints_blocking.exit
-  br i1 %.not, label %vm_check_ints_blocking.exit.split.us.split.us, label %vm_check_ints_blocking.exit.split.us.split
-
-vm_check_ints_blocking.exit.split.us.split.us:    ; preds = %vm_check_ints_blocking.exit.split.us
   %41 = load i8, ptr %3, align 8
   %42 = and i8 %41, 3
   %43 = zext nneg i8 %42 to i32
   %44 = icmp eq i32 %6, %43
+  br i1 %.not20, label %vm_check_ints_blocking.exit.split.us, label %vm_check_ints_blocking.exit.split
+
+vm_check_ints_blocking.exit.split.us:             ; preds = %vm_check_ints_blocking.exit
+  br i1 %.not, label %vm_check_ints_blocking.exit.split.us.split.us, label %vm_check_ints_blocking.exit.split.us.split.preheader
+
+vm_check_ints_blocking.exit.split.us.split.preheader: ; preds = %vm_check_ints_blocking.exit.split.us
+  br i1 %44, label %.lr.ph, label %.split.us
+
+vm_check_ints_blocking.exit.split.us.split.us:    ; preds = %vm_check_ints_blocking.exit.split.us
   br i1 %.not22, label %vm_check_ints_blocking.exit.split.us.split.us.split.preheader, label %vm_check_ints_blocking.exit.split.us.split.us.split.us
 
 vm_check_ints_blocking.exit.split.us.split.us.split.preheader: ; preds = %vm_check_ints_blocking.exit.split.us.split.us
@@ -5654,121 +5657,113 @@ vm_check_ints_blocking.exit.split.us.split.us.split.backedge: ; preds = %vm_chec
   %105 = icmp eq i32 %6, %104
   br i1 %105, label %.critedge.us.us, label %.split.us, !llvm.loop !239
 
-vm_check_ints_blocking.exit.split.us.split:       ; preds = %vm_check_ints_blocking.exit.split.us, %vm_check_ints_blocking.exit33.us
-  %106 = load i8, ptr %3, align 8
-  %107 = and i8 %106, 3
-  %108 = zext nneg i8 %107 to i32
-  %109 = icmp eq i32 %6, %108
-  br i1 %109, label %110, label %.split.us
+.lr.ph:                                           ; preds = %vm_check_ints_blocking.exit.split.us.split.preheader, %vm_check_ints_blocking.exit.split.us.split.backedge
+  %106 = load ptr, ptr %37, align 8, !tbaa !52
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 280
+  %108 = load i32, ptr %107, align 8, !tbaa !183
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 8, !tbaa !183
+  tail call fastcc void @rb_check_deadlock(ptr noundef %106)
+  %110 = load ptr, ptr %37, align 8, !tbaa !52
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 288
+  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %111, ptr noundef nonnull %0)
+  %112 = load ptr, ptr %37, align 8, !tbaa !52
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 280
+  %114 = load i32, ptr %113, align 8, !tbaa !183
+  %115 = add i32 %114, -1
+  store i32 %115, ptr %113, align 8, !tbaa !183
+  %116 = load ptr, ptr %39, align 8, !tbaa !74
+  %117 = getelementptr i8, ptr %116, i64 48
+  %.val.i23.us = load ptr, ptr %117, align 8, !tbaa !7
+  %118 = getelementptr i8, ptr %.val.i23.us, i64 272
+  %.val6.i24.us = load i64, ptr %118, align 8, !tbaa !22
+  %119 = inttoptr i64 %.val6.i24.us to ptr
+  %120 = load i64, ptr %119, align 8, !tbaa !42
+  %121 = and i64 %120, 8192
+  %.not.i.i.i25.us = icmp eq i64 %121, 0
+  br i1 %.not.i.i.i25.us, label %125, label %122
 
-110:                                              ; preds = %vm_check_ints_blocking.exit.split.us.split
-  %111 = load ptr, ptr %37, align 8, !tbaa !52
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 280
-  %113 = load i32, ptr %112, align 8, !tbaa !183
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %112, align 8, !tbaa !183
-  tail call fastcc void @rb_check_deadlock(ptr noundef %111)
-  %115 = load ptr, ptr %37, align 8, !tbaa !52
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 288
-  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %116, ptr noundef nonnull %0)
-  %117 = load ptr, ptr %37, align 8, !tbaa !52
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 280
-  %119 = load i32, ptr %118, align 8, !tbaa !183
-  %120 = add i32 %119, -1
-  store i32 %120, ptr %118, align 8, !tbaa !183
-  %121 = load ptr, ptr %39, align 8, !tbaa !74
-  %122 = getelementptr i8, ptr %121, i64 48
-  %.val.i23.us = load ptr, ptr %122, align 8, !tbaa !7
-  %123 = getelementptr i8, ptr %.val.i23.us, i64 272
-  %.val6.i24.us = load i64, ptr %123, align 8, !tbaa !22
-  %124 = inttoptr i64 %.val6.i24.us to ptr
-  %125 = load i64, ptr %124, align 8, !tbaa !42
-  %126 = and i64 %125, 8192
-  %.not.i.i.i25.us = icmp eq i64 %126, 0
-  br i1 %.not.i.i.i25.us, label %130, label %127
-
-127:                                              ; preds = %110
-  %128 = lshr i64 %125, 15
-  %129 = and i64 %128, 127
+122:                                              ; preds = %.lr.ph
+  %123 = lshr i64 %120, 15
+  %124 = and i64 %123, 127
   br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
 
-130:                                              ; preds = %110
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %132 = load i64, ptr %131, align 8, !tbaa !44
+125:                                              ; preds = %.lr.ph
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %127 = load i64, ptr %126, align 8, !tbaa !44
   br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
 
-rb_threadptr_pending_interrupt_empty_p.exit.i26.us: ; preds = %130, %127
-  %.0.i.i.i27.us = phi i64 [ %129, %127 ], [ %132, %130 ]
+rb_threadptr_pending_interrupt_empty_p.exit.i26.us: ; preds = %125, %122
+  %.0.i.i.i27.us = phi i64 [ %124, %122 ], [ %127, %125 ]
   %.not.i28.us = icmp eq i64 %.0.i.i.i27.us, 0
-  br i1 %.not.i28.us, label %139, label %133, !prof !45
+  br i1 %.not.i28.us, label %134, label %128, !prof !45
 
-133:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
-  %134 = getelementptr inbounds nuw i8, ptr %.val.i23.us, i64 240
-  %135 = load i8, ptr %134, align 8
-  %136 = and i8 %135, -65
-  store i8 %136, ptr %134, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %138 = atomicrmw volatile or ptr %137, i32 2 seq_cst, align 4
-  br label %144
+128:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+  %129 = getelementptr inbounds nuw i8, ptr %.val.i23.us, i64 240
+  %130 = load i8, ptr %129, align 8
+  %131 = and i8 %130, -65
+  store i8 %131, ptr %129, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %133 = atomicrmw volatile or ptr %132, i32 2 seq_cst, align 4
+  br label %139
 
-139:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
-  %140 = getelementptr i8, ptr %121, i64 32
-  %.val7.i30.us = load i32, ptr %140, align 8, !tbaa !46
-  %141 = getelementptr i8, ptr %121, i64 36
-  %.val8.i31.us = load i32, ptr %141, align 4, !tbaa !47
-  %142 = xor i32 %.val8.i31.us, -1
-  %143 = and i32 %.val7.i30.us, %142
-  %.not9.i32.us = icmp eq i32 %143, 0
-  br i1 %.not9.i32.us, label %vm_check_ints_blocking.exit33.us, label %144, !prof !45
+134:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+  %135 = getelementptr i8, ptr %116, i64 32
+  %.val7.i30.us = load i32, ptr %135, align 8, !tbaa !46
+  %136 = getelementptr i8, ptr %116, i64 36
+  %.val8.i31.us = load i32, ptr %136, align 4, !tbaa !47
+  %137 = xor i32 %.val8.i31.us, -1
+  %138 = and i32 %.val7.i30.us, %137
+  %.not9.i32.us = icmp eq i32 %138, 0
+  br i1 %.not9.i32.us, label %vm_check_ints_blocking.exit.split.us.split.backedge, label %139, !prof !45
 
-144:                                              ; preds = %139, %133
-  %145 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i23.us, i32 noundef 1)
-  %146 = icmp ne i32 %145, 0
-  br label %vm_check_ints_blocking.exit33.us
+139:                                              ; preds = %134, %128
+  %140 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i23.us, i32 noundef 1)
+  %141 = icmp ne i32 %140, 0
+  %142 = and i1 %.not22, %141
+  br i1 %142, label %.split.us, label %vm_check_ints_blocking.exit.split.us.split.backedge
 
-vm_check_ints_blocking.exit33.us:                 ; preds = %144, %139
-  %.0.i29.us = phi i1 [ %146, %144 ], [ false, %139 ]
-  %or.cond.us = and i1 %.not22, %.0.i29.us
-  br i1 %or.cond.us, label %.split.us, label %vm_check_ints_blocking.exit.split.us.split, !llvm.loop !239
+vm_check_ints_blocking.exit.split.us.split.backedge: ; preds = %134, %139
+  %143 = load i8, ptr %3, align 8
+  %144 = and i8 %143, 3
+  %145 = zext nneg i8 %144 to i32
+  %146 = icmp eq i32 %6, %145
+  br i1 %146, label %.lr.ph, label %.split.us, !llvm.loop !239
 
 vm_check_ints_blocking.exit.split:                ; preds = %vm_check_ints_blocking.exit
-  %147 = load i8, ptr %3, align 8
-  %148 = and i8 %147, 3
-  %149 = zext nneg i8 %148 to i32
-  %150 = icmp eq i32 %6, %149
-  br i1 %150, label %151, label %.split.us
+  br i1 %44, label %147, label %.split.us
 
-151:                                              ; preds = %vm_check_ints_blocking.exit.split
-  %152 = load ptr, ptr %37, align 8, !tbaa !52
-  br i1 %.not, label %.critedge, label %153
+147:                                              ; preds = %vm_check_ints_blocking.exit.split
+  %148 = load ptr, ptr %37, align 8, !tbaa !52
+  br i1 %.not, label %.critedge, label %149
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 280
-  %155 = load i32, ptr %154, align 8, !tbaa !183
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %154, align 8, !tbaa !183
-  tail call fastcc void @rb_check_deadlock(ptr noundef %152)
-  %157 = load ptr, ptr %37, align 8, !tbaa !52
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 288
-  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %158, ptr noundef nonnull %0)
-  %159 = load ptr, ptr %37, align 8, !tbaa !52
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 280
-  %161 = load i32, ptr %160, align 8, !tbaa !183
-  %162 = add i32 %161, -1
-  store i32 %162, ptr %160, align 8, !tbaa !183
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 280
+  %151 = load i32, ptr %150, align 8, !tbaa !183
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %150, align 8, !tbaa !183
+  tail call fastcc void @rb_check_deadlock(ptr noundef %148)
+  %153 = load ptr, ptr %37, align 8, !tbaa !52
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 288
+  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %154, ptr noundef nonnull %0)
+  %155 = load ptr, ptr %37, align 8, !tbaa !52
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 280
+  %157 = load i32, ptr %156, align 8, !tbaa !183
+  %158 = add i32 %157, -1
+  store i32 %158, ptr %156, align 8, !tbaa !183
   br label %.split.us
 
-.critedge:                                        ; preds = %151
-  %163 = getelementptr inbounds nuw i8, ptr %152, i64 288
-  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %163, ptr noundef nonnull %0)
+.critedge:                                        ; preds = %147
+  %159 = getelementptr inbounds nuw i8, ptr %148, i64 288
+  tail call fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef nonnull %159, ptr noundef nonnull %0)
   br label %.split.us
 
-.split.us:                                        ; preds = %vm_check_ints_blocking.exit33.us, %vm_check_ints_blocking.exit.split.us.split, %vm_check_ints_blocking.exit33.us.us.us, %vm_check_ints_blocking.exit33.us.us, %vm_check_ints_blocking.exit.split.us.split.us.split.backedge, %vm_check_ints_blocking.exit.split.us.split.us.split.preheader, %vm_check_ints_blocking.exit.split, %.critedge, %153, %vm_check_ints_blocking.exit.split.us.split.us.split.us
-  %164 = and i8 %4, 3
-  %165 = load i8, ptr %3, align 8
-  %166 = and i8 %165, -4
-  %167 = or disjoint i8 %166, %164
-  store i8 %167, ptr %3, align 8
+.split.us:                                        ; preds = %139, %vm_check_ints_blocking.exit.split.us.split.backedge, %vm_check_ints_blocking.exit33.us.us.us, %vm_check_ints_blocking.exit33.us.us, %vm_check_ints_blocking.exit.split.us.split.us.split.backedge, %vm_check_ints_blocking.exit.split.us.split.preheader, %vm_check_ints_blocking.exit.split.us.split.us.split.preheader, %vm_check_ints_blocking.exit.split, %.critedge, %149, %vm_check_ints_blocking.exit.split.us.split.us.split.us
+  %160 = and i8 %4, 3
+  %161 = load i8, ptr %3, align 8
+  %162 = and i8 %161, -4
+  %163 = or disjoint i8 %162, %160
+  store i8 %163, ptr %3, align 8
   ret void
 }
 

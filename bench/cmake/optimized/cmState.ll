@@ -2379,17 +2379,16 @@ define dso_local noundef zeroext i1 @_ZN7cmState27GetCacheEntryPropertyAsBoolERK
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8, !tbaa !120
   %6 = tail call noundef ptr @_ZNK14cmCacheManager13GetCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not.not.i = icmp ne ptr %6, null
-  br i1 %.not.not.i, label %7, label %_ZNK14cmCacheManager27GetCacheEntryPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
+  %.not.not.not.i = icmp eq ptr %6, null
+  br i1 %.not.not.not.i, label %_ZNK14cmCacheManager27GetCacheEntryPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, label %7
 
 7:                                                ; preds = %3
   %8 = tail call noundef zeroext i1 @_ZNK14cmCacheManager10CacheEntry17GetPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZNK14cmCacheManager27GetCacheEntryPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
 
 _ZNK14cmCacheManager27GetCacheEntryPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %3, %7
-  %.06.i = phi i1 [ %8, %7 ], [ undef, %3 ]
-  %spec.select.i = and i1 %.not.not.i, %.06.i
-  ret i1 %spec.select.i
+  %.06.i = phi i1 [ %8, %7 ], [ false, %3 ]
+  ret i1 %.06.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17559,6 +17558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %26 = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %19, align 8, !tbaa !125
   store i64 0, ptr %27, align 8, !tbaa !34
   store i8 0, ptr %21, align 8, !tbaa !36
   store ptr %16, ptr %5, align 8, !tbaa !31

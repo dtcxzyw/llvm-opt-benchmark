@@ -109634,6 +109634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %114
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %136, ptr %140, align 8, !tbaa !166, !alias.scope !3091
+  store ptr %133, ptr %130, align 8, !tbaa !4
   store i64 0, ptr %139, align 8, !tbaa !166
   store i8 0, ptr %133, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

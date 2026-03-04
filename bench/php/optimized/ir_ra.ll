@@ -11400,29 +11400,29 @@ ir_set_fused_reg.exit376.i:                       ; preds = %2302, %2292
 
 2389:                                             ; preds = %.loopexit.i14
   %2390 = trunc i64 %2386 to i32
-  %2391 = and i32 %.11.i, 61480
-  %2392 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2393 = load i32, ptr %2392, align 8, !tbaa !121
-  %2394 = and i32 %2393, 1
-  %.not333.i = icmp eq i32 %2394, 0
-  br i1 %.not333.i, label %2400, label %2395
+  %2391 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %2392 = load i32, ptr %2391, align 8, !tbaa !121
+  %2393 = and i32 %2392, 1
+  %.not333.i = icmp eq i32 %2393, 0
+  br i1 %.not333.i, label %2402, label %2394
 
-2395:                                             ; preds = %2389
+2394:                                             ; preds = %2389
+  %2395 = and i32 %.11.i, 61480
   %2396 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %2397 = load i64, ptr %2396, align 8, !tbaa !122
   %2398 = trunc i64 %2397 to i32
   %2399 = xor i32 %2398, -1
-  br label %2400
+  %2400 = and i32 %2395, %2399
+  %2401 = or i32 %2400, %2390
+  br label %2402
 
-2400:                                             ; preds = %2395, %2389
-  %2401 = phi i32 [ %2399, %2395 ], [ -61481, %2389 ]
-  %2402 = and i32 %2391, %2401
-  %2403 = or i32 %2402, %2390
+2402:                                             ; preds = %2394, %2389
+  %2403 = phi i32 [ %2401, %2394 ], [ %2390, %2389 ]
   %2404 = zext i32 %2403 to i64
   br label %assign_regs.exit
 
-assign_regs.exit:                                 ; preds = %2387, %2400
-  %.sink.i15 = phi i64 [ %2404, %2400 ], [ %2388, %2387 ]
+assign_regs.exit:                                 ; preds = %2387, %2402
+  %.sink.i15 = phi i64 [ %2404, %2402 ], [ %2388, %2387 ]
   %2405 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %.sink.i15, ptr %2405, align 8, !tbaa !133
   call void @ir_fix_stack_frame(ptr noundef nonnull %0) #18

@@ -903,9 +903,9 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %32, %2
   %112 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !165, !noalias !168, !noundef !4
   %113 = add i8 %112, -65
   %114 = icmp ult i8 %113, 26
-  %.0.i.i = select i1 %114, i8 32, i8 0
-  %115 = or i8 %.0.i.i, %112
-  store i8 %115, ptr %.sroa.0.06.i.i, align 1, !alias.scope !165, !noalias !168
+  %115 = select i1 %114, i8 32, i8 0
+  %.0.i.i = or i8 %115, %112
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !165, !noalias !168
   %116 = icmp eq ptr %111, %109
   br i1 %116, label %.loopexit, label %.lr.ph.i.i
 
@@ -1334,9 +1334,9 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %32, %2
   %112 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !259, !noalias !262, !noundef !4
   %113 = add i8 %112, -65
   %114 = icmp ult i8 %113, 26
-  %.0.i.i = select i1 %114, i8 32, i8 0
-  %115 = or i8 %.0.i.i, %112
-  store i8 %115, ptr %.sroa.0.06.i.i, align 1, !alias.scope !259, !noalias !262
+  %115 = select i1 %114, i8 32, i8 0
+  %.0.i.i = or i8 %115, %112
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !259, !noalias !262
   %116 = icmp eq ptr %111, %109
   br i1 %116, label %.loopexit, label %.lr.ph.i.i
 

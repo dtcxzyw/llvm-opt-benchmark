@@ -43542,6 +43542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %54, ptr %58, align 8, !tbaa !34, !alias.scope !766
+  store ptr %51, ptr %48, align 8, !tbaa !16
   store i64 0, ptr %57, align 8, !tbaa !34
   store i8 0, ptr %51, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -85858,6 +85859,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers3cpp12CppGenerator15GenOptio
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !34, !alias.scope !1444
+  store ptr %9, ptr %6, align 8, !tbaa !16
   store i64 0, ptr %15, align 8, !tbaa !34
   store i8 0, ptr %9, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

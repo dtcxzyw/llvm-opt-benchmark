@@ -13835,66 +13835,70 @@ declare void @_ZN9Assembler12vbroadcastssE11XMMRegister7Addressi(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, i32 %7) local_unnamed_addr #0 align 2 {
-  %9 = load i8, ptr @EnableX86ECoreOpts, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = load i32, ptr @UseAVX, align 4
-  %12 = icmp sgt i32 %11, 1
-  %13 = select i1 %10, i1 %12, i1 false
-  %.not85 = icmp eq i32 %7, -1
+  %.not82 = icmp eq i32 %7, -1
   %.not = icmp eq i32 %7, %2
-  %or.cond90 = select i1 %.not85, i1 true, i1 %.not
-  br i1 %or.cond90, label %16, label %14
+  %or.cond87 = select i1 %.not82, i1 true, i1 %.not
+  %.not83 = icmp eq i32 %7, %3
+  %or.cond88 = select i1 %or.cond87, i1 true, i1 %.not83
+  br i1 %or.cond88, label %17, label %9
 
-14:                                               ; preds = %8
-  %.not86 = icmp ne i32 %7, %3
+9:                                                ; preds = %8
+  %10 = load i8, ptr @EnableX86ECoreOpts, align 1
+  %11 = trunc i8 %10 to i1
+  %12 = load i32, ptr @UseAVX, align 4
+  %13 = icmp sgt i32 %12, 1
+  %14 = select i1 %11, i1 %13, i1 false
   %15 = icmp ne i32 %7, %1
-  %spec.select = select i1 %.not86, i1 %15, i1 false
-  br label %16
+  %16 = and i1 %15, %14
+  br label %17
 
-16:                                               ; preds = %14, %8
-  %17 = phi i1 [ %spec.select, %14 ], [ false, %8 ]
-  %.not87 = icmp eq i32 %1, %4
-  br i1 %.not87, label %.thread, label %18
+17:                                               ; preds = %9, %8
+  %or.cond = phi i1 [ false, %8 ], [ %16, %9 ]
+  %.not84 = icmp eq i32 %1, %4
+  br i1 %.not84, label %.critedge, label %18
 
-18:                                               ; preds = %16
-  %.not88 = icmp ne i32 %1, %2
-  %19 = icmp ne i32 %1, %3
-  %spec.select84 = select i1 %.not88, i1 true, i1 %19
-  %or.cond = and i1 %13, %17
-  %or.cond3 = and i1 %spec.select84, %or.cond
-  br i1 %or.cond3, label %20, label %.thread
+18:                                               ; preds = %17
+  %.not85 = icmp eq i32 %1, %2
+  br i1 %.not85, label %19, label %22
 
-20:                                               ; preds = %18
-  br i1 %6, label %21, label %22
+19:                                               ; preds = %18
+  %20 = icmp ne i32 %2, %3
+  %21 = and i1 %20, %or.cond
+  br i1 %21, label %23, label %.critedge
 
-21:                                               ; preds = %20
+22:                                               ; preds = %18
+  br i1 %or.cond, label %23, label %.critedge
+
+23:                                               ; preds = %19, %22
+  br i1 %6, label %24, label %25
+
+24:                                               ; preds = %23
   tail call void @_ZN9Assembler6vpsradE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %4, i32 noundef 32, i32 noundef %5) #19
-  br label %22
-
-22:                                               ; preds = %21, %20
-  %.sroa.042.0 = phi i32 [ %7, %21 ], [ %4, %20 ]
-  %.not89 = icmp eq i32 %1, %2
-  br i1 %.not89, label %23, label %24
-
-23:                                               ; preds = %22
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #19
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #19
-  br label %25
-
-24:                                               ; preds = %22
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #19
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #19
   br label %25
 
 25:                                               ; preds = %24, %23
+  %.sroa.042.0 = phi i32 [ %7, %24 ], [ %4, %23 ]
+  br i1 %.not85, label %26, label %27
+
+26:                                               ; preds = %25
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #19
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #19
+  br label %28
+
+27:                                               ; preds = %25
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #19
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #19
+  br label %28
+
+28:                                               ; preds = %27, %26
   tail call void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, i32 %7, i32 noundef %5) #19
-  br label %26
+  br label %29
 
-.thread:                                          ; preds = %16, %18
+.critedge:                                        ; preds = %19, %17, %22
   tail call void @_ZN9Assembler9vblendvpsE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) #19
-  br label %26
+  br label %29
 
-26:                                               ; preds = %.thread, %25
+29:                                               ; preds = %.critedge, %28
   ret void
 }
 
@@ -13913,65 +13917,84 @@ define hidden void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(pt
   %11 = load i32, ptr @UseAVX, align 4
   %12 = icmp sgt i32 %11, 1
   %13 = select i1 %10, i1 %12, i1 false
-  %.not97 = icmp eq i32 %7, -1
+  %.not94 = icmp eq i32 %7, -1
   %.not = icmp eq i32 %7, %2
-  %or.cond103 = select i1 %.not97, i1 true, i1 %.not
-  %.not98 = icmp eq i32 %7, %3
-  %or.cond104 = select i1 %or.cond103, i1 true, i1 %.not98
-  br i1 %or.cond104, label %15, label %14
+  %or.cond100 = select i1 %.not94, i1 true, i1 %.not
+  %.not95 = icmp eq i32 %7, %3
+  %or.cond101 = select i1 %or.cond100, i1 true, i1 %.not95
+  br i1 %or.cond101, label %18, label %14
 
 14:                                               ; preds = %8
-  %.not99 = icmp ne i32 %7, %1
-  %brmerge.not = and i1 %6, %.not99
-  %spec.select.v = select i1 %brmerge.not, i32 %4, i32 %1
-  %spec.select = icmp ne i32 %7, %spec.select.v
-  br label %15
+  %.not96 = icmp ne i32 %7, %1
+  %brmerge.not = and i1 %6, %.not96
+  %.mux = select i1 %.not96, i1 %13, i1 false
+  br i1 %brmerge.not, label %15, label %18
 
-15:                                               ; preds = %14, %8
-  %16 = phi i1 [ %spec.select, %14 ], [ false, %8 ]
-  %.not100 = icmp eq i32 %1, %4
-  br i1 %.not100, label %.thread, label %17
+15:                                               ; preds = %14
+  %16 = icmp ne i32 %7, %4
+  %17 = and i1 %16, %13
+  br label %18
 
-17:                                               ; preds = %15
-  %.not101 = icmp ne i32 %1, %2
-  %18 = icmp ne i32 %1, %3
-  %spec.select96 = select i1 %.not101, i1 true, i1 %18
-  %or.cond = and i1 %13, %16
-  %or.cond3 = and i1 %spec.select96, %or.cond
-  br i1 %or.cond3, label %19, label %.thread
+18:                                               ; preds = %14, %15, %8
+  %or.cond = phi i1 [ %.mux, %14 ], [ false, %8 ], [ %17, %15 ]
+  %.not97 = icmp eq i32 %1, %4
+  br i1 %.not97, label %.critedge, label %19
 
-19:                                               ; preds = %17
-  br i1 %6, label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, label %20
+19:                                               ; preds = %18
+  %.not98 = icmp eq i32 %1, %2
+  br i1 %.not98, label %20, label %23
 
-_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %19
+20:                                               ; preds = %19
+  %21 = icmp ne i32 %2, %3
+  %22 = and i1 %21, %or.cond
+  br i1 %22, label %24, label %.critedge
+
+23:                                               ; preds = %19
+  br i1 %or.cond, label %24, label %.critedge
+
+24:                                               ; preds = %20, %23
+  br i1 %6, label %25, label %29
+
+25:                                               ; preds = %24
+  %26 = icmp slt i32 %5, 1
+  %or.cond.i = or i1 %26, %12
+  br i1 %or.cond.i, label %27, label %28
+
+27:                                               ; preds = %25
   tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 %7, i32 noundef %5) #19
+  br label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit
+
+28:                                               ; preds = %25
+  tail call void @_ZN9Assembler6vxorpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 %7, i32 noundef %5) #19
+  br label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit
+
+_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %27, %28
   tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 %4, i32 noundef %5) #19
-  br label %20
+  br label %29
 
-20:                                               ; preds = %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %19
-  %.sroa.049.0 = phi i32 [ %7, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %4, %19 ]
-  %.not102 = icmp eq i32 %1, %2
-  br i1 %.not102, label %21, label %22
+29:                                               ; preds = %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %24
+  %.sroa.049.0 = phi i32 [ %7, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %4, %24 ]
+  br i1 %.not98, label %30, label %31
 
-21:                                               ; preds = %20
+30:                                               ; preds = %29
   tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.049.0, i32 %2, i32 noundef %5) #19
   tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.049.0, i32 %3, i32 noundef %5) #19
-  br label %23
+  br label %32
 
-22:                                               ; preds = %20
+31:                                               ; preds = %29
   tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.049.0, i32 %3, i32 noundef %5) #19
   tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.049.0, i32 %2, i32 noundef %5) #19
-  br label %23
+  br label %32
 
-23:                                               ; preds = %22, %21
+32:                                               ; preds = %31, %30
   tail call void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, i32 %7, i32 noundef %5) #19
-  br label %24
+  br label %33
 
-.thread:                                          ; preds = %15, %17
+.critedge:                                        ; preds = %20, %18, %23
   tail call void @_ZN9Assembler9vblendvpdE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) #19
-  br label %24
+  br label %33
 
-24:                                               ; preds = %.thread, %23
+33:                                               ; preds = %.critedge, %32
   ret void
 }
 

@@ -56,10 +56,10 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   %43 = add nsw i32 %1, -1
   %.0150 = select i1 %.not170, i32 0, i32 %43
   %44 = add nsw i32 %2, -1
-  %.0153 = select i1 %.not169, i32 0, i32 %44
-  %45 = shl i32 %23, 2
-  %46 = mul nsw i32 %.0153, %1
-  %47 = add nsw i32 %46, %.0150
+  %45 = mul nsw i32 %44, %1
+  %.0153 = select i1 %.not169, i32 0, i32 %45
+  %46 = shl i32 %23, 2
+  %47 = add nsw i32 %.0153, %.0150
   %factor.op.mul.reass = mul i32 %factor.op.mul177, %2
   %.not183 = icmp eq i32 %23, 0
   %48 = shl i32 %.1, 2
@@ -83,7 +83,7 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv187 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next188, %._crit_edge.us ]
   %58 = trunc nuw i64 %indvars.iv187 to i32
-  %59 = mul i32 %45, %58
+  %59 = mul i32 %46, %58
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   %62 = uitofp i32 %58 to float

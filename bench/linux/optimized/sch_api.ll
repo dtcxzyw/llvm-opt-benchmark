@@ -1802,22 +1802,22 @@ define dso_local void @qdisc_offload_graft_helper(ptr noundef %0, ptr noundef re
   %37 = and i32 %36, 1
   %38 = or i32 %35, %37
   %39 = icmp eq ptr %3, null
-  br i1 %39, label %45, label %40
+  br i1 %39, label %46, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load i32, ptr %41, align 16
   %43 = lshr i32 %42, 9
   %44 = and i32 %43, 1
-  br label %45
+  %45 = or i32 %44, %38
+  br label %46
 
-45:                                               ; preds = %40, %34
-  %46 = phi i32 [ 0, %34 ], [ %44, %40 ]
-  %47 = or i32 %38, %46
+46:                                               ; preds = %40, %34
+  %47 = phi i32 [ %38, %34 ], [ %45, %40 ]
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %52, label %49
 
-49:                                               ; preds = %45
+49:                                               ; preds = %46
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_offload_graft_helper.__msg) #19
   %50 = icmp eq ptr %6, null
   br i1 %50, label %52, label %51
@@ -1826,7 +1826,7 @@ define dso_local void @qdisc_offload_graft_helper(ptr noundef %0, ptr noundef re
   store ptr @qdisc_offload_graft_helper.__msg, ptr %6, align 8
   br label %52
 
-52:                                               ; preds = %51, %49, %45, %18, %12, %7
+52:                                               ; preds = %51, %49, %46, %18, %12, %7
   ret void
 }
 

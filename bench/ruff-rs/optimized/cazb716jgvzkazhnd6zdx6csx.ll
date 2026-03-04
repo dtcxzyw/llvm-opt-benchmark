@@ -61701,16 +61701,16 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_dict_comprehen
   %162 = icmp slt i64 %161, -9223372036854775784
   %163 = add i64 %161, -9223372036854775807
   %164 = select i1 %162, i64 %163, i64 0
-  switch i64 %164, label %172 [
+  switch i64 %164, label %173 [
     i64 5, label %166
-    i64 7, label %171
+    i64 7, label %172
   ]
 
 .thread78:                                        ; preds = %.thread62.thread, %.thread76
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %180
 
-165:                                              ; preds = %.thread62, %172
+165:                                              ; preds = %.thread62, %173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %180
 
@@ -61720,25 +61720,25 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_dict_comprehen
   %169 = icmp ult i64 %168, 144115188075855872
   call void @llvm.assume(i1 %169)
   %170 = icmp eq i64 %168, 1
-  br label %172
+  %171 = and i1 %.sroa.020.0, %170
+  br label %173
 
-171:                                              ; preds = %159
-  br label %172
+172:                                              ; preds = %159
+  br label %173
 
-172:                                              ; preds = %159, %171, %166
-  %.sroa.024.1 = phi i1 [ true, %171 ], [ %170, %166 ], [ false, %159 ]
-  br i1 %160, label %173, label %165
+173:                                              ; preds = %159, %172, %166
+  %.sroa.024.1 = phi i1 [ %.sroa.020.0, %172 ], [ %171, %166 ], [ false, %159 ]
+  br i1 %160, label %174, label %165
 
-173:                                              ; preds = %172
+174:                                              ; preds = %173
   store ptr %1, ptr %9, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %120, ptr %174, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %0, ptr %175, align 8
-  %176 = call fastcc noundef zeroext i1 @"_ZN11ruff_linter5rules8perflint5rules25manual_dict_comprehension25manual_dict_comprehension28_$u7b$$u7b$closure$u7d$$u7d$17hf34d6c4d96277d60E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(120) %141)
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %120, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %0, ptr %176, align 8
+  %177 = call fastcc noundef zeroext i1 @"_ZN11ruff_linter5rules8perflint5rules25manual_dict_comprehension25manual_dict_comprehension28_$u7b$$u7b$closure$u7d$$u7d$17hf34d6c4d96277d60E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(120) %141)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %177 = and i1 %.sroa.020.0, %.sroa.024.1
-  %178 = and i1 %177, %176
+  %178 = and i1 %.sroa.024.1, %177
   %spec.select = zext i1 %178 to i8
   br label %180
 
@@ -61746,8 +61746,8 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_dict_comprehen
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %180
 
-180:                                              ; preds = %173, %.thread78, %165, %179
-  %storemerge = phi i8 [ 0, %.thread78 ], [ 0, %179 ], [ %spec.select, %173 ], [ 0, %165 ]
+180:                                              ; preds = %174, %.thread78, %165, %179
+  %storemerge = phi i8 [ 0, %.thread78 ], [ 0, %179 ], [ %spec.select, %174 ], [ 0, %165 ]
   store i8 %storemerge, ptr %8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %181 = trunc nuw i8 %storemerge to i1
@@ -62376,16 +62376,16 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_list_comprehen
   %137 = icmp slt i64 %136, -9223372036854775784
   %138 = add i64 %136, -9223372036854775807
   %139 = select i1 %137, i64 %138, i64 0
-  switch i64 %139, label %147 [
+  switch i64 %139, label %148 [
     i64 5, label %141
-    i64 7, label %146
+    i64 7, label %147
   ]
 
 .thread84:                                        ; preds = %.thread64.thread, %.thread82
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %155
 
-140:                                              ; preds = %.thread64, %147
+140:                                              ; preds = %.thread64, %148
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %155
 
@@ -62395,25 +62395,25 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_list_comprehen
   %144 = icmp ult i64 %143, 144115188075855872
   call void @llvm.assume(i1 %144)
   %145 = icmp eq i64 %143, 1
-  br label %147
+  %146 = and i1 %.sroa.026.0, %145
+  br label %148
 
-146:                                              ; preds = %134
-  br label %147
+147:                                              ; preds = %134
+  br label %148
 
-147:                                              ; preds = %134, %146, %141
-  %.sroa.030.1 = phi i1 [ true, %146 ], [ %145, %141 ], [ false, %134 ]
-  br i1 %135, label %148, label %140
+148:                                              ; preds = %134, %147, %141
+  %.sroa.030.1 = phi i1 [ %.sroa.026.0, %147 ], [ %146, %141 ], [ false, %134 ]
+  br i1 %135, label %149, label %140
 
-148:                                              ; preds = %147
+149:                                              ; preds = %148
   store ptr %1, ptr %8, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %90, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %0, ptr %150, align 8
-  %151 = call fastcc noundef zeroext i1 @"_ZN11ruff_linter5rules8perflint5rules25manual_list_comprehension25manual_list_comprehension28_$u7b$$u7b$closure$u7d$$u7d$17hd6f2007bc3c0d2b8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(120) %116)
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %90, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %0, ptr %151, align 8
+  %152 = call fastcc noundef zeroext i1 @"_ZN11ruff_linter5rules8perflint5rules25manual_list_comprehension25manual_list_comprehension28_$u7b$$u7b$closure$u7d$$u7d$17hd6f2007bc3c0d2b8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(120) %116)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %152 = and i1 %.sroa.026.0, %.sroa.030.1
-  %153 = and i1 %152, %151
+  %153 = and i1 %.sroa.030.1, %152
   %spec.select = zext i1 %153 to i8
   br label %155
 
@@ -62421,8 +62421,8 @@ define hidden void @_ZN11ruff_linter5rules8perflint5rules25manual_list_comprehen
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %155
 
-155:                                              ; preds = %148, %.thread84, %140, %154
-  %storemerge = phi i8 [ 0, %.thread84 ], [ 0, %154 ], [ %spec.select, %148 ], [ 0, %140 ]
+155:                                              ; preds = %149, %.thread84, %140, %154
+  %storemerge = phi i8 [ 0, %.thread84 ], [ 0, %154 ], [ %spec.select, %149 ], [ 0, %140 ]
   store i8 %storemerge, ptr %7, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %156 = getelementptr inbounds nuw i8, ptr %46, i64 56

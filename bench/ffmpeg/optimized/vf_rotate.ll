@@ -1537,24 +1537,24 @@ define internal double @get_rotated_w(ptr noundef readonly captures(none) %0, do
   %9 = tail call nsz double @llvm.cos.f64(double %1)
   %10 = fptrunc nsz double %9 to float
   %11 = fpext nsz float %8 to double
-  %12 = fneg nsz double %4
-  %13 = fpext nsz float %10 to double
-  %14 = fmul nsz double %13, %12
-  %15 = fcmp nsz olt double %14, 0.000000e+00
-  %16 = select nsz i1 %15, double 0.000000e+00, double %14
-  %17 = fneg nsz double %6
-  %18 = fmul nsz double %11, %17
-  %19 = fcmp nsz olt double %18, 0.000000e+00
-  %20 = select nsz i1 %19, double 0.000000e+00, double %18
-  %21 = fmul nsz double %6, %11
-  %22 = fcmp nsz olt double %21, 0.000000e+00
-  %23 = select nsz i1 %22, double 0.000000e+00, double %21
-  %24 = fadd nsz double %16, %23
-  %25 = fmul nsz double %4, %13
+  %12 = fmul nsz double %6, %11
+  %13 = fcmp nsz olt double %12, 0.000000e+00
+  %14 = select nsz i1 %13, double 0.000000e+00, double %12
+  %15 = fneg nsz double %4
+  %16 = fpext nsz float %10 to double
+  %17 = fmul nsz double %16, %15
+  %18 = fcmp nsz olt double %17, 0.000000e+00
+  %19 = fadd nsz double %17, %14
+  %20 = select i1 %18, double %14, double %19
+  %21 = fneg nsz double %6
+  %22 = fmul nsz double %11, %21
+  %23 = fcmp nsz olt double %22, 0.000000e+00
+  %24 = select nsz i1 %23, double 0.000000e+00, double %22
+  %25 = fmul nsz double %4, %16
   %26 = fcmp nsz olt double %25, 0.000000e+00
   %27 = select nsz i1 %26, double 0.000000e+00, double %25
-  %28 = fadd nsz double %27, %24
-  %29 = fadd nsz double %20, %28
+  %28 = fadd nsz double %27, %20
+  %29 = fadd nsz double %24, %28
   ret double %29
 }
 
@@ -1577,8 +1577,8 @@ define internal double @get_rotated_h(ptr noundef readonly captures(none) %0, do
   %17 = fpext nsz float %8 to double
   %18 = fmul nsz double %17, %16
   %19 = fcmp nsz olt double %18, 0.000000e+00
-  %20 = select nsz i1 %19, double 0.000000e+00, double %18
-  %21 = fadd nsz double %20, %15
+  %20 = fadd nsz double %18, %15
+  %21 = select i1 %19, double %15, double %20
   %22 = fmul nsz double %6, %12
   %23 = fcmp nsz olt double %22, 0.000000e+00
   %24 = select nsz i1 %23, double 0.000000e+00, double %22

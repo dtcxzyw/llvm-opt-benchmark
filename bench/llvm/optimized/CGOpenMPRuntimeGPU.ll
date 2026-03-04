@@ -1859,7 +1859,7 @@ define dso_local void @_ZN5clang7CodeGen18CGOpenMPRuntimeGPU26emitTargetOutlined
   %12 = alloca %class.NVPTXPrePostActionTy.1142, align 8
   %13 = alloca %"class.llvm::SmallVector.1435", align 8
   %14 = alloca %"class.llvm::SmallVector.1435", align 8
-  br i1 %6, label %15, label %184
+  br i1 %6, label %15, label %187
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2098,156 +2098,155 @@ _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm
 126:                                              ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
   %127 = load ptr, ptr %.sroa.07.1.i.i.i, align 8, !tbaa !1209
   %128 = icmp ne ptr %127, null
-  br label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit
+  %129 = or i1 %.0.i, %128
+  br i1 %129, label %130, label %159
 
-_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, %126
-  %.0.i.i = phi i1 [ %128, %126 ], [ false, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i ]
-  %or.cond = or i1 %.0.i, %.0.i.i
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4952
-  %130 = load i32, ptr %129, align 8, !tbaa !189
-  br i1 %or.cond, label %131, label %158
+_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
+  br i1 %.0.i, label %130, label %159
 
-131:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit
-  store i32 0, ptr %129, align 8, !tbaa !189
+130:                                              ; preds = %126, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 4952
+  %132 = load i32, ptr %131, align 8, !tbaa !189
+  store i32 0, ptr %131, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !190
   br i1 %.not.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
-_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %131
-  %132 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %133 = load i32, ptr %114, align 8, !tbaa !1207
-  %134 = zext i32 %133 to i64
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %134, 3
-  %135 = getelementptr i8, ptr %132, i64 %.idx.i.i.i.i.i
-  %.not1.i.i.i.i.i.i = icmp eq i32 %133, 0
+_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %130
+  %133 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %134 = load i32, ptr %114, align 8, !tbaa !1207
+  %135 = zext i32 %134 to i64
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %135, 3
+  %136 = getelementptr i8, ptr %133, i64 %.idx.i.i.i.i.i
+  %.not1.i.i.i.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i, %140
-  %.sroa.07.0.i.i.i.i = phi ptr [ %141, %140 ], [ %132, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ]
-  %136 = load ptr, ptr %.sroa.07.0.i.i.i.i, align 8, !tbaa !1209, !noalias !1240
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %138 = load i32, ptr %137, align 4, !tbaa !1214, !noalias !1240
-  %139 = icmp eq i32 %138, 72
-  br i1 %139, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %140
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i, %141
+  %.sroa.07.0.i.i.i.i = phi ptr [ %142, %141 ], [ %133, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ]
+  %137 = load ptr, ptr %.sroa.07.0.i.i.i.i, align 8, !tbaa !1209, !noalias !1240
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %139 = load i32, ptr %138, align 4, !tbaa !1214, !noalias !1240
+  %140 = icmp eq i32 %139, 72
+  br i1 %140, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %141
 
-140:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %141, %135
+141:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %142, %136
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1217
 
-_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %140, %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i, %131
-  %.sroa.4.0.i9.i.i = phi i64 [ 0, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ 0, %131 ], [ %134, %.lr.ph.i.i.i.i.i.i ], [ %134, %140 ]
-  %.sroa.0.0.i8.i.i = phi ptr [ %132, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ null, %131 ], [ %132, %.lr.ph.i.i.i.i.i.i ], [ %132, %140 ]
-  %.sroa.07.1.i.i.i.i = phi ptr [ %132, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ null, %131 ], [ %135, %140 ], [ %.sroa.07.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %142 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i8.i.i, i64 %.sroa.4.0.i9.i.i
-  %.not.i1.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %142
-  br i1 %.not.i1.i.i, label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, label %143
+_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %141, %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i, %130
+  %.sroa.4.0.i9.i.i = phi i64 [ 0, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ 0, %130 ], [ %135, %.lr.ph.i.i.i.i.i.i ], [ %135, %141 ]
+  %.sroa.0.0.i8.i.i = phi ptr [ %133, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ null, %130 ], [ %133, %.lr.ph.i.i.i.i.i.i ], [ %133, %141 ]
+  %.sroa.07.1.i.i.i.i = phi ptr [ %133, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ null, %130 ], [ %136, %141 ], [ %.sroa.07.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %143 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i8.i.i, i64 %.sroa.4.0.i9.i.i
+  %.not.i1.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %143
+  br i1 %.not.i1.i.i, label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, label %144
 
-143:                                              ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
-  %144 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1209
-  %145 = icmp ne ptr %144, null
-  %146 = zext i1 %145 to i8
+144:                                              ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
+  %145 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1209
+  %146 = icmp ne ptr %145, null
+  %147 = zext i1 %146 to i8
   br label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit
 
-_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %143
-  %.0.i.i.i = phi i8 [ %146, %143 ], [ 0, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ]
+_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %144
+  %.0.i.i.i = phi i8 [ %147, %144 ], [ 0, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPXBareClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyEE20NVPTXPrePostActionTy, i64 16), ptr %12, align 8, !tbaa !200
-  %147 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %0, ptr %147, align 8, !tbaa !1218
-  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %148, align 8, !tbaa !202
-  %149 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i8 %.0.i.i.i, ptr %149, align 8, !tbaa !1220
-  %150 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 4956
-  %152 = load i32, ptr %151, align 4, !tbaa !188
-  store i32 %152, ptr %150, align 4, !tbaa !1223
-  %153 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %1, ptr %153, align 8, !tbaa !204
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %12, ptr %154, align 8, !tbaa !206
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 4960
-  store i8 1, ptr %155, align 8, !tbaa !209
-  %156 = load ptr, ptr %0, align 8, !tbaa !200
-  %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(6256) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
-  store i8 0, ptr %155, align 8, !tbaa !209
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %0, ptr %148, align 8, !tbaa !1218
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %149, align 8, !tbaa !202
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i8 %.0.i.i.i, ptr %150, align 8, !tbaa !1220
+  %151 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 4956
+  %153 = load i32, ptr %152, align 4, !tbaa !188
+  store i32 %153, ptr %151, align 4, !tbaa !1223
+  %154 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %1, ptr %154, align 8, !tbaa !204
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %12, ptr %155, align 8, !tbaa !206
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 4960
+  store i8 1, ptr %156, align 8, !tbaa !209
+  %157 = load ptr, ptr %0, align 8, !tbaa !200
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(6256) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
+  store i8 0, ptr %156, align 8, !tbaa !209
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split
+  store i32 %132, ptr %131, align 8, !tbaa !189
+  br label %187
 
-158:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit
-  store i32 1, ptr %129, align 8, !tbaa !189
+159:                                              ; preds = %126, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.exit
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 4952
+  %161 = load i32, ptr %160, align 8, !tbaa !189
+  store i32 1, ptr %160, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !190
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 4968
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 4976
-  %161 = load i32, ptr %160, align 8, !tbaa !192
-  %162 = icmp eq i32 %161, 0
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4980
-  %164 = load i32, ptr %163, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4968
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4976
+  %164 = load i32, ptr %163, align 8, !tbaa !192
   %165 = icmp eq i32 %164, 0
-  %or.cond.i = select i1 %162, i1 %165, i1 false
-  br i1 %or.cond.i, label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, label %166
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 4980
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp eq i32 %167, 0
+  %or.cond.i = select i1 %165, i1 %168, i1 false
+  br i1 %or.cond.i, label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, label %169
 
-166:                                              ; preds = %158
-  %167 = shl i32 %161, 2
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 4984
-  %169 = load i32, ptr %168, align 8, !tbaa !193
-  %170 = icmp ult i32 %167, %169
-  %171 = icmp ugt i32 %169, 64
-  %or.cond.i.i = and i1 %170, %171
-  br i1 %or.cond.i.i, label %172, label %173
+169:                                              ; preds = %159
+  %170 = shl i32 %164, 2
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 4984
+  %172 = load i32, ptr %171, align 8, !tbaa !193
+  %173 = icmp ult i32 %170, %172
+  %174 = icmp ugt i32 %172, 64
+  %or.cond.i.i = and i1 %173, %174
+  br i1 %or.cond.i.i, label %175, label %176
 
-172:                                              ; preds = %166
-  call void @_ZN4llvm8DenseMapIPNS_8FunctionES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %159)
+175:                                              ; preds = %169
+  call void @_ZN4llvm8DenseMapIPNS_8FunctionES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %162)
   br label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit
 
-173:                                              ; preds = %166
-  %174 = load ptr, ptr %159, align 8, !tbaa !194
-  %175 = zext i32 %169 to i64
-  %.idx.i.i = shl nuw nsw i64 %175, 4
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx.i.i
-  %.not6.i.i = icmp eq i32 %169, 0
+176:                                              ; preds = %169
+  %177 = load ptr, ptr %162, align 8, !tbaa !194
+  %178 = zext i32 %172 to i64
+  %.idx.i.i = shl nuw nsw i64 %178, 4
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %.idx.i.i
+  %.not6.i.i = icmp eq i32 %172, 0
   br i1 %.not6.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %173
-  store i32 0, ptr %160, align 8, !tbaa !192
-  store i32 0, ptr %163, align 4, !tbaa !195
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %176
+  store i32 0, ptr %163, align 8, !tbaa !192
+  store i32 0, ptr %166, align 4, !tbaa !195
   br label %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit
 
-.lr.ph.i.i:                                       ; preds = %173, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %177, %.lr.ph.i.i ], [ %174, %173 ]
+.lr.ph.i.i:                                       ; preds = %176, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %180, %.lr.ph.i.i ], [ %177, %176 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !196
-  %177 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
-  %.not.i.i21 = icmp eq ptr %177, %176
+  %180 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
+  %.not.i.i21 = icmp eq ptr %180, %179
   br i1 %.not.i.i21, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !198
 
-_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit: ; preds = %158, %172, %._crit_edge.i.i
+_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit: ; preds = %159, %175, %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyEE20NVPTXPrePostActionTy, i64 16), ptr %10, align 8, !tbaa !200
-  %178 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %9, ptr %178, align 8, !tbaa !202
-  %179 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %1, ptr %179, align 8, !tbaa !204
-  %180 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %10, ptr %180, align 8, !tbaa !206
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 4960
-  store i8 1, ptr %181, align 8, !tbaa !209
-  %182 = load ptr, ptr %0, align 8, !tbaa !200
-  %183 = load ptr, ptr %182, align 8
-  call void %183(ptr noundef nonnull align 8 dereferenceable(6256) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
-  store i8 0, ptr %181, align 8, !tbaa !209
+  %181 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %9, ptr %181, align 8, !tbaa !202
+  %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %1, ptr %182, align 8, !tbaa !204
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %10, ptr %183, align 8, !tbaa !206
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 4960
+  store i8 1, ptr %184, align 8, !tbaa !209
+  %185 = load ptr, ptr %0, align 8, !tbaa !200
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull align 8 dereferenceable(6256) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
+  store i8 0, ptr %184, align 8, !tbaa !209
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.sink.split
+  store i32 %161, ptr %160, align 8, !tbaa !189
+  br label %187
 
-.sink.split:                                      ; preds = %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit
-  store i32 %130, ptr %129, align 8, !tbaa !189
-  br label %184
-
-184:                                              ; preds = %.sink.split, %8
+187:                                              ; preds = %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU14emitSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, %_ZN5clang7CodeGen18CGOpenMPRuntimeGPU17emitNonSPMDKernelERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRKNS0_15RegionCodeGenTyE.exit, %8
   ret void
 }
 

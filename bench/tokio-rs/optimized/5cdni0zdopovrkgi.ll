@@ -9256,16 +9256,16 @@ define void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc
 switch.lookup:                                    ; preds = %.split.i
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
+  %10 = and i64 %5, %switch.load
   br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
 _ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit: ; preds = %switch.lookup, %.split.i, %3
-  %.0.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ], [ 0, %.split.i ]
-  %10 = lshr i64 %5, 16
-  %11 = trunc i64 %10 to i8
-  %12 = and i64 %5, %.0.i
+  %.0.i = phi i64 [ 0, %3 ], [ %10, %switch.lookup ], [ 0, %.split.i ]
+  %11 = lshr i64 %5, 16
+  %12 = trunc i64 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %11, ptr %13, align 8
-  store i64 %12, ptr %0, align 8
+  store i8 %12, ptr %13, align 8
+  store i64 %.0.i, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %15 = lshr i64 %5, 31
   %16 = trunc i64 %15 to i8

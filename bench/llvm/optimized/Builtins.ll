@@ -2043,8 +2043,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %2, %_ZNK4llvm9Strin
   br i1 %7, label %_ZN4llvm9StringRef13consume_frontES0_.exit.split.us, label %_ZN4llvm9StringRef13consume_frontES0_.exit.split
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.split.us: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit ]
-  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %indvars.iv26
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit ]
+  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %indvars.iv21
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !17
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
@@ -2059,8 +2059,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.us:      ; preds = %_ZN4llvm9StringRef1
   br i1 %13, label %.split.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread14.us:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.us, %_ZN4llvm9StringRef13consume_frontES0_.exit.split.us
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %.not.us.not = icmp eq i64 %indvars.iv.next27, 1463
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %.not.us.not = icmp eq i64 %indvars.iv.next22, 1463
   br i1 %.not.us.not, label %.loopexit, label %_ZN4llvm9StringRef13consume_frontES0_.exit.split.us, !llvm.loop !24
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.split: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14
@@ -2097,8 +2097,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread14:       ; preds = %_ZN4llvm9StringRef1
   br i1 %.not.not, label %.loopexit, label %_ZN4llvm9StringRef13consume_frontES0_.exit.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread14, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us, %.split.us
-  %.not17 = phi i1 [ %22, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ]
-  ret i1 %.not17
+  %.0 = phi i1 [ %22, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

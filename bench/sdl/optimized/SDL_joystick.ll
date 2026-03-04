@@ -5498,9 +5498,8 @@ tailrecurse.backedge:                             ; preds = %73, %65, %._crit_ed
   br label %tailrecurse.backedge
 
 .critedge:                                        ; preds = %9, %64, %23
-  %.1 = phi i1 [ true, %23 ], [ false, %9 ], [ true, %64 ]
-  %current.ret.tr51 = or i1 %ret.known.tr, %.1
-  ret i1 %current.ret.tr51
+  %.1 = phi i1 [ true, %23 ], [ %ret.known.tr, %9 ], [ true, %64 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: nounwind uwtable

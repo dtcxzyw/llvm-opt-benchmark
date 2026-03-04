@@ -592,7 +592,7 @@ define internal fastcc void @gate(ptr noundef captures(none) %0, ptr noundef rea
   %.0.in = phi i1 [ %70, %68 ], [ %73, %71 ]
   %75 = fcmp nsz ogt double %67, 0.000000e+00
   %or.cond = select i1 %75, i1 %.0.in, i1 false
-  br i1 %or.cond, label %76, label %137
+  br i1 %or.cond, label %76, label %138
 
 76:                                               ; preds = %74
   %77 = load double, ptr %30, align 8, !tbaa !81
@@ -671,17 +671,17 @@ output_gain.exit:                                 ; preds = %90, %92, %112, %114
   %135 = tail call nsz double @llvm.exp.f64(double %134)
   %136 = fcmp nsz ogt double %82, %135
   %..i = select nsz i1 %136, double %82, double %135
-  br label %137
+  %137 = fmul nsz double %5, %..i
+  br label %138
 
-137:                                              ; preds = %output_gain.exit, %74
-  %.074 = phi nsz double [ %..i, %output_gain.exit ], [ 1.000000e+00, %74 ]
-  %138 = fmul nsz double %5, %.074
-  %139 = fmul nsz double %11, %138
+138:                                              ; preds = %output_gain.exit, %74
+  %.074 = phi double [ %137, %output_gain.exit ], [ %5, %74 ]
+  %139 = fmul nsz double %11, %.074
   %140 = select nsz i1 %.not87, double %139, double 1.000000e+00
   br i1 %40, label %.lr.ph99, label %._crit_edge100
 
-.lr.ph99:                                         ; preds = %137, %.lr.ph99
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph99 ], [ 0, %137 ]
+.lr.ph99:                                         ; preds = %138, %.lr.ph99
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph99 ], [ 0, %138 ]
   %141 = getelementptr inbounds nuw double, ptr %.073106, i64 %indvars.iv116
   %142 = load double, ptr %141, align 8, !tbaa !77
   %143 = fmul nsz double %140, %142
@@ -691,7 +691,7 @@ output_gain.exit:                                 ; preds = %90, %92, %112, %114
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
   br i1 %exitcond120.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !83
 
-._crit_edge100:                                   ; preds = %.lr.ph99, %137
+._crit_edge100:                                   ; preds = %.lr.ph99, %138
   %145 = add nuw nsw i32 %.079105, 1
   %146 = getelementptr inbounds double, ptr %.073106, i64 %41
   %147 = getelementptr inbounds double, ptr %.080104, i64 %41

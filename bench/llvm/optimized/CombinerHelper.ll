@@ -44862,7 +44862,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %38
   %64 = icmp eq i16 %63, 77
   %.not3360 = icmp ne ptr %61, null
   %.not33.not = and i1 %.not3360, %64
-  br i1 %.not33.not, label %65, label %135
+  br i1 %.not33.not, label %65, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr %9, align 8, !tbaa !227
@@ -44871,7 +44871,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %38
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !204
   %71 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %66, i32 %70) #32
-  br i1 %71, label %72, label %135
+  br i1 %71, label %72, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -44883,7 +44883,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %38
   %79 = add nsw i32 %78, -1
   %80 = urem i32 %76, %79
   %.not34 = icmp eq i32 %80, 0
-  br i1 %.not34, label %81, label %135
+  br i1 %.not34, label %81, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %9, align 8, !tbaa !227
@@ -44947,7 +44947,7 @@ _ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit: 
   %110 = icmp eq i64 %109, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %110, label %111, label %135
+  br i1 %110, label %111, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 111:                                              ; preds = %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit.thread, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -45002,7 +45002,7 @@ _ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48
   %129 = icmp eq i64 %128, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %129, label %130, label %135
+  br i1 %129, label %130, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 130:                                              ; preds = %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48.thread, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -45015,15 +45015,10 @@ _ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48
   store i64 %.sroa.0.0.i, ptr %133, align 8, !tbaa !204
   %134 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper35matchUnmergeValuesAnyExtBuildVectorERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %135
-
-135:                                              ; preds = %130, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48, %56, %72, %65
-  %.3 = phi i1 [ false, %65 ], [ undef, %56 ], [ false, %72 ], [ true, %130 ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48 ]
-  %spec.select = and i1 %.not33.not, %.3
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %22, %38, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %52, %135, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %spec.select, %135 ], [ false, %52 ], [ false, %38 ], [ false, %22 ]
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %65, %72, %56, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit, %130, %22, %38, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %52, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ false, %22 ], [ false, %52 ], [ false, %38 ], [ false, %65 ], [ false, %56 ], [ false, %72 ], [ true, %130 ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit48 ]
   ret i1 %.0
 }
 

@@ -3542,6 +3542,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit
 
 _ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit: ; preds = %entry, %if.then.i.i.i.i
+  %6 = extractvalue { ptr, i64 } %call1.i, 1
+  %cmp.i.i = icmp ne i64 %6, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %path_storage.i)
   %cmp.i.not = icmp eq i32 %style, 0
   br i1 %cmp.i.not, label %lor.rhs, label %lor.end
@@ -3560,38 +3562,36 @@ lor.rhs:                                          ; preds = %_ZN4llvh3sys4path18
   %Capacity2.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %path_storage.i5, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i8, align 4
   %call.i9 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i5)
-  %6 = extractvalue { ptr, i64 } %call.i9, 0
-  %7 = extractvalue { ptr, i64 } %call.i9, 1
-  %call1.i10 = call { ptr, i64 } @_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE(ptr %6, i64 %7, i32 noundef 0)
-  %8 = load ptr, ptr %path_storage.i5, align 8
-  %cmp.i.i.i.i.i11 = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i.i6
+  %7 = extractvalue { ptr, i64 } %call.i9, 0
+  %8 = extractvalue { ptr, i64 } %call.i9, 1
+  %call1.i10 = call { ptr, i64 } @_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE(ptr %7, i64 %8, i32 noundef 0)
+  %9 = load ptr, ptr %path_storage.i5, align 8
+  %cmp.i.i.i.i.i11 = icmp eq ptr %9, %add.ptr.i.i.i.i.i.i.i6
   br i1 %cmp.i.i.i.i.i11, label %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit, label %if.then.i.i.i.i12
 
 if.then.i.i.i.i12:                                ; preds = %lor.rhs
-  call void @free(ptr noundef %8) #29
+  call void @free(ptr noundef %9) #29
   br label %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit
 
 _ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit: ; preds = %lor.rhs, %if.then.i.i.i.i12
-  %9 = extractvalue { ptr, i64 } %call1.i10, 1
-  %cmp.i.i13 = icmp ne i64 %9, 0
+  %10 = extractvalue { ptr, i64 } %call1.i10, 1
+  %cmp.i.i13 = icmp ne i64 %10, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %path_storage.i5)
+  %11 = and i1 %cmp.i.i, %cmp.i.i13
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit, %_ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit
-  %10 = phi i1 [ true, %_ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit ], [ %cmp.i.i13, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ]
-  %11 = load ptr, ptr %path_storage, align 8
-  %cmp.i.i.i.i = icmp eq ptr %11, %add.ptr.i.i.i.i.i.i
+  %12 = phi i1 [ %cmp.i.i, %_ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit ], [ %11, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ]
+  %13 = load ptr, ptr %path_storage, align 8
+  %cmp.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.end
-  call void @free(ptr noundef %11) #29
+  call void @free(ptr noundef %13) #29
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %lor.end, %if.then.i.i.i
-  %12 = extractvalue { ptr, i64 } %call1.i, 1
-  %cmp.i.i = icmp ne i64 %12, 0
-  %13 = and i1 %cmp.i.i, %10
-  ret i1 %13
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

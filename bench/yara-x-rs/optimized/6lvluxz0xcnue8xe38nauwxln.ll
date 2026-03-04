@@ -23677,14 +23677,14 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17h450f9a98631
   %40 = load i8, ptr %.sroa.01.0.i.i.i.i.i.i.i.us, align 1, !alias.scope !3492, !noalias !3497, !noundef !4
   %41 = add i8 %40, -65
   %42 = icmp ult i8 %41, 26
-  %.sroa.04.0.i.i.i.i.i.i.i.us = select i1 %42, i8 32, i8 0
-  %43 = or i8 %.sroa.04.0.i.i.i.i.i.i.i.us, %40
+  %43 = select i1 %42, i8 32, i8 0
+  %.sroa.04.0.i.i.i.i.i.i.i.us = or i8 %43, %40
   %44 = load i8, ptr %.sroa.02.0.i.i.i.i.i.i.i.us, align 1, !alias.scope !3495, !noalias !3498, !noundef !4
   %45 = add i8 %44, -65
   %46 = icmp ult i8 %45, 26
-  %.sroa.05.0.i.i.i.i.i.i.i.us = select i1 %46, i8 32, i8 0
-  %47 = or i8 %.sroa.05.0.i.i.i.i.i.i.i.us, %44
-  %48 = icmp eq i8 %43, %47
+  %47 = select i1 %46, i8 32, i8 0
+  %.sroa.05.0.i.i.i.i.i.i.i.us = or i8 %47, %44
+  %48 = icmp eq i8 %.sroa.04.0.i.i.i.i.i.i.i.us, %.sroa.05.0.i.i.i.i.i.i.i.us
   br i1 %48, label %.preheader.i.i.i.i.i.i.i.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h6d566d496856e5b5E.exit.i.i.us22"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h6d566d496856e5b5E.exit.i.i.us22": ; preds = %36, %30, %.lr.ph.i.i.split.us21
@@ -55462,14 +55462,14 @@ define internal fastcc void @_ZN6yara_x7scanner7context20verify_literal_match17h
   %27 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !7180, !noalias !7183, !noundef !4
   %28 = add i8 %27, -65
   %29 = icmp ult i8 %28, 26
-  %.sroa.04.0.i = select i1 %29, i8 32, i8 0
-  %30 = or i8 %.sroa.04.0.i, %27
+  %30 = select i1 %29, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %30, %27
   %31 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !7183, !noalias !7180, !noundef !4
   %32 = add i8 %31, -65
   %33 = icmp ult i8 %32, 26
-  %.sroa.05.0.i = select i1 %33, i8 32, i8 0
-  %34 = or i8 %.sroa.05.0.i, %31
-  %35 = icmp eq i8 %30, %34
+  %34 = select i1 %33, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %34, %31
+  %35 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %35, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread6"
 
 36:                                               ; preds = %13
@@ -55504,17 +55504,17 @@ define hidden noundef zeroext i1 @_ZN6yara_x7scanner7context16verify_full_word17
   br i1 %.not43, label %14, label %11
 
 10:                                               ; preds = %6
-  br i1 %.not43, label %58, label %56
+  br i1 %.not43, label %64, label %62
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %2, align 8, !noundef !4
   %13 = icmp ugt i64 %12, 1
   br i1 %13, label %16, label %14
 
-14:                                               ; preds = %24, %19, %9, %11
+14:                                               ; preds = %.thread, %33, %35, %19, %9, %11
   %15 = and i16 %3, 16
   %.not47 = icmp eq i16 %15, 0
-  br i1 %.not47, label %55, label %34
+  br i1 %.not47, label %61, label %37
 
 16:                                               ; preds = %11
   %17 = add i64 %12, -1
@@ -55536,101 +55536,149 @@ define hidden noundef zeroext i1 @_ZN6yara_x7scanner7context16verify_full_word17
   %26 = getelementptr i8, ptr %25, i64 -2
   %27 = load i8, ptr %26, align 1, !noundef !4
   %28 = xor i8 %27, %.
-  %29 = add i8 %28, -48
-  %.sroa.08.0 = icmp ult i8 %29, 10
-  %30 = and i8 %28, -33
-  %31 = add i8 %30, -65
-  %32 = icmp ult i8 %31, 26
-  %33 = or i1 %.sroa.08.0, %32
-  br i1 %33, label %86, label %14
+  %29 = icmp ugt i8 %28, 64
+  br i1 %29, label %31, label %.thread
 
-34:                                               ; preds = %14
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i64, ptr %35, align 8, !noundef !4
-  %37 = add i64 %36, 1
-  %38 = icmp ult i64 %37, %1
-  br i1 %38, label %39, label %55
+.thread:                                          ; preds = %24
+  %30 = add nsw i8 %28, -48
+  %.sroa.08.0 = icmp ult i8 %30, 10
+  br i1 %.sroa.08.0, label %98, label %14
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %37
-  %41 = load i8, ptr %40, align 1, !noundef !4
-  %42 = icmp eq i8 %41, %.
-  br i1 %42, label %43, label %55
+31:                                               ; preds = %24
+  %32 = icmp ugt i8 %28, 96
+  br i1 %32, label %33, label %35
 
-43:                                               ; preds = %39
-  %44 = icmp ult i64 %36, %1
-  br i1 %44, label %45, label %54
+33:                                               ; preds = %31
+  %34 = icmp ult i8 %28, 123
+  br i1 %34, label %98, label %14
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  %47 = load i8, ptr %46, align 1, !noundef !4
-  %48 = xor i8 %47, %.
-  %49 = add i8 %48, -48
-  %.sroa.011.0 = icmp ult i8 %49, 10
-  %50 = and i8 %48, -33
-  %51 = add i8 %50, -65
-  %52 = icmp ult i8 %51, 26
-  %53 = or i1 %.sroa.011.0, %52
-  br i1 %53, label %86, label %55
+35:                                               ; preds = %31
+  %36 = icmp samesign ult i8 %28, 91
+  br i1 %36, label %98, label %14
 
-54:                                               ; preds = %43
-  tail call void @_ZN4core9panicking18panic_bounds_check17hfa2ac8420ad021dcE(i64 noundef %36, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.834) #50
+37:                                               ; preds = %14
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load i64, ptr %38, align 8, !noundef !4
+  %40 = add i64 %39, 1
+  %41 = icmp ult i64 %40, %1
+  br i1 %41, label %42, label %61
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  %44 = load i8, ptr %43, align 1, !noundef !4
+  %45 = icmp eq i8 %44, %.
+  br i1 %45, label %46, label %61
+
+46:                                               ; preds = %42
+  %47 = icmp ult i64 %39, %1
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  %50 = load i8, ptr %49, align 1, !noundef !4
+  %51 = xor i8 %50, %.
+  %52 = icmp ugt i8 %51, 64
+  br i1 %52, label %55, label %.thread49
+
+.thread49:                                        ; preds = %48
+  %53 = add nsw i8 %51, -48
+  %.sroa.011.0 = icmp ult i8 %53, 10
+  br i1 %.sroa.011.0, label %98, label %61
+
+54:                                               ; preds = %46
+  tail call void @_ZN4core9panicking18panic_bounds_check17hfa2ac8420ad021dcE(i64 noundef %39, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.834) #50
   unreachable
 
-55:                                               ; preds = %77, %73, %58, %45, %39, %34, %14
-  br label %86
+55:                                               ; preds = %48
+  %56 = icmp ugt i8 %51, 96
+  br i1 %56, label %57, label %59
 
-56:                                               ; preds = %10
-  %57 = load i64, ptr %2, align 8, !noundef !4
-  %.not44 = icmp eq i64 %57, 0
-  br i1 %.not44, label %58, label %60
+57:                                               ; preds = %55
+  %58 = icmp ult i8 %51, 123
+  br i1 %58, label %98, label %61
 
-58:                                               ; preds = %63, %10, %56
-  %59 = and i16 %3, 16
-  %.not45 = icmp eq i16 %59, 0
-  br i1 %.not45, label %55, label %73
+59:                                               ; preds = %55
+  %60 = icmp samesign ult i8 %51, 91
+  br i1 %60, label %98, label %61
 
-60:                                               ; preds = %56
-  %61 = add i64 %57, -1
-  %62 = icmp ult i64 %61, %1
-  br i1 %62, label %63, label %72
+61:                                               ; preds = %.thread53, %94, %.thread49, %57, %96, %82, %64, %59, %42, %37, %14
+  br label %98
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %65 = load i8, ptr %64, align 1, !noundef !4
-  %66 = xor i8 %65, %.
-  %67 = add i8 %66, -48
-  %.sroa.014.0 = icmp ult i8 %67, 10
-  %68 = and i8 %66, -33
-  %69 = add i8 %68, -65
-  %70 = icmp ult i8 %69, 26
-  %71 = or i1 %.sroa.014.0, %70
-  br i1 %71, label %86, label %58
+62:                                               ; preds = %10
+  %63 = load i64, ptr %2, align 8, !noundef !4
+  %.not44 = icmp eq i64 %63, 0
+  br i1 %.not44, label %64, label %66
 
-72:                                               ; preds = %60
-  tail call void @_ZN4core9panicking18panic_bounds_check17hfa2ac8420ad021dcE(i64 noundef %61, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.835) #50
+64:                                               ; preds = %.thread51, %78, %80, %10, %62
+  %65 = and i16 %3, 16
+  %.not45 = icmp eq i16 %65, 0
+  br i1 %.not45, label %61, label %82
+
+66:                                               ; preds = %62
+  %67 = add i64 %63, -1
+  %68 = icmp ult i64 %67, %1
+  br i1 %68, label %69, label %75
+
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %67
+  %71 = load i8, ptr %70, align 1, !noundef !4
+  %72 = xor i8 %71, %.
+  %73 = icmp ugt i8 %72, 64
+  br i1 %73, label %76, label %.thread51
+
+.thread51:                                        ; preds = %69
+  %74 = add nsw i8 %72, -48
+  %.sroa.014.0 = icmp ult i8 %74, 10
+  br i1 %.sroa.014.0, label %98, label %64
+
+75:                                               ; preds = %66
+  tail call void @_ZN4core9panicking18panic_bounds_check17hfa2ac8420ad021dcE(i64 noundef %67, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.835) #50
   unreachable
 
-73:                                               ; preds = %58
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %75 = load i64, ptr %74, align 8, !noundef !4
-  %76 = icmp ult i64 %75, %1
-  br i1 %76, label %77, label %55
+76:                                               ; preds = %69
+  %77 = icmp ugt i8 %72, 96
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %75
-  %79 = load i8, ptr %78, align 1, !noundef !4
-  %80 = xor i8 %79, %.
-  %81 = add i8 %80, -48
-  %.sroa.017.0 = icmp ult i8 %81, 10
-  %82 = and i8 %80, -33
-  %83 = add i8 %82, -65
-  %84 = icmp ult i8 %83, 26
-  %85 = or i1 %.sroa.017.0, %84
-  br i1 %85, label %86, label %55
+78:                                               ; preds = %76
+  %79 = icmp ult i8 %72, 123
+  br i1 %79, label %98, label %64
 
-86:                                               ; preds = %77, %63, %45, %24, %55
-  %.sroa.01.0 = phi i1 [ false, %63 ], [ false, %24 ], [ true, %55 ], [ false, %45 ], [ false, %77 ]
+80:                                               ; preds = %76
+  %81 = icmp samesign ult i8 %72, 91
+  br i1 %81, label %98, label %64
+
+82:                                               ; preds = %64
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %84 = load i64, ptr %83, align 8, !noundef !4
+  %85 = icmp ult i64 %84, %1
+  br i1 %85, label %86, label %61
+
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %84
+  %88 = load i8, ptr %87, align 1, !noundef !4
+  %89 = xor i8 %88, %.
+  %90 = icmp ugt i8 %89, 64
+  br i1 %90, label %92, label %.thread53
+
+.thread53:                                        ; preds = %86
+  %91 = add nsw i8 %89, -48
+  %.sroa.017.0 = icmp ult i8 %91, 10
+  br i1 %.sroa.017.0, label %98, label %61
+
+92:                                               ; preds = %86
+  %93 = icmp ugt i8 %89, 96
+  br i1 %93, label %94, label %96
+
+94:                                               ; preds = %92
+  %95 = icmp ult i8 %89, 123
+  br i1 %95, label %98, label %61
+
+96:                                               ; preds = %92
+  %97 = icmp samesign ult i8 %89, 91
+  br i1 %97, label %98, label %61
+
+98:                                               ; preds = %.thread53, %94, %.thread51, %78, %.thread49, %57, %.thread, %33, %96, %80, %59, %35, %61
+  %.sroa.01.0 = phi i1 [ false, %80 ], [ false, %35 ], [ true, %61 ], [ false, %59 ], [ false, %96 ], [ false, %33 ], [ false, %.thread ], [ false, %57 ], [ false, %.thread49 ], [ false, %78 ], [ false, %.thread51 ], [ false, %94 ], [ false, %.thread53 ]
   ret i1 %.sroa.01.0
 }
 
@@ -73869,15 +73917,15 @@ define internal fastcc void @"_ZN89_$LT$yara_x..modules..protos..test_proto2..Ne
 define hidden { i32, i32 } @_ZN6yara_x7modules2pe7rva2off13rva_to_offset17h1e055ff589653cd5E(i32 noundef %0, ptr noundef nonnull align 8 %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.idx = mul nuw nsw i64 %2, 136
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.not71 = icmp eq i64 %2, 0
-  br i1 %.not71, label %._crit_edge.thread, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit
+  %.not57 = icmp eq i64 %2, 0
+  br i1 %.not57, label %.critedge._crit_edge.thread, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit: ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %8 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %1), !noalias !9193
   %9 = tail call noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43397d13ea9761e8E"(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %8)
   %10 = icmp ult i32 %0, %9
-  br i1 %10, label %._crit_edge.thread, label %.lr.ph
+  br i1 %10, label %.critedge._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit
   %11 = icmp eq i32 %3, 0
@@ -73888,18 +73936,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit: ; preds 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split, !prof !6
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %27
-  %.sroa.014.030.us.us = phi ptr [ %13, %27 ], [ %1, %.lr.ph.split.us ]
-  %.sroa.010.029.us.us = phi i32 [ %.sroa.010.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.05.028.us.us = phi i32 [ %.sroa.05.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.04.027.us.us = phi i32 [ %.sroa.04.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge.us.us
+  %.sroa.014.030.us.us = phi ptr [ %13, %.critedge.us.us ], [ %1, %.lr.ph.split.us ]
+  %.sroa.010.029.us.us = phi i32 [ %.sroa.010.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.05.028.us.us = phi i32 [ %.sroa.05.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.04.027.us.us = phi i32 [ %.sroa.04.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us.us, i64 136
   %14 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
   %15 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
   %16 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
   %17 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
   %.not.us.us = icmp ugt i32 %.sroa.010.029.us.us, %17
-  br i1 %.not.us.us, label %27, label %18
+  br i1 %.not.us.us, label %.critedge.us.us, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.split.us
   %.sroa.0.0.sroa.speculated.i.us.us = tail call noundef i32 @llvm.umax.i32(i32 %15, i32 %14)
@@ -73907,7 +73955,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit: ; preds 
   %.not.i.us.us = icmp ule i32 %16, %0
   %20 = icmp ult i32 %0, %19
   %.sroa.06.0.i.us.us = and i1 %.not.i.us.us, %20
-  br i1 %.sroa.06.0.i.us.us, label %21, label %27
+  br i1 %.sroa.06.0.i.us.us, label %21, label %.critedge.us.us
 
 21:                                               ; preds = %18
   %22 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
@@ -73915,160 +73963,160 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit: ; preds 
   %24 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us.us)
   %25 = and i32 %23, 511
   %26 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 %25)
-  br label %27
+  br label %.critedge.us.us
 
-27:                                               ; preds = %21, %18, %.lr.ph.split.us.split.us
+.critedge.us.us:                                  ; preds = %21, %18, %.lr.ph.split.us.split.us
   %.sroa.04.1.us.us = phi i32 [ %24, %21 ], [ %.sroa.04.027.us.us, %18 ], [ %.sroa.04.027.us.us, %.lr.ph.split.us.split.us ]
   %.sroa.05.1.us.us = phi i32 [ %26, %21 ], [ %.sroa.05.028.us.us, %18 ], [ %.sroa.05.028.us.us, %.lr.ph.split.us.split.us ]
   %.sroa.010.1.us.us = phi i32 [ %22, %21 ], [ %.sroa.010.029.us.us, %18 ], [ %.sroa.010.029.us.us, %.lr.ph.split.us.split.us ]
-  %28 = icmp eq ptr %13, %6
-  br i1 %28, label %._crit_edge, label %.lr.ph.split.us.split.us
+  %27 = icmp eq ptr %13, %6
+  br i1 %27, label %.critedge._crit_edge, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %45
-  %.sroa.014.030.us = phi ptr [ %29, %45 ], [ %1, %.lr.ph.split.us ]
-  %.sroa.010.029.us = phi i32 [ %.sroa.010.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.05.028.us = phi i32 [ %.sroa.05.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.04.027.us = phi i32 [ %.sroa.04.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us, i64 136
-  %30 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %31 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
+  %.sroa.014.030.us = phi ptr [ %28, %.critedge.us ], [ %1, %.lr.ph.split.us ]
+  %.sroa.010.029.us = phi i32 [ %.sroa.010.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.05.028.us = phi i32 [ %.sroa.05.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.04.027.us = phi i32 [ %.sroa.04.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us, i64 136
+  %29 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+  %30 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+  %31 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
   %32 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %33 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %.not.us = icmp ugt i32 %.sroa.010.029.us, %33
-  br i1 %.not.us, label %45, label %34
+  %.not.us = icmp ugt i32 %.sroa.010.029.us, %32
+  br i1 %.not.us, label %.critedge.us, label %33
 
-34:                                               ; preds = %.lr.ph.split.us.split
-  %.sroa.0.0.sroa.speculated.i.us = tail call noundef i32 @llvm.umax.i32(i32 %31, i32 %30)
-  %35 = tail call i32 @llvm.uadd.sat.i32(i32 %32, i32 %.sroa.0.0.sroa.speculated.i.us)
-  %.not.i.us = icmp ule i32 %32, %0
-  %36 = icmp ult i32 %0, %35
-  %.sroa.06.0.i.us = and i1 %.not.i.us, %36
-  br i1 %.sroa.06.0.i.us, label %37, label %45
+33:                                               ; preds = %.lr.ph.split.us.split
+  %.sroa.0.0.sroa.speculated.i.us = tail call noundef i32 @llvm.umax.i32(i32 %30, i32 %29)
+  %34 = tail call i32 @llvm.uadd.sat.i32(i32 %31, i32 %.sroa.0.0.sroa.speculated.i.us)
+  %.not.i.us = icmp ule i32 %31, %0
+  %35 = icmp ult i32 %0, %34
+  %.sroa.06.0.i.us = and i1 %.not.i.us, %35
+  br i1 %.sroa.06.0.i.us, label %36, label %.critedge.us
 
-37:                                               ; preds = %34
-  %38 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %39 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %40 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
-  %41 = urem i32 %39, %.sroa.0.0.sroa.speculated.i23
-  %42 = sub nuw i32 %39, %41
-  %43 = and i32 %42, 511
-  %44 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 %43)
-  br label %45
+36:                                               ; preds = %33
+  %37 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+  %38 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+  %39 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us)
+  %40 = urem i32 %38, %.sroa.0.0.sroa.speculated.i23
+  %41 = sub nuw i32 %38, %40
+  %42 = and i32 %41, 511
+  %43 = tail call i32 @llvm.usub.sat.i32(i32 %41, i32 %42)
+  br label %.critedge.us
 
-45:                                               ; preds = %37, %34, %.lr.ph.split.us.split
-  %.sroa.04.1.us = phi i32 [ %40, %37 ], [ %.sroa.04.027.us, %34 ], [ %.sroa.04.027.us, %.lr.ph.split.us.split ]
-  %.sroa.05.1.us = phi i32 [ %44, %37 ], [ %.sroa.05.028.us, %34 ], [ %.sroa.05.028.us, %.lr.ph.split.us.split ]
-  %.sroa.010.1.us = phi i32 [ %38, %37 ], [ %.sroa.010.029.us, %34 ], [ %.sroa.010.029.us, %.lr.ph.split.us.split ]
-  %46 = icmp eq ptr %29, %6
-  br i1 %46, label %._crit_edge, label %.lr.ph.split.us.split
+.critedge.us:                                     ; preds = %36, %33, %.lr.ph.split.us.split
+  %.sroa.04.1.us = phi i32 [ %39, %36 ], [ %.sroa.04.027.us, %33 ], [ %.sroa.04.027.us, %.lr.ph.split.us.split ]
+  %.sroa.05.1.us = phi i32 [ %43, %36 ], [ %.sroa.05.028.us, %33 ], [ %.sroa.05.028.us, %.lr.ph.split.us.split ]
+  %.sroa.010.1.us = phi i32 [ %37, %36 ], [ %.sroa.010.029.us, %33 ], [ %.sroa.010.029.us, %.lr.ph.split.us.split ]
+  %44 = icmp eq ptr %28, %6
+  br i1 %44, label %.critedge._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.split.us, label %.lr.ph.split.split, !prof !6
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %59
-  %.sroa.014.030.us35 = phi ptr [ %47, %59 ], [ %1, %.lr.ph.split ]
-  %.sroa.010.029.us36 = phi i32 [ %.sroa.010.1.us46, %59 ], [ 0, %.lr.ph.split ]
-  %.sroa.05.028.us37 = phi i32 [ %.sroa.05.1.us45, %59 ], [ 0, %.lr.ph.split ]
-  %.sroa.04.027.us38 = phi i32 [ %.sroa.04.1.us44, %59 ], [ 0, %.lr.ph.split ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us35, i64 136
-  %48 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %49 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %50 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %51 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %.not.us39 = icmp ugt i32 %.sroa.010.029.us36, %51
-  br i1 %.not.us39, label %59, label %52
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us44
+  %.sroa.014.030.us35 = phi ptr [ %45, %.critedge.us44 ], [ %1, %.lr.ph.split ]
+  %.sroa.010.029.us36 = phi i32 [ %.sroa.010.1.us47, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %.sroa.05.028.us37 = phi i32 [ %.sroa.05.1.us46, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %.sroa.04.027.us38 = phi i32 [ %.sroa.04.1.us45, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us35, i64 136
+  %46 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %47 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %48 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %49 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %.not.us39 = icmp ugt i32 %.sroa.010.029.us36, %49
+  br i1 %.not.us39, label %.critedge.us44, label %50
 
-52:                                               ; preds = %.lr.ph.split.split.us
-  %.sroa.0.0.sroa.speculated.i.us40 = tail call noundef i32 @llvm.umax.i32(i32 %49, i32 %48)
-  %53 = tail call i32 @llvm.uadd.sat.i32(i32 %50, i32 %.sroa.0.0.sroa.speculated.i.us40)
-  %.not.i.us41 = icmp ule i32 %50, %0
-  %54 = icmp ult i32 %0, %53
-  %.sroa.06.0.i.us42 = and i1 %.not.i.us41, %54
-  br i1 %.sroa.06.0.i.us42, label %55, label %59
+50:                                               ; preds = %.lr.ph.split.split.us
+  %.sroa.0.0.sroa.speculated.i.us40 = tail call noundef i32 @llvm.umax.i32(i32 %47, i32 %46)
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %48, i32 %.sroa.0.0.sroa.speculated.i.us40)
+  %.not.i.us41 = icmp ule i32 %48, %0
+  %52 = icmp ult i32 %0, %51
+  %.sroa.06.0.i.us42 = and i1 %.not.i.us41, %52
+  br i1 %.sroa.06.0.i.us42, label %53, label %.critedge.us44
 
-55:                                               ; preds = %52
-  %56 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %57 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  %58 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
-  br label %59
+53:                                               ; preds = %50
+  %54 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %55 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  %56 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030.us35)
+  br label %.critedge.us44
 
-59:                                               ; preds = %55, %52, %.lr.ph.split.split.us
-  %.sroa.04.1.us44 = phi i32 [ %.sroa.04.027.us38, %52 ], [ %58, %55 ], [ %.sroa.04.027.us38, %.lr.ph.split.split.us ]
-  %.sroa.05.1.us45 = phi i32 [ %.sroa.05.028.us37, %52 ], [ %57, %55 ], [ %.sroa.05.028.us37, %.lr.ph.split.split.us ]
-  %.sroa.010.1.us46 = phi i32 [ %.sroa.010.029.us36, %52 ], [ %56, %55 ], [ %.sroa.010.029.us36, %.lr.ph.split.split.us ]
-  %60 = icmp eq ptr %47, %6
-  br i1 %60, label %._crit_edge, label %.lr.ph.split.split.us
+.critedge.us44:                                   ; preds = %53, %50, %.lr.ph.split.split.us
+  %.sroa.04.1.us45 = phi i32 [ %.sroa.04.027.us38, %50 ], [ %56, %53 ], [ %.sroa.04.027.us38, %.lr.ph.split.split.us ]
+  %.sroa.05.1.us46 = phi i32 [ %.sroa.05.028.us37, %50 ], [ %55, %53 ], [ %.sroa.05.028.us37, %.lr.ph.split.split.us ]
+  %.sroa.010.1.us47 = phi i32 [ %.sroa.010.029.us36, %50 ], [ %54, %53 ], [ %.sroa.010.029.us36, %.lr.ph.split.split.us ]
+  %57 = icmp eq ptr %45, %6
+  br i1 %57, label %.critedge._crit_edge, label %.lr.ph.split.split.us
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %69
-  %.sroa.014.030 = phi ptr [ %61, %69 ], [ %1, %.lr.ph.split ]
-  %.sroa.010.029 = phi i32 [ %.sroa.010.1, %69 ], [ 0, %.lr.ph.split ]
-  %.sroa.05.028 = phi i32 [ %.sroa.05.1, %69 ], [ 0, %.lr.ph.split ]
-  %.sroa.04.027 = phi i32 [ %.sroa.04.1, %69 ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.014.030, i64 136
-  %62 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %63 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %64 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %65 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %.not = icmp ugt i32 %.sroa.010.029, %65
-  br i1 %.not, label %69, label %66
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
+  %.sroa.014.030 = phi ptr [ %58, %.critedge ], [ %1, %.lr.ph.split ]
+  %.sroa.010.029 = phi i32 [ %.sroa.010.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %.sroa.05.028 = phi i32 [ %.sroa.05.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %.sroa.04.027 = phi i32 [ %.sroa.04.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.030, i64 136
+  %59 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h8d2793539b3bf4e9E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %60 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %61 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %62 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %.not = icmp ugt i32 %.sroa.010.029, %62
+  br i1 %.not, label %.critedge, label %63
 
-66:                                               ; preds = %.lr.ph.split.split
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %63, i32 %62)
-  %67 = tail call i32 @llvm.uadd.sat.i32(i32 %64, i32 %.sroa.0.0.sroa.speculated.i)
-  %.not.i = icmp ule i32 %64, %0
-  %68 = icmp ult i32 %0, %67
-  %.sroa.06.0.i = and i1 %.not.i, %68
-  br i1 %.sroa.06.0.i, label %71, label %69
+63:                                               ; preds = %.lr.ph.split.split
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %60, i32 %59)
+  %64 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.sroa.0.0.sroa.speculated.i)
+  %.not.i = icmp ule i32 %61, %0
+  %65 = icmp ult i32 %0, %64
+  %.sroa.06.0.i = and i1 %.not.i, %65
+  br i1 %.sroa.06.0.i, label %67, label %.critedge
 
-69:                                               ; preds = %71, %66, %.lr.ph.split.split
-  %.sroa.04.1 = phi i32 [ %.sroa.04.027, %66 ], [ %74, %71 ], [ %.sroa.04.027, %.lr.ph.split.split ]
-  %.sroa.05.1 = phi i32 [ %.sroa.05.028, %66 ], [ %76, %71 ], [ %.sroa.05.028, %.lr.ph.split.split ]
-  %.sroa.010.1 = phi i32 [ %.sroa.010.029, %66 ], [ %72, %71 ], [ %.sroa.010.029, %.lr.ph.split.split ]
-  %70 = icmp eq ptr %61, %6
-  br i1 %70, label %._crit_edge, label %.lr.ph.split.split
+.critedge:                                        ; preds = %67, %63, %.lr.ph.split.split
+  %.sroa.04.1 = phi i32 [ %.sroa.04.027, %63 ], [ %70, %67 ], [ %.sroa.04.027, %.lr.ph.split.split ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.028, %63 ], [ %72, %67 ], [ %.sroa.05.028, %.lr.ph.split.split ]
+  %.sroa.010.1 = phi i32 [ %.sroa.010.029, %63 ], [ %68, %67 ], [ %.sroa.010.029, %.lr.ph.split.split ]
+  %66 = icmp eq ptr %58, %6
+  br i1 %66, label %.critedge._crit_edge, label %.lr.ph.split.split
 
-71:                                               ; preds = %66
-  %72 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %73 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %74 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030)
-  %75 = urem i32 %73, %.sroa.0.0.sroa.speculated.i23
-  %76 = sub nuw i32 %73, %75
-  br label %69
+67:                                               ; preds = %63
+  %68 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17hf6ed8c293bbb8b47E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %69 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h86050f66e5564b30E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %70 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h95f6213a3e1f0406E"(ptr noundef nonnull align 8 %.sroa.014.030)
+  %71 = urem i32 %69, %.sroa.0.0.sroa.speculated.i23
+  %72 = sub nuw i32 %69, %71
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %69, %59, %45, %27
-  %.sroa.04.0.lcssa = phi i32 [ %.sroa.04.1.us.us, %27 ], [ %.sroa.04.1.us44, %59 ], [ %.sroa.04.1.us, %45 ], [ %.sroa.04.1, %69 ]
-  %.sroa.05.0.lcssa = phi i32 [ %.sroa.05.1.us.us, %27 ], [ %.sroa.05.1.us45, %59 ], [ %.sroa.05.1.us, %45 ], [ %.sroa.05.1, %69 ]
-  %.sroa.010.0.lcssa = phi i32 [ %.sroa.010.1.us.us, %27 ], [ %.sroa.010.1.us46, %59 ], [ %.sroa.010.1.us, %45 ], [ %.sroa.010.1, %69 ]
-  %77 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %.sroa.010.0.lcssa)
-  %.not20 = icmp ult i32 %77, %.sroa.04.0.lcssa
-  br i1 %.not20, label %78, label %._crit_edge.thread
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.us44, %.critedge.us, %.critedge.us.us
+  %.sroa.04.0.lcssa = phi i32 [ %.sroa.04.1.us.us, %.critedge.us.us ], [ %.sroa.04.1.us45, %.critedge.us44 ], [ %.sroa.04.1.us, %.critedge.us ], [ %.sroa.04.1, %.critedge ]
+  %.sroa.05.0.lcssa = phi i32 [ %.sroa.05.1.us.us, %.critedge.us.us ], [ %.sroa.05.1.us46, %.critedge.us44 ], [ %.sroa.05.1.us, %.critedge.us ], [ %.sroa.05.1, %.critedge ]
+  %.sroa.010.0.lcssa = phi i32 [ %.sroa.010.1.us.us, %.critedge.us.us ], [ %.sroa.010.1.us47, %.critedge.us44 ], [ %.sroa.010.1.us, %.critedge.us ], [ %.sroa.010.1, %.critedge ]
+  %73 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %.sroa.010.0.lcssa)
+  %.not20 = icmp ult i32 %73, %.sroa.04.0.lcssa
+  br i1 %.not20, label %74, label %.critedge._crit_edge.thread
 
-78:                                               ; preds = %._crit_edge
-  %79 = sub i32 %0, %.sroa.010.0.lcssa
-  %80 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.05.0.lcssa, i32 %79)
-  br label %._crit_edge.thread
+74:                                               ; preds = %.critedge._crit_edge
+  %75 = sub i32 %0, %.sroa.010.0.lcssa
+  %76 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.05.0.lcssa, i32 %75)
+  br label %.critedge._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit, %._crit_edge, %78
-  %.sroa.4.1 = phi i32 [ %80, %78 ], [ %0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit ], [ undef, %._crit_edge ], [ undef, %5 ]
-  %.sroa.0.1 = phi i32 [ 1, %78 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit ], [ 0, %._crit_edge ], [ 0, %5 ]
-  %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %82 = insertvalue { i32, i32 } %81, i32 %.sroa.4.1, 1
-  ret { i32, i32 } %82
+.critedge._crit_edge.thread:                      ; preds = %5, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit, %.critedge._crit_edge, %74
+  %.sroa.4.1 = phi i32 [ %76, %74 ], [ %0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit ], [ undef, %.critedge._crit_edge ], [ undef, %5 ]
+  %.sroa.0.1 = phi i32 [ 1, %74 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6d8666c08c1ab8d3E.exit ], [ 0, %.critedge._crit_edge ], [ 0, %5 ]
+  %77 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
+  %78 = insertvalue { i32, i32 } %77, i32 %.sroa.4.1, 1
+  ret { i32, i32 } %78
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i32, i32 } @_ZN6yara_x7modules2pe7rva2off13rva_to_offset17hc9670d4cdef00ecaE(i32 noundef %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.idx = shl nuw nsw i64 %2, 6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.not71 = icmp eq i64 %2, 0
-  br i1 %.not71, label %._crit_edge.thread, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit
+  %.not57 = icmp eq i64 %2, 0
+  br i1 %.not57, label %.critedge._crit_edge.thread, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit: ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1), !noalias !9196
   %9 = tail call noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c4aa2bac971cfcfE"(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %8)
   %10 = icmp ult i32 %0, %9
-  br i1 %10, label %._crit_edge.thread, label %.lr.ph
+  br i1 %10, label %.critedge._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit
   %11 = icmp eq i32 %3, 0
@@ -74079,18 +74127,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit: ; preds 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split, !prof !6
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %27
-  %.sroa.014.030.us.us = phi ptr [ %13, %27 ], [ %1, %.lr.ph.split.us ]
-  %.sroa.010.029.us.us = phi i32 [ %.sroa.010.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.05.028.us.us = phi i32 [ %.sroa.05.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.04.027.us.us = phi i32 [ %.sroa.04.1.us.us, %27 ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge.us.us
+  %.sroa.014.030.us.us = phi ptr [ %13, %.critedge.us.us ], [ %1, %.lr.ph.split.us ]
+  %.sroa.010.029.us.us = phi i32 [ %.sroa.010.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.05.028.us.us = phi i32 [ %.sroa.05.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.04.027.us.us = phi i32 [ %.sroa.04.1.us.us, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us.us, i64 64
   %14 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
   %15 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
   %16 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
   %17 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
   %.not.us.us = icmp ugt i32 %.sroa.010.029.us.us, %17
-  br i1 %.not.us.us, label %27, label %18
+  br i1 %.not.us.us, label %.critedge.us.us, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.split.us
   %.sroa.0.0.sroa.speculated.i.us.us = tail call noundef i32 @llvm.umax.i32(i32 %15, i32 %14)
@@ -74098,7 +74146,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit: ; preds 
   %.not.i.us.us = icmp ule i32 %16, %0
   %20 = icmp ult i32 %0, %19
   %.sroa.06.0.i.us.us = and i1 %.not.i.us.us, %20
-  br i1 %.sroa.06.0.i.us.us, label %21, label %27
+  br i1 %.sroa.06.0.i.us.us, label %21, label %.critedge.us.us
 
 21:                                               ; preds = %18
   %22 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
@@ -74106,145 +74154,145 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit: ; preds 
   %24 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us.us)
   %25 = and i32 %23, 511
   %26 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 %25)
-  br label %27
+  br label %.critedge.us.us
 
-27:                                               ; preds = %21, %18, %.lr.ph.split.us.split.us
+.critedge.us.us:                                  ; preds = %21, %18, %.lr.ph.split.us.split.us
   %.sroa.04.1.us.us = phi i32 [ %24, %21 ], [ %.sroa.04.027.us.us, %18 ], [ %.sroa.04.027.us.us, %.lr.ph.split.us.split.us ]
   %.sroa.05.1.us.us = phi i32 [ %26, %21 ], [ %.sroa.05.028.us.us, %18 ], [ %.sroa.05.028.us.us, %.lr.ph.split.us.split.us ]
   %.sroa.010.1.us.us = phi i32 [ %22, %21 ], [ %.sroa.010.029.us.us, %18 ], [ %.sroa.010.029.us.us, %.lr.ph.split.us.split.us ]
-  %28 = icmp eq ptr %13, %6
-  br i1 %28, label %._crit_edge, label %.lr.ph.split.us.split.us
+  %27 = icmp eq ptr %13, %6
+  br i1 %27, label %.critedge._crit_edge, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %45
-  %.sroa.014.030.us = phi ptr [ %29, %45 ], [ %1, %.lr.ph.split.us ]
-  %.sroa.010.029.us = phi i32 [ %.sroa.010.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.05.028.us = phi i32 [ %.sroa.05.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %.sroa.04.027.us = phi i32 [ %.sroa.04.1.us, %45 ], [ 0, %.lr.ph.split.us ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us, i64 64
-  %30 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %31 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
+  %.sroa.014.030.us = phi ptr [ %28, %.critedge.us ], [ %1, %.lr.ph.split.us ]
+  %.sroa.010.029.us = phi i32 [ %.sroa.010.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.05.028.us = phi i32 [ %.sroa.05.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %.sroa.04.027.us = phi i32 [ %.sroa.04.1.us, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us, i64 64
+  %29 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+  %30 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+  %31 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
   %32 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %33 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %.not.us = icmp ugt i32 %.sroa.010.029.us, %33
-  br i1 %.not.us, label %45, label %34
+  %.not.us = icmp ugt i32 %.sroa.010.029.us, %32
+  br i1 %.not.us, label %.critedge.us, label %33
 
-34:                                               ; preds = %.lr.ph.split.us.split
-  %.sroa.0.0.sroa.speculated.i.us = tail call noundef i32 @llvm.umax.i32(i32 %31, i32 %30)
-  %35 = tail call i32 @llvm.uadd.sat.i32(i32 %32, i32 %.sroa.0.0.sroa.speculated.i.us)
-  %.not.i.us = icmp ule i32 %32, %0
-  %36 = icmp ult i32 %0, %35
-  %.sroa.06.0.i.us = and i1 %.not.i.us, %36
-  br i1 %.sroa.06.0.i.us, label %37, label %45
+33:                                               ; preds = %.lr.ph.split.us.split
+  %.sroa.0.0.sroa.speculated.i.us = tail call noundef i32 @llvm.umax.i32(i32 %30, i32 %29)
+  %34 = tail call i32 @llvm.uadd.sat.i32(i32 %31, i32 %.sroa.0.0.sroa.speculated.i.us)
+  %.not.i.us = icmp ule i32 %31, %0
+  %35 = icmp ult i32 %0, %34
+  %.sroa.06.0.i.us = and i1 %.not.i.us, %35
+  br i1 %.sroa.06.0.i.us, label %36, label %.critedge.us
 
-37:                                               ; preds = %34
-  %38 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %39 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %40 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
-  %41 = urem i32 %39, %.sroa.0.0.sroa.speculated.i23
-  %42 = sub nuw i32 %39, %41
-  %43 = and i32 %42, 511
-  %44 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 %43)
-  br label %45
+36:                                               ; preds = %33
+  %37 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+  %38 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+  %39 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us)
+  %40 = urem i32 %38, %.sroa.0.0.sroa.speculated.i23
+  %41 = sub nuw i32 %38, %40
+  %42 = and i32 %41, 511
+  %43 = tail call i32 @llvm.usub.sat.i32(i32 %41, i32 %42)
+  br label %.critedge.us
 
-45:                                               ; preds = %37, %34, %.lr.ph.split.us.split
-  %.sroa.04.1.us = phi i32 [ %40, %37 ], [ %.sroa.04.027.us, %34 ], [ %.sroa.04.027.us, %.lr.ph.split.us.split ]
-  %.sroa.05.1.us = phi i32 [ %44, %37 ], [ %.sroa.05.028.us, %34 ], [ %.sroa.05.028.us, %.lr.ph.split.us.split ]
-  %.sroa.010.1.us = phi i32 [ %38, %37 ], [ %.sroa.010.029.us, %34 ], [ %.sroa.010.029.us, %.lr.ph.split.us.split ]
-  %46 = icmp eq ptr %29, %6
-  br i1 %46, label %._crit_edge, label %.lr.ph.split.us.split
+.critedge.us:                                     ; preds = %36, %33, %.lr.ph.split.us.split
+  %.sroa.04.1.us = phi i32 [ %39, %36 ], [ %.sroa.04.027.us, %33 ], [ %.sroa.04.027.us, %.lr.ph.split.us.split ]
+  %.sroa.05.1.us = phi i32 [ %43, %36 ], [ %.sroa.05.028.us, %33 ], [ %.sroa.05.028.us, %.lr.ph.split.us.split ]
+  %.sroa.010.1.us = phi i32 [ %37, %36 ], [ %.sroa.010.029.us, %33 ], [ %.sroa.010.029.us, %.lr.ph.split.us.split ]
+  %44 = icmp eq ptr %28, %6
+  br i1 %44, label %.critedge._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.split.us, label %.lr.ph.split.split, !prof !6
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %59
-  %.sroa.014.030.us35 = phi ptr [ %47, %59 ], [ %1, %.lr.ph.split ]
-  %.sroa.010.029.us36 = phi i32 [ %.sroa.010.1.us46, %59 ], [ 0, %.lr.ph.split ]
-  %.sroa.05.028.us37 = phi i32 [ %.sroa.05.1.us45, %59 ], [ 0, %.lr.ph.split ]
-  %.sroa.04.027.us38 = phi i32 [ %.sroa.04.1.us44, %59 ], [ 0, %.lr.ph.split ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us35, i64 64
-  %48 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %49 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %50 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %51 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %.not.us39 = icmp ugt i32 %.sroa.010.029.us36, %51
-  br i1 %.not.us39, label %59, label %52
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us44
+  %.sroa.014.030.us35 = phi ptr [ %45, %.critedge.us44 ], [ %1, %.lr.ph.split ]
+  %.sroa.010.029.us36 = phi i32 [ %.sroa.010.1.us47, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %.sroa.05.028.us37 = phi i32 [ %.sroa.05.1.us46, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %.sroa.04.027.us38 = phi i32 [ %.sroa.04.1.us45, %.critedge.us44 ], [ 0, %.lr.ph.split ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.030.us35, i64 64
+  %46 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %47 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %48 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %49 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %.not.us39 = icmp ugt i32 %.sroa.010.029.us36, %49
+  br i1 %.not.us39, label %.critedge.us44, label %50
 
-52:                                               ; preds = %.lr.ph.split.split.us
-  %.sroa.0.0.sroa.speculated.i.us40 = tail call noundef i32 @llvm.umax.i32(i32 %49, i32 %48)
-  %53 = tail call i32 @llvm.uadd.sat.i32(i32 %50, i32 %.sroa.0.0.sroa.speculated.i.us40)
-  %.not.i.us41 = icmp ule i32 %50, %0
-  %54 = icmp ult i32 %0, %53
-  %.sroa.06.0.i.us42 = and i1 %.not.i.us41, %54
-  br i1 %.sroa.06.0.i.us42, label %55, label %59
+50:                                               ; preds = %.lr.ph.split.split.us
+  %.sroa.0.0.sroa.speculated.i.us40 = tail call noundef i32 @llvm.umax.i32(i32 %47, i32 %46)
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %48, i32 %.sroa.0.0.sroa.speculated.i.us40)
+  %.not.i.us41 = icmp ule i32 %48, %0
+  %52 = icmp ult i32 %0, %51
+  %.sroa.06.0.i.us42 = and i1 %.not.i.us41, %52
+  br i1 %.sroa.06.0.i.us42, label %53, label %.critedge.us44
 
-55:                                               ; preds = %52
-  %56 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %57 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  %58 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
-  br label %59
+53:                                               ; preds = %50
+  %54 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %55 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  %56 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030.us35)
+  br label %.critedge.us44
 
-59:                                               ; preds = %55, %52, %.lr.ph.split.split.us
-  %.sroa.04.1.us44 = phi i32 [ %.sroa.04.027.us38, %52 ], [ %58, %55 ], [ %.sroa.04.027.us38, %.lr.ph.split.split.us ]
-  %.sroa.05.1.us45 = phi i32 [ %.sroa.05.028.us37, %52 ], [ %57, %55 ], [ %.sroa.05.028.us37, %.lr.ph.split.split.us ]
-  %.sroa.010.1.us46 = phi i32 [ %.sroa.010.029.us36, %52 ], [ %56, %55 ], [ %.sroa.010.029.us36, %.lr.ph.split.split.us ]
-  %60 = icmp eq ptr %47, %6
-  br i1 %60, label %._crit_edge, label %.lr.ph.split.split.us
+.critedge.us44:                                   ; preds = %53, %50, %.lr.ph.split.split.us
+  %.sroa.04.1.us45 = phi i32 [ %.sroa.04.027.us38, %50 ], [ %56, %53 ], [ %.sroa.04.027.us38, %.lr.ph.split.split.us ]
+  %.sroa.05.1.us46 = phi i32 [ %.sroa.05.028.us37, %50 ], [ %55, %53 ], [ %.sroa.05.028.us37, %.lr.ph.split.split.us ]
+  %.sroa.010.1.us47 = phi i32 [ %.sroa.010.029.us36, %50 ], [ %54, %53 ], [ %.sroa.010.029.us36, %.lr.ph.split.split.us ]
+  %57 = icmp eq ptr %45, %6
+  br i1 %57, label %.critedge._crit_edge, label %.lr.ph.split.split.us
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %69
-  %.sroa.014.030 = phi ptr [ %61, %69 ], [ %1, %.lr.ph.split ]
-  %.sroa.010.029 = phi i32 [ %.sroa.010.1, %69 ], [ 0, %.lr.ph.split ]
-  %.sroa.05.028 = phi i32 [ %.sroa.05.1, %69 ], [ 0, %.lr.ph.split ]
-  %.sroa.04.027 = phi i32 [ %.sroa.04.1, %69 ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.014.030, i64 64
-  %62 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %63 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %64 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %65 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %.not = icmp ugt i32 %.sroa.010.029, %65
-  br i1 %.not, label %69, label %66
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
+  %.sroa.014.030 = phi ptr [ %58, %.critedge ], [ %1, %.lr.ph.split ]
+  %.sroa.010.029 = phi i32 [ %.sroa.010.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %.sroa.05.028 = phi i32 [ %.sroa.05.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %.sroa.04.027 = phi i32 [ %.sroa.04.1, %.critedge ], [ 0, %.lr.ph.split ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.030, i64 64
+  %59 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$12virtual_size17h1f6b56bbb354109cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %60 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %61 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %62 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %.not = icmp ugt i32 %.sroa.010.029, %62
+  br i1 %.not, label %.critedge, label %63
 
-66:                                               ; preds = %.lr.ph.split.split
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %63, i32 %62)
-  %67 = tail call i32 @llvm.uadd.sat.i32(i32 %64, i32 %.sroa.0.0.sroa.speculated.i)
-  %.not.i = icmp ule i32 %64, %0
-  %68 = icmp ult i32 %0, %67
-  %.sroa.06.0.i = and i1 %.not.i, %68
-  br i1 %.sroa.06.0.i, label %71, label %69
+63:                                               ; preds = %.lr.ph.split.split
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %60, i32 %59)
+  %64 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.sroa.0.0.sroa.speculated.i)
+  %.not.i = icmp ule i32 %61, %0
+  %65 = icmp ult i32 %0, %64
+  %.sroa.06.0.i = and i1 %.not.i, %65
+  br i1 %.sroa.06.0.i, label %67, label %.critedge
 
-69:                                               ; preds = %71, %66, %.lr.ph.split.split
-  %.sroa.04.1 = phi i32 [ %.sroa.04.027, %66 ], [ %74, %71 ], [ %.sroa.04.027, %.lr.ph.split.split ]
-  %.sroa.05.1 = phi i32 [ %.sroa.05.028, %66 ], [ %76, %71 ], [ %.sroa.05.028, %.lr.ph.split.split ]
-  %.sroa.010.1 = phi i32 [ %.sroa.010.029, %66 ], [ %72, %71 ], [ %.sroa.010.029, %.lr.ph.split.split ]
-  %70 = icmp eq ptr %61, %6
-  br i1 %70, label %._crit_edge, label %.lr.ph.split.split
+.critedge:                                        ; preds = %67, %63, %.lr.ph.split.split
+  %.sroa.04.1 = phi i32 [ %.sroa.04.027, %63 ], [ %70, %67 ], [ %.sroa.04.027, %.lr.ph.split.split ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.028, %63 ], [ %72, %67 ], [ %.sroa.05.028, %.lr.ph.split.split ]
+  %.sroa.010.1 = phi i32 [ %.sroa.010.029, %63 ], [ %68, %67 ], [ %.sroa.010.029, %.lr.ph.split.split ]
+  %66 = icmp eq ptr %58, %6
+  br i1 %66, label %.critedge._crit_edge, label %.lr.ph.split.split
 
-71:                                               ; preds = %66
-  %72 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %73 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %74 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
-  %75 = urem i32 %73, %.sroa.0.0.sroa.speculated.i23
-  %76 = sub nuw i32 %73, %75
-  br label %69
+67:                                               ; preds = %63
+  %68 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15virtual_address17h6a7437a454fbbaf8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %69 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$15raw_data_offset17h3ae06b5bea9d1fc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %70 = tail call noundef i32 @"_ZN94_$LT$yara_x..modules..pe..parser..Section$u20$as$u20$yara_x..modules..pe..rva2off..Section$GT$13raw_data_size17h07005d5c31021948E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.014.030)
+  %71 = urem i32 %69, %.sroa.0.0.sroa.speculated.i23
+  %72 = sub nuw i32 %69, %71
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %69, %59, %45, %27
-  %.sroa.04.0.lcssa = phi i32 [ %.sroa.04.1.us.us, %27 ], [ %.sroa.04.1.us44, %59 ], [ %.sroa.04.1.us, %45 ], [ %.sroa.04.1, %69 ]
-  %.sroa.05.0.lcssa = phi i32 [ %.sroa.05.1.us.us, %27 ], [ %.sroa.05.1.us45, %59 ], [ %.sroa.05.1.us, %45 ], [ %.sroa.05.1, %69 ]
-  %.sroa.010.0.lcssa = phi i32 [ %.sroa.010.1.us.us, %27 ], [ %.sroa.010.1.us46, %59 ], [ %.sroa.010.1.us, %45 ], [ %.sroa.010.1, %69 ]
-  %77 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %.sroa.010.0.lcssa)
-  %.not20 = icmp ult i32 %77, %.sroa.04.0.lcssa
-  br i1 %.not20, label %78, label %._crit_edge.thread
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.us44, %.critedge.us, %.critedge.us.us
+  %.sroa.04.0.lcssa = phi i32 [ %.sroa.04.1.us.us, %.critedge.us.us ], [ %.sroa.04.1.us45, %.critedge.us44 ], [ %.sroa.04.1.us, %.critedge.us ], [ %.sroa.04.1, %.critedge ]
+  %.sroa.05.0.lcssa = phi i32 [ %.sroa.05.1.us.us, %.critedge.us.us ], [ %.sroa.05.1.us46, %.critedge.us44 ], [ %.sroa.05.1.us, %.critedge.us ], [ %.sroa.05.1, %.critedge ]
+  %.sroa.010.0.lcssa = phi i32 [ %.sroa.010.1.us.us, %.critedge.us.us ], [ %.sroa.010.1.us47, %.critedge.us44 ], [ %.sroa.010.1.us, %.critedge.us ], [ %.sroa.010.1, %.critedge ]
+  %73 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %.sroa.010.0.lcssa)
+  %.not20 = icmp ult i32 %73, %.sroa.04.0.lcssa
+  br i1 %.not20, label %74, label %.critedge._crit_edge.thread
 
-78:                                               ; preds = %._crit_edge
-  %79 = sub i32 %0, %.sroa.010.0.lcssa
-  %80 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.05.0.lcssa, i32 %79)
-  br label %._crit_edge.thread
+74:                                               ; preds = %.critedge._crit_edge
+  %75 = sub i32 %0, %.sroa.010.0.lcssa
+  %76 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.05.0.lcssa, i32 %75)
+  br label %.critedge._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit, %._crit_edge, %78
-  %.sroa.4.1 = phi i32 [ %80, %78 ], [ %0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit ], [ undef, %._crit_edge ], [ undef, %5 ]
-  %.sroa.0.1 = phi i32 [ 1, %78 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit ], [ 0, %._crit_edge ], [ 0, %5 ]
-  %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %82 = insertvalue { i32, i32 } %81, i32 %.sroa.4.1, 1
-  ret { i32, i32 } %82
+.critedge._crit_edge.thread:                      ; preds = %5, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit, %.critedge._crit_edge, %74
+  %.sroa.4.1 = phi i32 [ %76, %74 ], [ %0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit ], [ undef, %.critedge._crit_edge ], [ undef, %5 ]
+  %.sroa.0.1 = phi i32 [ 1, %74 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4671d09a6d74ba61E.exit ], [ 0, %.critedge._crit_edge ], [ 0, %5 ]
+  %77 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
+  %78 = insertvalue { i32, i32 } %77, i32 %.sroa.4.1, 1
+  ret { i32, i32 } %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -88685,14 +88733,14 @@ define noundef i64 @_ZN6yara_x7modules6cuckoo19network_http_post_r17h5c4bc87f53c
   %30 = load i8, ptr %.sroa.01.0.i.i.i.i.i, align 1, !alias.scope !11184, !noalias !11189, !noundef !4
   %31 = add i8 %30, -65
   %32 = icmp ult i8 %31, 26
-  %.sroa.04.0.i.i.i.i.i = select i1 %32, i8 32, i8 0
-  %33 = or i8 %.sroa.04.0.i.i.i.i.i, %30
+  %33 = select i1 %32, i8 32, i8 0
+  %.sroa.04.0.i.i.i.i.i = or i8 %33, %30
   %34 = load i8, ptr %.sroa.02.0.i.i.i.i.i, align 1, !alias.scope !11187, !noalias !11190, !noundef !4
   %35 = add i8 %34, -65
   %36 = icmp ult i8 %35, 26
-  %.sroa.05.0.i.i.i.i.i = select i1 %36, i8 32, i8 0
-  %37 = or i8 %.sroa.05.0.i.i.i.i.i, %34
-  %38 = icmp eq i8 %33, %37
+  %37 = select i1 %36, i8 32, i8 0
+  %.sroa.05.0.i.i.i.i.i = or i8 %37, %34
+  %38 = icmp eq i8 %.sroa.04.0.i.i.i.i.i, %.sroa.05.0.i.i.i.i.i
   br i1 %38, label %.preheader.i.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1d4f68cf12310a4E.exit.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.i.i.i.i": ; preds = %.preheader.i.i.i.i.i
@@ -88837,14 +88885,14 @@ define noundef i64 @_ZN6yara_x7modules6cuckoo18network_http_get_r17ha85308db3a74
   %30 = load i8, ptr %.sroa.01.0.i.i.i.i.i, align 1, !alias.scope !11217, !noalias !11222, !noundef !4
   %31 = add i8 %30, -65
   %32 = icmp ult i8 %31, 26
-  %.sroa.04.0.i.i.i.i.i = select i1 %32, i8 32, i8 0
-  %33 = or i8 %.sroa.04.0.i.i.i.i.i, %30
+  %33 = select i1 %32, i8 32, i8 0
+  %.sroa.04.0.i.i.i.i.i = or i8 %33, %30
   %34 = load i8, ptr %.sroa.02.0.i.i.i.i.i, align 1, !alias.scope !11220, !noalias !11223, !noundef !4
   %35 = add i8 %34, -65
   %36 = icmp ult i8 %35, 26
-  %.sroa.05.0.i.i.i.i.i = select i1 %36, i8 32, i8 0
-  %37 = or i8 %.sroa.05.0.i.i.i.i.i, %34
-  %38 = icmp eq i8 %33, %37
+  %37 = select i1 %36, i8 32, i8 0
+  %.sroa.05.0.i.i.i.i.i = or i8 %37, %34
+  %38 = icmp eq i8 %.sroa.04.0.i.i.i.i.i, %.sroa.05.0.i.i.i.i.i
   br i1 %38, label %.preheader.i.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d51a4b5f43e35c0E.exit.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.i.i.i.i": ; preds = %.preheader.i.i.i.i.i

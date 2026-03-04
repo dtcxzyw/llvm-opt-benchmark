@@ -1399,20 +1399,20 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
           cleanup
   br label %147
 
-74:                                               ; preds = %99
+74:                                               ; preds = %101
   %75 = icmp samesign ult i32 %spec.select, 17
   br i1 %75, label %108, label %.loopexit
 
-76:                                               ; preds = %.preheader138, %99
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %99 ], [ 0, %.preheader138 ]
-  %.075103 = phi i32 [ %spec.select, %99 ], [ 0, %.preheader138 ]
+76:                                               ; preds = %.preheader138, %101
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %101 ], [ 0, %.preheader138 ]
+  %.075103 = phi i32 [ %spec.select, %101 ], [ 0, %.preheader138 ]
   %77 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv122
   %78 = load i32, ptr %77, align 4, !tbaa !96
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 31
   %81 = and i32 %78, 2031616
   %.not84 = icmp eq i32 %81, 0
-  br i1 %.not84, label %99, label %82
+  br i1 %.not84, label %101, label %82
 
 82:                                               ; preds = %76
   %83 = and i32 %79, 7
@@ -1454,20 +1454,20 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 ._crit_edge:                                      ; preds = %.lr.ph, %94
   %.3.lcssa = phi i16 [ %.269, %94 ], [ %96, %.lr.ph ]
-  %98 = zext i16 %.3.lcssa to i32
-  br label %99
+  %98 = trunc i32 %78 to i16
+  %99 = and i16 %.3.lcssa, %98
+  %100 = zext i16 %99 to i64
+  br label %101
 
-99:                                               ; preds = %._crit_edge, %76
-  %.067 = phi i32 [ %98, %._crit_edge ], [ 0, %76 ]
+101:                                              ; preds = %._crit_edge, %76
+  %.067 = phi i64 [ %100, %._crit_edge ], [ 0, %76 ]
   %spec.select = call i32 @llvm.umax.i32(i32 %.075103, i32 %80)
-  %100 = sub nuw nsw i32 64, %80
-  %101 = zext nneg i32 %100 to i64
-  %102 = shl i64 65535, %101
-  %103 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv122
-  store i64 %102, ptr %103, align 8, !tbaa !28
-  %104 = and i32 %78, %.067
-  %105 = zext nneg i32 %104 to i64
-  %106 = shl i64 %105, %101
+  %102 = sub nuw nsw i32 64, %80
+  %103 = zext nneg i32 %102 to i64
+  %104 = shl i64 65535, %103
+  %105 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv122
+  store i64 %104, ptr %105, align 8, !tbaa !28
+  %106 = shl i64 %.067, %103
   %107 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv122
   store i64 %106, ptr %107, align 8, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1

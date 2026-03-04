@@ -25046,9 +25046,9 @@ define void @_ZN13deltalake_aws18DynamoDbLockClient7try_new17h2ab282d814c1ef9dE(
   %135 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !5110, !noalias !5113, !noundef !4
   %136 = add i8 %135, -97
   %137 = icmp ult i8 %136, 26
-  %.0.i.i = select i1 %137, i8 32, i8 0
-  %138 = xor i8 %.0.i.i, %135
-  store i8 %138, ptr %.sroa.0.06.i.i, align 1, !alias.scope !5110, !noalias !5113
+  %138 = select i1 %137, i8 32, i8 0
+  %.0.i.i = xor i8 %138, %135
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !5110, !noalias !5113
   %139 = icmp eq ptr %134, %132
   br i1 %139, label %.loopexit, label %.lr.ph.i.i
 

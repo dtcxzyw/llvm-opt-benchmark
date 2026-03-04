@@ -3716,8 +3716,8 @@ define hidden void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$9build_ast1
   %.sroa.6100.0.copyload.i.i = load i64, ptr %.sroa.6100.0..sroa_idx.i.i, align 8, !noalias !183
   %.sroa.7101.0.copyload.i.i = load i32, ptr %.sroa.7101.0..sroa_idx.i.i, align 8, !noalias !183
   %.sroa.8102.0.copyload.i.i = load i32, ptr %.sroa.8102.0..sroa_idx.i.i, align 4, !noalias !183
-  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !183
   %605 = mul i64 %.sroa.6100.0.copyload.i.i, %.sroa.038.0.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !183
   store i64 %605, ptr %141, align 8, !noalias !183
   store i32 %.sroa.7101.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i157, align 8, !noalias !183
   store i32 %.sroa.8102.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i158, align 4, !noalias !183

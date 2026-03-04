@@ -3156,6 +3156,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory21NoMoreValuesException
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %13, ptr %17, align 8, !tbaa !99, !alias.scope !94
+  store ptr %10, ptr %7, align 8, !tbaa !97
   store i64 0, ptr %16, align 8, !tbaa !99
   store i8 0, ptr %10, align 8, !tbaa !100
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

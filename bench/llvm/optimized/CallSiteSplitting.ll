@@ -384,7 +384,7 @@ define dso_local void @_ZN4llvm21CallSiteSplittingPass3runERNS_8FunctionERNS_15A
 _ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit.thread: ; preds = %4
   call void @_ZN4llvm14DomTreeUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %27) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %1215
+  br label %1214
 
 .lr.ph132.i:                                      ; preds = %4
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1407,29 +1407,29 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %477 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %474) #15, !noalias !175
   %478 = extractvalue { ptr, ptr } %477, 0
   %479 = extractvalue { ptr, ptr } %477, 1
-  %.not61.i.i.i.i = icmp eq ptr %478, %479
-  br i1 %.not61.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph60.i.i.i.i
+  %.not60.i.i.i.i = icmp eq ptr %478, %479
+  br i1 %.not60.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph59.i.i.i.i
 
-.lr.ph60.i.i.i.i:                                 ; preds = %476, %._crit_edge.i.i.i.i
-  %.sroa.039.058.i.i.i.i = phi ptr [ %spec.select.i.i.i1.i.i.i.i.i, %._crit_edge.i.i.i.i ], [ %478, %476 ]
+.lr.ph59.i.i.i.i:                                 ; preds = %476, %._crit_edge.i.i.i.i
+  %.sroa.039.057.i.i.i.i = phi ptr [ %spec.select.i.i.i1.i.i.i.i.i, %._crit_edge.i.i.i.i ], [ %478, %476 ]
   %480 = load i32, ptr %170, align 4, !noalias !175
   %481 = and i32 %480, 134217727
   %482 = zext nneg i32 %481 to i64
   %483 = sub nsw i64 0, %482
   %484 = getelementptr inbounds %"class.llvm::Use", ptr %130, i64 %483
   %485 = call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %130), !noalias !175
-  %.not3356.i.i.i.i = icmp eq ptr %484, %485
-  br i1 %.not3356.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i19.i.i
+  %.not3355.i.i.i.i = icmp eq ptr %484, %485
+  br i1 %.not3355.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i19.i.i
 
-.lr.ph.i.i19.i.i:                                 ; preds = %.lr.ph60.i.i.i.i
-  %486 = getelementptr inbounds i8, ptr %.sroa.039.058.i.i.i.i, i64 -8
-  %487 = getelementptr inbounds nuw i8, ptr %.sroa.039.058.i.i.i.i, i64 72
+.lr.ph.i.i19.i.i:                                 ; preds = %.lr.ph59.i.i.i.i
+  %486 = getelementptr inbounds i8, ptr %.sroa.039.057.i.i.i.i, i64 -8
+  %487 = getelementptr inbounds nuw i8, ptr %.sroa.039.057.i.i.i.i, i64 72
   br label %488
 
 488:                                              ; preds = %.critedge.i.i20.i.i, %.lr.ph.i.i19.i.i
-  %.03057.i.i.i.i = phi ptr [ %484, %.lr.ph.i.i19.i.i ], [ %509, %.critedge.i.i20.i.i ]
-  %489 = load ptr, ptr %.03057.i.i.i.i, align 8, !tbaa !83, !noalias !175
-  %.not34.i.i.i.i = icmp eq ptr %489, %.sroa.039.058.i.i.i.i
+  %.03056.i.i.i.i = phi ptr [ %484, %.lr.ph.i.i19.i.i ], [ %509, %.critedge.i.i20.i.i ]
+  %489 = load ptr, ptr %.03056.i.i.i.i, align 8, !tbaa !83, !noalias !175
+  %.not34.i.i.i.i = icmp eq ptr %489, %.sroa.039.057.i.i.i.i
   br i1 %.not34.i.i.i.i, label %490, label %.critedge.i.i20.i.i
 
 490:                                              ; preds = %488
@@ -1440,8 +1440,8 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %495 = load ptr, ptr %494, align 8, !tbaa !117, !noalias !175
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %497 = load ptr, ptr %496, align 8, !tbaa !117, !noalias !175
-  %.not73.i.i.i.i = icmp eq ptr %495, %497
-  br i1 %.not73.i.i.i.i, label %.loopexit.i.i.i, label %498
+  %.not72.i.i.i.i = icmp eq ptr %495, %497
+  br i1 %.not72.i.i.i.i, label %.loopexit.i.i.i, label %498
 
 498:                                              ; preds = %490
   %499 = load ptr, ptr %491, align 8, !tbaa !83, !noalias !175
@@ -1461,19 +1461,19 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   br i1 %508, label %_ZNSt4pairIPN4llvm10BasicBlockENS0_11SmallVectorIS_IPNS0_8ICmpInstEjELj2EEEEC2IS2_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS2_RKS7_.exit13.i.i.i, label %.critedge.i.i20.i.i
 
 .critedge.i.i20.i.i:                              ; preds = %506, %503, %498, %488
-  %509 = getelementptr inbounds nuw i8, ptr %.03057.i.i.i.i, i64 32
+  %509 = getelementptr inbounds nuw i8, ptr %.03056.i.i.i.i, i64 32
   %.not33.i.i.i.i = icmp eq ptr %509, %485
   br i1 %.not33.i.i.i.i, label %._crit_edge.i.i.i.i, label %488
 
-._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i20.i.i, %.lr.ph60.i.i.i.i
-  %510 = getelementptr inbounds nuw i8, ptr %.sroa.039.058.i.i.i.i, i64 32
+._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i20.i.i, %.lr.ph59.i.i.i.i
+  %510 = getelementptr inbounds nuw i8, ptr %.sroa.039.057.i.i.i.i, i64 32
   %511 = load ptr, ptr %510, align 8, !tbaa !82, !noalias !175
   %512 = getelementptr inbounds i8, ptr %511, i64 -24
   %513 = load i8, ptr %512, align 8, !tbaa !78, !noalias !175
   %514 = icmp eq i8 %513, 84
   %spec.select.i.i.i1.i.i.i.i.i = select i1 %514, ptr %512, ptr null
-  %.not62.i.i.i.i = icmp eq ptr %spec.select.i.i.i1.i.i.i.i.i, %479
-  br i1 %.not62.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph60.i.i.i.i
+  %.not61.i.i.i.i = icmp eq ptr %spec.select.i.i.i1.i.i.i.i.i, %479
+  br i1 %.not61.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph59.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %._crit_edge.i.i.i.i, %490, %476, %473
   store ptr %95, ptr %26, align 8, !tbaa !25, !alias.scope !175
@@ -3118,7 +3118,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_I
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.i79.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.i79.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i77.i.i, %1201, %570
-  %.191.i.i = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i77.i.i ], [ true, %1201 ], [ false, %570 ]
+  %.191.i.i = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i77.i.i ], [ true, %1201 ], [ %.1126.i, %570 ]
   %1211 = phi ptr [ %.pre.i78.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i77.i.i ], [ %1202, %1201 ], [ %.pre170.i.i, %570 ]
   %1212 = icmp eq ptr %1211, %76
   br i1 %1212, label %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEELj2EED2Ev.exit80.i.i, label %1213
@@ -3132,76 +3132,75 @@ _ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEEL
   br label %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i
 
 _ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i: ; preds = %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEELj2EED2Ev.exit80.i.i, %_ZL16canSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoE.exit.i.i, %_ZNK4llvm8CallBase15cannotDuplicateEv.exit.i.i.i, %184, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i, %180, %167
-  %.0.i.i = phi i1 [ %.191.i.i, %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEELj2EED2Ev.exit80.i.i ], [ false, %_ZL16canSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoE.exit.i.i ], [ false, %167 ], [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i ], [ false, %_ZNK4llvm8CallBase15cannotDuplicateEv.exit.i.i.i ], [ false, %184 ], [ false, %180 ]
-  %1214 = or i1 %.1126.i, %.0.i.i
+  %.0.i.i = phi i1 [ %.191.i.i, %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS0_IS1_IPNS_8ICmpInstEjELj2EEEELj2EED2Ev.exit80.i.i ], [ %.1126.i, %_ZL16canSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoE.exit.i.i ], [ %.1126.i, %167 ], [ %.1126.i, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i ], [ %.1126.i, %_ZNK4llvm8CallBase15cannotDuplicateEv.exit.i.i.i ], [ %.1126.i, %184 ], [ %.1126.i, %180 ]
   br i1 %168, label %.critedge.i, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i: ; preds = %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %158, %155, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.thread.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.thread.i
-  %.3.i = phi i1 [ %.1126.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.thread.i ], [ %.1126.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.thread.i ], [ %.1126.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.i ], [ %1214, %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i ], [ %.1126.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ %.1126.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ %.1126.i, %155 ], [ %.1126.i, %158 ]
+  %.3.i = phi i1 [ %.1126.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.thread.i ], [ %.1126.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.thread.i ], [ %.1126.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.i ], [ %.0.i.i, %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i ], [ %.1126.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ %.1126.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ %.1126.i, %155 ], [ %.1126.i, %158 ]
   %.not76.i = icmp eq ptr %138, %129
   br i1 %.not76.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i, %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i
-  %.2.i = phi i1 [ %.0131.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.1126.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.i ], [ %.3.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i ], [ %1214, %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i ]
+  %.2.i = phi i1 [ %.0131.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.1126.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit38.i ], [ %.3.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i ], [ %.0.i.i, %_ZL18tryToSplitCallSiteRN4llvm8CallBaseERNS_19TargetTransformInfoERNS_14DomTreeUpdaterE.exit.i ]
   %.not75.i = icmp eq ptr %118, %52
   br i1 %.not75.i, label %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit, label %116
 
 _ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit: ; preds = %.critedge.i
   call void @_ZN4llvm14DomTreeUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %27) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.2.i, label %1226, label %1215
+  br i1 %.2.i, label %1225, label %1214
 
-1215:                                             ; preds = %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit.thread, %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit
+1214:                                             ; preds = %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit.thread, %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !28, !alias.scope !240
-  %1216 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %1216, align 8, !tbaa !29, !alias.scope !240
-  %1217 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %1218 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %1218, align 8, !tbaa !31, !alias.scope !240
-  %1219 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %1219, align 4, !tbaa !32, !alias.scope !240
-  %1220 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1221 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1221, ptr %1220, align 8, !tbaa !28, !alias.scope !240
-  %1222 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %1222, align 8, !tbaa !29, !alias.scope !240
-  %1223 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %1223, align 4, !tbaa !30, !alias.scope !240
-  %1224 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %1224, align 8, !tbaa !31, !alias.scope !240
-  %1225 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %1225, align 4, !tbaa !32, !alias.scope !240
-  store i32 1, ptr %1217, align 4, !tbaa !30, !alias.scope !240, !noalias !243
+  %1215 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %1215, align 8, !tbaa !29, !alias.scope !240
+  %1216 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %1217 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %1217, align 8, !tbaa !31, !alias.scope !240
+  %1218 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %1218, align 4, !tbaa !32, !alias.scope !240
+  %1219 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1220 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %1220, ptr %1219, align 8, !tbaa !28, !alias.scope !240
+  %1221 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %1221, align 8, !tbaa !29, !alias.scope !240
+  %1222 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %1222, align 4, !tbaa !30, !alias.scope !240
+  %1223 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %1223, align 8, !tbaa !31, !alias.scope !240
+  %1224 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %1224, align 4, !tbaa !32, !alias.scope !240
+  store i32 1, ptr %1216, align 4, !tbaa !30, !alias.scope !240, !noalias !243
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !160, !alias.scope !240, !noalias !243
-  br label %1238
+  br label %1237
 
-1226:                                             ; preds = %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit
-  %1227 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1227, ptr %0, align 8, !tbaa !28
-  %1228 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %1228, align 8, !tbaa !29
-  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %1229, align 4, !tbaa !30
-  %1230 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %1230, align 8, !tbaa !31
-  %1231 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %1231, align 4, !tbaa !32
-  %1232 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1233 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1233, ptr %1232, align 8, !tbaa !28
-  %1234 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %1234, align 8, !tbaa !29
-  %1235 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %1235, align 4, !tbaa !30
-  %1236 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %1236, align 8, !tbaa !31
-  %1237 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %1237, align 4, !tbaa !32
+1225:                                             ; preds = %_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE.exit
+  %1226 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %1226, ptr %0, align 8, !tbaa !28
+  %1227 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %1227, align 8, !tbaa !29
+  %1228 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %1228, align 4, !tbaa !30
+  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %1229, align 8, !tbaa !31
+  %1230 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %1230, align 4, !tbaa !32
+  %1231 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1232 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %1232, ptr %1231, align 8, !tbaa !28
+  %1233 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %1233, align 8, !tbaa !29
+  %1234 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %1234, align 4, !tbaa !30
+  %1235 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %1235, align 8, !tbaa !31
+  %1236 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %1236, align 4, !tbaa !32
   call void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11AnalysisKeyE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull @_ZN4llvm21DominatorTreeAnalysis3KeyE)
-  br label %1238
+  br label %1237
 
-1238:                                             ; preds = %1226, %1215
+1237:                                             ; preds = %1225, %1214
   ret void
 }
 

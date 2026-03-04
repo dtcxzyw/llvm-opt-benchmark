@@ -21515,6 +21515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %104, ptr noundef nonnull align 8 dereferenceable(1) %69, i64 %109, i1 false)
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %107, ptr %110, align 8, !tbaa !44, !alias.scope !133
+  store ptr %69, ptr %5, align 8, !tbaa !64, !noalias !133
   store i64 0, ptr %80, align 8, !tbaa !44, !noalias !133
   store i8 0, ptr %69, align 8, !tbaa !45, !noalias !133
   br label %117
@@ -21794,6 +21795,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %43, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !44, !alias.scope !142
+  store ptr %18, ptr %5, align 8, !tbaa !64, !noalias !142
   store i64 0, ptr %19, align 8, !tbaa !44, !noalias !142
   store i8 0, ptr %18, align 8, !tbaa !45, !noalias !142
   br label %51
@@ -22064,6 +22066,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(1) %15, i64 %40, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %38, ptr %41, align 8, !tbaa !44, !alias.scope !151
+  store ptr %15, ptr %5, align 8, !tbaa !64, !noalias !151
   store i64 0, ptr %16, align 8, !tbaa !44, !noalias !151
   store i8 0, ptr %15, align 8, !tbaa !45, !noalias !151
   br label %48
@@ -22543,6 +22546,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %131, ptr noundef nonnull align 8 dereferenceable(1) %96, i64 %136, i1 false)
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %134, ptr %137, align 8, !tbaa !44, !alias.scope !165
+  store ptr %96, ptr %5, align 8, !tbaa !64, !noalias !165
   store i64 0, ptr %107, align 8, !tbaa !44, !noalias !165
   store i8 0, ptr %96, align 8, !tbaa !45, !noalias !165
   br label %144
@@ -22804,6 +22808,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %30, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %28, ptr %31, align 8, !tbaa !44, !alias.scope !171
+  store ptr %5, ptr %4, align 8, !tbaa !64, !noalias !171
   store i64 0, ptr %6, align 8, !tbaa !44, !noalias !171
   store i8 0, ptr %5, align 8, !tbaa !45, !noalias !171
   br label %38
@@ -23268,6 +23273,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %36, ptr %40, align 8, !tbaa !44, !alias.scope !183
+  store ptr %33, ptr %30, align 8, !tbaa !64
   store i64 0, ptr %39, align 8, !tbaa !44
   store i8 0, ptr %33, align 8, !tbaa !45
   %41 = add nuw nsw i64 %36, 1
@@ -29954,6 +29960,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %51, i64 %88, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %86, ptr %89, align 8, !tbaa !44, !alias.scope !253
+  store ptr %51, ptr %4, align 8, !tbaa !64, !noalias !253
   store i64 0, ptr %62, align 8, !tbaa !44, !noalias !253
   store i8 0, ptr %51, align 8, !tbaa !45, !noalias !253
   br label %96
@@ -30316,6 +30323,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(1) %49, i64 %86, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %84, ptr %87, align 8, !tbaa !44, !alias.scope !265
+  store ptr %49, ptr %4, align 8, !tbaa !64, !noalias !265
   store i64 0, ptr %60, align 8, !tbaa !44, !noalias !265
   store i8 0, ptr %49, align 8, !tbaa !45, !noalias !265
   br label %94
@@ -30677,6 +30685,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %80, ptr noundef nonnull align 8 dereferenceable(1) %48, i64 %85, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %83, ptr %86, align 8, !tbaa !44, !alias.scope !277
+  store ptr %48, ptr %4, align 8, !tbaa !64, !noalias !277
   store i64 0, ptr %59, align 8, !tbaa !44, !noalias !277
   store i8 0, ptr %48, align 8, !tbaa !45, !noalias !277
   br label %93
@@ -31036,6 +31045,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %83, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %81, ptr %84, align 8, !tbaa !44, !alias.scope !289
+  store ptr %46, ptr %4, align 8, !tbaa !64, !noalias !289
   store i64 0, ptr %57, align 8, !tbaa !44, !noalias !289
   store i8 0, ptr %46, align 8, !tbaa !45, !noalias !289
   br label %91
@@ -31394,6 +31404,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %48, i64 %88, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %86, ptr %89, align 8, !tbaa !44, !alias.scope !301
+  store ptr %48, ptr %4, align 8, !tbaa !64, !noalias !301
   store i64 0, ptr %59, align 8, !tbaa !44, !noalias !301
   store i8 0, ptr %48, align 8, !tbaa !45, !noalias !301
   br label %96
@@ -31758,6 +31769,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %48, i64 %88, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %86, ptr %89, align 8, !tbaa !44, !alias.scope !313
+  store ptr %48, ptr %4, align 8, !tbaa !64, !noalias !313
   store i64 0, ptr %59, align 8, !tbaa !44, !noalias !313
   store i8 0, ptr %48, align 8, !tbaa !45, !noalias !313
   br label %96
@@ -32583,6 +32595,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %30, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %28, ptr %31, align 8, !tbaa !44, !alias.scope !325
+  store ptr %5, ptr %4, align 8, !tbaa !64, !noalias !325
   store i64 0, ptr %6, align 8, !tbaa !44, !noalias !325
   store i8 0, ptr %5, align 8, !tbaa !45, !noalias !325
   br label %38

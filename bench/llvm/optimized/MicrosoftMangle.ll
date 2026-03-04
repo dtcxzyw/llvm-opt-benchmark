@@ -8014,12 +8014,12 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread129: ; preds = %
   %174 = inttoptr i64 %173 to ptr
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %175, align 8, !tbaa !395
+  %176 = or i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i53
   br label %_ZNK5clang8QualType13getQualifiersEv.exit
 
 _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread129, %172
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %172 ], [ 0, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread129 ]
-  %176 = or i64 %.sroa.0.0.copyload.i53, %.sroa.0.0.i.i
-  %177 = or i64 %176, %.0.copyload.i.i.i.i.i.i
+  %.sroa.0.0.i.i = phi i64 [ %176, %172 ], [ %.sroa.0.0.copyload.i53, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread129 ]
+  %177 = or i64 %.sroa.0.0.i.i, %.0.copyload.i.i.i.i.i.i
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %178, align 8
   %179 = trunc i64 %177 to i1
@@ -8137,12 +8137,12 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread: ; preds = %_ZN
   %232 = inttoptr i64 %231 to ptr
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %.sroa.0.0.copyload.i.i.i60 = load i64, ptr %233, align 8, !tbaa !395
+  %234 = or i64 %.sroa.0.0.copyload.i.i.i60, %225
   br label %_ZNK5clang8QualType13getQualifiersEv.exit62
 
 _ZNK5clang8QualType13getQualifiersEv.exit62:      ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread, %230
-  %.sroa.0.0.i.i61 = phi i64 [ %.sroa.0.0.copyload.i.i.i60, %230 ], [ 0, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread ]
-  %234 = or i64 %225, %.sroa.0.0.i.i61
-  %235 = or i64 %234, %.0.copyload.i.i.i.i.i.i58
+  %.sroa.0.0.i.i61 = phi i64 [ %234, %230 ], [ %225, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread ]
+  %235 = or i64 %.sroa.0.0.i.i61, %.0.copyload.i.i.i.i.i.i58
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val27 = load ptr, ptr %236, align 8
   %237 = trunc i64 %235 to i1
@@ -8239,12 +8239,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit62:      ; preds = %_ZNK5clang4Type5get
   %277 = inttoptr i64 %276 to ptr
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %.sroa.0.0.copyload.i.i.i99 = load i64, ptr %278, align 8, !tbaa !395
+  %279 = or i64 %.sroa.0.0.copyload.i.i.i99, %.sroa.0.0.copyload.i95
   br label %_ZNK5clang8QualType13getQualifiersEv.exit101
 
 _ZNK5clang8QualType13getQualifiersEv.exit101:     ; preds = %269, %275
-  %.sroa.0.0.i.i100 = phi i64 [ %.sroa.0.0.copyload.i.i.i99, %275 ], [ 0, %269 ]
-  %279 = or i64 %.sroa.0.0.copyload.i95, %.sroa.0.0.i.i100
-  %280 = or i64 %279, %.0.copyload.i.i.i.i.i.i97
+  %.sroa.0.0.i.i100 = phi i64 [ %279, %275 ], [ %.sroa.0.0.copyload.i95, %269 ]
+  %280 = or i64 %.sroa.0.0.i.i100, %.0.copyload.i.i.i.i.i.i97
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %281, align 8
   %282 = trunc i64 %280 to i1
@@ -8371,12 +8371,12 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler25manglePointerCVQualifiersEN5clang10Q
   %340 = inttoptr i64 %339 to ptr
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %.sroa.0.0.copyload.i.i.i76 = load i64, ptr %341, align 8, !tbaa !395
+  %342 = or i64 %.sroa.0.0.copyload.i.i.i76, %.sroa.0.0.copyload.i
   br label %_ZNK5clang8QualType13getQualifiersEv.exit78
 
 _ZNK5clang8QualType13getQualifiersEv.exit78:      ; preds = %335, %338
-  %.sroa.0.0.i.i77 = phi i64 [ %.sroa.0.0.copyload.i.i.i76, %338 ], [ 0, %335 ]
-  %342 = or i64 %.sroa.0.0.copyload.i, %.sroa.0.0.i.i77
-  %343 = or i64 %342, %.0.copyload.i.i.i.i.i.i74
+  %.sroa.0.0.i.i77 = phi i64 [ %342, %338 ], [ %.sroa.0.0.copyload.i, %335 ]
+  %343 = or i64 %.sroa.0.0.i.i77, %.0.copyload.i.i.i.i.i.i74
   %.val28 = load ptr, ptr %281, align 8
   %344 = trunc i64 %343 to i1
   %345 = and i64 %343, 5
@@ -8461,12 +8461,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit78:      ; preds = %335, %338
   %378 = inttoptr i64 %377 to ptr
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 24
   %.sroa.0.0.copyload.i.i.i86 = load i64, ptr %379, align 8, !tbaa !395
+  %380 = or i64 %.sroa.0.0.copyload.i.i.i86, %.sroa.0.0.copyload.i
   br label %_ZNK5clang8QualType13getQualifiersEv.exit88
 
 _ZNK5clang8QualType13getQualifiersEv.exit88:      ; preds = %373, %376
-  %.sroa.0.0.i.i87 = phi i64 [ %.sroa.0.0.copyload.i.i.i86, %376 ], [ 0, %373 ]
-  %380 = or i64 %.sroa.0.0.copyload.i, %.sroa.0.0.i.i87
-  %381 = or i64 %380, %.0.copyload.i.i.i.i.i.i84
+  %.sroa.0.0.i.i87 = phi i64 [ %380, %376 ], [ %.sroa.0.0.copyload.i, %373 ]
+  %381 = or i64 %.sroa.0.0.i.i87, %.0.copyload.i.i.i.i.i.i84
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val29 = load ptr, ptr %382, align 8
   %383 = trunc i64 %381 to i1
@@ -20190,12 +20190,12 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.thread.i: ; preds = 
   %653 = inttoptr i64 %652 to ptr
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %654, align 8, !tbaa !395
+  %655 = or i64 %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.0.0.copyload.i.i35.i
   br label %_ZNK5clang8QualType13getQualifiersEv.exit.i.i
 
 _ZNK5clang8QualType13getQualifiersEv.exit.i.i:    ; preds = %651, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.thread.i
-  %.sroa.0.0.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i, %651 ], [ 0, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.thread.i ]
-  %655 = or i64 %.sroa.0.0.copyload.i.i35.i, %.sroa.0.0.i.i.i.i
-  %656 = or i64 %655, %.0.copyload.i.i.i.i.i.i.i.i
+  %.sroa.0.0.i.i.i.i = phi i64 [ %655, %651 ], [ %.sroa.0.0.copyload.i.i35.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.thread.i ]
+  %656 = or i64 %.sroa.0.0.i.i.i.i, %.0.copyload.i.i.i.i.i.i.i.i
   %.val.i.i411 = load ptr, ptr %166, align 8
   %657 = trunc i64 %656 to i1
   %658 = and i64 %656, 5
@@ -23952,12 +23952,12 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread: ; preds = %45,
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %88, align 8, !tbaa !395
+  %89 = or i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i.i.i
   br label %_ZNK5clang8QualType13getQualifiersEv.exit
 
 _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread, %85
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %85 ], [ 0, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread ]
-  %89 = or i64 %.sroa.0.0.copyload.i, %.sroa.0.0.i.i
-  %90 = or i64 %89, %.0.copyload.i.i.i.i.i.i
+  %.sroa.0.0.i.i = phi i64 [ %89, %85 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread ]
+  %90 = or i64 %.sroa.0.0.i.i, %.0.copyload.i.i.i.i.i.i
   %.val = load ptr, ptr %6, align 8
   %91 = trunc i64 %90 to i1
   %92 = and i64 %90, 5

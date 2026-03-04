@@ -1193,16 +1193,16 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms14TargetedPolicy11IsTarget
   %31 = phi i32 [ %8, %26 ], [ %.pre, %27 ]
   %32 = phi i1 [ false, %26 ], [ %29, %27 ]
   %33 = icmp eq i32 %31, 2
-  br i1 %33, label %34, label %37
+  br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %18, align 8
   %36 = tail call noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory13CorrespondsToERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br label %37
+  %37 = or i1 %32, %36
+  br label %38
 
-37:                                               ; preds = %34, %30
-  %38 = phi i1 [ false, %30 ], [ %36, %34 ]
-  %39 = or i1 %32, %38
+38:                                               ; preds = %34, %30
+  %39 = phi i1 [ %32, %30 ], [ %37, %34 ]
   ret i1 %39
 
 40:                                               ; preds = %24, %15

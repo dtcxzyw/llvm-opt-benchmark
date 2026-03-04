@@ -3246,6 +3246,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %249, ptr noundef nonnull align 8 dereferenceable(1) %251, i64 %256, i1 false)
   %257 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %254, ptr %257, align 8, !tbaa !68, !alias.scope !230
+  store ptr %251, ptr %248, align 8, !tbaa !75
   store i64 0, ptr %253, align 8, !tbaa !68
   store i8 0, ptr %251, align 8, !tbaa !70
   %258 = getelementptr inbounds nuw i8, ptr %24, i64 16

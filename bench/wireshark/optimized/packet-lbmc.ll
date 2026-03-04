@@ -9547,27 +9547,27 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
 
 3856:                                             ; preds = %3855
   %3857 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef 0)
-  %.not177.i = icmp eq i32 %3857, -1160074069
-  %.167.i = select i1 %.not177.i, i32 0, i32 -2147483648
+  %.not.i931 = icmp eq i32 %3857, -1160074069
+  %.168.i = select i1 %.not.i931, i32 0, i32 -2147483648
   %3858 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.4742, i32 noundef 0)
   %3859 = load i32, ptr @hf_lbm_msg_properties, align 4
-  %3860 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3859, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef %3858, i32 noundef %.167.i)
+  %3860 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3859, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef %3858, i32 noundef %.168.i)
   %3861 = load i32, ptr @ett_lbm_msg_properties, align 4
   %3862 = call ptr @proto_item_add_subtree(ptr noundef %3860, i32 noundef %3861)
   %3863 = load i32, ptr @hf_lbm_msg_properties_data, align 4
-  %3864 = call ptr @proto_tree_add_item(ptr noundef %3862, i32 noundef %3863, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef 8, i32 noundef %.167.i)
+  %3864 = call ptr @proto_tree_add_item(ptr noundef %3862, i32 noundef %3863, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef 8, i32 noundef %.168.i)
   %3865 = load i32, ptr @ett_lbm_msg_properties_data, align 4
   %3866 = call ptr @proto_item_add_subtree(ptr noundef %3864, i32 noundef %3865)
   %3867 = load i32, ptr @hf_lbm_msg_properties_data_magic, align 4
   %3868 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3867, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %3869 = load i32, ptr @hf_lbm_msg_properties_data_num_fields, align 4
-  %3870 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3869, ptr noundef nonnull %.4742, i32 noundef 4, i32 noundef 2, i32 noundef %.167.i)
+  %3870 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3869, ptr noundef nonnull %.4742, i32 noundef 4, i32 noundef 2, i32 noundef %.168.i)
   %3871 = load i32, ptr @hf_lbm_msg_properties_data_version, align 4
-  %3872 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3871, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
+  %3872 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3871, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.168.i)
   %3873 = load i32, ptr @hf_lbm_msg_properties_data_type, align 4
-  %3874 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3873, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
+  %3874 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3873, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.168.i)
   %3875 = load i32, ptr @hf_lbm_msg_properties_data_res, align 4
-  %3876 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3875, ptr noundef nonnull %.4742, i32 noundef 7, i32 noundef 1, i32 noundef %.167.i)
+  %3876 = call ptr @proto_tree_add_item(ptr noundef %3866, i32 noundef %3875, ptr noundef nonnull %.4742, i32 noundef 7, i32 noundef 1, i32 noundef %.168.i)
   switch i32 %3857, label %3877 [
     i32 -1160074069, label %3879
     i32 -1414735174, label %3879
@@ -9578,7 +9578,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
   br label %dissect_msg_properties.exit
 
 3879:                                             ; preds = %3856, %3856
-  br i1 %.not177.i, label %3882, label %3880
+  br i1 %.not.i931, label %3882, label %3880
 
 3880:                                             ; preds = %3879
   %3881 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.4742, i32 noundef 4)
@@ -9590,24 +9590,24 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
 
 3884:                                             ; preds = %3882, %3880
   %.0164.i = phi i16 [ %3881, %3880 ], [ %3883, %3882 ]
-  %.not.i931 = icmp eq i16 %.0164.i, 0
-  br i1 %.not.i931, label %dissect_msg_properties.exit, label %.lr.ph.i932
+  %.not176.i = icmp eq i16 %.0164.i, 0
+  br i1 %.not176.i, label %dissect_msg_properties.exit, label %.lr.ph.i932
 
 .lr.ph.i932:                                      ; preds = %3884, %3931
-  %.0161174.i = phi i32 [ %3934, %3931 ], [ 8, %3884 ]
-  %.0163173.i = phi i16 [ %3935, %3931 ], [ 0, %3884 ]
-  %3885 = or disjoint i32 %.0161174.i, 4
-  %3886 = add nuw nsw i32 %.0161174.i, 12
-  br i1 %.not177.i, label %3891, label %3887
+  %.0161175.i = phi i32 [ %3934, %3931 ], [ 8, %3884 ]
+  %.0163174.i = phi i16 [ %3935, %3931 ], [ 0, %3884 ]
+  %3885 = or disjoint i32 %.0161175.i, 4
+  %3886 = add nuw nsw i32 %.0161175.i, 12
+  br i1 %.not.i931, label %3891, label %3887
 
 3887:                                             ; preds = %.lr.ph.i932
-  %3888 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %.0161174.i)
+  %3888 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %.0161175.i)
   %3889 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %3885)
   %3890 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %3886)
   br label %3895
 
 3891:                                             ; preds = %.lr.ph.i932
-  %3892 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %.0161174.i)
+  %3892 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %.0161175.i)
   %3893 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %3885)
   %3894 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %3886)
   br label %3895
@@ -9617,18 +9617,18 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
   %.0159.i = phi i32 [ %3893, %3891 ], [ %3889, %3887 ]
   %.0158.i = phi i32 [ %3894, %3891 ], [ %3890, %3887 ]
   %3896 = load i32, ptr @hf_lbm_msg_properties_hdr, align 4
-  %3897 = call ptr @proto_tree_add_item(ptr noundef %3862, i32 noundef %3896, ptr noundef nonnull %.4742, i32 noundef %.0161174.i, i32 noundef 16, i32 noundef %.167.i)
+  %3897 = call ptr @proto_tree_add_item(ptr noundef %3862, i32 noundef %3896, ptr noundef nonnull %.4742, i32 noundef %.0161175.i, i32 noundef 16, i32 noundef %.168.i)
   %3898 = load i32, ptr @ett_lbm_msg_properties_hdr, align 4
   %3899 = call ptr @proto_item_add_subtree(ptr noundef %3897, i32 noundef %3898)
   %3900 = load i32, ptr @hf_lbm_msg_properties_hdr_key_offset, align 4
-  %3901 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3900, ptr noundef nonnull %.4742, i32 noundef %.0161174.i, i32 noundef 4, i32 noundef %.167.i)
+  %3901 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3900, ptr noundef nonnull %.4742, i32 noundef %.0161175.i, i32 noundef 4, i32 noundef %.168.i)
   %3902 = load i32, ptr @hf_lbm_msg_properties_hdr_value_offset, align 4
-  %3903 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3902, ptr noundef nonnull %.4742, i32 noundef %3885, i32 noundef 4, i32 noundef %.167.i)
+  %3903 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3902, ptr noundef nonnull %.4742, i32 noundef %3885, i32 noundef 4, i32 noundef %.168.i)
   %3904 = load i32, ptr @hf_lbm_msg_properties_hdr_hash, align 4
-  %3905 = add nuw nsw i32 %.0161174.i, 8
-  %3906 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3904, ptr noundef nonnull %.4742, i32 noundef %3905, i32 noundef 4, i32 noundef %.167.i)
+  %3905 = add nuw nsw i32 %.0161175.i, 8
+  %3906 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3904, ptr noundef nonnull %.4742, i32 noundef %3905, i32 noundef 4, i32 noundef %.168.i)
   %3907 = load i32, ptr @hf_lbm_msg_properties_hdr_type, align 4
-  %3908 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3907, ptr noundef nonnull %.4742, i32 noundef %3886, i32 noundef 4, i32 noundef %.167.i)
+  %3908 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3907, ptr noundef nonnull %.4742, i32 noundef %3886, i32 noundef 4, i32 noundef %.168.i)
   switch i32 %.0158.i, label %3918 [
     i32 1, label %3920
     i32 2, label %3920
@@ -9637,13 +9637,13 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
     i32 6, label %3912
     i32 5, label %3913
     i32 7, label %3913
-    i32 8, label %.thread170.i
+    i32 8, label %.thread171.i
   ]
 
 .thread.i935:                                     ; preds = %3895
   %3909 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
   %3910 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3911 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3910, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3909, i32 noundef %.167.i)
+  %3911 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3910, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3909, i32 noundef %.168.i)
   br label %3931
 
 3912:                                             ; preds = %3895, %3895
@@ -9652,11 +9652,11 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
 3913:                                             ; preds = %3895, %3895
   br label %3920
 
-.thread170.i:                                     ; preds = %3895
+.thread171.i:                                     ; preds = %3895
   %3914 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0159.i)
   %3915 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
   %3916 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3917 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3916, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3915, i32 noundef %.167.i)
+  %3917 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3916, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3915, i32 noundef %.168.i)
   br label %3931
 
 3918:                                             ; preds = %3895
@@ -9667,7 +9667,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
   %.0.i934 = phi i32 [ 4, %3918 ], [ 1, %3895 ], [ 1, %3895 ], [ 4, %3912 ], [ 8, %3913 ]
   %3921 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
   %3922 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3923 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3922, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3921, i32 noundef %.167.i)
+  %3923 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3922, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3921, i32 noundef %.168.i)
   switch i32 %.0158.i, label %3930 [
     i32 1, label %3931
     i32 2, label %3924
@@ -9699,13 +9699,13 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3576,
 3930:                                             ; preds = %3920
   br label %3931
 
-3931:                                             ; preds = %3930, %3929, %3928, %3927, %3926, %3925, %3924, %3920, %.thread170.i, %.thread.i935
-  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3930 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3920 ], [ @hf_lbm_msg_properties_hdr_double_value, %3928 ], [ @hf_lbm_msg_properties_hdr_long_value, %3927 ], [ @hf_lbm_msg_properties_hdr_float_value, %3926 ], [ @hf_lbm_msg_properties_hdr_int_value, %3925 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i935 ], [ @hf_lbm_msg_properties_hdr_byte_value, %3924 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread170.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3929 ]
-  %.0.sink.i = phi i32 [ %.0.i934, %3930 ], [ %.0.i934, %3920 ], [ %.0.i934, %3928 ], [ %.0.i934, %3927 ], [ %.0.i934, %3926 ], [ %.0.i934, %3925 ], [ 2, %.thread.i935 ], [ %.0.i934, %3924 ], [ %3914, %.thread170.i ], [ %.0.i934, %3929 ]
+3931:                                             ; preds = %3930, %3929, %3928, %3927, %3926, %3925, %3924, %3920, %.thread171.i, %.thread.i935
+  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3930 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3920 ], [ @hf_lbm_msg_properties_hdr_double_value, %3928 ], [ @hf_lbm_msg_properties_hdr_long_value, %3927 ], [ @hf_lbm_msg_properties_hdr_float_value, %3926 ], [ @hf_lbm_msg_properties_hdr_int_value, %3925 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i935 ], [ @hf_lbm_msg_properties_hdr_byte_value, %3924 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread171.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3929 ]
+  %.0.sink.i = phi i32 [ %.0.i934, %3930 ], [ %.0.i934, %3920 ], [ %.0.i934, %3928 ], [ %.0.i934, %3927 ], [ %.0.i934, %3926 ], [ %.0.i934, %3925 ], [ 2, %.thread.i935 ], [ %.0.i934, %3924 ], [ %3914, %.thread171.i ], [ %.0.i934, %3929 ]
   %3932 = load i32, ptr %hf_lbm_msg_properties_hdr_unknown_value.sink.i, align 4
-  %3933 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3932, ptr noundef nonnull %.4742, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.167.i)
-  %3934 = add nuw nsw i32 %.0161174.i, 16
-  %3935 = add nuw i16 %.0163173.i, 1
+  %3933 = call ptr @proto_tree_add_item(ptr noundef %3899, i32 noundef %3932, ptr noundef nonnull %.4742, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.168.i)
+  %3934 = add nuw nsw i32 %.0161175.i, 16
+  %3935 = add nuw i16 %.0163174.i, 1
   %exitcond.not.i933 = icmp eq i16 %3935, %.0164.i
   br i1 %exitcond.not.i933, label %dissect_msg_properties.exit, label %.lr.ph.i932, !llvm.loop !24
 

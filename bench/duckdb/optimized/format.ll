@@ -4786,12 +4786,12 @@ _ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i
 
 _ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i: ; preds = %380, %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %386 = phi i64 [ %385, %380 ], [ %.03561.i, %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i ]
-  %387 = icmp samesign ugt i64 %378, %386
+  %387 = icmp ugt i64 %378, %386
   br i1 %387, label %.thread463, label %388
 
 388:                                              ; preds = %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i
   %389 = sub nuw nsw i64 %386, %378
-  %390 = icmp samesign ugt i64 %389, 1
+  %390 = icmp ugt i64 %389, 1
   br i1 %390, label %_ZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_.exit, label %391
 
 391:                                              ; preds = %388
@@ -4917,12 +4917,12 @@ _ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i
 
 _ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i222: ; preds = %442, %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i219
   %448 = phi i64 [ %447, %442 ], [ %.03561.i212, %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i219 ]
-  %449 = icmp samesign ugt i64 %440, %448
+  %449 = icmp ugt i64 %440, %448
   br i1 %449, label %.thread308.sink.split, label %450
 
 450:                                              ; preds = %_ZZN10duckdb_fmt2v68internal11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i222
   %451 = sub nuw nsw i64 %448, %440
-  %452 = icmp samesign ugt i64 %451, 1
+  %452 = icmp ugt i64 %451, 1
   br i1 %452, label %.thread308, label %453
 
 453:                                              ; preds = %450

@@ -10080,7 +10080,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !26
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.125) #11
-  br label %86
+  br label %87
 
 8:                                                ; preds = %4
   %9 = icmp samesign ugt i64 %2, 2147483647
@@ -10089,7 +10089,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !26
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.126) #11
-  br label %86
+  br label %87
 
 12:                                               ; preds = %8
   %13 = trunc nuw nsw i64 %2 to i32
@@ -10104,7 +10104,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %18, ptr noundef null, ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.127, i32 noundef 4194, i64 noundef 0)
   tail call void @ERR_clear_error() #11
-  br label %86
+  br label %87
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10116,16 +10116,16 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 .split.us:                                        ; preds = %21
   %26 = tail call i64 @BIO_ctrl(ptr noundef nonnull %14, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
   %27 = and i64 %26, 4294967295
-  %.not.us71 = icmp eq i64 %27, 0
-  br i1 %.not.us71, label %.lr.ph73, label %.split63.us.thread
+  %.not.us70 = icmp eq i64 %27, 0
+  br i1 %.not.us70, label %.lr.ph72, label %.split63.us.thread
 
-.lr.ph73:                                         ; preds = %.split.us, %36
-  %.040.us72 = phi i32 [ %37, %36 ], [ 0, %.split.us ]
+.lr.ph72:                                         ; preds = %.split.us, %36
+  %.040.us71 = phi i32 [ %37, %36 ], [ 0, %.split.us ]
   %28 = tail call ptr @d2i_X509_bio(ptr noundef nonnull %14, ptr noundef null) #11
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.split63.us, label %30
 
-30:                                               ; preds = %.lr.ph73
+30:                                               ; preds = %.lr.ph72
   %31 = tail call i32 @X509_STORE_add_cert(ptr noundef %24, ptr noundef nonnull %28) #11
   tail call void @X509_free(ptr noundef nonnull %28) #11
   %.not45.us = icmp eq i32 %31, 0
@@ -10134,19 +10134,19 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 32:                                               ; preds = %30
   %33 = tail call i64 @ERR_peek_last_error() #11
   %34 = and i64 %33, 4294967295
-  %or.cond102 = icmp eq i64 %34, 92274789
-  br i1 %or.cond102, label %35, label %.split63.us
+  %or.cond = icmp eq i64 %34, 92274789
+  br i1 %or.cond, label %35, label %.split63.us
 
 35:                                               ; preds = %32
   tail call void @ERR_clear_error() #11
   br label %36
 
 36:                                               ; preds = %35, %30
-  %37 = add i32 %.040.us72, 1
+  %37 = add i32 %.040.us71, 1
   %38 = tail call i64 @BIO_ctrl(ptr noundef nonnull %14, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
   %39 = and i64 %38, 4294967295
   %.not.us = icmp eq i64 %39, 0
-  br i1 %.not.us, label %.lr.ph73, label %.split63.us
+  br i1 %.not.us, label %.lr.ph72, label %.split63.us.thread95
 
 .split:                                           ; preds = %21
   %40 = load ptr, ptr %22, align 8, !tbaa !94
@@ -10159,7 +10159,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.split, %52
   %46 = phi ptr [ %58, %52 ], [ %44, %.split ]
-  %.04066 = phi i32 [ %53, %52 ], [ 0, %.split ]
+  %.04065 = phi i32 [ %53, %52 ], [ 0, %.split ]
   %47 = tail call i32 @X509_STORE_add_cert(ptr noundef %24, ptr noundef nonnull %46) #11
   tail call void @X509_free(ptr noundef nonnull %46) #11
   %.not45 = icmp eq i32 %47, 0
@@ -10168,15 +10168,15 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 48:                                               ; preds = %.lr.ph
   %49 = tail call i64 @ERR_peek_last_error() #11
   %50 = and i64 %49, 4294967295
-  %or.cond103 = icmp eq i64 %50, 92274789
-  br i1 %or.cond103, label %51, label %.split63.us
+  %or.cond102 = icmp eq i64 %50, 92274789
+  br i1 %or.cond102, label %51, label %.split63.us
 
 51:                                               ; preds = %48
   tail call void @ERR_clear_error() #11
   br label %52
 
 52:                                               ; preds = %.lr.ph, %51
-  %53 = add i32 %.04066, 1
+  %53 = add i32 %.04065, 1
   %54 = load ptr, ptr %22, align 8, !tbaa !94
   %55 = tail call ptr @SSL_CTX_get_default_passwd_cb(ptr noundef %54) #11
   %56 = load ptr, ptr %22, align 8, !tbaa !94
@@ -10187,65 +10187,65 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 .split63.us.thread:                               ; preds = %.split, %.split.us
   %60 = tail call i64 @ERR_peek_last_error() #11
-  br label %63
+  br label %65
 
-.split63.us:                                      ; preds = %52, %48, %32, %.lr.ph73, %36
-  %.us-phi = phi i32 [ %37, %36 ], [ %.040.us72, %32 ], [ %.040.us72, %.lr.ph73 ], [ %.04066, %48 ], [ %53, %52 ]
-  %.us-phi65 = phi i1 [ true, %36 ], [ false, %32 ], [ false, %.lr.ph73 ], [ false, %48 ], [ false, %52 ]
+.split63.us:                                      ; preds = %52, %48, %32, %.lr.ph72
+  %.us-phi = phi i32 [ %.040.us71, %32 ], [ %.040.us71, %.lr.ph72 ], [ %.04065, %48 ], [ %53, %52 ]
   %61 = tail call i64 @ERR_peek_last_error() #11
   %62 = icmp eq i32 %.us-phi, 0
-  br i1 %62, label %63, label %69
+  br i1 %62, label %65, label %71
 
-63:                                               ; preds = %.split63.us.thread, %.split63.us
-  %64 = icmp eq i32 %3, 1
-  %.str.128..str.129 = select i1 %64, ptr @.str.128, ptr @.str.129
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %66 = load ptr, ptr %65, align 8, !tbaa !103
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %68 = load ptr, ptr %67, align 8, !tbaa !14
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %66, ptr noundef null, ptr noundef %68, i32 noundef 0, ptr noundef nonnull %.str.128..str.129, i32 noundef 4243, i64 noundef 0)
+.split63.us.thread95:                             ; preds = %36
+  %63 = tail call i64 @ERR_peek_last_error() #11
+  %64 = icmp eq i32 %37, 0
+  br i1 %64, label %65, label %.sink.split
+
+65:                                               ; preds = %.split63.us.thread95, %.split63.us.thread, %.split63.us
+  %66 = icmp eq i32 %3, 1
+  %.str.128..str.129 = select i1 %66, ptr @.str.128, ptr @.str.129
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %68 = load ptr, ptr %67, align 8, !tbaa !103
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %70 = load ptr, ptr %69, align 8, !tbaa !14
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %68, ptr noundef null, ptr noundef %70, i32 noundef 0, ptr noundef nonnull %.str.128..str.129, i32 noundef 4243, i64 noundef 0)
   br label %.sink.split
 
-69:                                               ; preds = %.split63.us
-  %or.cond = and i1 %25, %.us-phi65
-  br i1 %or.cond, label %.sink.split, label %70
+71:                                               ; preds = %.split63.us
+  %72 = icmp eq i32 %3, 1
+  %73 = and i64 %61, 4294967295
+  %74 = icmp eq i64 %73, 75497580
+  %or.cond103 = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond103, label %.sink.split, label %75
 
-70:                                               ; preds = %69
-  %71 = icmp eq i32 %3, 1
-  %72 = and i64 %61, 4294967295
-  %73 = icmp eq i64 %72, 75497580
-  %or.cond104 = select i1 %71, i1 %73, i1 false
-  br i1 %or.cond104, label %.sink.split, label %74
+75:                                               ; preds = %71
+  %76 = and i64 %61, 4294967295
+  %.not47 = icmp eq i64 %76, 0
+  br i1 %.not47, label %85, label %77
 
-74:                                               ; preds = %70
-  %75 = and i64 %61, 4294967295
-  %.not47 = icmp eq i64 %75, 0
-  br i1 %.not47, label %84, label %76
-
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %78 = load ptr, ptr %77, align 8, !tbaa !103
-  %79 = tail call i64 @ERR_peek_last_error() #11
-  %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %82 = load ptr, ptr %81, align 8, !tbaa !14
-  %sext.i = shl i64 %79, 32
-  %83 = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %78, ptr noundef null, ptr noundef %82, i32 noundef %80, ptr noundef null, i32 noundef 4256, i64 noundef %83)
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %79 = load ptr, ptr %78, align 8, !tbaa !103
+  %80 = tail call i64 @ERR_peek_last_error() #11
+  %81 = trunc i64 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %83 = load ptr, ptr %82, align 8, !tbaa !14
+  %sext.i = shl i64 %80, 32
+  %84 = ashr exact i64 %sext.i, 32
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %79, ptr noundef null, ptr noundef %83, i32 noundef %81, ptr noundef null, i32 noundef 4256, i64 noundef %84)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %70, %69, %63, %76
-  %.042.ph = phi i32 [ -1, %76 ], [ 0, %69 ], [ -1, %63 ], [ 0, %70 ]
+.sink.split:                                      ; preds = %71, %.split63.us.thread95, %65, %77
+  %.042.ph = phi i32 [ -1, %77 ], [ 0, %.split63.us.thread95 ], [ -1, %65 ], [ 0, %71 ]
   tail call void @ERR_clear_error() #11
-  br label %84
+  br label %85
 
-84:                                               ; preds = %.sink.split, %74
-  %.042 = phi i32 [ 0, %74 ], [ %.042.ph, %.sink.split ]
-  %85 = tail call i32 @BIO_free(ptr noundef nonnull %14) #11
-  br label %86
+85:                                               ; preds = %.sink.split, %75
+  %.042 = phi i32 [ 0, %75 ], [ %.042.ph, %.sink.split ]
+  %86 = tail call i32 @BIO_free(ptr noundef nonnull %14) #11
+  br label %87
 
-86:                                               ; preds = %84, %16, %10, %6
-  %.036 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %16 ], [ %.042, %84 ]
+87:                                               ; preds = %85, %16, %10, %6
+  %.036 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %16 ], [ %.042, %85 ]
   ret i32 %.036
 }
 

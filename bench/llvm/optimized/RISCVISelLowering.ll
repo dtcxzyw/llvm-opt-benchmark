@@ -111122,8 +111122,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19RISCVTargetLowering33isEligibleF
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i64, ptr %16, align 8
   %.not = icmp ne i64 %17, 0
-  %or.cond63.not = select i1 %15, i1 true, i1 %.not
-  br i1 %or.cond63.not, label %.loopexit, label %18
+  %or.cond.not = select i1 %15, i1 true, i1 %.not
+  br i1 %or.cond.not, label %.loopexit, label %18
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %4, align 8, !tbaa !27
@@ -111132,17 +111132,17 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19RISCVTargetLowering33isEligibleF
   %22 = zext i32 %21 to i64
   %.idx = shl nuw nsw i64 %22, 5
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %.not5766 = icmp eq i32 %21, 0
-  br i1 %.not5766, label %.critedge, label %.lr.ph
+  %.not5765 = icmp eq i32 %21, 0
+  br i1 %.not5765, label %.critedge, label %.lr.ph
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.05567, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.05566, i64 32
   %.not57 = icmp eq ptr %25, %23
   br i1 %.not57, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %24
-  %.05567 = phi ptr [ %25, %24 ], [ %19, %18 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.05567, i64 20
+  %.05566 = phi ptr [ %25, %24 ], [ %19, %18 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.05566, i64 20
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 126
   %.not58 = icmp eq i8 %28, 22
@@ -111151,74 +111151,69 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19RISCVTargetLowering33isEligibleF
 .critedge:                                        ; preds = %24, %18
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %30 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 1, i32 noundef 85) #37
-  br i1 %30, label %_ZNK4llvm8Function16hasStructRetAttrEv.exit, label %31
+  br i1 %30, label %.loopexit, label %_ZNK4llvm8Function16hasStructRetAttrEv.exit
 
-31:                                               ; preds = %.critedge
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 2, i32 noundef 85) #37
-  br label %_ZNK4llvm8Function16hasStructRetAttrEv.exit
+_ZNK4llvm8Function16hasStructRetAttrEv.exit:      ; preds = %.critedge
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 2, i32 noundef 85) #37
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %33 = load i32, ptr %32, align 8, !tbaa !28
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %40, label %34
 
-_ZNK4llvm8Function16hasStructRetAttrEv.exit:      ; preds = %.critedge, %31
-  %33 = phi i1 [ true, %.critedge ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %35 = load i32, ptr %34, align 8, !tbaa !28
-  %.not.i = icmp eq i32 %35, 0
-  br i1 %.not.i, label %41, label %36
+34:                                               ; preds = %_ZNK4llvm8Function16hasStructRetAttrEv.exit
+  %35 = load ptr, ptr %8, align 8, !tbaa !27
+  %36 = load i64, ptr %35, align 4
+  %37 = and i64 %36, 16
+  %38 = icmp ne i64 %37, 0
+  %39 = or i1 %31, %38
+  br i1 %39, label %.loopexit, label %41
 
-36:                                               ; preds = %_ZNK4llvm8Function16hasStructRetAttrEv.exit
-  %37 = load ptr, ptr %8, align 8, !tbaa !27
-  %38 = load i64, ptr %37, align 4
-  %39 = and i64 %38, 16
-  %40 = icmp ne i64 %39, 0
-  br label %41
+40:                                               ; preds = %_ZNK4llvm8Function16hasStructRetAttrEv.exit
+  br i1 %31, label %.loopexit, label %41
 
-41:                                               ; preds = %_ZNK4llvm8Function16hasStructRetAttrEv.exit, %36
-  %42 = phi i1 [ %40, %36 ], [ false, %_ZNK4llvm8Function16hasStructRetAttrEv.exit ]
-  %or.cond = or i1 %33, %42
-  br i1 %or.cond, label %.loopexit, label %43
-
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 412424
-  %45 = load ptr, ptr %44, align 8, !tbaa !215
-  %46 = load ptr, ptr %45, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 200
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(413544) %45) #37
-  %50 = load ptr, ptr %49, align 8, !tbaa !11
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(308) %49, ptr noundef nonnull align 8 dereferenceable(1065) %3, i32 noundef %14) #37
+41:                                               ; preds = %34, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 412424
+  %43 = load ptr, ptr %42, align 8, !tbaa !215
+  %44 = load ptr, ptr %43, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 200
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(413544) %43) #37
+  %48 = load ptr, ptr %47, align 8, !tbaa !11
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(308) %47, ptr noundef nonnull align 8 dereferenceable(1065) %3, i32 noundef %14) #37
   %.not59 = icmp eq i32 %7, %14
-  br i1 %.not59, label %60, label %54
+  br i1 %.not59, label %58, label %52
 
-54:                                               ; preds = %43
-  %55 = load ptr, ptr %49, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(308) %49, ptr noundef nonnull align 8 dereferenceable(1065) %3, i32 noundef %7) #37
-  %59 = tail call noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo18regmaskSubsetEqualEPKjS2_(ptr noundef nonnull align 8 dereferenceable(308) %49, ptr noundef %53, ptr noundef %58) #37
-  br i1 %59, label %60, label %.loopexit
+52:                                               ; preds = %41
+  %53 = load ptr, ptr %47, align 8, !tbaa !11
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(308) %47, ptr noundef nonnull align 8 dereferenceable(1065) %3, i32 noundef %7) #37
+  %57 = tail call noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo18regmaskSubsetEqualEPKjS2_(ptr noundef nonnull align 8 dereferenceable(308) %47, ptr noundef %51, ptr noundef %56) #37
+  br i1 %57, label %58, label %.loopexit
 
-60:                                               ; preds = %54, %43
-  %61 = load ptr, ptr %8, align 8, !tbaa !27
-  %62 = load i32, ptr %34, align 8, !tbaa !28
-  %63 = zext i32 %62 to i64
-  %.idx73 = mul nuw nsw i64 %63, 56
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx73
-  %.not6068 = icmp eq i32 %62, 0
-  br i1 %.not6068, label %.loopexit, label %.lr.ph70
+58:                                               ; preds = %52, %41
+  %59 = load ptr, ptr %8, align 8, !tbaa !27
+  %60 = load i32, ptr %32, align 8, !tbaa !28
+  %61 = zext i32 %60 to i64
+  %.idx72 = mul nuw nsw i64 %61, 56
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx72
+  %.not6067 = icmp eq i32 %60, 0
+  br i1 %.not6067, label %.loopexit, label %.lr.ph69
 
-.lr.ph70:                                         ; preds = %60, %.lr.ph70
-  %.05469 = phi ptr [ %67, %.lr.ph70 ], [ %61, %60 ]
-  %65 = load i64, ptr %.05469, align 4
-  %66 = and i64 %65, 32
-  %.not64 = icmp eq i64 %66, 0
-  %67 = getelementptr inbounds nuw i8, ptr %.05469, i64 56
-  %.not60 = icmp ne ptr %67, %64
-  %or.cond80.not = select i1 %.not64, i1 %.not60, i1 false
-  br i1 %or.cond80.not, label %.lr.ph70, label %.loopexit
+.lr.ph69:                                         ; preds = %58, %.lr.ph69
+  %.05468 = phi ptr [ %65, %.lr.ph69 ], [ %59, %58 ]
+  %63 = load i64, ptr %.05468, align 4
+  %64 = and i64 %63, 32
+  %.not63 = icmp eq i64 %64, 0
+  %65 = getelementptr inbounds nuw i8, ptr %.05468, i64 56
+  %.not60 = icmp ne ptr %65, %62
+  %or.cond.not81 = select i1 %.not63, i1 %.not60, i1 false
+  br i1 %or.cond.not81, label %.lr.ph69, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %60, %41, %54, %5
-  %.0 = phi i1 [ %.not64, %.lr.ph70 ], [ false, %5 ], [ false, %54 ], [ false, %41 ], [ true, %60 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.critedge, %58, %34, %40, %52, %5
+  %.0 = phi i1 [ false, %34 ], [ false, %5 ], [ false, %.critedge ], [ false, %40 ], [ false, %52 ], [ true, %58 ], [ %.not63, %.lr.ph69 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

@@ -27017,21 +27017,21 @@ define internal fastcc noundef zeroext i1 @_ZNK7rocksdb12experimental12_GLOBAL__
 
 45:                                               ; preds = %.lr.ph, %.backedge
   %46 = phi i64 [ %22, %.lr.ph ], [ %263, %.backedge ]
-  %.032109 = phi ptr [ %20, %.lr.ph ], [ %61, %.backedge ]
-  %.038108 = phi i64 [ 0, %.lr.ph ], [ %47, %.backedge ]
+  %.032102 = phi ptr [ %20, %.lr.ph ], [ %61, %.backedge ]
+  %.038101 = phi i64 [ 0, %.lr.ph ], [ %47, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %47 = add nuw i64 %.038108, 1
+  %47 = add nuw i64 %.038101, 1
   %48 = icmp eq i64 %47, %46
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %45
-  %50 = ptrtoint ptr %.032109 to i64
+  %50 = ptrtoint ptr %.032102 to i64
   %51 = sub i64 %24, %50
   store i64 %51, ptr %18, align 8, !tbaa !129
   br label %thread-pre-split
 
 52:                                               ; preds = %45
-  %53 = call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %.032109, ptr noundef %19, ptr noundef nonnull %18)
+  %53 = call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %.032102, ptr noundef %19, ptr noundef nonnull %18)
   %54 = icmp eq ptr %53, null
   %55 = load i64, ptr %18, align 8
   %56 = ptrtoint ptr %53 to i64
@@ -27043,7 +27043,7 @@ define internal fastcc noundef zeroext i1 @_ZNK7rocksdb12experimental12_GLOBAL__
 
 thread-pre-split:                                 ; preds = %52, %49
   %60 = phi i64 [ %51, %49 ], [ %55, %52 ]
-  %.133 = phi ptr [ %.032109, %49 ], [ %53, %52 ]
+  %.133 = phi ptr [ %.032102, %49 ], [ %53, %52 ]
   %61 = getelementptr inbounds nuw i8, ptr %.133, i64 %60
   %62 = load i8, ptr %.133, align 1, !tbaa !16
   switch i8 %62, label %.backedge.sink.split [
@@ -27582,7 +27582,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %255, %245, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit, %177, %.backedge, %.loopexit.sink.split, %4
-  %.0 = phi i1 [ true, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %245 ], [ false, %255 ], [ true, %.backedge ], [ false, %177 ], [ false, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit ]
+  %.0 = phi i1 [ true, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %177 ], [ true, %.backedge ], [ false, %255 ], [ false, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit ], [ false, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i1 %.0
 }

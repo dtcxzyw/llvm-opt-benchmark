@@ -10023,50 +10023,50 @@ _ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split: ; preds = %194, %185
   %202 = load i32, ptr %201, align 4
   %203 = icmp eq i32 %202, %.sink166
   %204 = select i1 %200, i1 %203, i1 false
+  %205 = or i1 %.044.in, %204
   br label %_ZNK8seq_util3str5is_leEPK4expr.exit65
 
 _ZNK8seq_util3str5is_leEPK4expr.exit65:           ; preds = %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split, %194, %190, %185, %180
   %.389 = phi ptr [ %.288, %194 ], [ %.2, %180 ], [ %.2, %185 ], [ %.288, %190 ], [ %.389.ph, %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split ]
   %.3 = phi ptr [ %.2, %194 ], [ %.288, %180 ], [ %.288, %185 ], [ %.2, %190 ], [ %.3.ph, %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split ]
   %.sroa.0.0 = phi i32 [ %172, %194 ], [ %181, %180 ], [ %181, %185 ], [ %172, %190 ], [ %.sroa.0.0.ph, %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split ]
-  %.045.in = phi i1 [ false, %194 ], [ false, %180 ], [ false, %185 ], [ false, %190 ], [ %204, %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split ]
-  %205 = getelementptr inbounds nuw i8, ptr %173, i64 8656
-  %206 = load i32, ptr %.294, align 4, !tbaa !24
-  %207 = load ptr, ptr %205, align 8, !tbaa !777
-  %208 = zext i32 %206 to i64
-  %209 = getelementptr inbounds nuw ptr, ptr %207, i64 %208
-  %210 = load ptr, ptr %209, align 8, !tbaa !819
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !820
-  %213 = load i32, ptr %.389, align 4, !tbaa !24
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr %207, i64 %214
-  %216 = load ptr, ptr %215, align 8, !tbaa !819
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %218 = load ptr, ptr %217, align 8, !tbaa !820
-  %219 = icmp eq ptr %212, %218
-  br i1 %219, label %220, label %238
+  %.045.in = phi i1 [ %.044.in, %194 ], [ %.044.in, %180 ], [ %.044.in, %185 ], [ %.044.in, %190 ], [ %205, %_ZNK8seq_util3str5is_leEPK4expr.exit65.sink.split ]
+  %206 = getelementptr inbounds nuw i8, ptr %173, i64 8656
+  %207 = load i32, ptr %.294, align 4, !tbaa !24
+  %208 = load ptr, ptr %206, align 8, !tbaa !777
+  %209 = zext i32 %207 to i64
+  %210 = getelementptr inbounds nuw ptr, ptr %208, i64 %209
+  %211 = load ptr, ptr %210, align 8, !tbaa !819
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load ptr, ptr %212, align 8, !tbaa !820
+  %214 = load i32, ptr %.389, align 4, !tbaa !24
+  %215 = zext i32 %214 to i64
+  %216 = getelementptr inbounds nuw ptr, ptr %208, i64 %215
+  %217 = load ptr, ptr %216, align 8, !tbaa !819
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %219 = load ptr, ptr %218, align 8, !tbaa !820
+  %220 = icmp eq ptr %213, %219
+  br i1 %220, label %221, label %238
 
-220:                                              ; preds = %_ZNK8seq_util3str5is_leEPK4expr.exit65
-  %221 = icmp eq ptr %.294, %.389
-  br i1 %221, label %222, label %223
+221:                                              ; preds = %_ZNK8seq_util3str5is_leEPK4expr.exit65
+  %222 = icmp eq ptr %.294, %.389
+  br i1 %222, label %223, label %224
 
-222:                                              ; preds = %220
+223:                                              ; preds = %221
   %.sroa.016.0.copyload = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  br label %225
+  br label %226
 
-223:                                              ; preds = %220
-  %224 = call i32 @_ZN3smt6theory5mk_eqEP4exprS2_b(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull %.294, ptr noundef nonnull %.389, i1 noundef zeroext false)
-  br label %225
+224:                                              ; preds = %221
+  %225 = call i32 @_ZN3smt6theory5mk_eqEP4exprS2_b(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull %.294, ptr noundef nonnull %.389, i1 noundef zeroext false)
+  br label %226
 
-225:                                              ; preds = %223, %222
-  %.sroa.016.0 = phi i32 [ %.sroa.016.0.copyload, %222 ], [ %224, %223 ]
-  %226 = or i1 %.044.in, %.045.in
+226:                                              ; preds = %224, %223
+  %.sroa.016.0 = phi i32 [ %.sroa.016.0.copyload, %223 ], [ %225, %224 ]
   %227 = xor i32 %.sroa.0.0, 1
   %228 = xor i32 %.sroa.016.0, 1
-  br i1 %226, label %229, label %233
+  br i1 %.045.in, label %229, label %233
 
-229:                                              ; preds = %225
+229:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.299, ptr %3, align 16, !tbaa !15
   store ptr %.3, ptr %36, align 8, !tbaa !15
@@ -10076,7 +10076,7 @@ _ZNK8seq_util3str5is_leEPK4expr.exit65:           ; preds = %_ZNK8seq_util3str5i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split
 
-233:                                              ; preds = %225
+233:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.299, ptr %2, align 16, !tbaa !15
   store ptr %.3, ptr %34, align 8, !tbaa !15

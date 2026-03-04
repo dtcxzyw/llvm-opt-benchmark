@@ -3467,9 +3467,9 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   br label %.lr.ph
 
 .preheader:                                       ; preds = %140
-  %.not166 = icmp eq i32 %2, 1
+  %.not165 = icmp eq i32 %2, 1
   %50 = zext nneg i32 %9 to i64
-  br i1 %.not166, label %Extra_TruthCopy.exit, label %.lr.ph129.us.preheader
+  br i1 %.not165, label %Extra_TruthCopy.exit, label %.lr.ph129.us.preheader
 
 .lr.ph129.us.preheader:                           ; preds = %.preheader
   %51 = add nsw i32 %2, -1
@@ -3706,22 +3706,22 @@ Extra_TruthSwapAdjacentVars.exit.us:              ; preds = %._crit_edge.us.i.us
 .split.us:                                        ; preds = %._crit_edge.us
   %141 = and i32 %.291.us, 1
   %142 = icmp eq i32 %141, 0
-  %brmerge = or i1 %10, %142
-  br i1 %brmerge, label %Extra_TruthCopy.exit, label %select.unfold.i116
+  %143 = or i1 %10, %142
+  br i1 %143, label %Extra_TruthCopy.exit, label %select.unfold.i116
 
 select.unfold.i116:                               ; preds = %.split.us, %select.unfold.i116
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %select.unfold.i116 ], [ %50, %.split.us ]
   %indvars.iv.next.i118 = add nsw i64 %indvars.iv.i117, -1
-  %143 = getelementptr inbounds nuw i32, ptr %.288.us, i64 %indvars.iv.next.i118
-  %144 = load i32, ptr %143, align 4, !tbaa !3
-  %145 = getelementptr inbounds nuw i32, ptr %.298.us, i64 %indvars.iv.next.i118
-  store i32 %144, ptr %145, align 4, !tbaa !3
-  %146 = icmp samesign ugt i64 %indvars.iv.i117, 1
-  br i1 %146, label %select.unfold.i116, label %Extra_TruthCopy.exit, !llvm.loop !33
+  %144 = getelementptr inbounds nuw i32, ptr %.288.us, i64 %indvars.iv.next.i118
+  %145 = load i32, ptr %144, align 4, !tbaa !3
+  %146 = getelementptr inbounds nuw i32, ptr %.298.us, i64 %indvars.iv.next.i118
+  store i32 %145, ptr %146, align 4, !tbaa !3
+  %147 = icmp samesign ugt i64 %indvars.iv.i117, 1
+  br i1 %147, label %select.unfold.i116, label %Extra_TruthCopy.exit, !llvm.loop !33
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i116, %Extra_TruthNot.exit, %.preheader, %.split.us
-  %.1.lcssa157163 = phi i32 [ %.0, %Extra_TruthNot.exit ], [ %.2, %.split.us ], [ %.2, %.preheader ], [ %.2, %select.unfold.i116 ]
-  ret i32 %.1.lcssa157163
+  %.1.lcssa157162 = phi i32 [ %.0, %Extra_TruthNot.exit ], [ %.2, %.split.us ], [ %.2, %.preheader ], [ %.2, %select.unfold.i116 ]
+  ret i32 %.1.lcssa157162
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

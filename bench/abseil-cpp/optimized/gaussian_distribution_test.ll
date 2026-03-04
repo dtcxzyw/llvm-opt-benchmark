@@ -38778,13 +38778,14 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %.not.i.i.i53, label %1195, label %_ZNSt16allocator_traitsISaIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_125GaussianDistributionTestsEE17InstantiationInfoEEE9constructIS6_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorINS3_5ParamEEEvERPFSF_RKNS0_13TestParamInfoISH_EEERPKcRiEEEvRS7_PT_DpOT0_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_125GaussianDistributionTestsEE17InstantiationInfoEEE9constructIS6_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorINS3_5ParamEEEvERPFSF_RKNS0_13TestParamInfoISH_EEERPKcRiEEEvRS7_PT_DpOT0_.exit.i.i.i: ; preds = %._crit_edge.i.i13.i
-  %1187 = getelementptr inbounds nuw i8, ptr %1184, i64 16
-  %1188 = load i32, ptr %1179, align 8
+  %1187 = load i32, ptr %1179, align 8
   store i8 0, ptr %1179, align 8, !tbaa !16
-  store i32 %1188, ptr %1187, align 8
+  %1188 = getelementptr inbounds nuw i8, ptr %1184, i64 16
+  store i32 %1187, ptr %1188, align 8
   %.pre40.i = load ptr, ptr %1183, align 8, !tbaa !747
+  store ptr %1179, ptr %16, align 8, !tbaa !11
   store i64 0, ptr %1180, align 8, !tbaa !30
-  store ptr %1187, ptr %1184, align 8, !tbaa !29
+  store ptr %1188, ptr %1184, align 8, !tbaa !29
   %1189 = getelementptr inbounds nuw i8, ptr %1184, i64 8
   store i64 3, ptr %1189, align 8, !tbaa !30
   %1190 = getelementptr inbounds nuw i8, ptr %1184, i64 32

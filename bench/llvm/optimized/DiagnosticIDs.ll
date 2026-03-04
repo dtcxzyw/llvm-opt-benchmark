@@ -2138,9 +2138,8 @@ _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEE
   br label %54
 
 54:                                               ; preds = %5, %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit
-  %.09 = phi i1 [ %53, %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit ], [ undef, %5 ]
-  %spec.select = or i1 %7, %.09
-  ret i1 %spec.select
+  %.09 = phi i1 [ %53, %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit ], [ true, %5 ]
+  ret i1 %.09
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

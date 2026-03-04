@@ -4121,21 +4121,21 @@ _ZN4llvm11SmallVectorINS_14WeakTrackingVHELj16EED2Ev.exit98: ; preds = %_ZN4llvm
   %923 = zext i32 %.val76 to i64
   %.idx.i100 = mul nuw nsw i64 %923, 24
   %924 = getelementptr inbounds nuw i8, ptr %.val75, i64 %.idx.i100
-  %.not39.i = icmp eq i32 %.val76, 0
-  br i1 %.not39.i, label %._crit_edge.i104, label %.lr.ph.i101
+  %.not24.i = icmp eq i32 %.val76, 0
+  br i1 %.not24.i, label %._crit_edge.i104, label %.lr.ph.i101
 
-.lr.ph.i101:                                      ; preds = %921, %.thread17.i
-  %.02540.i = phi ptr [ %942, %.thread17.i ], [ %.val75, %921 ]
-  %925 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 16
+.lr.ph.i101:                                      ; preds = %921, %.thread.i
+  %.02525.i = phi ptr [ %942, %.thread.i ], [ %.val75, %921 ]
+  %925 = getelementptr inbounds nuw i8, ptr %.02525.i, i64 16
   %926 = load ptr, ptr %925, align 8, !tbaa !251
   %.not31.i102 = icmp eq ptr %926, null
-  br i1 %.not31.i102, label %.thread17.i, label %927
+  br i1 %.not31.i102, label %.thread.i, label %927
 
 927:                                              ; preds = %.lr.ph.i101
   %928 = getelementptr inbounds nuw i8, ptr %926, i64 8
   %929 = load ptr, ptr %928, align 8, !tbaa !208
   %930 = call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution10isSCEVableEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef %929) #24
-  br i1 %930, label %931, label %.thread17.i
+  br i1 %930, label %931, label %.thread.i
 
 931:                                              ; preds = %927
   %932 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %926) #24
@@ -4144,73 +4144,73 @@ _ZN4llvm11SmallVectorINS_14WeakTrackingVHELj16EED2Ev.exit98: ; preds = %_ZN4llvm
   %935 = icmp eq i16 %934, 8
   %.not1.i.i = icmp ne ptr %932, null
   %.not.not.not.i.i = and i1 %.not1.i.i, %935
-  br i1 %.not.not.not.i.i, label %936, label %.thread17.i
+  br i1 %.not.not.not.i.i, label %936, label %.thread.i
 
 936:                                              ; preds = %931
   %937 = getelementptr inbounds nuw i8, ptr %932, i64 40
   %938 = load i64, ptr %937, align 8, !tbaa !544
   %939 = icmp eq i64 %938, 2
-  br i1 %939, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", label %.thread17.i
+  br i1 %939, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", label %.thread.i
 
 "_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i": ; preds = %936
   %940 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %926) #24
   %941 = call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution14containsUndefsEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef %940) #24
-  br i1 %941, label %.thread17.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit
+  br i1 %941, label %.thread.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit
 
-.thread17.i:                                      ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", %936, %931, %927, %.lr.ph.i101
-  %942 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 24
+.thread.i:                                        ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", %936, %931, %927, %.lr.ph.i101
+  %942 = getelementptr inbounds nuw i8, ptr %.02525.i, i64 24
   %.not.i103 = icmp eq ptr %942, %924
   br i1 %.not.i103, label %._crit_edge.i104, label %.lr.ph.i101
 
-._crit_edge.i104:                                 ; preds = %.thread17.i, %921
+._crit_edge.i104:                                 ; preds = %.thread.i, %921
   %943 = getelementptr inbounds nuw i8, ptr %922, i64 32
   %944 = load ptr, ptr %943, align 8, !tbaa !129
   %945 = load ptr, ptr %944, align 8, !tbaa !133
   %946 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %945) #24
   %947 = extractvalue { ptr, ptr } %946, 0
   %948 = extractvalue { ptr, ptr } %946, 1
-  %.not3741.i = icmp eq ptr %947, %948
-  br i1 %.not3741.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread, label %.lr.ph44.i
+  %.not2226.i = icmp eq ptr %947, %948
+  br i1 %.not2226.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread, label %.lr.ph29.i
 
-.lr.ph44.i:                                       ; preds = %._crit_edge.i104, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i"
-  %.sroa.01.042.i = phi ptr [ %spec.select.i.i.i1.i.i, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i" ], [ %947, %._crit_edge.i104 ]
-  %949 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i, i64 8
+.lr.ph29.i:                                       ; preds = %._crit_edge.i104, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i"
+  %.sroa.01.027.i = phi ptr [ %spec.select.i.i.i1.i.i, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i" ], [ %947, %._crit_edge.i104 ]
+  %949 = getelementptr inbounds nuw i8, ptr %.sroa.01.027.i, i64 8
   %950 = load ptr, ptr %949, align 8, !tbaa !208
   %951 = call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution10isSCEVableEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef %950) #24
-  br i1 %951, label %952, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i"
+  br i1 %951, label %952, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i"
 
-952:                                              ; preds = %.lr.ph44.i
-  %953 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %.sroa.01.042.i) #24
+952:                                              ; preds = %.lr.ph29.i
+  %953 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %.sroa.01.027.i) #24
   %954 = getelementptr inbounds nuw i8, ptr %953, i64 24
   %955 = load i16, ptr %954, align 8, !tbaa !539
   %956 = icmp eq i16 %955, 8
   %.not1.i35.i = icmp ne ptr %953, null
   %.not.not.not.i36.i = and i1 %.not1.i35.i, %956
-  br i1 %.not.not.not.i36.i, label %957, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i"
+  br i1 %.not.not.not.i36.i, label %957, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i"
 
 957:                                              ; preds = %952
   %958 = getelementptr inbounds nuw i8, ptr %953, i64 40
   %959 = load i64, ptr %958, align 8, !tbaa !544
   %960 = icmp eq i64 %959, 2
-  br i1 %960, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.i", label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i"
+  br i1 %960, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.i", label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i"
 
-"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.i": ; preds = %957
-  %961 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %.sroa.01.042.i) #24
+"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.i": ; preds = %957
+  %961 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef nonnull %.sroa.01.027.i) #24
   %962 = call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution14containsUndefsEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %2, ptr noundef %961) #24
-  br i1 %962, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i", label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit
+  br i1 %962, label %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i", label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit
 
-"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i": ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.i", %957, %952, %.lr.ph44.i
-  %963 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i, i64 32
+"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i": ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.i", %957, %952, %.lr.ph29.i
+  %963 = getelementptr inbounds nuw i8, ptr %.sroa.01.027.i, i64 32
   %964 = load ptr, ptr %963, align 8, !tbaa !135
   %965 = getelementptr inbounds i8, ptr %964, i64 -24
   %966 = load i8, ptr %965, align 8, !tbaa !170
   %967 = icmp eq i8 %966, 84
   %spec.select.i.i.i1.i.i = select i1 %967, ptr %965, ptr null
-  %.not37.i = icmp eq ptr %spec.select.i.i.i1.i.i, %948
-  br i1 %.not37.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread, label %.lr.ph44.i
+  %.not22.i = icmp eq ptr %spec.select.i.i.i1.i.i, %948
+  br i1 %.not22.i, label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread, label %.lr.ph29.i
 
-_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit: ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.i"
-  %.4.i = phi ptr [ %.sroa.01.042.i, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.i" ], [ %926, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i" ]
+_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit: ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i", %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.i"
+  %.4.i = phi ptr [ %.sroa.01.027.i, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.i" ], [ %926, %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %968 = load i32, ptr %62, align 8, !tbaa !26
   %.not.i.i105 = icmp eq i32 %968, 0
@@ -6486,7 +6486,7 @@ _ZL25DbgRewriteSalvageableDVIsPN4llvm4LoopERNS_15ScalarEvolutionEPNS_7PHINodeERN
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread
 
-_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread: ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit39.thread.i", %._crit_edge.i104, %_ZL25DbgRewriteSalvageableDVIsPN4llvm4LoopERNS_15ScalarEvolutionEPNS_7PHINodeERNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS9_EELj2EEE.exit
+_ZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceE.exit.thread: ; preds = %"_ZZL20GetInductionVariableRKN4llvm4LoopERNS_15ScalarEvolutionERKN12_GLOBAL__N_111LSRInstanceEENK3$_0clEPNS_7PHINodeE.exit37.thread.i", %._crit_edge.i104, %_ZL25DbgRewriteSalvageableDVIsPN4llvm4LoopERNS_15ScalarEvolutionEPNS_7PHINodeERNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS9_EELj2EEE.exit
   %1972 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0181, i64 8
   %.not169 = icmp eq ptr %1972, %864
   br i1 %.not169, label %._crit_edge, label %921
@@ -56280,11 +56280,12 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit: ; preds = %125, %13
   br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 147:                                              ; preds = %123
-  switch i16 %4, label %150 [
+  switch i16 %4, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit [
     i16 14, label %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit
     i16 2, label %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit
     i16 3, label %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit
     i16 4, label %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit
+    i16 5, label %150
   ]
 
 _ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit: ; preds = %147, %147, %147, %147
@@ -56293,20 +56294,11 @@ _ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit: ; preds = %147, %14
   br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 150:                                              ; preds = %147
-  %151 = icmp eq i16 %4, 5
-  br i1 %151, label %152, label %154
-
-152:                                              ; preds = %150
-  %153 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder18pushArithmeticExprEPKN4llvm19SCEVCommutativeExprEm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef 34)
-  br label %154
-
-154:                                              ; preds = %150, %152
-  %.637 = phi i1 [ %153, %152 ], [ true, %150 ]
-  %155 = and i1 %151, %.637
+  %151 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder18pushArithmeticExprEPKN4llvm19SCEVCommutativeExprEm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef 34)
   br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
-_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit: ; preds = %120, %95, %89, %92, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, %154, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i
-  %cond5 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i ], [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i ], [ false, %89 ], [ true, %92 ], [ %149, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit ], [ %132, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit ], [ %155, %154 ], [ true, %95 ], [ %107, %120 ]
+_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit: ; preds = %120, %147, %95, %150, %89, %92, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i
+  %cond5 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i ], [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i ], [ false, %89 ], [ true, %92 ], [ false, %147 ], [ %132, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit ], [ %149, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit ], [ %151, %150 ], [ true, %95 ], [ %107, %120 ]
   ret i1 %cond5
 }
 

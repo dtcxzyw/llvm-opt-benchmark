@@ -43201,6 +43201,7 @@ define void @_ZN6duckdb19OutOfRangeExceptionC2ENS_12PhysicalTypeEm(ptr noundef n
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %20, align 8, !tbaa !120, !alias.scope !768
+  store ptr %13, ptr %10, align 8, !tbaa !14
   store i64 0, ptr %19, align 8, !tbaa !120
   store i8 0, ptr %13, align 8, !tbaa !73
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -207568,6 +207569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %26 = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %19, align 8, !tbaa !14
   store i64 0, ptr %27, align 8, !tbaa !120
   store i8 0, ptr %21, align 8, !tbaa !73
   store ptr %16, ptr %5, align 8, !tbaa !119

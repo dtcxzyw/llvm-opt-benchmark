@@ -3657,15 +3657,15 @@ define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr 
   ]
 
 17:                                               ; preds = %12
-  br label %18
-
-18:                                               ; preds = %12, %17
-  %.1 = phi i32 [ 364, %17 ], [ 324, %12 ]
   br i1 %4, label %19, label %.thread152
 
-19:                                               ; preds = %18
+18:                                               ; preds = %12
+  br i1 %4, label %19, label %.thread152
+
+19:                                               ; preds = %17, %18
+  %.1155 = phi i32 [ 364, %17 ], [ 324, %18 ]
   %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2)
-  %.not = icmp slt i32 %20, %.1
+  %.not = icmp slt i32 %20, %.1155
   br i1 %.not, label %.thread152, label %21
 
 21:                                               ; preds = %19
@@ -3691,7 +3691,7 @@ define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr 
 
 34:                                               ; preds = %21
   %35 = load i32, ptr @ett_mq_md, align 4
-  %36 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %.1, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.1827)
+  %36 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %.1155, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.1827)
   %37 = load i32, ptr @hf_mq_md_StructID, align 4
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load i32, ptr %38, align 4
@@ -3806,8 +3806,8 @@ define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr 
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef 4, i32 noundef %144)
   br label %.thread152
 
-.thread152:                                       ; preds = %12, %.thread, %18, %19, %21, %126, %34, %9
-  %.0 = phi i32 [ 0, %9 ], [ %.1, %34 ], [ %.1, %126 ], [ %.1, %21 ], [ %.1, %19 ], [ %.1, %18 ], [ 0, %.thread ], [ 0, %12 ]
+.thread152:                                       ; preds = %12, %17, %.thread, %18, %19, %21, %126, %34, %9
+  %.0 = phi i32 [ 0, %9 ], [ %.1155, %34 ], [ %.1155, %126 ], [ %.1155, %21 ], [ %.1155, %19 ], [ 324, %18 ], [ 0, %.thread ], [ 364, %17 ], [ 0, %12 ]
   ret i32 %.0
 }
 

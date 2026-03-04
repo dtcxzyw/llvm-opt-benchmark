@@ -718,16 +718,16 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef captures
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %136 = load i32, ptr %135, align 8, !tbaa !55
   %.not151 = icmp eq i32 %136, 0
-  br i1 %.not151, label %140, label %137
+  br i1 %.not151, label %141, label %137
 
 137:                                              ; preds = %122
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %139 = load i32, ptr %138, align 4, !tbaa !41
-  br label %140
+  %140 = mul nsw i32 %139, %134
+  br label %141
 
-140:                                              ; preds = %122, %137
-  %141 = phi i32 [ %139, %137 ], [ 1, %122 ]
-  %142 = mul nsw i32 %134, %141
+141:                                              ; preds = %122, %137
+  %142 = phi i32 [ %140, %137 ], [ %134, %122 ]
   %143 = sext i32 %142 to i64
   %144 = call ptr @av_malloc_array(i64 noundef %143, i64 noundef 4) #14
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 160
@@ -741,16 +741,16 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef captures
   %151 = shl nsw i32 %150, 1
   %152 = load i32, ptr %135, align 8, !tbaa !55
   %.not152 = icmp eq i32 %152, 0
-  br i1 %.not152, label %156, label %153
+  br i1 %.not152, label %157, label %153
 
-153:                                              ; preds = %140
+153:                                              ; preds = %141
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %155 = load i32, ptr %154, align 4, !tbaa !41
-  br label %156
+  %156 = mul nsw i32 %155, %151
+  br label %157
 
-156:                                              ; preds = %140, %153
-  %157 = phi i32 [ %155, %153 ], [ 1, %140 ]
-  %158 = mul nsw i32 %151, %157
+157:                                              ; preds = %141, %153
+  %158 = phi i32 [ %156, %153 ], [ %151, %141 ]
   %159 = sext i32 %158 to i64
   %160 = call ptr @av_malloc_array(i64 noundef %159, i64 noundef 4) #14
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 176
@@ -780,7 +780,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef captures
   %.not153 = icmp eq ptr %180, null
   br i1 %.not153, label %.thread165, label %181
 
-181:                                              ; preds = %156
+181:                                              ; preds = %157
   %182 = load ptr, ptr %132, align 8, !tbaa !83
   %.not154 = icmp eq ptr %182, null
   br i1 %.not154, label %.thread165, label %183
@@ -861,8 +861,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef captures
   %221 = call fastcc i32 @generate_kernel(ptr noundef %5, ptr noundef %213, ptr noundef %220)
   br label %.thread165
 
-.thread165:                                       ; preds = %77, %65, %72, %64, %156, %181, %183, %185, %187, %189, %191, %111, %103, %54, %34, %39, %82, %219, %102, %33
-  %.0132 = phi i32 [ -22, %33 ], [ %42, %39 ], [ -22, %102 ], [ %57, %54 ], [ %106, %103 ], [ %221, %219 ], [ %114, %111 ], [ -12, %82 ], [ %37, %34 ], [ -12, %191 ], [ -12, %189 ], [ -12, %187 ], [ -12, %185 ], [ -12, %183 ], [ -12, %181 ], [ -12, %156 ], [ -12, %77 ], [ %70, %65 ], [ %75, %72 ], [ -22, %64 ]
+.thread165:                                       ; preds = %77, %65, %72, %64, %157, %181, %183, %185, %187, %189, %191, %111, %103, %54, %34, %39, %82, %219, %102, %33
+  %.0132 = phi i32 [ -22, %33 ], [ %42, %39 ], [ -22, %102 ], [ %57, %54 ], [ %106, %103 ], [ %221, %219 ], [ %114, %111 ], [ -12, %82 ], [ %37, %34 ], [ -12, %191 ], [ -12, %189 ], [ -12, %187 ], [ -12, %185 ], [ -12, %183 ], [ -12, %181 ], [ -12, %157 ], [ -12, %77 ], [ %70, %65 ], [ %75, %72 ], [ -22, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0132

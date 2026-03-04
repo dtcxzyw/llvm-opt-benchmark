@@ -488,10 +488,10 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit: ; preds = %37
 
 _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit.thread: ; preds = %_ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit
   %.pr = load i64, ptr %18, align 8, !alias.scope !102
-  %.not.i.i = icmp ne i64 %.pr, -9223372036854775808
+  %.not.not.i.i = icmp ne i64 %.pr, -9223372036854775808
   %46 = load i64, ptr %28, align 8, !alias.scope !102
   %47 = icmp eq i64 %46, 0
-  %.sroa.5.0.i.i = select i1 %.not.i.i, i1 %47, i1 false
+  %.sroa.5.0.i.i = select i1 %.not.not.i.i, i1 %47, i1 false
   br i1 %.sroa.5.0.i.i, label %87, label %48
 
 48:                                               ; preds = %_ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit.thread
@@ -532,7 +532,7 @@ _ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.169
   br label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i
 
 _ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i: ; preds = %33, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i, %48
-  %.not.i.i6366 = phi i1 [ false, %48 ], [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i ], [ false, %33 ]
+  %.not.not.i.i6366 = phi i1 [ false, %48 ], [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i ], [ false, %33 ]
   %57 = invoke { i64, i64 } @_ZN12regex_syntax3hir7literal3Seq15min_literal_len17h495f07da7a76dcc0E.llvm.16979978850130570624(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -545,7 +545,7 @@ _ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit: ; preds =
   %60 = extractvalue { i64, i64 } %57, 1
   %61 = load i64, ptr %28, align 8, !alias.scope !119
   %62 = icmp ugt i64 %60, 2
-  %or.cond.i = select i1 %.not.i.i6366, i1 %62, i1 false
+  %or.cond.i = select i1 %.not.not.i.i6366, i1 %62, i1 false
   %63 = icmp ult i64 %61, 9
   %spec.select.i = select i1 %or.cond.i, i1 %63, i1 false
   br i1 %spec.select.i, label %87, label %_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit.thread

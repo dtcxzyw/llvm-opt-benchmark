@@ -4194,29 +4194,29 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
 
 .thread.i:                                        ; preds = %31, %16
   %.pn.i = phi ptr [ %32, %31 ], [ %17, %16 ]
-  %.04056.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
-  %35 = load i8, ptr %.04056.i, align 1, !tbaa !215
+  %.04057.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
+  %35 = load i8, ptr %.04057.i, align 1, !tbaa !215
   %36 = icmp eq i8 %35, 58
-  br i1 %36, label %.thread93.i, label %38
+  br i1 %36, label %.thread59.i, label %38
 
-.thread93.i:                                      ; preds = %.thread.i
+.thread59.i:                                      ; preds = %.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   br label %49
 
 38:                                               ; preds = %.thread.i
-  %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04056.i, i32 noundef 58) #12
+  %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04057.i, i32 noundef 58) #12
   %.not50.i = icmp eq ptr %39, null
   br i1 %.not50.i, label %.thread, label %40
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !7
-  %41 = call i64 @strtol(ptr noundef nonnull %.04056.i, ptr noundef nonnull %5, i32 noundef 10) #11
+  %41 = call i64 @strtol(ptr noundef nonnull %.04057.i, ptr noundef nonnull %5, i32 noundef 10) #11
   %42 = load ptr, ptr %5, align 8, !tbaa !7
   %43 = icmp eq ptr %42, %39
-  br i1 %43, label %44, label %.thread97.i
+  br i1 %43, label %44, label %.thread63.i
 
-.thread97.i:                                      ; preds = %40
+.thread63.i:                                      ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -4228,15 +4228,15 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %47, label %49, label %.thread
 
-49:                                               ; preds = %44, %.thread93.i
-  %.296.i = phi ptr [ %37, %.thread93.i ], [ %48, %44 ]
-  %50 = load i8, ptr %.296.i, align 1, !tbaa !215
+49:                                               ; preds = %44, %.thread59.i
+  %.262.i = phi ptr [ %37, %.thread59.i ], [ %48, %44 ]
+  %50 = load i8, ptr %.262.i, align 1, !tbaa !215
   %.not115.i.i = icmp eq i8 %50, 0
   br i1 %.not115.i.i, label %.thread, label %51
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
-  %53 = tail call ptr %52(ptr noundef nonnull %.296.i) #11
+  %53 = tail call ptr %52(ptr noundef nonnull %.262.i) #11
   %.not116.i.i = icmp eq ptr %53, null
   br i1 %.not116.i.i, label %parse_connect_to_string.exit.thread137, label %54
 
@@ -4489,9 +4489,9 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %123) #11
   br label %144
 
-.thread:                                          ; preds = %44, %49, %31, %38, %27, %.thread97.i, %125
-  %.3129134153 = phi ptr [ %123, %125 ], [ null, %.thread97.i ], [ null, %27 ], [ null, %38 ], [ null, %31 ], [ null, %49 ], [ null, %44 ]
-  %.3135152 = phi i32 [ %.393.i.i, %125 ], [ -1, %.thread97.i ], [ -1, %27 ], [ -1, %38 ], [ -1, %31 ], [ -1, %49 ], [ -1, %44 ]
+.thread:                                          ; preds = %31, %.thread63.i, %44, %38, %49, %27, %125
+  %.3129134153 = phi ptr [ %123, %125 ], [ null, %27 ], [ null, %49 ], [ null, %38 ], [ null, %44 ], [ null, %.thread63.i ], [ null, %31 ]
+  %.3135152 = phi i32 [ %.393.i.i, %125 ], [ -1, %27 ], [ -1, %49 ], [ -1, %38 ], [ -1, %44 ], [ -1, %.thread63.i ], [ -1, %31 ]
   %141 = load i64, ptr %7, align 8
   %142 = and i64 %141, -257
   store i64 %142, ptr %7, align 8
@@ -4710,8 +4710,8 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %parse_connect_to_string.exit.thread137
 
-parse_connect_to_string.exit.thread137:           ; preds = %20, %51, %148, %150, %159, %155, %.thread161, %.critedge, %170, %.critedge115.thread, %.critedge115, %parse_connect_to_string.exit.thread143
-  %.0 = phi i32 [ %.1, %.critedge115 ], [ 0, %.critedge ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %150 ], [ 0, %148 ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 27, %51 ], [ 27, %20 ]
+parse_connect_to_string.exit.thread137:           ; preds = %51, %20, %148, %150, %159, %155, %.thread161, %.critedge, %170, %.critedge115.thread, %.critedge115, %parse_connect_to_string.exit.thread143
+  %.0 = phi i32 [ %.1, %.critedge115 ], [ 0, %.critedge ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %150 ], [ 0, %148 ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 27, %20 ], [ 27, %51 ]
   ret i32 %.0
 }
 

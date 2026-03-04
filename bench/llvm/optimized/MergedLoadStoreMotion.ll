@@ -297,7 +297,7 @@ _ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12nod
   %123 = add nsw i32 %.066117.i.i, 1
   %124 = mul nsw i32 %123, %102
   %.not75.i.i = icmp slt i32 %124, 250
-  br i1 %.not75.i.i, label %125, label %.thread.i.i
+  br i1 %.not75.i.i, label %125, label %.thread.i.loopexit.i
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.093.0116.i.i, i64 16
@@ -453,49 +453,49 @@ _ZN12_GLOBAL__N_121MergedLoadStoreMotion25isStoreSinkBarrierInRangeERKN4llvm11In
   %194 = load i8, ptr %189, align 8, !tbaa !18
   %195 = icmp eq i8 %194, 63
   %or.cond.i.i.i = and i1 %193, %195
-  br i1 %or.cond.i.i.i, label %196, label %.thread.i.i
+  br i1 %or.cond.i.i.i, label %196, label %.thread.i.loopexit.i
 
 196:                                              ; preds = %191
   %197 = call noundef zeroext i1 @_ZNK4llvm11Instruction13isIdenticalToEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %187, ptr noundef nonnull %189) #16
-  br i1 %197, label %198, label %.thread.i.i
+  br i1 %197, label %198, label %.thread.i.loopexit.i
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %200 = load ptr, ptr %199, align 8, !tbaa !46
   %.not.i.i.i.i.i = icmp eq ptr %200, null
-  br i1 %.not.i.i.i.i.i, label %.thread.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %.thread.i.loopexit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %198
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !47
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %204, label %.thread.i.i
+  br i1 %203, label %204, label %.thread.i.loopexit.i
 
 204:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
   %205 = getelementptr inbounds nuw i8, ptr %187, i64 40
   %206 = load ptr, ptr %205, align 8, !tbaa !41
   %207 = load ptr, ptr %126, align 8, !tbaa !41
   %208 = icmp eq ptr %206, %207
-  br i1 %208, label %209, label %.thread.i.i
+  br i1 %208, label %209, label %.thread.i.loopexit.i
 
 209:                                              ; preds = %204
   %210 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %211 = load ptr, ptr %210, align 8, !tbaa !46
   %.not.i.i19.i.i.i = icmp eq ptr %211, null
-  br i1 %.not.i.i19.i.i.i, label %.thread.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i
+  br i1 %.not.i.i19.i.i.i, label %.thread.i.loopexit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i:         ; preds = %209
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !47
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i, label %.thread.i.i
+  br i1 %214, label %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i, label %.thread.i.loopexit.i
 
 _ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i
   %215 = getelementptr inbounds nuw i8, ptr %189, i64 40
   %216 = load ptr, ptr %215, align 8, !tbaa !41
   %217 = load ptr, ptr %184, align 8, !tbaa !41
   %218 = icmp eq ptr %216, %217
-  br i1 %218, label %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.thread104.i.i, label %.thread.i.i
+  br i1 %218, label %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.thread104.i.i, label %.thread.i.loopexit.i
 
 _ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.thread104.i.i: ; preds = %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i, %183
   %219 = icmp eq ptr %.059118.i.i, %80
@@ -512,7 +512,7 @@ _ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreIns
   %223 = call noundef ptr @_ZN4llvm22SplitBlockPredecessorsEPNS_10BasicBlockENS_8ArrayRefIS1_EEPKcPNS_14DomTreeUpdaterEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEb(ptr noundef nonnull %80, ptr nonnull %16, i64 2, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not77.i.i = icmp eq ptr %223, null
-  br i1 %.not77.i.i, label %.thread.i.i, label %224
+  br i1 %.not77.i.i, label %.thread.i.loopexit.i, label %224
 
 224:                                              ; preds = %222, %220, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.thread104.i.i
   %.463.i.i = phi ptr [ %223, %222 ], [ %.059118.i.i, %220 ], [ %.059118.i.i, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.thread104.i.i ]
@@ -980,40 +980,44 @@ _ZN12_GLOBAL__N_121MergedLoadStoreMotion16canSinkFromBlockEPN4llvm10BasicBlockEP
   %.160.i.i = phi ptr [ %.059118.i.i, %112 ], [ %.463.i.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion17sinkStoresAndGEPsEPN4llvm10BasicBlockEPNS1_9StoreInstES5_.exit.i.i ], [ %.059118.i.i, %116 ], [ %.059118.i.i, %125 ], [ %.059118.i.i, %.thread.i.i.i ]
   %.2.i.i = phi i1 [ %.058119.i.i, %112 ], [ true, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion17sinkStoresAndGEPsEPN4llvm10BasicBlockEPNS1_9StoreInstES5_.exit.i.i ], [ %.058119.i.i, %116 ], [ %.058119.i.i, %125 ], [ %.058119.i.i, %.thread.i.i.i ]
   %.not112.i.i = icmp eq ptr %.sroa.093.1.i.i, %109
-  br i1 %.not112.i.i, label %.thread.i.i, label %112
+  br i1 %.not112.i.i, label %.thread.i.loopexit.i, label %112
 
-.thread.i.i:                                      ; preds = %_ZN12_GLOBAL__N_121MergedLoadStoreMotion16canSinkFromBlockEPN4llvm10BasicBlockEPNS1_9StoreInstE.exit.thread.i.i, %222, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i, %209, %204, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i, %198, %196, %191, %122, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit80.i.i
-  %.058.lcssa.i.i = phi i1 [ false, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit80.i.i ], [ %.058119.i.i, %209 ], [ %.058119.i.i, %198 ], [ %.058119.i.i, %191 ], [ %.058119.i.i, %196 ], [ %.058119.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i ], [ %.058119.i.i, %204 ], [ %.058119.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i ], [ %.058119.i.i, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i ], [ %.058119.i.i, %222 ], [ %.058119.i.i, %122 ], [ %.2.i.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion16canSinkFromBlockEPN4llvm10BasicBlockEPNS1_9StoreInstE.exit.thread.i.i ]
-  %440 = load ptr, ptr %36, align 8, !tbaa !32
-  %.not.i.i.i91.i.i = icmp eq ptr %440, null
-  br i1 %.not.i.i.i91.i.i, label %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i, label %441
+.thread.i.loopexit.i:                             ; preds = %_ZN12_GLOBAL__N_121MergedLoadStoreMotion16canSinkFromBlockEPN4llvm10BasicBlockEPNS1_9StoreInstE.exit.thread.i.i, %222, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i, %209, %204, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i, %198, %196, %191, %122
+  %.058.lcssa.i.ph.i = phi i1 [ %.058119.i.i, %209 ], [ %.058119.i.i, %198 ], [ %.058119.i.i, %191 ], [ %.058119.i.i, %196 ], [ %.058119.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i ], [ %.058119.i.i, %204 ], [ %.058119.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit21.i.i.i ], [ %.058119.i.i, %_ZNK12_GLOBAL__N_121MergedLoadStoreMotion20canSinkStoresAndGEPsEPN4llvm9StoreInstES3_.exit.i.i ], [ %.058119.i.i, %222 ], [ %.058119.i.i, %122 ], [ %.2.i.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion16canSinkFromBlockEPN4llvm10BasicBlockEPNS1_9StoreInstE.exit.thread.i.i ]
+  %440 = or i1 %.021.i, %.058.lcssa.i.ph.i
+  br label %.thread.i.i
 
-441:                                              ; preds = %.thread.i.i
-  %442 = call noundef zeroext i1 %440(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #15
+.thread.i.i:                                      ; preds = %.thread.i.loopexit.i, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit80.i.i
+  %.058.lcssa.i.i = phi i1 [ %.021.i, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit80.i.i ], [ %440, %.thread.i.loopexit.i ]
+  %441 = load ptr, ptr %36, align 8, !tbaa !32
+  %.not.i.i.i91.i.i = icmp eq ptr %441, null
+  br i1 %.not.i.i.i91.i.i, label %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i, label %442
+
+442:                                              ; preds = %.thread.i.i
+  %443 = call noundef zeroext i1 %441(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #15
   br label %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i
 
-_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i: ; preds = %441, %.thread.i.i
-  %443 = load ptr, ptr %27, align 8, !tbaa !32
-  %.not.i.i1.i.i.i = icmp eq ptr %443, null
-  br i1 %.not.i.i1.i.i.i, label %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i, label %444
+_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i: ; preds = %442, %.thread.i.i
+  %444 = load ptr, ptr %27, align 8, !tbaa !32
+  %.not.i.i1.i.i.i = icmp eq ptr %444, null
+  br i1 %.not.i.i1.i.i.i, label %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i, label %445
 
-444:                                              ; preds = %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i
-  %445 = call noundef zeroext i1 %443(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3) #15
+445:                                              ; preds = %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i
+  %446 = call noundef zeroext i1 %444(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3) #15
   br label %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i
 
-_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i: ; preds = %444, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i
+_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i: ; preds = %445, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN12_GLOBAL__N_121MergedLoadStoreMotion11mergeStoresEPN4llvm10BasicBlockE.exit.i
 
 _ZN12_GLOBAL__N_121MergedLoadStoreMotion11mergeStoresEPN4llvm10BasicBlockE.exit.i: ; preds = %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i, %88, %75
-  %.0.i.i = phi i1 [ false, %75 ], [ %.058.lcssa.i.i, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i ], [ false, %88 ]
+  %.0.i.i = phi i1 [ %.021.i, %75 ], [ %.058.lcssa.i.i, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit.i.i ], [ %.021.i, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %446 = or i1 %.021.i, %.0.i.i
   br label %_ZN12_GLOBAL__N_121MergedLoadStoreMotion13isDiamondHeadEPN4llvm10BasicBlockE.exit.thread.i
 
 _ZN12_GLOBAL__N_121MergedLoadStoreMotion13isDiamondHeadEPN4llvm10BasicBlockE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_121MergedLoadStoreMotion11mergeStoresEPN4llvm10BasicBlockE.exit.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion13isDiamondHeadEPN4llvm10BasicBlockE.exit.i, %69, %63, %58, %50
-  %.1.i = phi i1 [ %446, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion11mergeStoresEPN4llvm10BasicBlockE.exit.i ], [ %.021.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion13isDiamondHeadEPN4llvm10BasicBlockE.exit.i ], [ %.021.i, %50 ], [ %.021.i, %58 ], [ %.021.i, %69 ], [ %.021.i, %63 ]
+  %.1.i = phi i1 [ %.0.i.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion11mergeStoresEPN4llvm10BasicBlockE.exit.i ], [ %.021.i, %_ZN12_GLOBAL__N_121MergedLoadStoreMotion13isDiamondHeadEPN4llvm10BasicBlockE.exit.i ], [ %.021.i, %50 ], [ %.021.i, %58 ], [ %.021.i, %69 ], [ %.021.i, %63 ]
   %.not.i = icmp eq ptr %52, %23
   br i1 %.not.i, label %_ZN12_GLOBAL__N_121MergedLoadStoreMotion3runERN4llvm8FunctionERNS1_9AAResultsE.exit, label %50
 

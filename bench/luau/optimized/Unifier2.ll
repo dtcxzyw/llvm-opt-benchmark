@@ -2103,27 +2103,28 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit173: ; preds = %_ZN4Luau3getINS
 
 .thread359:                                       ; preds = %.thread355
   %228 = icmp eq i32 %169, 12
+  %229 = and i1 %228, %174
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284, %.thread359
-  %229 = phi i32 [ %173, %.thread359 ], [ %181, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %230 = phi i1 [ %228, %.thread359 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %231 = phi ptr [ %172, %.thread359 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %232 = phi i1 [ %174, %.thread359 ], [ %189, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %233 = phi i1 [ %170, %.thread359 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %234 = phi ptr [ %176, %.thread359 ], [ %191, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
-  %235 = icmp eq i32 %229, 12
-  %236 = and i1 %233, %235
+  %230 = phi i32 [ %173, %.thread359 ], [ %181, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %231 = phi i1 [ %228, %.thread359 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %232 = phi ptr [ %172, %.thread359 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %233 = phi i1 [ %229, %.thread359 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %234 = phi i1 [ %170, %.thread359 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %235 = phi ptr [ %176, %.thread359 ], [ %191, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread284 ]
+  %236 = icmp eq i32 %230, 12
+  %237 = and i1 %234, %236
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit176
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit176: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %.thread359.thread, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
-  %237 = phi i1 [ %230, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %187, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %238 = phi i1 [ %231, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %187, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
   %.not.i.i162304320332354358362364 = phi i1 [ false, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %.thread359.thread ], [ true, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %238 = phi ptr [ %231, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %171, %.thread359.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %239 = phi i1 [ %232, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %or.cond17 = phi i1 [ %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %240 = phi ptr [ %234, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ null, %.thread359.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %241 = phi i1 [ %235, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %239 = phi ptr [ %232, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %171, %.thread359.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %or.cond15 = phi i1 [ %233, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %or.cond17 = phi i1 [ %237, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %240 = phi ptr [ %235, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ null, %.thread359.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %241 = phi i1 [ %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread359.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
   %242 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %65)
   %.not.i.i177 = icmp eq ptr %242, null
   br i1 %.not.i.i177, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, label %243
@@ -2148,11 +2149,10 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3ge
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %249
   %254 = phi ptr [ %253, %249 ], [ null, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ]
-  %or.cond13 = and i1 %237, %241
+  %or.cond13 = and i1 %238, %241
   br i1 %or.cond13, label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashESt8equal_toIS5_EE8containsERKS5_.exit, label %255
 
 255:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
-  %or.cond15 = and i1 %237, %239
   br i1 %or.cond15, label %256, label %258
 
 256:                                              ; preds = %255
@@ -2163,12 +2163,12 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau10getMutab
   br i1 %or.cond17, label %259, label %261
 
 259:                                              ; preds = %258
-  %260 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %238, ptr nonnull poison)
+  %260 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %239, ptr nonnull poison)
   br label %_ZNK4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashESt8equal_toIS5_EE8containsERKS5_.exit
 
 261:                                              ; preds = %258
   %262 = icmp ne ptr %254, null
-  %or.cond19 = and i1 %237, %262
+  %or.cond19 = and i1 %238, %262
   br i1 %or.cond19, label %263, label %265
 
 263:                                              ; preds = %261

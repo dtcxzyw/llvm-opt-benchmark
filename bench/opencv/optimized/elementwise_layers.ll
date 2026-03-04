@@ -43442,12 +43442,12 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Powe
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
   %30 = sext i32 %29 to i64
+  %31 = mul nsw i64 %14, %30
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %15, %.preheader.i
-  %.024.i = phi i64 [ 0, %15 ], [ 1, %.preheader.i ], [ %30, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
-  %31 = mul nsw i64 %14, %.024.i
-  %32 = add nsw i64 %31, %.0712
+  %.024.i = phi i64 [ 0, %15 ], [ %14, %.preheader.i ], [ %31, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
+  %32 = add nsw i64 %.024.i, %.0712
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !912

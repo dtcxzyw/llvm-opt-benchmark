@@ -4353,7 +4353,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEN
 _ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit: ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit, %3
   %.tr82.lcssa = phi ptr [ %1, %3 ], [ %.sroa.0.0.copyload.i.i.i.i37, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit ]
   %11 = tail call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.tr82.lcssa)
-  br label %40
+  br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 .lr.ph:                                           ; preds = %3, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit
   %.tr8389 = phi i8 [ %.sroa.2.0.copyload.i.i.i.i39, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit ], [ %2, %3 ]
@@ -4400,7 +4400,7 @@ _ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit: ; pre
 _ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit: ; preds = %17, %12
   %.0.i = phi i1 [ %30, %17 ], [ true, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %40
+  br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit: ; preds = %.lr.ph
   %.sroa.0.0.copyload.i.i.i.i37 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i30, align 8
@@ -4418,25 +4418,20 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit: ; 
 
 34:                                               ; preds = %32
   %35 = call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %33)
-  br label %40
+  br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 36:                                               ; preds = %32
   %.sroa.2.0.copyload.i.i.i.i41 = load i8, ptr %9, align 8, !tbaa !160, !noalias !411
-  %37 = icmp ne i8 %.sroa.2.0.copyload.i.i.i.i41, 5
-  br i1 %37, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit, label %38
+  %.not = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i41, 5
+  br i1 %.not, label %37, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
-38:                                               ; preds = %36
+37:                                               ; preds = %36
   %.sroa.0.0.copyload.i.i.i.i43 = load ptr, ptr %8, align 8, !noalias !411
-  %39 = call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i.i.i43, i8 5)
+  %38 = call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i.i.i43, i8 5)
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
-_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit: ; preds = %36, %38
-  %.5 = phi i1 [ %39, %38 ], [ undef, %36 ]
-  %spec.select = or i1 %37, %.5
-  br label %40
-
-40:                                               ; preds = %34, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit, %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
-  %.1 = phi i1 [ %11, %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit ], [ %spec.select, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit ], [ %35, %34 ], [ %.0.i, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit ]
+_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit: ; preds = %37, %36, %34, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit, %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit
+  %.1 = phi i1 [ %11, %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit ], [ %.0.i, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit ], [ %35, %34 ], [ %38, %37 ], [ true, %36 ]
   ret i1 %.1
 }
 

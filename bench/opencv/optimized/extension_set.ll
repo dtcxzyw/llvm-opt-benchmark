@@ -12376,18 +12376,20 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet4SwapEPKNS0_11Mess
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %3
+  store ptr %6, ptr %0, align 8, !tbaa !164
+  store ptr %5, ptr %2, align 8, !tbaa !164
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i16, ptr %9, align 8, !tbaa !164
-  %12 = load i16, ptr %10, align 2, !tbaa !164
-  store i16 %12, ptr %9, align 8, !tbaa !164
-  store i16 %11, ptr %10, align 2, !tbaa !164
+  %11 = load i16, ptr %9, align 8, !tbaa !165
+  %12 = load i16, ptr %10, align 8, !tbaa !165
+  store i16 %12, ptr %9, align 8, !tbaa !165
+  store i16 %11, ptr %10, align 8, !tbaa !165
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %15 = load i16, ptr %13, align 2, !tbaa !164
-  %16 = load i16, ptr %14, align 2, !tbaa !164
-  store i16 %16, ptr %13, align 2, !tbaa !164
-  store i16 %15, ptr %14, align 2, !tbaa !164
+  %15 = load i16, ptr %13, align 2, !tbaa !165
+  %16 = load i16, ptr %14, align 2, !tbaa !165
+  store i16 %16, ptr %13, align 2, !tbaa !165
+  store i16 %15, ptr %14, align 2, !tbaa !165
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8, !tbaa !38
@@ -12568,22 +12570,22 @@ _ZN6google8protobuf8internal12ExtensionSetD2Ev.exit: ; preds = %50, %68, %69, %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6google8protobuf8internal12ExtensionSet12InternalSwapEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) local_unnamed_addr #17 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !165
-  %4 = load ptr, ptr %1, align 8, !tbaa !165
-  store ptr %4, ptr %0, align 8, !tbaa !165
-  store ptr %3, ptr %1, align 8, !tbaa !165
+  %3 = load ptr, ptr %0, align 8, !tbaa !164
+  %4 = load ptr, ptr %1, align 8, !tbaa !164
+  store ptr %4, ptr %0, align 8, !tbaa !164
+  store ptr %3, ptr %1, align 8, !tbaa !164
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i16, ptr %5, align 8, !tbaa !164
-  %8 = load i16, ptr %6, align 8, !tbaa !164
-  store i16 %8, ptr %5, align 8, !tbaa !164
-  store i16 %7, ptr %6, align 8, !tbaa !164
+  %7 = load i16, ptr %5, align 8, !tbaa !165
+  %8 = load i16, ptr %6, align 8, !tbaa !165
+  store i16 %8, ptr %5, align 8, !tbaa !165
+  store i16 %7, ptr %6, align 8, !tbaa !165
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %11 = load i16, ptr %9, align 2, !tbaa !164
-  %12 = load i16, ptr %10, align 2, !tbaa !164
-  store i16 %12, ptr %9, align 2, !tbaa !164
-  store i16 %11, ptr %10, align 2, !tbaa !164
+  %11 = load i16, ptr %9, align 2, !tbaa !165
+  %12 = load i16, ptr %10, align 2, !tbaa !165
+  store i16 %12, ptr %9, align 2, !tbaa !165
+  store i16 %11, ptr %10, align 2, !tbaa !165
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !38
@@ -27954,8 +27956,8 @@ attributes #35 = { allocsize(0) }
 !161 = distinct !{!161, !28}
 !162 = !{!163, !163, i64 0}
 !163 = !{!"_ZTSN6google8protobuf8internal14WireFormatLite8WireTypeE", !8, i64 0}
-!164 = !{!63, !63, i64 0}
-!165 = !{!62, !62, i64 0}
+!164 = !{!62, !62, i64 0}
+!165 = !{!63, !63, i64 0}
 !166 = !{!"branch_weights", i32 1, i32 127}
 !167 = !{!"branch_weights", i32 127, i32 255873}
 !168 = distinct !{!168, !28}

@@ -4180,6 +4180,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %837 = add nuw nsw i64 %835, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %363, ptr noundef nonnull align 8 dereferenceable(1) %832, i64 %837, i1 false), !noalias !303
   store i64 %835, ptr %364, align 8, !tbaa !59, !alias.scope !413, !noalias !303
+  store ptr %832, ptr %830, align 8, !tbaa !66, !noalias !303
   store i64 0, ptr %834, align 8, !tbaa !59, !noalias !303
   store i8 0, ptr %832, align 8, !tbaa !61, !noalias !303
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i155.i
@@ -4329,6 +4330,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %886 = add nuw nsw i64 %884, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %371, ptr noundef nonnull align 8 dereferenceable(1) %881, i64 %886, i1 false), !noalias !303
   store i64 %884, ptr %372, align 8, !tbaa !59, !alias.scope !433, !noalias !303
+  store ptr %881, ptr %879, align 8, !tbaa !66, !noalias !303
   store i64 0, ptr %883, align 8, !tbaa !59, !noalias !303
   store i8 0, ptr %881, align 8, !tbaa !61, !noalias !303
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i179.i

@@ -1787,7 +1787,11 @@ _ZNK12_GLOBAL__N_119TrustNonnullChecker20checkPostObjCMessageERKN5clang4ento14Ob
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullChecker22interfaceHasSuperclassEPKN5clang17ObjCInterfaceDeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2, %3
+  %.tr = phi ptr [ %0, %3 ], [ %16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !716
   %6 = and i64 %5, -8
   %7 = inttoptr i64 %6 to ptr
@@ -1799,7 +1803,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullCheck
   %.not.i = icmp eq i64 %12, %2
   br i1 %.not.i, label %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
 
-13:                                               ; preds = %3
+13:                                               ; preds = %tailrecurse
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
@@ -1808,22 +1812,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %13
   %15 = icmp eq i32 %bcmp.i, 0
   br i1 %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread2:        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %16 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
-  %.not.not = icmp ne ptr %16, null
-  br i1 %.not.not, label %17, label %19
+_ZN4llvmeqENS_9StringRefES0_.exit.thread2:        ; preds = %tailrecurse, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %16 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr) #18
+  %.not.not.not = icmp eq ptr %16, null
+  br i1 %.not.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %tailrecurse
 
-17:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
-  %18 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullChecker22interfaceHasSuperclassEPKN5clang17ObjCInterfaceDeclEN4llvm9StringRefE(ptr noundef %16, ptr %1, i64 %2)
-  br label %19
-
-19:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2, %17
-  %.1 = phi i1 [ %18, %17 ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2 ]
-  %spec.select = and i1 %.not.not, %.1
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %13, %19, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.012 = phi i1 [ %spec.select, %19 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %13 ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2, %13, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %.012 = phi i1 [ true, %13 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2 ]
   ret i1 %.012
 }
 

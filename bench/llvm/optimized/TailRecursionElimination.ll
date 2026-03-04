@@ -2665,11 +2665,11 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i:   ; preds = %.lr.ph.i.i.i.i.i41,
 
 921:                                              ; preds = %919
   %922 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123TailRecursionEliminator13eliminateCallEPN4llvm8CallInstE(ptr noundef nonnull align 8 dereferenceable(240) %21, ptr noundef %920)
+  %923 = or i1 %.019.in86, %922
   br label %_ZN12_GLOBAL__N_123TailRecursionEliminator12processBlockERN4llvm10BasicBlockE.exit
 
 _ZN12_GLOBAL__N_123TailRecursionEliminator12processBlockERN4llvm10BasicBlockE.exit: ; preds = %.lr.ph, %890, %895, %901, %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i, %919, %921
-  %923 = phi i1 [ false, %919 ], [ false, %.lr.ph ], [ %922, %921 ], [ false, %901 ], [ false, %895 ], [ true, %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i ], [ false, %890 ]
-  %924 = or i1 %.019.in86, %923
+  %924 = phi i1 [ %.019.in86, %919 ], [ %.019.in86, %.lr.ph ], [ %923, %921 ], [ %.019.in86, %901 ], [ %.019.in86, %895 ], [ true, %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i ], [ %.019.in86, %890 ]
   %925 = getelementptr inbounds nuw i8, ptr %.sroa.043.087, i64 8
   %.sroa.043.0 = load ptr, ptr %925, align 8, !tbaa !114
   %.not = icmp eq ptr %.sroa.043.0, %534

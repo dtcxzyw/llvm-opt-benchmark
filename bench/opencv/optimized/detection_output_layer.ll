@@ -10641,13 +10641,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %130
 
 115:                                              ; preds = %._crit_edge._crit_edge, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %.039.lcssa95 = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ false, %._crit_edge._crit_edge ]
+  %.039.lcssa95 = phi i1 [ %50, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ false, %._crit_edge._crit_edge ]
   %116 = phi ptr [ %.pre83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.pre82, %._crit_edge._crit_edge ]
   %117 = phi ptr [ %109, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %80, %._crit_edge._crit_edge ]
   %118 = phi ptr [ %110, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %79, %._crit_edge._crit_edge ]
-  %or.cond = and i1 %50, %.039.lcssa95
   %119 = fcmp ogt float %.04271, 5.000000e-01
-  %or.cond51 = select i1 %or.cond, i1 %119, i1 false
+  %or.cond51 = select i1 %.039.lcssa95, i1 %119, i1 false
   %120 = fmul float %4, %.04271
   %.244 = select i1 %or.cond51, float %120, float %.04271
   %121 = add nuw i64 %.04172, 1

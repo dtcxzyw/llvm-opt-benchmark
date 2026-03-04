@@ -8999,46 +8999,46 @@ define internal void @_ZN4ncnnL8gru_int8ERKNS_3MatERS0_iS2_PKfS2_S2_S5_S3_RKNS_6
   br i1 %exitcond156.not, label %._crit_edge.loopexit, label %.lr.ph128, !llvm.loop !186
 
 .preheader.loopexit:                              ; preds = %.lr.ph134
-  %155 = sitofp i32 %163 to float
+  %155 = sitofp i32 %164 to float
+  %156 = fmul fast float %114, %155
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %._crit_edge
-  %.0114.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %155, %.preheader.loopexit ]
+  %.0114.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %156, %.preheader.loopexit ]
   br i1 %59, label %.lr.ph138, label %._crit_edge139
 
 .lr.ph134:                                        ; preds = %._crit_edge, %.lr.ph134
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph134 ], [ 0, %._crit_edge ]
-  %.0114131 = phi i32 [ %163, %.lr.ph134 ], [ 0, %._crit_edge ]
-  %156 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv157
-  %157 = load i8, ptr %156, align 1, !tbaa !180
-  %158 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv157
-  %159 = load i8, ptr %158, align 1, !tbaa !180
-  %160 = sext i8 %159 to i32
-  %161 = sext i8 %157 to i32
-  %162 = mul nsw i32 %160, %161
-  %163 = add nsw i32 %162, %.0114131
+  %.0114131 = phi i32 [ %164, %.lr.ph134 ], [ 0, %._crit_edge ]
+  %157 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv157
+  %158 = load i8, ptr %157, align 1, !tbaa !180
+  %159 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv157
+  %160 = load i8, ptr %159, align 1, !tbaa !180
+  %161 = sext i8 %160 to i32
+  %162 = sext i8 %158 to i32
+  %163 = mul nsw i32 %161, %162
+  %164 = add nsw i32 %163, %.0114131
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.preheader.loopexit, label %.lr.ph134, !llvm.loop !187
 
 ._crit_edge139.loopexit:                          ; preds = %.lr.ph138
-  %164 = sitofp i32 %186 to float
+  %165 = sitofp i32 %186 to float
+  %166 = fmul fast float %110, %165
   br label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %._crit_edge139.loopexit, %.preheader
-  %.0111.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %164, %._crit_edge139.loopexit ]
-  %165 = getelementptr inbounds float, ptr %66, i64 %indvars.iv167
-  %166 = load float, ptr %165, align 4, !tbaa !46
-  %167 = fmul fast float %114, %.0114.lcssa
-  %168 = fdiv fast float %167, %141
-  %169 = fadd fast float %166, %168
-  %170 = getelementptr inbounds float, ptr %64, i64 %indvars.iv167
-  %171 = load float, ptr %170, align 4, !tbaa !46
-  %172 = fdiv fast float %169, %128
-  %173 = fmul fast float %110, %.0111.lcssa
-  %174 = fdiv fast float %173, %139
-  %175 = fadd fast float %171, %174
-  %176 = fadd fast float %175, %172
+  %.0111.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %166, %._crit_edge139.loopexit ]
+  %167 = getelementptr inbounds float, ptr %66, i64 %indvars.iv167
+  %168 = load float, ptr %167, align 4, !tbaa !46
+  %169 = fdiv fast float %.0114.lcssa, %141
+  %170 = fadd fast float %168, %169
+  %171 = getelementptr inbounds float, ptr %64, i64 %indvars.iv167
+  %172 = load float, ptr %171, align 4, !tbaa !46
+  %173 = fdiv fast float %170, %128
+  %174 = fdiv fast float %.0111.lcssa, %139
+  %175 = fadd fast float %172, %174
+  %176 = fadd fast float %175, %173
   %177 = call fast float @llvm.tanh.f32(float %176)
   store float %132, ptr %73, align 4, !tbaa !46
   %178 = getelementptr inbounds nuw i8, ptr %73, i64 4

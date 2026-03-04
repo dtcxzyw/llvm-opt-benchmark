@@ -2341,7 +2341,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
 .loopexit:                                        ; preds = %.lr.ph, %212, %172, %273, %247, %195, %248
   %.0153196 = phi i32 [ %208, %248 ], [ %208, %247 ], [ %127, %172 ], [ %127, %195 ], [ %.0153197, %273 ], [ %208, %212 ], [ %.0153197, %.lr.ph ]
   %.0154194 = phi i32 [ %210, %248 ], [ %210, %247 ], [ %129, %172 ], [ %129, %195 ], [ %.0154195, %273 ], [ %210, %212 ], [ %.0154195, %.lr.ph ]
-  %.0158.in192 = phi i1 [ false, %248 ], [ false, %247 ], [ false, %172 ], [ false, %195 ], [ true, %273 ], [ false, %212 ], [ true, %.lr.ph ]
+  %.0158.in192 = phi i1 [ %spec.select198, %248 ], [ %spec.select198, %247 ], [ %spec.select198, %172 ], [ %spec.select198, %195 ], [ true, %273 ], [ %spec.select198, %212 ], [ true, %.lr.ph ]
   tail call fastcc void @SetMinMaxDimensions(ptr noundef nonnull %0)
   %277 = getelementptr inbounds nuw i8, ptr %3, i64 403
   %278 = load i8, ptr %277, align 1, !range !5, !noundef !6
@@ -2368,8 +2368,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   br i1 %292, label %293, label %.thread219
 
 293:                                              ; preds = %286
-  %or.cond7 = or i1 %spec.select198, %.0158.in192
-  br i1 %or.cond7, label %301, label %294
+  br i1 %.0158.in192, label %301, label %294
 
 294:                                              ; preds = %293
   %295 = getelementptr inbounds nuw i8, ptr %3, i64 393

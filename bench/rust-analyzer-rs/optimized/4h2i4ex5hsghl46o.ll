@@ -40927,9 +40927,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit16.i:
   %205 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !9245, !noalias !9248, !noundef !4
   %206 = add i8 %205, -65
   %207 = icmp ult i8 %206, 26
-  %.0.i.i = select i1 %207, i8 32, i8 0
-  %208 = or i8 %.0.i.i, %205
-  store i8 %208, ptr %.sroa.0.06.i.i, align 1, !alias.scope !9245, !noalias !9248
+  %208 = select i1 %207, i8 32, i8 0
+  %.0.i.i = or i8 %208, %205
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !9245, !noalias !9248
   %209 = icmp eq ptr %204, %202
   br i1 %209, label %.loopexit, label %.lr.ph.i.i
 

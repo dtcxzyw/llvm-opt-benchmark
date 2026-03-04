@@ -24237,9 +24237,9 @@ _ZN3std4path4Path4join17ha272842609f60636E.exit:  ; preds = %133
   %190 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !5856, !noalias !5859, !noundef !9
   %191 = add i8 %190, -65
   %192 = icmp ult i8 %191, 26
-  %.0.i.i.i = select i1 %192, i8 32, i8 0
-  %193 = or i8 %.0.i.i.i, %190
-  store i8 %193, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !5856, !noalias !5859
+  %193 = select i1 %192, i8 32, i8 0
+  %.0.i.i.i = or i8 %193, %190
+  store i8 %.0.i.i.i, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !5856, !noalias !5859
   %194 = icmp eq ptr %189, %187
   br i1 %194, label %.loopexit.i, label %.lr.ph.i.i.i
 

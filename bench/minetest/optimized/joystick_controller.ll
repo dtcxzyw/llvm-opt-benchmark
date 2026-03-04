@@ -3901,13 +3901,13 @@ if.end.i10:                                       ; preds = %_ZN18JoystickContro
   %div.i18 = fdiv nsz float %conv13.i15, %conv18.i17
   %9 = fpext float %div.i18 to double
   %10 = fmul nsz double %9, %9
+  %11 = fadd nsz double %retval.0.i, %10
   br label %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit20
 
 _ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit20: ; preds = %if.end.i10, %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit
-  %retval.0.i19 = phi double [ %10, %if.end.i10 ], [ 0.000000e+00, %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit ]
-  %add = fadd nsz double %retval.0.i, %retval.0.i19
-  %11 = tail call nsz double @llvm.sqrt.f64(double %add)
-  %conv = fptrunc double %11 to float
+  %retval.0.i19 = phi double [ %11, %if.end.i10 ], [ %retval.0.i, %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit ]
+  %12 = tail call nsz double @llvm.sqrt.f64(double %retval.0.i19)
+  %conv = fptrunc double %12 to float
   %cmp = fcmp nsz ogt float %conv, 1.000000e+00
   %speed.0 = select i1 %cmp, float 1.000000e+00, float %conv
   ret float %speed.0

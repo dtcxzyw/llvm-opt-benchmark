@@ -338,34 +338,34 @@ bytestream2_get_be16.exit407:                     ; preds = %.preheader556, %110
   %144 = add nuw nsw i32 %143, 100
   %145 = udiv i32 %144, 200
   %146 = shl nuw nsw i32 %145, 16
-  %147 = or i32 %146, -16777216
   %.pre643 = ptrtoint ptr %139 to i64
   br label %bytestream2_get_be16.exit409
 
 bytestream2_get_be16.exit409:                     ; preds = %134, %138
   %.pre-phi644 = phi i64 [ %15, %134 ], [ %.pre643, %138 ]
   %.sroa.0.13 = phi ptr [ %14, %134 ], [ %139, %138 ]
-  %.0.i408 = phi i32 [ -16777216, %134 ], [ %147, %138 ]
-  %148 = sub i64 %15, %.pre-phi644
-  %149 = icmp slt i64 %148, 2
-  br i1 %149, label %bytestream2_get_be16.exit411, label %150
+  %.0.i408 = phi i32 [ 0, %134 ], [ %146, %138 ]
+  %147 = sub i64 %15, %.pre-phi644
+  %148 = icmp slt i64 %147, 2
+  br i1 %148, label %bytestream2_get_be16.exit411, label %149
 
-150:                                              ; preds = %bytestream2_get_be16.exit409
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.13, i64 2
-  %152 = load i16, ptr %.sroa.0.13, align 1, !tbaa !16
-  %153 = tail call i16 @llvm.bswap.i16(i16 %152)
-  %154 = zext i16 %153 to i32
-  %155 = mul nuw nsw i32 %154, 51
-  %156 = add nuw nsw i32 %155, 100
-  %157 = udiv i32 %156, 200
-  %158 = shl nuw nsw i32 %157, 8
-  %.pre645 = ptrtoint ptr %151 to i64
+149:                                              ; preds = %bytestream2_get_be16.exit409
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.0.13, i64 2
+  %151 = load i16, ptr %.sroa.0.13, align 1, !tbaa !16
+  %152 = tail call i16 @llvm.bswap.i16(i16 %151)
+  %153 = zext i16 %152 to i32
+  %154 = mul nuw nsw i32 %153, 51
+  %155 = add nuw nsw i32 %154, 100
+  %156 = udiv i32 %155, 200
+  %157 = shl nuw nsw i32 %156, 8
+  %158 = or i32 %157, %.0.i408
+  %.pre645 = ptrtoint ptr %150 to i64
   br label %bytestream2_get_be16.exit411
 
-bytestream2_get_be16.exit411:                     ; preds = %bytestream2_get_be16.exit409, %150
-  %.pre-phi646 = phi i64 [ %15, %bytestream2_get_be16.exit409 ], [ %.pre645, %150 ]
-  %.sroa.0.14 = phi ptr [ %14, %bytestream2_get_be16.exit409 ], [ %151, %150 ]
-  %.0.i410 = phi i32 [ 0, %bytestream2_get_be16.exit409 ], [ %158, %150 ]
+bytestream2_get_be16.exit411:                     ; preds = %bytestream2_get_be16.exit409, %149
+  %.pre-phi646 = phi i64 [ %15, %bytestream2_get_be16.exit409 ], [ %.pre645, %149 ]
+  %.sroa.0.14 = phi ptr [ %14, %bytestream2_get_be16.exit409 ], [ %150, %149 ]
+  %.0.i410 = phi i32 [ %.0.i408, %bytestream2_get_be16.exit409 ], [ %158, %149 ]
   %159 = sub i64 %15, %.pre-phi646
   %160 = icmp slt i64 %159, 2
   br i1 %160, label %bytestream2_get_be16.exit413, label %161
@@ -378,13 +378,13 @@ bytestream2_get_be16.exit411:                     ; preds = %bytestream2_get_be1
   %166 = mul nuw nsw i32 %165, 51
   %167 = add nuw nsw i32 %166, 100
   %168 = udiv i32 %167, 200
+  %169 = or i32 %168, %.0.i410
   br label %bytestream2_get_be16.exit413
 
 bytestream2_get_be16.exit413:                     ; preds = %bytestream2_get_be16.exit411, %161
   %.sroa.0.15 = phi ptr [ %162, %161 ], [ %14, %bytestream2_get_be16.exit411 ]
-  %.0.i412 = phi i32 [ %168, %161 ], [ 0, %bytestream2_get_be16.exit411 ]
-  %169 = or i32 %.0.i408, %.0.i410
-  %170 = or i32 %169, %.0.i412
+  %.0.i412 = phi i32 [ %169, %161 ], [ %.0.i410, %bytestream2_get_be16.exit411 ]
+  %170 = or i32 %.0.i412, -16777216
   %171 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
   store i32 %170, ptr %171, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

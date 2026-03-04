@@ -1148,12 +1148,12 @@ refill.exit.i19:                                  ; preds = %74, %58, %50
 81:                                               ; preds = %refill.exit.i19
   %82 = sub nsw i32 %76, %79
   store i32 %82, ptr %54, align 8, !tbaa !70
+  %83 = or disjoint i32 %51, 1
   br label %get_cabac_bypass.exit21
 
 get_cabac_bypass.exit21:                          ; preds = %refill.exit.i19, %81
-  %.0.i20 = phi i32 [ 1, %81 ], [ 0, %refill.exit.i19 ]
-  %83 = sub i32 %51, %13
-  %84 = add i32 %83, %.0.i20
+  %.0.i20 = phi i32 [ %83, %81 ], [ %51, %refill.exit.i19 ]
+  %84 = sub nsw i32 %.0.i20, %13
   br label %85
 
 85:                                               ; preds = %get_cabac_bypass.exit21, %._crit_edge
@@ -15311,12 +15311,12 @@ define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef r
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %62 = load ptr, ptr %61, align 16, !tbaa !67
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2672
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1582
-  %65 = getelementptr inbounds nuw %struct.VVCCabacState, ptr %64, i64 %.0
+  %64 = getelementptr inbounds nuw %struct.VVCCabacState, ptr %62, i64 %.0
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1582
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 2676
   %67 = load i32, ptr %66, align 4, !tbaa !100
   %68 = ashr i32 %67, 5
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 1584
   %70 = load i16, ptr %69, align 2, !tbaa !58
   %71 = zext i16 %70 to i32
   %72 = load i16, ptr %65, align 2, !tbaa !58
@@ -15386,7 +15386,7 @@ define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef r
 vvc_get_cabac.exit:                               ; preds = %60, %97, %122
   %124 = zext i1 %86 to i32
   %125 = xor i32 %76, %124
-  %126 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %64, i64 1586
   %127 = load i8, ptr %126, align 2, !tbaa !97
   %128 = zext i8 %127 to i32
   %129 = lshr i32 %73, %128
@@ -15396,7 +15396,7 @@ vvc_get_cabac.exit:                               ; preds = %60, %97, %122
   %133 = add nsw i32 %130, %132
   %134 = trunc i32 %133 to i16
   store i16 %134, ptr %65, align 2, !tbaa !58
-  %135 = getelementptr inbounds nuw i8, ptr %65, i64 5
+  %135 = getelementptr inbounds nuw i8, ptr %64, i64 1587
   %136 = load i8, ptr %135, align 1, !tbaa !97
   %137 = zext i8 %136 to i32
   %138 = lshr i32 %71, %137

@@ -73752,9 +73752,9 @@ define internal fastcc void @_ZN6yara_x8compiler5atoms16CaseCombinations3new17h4
   %28 = load i8, ptr %27, align 1, !noalias !3753, !noundef !7
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.03.0.i = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.03.0.i, %28
-  store i8 %31, ptr %27, align 1, !noalias !3753
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.03.0.i = or i8 %31, %28
+  store i8 %.sroa.03.0.i, ptr %27, align 1, !noalias !3753
   %32 = add nuw i64 %.sroa.0.06.i, 1
   %exitcond.not.i = icmp eq i64 %32, %.sink10.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i

@@ -1100,25 +1100,21 @@ _ZN4llvmeqENS_9StringRefES0_.exit36:              ; preds = %20, %18
   %22 = phi i1 [ false, %18 ], [ %21, %20 ]
   %.sroa.2.0.copyload = load i64, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !24
   %.not.i37 = icmp eq i64 %.sroa.2.0.copyload, 6
-  br i1 %.not.i37, label %_ZN4llvmeqENS_9StringRefES0_.exit40, label %_ZN4llvmeqENS_9StringRefES0_.exit40.thread71
+  br i1 %.not.i37, label %_ZN4llvmeqENS_9StringRefES0_.exit40, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit40:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit36
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !23
   %bcmp.i39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.2, i64 6)
   %23 = icmp eq i32 %bcmp.i39, 0
-  br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit40.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit40.thread71
+  br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit40.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit40.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit40
   %24 = call noundef zeroext i1 @_ZNK4llvm9StringRef23starts_with_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.3, i64 3) #24
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit40.thread71
-
-_ZN4llvmeqENS_9StringRefES0_.exit40.thread71:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit36, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread, %_ZN4llvmeqENS_9StringRefES0_.exit40
-  %25 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit40 ], [ %24, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit36 ]
-  %26 = or i1 %22, %25
+  %25 = or i1 %22, %24
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %6, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread65, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit24, %_ZN4llvmeqENS_9StringRefES0_.exit32, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread71
-  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread71 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit24 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread65 ], [ true, %6 ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit36, %6, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread65, %_ZN4llvmeqENS_9StringRefES0_.exit40, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit24, %_ZN4llvmeqENS_9StringRefES0_.exit32
+  %.0 = phi i1 [ %25, %_ZN4llvmeqENS_9StringRefES0_.exit40.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit24 ], [ %22, %_ZN4llvmeqENS_9StringRefES0_.exit40 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread65 ], [ %22, %_ZN4llvmeqENS_9StringRefES0_.exit36 ], [ true, %6 ]
   ret i1 %.0
 }
 

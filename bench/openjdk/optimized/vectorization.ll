@@ -4115,7 +4115,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 8191
   %26 = icmp eq i32 %25, 6148
-  br i1 %26, label %27, label %33
+  br i1 %26, label %27, label %34
 
 27:                                               ; preds = %20
   %28 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %22) #13
@@ -4133,21 +4133,21 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
   %32 = load i32, ptr %31, align 8
   %.pre = load i32, ptr %11, align 4
   %.pre40 = load i32, ptr %2, align 8
-  br label %33
+  %33 = mul nsw i32 %.pre, %32
+  br label %34
 
-33:                                               ; preds = %20, %_ZNK4Node7get_intEv.exit
-  %34 = phi i32 [ %.pre40, %_ZNK4Node7get_intEv.exit ], [ %3, %20 ]
-  %35 = phi i32 [ %.pre, %_ZNK4Node7get_intEv.exit ], [ %12, %20 ]
-  %36 = phi i32 [ %32, %_ZNK4Node7get_intEv.exit ], [ 0, %20 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load i32, ptr %37, align 8
-  %39 = mul nsw i32 %35, %36
-  %40 = add nsw i32 %39, %38
+34:                                               ; preds = %20, %_ZNK4Node7get_intEv.exit
+  %35 = phi i32 [ %.pre40, %_ZNK4Node7get_intEv.exit ], [ %3, %20 ]
+  %36 = phi i32 [ %.pre, %_ZNK4Node7get_intEv.exit ], [ %12, %20 ]
+  %37 = phi i32 [ %33, %_ZNK4Node7get_intEv.exit ], [ 0, %20 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load i32, ptr %38, align 8
+  %40 = add nsw i32 %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = mul nsw i32 %34, %35
+  %42 = mul nsw i32 %35, %36
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %44 = load i32, ptr %43, align 4
-  %45 = mul nsw i32 %44, %35
+  %45 = mul nsw i32 %44, %36
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = srem i32 %45, %47
@@ -4157,20 +4157,20 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
   %.not = icmp eq i32 %50, %51
   br i1 %.not, label %55, label %52
 
-52:                                               ; preds = %33
+52:                                               ; preds = %34
   %53 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @.str.14, ptr %54, align 8
   br label %108
 
-55:                                               ; preds = %33
+55:                                               ; preds = %34
   %56 = load ptr, ptr %21, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 44
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 8191
   %60 = icmp eq i32 %59, 6148
-  %61 = select i1 %60, i32 0, i32 %35
+  %61 = select i1 %60, i32 0, i32 %36
   %62 = load ptr, ptr %41, align 8
   %63 = icmp eq ptr %62, null
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48

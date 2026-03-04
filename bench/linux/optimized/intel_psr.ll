@@ -4728,29 +4728,29 @@ define dso_local void @intel_psr_pre_plane_update(ptr noundef readonly captures(
   %71 = or i8 %65, %70
   %72 = load i16, ptr %30, align 8
   %73 = icmp ult i16 %72, 11
-  br i1 %73, label %74, label %76
+  br i1 %73, label %74, label %77
 
 74:                                               ; preds = %51
   %75 = load i8, ptr %31, align 2, !range !5, !noundef !6
-  br label %76
+  %76 = or i8 %75, %71
+  br label %77
 
-76:                                               ; preds = %74, %51
-  %77 = phi i8 [ 0, %51 ], [ %75, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %52, i64 3638
-  %79 = load i8, ptr %78, align 2, !range !5, !noundef !6
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %89, label %81
+77:                                               ; preds = %74, %51
+  %78 = phi i8 [ %71, %51 ], [ %76, %74 ]
+  %79 = getelementptr inbounds nuw i8, ptr %52, i64 3638
+  %80 = load i8, ptr %79, align 2, !range !5, !noundef !6
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %89, label %82
 
-81:                                               ; preds = %76
-  %82 = or i8 %71, %77
-  %83 = icmp eq i8 %82, 0
+82:                                               ; preds = %77
+  %83 = icmp eq i8 %78, 0
   br i1 %83, label %85, label %84
 
-84:                                               ; preds = %81
+84:                                               ; preds = %82
   tail call fastcc void @intel_psr_disable_locked(ptr noundef nonnull %53)
   br label %89
 
-85:                                               ; preds = %81
+85:                                               ; preds = %82
   %86 = load i8, ptr %31, align 2, !range !5, !noundef !6
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %89, label %88
@@ -4759,7 +4759,7 @@ define dso_local void @intel_psr_pre_plane_update(ptr noundef readonly captures(
   tail call fastcc void @wm_optimization_wa(ptr noundef nonnull %53, ptr noundef %13)
   br label %89
 
-89:                                               ; preds = %88, %85, %84, %76
+89:                                               ; preds = %88, %85, %84, %77
   tail call void @mutex_unlock(ptr noundef nonnull %54) #10
   %.pre = load ptr, ptr %3, align 8
   br label %90
@@ -5030,24 +5030,24 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %86 = or i8 %83, %85
   %87 = load i16, ptr %30, align 8
   %88 = icmp ult i16 %87, 11
-  br i1 %88, label %89, label %91
+  br i1 %88, label %89, label %92
 
 89:                                               ; preds = %80
   %90 = load i8, ptr %31, align 2, !range !5, !noundef !6
-  br label %91
+  %91 = or i8 %90, %86
+  br label %92
 
-91:                                               ; preds = %89, %80
-  %92 = phi i8 [ 0, %80 ], [ %90, %89 ]
-  %93 = load i8, ptr %65, align 2, !range !5, !noundef !6
-  %94 = icmp eq i8 %93, 0
-  br i1 %94, label %95, label %550
+92:                                               ; preds = %89, %80
+  %93 = phi i8 [ %86, %80 ], [ %91, %89 ]
+  %94 = load i8, ptr %65, align 2, !range !5, !noundef !6
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %96, label %550
 
-95:                                               ; preds = %91
-  %96 = or i8 %86, %92
-  %97 = icmp eq i8 %96, 0
+96:                                               ; preds = %92
+  %97 = icmp eq i8 %93, 0
   br i1 %97, label %98, label %554
 
-98:                                               ; preds = %95
+98:                                               ; preds = %96
   %99 = load ptr, ptr %62, align 8
   %100 = getelementptr i8, ptr %62, i64 132
   %101 = load i32, ptr %100, align 4
@@ -5701,7 +5701,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
   call fastcc void @intel_psr_activate(ptr noundef nonnull %63)
   br label %554
 
-550:                                              ; preds = %91
+550:                                              ; preds = %92
   %551 = load i8, ptr %31, align 2, !range !5, !noundef !6
   %552 = icmp eq i8 %551, 0
   br i1 %552, label %553, label %554
@@ -5710,7 +5710,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
   call fastcc void @wm_optimization_wa(ptr noundef nonnull %63, ptr noundef %14)
   br label %554
 
-554:                                              ; preds = %95, %553, %550, %548, %193
+554:                                              ; preds = %96, %553, %550, %548, %193
   %555 = load i8, ptr %41, align 1, !range !5, !noundef !6
   %556 = icmp eq i8 %555, 0
   br i1 %556, label %610, label %557

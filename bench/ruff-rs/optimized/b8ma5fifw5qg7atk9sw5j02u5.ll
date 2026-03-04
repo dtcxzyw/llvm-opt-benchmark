@@ -791,9 +791,9 @@ thread-pre-split.i:                               ; preds = %107
   %203 = load i8, ptr %202, align 1, !alias.scope !79, !noundef !12
   %204 = add i8 %203, -65
   %205 = icmp ult i8 %204, 26
-  %.sroa.03.0.i77 = select i1 %205, i8 32, i8 0
-  %206 = or i8 %.sroa.03.0.i77, %203
-  store i8 %206, ptr %202, align 1, !alias.scope !79
+  %206 = select i1 %205, i8 32, i8 0
+  %.sroa.03.0.i77 = or i8 %206, %203
+  store i8 %.sroa.03.0.i77, ptr %202, align 1, !alias.scope !79
   %207 = add nuw i64 %.sroa.0.05.i, 1
   %exitcond.not.i = icmp eq i64 %207, %.sroa.5.0.copyload154
   br i1 %exitcond.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_lowercase17h5784076d22979700E.exit", label %.lr.ph.i76

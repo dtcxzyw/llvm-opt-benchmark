@@ -5587,7 +5587,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19OpenMPOpt3runEb(ptr
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !33
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %1862, label %90
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit, label %90
 
 90:                                               ; preds = %2
   br i1 %1, label %91, label %522
@@ -6604,11 +6604,14 @@ _ZN4llvm11SmallVectorIPNS_3UseELj2EED2Ev.exit.i:  ; preds = %494, %"_ZNK12_GLOBA
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %495 = getelementptr inbounds nuw i8, ptr %.038151.i, i64 8
   %.not.i18 = icmp eq ptr %495, %110
-  br i1 %.not.i18, label %_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit, label %175
+  br i1 %.not.i18, label %_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit.loopexit, label %175
 
-_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_3UseELj2EED2Ev.exit.i, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit, %104
-  %.0.i = phi i1 [ false, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit ], [ false, %104 ], [ %.1.i, %_ZN4llvm11SmallVectorIPNS_3UseELj2EED2Ev.exit.i ]
-  %496 = or i1 %92, %.0.i
+_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit.loopexit: ; preds = %_ZN4llvm11SmallVectorIPNS_3UseELj2EED2Ev.exit.i
+  %496 = or i1 %92, %.1.i
+  br label %_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit
+
+_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit: ; preds = %_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit.loopexit, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit, %104
+  %.0.i = phi i1 [ %92, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit ], [ %92, %104 ], [ %496, %_ZN12_GLOBAL__N_19OpenMPOpt29rewriteDeviceCodeStateMachineEv.exit.loopexit ]
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %497, align 8, !tbaa !684
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !595
@@ -7443,17 +7446,17 @@ _ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit69: ; preds = %810
 _ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.loopexit.i: ; preds = %.lr.ph.i.i74
   %.pre.i = load i8, ptr %70, align 1, !tbaa !57, !range !58
   %826 = trunc nuw i8 %.pre.i to i1
+  %827 = or i1 %806, %826
   br label %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.i
 
 _ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.i: ; preds = %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.loopexit.i, %817
-  %827 = phi i1 [ %826, %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.loopexit.i ], [ false, %817 ]
+  %828 = phi i1 [ %827, %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.loopexit.i ], [ %806, %817 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %_ZN12_GLOBAL__N_19OpenMPOpt21deleteParallelRegionsEv.exit
 
 _ZN12_GLOBAL__N_19OpenMPOpt21deleteParallelRegionsEv.exit: ; preds = %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit69, %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.i
-  %.0.i77 = phi i1 [ %827, %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.i ], [ false, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit69 ]
-  %828 = or i1 %806, %.0.i77
+  %.0.i77 = phi i1 [ %828, %_ZN12_GLOBAL__N_119OMPInformationCache19RuntimeFunctionInfo10foreachUseERN4llvm15SmallVectorImplIPNS2_8FunctionEEENS2_12function_refIFbRNS2_3UseERS4_EEE.exit.i ], [ %806, %_ZN12_GLOBAL__N_119OMPInformationCache13recollectUsesEv.exit69 ]
   %829 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25HideMemoryTransferLatency, i64 120), align 8, !tbaa !41, !range !58, !noundef !59
   %830 = trunc nuw i8 %829 to i1
   br i1 %830, label %831, label %857
@@ -7528,11 +7531,11 @@ _ZN12_GLOBAL__N_19OpenMPOpt23hideMemTransfersLatencyEv.exit: ; preds = %.lr.ph.i
   %855 = trunc nuw i8 %854 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  %856 = or i1 %828, %855
+  %856 = or i1 %.0.i77, %855
   br label %857
 
 857:                                              ; preds = %_ZN12_GLOBAL__N_19OpenMPOpt23hideMemTransfersLatencyEv.exit, %_ZN12_GLOBAL__N_19OpenMPOpt21deleteParallelRegionsEv.exit
-  %.1.in = phi i1 [ %856, %_ZN12_GLOBAL__N_19OpenMPOpt23hideMemTransfersLatencyEv.exit ], [ %828, %_ZN12_GLOBAL__N_19OpenMPOpt21deleteParallelRegionsEv.exit ]
+  %.1.in = phi i1 [ %856, %_ZN12_GLOBAL__N_19OpenMPOpt23hideMemTransfersLatencyEv.exit ], [ %.0.i77, %_ZN12_GLOBAL__N_19OpenMPOpt21deleteParallelRegionsEv.exit ]
   %858 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %859 = or i1 %.1.in, %858
   %860 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL27EnableParallelRegionMerging, i64 120), align 8, !tbaa !41, !range !58, !noundef !59
@@ -9985,20 +9988,20 @@ _ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit: ; preds = %_ZN12_GLOBA
   br label %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread
 
 _ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread: ; preds = %862, %857, %1845, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit, %_ZN12_GLOBAL__N_19OpenMPOpt14remarksEnabledEv.exit, %_ZN12_GLOBAL__N_19OpenMPOpt21analysisGlobalizationEv.exit
-  %.0.shrunk = phi i1 [ %496, %_ZN12_GLOBAL__N_19OpenMPOpt21analysisGlobalizationEv.exit ], [ %496, %_ZN12_GLOBAL__N_19OpenMPOpt14remarksEnabledEv.exit ], [ true, %1845 ], [ %859, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit ], [ %859, %857 ], [ %859, %862 ]
+  %.0.shrunk = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_19OpenMPOpt21analysisGlobalizationEv.exit ], [ %.0.i, %_ZN12_GLOBAL__N_19OpenMPOpt14remarksEnabledEv.exit ], [ true, %1845 ], [ %859, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit ], [ %859, %857 ], [ %859, %862 ]
   %1847 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1848 = load ptr, ptr %1847, align 8, !tbaa !563
   %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 33360
   %1850 = load i8, ptr %1849, align 8, !tbaa !390, !range !58, !noundef !59
   %1851 = trunc nuw i8 %1850 to i1
-  br i1 %1851, label %1852, label %1862
+  br i1 %1851, label %1852, label %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit
 
 1852:                                             ; preds = %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread
   %1853 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val15 = load ptr, ptr %1853, align 8, !tbaa !684
   %1854 = call noundef ptr @_ZNK4llvm6Module17getGlobalVariableENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(841) %.val15, ptr nonnull @.str.455, i64 17, i1 noundef zeroext true) #30
-  %.not.not.i = icmp ne ptr %1854, null
-  br i1 %.not.not.i, label %1855, label %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit
+  %.not.not.not.i = icmp eq ptr %1854, null
+  br i1 %.not.not.not.i, label %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit, label %1855
 
 1855:                                             ; preds = %1852
   %1856 = call noundef i32 @_ZNK4llvm5Value10getNumUsesEv(ptr noundef nonnull align 8 dereferenceable(24) %1854) #30
@@ -10013,14 +10016,8 @@ _ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread: ; preds = %862,
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %1854) #30
   br label %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit
 
-_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit: ; preds = %1852, %1855, %1857
-  %.07.i = phi i1 [ false, %1855 ], [ true, %1857 ], [ undef, %1852 ]
-  %spec.select.i = and i1 %.not.not.i, %.07.i
-  %1861 = or i1 %.0.shrunk, %spec.select.i
-  br label %1862
-
-1862:                                             ; preds = %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread, %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit, %2
-  %.012 = phi i1 [ false, %2 ], [ %1861, %_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit ], [ %.0.shrunk, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread ]
+_ZN12_GLOBAL__N_19OpenMPOpt20removeRuntimeSymbolsEv.exit: ; preds = %1857, %1855, %1852, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread, %2
+  %.012 = phi i1 [ false, %2 ], [ %.0.shrunk, %_ZN12_GLOBAL__N_19OpenMPOpt20mergeParallelRegionsEv.exit.thread ], [ %.0.shrunk, %1855 ], [ true, %1857 ], [ %.0.shrunk, %1852 ]
   ret i1 %.012
 }
 

@@ -33525,6 +33525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %44, ptr %48, align 8, !tbaa !9, !alias.scope !1011
+  store ptr %41, ptr %38, align 8, !tbaa !40
   store i64 0, ptr %47, align 8, !tbaa !9
   store i8 0, ptr %41, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i13
@@ -40625,6 +40626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %41, ptr %45, align 8, !tbaa !9, !alias.scope !1137
+  store ptr %38, ptr %35, align 8, !tbaa !40
   store i64 0, ptr %44, align 8, !tbaa !9
   store i8 0, ptr %38, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i13

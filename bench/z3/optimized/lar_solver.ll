@@ -14034,8 +14034,8 @@ define hidden noundef zeroext i1 @_ZN2lp10lar_solver17remove_from_basisEj(ptr no
   br i1 %.not26, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %27, %2, %24
-  %spec.select = phi i1 [ %26, %24 ], [ false, %2 ], [ false, %27 ]
-  ret i1 %spec.select
+  %.1 = phi i1 [ %26, %24 ], [ false, %2 ], [ false, %27 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

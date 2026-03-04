@@ -4094,7 +4094,7 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   %58 = phi i1 [ false, %_Z11as_TosState9BasicType.exit ], [ %56, %53 ]
   %59 = call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %52) #15
   %60 = icmp ugt i16 %59, 52
-  br i1 %60, label %61, label %73
+  br i1 %60, label %61, label %74
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %8, align 8
@@ -4109,15 +4109,15 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %70, align 1
   %71 = and i8 %.sroa.0.0.copyload.i.i.i, 4
   %72 = icmp ne i8 %71, 0
-  br label %73
+  %73 = or i1 %.not, %72
+  br label %74
 
-73:                                               ; preds = %61, %57
-  %74 = phi i1 [ false, %57 ], [ %72, %61 ]
+74:                                               ; preds = %61, %57
+  %or.cond3 = phi i1 [ %.not, %57 ], [ %73, %61 ]
   br i1 %58, label %81, label %75
 
-75:                                               ; preds = %73
+75:                                               ; preds = %74
   %76 = select i1 %11, i8 -78, i8 -76
-  %or.cond3 = or i1 %.not, %74
   br i1 %or.cond3, label %77, label %.critedge
 
 77:                                               ; preds = %75
@@ -4131,9 +4131,9 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   %80 = select i1 %11, i8 -77, i8 -75
   br label %81
 
-81:                                               ; preds = %77, %.critedge, %73
-  %.034 = phi i8 [ 0, %73 ], [ %76, %.critedge ], [ %76, %77 ]
-  %.033 = phi i8 [ 0, %73 ], [ %80, %.critedge ], [ 0, %77 ]
+81:                                               ; preds = %77, %.critedge, %74
+  %.034 = phi i8 [ 0, %74 ], [ %76, %.critedge ], [ %76, %77 ]
+  %.033 = phi i8 [ 0, %74 ], [ %80, %.critedge ], [ 0, %77 ]
   %82 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8

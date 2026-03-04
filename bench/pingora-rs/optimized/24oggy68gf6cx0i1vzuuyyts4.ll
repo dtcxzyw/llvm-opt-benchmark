@@ -6468,8 +6468,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   br label %346
 
 363:                                              ; preds = %346, %366
-  %.pre-phi233 = phi i64 [ %339, %346 ], [ %.pre232, %366 ]
-  %.pre-phi = phi i64 [ %340, %346 ], [ %.pre231, %366 ]
+  %.pre-phi235 = phi i64 [ %339, %346 ], [ %.pre234, %366 ]
+  %.pre-phi = phi i64 [ %340, %346 ], [ %.pre233, %366 ]
   %.val148 = load ptr, ptr %21, align 8, !nonnull !7, !align !11, !noundef !7
   %.val149 = load i64, ptr %300, align 8, !noundef !7
   %364 = load i64, ptr %301, align 8, !noundef !7
@@ -6480,8 +6480,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   call fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17h414d7a188a7c2112E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 4 dereferenceable(4) %14, ptr noalias noundef align 4 dereferenceable(4) %12)
   %.pre = load i32, ptr %14, align 4
   %.pre230 = load i32, ptr %12, align 4
-  %.pre231 = zext i32 %.pre to i64
-  %.pre232 = zext i32 %.pre230 to i64
+  %.pre233 = zext i32 %.pre to i64
+  %.pre234 = zext i32 %.pre230 to i64
   br label %363
 
 367:                                              ; preds = %363
@@ -6491,7 +6491,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %.val203 = load i64, ptr %370, align 8, !noundef !7
   %371 = load i64, ptr %225, align 8, !noundef !7
   %372 = icmp ugt i64 %371, %.val203
-  br i1 %372, label %405, label %374, !prof !6
+  br i1 %372, label %398, label %374, !prof !6
 
 373:                                              ; preds = %363
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %364, i64 noundef %.val149, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.102) #27
@@ -6504,7 +6504,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %377 = sub nuw i64 %.val203, %371
   %378 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val202, i64 %371
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hcd43d4b1666ccb53E(ptr noalias noundef nonnull align 1 %37, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17h2b678c68c172b266E, i64 noundef %.pre-phi, i64 noundef %.pre-phi233, ptr noalias noundef nonnull readonly align 1 %375, i64 noundef %376, i64 noundef %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %80, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %368, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %353, ptr noalias noundef nonnull align 4 %378, i64 noundef %377, ptr noalias noundef nonnull align 8 dereferenceable(8) %225, ptr noalias noundef nonnull align 8 dereferenceable(8) %379)
+  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hcd43d4b1666ccb53E(ptr noalias noundef nonnull align 1 %37, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17h2b678c68c172b266E, i64 noundef %.pre-phi, i64 noundef %.pre-phi235, ptr noalias noundef nonnull readonly align 1 %375, i64 noundef %376, i64 noundef %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %80, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %368, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %353, ptr noalias noundef nonnull align 4 %378, i64 noundef %377, ptr noalias noundef nonnull align 8 dereferenceable(8) %225, ptr noalias noundef nonnull align 8 dereferenceable(8) %379)
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %381 = load i32, ptr %380, align 4, !noundef !7
   %382 = load i32, ptr %29, align 8, !noundef !7
@@ -6527,31 +6527,37 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %.not139 = icmp ule i64 %395, %386
   %396 = load i32, ptr %191, align 8, !noundef !7
   %397 = icmp slt i32 %396, 4
-  %398 = load i64, ptr %379, align 8
-  %399 = load i64, ptr %225, align 8
-  %400 = add i64 %399, %398
-  %401 = icmp ugt i64 %400, 12286
-  %.sroa.043.0 = select i1 %397, i1 %401, i1 false
-  %402 = or i1 %2, %.sroa.043.0
-  %or.cond = or i1 %1, %402
-  %not.or.cond = xor i1 %or.cond, true
-  %brmerge4 = select i1 %not.or.cond, i1 %.not139, i1 false
-  %403 = icmp ult i64 %398, %387
-  %or.cond22 = select i1 %brmerge4, i1 %403, i1 false
-  %404 = icmp ult i64 %399, %387
-  %or.cond25 = select i1 %or.cond22, i1 %404, i1 false
-  br i1 %or.cond25, label %408, label %406
+  %.pre231 = load i64, ptr %379, align 8
+  %.pre232 = load i64, ptr %225, align 8
+  br i1 %397, label %399, label %403
 
-405:                                              ; preds = %367
+398:                                              ; preds = %367
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %371, i64 noundef %.val203, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.101) #27
   unreachable
 
-406:                                              ; preds = %374
+399:                                              ; preds = %374
+  %400 = add i64 %.pre232, %.pre231
+  %401 = icmp ugt i64 %400, 12286
+  %402 = or i1 %2, %401
+  br label %403
+
+403:                                              ; preds = %374, %399
+  %.sroa.043.0 = phi i1 [ %402, %399 ], [ %2, %374 ]
+  %or.cond = or i1 %1, %.sroa.043.0
+  %not.or.cond = xor i1 %or.cond, true
+  %brmerge4 = select i1 %not.or.cond, i1 %.not139, i1 false
+  %404 = icmp ult i64 %.pre231, %387
+  %or.cond22 = select i1 %brmerge4, i1 %404, i1 false
+  %405 = icmp ult i64 %.pre232, %387
+  %or.cond25 = select i1 %or.cond22, i1 %405, i1 false
+  br i1 %or.cond25, label %408, label %406
+
+406:                                              ; preds = %403
   %407 = load i64, ptr %353, align 8, !noundef !7
   %.not140 = icmp eq i64 %407, 0
   br i1 %.not140, label %439, label %437
 
-408:                                              ; preds = %374
+408:                                              ; preds = %403
   %409 = load i64, ptr %17, align 8, !alias.scope !443, !noundef !7
   %410 = trunc i64 %409 to i32
   %411 = icmp ugt i64 %409, 3221225471
@@ -6603,17 +6609,17 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit211: ; pre
 
 437:                                              ; preds = %406
   %.val201 = load i64, ptr %370, align 8, !noundef !7
-  %438 = icmp ult i64 %399, %.val201
+  %438 = icmp ult i64 %.pre232, %.val201
   br i1 %438, label %442, label %449
 
 439:                                              ; preds = %406, %442
-  %440 = phi i64 [ %399, %406 ], [ %445, %442 ]
-  %441 = phi i64 [ %398, %406 ], [ %448, %442 ]
+  %440 = phi i64 [ %.pre232, %406 ], [ %445, %442 ]
+  %441 = phi i64 [ %.pre231, %406 ], [ %448, %442 ]
   br i1 %1, label %thread-pre-split225, label %450
 
 442:                                              ; preds = %437
   %.val200 = load ptr, ptr %369, align 8, !nonnull !7, !align !128, !noundef !7
-  %443 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val200, i64 %399
+  %443 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val200, i64 %.pre232
   call void @_ZN6brotli3enc6encode17InitInsertCommand17h0c1d1b03860d1b4aE(ptr noalias noundef nonnull align 4 dereferenceable(16) %443, i64 noundef %407)
   %444 = load i64, ptr %225, align 8, !noundef !7
   %445 = add i64 %444, 1
@@ -6626,7 +6632,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit211: ; pre
   br label %439
 
 449:                                              ; preds = %437
-  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %399, i64 noundef %.val201, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.93) #27
+  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.pre232, i64 noundef %.val201, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.93) #27
   unreachable
 
 450:                                              ; preds = %439

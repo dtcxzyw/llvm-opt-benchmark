@@ -15325,30 +15325,30 @@ _ZL15isRGBICCProfilePKhj.exit423.thread:          ; preds = %237, %240, %244, %2
   br i1 %.not336, label %276, label %297
 
 276:                                              ; preds = %274
-  %277 = zext i32 %3 to i64
-  %278 = zext i32 %4 to i64
-  %279 = mul nuw i64 %278, %277
-  %280 = load i32, ptr %18, align 8, !tbaa !182
-  %281 = icmp ult i32 %280, 7
-  br i1 %281, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
+  %277 = load i32, ptr %18, align 8, !tbaa !182
+  %278 = icmp ult i32 %277, 7
+  br i1 %278, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
 
 switch.lookup:                                    ; preds = %276
+  %279 = zext i32 %4 to i64
+  %280 = zext i32 %3 to i64
+  %281 = mul nuw i64 %279, %280
   %282 = load i32, ptr %20, align 4, !tbaa !185
-  %283 = zext nneg i32 %280 to i64
+  %283 = zext nneg i32 %277 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings, i64 %283
   %switch.load = load i32, ptr %switch.gep, align 4
   %284 = mul i32 %switch.load, %282
   %285 = zext i32 %284 to i64
+  %286 = mul i64 %281, %285
+  %287 = add i64 %286, 7
+  %288 = lshr i64 %287, 3
   br label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
 
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %276, %switch.lookup
-  %.0.i.i.i = phi i64 [ %285, %switch.lookup ], [ 0, %276 ]
-  %286 = mul i64 %279, %.0.i.i.i
-  %287 = add i64 %286, 7
-  %288 = lshr i64 %287, 3
-  %289 = tail call noalias noundef ptr @malloc(i64 noundef %288) #32
+  %.0.i.i.i = phi i64 [ %288, %switch.lookup ], [ 0, %276 ]
+  %289 = tail call noalias noundef ptr @malloc(i64 noundef %.0.i.i.i) #32
   %290 = icmp eq ptr %289, null
-  %291 = icmp ne i64 %288, 0
+  %291 = icmp ne i64 %.0.i.i.i, 0
   %or.cond42 = and i1 %290, %291
   br i1 %or.cond42, label %.thread458, label %292
 

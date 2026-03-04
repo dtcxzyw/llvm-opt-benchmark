@@ -76,21 +76,21 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
   %8 = zext i8 %3 to i32
   %9 = add nsw i32 %8, -29
   %.1.i = select i1 %4, i32 %9, i32 %7
-  switch i32 %.1.i, label %73 [
+  switch i32 %.1.i, label %71 [
     i32 13, label %10
     i32 15, label %10
     i32 17, label %10
     i32 25, label %10
     i32 38, label %17
-    i32 19, label %26
-    i32 20, label %26
-    i32 27, label %26
-    i32 26, label %26
-    i32 29, label %31
-    i32 34, label %36
-    i32 43, label %63
-    i32 39, label %63
-    i32 53, label %68
+    i32 19, label %25
+    i32 20, label %25
+    i32 27, label %25
+    i32 26, label %25
+    i32 29, label %30
+    i32 34, label %35
+    i32 43, label %62
+    i32 39, label %62
+    i32 53, label %66
   ]
 
 10:                                               ; preds = %1, %1, %1, %1
@@ -107,143 +107,128 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
 
 17:                                               ; preds = %1
   %.not36 = icmp eq i8 %3, 67
-  br i1 %.not36, label %18, label %25
+  br i1 %.not36, label %18, label %.critedge
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 2
   %.not35 = icmp eq i8 %21, 0
-  br i1 %.not35, label %22, label %25
+  br i1 %.not35, label %22, label %.critedge
 
 22:                                               ; preds = %18
   %23 = and i8 %20, 4
   %24 = icmp ne i8 %23, 0
-  br label %25
-
-25:                                               ; preds = %17, %18, %22
-  %.1 = phi i1 [ %24, %22 ], [ true, %18 ], [ undef, %17 ]
-  %spec.select = and i1 %.not36, %.1
   br label %.critedge
 
-26:                                               ; preds = %1, %1, %1, %1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 2
-  %30 = icmp ne i8 %29, 0
+25:                                               ; preds = %1, %1, %1, %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = and i8 %27, 2
+  %29 = icmp ne i8 %28, 0
   br label %.critedge
 
-31:                                               ; preds = %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, 2
-  %35 = icmp ne i8 %34, 0
+30:                                               ; preds = %1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = and i8 %32, 2
+  %34 = icmp ne i8 %33, 0
   br label %.critedge
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %38 = load i8, ptr %37, align 1
-  %.not = icmp ult i8 %38, 2
-  br i1 %.not, label %39, label %.critedge
+35:                                               ; preds = %1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %37 = load i8, ptr %36, align 1
+  %.not = icmp ult i8 %37, 2
+  br i1 %.not, label %38, label %.critedge
 
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %40 = icmp eq i8 %3, 5
-  %41 = icmp eq i16 %6, 34
-  %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %43, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
+  %39 = icmp eq i8 %3, 5
+  %40 = icmp eq i16 %6, 34
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %42, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
-43:                                               ; preds = %39
+42:                                               ; preds = %38
   call void @_ZNK4llvm25GetElementPtrConstantExpr10getInRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %2, ptr noundef nonnull align 8 dereferenceable(80) %0) #11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !12, !range !15
-  %44 = trunc nuw i8 %.pre to i1
-  br i1 %44, label %45, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
+  %43 = trunc nuw i8 %.pre to i1
+  br i1 %43, label %44, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 0, ptr %46, align 8, !tbaa !12
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !16
-  %49 = icmp ugt i32 %48, 64
-  br i1 %49, label %50, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i8 0, ptr %45, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !16
+  %48 = icmp ugt i32 %47, 64
+  br i1 %48, label %49, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !18
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, label %54
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !18
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, label %53
 
-54:                                               ; preds = %50
-  call void @_ZdaPv(ptr noundef nonnull %52) #12
+53:                                               ; preds = %49
+  call void @_ZdaPv(ptr noundef nonnull %51) #12
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
 
-_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %54, %50, %45
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !16
-  %57 = icmp ugt i32 %56, 64
-  br i1 %57, label %58, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
+_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %53, %49, %44
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !16
+  %56 = icmp ugt i32 %55, 64
+  br i1 %56, label %57, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
-58:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
-  %59 = load ptr, ptr %2, align 8, !tbaa !18
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, label %61
+57:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
+  %58 = load ptr, ptr %2, align 8, !tbaa !18
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, label %60
 
-61:                                               ; preds = %58
-  call void @_ZdaPv(ptr noundef nonnull %59) #12
+60:                                               ; preds = %57
+  call void @_ZdaPv(ptr noundef nonnull %58) #12
   br label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, %58, %61
-  %62 = phi i1 [ true, %61 ], [ false, %43 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i ], [ true, %58 ], [ false, %39 ]
+_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %38, %42, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, %57, %60
+  %61 = phi i1 [ true, %60 ], [ false, %42 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i ], [ true, %57 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
-63:                                               ; preds = %1, %1
-  %64 = add nsw i32 %8, -68
-  %switch.and.i.i.i.i.i.i.i.i.i = and i32 %64, -5
+62:                                               ; preds = %1, %1
+  %63 = add nsw i32 %8, -68
+  %switch.and.i.i.i.i.i.i.i.i.i = and i32 %63, -5
   %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
   %.not34.not = select i1 %4, i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %.not34.not, label %65, label %67
+  br i1 %.not34.not, label %64, label %.critedge
 
-65:                                               ; preds = %63
-  %66 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
-  br label %67
-
-67:                                               ; preds = %63, %65
-  %.2 = phi i1 [ %66, %65 ], [ undef, %63 ]
-  %spec.select29 = and i1 %.not34.not, %.2
+64:                                               ; preds = %62
+  %65 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   br label %.critedge
 
-68:                                               ; preds = %1
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 2
-  %72 = icmp ne i8 %71, 0
+66:                                               ; preds = %1
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = and i8 %68, 2
+  %70 = icmp ne i8 %69, 0
   br label %.critedge
 
-73:                                               ; preds = %1
-  %74 = tail call noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br i1 %74, label %75, label %82
+71:                                               ; preds = %1
+  %72 = tail call noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  br i1 %72, label %73, label %.critedge
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %77 = load i8, ptr %76, align 1
-  %78 = and i8 %77, 4
-  %.not38 = icmp eq i8 %78, 0
-  br i1 %.not38, label %79, label %82
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %75 = load i8, ptr %74, align 1
+  %76 = and i8 %75, 4
+  %.not38 = icmp eq i8 %76, 0
+  br i1 %.not38, label %77, label %.critedge
 
-79:                                               ; preds = %75
-  %80 = and i8 %77, 8
-  %81 = icmp ne i8 %80, 0
-  br label %82
-
-82:                                               ; preds = %73, %75, %79
-  %.3 = phi i1 [ %81, %79 ], [ true, %75 ], [ undef, %73 ]
-  %spec.select31 = and i1 %74, %.3
+77:                                               ; preds = %73
+  %78 = and i8 %75, 8
+  %79 = icmp ne i8 %78, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %82, %67, %25, %10, %14, %68, %31, %26
-  %.0 = phi i1 [ true, %10 ], [ %spec.select29, %67 ], [ %72, %68 ], [ %16, %14 ], [ %spec.select31, %82 ], [ %30, %26 ], [ %35, %31 ], [ %spec.select, %25 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
+.critedge:                                        ; preds = %77, %73, %71, %64, %62, %22, %18, %17, %35, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %10, %14, %66, %30, %25
+  %.0 = phi i1 [ true, %10 ], [ false, %17 ], [ %70, %66 ], [ %16, %14 ], [ false, %62 ], [ %29, %25 ], [ %34, %30 ], [ true, %35 ], [ %61, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ %24, %22 ], [ true, %18 ], [ %65, %64 ], [ %79, %77 ], [ true, %73 ], [ false, %71 ]
   ret i1 %.0
 }
 

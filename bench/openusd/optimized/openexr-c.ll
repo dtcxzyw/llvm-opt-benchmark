@@ -22018,7 +22018,7 @@ define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %0, i32 nounde
   %.not = icmp eq i16 %7, 0
   %.not25 = icmp eq i32 %2, %3
   %or.cond = and i1 %.not25, %.not
-  br i1 %or.cond, label %76, label %8
+  br i1 %or.cond, label %75, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -22044,7 +22044,7 @@ define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %0, i32 nounde
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %compute_sampled_height.exit.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %compute_sampled_height.exit.us ], [ 0, %.lr.ph ]
-  %.02227.us = phi i64 [ %44, %compute_sampled_height.exit.us ], [ 0, %.lr.ph ]
+  %.02227.us = phi i64 [ %43, %compute_sampled_height.exit.us ], [ 0, %.lr.ph ]
   %23 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %16, i64 %indvars.iv31
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
@@ -22071,76 +22071,75 @@ define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %0, i32 nounde
 39:                                               ; preds = %35
   %40 = srem i32 %0, %37
   %41 = icmp eq i32 %40, 0
-  %42 = zext i1 %41 to i64
+  %42 = select i1 %41, i64 %.0.us, i64 0
   br label %compute_sampled_height.exit.us
 
 compute_sampled_height.exit.us:                   ; preds = %39, %35
-  %.028.i.us = phi i64 [ 1, %35 ], [ %42, %39 ]
-  %43 = mul nuw nsw i64 %.0.us, %.028.i.us
-  %44 = add i64 %43, %.02227.us
+  %.028.i.us = phi i64 [ %.0.us, %35 ], [ %42, %39 ]
+  %43 = add i64 %.028.i.us, %.02227.us
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !105
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %compute_sampled_height.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %compute_sampled_height.exit ], [ 0, %.lr.ph ]
-  %.02227 = phi i64 [ %75, %compute_sampled_height.exit ], [ 0, %.lr.ph ]
-  %45 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %16, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, 1
-  %49 = select i1 %48, i64 1, i64 2
-  %50 = shl nsw i64 %17, %49
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp sgt i32 %52, 1
-  br i1 %53, label %54, label %57
+  %.02227 = phi i64 [ %74, %compute_sampled_height.exit ], [ 0, %.lr.ph ]
+  %44 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %16, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp eq i32 %46, 1
+  %48 = select i1 %47, i64 1, i64 2
+  %49 = shl nsw i64 %17, %48
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp sgt i32 %51, 1
+  br i1 %52, label %53, label %56
 
-54:                                               ; preds = %.lr.ph.split
-  %55 = zext nneg i32 %52 to i64
-  %56 = udiv i64 %50, %55
-  br label %57
+53:                                               ; preds = %.lr.ph.split
+  %54 = zext nneg i32 %51 to i64
+  %55 = udiv i64 %49, %54
+  br label %56
 
-57:                                               ; preds = %54, %.lr.ph.split
-  %.0 = phi i64 [ %56, %54 ], [ %50, %.lr.ph.split ]
-  %58 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp slt i32 %59, 2
-  br i1 %60, label %compute_sampled_height.exit, label %61
+56:                                               ; preds = %53, %.lr.ph.split
+  %.0 = phi i64 [ %55, %53 ], [ %49, %.lr.ph.split ]
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 28
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp slt i32 %58, 2
+  br i1 %59, label %compute_sampled_height.exit, label %60
 
-61:                                               ; preds = %57
-  %62 = srem i32 %0, %59
-  %63 = icmp eq i32 %62, 0
-  %64 = sub nsw i32 %59, %62
-  %65 = select i1 %63, i32 0, i32 %64
-  %.0.i = add nsw i32 %65, %0
-  %66 = urem i32 %.pn.i, %59
-  %67 = sub nsw i32 %20, %66
-  %68 = icmp sgt i32 %.0.i, %67
-  br i1 %68, label %compute_sampled_height.exit, label %69
+60:                                               ; preds = %56
+  %61 = srem i32 %0, %58
+  %62 = icmp eq i32 %61, 0
+  %63 = sub nsw i32 %58, %61
+  %64 = select i1 %62, i32 0, i32 %63
+  %.0.i = add nsw i32 %64, %0
+  %65 = urem i32 %.pn.i, %58
+  %66 = sub nsw i32 %20, %65
+  %67 = icmp sgt i32 %.0.i, %66
+  br i1 %67, label %compute_sampled_height.exit, label %68
 
-69:                                               ; preds = %61
-  %70 = sub nsw i32 %67, %.0.i
-  %71 = udiv i32 %70, %59
-  %72 = add nuw nsw i32 %71, 1
+68:                                               ; preds = %60
+  %69 = sub nsw i32 %66, %.0.i
+  %70 = udiv i32 %69, %58
+  %71 = add nuw nsw i32 %70, 1
   br label %compute_sampled_height.exit
 
-compute_sampled_height.exit:                      ; preds = %57, %61, %69
-  %.028.i = phi i32 [ %2, %57 ], [ 0, %61 ], [ %72, %69 ]
-  %73 = sext i32 %.028.i to i64
-  %74 = mul i64 %.0, %73
-  %75 = add i64 %74, %.02227
+compute_sampled_height.exit:                      ; preds = %56, %60, %68
+  %.028.i = phi i32 [ %2, %56 ], [ 0, %60 ], [ %71, %68 ]
+  %72 = sext i32 %.028.i to i64
+  %73 = mul i64 %.0, %72
+  %74 = add i64 %73, %.02227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !105
 
-76:                                               ; preds = %5
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %78 = load i64, ptr %77, align 8
+75:                                               ; preds = %5
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 232
+  %77 = load i64, ptr %76, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %compute_sampled_height.exit, %compute_sampled_height.exit.us, %8, %76
-  %.1 = phi i64 [ %78, %76 ], [ 0, %8 ], [ %44, %compute_sampled_height.exit.us ], [ %75, %compute_sampled_height.exit ]
+.loopexit:                                        ; preds = %compute_sampled_height.exit, %compute_sampled_height.exit.us, %8, %75
+  %.1 = phi i64 [ %77, %75 ], [ 0, %8 ], [ %43, %compute_sampled_height.exit.us ], [ %74, %compute_sampled_height.exit ]
   ret i64 %.1
 }
 

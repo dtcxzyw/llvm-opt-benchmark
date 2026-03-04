@@ -474,13 +474,13 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$
   %.val8.i = load i8, ptr %13, align 1, !noalias !116, !noundef !14
   %14 = add i8 %.val.i, -65
   %15 = icmp ult i8 %14, 26
-  %.sroa.0.0.i.i.i.i = select i1 %15, i8 32, i8 0
-  %16 = add i8 %.val8.i, -65
-  %17 = icmp ult i8 %16, 26
-  %.sroa.01.0.i.i.i.i = select i1 %17, i8 32, i8 0
-  %18 = or i8 %.sroa.0.0.i.i.i.i, %.val.i
-  %19 = or i8 %.sroa.01.0.i.i.i.i, %.val8.i
-  %.not.i = icmp eq i8 %18, %19
+  %16 = select i1 %15, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i = or i8 %16, %.val.i
+  %17 = add i8 %.val8.i, -65
+  %18 = icmp ult i8 %17, 26
+  %19 = select i1 %18, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i = or i8 %19, %.val8.i
+  %.not.i = icmp eq i8 %.sroa.0.0.i.i.i.i, %.sroa.01.0.i.i.i.i
   br i1 %.not.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd95008751d7e3f0eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd95008751d7e3f0eE.exit: ; preds = %10, %8, %4
@@ -3912,13 +3912,13 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
   %.val8.i.i = load i8, ptr %13, align 1, !alias.scope !395, !noalias !407, !noundef !14
   %14 = add i8 %.val.i.i, -65
   %15 = icmp ult i8 %14, 26
-  %.sroa.0.0.i.i.i.i.i = select i1 %15, i8 32, i8 0
-  %16 = add i8 %.val8.i.i, -65
-  %17 = icmp ult i8 %16, 26
-  %.sroa.01.0.i.i.i.i.i = select i1 %17, i8 32, i8 0
-  %18 = or i8 %.sroa.0.0.i.i.i.i.i, %.val.i.i
-  %19 = or i8 %.sroa.01.0.i.i.i.i.i, %.val8.i.i
-  %.not.i.i = icmp eq i8 %18, %19
+  %16 = select i1 %15, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i = or i8 %16, %.val.i.i
+  %17 = add i8 %.val8.i.i, -65
+  %18 = icmp ult i8 %17, 26
+  %19 = select i1 %18, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i = or i8 %19, %.val8.i.i
+  %.not.i.i = icmp eq i8 %.sroa.0.0.i.i.i.i.i, %.sroa.01.0.i.i.i.i.i
   br i1 %.not.i.i, label %8, label %.loopexit47
 
 .loopexit47:                                      ; preds = %10, %3
@@ -3944,13 +3944,13 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
   %.val8.i.i4 = load i8, ptr %28, align 1, !alias.scope !411, !noalias !423, !noundef !14
   %29 = add i8 %.val.i.i3, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.0.0.i.i.i.i.i5 = select i1 %30, i8 32, i8 0
-  %31 = add i8 %.val8.i.i4, -65
-  %32 = icmp ult i8 %31, 26
-  %.sroa.01.0.i.i.i.i.i6 = select i1 %32, i8 32, i8 0
-  %33 = or i8 %.sroa.0.0.i.i.i.i.i5, %.val.i.i3
-  %34 = or i8 %.sroa.01.0.i.i.i.i.i6, %.val8.i.i4
-  %.not.i.i7 = icmp eq i8 %33, %34
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i5 = or i8 %31, %.val.i.i3
+  %32 = add i8 %.val8.i.i4, -65
+  %33 = icmp ult i8 %32, 26
+  %34 = select i1 %33, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i6 = or i8 %34, %.val8.i.i4
+  %.not.i.i7 = icmp eq i8 %.sroa.0.0.i.i.i.i.i5, %.sroa.01.0.i.i.i.i.i6
   br i1 %.not.i.i7, label %23, label %.loopexit46
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit": ; preds = %8
@@ -3982,13 +3982,13 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
   %.val8.i.i12 = load i8, ptr %44, align 1, !alias.scope !427, !noalias !439, !noundef !14
   %45 = add i8 %.val.i.i11, -65
   %46 = icmp ult i8 %45, 26
-  %.sroa.0.0.i.i.i.i.i13 = select i1 %46, i8 32, i8 0
-  %47 = add i8 %.val8.i.i12, -65
-  %48 = icmp ult i8 %47, 26
-  %.sroa.01.0.i.i.i.i.i14 = select i1 %48, i8 32, i8 0
-  %49 = or i8 %.sroa.0.0.i.i.i.i.i13, %.val.i.i11
-  %50 = or i8 %.sroa.01.0.i.i.i.i.i14, %.val8.i.i12
-  %.not.i.i15 = icmp eq i8 %49, %50
+  %47 = select i1 %46, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i13 = or i8 %47, %.val.i.i11
+  %48 = add i8 %.val8.i.i12, -65
+  %49 = icmp ult i8 %48, 26
+  %50 = select i1 %49, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i14 = or i8 %50, %.val8.i.i12
+  %.not.i.i15 = icmp eq i8 %.sroa.0.0.i.i.i.i.i13, %.sroa.01.0.i.i.i.i.i14
   br i1 %.not.i.i15, label %39, label %.loopexit45
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit8": ; preds = %23
@@ -4020,13 +4020,13 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
   %.val8.i.i20 = load i8, ptr %60, align 1, !alias.scope !443, !noalias !455, !noundef !14
   %61 = add i8 %.val.i.i19, -65
   %62 = icmp ult i8 %61, 26
-  %.sroa.0.0.i.i.i.i.i21 = select i1 %62, i8 32, i8 0
-  %63 = add i8 %.val8.i.i20, -65
-  %64 = icmp ult i8 %63, 26
-  %.sroa.01.0.i.i.i.i.i22 = select i1 %64, i8 32, i8 0
-  %65 = or i8 %.sroa.0.0.i.i.i.i.i21, %.val.i.i19
-  %66 = or i8 %.sroa.01.0.i.i.i.i.i22, %.val8.i.i20
-  %.not.i.i23 = icmp eq i8 %65, %66
+  %63 = select i1 %62, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i21 = or i8 %63, %.val.i.i19
+  %64 = add i8 %.val8.i.i20, -65
+  %65 = icmp ult i8 %64, 26
+  %66 = select i1 %65, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i22 = or i8 %66, %.val8.i.i20
+  %.not.i.i23 = icmp eq i8 %.sroa.0.0.i.i.i.i.i21, %.sroa.01.0.i.i.i.i.i22
   br i1 %.not.i.i23, label %55, label %.loopexit44
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit16": ; preds = %39
@@ -4057,13 +4057,13 @@ define void @"_ZN79_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..str..t
   %.val8.i.i28 = load i8, ptr %75, align 1, !alias.scope !459, !noalias !471, !noundef !14
   %76 = add i8 %.val.i.i27, -65
   %77 = icmp ult i8 %76, 26
-  %.sroa.0.0.i.i.i.i.i29 = select i1 %77, i8 32, i8 0
-  %78 = add i8 %.val8.i.i28, -65
-  %79 = icmp ult i8 %78, 26
-  %.sroa.01.0.i.i.i.i.i30 = select i1 %79, i8 32, i8 0
-  %80 = or i8 %.sroa.0.0.i.i.i.i.i29, %.val.i.i27
-  %81 = or i8 %.sroa.01.0.i.i.i.i.i30, %.val8.i.i28
-  %.not.i.i31 = icmp eq i8 %80, %81
+  %78 = select i1 %77, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i29 = or i8 %78, %.val.i.i27
+  %79 = add i8 %.val8.i.i28, -65
+  %80 = icmp ult i8 %79, 26
+  %81 = select i1 %80, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i30 = or i8 %81, %.val8.i.i28
+  %.not.i.i31 = icmp eq i8 %.sroa.0.0.i.i.i.i.i29, %.sroa.01.0.i.i.i.i.i30
   br i1 %.not.i.i31, label %70, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit24": ; preds = %55
@@ -4318,13 +4318,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i = load i8, ptr %12, align 1, !alias.scope !526, !noalias !538, !noundef !14
   %13 = add i8 %.val.i.i, -65
   %14 = icmp ult i8 %13, 26
-  %.sroa.0.0.i.i.i.i.i = select i1 %14, i8 32, i8 0
-  %15 = add i8 %.val8.i.i, -65
-  %16 = icmp ult i8 %15, 26
-  %.sroa.01.0.i.i.i.i.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.sroa.0.0.i.i.i.i.i, %.val.i.i
-  %18 = or i8 %.sroa.01.0.i.i.i.i.i, %.val8.i.i
-  %.not.i.i = icmp eq i8 %17, %18
+  %15 = select i1 %14, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i = or i8 %15, %.val.i.i
+  %16 = add i8 %.val8.i.i, -65
+  %17 = icmp ult i8 %16, 26
+  %18 = select i1 %17, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i = or i8 %18, %.val8.i.i
+  %.not.i.i = icmp eq i8 %.sroa.0.0.i.i.i.i.i, %.sroa.01.0.i.i.i.i.i
   br i1 %.not.i.i, label %7, label %.loopexit51
 
 .loopexit51:                                      ; preds = %9, %3
@@ -4350,13 +4350,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i4 = load i8, ptr %27, align 1, !alias.scope !542, !noalias !554, !noundef !14
   %28 = add i8 %.val.i.i3, -65
   %29 = icmp ult i8 %28, 26
-  %.sroa.0.0.i.i.i.i.i5 = select i1 %29, i8 32, i8 0
-  %30 = add i8 %.val8.i.i4, -65
-  %31 = icmp ult i8 %30, 26
-  %.sroa.01.0.i.i.i.i.i6 = select i1 %31, i8 32, i8 0
-  %32 = or i8 %.sroa.0.0.i.i.i.i.i5, %.val.i.i3
-  %33 = or i8 %.sroa.01.0.i.i.i.i.i6, %.val8.i.i4
-  %.not.i.i7 = icmp eq i8 %32, %33
+  %30 = select i1 %29, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i5 = or i8 %30, %.val.i.i3
+  %31 = add i8 %.val8.i.i4, -65
+  %32 = icmp ult i8 %31, 26
+  %33 = select i1 %32, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i6 = or i8 %33, %.val8.i.i4
+  %.not.i.i7 = icmp eq i8 %.sroa.0.0.i.i.i.i.i5, %.sroa.01.0.i.i.i.i.i6
   br i1 %.not.i.i7, label %22, label %.loopexit50
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit": ; preds = %7
@@ -4388,13 +4388,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i12 = load i8, ptr %43, align 1, !alias.scope !558, !noalias !570, !noundef !14
   %44 = add i8 %.val.i.i11, -65
   %45 = icmp ult i8 %44, 26
-  %.sroa.0.0.i.i.i.i.i13 = select i1 %45, i8 32, i8 0
-  %46 = add i8 %.val8.i.i12, -65
-  %47 = icmp ult i8 %46, 26
-  %.sroa.01.0.i.i.i.i.i14 = select i1 %47, i8 32, i8 0
-  %48 = or i8 %.sroa.0.0.i.i.i.i.i13, %.val.i.i11
-  %49 = or i8 %.sroa.01.0.i.i.i.i.i14, %.val8.i.i12
-  %.not.i.i15 = icmp eq i8 %48, %49
+  %46 = select i1 %45, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i13 = or i8 %46, %.val.i.i11
+  %47 = add i8 %.val8.i.i12, -65
+  %48 = icmp ult i8 %47, 26
+  %49 = select i1 %48, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i14 = or i8 %49, %.val8.i.i12
+  %.not.i.i15 = icmp eq i8 %.sroa.0.0.i.i.i.i.i13, %.sroa.01.0.i.i.i.i.i14
   br i1 %.not.i.i15, label %38, label %.loopexit49
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit8": ; preds = %22
@@ -4425,13 +4425,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i20 = load i8, ptr %58, align 1, !alias.scope !574, !noalias !586, !noundef !14
   %59 = add i8 %.val.i.i19, -65
   %60 = icmp ult i8 %59, 26
-  %.sroa.0.0.i.i.i.i.i21 = select i1 %60, i8 32, i8 0
-  %61 = add i8 %.val8.i.i20, -65
-  %62 = icmp ult i8 %61, 26
-  %.sroa.01.0.i.i.i.i.i22 = select i1 %62, i8 32, i8 0
-  %63 = or i8 %.sroa.0.0.i.i.i.i.i21, %.val.i.i19
-  %64 = or i8 %.sroa.01.0.i.i.i.i.i22, %.val8.i.i20
-  %.not.i.i23 = icmp eq i8 %63, %64
+  %61 = select i1 %60, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i21 = or i8 %61, %.val.i.i19
+  %62 = add i8 %.val8.i.i20, -65
+  %63 = icmp ult i8 %62, 26
+  %64 = select i1 %63, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i22 = or i8 %64, %.val8.i.i20
+  %.not.i.i23 = icmp eq i8 %.sroa.0.0.i.i.i.i.i21, %.sroa.01.0.i.i.i.i.i22
   br i1 %.not.i.i23, label %53, label %.loopexit48
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit16": ; preds = %38
@@ -4463,13 +4463,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i28 = load i8, ptr %74, align 1, !alias.scope !590, !noalias !602, !noundef !14
   %75 = add i8 %.val.i.i27, -65
   %76 = icmp ult i8 %75, 26
-  %.sroa.0.0.i.i.i.i.i29 = select i1 %76, i8 32, i8 0
-  %77 = add i8 %.val8.i.i28, -65
-  %78 = icmp ult i8 %77, 26
-  %.sroa.01.0.i.i.i.i.i30 = select i1 %78, i8 32, i8 0
-  %79 = or i8 %.sroa.0.0.i.i.i.i.i29, %.val.i.i27
-  %80 = or i8 %.sroa.01.0.i.i.i.i.i30, %.val8.i.i28
-  %.not.i.i31 = icmp eq i8 %79, %80
+  %77 = select i1 %76, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i29 = or i8 %77, %.val.i.i27
+  %78 = add i8 %.val8.i.i28, -65
+  %79 = icmp ult i8 %78, 26
+  %80 = select i1 %79, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i30 = or i8 %80, %.val8.i.i28
+  %.not.i.i31 = icmp eq i8 %.sroa.0.0.i.i.i.i.i29, %.sroa.01.0.i.i.i.i.i30
   br i1 %.not.i.i31, label %69, label %.loopexit47
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit24": ; preds = %53
@@ -4501,13 +4501,13 @@ define void @"_ZN77_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..str..tra
   %.val8.i.i36 = load i8, ptr %90, align 1, !alias.scope !606, !noalias !618, !noundef !14
   %91 = add i8 %.val.i.i35, -65
   %92 = icmp ult i8 %91, 26
-  %.sroa.0.0.i.i.i.i.i37 = select i1 %92, i8 32, i8 0
-  %93 = add i8 %.val8.i.i36, -65
-  %94 = icmp ult i8 %93, 26
-  %.sroa.01.0.i.i.i.i.i38 = select i1 %94, i8 32, i8 0
-  %95 = or i8 %.sroa.0.0.i.i.i.i.i37, %.val.i.i35
-  %96 = or i8 %.sroa.01.0.i.i.i.i.i38, %.val8.i.i36
-  %.not.i.i39 = icmp eq i8 %95, %96
+  %93 = select i1 %92, i8 32, i8 0
+  %.sroa.0.0.i.i.i.i.i37 = or i8 %93, %.val.i.i35
+  %94 = add i8 %.val8.i.i36, -65
+  %95 = icmp ult i8 %94, 26
+  %96 = select i1 %95, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i.i38 = or i8 %96, %.val8.i.i36
+  %.not.i.i39 = icmp eq i8 %.sroa.0.0.i.i.i.i.i37, %.sroa.01.0.i.i.i.i.i38
   br i1 %.not.i.i39, label %85, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h16c6dda0aa4bdbbaE.exit32": ; preds = %69

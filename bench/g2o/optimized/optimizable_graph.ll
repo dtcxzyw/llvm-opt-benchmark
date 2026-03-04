@@ -6353,7 +6353,7 @@ define noundef zeroext i1 @_ZNK3g2o16OptimizableGraph25verifyInformationMatrices
   br i1 %1, label %.lr.ph55.split, label %.lr.ph55.split.us
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us
-  %.02453.us = phi i1 [ %40, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us ], [ true, %.lr.ph55 ]
+  %.02453.us = phi i1 [ %.025.in.us, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us ], [ true, %.lr.ph55 ]
   %.sroa.040.052.us = phi ptr [ %41, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us ], [ %9, %.lr.ph55 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.040.052.us, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !134
@@ -6409,11 +6409,11 @@ define noundef zeroext i1 @_ZNK3g2o16OptimizableGraph25verifyInformationMatrices
   %37 = load ptr, ptr %13, align 8, !tbaa !237
   %38 = load double, ptr %37, align 8, !tbaa !233
   %39 = fcmp oge double %38, 0.000000e+00
+  %40 = and i1 %.02453.us, %39
   br label %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us
 
 _ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us: ; preds = %26, %36
-  %.025.in.us = phi i1 [ %39, %36 ], [ false, %26 ]
-  %40 = and i1 %.02453.us, %.025.in.us
+  %.025.in.us = phi i1 [ %40, %36 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.040.052.us) #48
   %.not44.us = icmp eq ptr %41, %10
@@ -6430,7 +6430,7 @@ _ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1
   br label %117
 
 ._crit_edge56:                                    ; preds = %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us, %_ZNSt6vectorIiSaIiEED2Ev.exit, %2
-  %.024.lcssa = phi i1 [ true, %2 ], [ %115, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %40, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us ]
+  %.024.lcssa = phi i1 [ true, %2 ], [ %115, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.025.in.us, %_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEeqIS7_EEbRKNS0_IT_EE.exit.us ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !237
   call void @free(ptr noundef %45) #46

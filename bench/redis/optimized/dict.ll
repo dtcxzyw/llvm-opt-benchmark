@@ -695,15 +695,15 @@ dictHashKey.exit:                                 ; preds = %42, %45
   br label %49
 
 49:                                               ; preds = %dictGetKey.exit, %dictHashKey.exit
-  %.sink70 = phi i8 [ %48, %dictHashKey.exit ], [ %39, %dictGetKey.exit ]
-  %.sink66 = phi i64 [ %47, %dictHashKey.exit ], [ %1, %dictGetKey.exit ]
-  %50 = sext i8 %.sink70 to i64
-  %51 = icmp eq i8 %.sink70, -1
+  %.sink = phi i8 [ %48, %dictHashKey.exit ], [ %39, %dictGetKey.exit ]
+  %.sink67 = phi i64 [ %47, %dictHashKey.exit ], [ %1, %dictGetKey.exit ]
+  %50 = sext i8 %.sink to i64
+  %51 = icmp eq i8 %.sink, -1
   %52 = and i64 %50, 4294967295
   %notmask = shl nsw i64 -1, %52
   %53 = xor i64 %notmask, -1
-  %54 = select i1 %51, i64 0, i64 %53
-  %55 = and i64 %54, %.sink66
+  %54 = and i64 %.sink67, %53
+  %55 = select i1 %51, i64 0, i64 %54
   %56 = load ptr, ptr %0, align 8, !tbaa !16
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
   %58 = load i8, ptr %57, align 8
@@ -1130,8 +1130,8 @@ dictHashKey.exit:                                 ; preds = %6, %9
   %18 = and i64 %16, 4294967295
   %notmask = shl nsw i64 -1, %18
   %19 = xor i64 %notmask, -1
-  %20 = select i1 %17, i64 0, i64 %19
-  %21 = and i64 %20, %11
+  %20 = and i64 %11, %19
+  %21 = select i1 %17, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8, !tbaa !14
   %.not.i64 = icmp eq i64 %23, -1
@@ -1216,8 +1216,8 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   %60 = and i64 %58, 4294967295
   %notmask59 = shl nsw i64 -1, %60
   %61 = xor i64 %notmask59, -1
-  %62 = select i1 %59, i64 0, i64 %61
-  %63 = and i64 %62, %11
+  %62 = and i64 %11, %61
+  %63 = select i1 %59, i64 0, i64 %62
   %64 = getelementptr inbounds nuw ptr, ptr %49, i64 %.05077
   %65 = load ptr, ptr %64, align 8, !tbaa !11
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
@@ -1440,8 +1440,8 @@ define dso_local ptr @dictAddNonExistsByHash(ptr noundef %0, ptr noundef %1, i64
   %8 = and i64 %6, 4294967295
   %notmask = shl nsw i64 -1, %8
   %9 = xor i64 %notmask, -1
-  %10 = select i1 %7, i64 0, i64 %9
-  %11 = and i64 %10, %2
+  %10 = and i64 %2, %9
+  %11 = select i1 %7, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %.not.i = icmp eq i64 %13, -1
@@ -1519,8 +1519,8 @@ _dictExpandIfNeeded.exit:                         ; preds = %_dictRehashStepIfNe
   %50 = and i64 %49, 4294967295
   %notmask29 = shl nsw i64 -1, %50
   %51 = xor i64 %notmask29, -1
-  %52 = select i1 %48, i64 0, i64 %51
-  %53 = and i64 %52, %2
+  %52 = and i64 %2, %51
+  %53 = select i1 %48, i64 0, i64 %52
   %54 = getelementptr inbounds nuw ptr, ptr %39, i64 %53
   %55 = tail call ptr @dictInsertAtPosition(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef nonnull %54)
   ret ptr %55
@@ -1719,8 +1719,8 @@ dictHashKey.exit:                                 ; preds = %13, %16
   %23 = and i64 %21, 4294967295
   %notmask = shl nsw i64 -1, %23
   %24 = xor i64 %notmask, -1
-  %25 = select i1 %22, i64 0, i64 %24
-  %26 = and i64 %25, %18
+  %25 = and i64 %18, %24
+  %26 = select i1 %22, i64 0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !14
   %.not.i70 = icmp eq i64 %28, -1
@@ -1799,8 +1799,8 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   %60 = and i64 %58, 4294967295
   %notmask65 = shl nsw i64 -1, %60
   %61 = xor i64 %notmask65, -1
-  %62 = select i1 %59, i64 0, i64 %61
-  %63 = and i64 %62, %18
+  %62 = and i64 %18, %61
+  %63 = select i1 %59, i64 0, i64 %62
   %64 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !11
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
@@ -2407,8 +2407,8 @@ define dso_local ptr @dictFindByHash(ptr noundef %0, ptr noundef %1, i64 noundef
   %15 = and i64 %13, 4294967295
   %notmask = shl nsw i64 -1, %15
   %16 = xor i64 %notmask, -1
-  %17 = select i1 %14, i64 0, i64 %16
-  %18 = and i64 %17, %2
+  %17 = and i64 %2, %16
+  %18 = select i1 %14, i64 0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i16, ptr %19, align 8
   %.not.i = icmp sgt i16 %20, -1
@@ -2481,8 +2481,8 @@ _dictRehashStepIfNeeded.exit:                     ; preds = %dictGetKeyCmpFunc.e
   %51 = and i64 %49, 4294967295
   %notmask50 = shl nsw i64 -1, %51
   %52 = xor i64 %notmask50, -1
-  %53 = select i1 %50, i64 0, i64 %52
-  %54 = and i64 %53, %2
+  %53 = and i64 %2, %52
+  %54 = select i1 %50, i64 0, i64 %53
   %55 = getelementptr inbounds nuw ptr, ptr %40, i64 %.04373
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
@@ -2763,8 +2763,8 @@ dictGetKeyCmpFunc.exit:                           ; preds = %30, %33
   %43 = and i64 %41, 4294967295
   %notmask = shl nsw i64 -1, %43
   %44 = xor i64 %notmask, -1
-  %45 = select i1 %42, i64 0, i64 %44
-  %46 = and i64 %45, %28
+  %45 = and i64 %28, %44
+  %46 = select i1 %42, i64 0, i64 %45
   br i1 %38, label %47, label %50
 
 47:                                               ; preds = %.backedge
@@ -3938,11 +3938,11 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %43
 
-43:                                               ; preds = %.lr.ph143, %91
-  %.078141 = phi i64 [ 0, %.lr.ph143 ], [ %.2, %91 ]
-  %.pn140 = phi i64 [ %40, %.lr.ph143 ], [ %92, %91 ]
-  %.084139 = phi i64 [ %11, %.lr.ph143 ], [ %44, %91 ]
-  %.086138 = phi i64 [ 0, %.lr.ph143 ], [ %.288, %91 ]
+43:                                               ; preds = %.lr.ph143, %90
+  %.078141 = phi i64 [ 0, %.lr.ph143 ], [ %.2, %90 ]
+  %.pn140 = phi i64 [ %40, %.lr.ph143 ], [ %91, %90 ]
+  %.084139 = phi i64 [ %11, %.lr.ph143 ], [ %44, %90 ]
+  %.086138 = phi i64 [ 0, %.lr.ph143 ], [ %.288, %90 ]
   %44 = add nsw i64 %.084139, -1
   %.not109 = icmp eq i64 %.084139, 0
   br i1 %.not109, label %.critedge.loopexit148, label %.preheader124.preheader
@@ -3955,123 +3955,122 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   %.1137 = phi i64 [ %.2, %.thread ], [ %.078141, %.preheader124.preheader ]
   %.180136 = phi i64 [ %.382, %.thread ], [ %.079, %.preheader124.preheader ]
   %.187135 = phi i64 [ %.288, %.thread ], [ %.086138, %.preheader124.preheader ]
-  %45 = phi i1 [ false, %.thread ], [ true, %.preheader124.preheader ]
+  %or.cond = phi i1 [ false, %.thread ], [ %24, %.preheader124.preheader ]
   %.194134 = phi i64 [ 1, %.thread ], [ 0, %.preheader124.preheader ]
-  %or.cond = and i1 %24, %45
-  br i1 %or.cond, label %46, label %55
+  br i1 %or.cond, label %45, label %54
 
-46:                                               ; preds = %.preheader124
-  %47 = load i64, ptr %12, align 8, !tbaa !14
-  %48 = icmp ult i64 %.180136, %47
-  br i1 %48, label %49, label %55
+45:                                               ; preds = %.preheader124
+  %46 = load i64, ptr %12, align 8, !tbaa !14
+  %47 = icmp ult i64 %.180136, %46
+  br i1 %47, label %48, label %54
 
-49:                                               ; preds = %46
-  %50 = load i8, ptr %41, align 1, !tbaa !13
-  %51 = icmp ne i8 %50, -1
-  %52 = sext i8 %50 to i64
-  %53 = and i64 %52, 4294967295
-  %.180.highbits = lshr i64 %.180136, %53
-  %54 = icmp eq i64 %.180.highbits, 0
-  %.not110 = select i1 %51, i1 %54, i1 false
-  br i1 %.not110, label %.thread, label %55
+48:                                               ; preds = %45
+  %49 = load i8, ptr %41, align 1, !tbaa !13
+  %50 = icmp ne i8 %49, -1
+  %51 = sext i8 %49 to i64
+  %52 = and i64 %51, 4294967295
+  %.180.highbits = lshr i64 %.180136, %52
+  %53 = icmp eq i64 %.180.highbits, 0
+  %.not110 = select i1 %50, i1 %53, i1 false
+  br i1 %.not110, label %.thread, label %54
 
-55:                                               ; preds = %49, %46, %.preheader124
-  %.281 = phi i64 [ %.180136, %.preheader124 ], [ %.180136, %46 ], [ %47, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %25, i64 %.194134
-  %57 = load i8, ptr %56, align 1, !tbaa !13
-  %58 = icmp ne i8 %57, -1
-  %59 = sext i8 %57 to i64
-  %60 = and i64 %59, 4294967295
-  %.281.highbits = lshr i64 %.281, %60
-  %61 = icmp eq i64 %.281.highbits, 0
-  %.not111 = select i1 %58, i1 %61, i1 false
-  br i1 %.not111, label %62, label %.thread
+54:                                               ; preds = %48, %45, %.preheader124
+  %.281 = phi i64 [ %.180136, %.preheader124 ], [ %.180136, %45 ], [ %46, %48 ]
+  %55 = getelementptr inbounds nuw i8, ptr %25, i64 %.194134
+  %56 = load i8, ptr %55, align 1, !tbaa !13
+  %57 = icmp ne i8 %56, -1
+  %58 = sext i8 %56 to i64
+  %59 = and i64 %58, 4294967295
+  %.281.highbits = lshr i64 %.281, %59
+  %60 = icmp eq i64 %.281.highbits, 0
+  %.not111 = select i1 %57, i1 %60, i1 false
+  br i1 %.not111, label %61, label %.thread
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw ptr, ptr %42, i64 %.194134
-  %64 = load ptr, ptr %63, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.281
-  %66 = load ptr, ptr %65, align 8, !tbaa !31
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %.preheader
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw ptr, ptr %42, i64 %.194134
+  %63 = load ptr, ptr %62, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.281
+  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %.preheader
 
-68:                                               ; preds = %62
-  %69 = add i64 %.1137, 1
-  %or.cond114 = icmp ugt i64 %69, %invariant.umax
-  br i1 %or.cond114, label %70, label %.thread
+67:                                               ; preds = %61
+  %68 = add i64 %.1137, 1
+  %or.cond114 = icmp ugt i64 %68, %invariant.umax
+  br i1 %or.cond114, label %69, label %.thread
 
-70:                                               ; preds = %68
-  %71 = tail call i64 @genrand64_int64() #25
-  %72 = and i64 %71, %.085
+69:                                               ; preds = %67
+  %70 = tail call i64 @genrand64_int64() #25
+  %71 = and i64 %70, %.085
   br label %.thread
 
-.preheader:                                       ; preds = %62, %dictGetNext.exit
-  %.077133 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %66, %62 ]
-  %.490132 = phi i64 [ %89, %dictGetNext.exit ], [ %.187135, %62 ]
-  %73 = icmp ult i64 %.490132, %spec.select122
-  br i1 %73, label %.sink.split, label %74
+.preheader:                                       ; preds = %61, %dictGetNext.exit
+  %.077133 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %65, %61 ]
+  %.490132 = phi i64 [ %88, %dictGetNext.exit ], [ %.187135, %61 ]
+  %72 = icmp ult i64 %.490132, %spec.select122
+  br i1 %72, label %.sink.split, label %73
 
-74:                                               ; preds = %.preheader
-  %75 = tail call i64 @genrand64_int64() #25
-  %76 = add i64 %.490132, 1
-  %77 = urem i64 %75, %76
-  %78 = icmp ult i64 %77, %spec.select122
-  br i1 %78, label %.sink.split, label %80
+73:                                               ; preds = %.preheader
+  %74 = tail call i64 @genrand64_int64() #25
+  %75 = add i64 %.490132, 1
+  %76 = urem i64 %74, %75
+  %77 = icmp ult i64 %76, %spec.select122
+  br i1 %77, label %.sink.split, label %79
 
-.sink.split:                                      ; preds = %74, %.preheader
-  %.sink157 = phi i64 [ %.490132, %.preheader ], [ %77, %74 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sink157
-  store ptr %.077133, ptr %79, align 8, !tbaa !31
-  br label %80
+.sink.split:                                      ; preds = %73, %.preheader
+  %.sink157 = phi i64 [ %.490132, %.preheader ], [ %76, %73 ]
+  %78 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sink157
+  store ptr %.077133, ptr %78, align 8, !tbaa !31
+  br label %79
 
-80:                                               ; preds = %.sink.split, %74
-  %81 = ptrtoint ptr %.077133 to i64
-  %82 = and i64 %81, 3
-  %.not.i = icmp eq i64 %82, 0
+79:                                               ; preds = %.sink.split, %73
+  %80 = ptrtoint ptr %.077133 to i64
+  %81 = and i64 %80, 3
+  %.not.i = icmp eq i64 %81, 0
   br i1 %.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
-dictGetNext.exit.thread:                          ; preds = %80
-  %83 = add i64 %.490132, 1
+dictGetNext.exit.thread:                          ; preds = %79
+  %82 = add i64 %.490132, 1
   br label %.loopexit
 
-dictGetNext.exit:                                 ; preds = %80
-  %84 = and i64 %81, 4
-  %.not5.i = icmp eq i64 %84, 0
-  %85 = getelementptr inbounds nuw i8, ptr %.077133, i64 16
-  %86 = and i64 %81, -8
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %.0.i.in = select i1 %.not5.i, ptr %85, ptr %88
+dictGetNext.exit:                                 ; preds = %79
+  %83 = and i64 %80, 4
+  %.not5.i = icmp eq i64 %83, 0
+  %84 = getelementptr inbounds nuw i8, ptr %.077133, i64 16
+  %85 = and i64 %80, -8
+  %86 = inttoptr i64 %85 to ptr
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %.0.i.in = select i1 %.not5.i, ptr %84, ptr %87
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
-  %89 = add i64 %.490132, 1
+  %88 = add i64 %.490132, 1
   %.not112 = icmp eq ptr %.0.i, null
   br i1 %.not112, label %.loopexit, label %.preheader, !llvm.loop !81
 
 .loopexit:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
-  %90 = phi i64 [ %83, %dictGetNext.exit.thread ], [ %89, %dictGetNext.exit ]
-  %.not113 = icmp ult i64 %90, %spec.select122
+  %89 = phi i64 [ %82, %dictGetNext.exit.thread ], [ %88, %dictGetNext.exit ]
+  %.not113 = icmp ult i64 %89, %spec.select122
   br i1 %.not113, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %.loopexit, %70, %68, %55, %49
-  %.288 = phi i64 [ %.187135, %55 ], [ %.187135, %49 ], [ %.187135, %70 ], [ %.187135, %68 ], [ %90, %.loopexit ]
-  %.382 = phi i64 [ %.281, %55 ], [ %.180136, %49 ], [ %72, %70 ], [ %.281, %68 ], [ %.281, %.loopexit ]
-  %.2 = phi i64 [ %.1137, %55 ], [ %.1137, %49 ], [ 0, %70 ], [ %69, %68 ], [ 0, %.loopexit ]
-  br i1 %or.cond, label %.preheader124, label %91, !llvm.loop !82
+.thread:                                          ; preds = %.loopexit, %69, %67, %54, %48
+  %.288 = phi i64 [ %.187135, %54 ], [ %.187135, %48 ], [ %.187135, %69 ], [ %.187135, %67 ], [ %89, %.loopexit ]
+  %.382 = phi i64 [ %.281, %54 ], [ %.180136, %48 ], [ %71, %69 ], [ %.281, %67 ], [ %.281, %.loopexit ]
+  %.2 = phi i64 [ %.1137, %54 ], [ %.1137, %48 ], [ 0, %69 ], [ %68, %67 ], [ 0, %.loopexit ]
+  br i1 %or.cond, label %.preheader124, label %90, !llvm.loop !82
 
-91:                                               ; preds = %.thread
-  %92 = add i64 %.382, 1
-  %93 = icmp ult i64 %.288, %spec.select122
-  br i1 %93, label %43, label %.critedge.loopexit148, !llvm.loop !83
+90:                                               ; preds = %.thread
+  %91 = add i64 %.382, 1
+  %92 = icmp ult i64 %.288, %spec.select122
+  br i1 %92, label %43, label %.critedge.loopexit148, !llvm.loop !83
 
-.critedge.loopexit148:                            ; preds = %43, %91
-  %.6.ph = phi i64 [ %.288, %91 ], [ %.086138, %43 ]
-  %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select122)
+.critedge.loopexit148:                            ; preds = %43, %90
+  %.6.ph = phi i64 [ %.288, %90 ], [ %.086138, %43 ]
+  %93 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select122)
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.critedge.loopexit148, %39
-  %.6 = phi i64 [ %94, %.critedge.loopexit148 ], [ 0, %39 ], [ %spec.select122, %.loopexit ]
-  %95 = trunc nuw i64 %.6 to i32
-  ret i32 %95
+  %.6 = phi i64 [ %93, %.critedge.loopexit148 ], [ 0, %39 ], [ %spec.select122, %.loopexit ]
+  %94 = trunc nuw i64 %.6 to i32
+  ret i32 %94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4937,8 +4936,8 @@ define dso_local ptr @dictFindByHashAndPtr(ptr noundef readonly captures(none) %
   %18 = and i64 %16, 4294967295
   %notmask = shl nsw i64 -1, %18
   %19 = xor i64 %notmask, -1
-  %20 = select i1 %17, i64 0, i64 %19
-  %21 = and i64 %20, %2
+  %20 = and i64 %2, %19
+  %21 = select i1 %17, i64 0, i64 %20
   br i1 %13, label %22, label %25
 
 22:                                               ; preds = %.backedge

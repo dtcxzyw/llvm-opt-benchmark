@@ -32670,28 +32670,28 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151: ;
   %435 = add i32 %434, 1
   store i32 %435, ptr %421, align 8, !tbaa !353
   %436 = call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %370) #28
-  br i1 %436, label %437, label %441
+  br i1 %436, label %437, label %442
 
 437:                                              ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151
   %438 = call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %377) #28
-  br i1 %438, label %439, label %441
+  br i1 %438, label %439, label %442
 
 439:                                              ; preds = %437
   %440 = call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %384) #28
-  br label %441
+  %441 = and i1 %273, %440
+  br label %442
 
-441:                                              ; preds = %439, %437, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151
-  %442 = phi i1 [ false, %437 ], [ false, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151 ], [ %440, %439 ]
-  %443 = and i1 %273, %442
+442:                                              ; preds = %439, %437, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151
+  %443 = phi i1 [ false, %437 ], [ false, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit151 ], [ %441, %439 ]
   %444 = load ptr, ptr %13, align 8, !tbaa !939
   %445 = icmp eq ptr %444, %281
   br i1 %445, label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit, label %446
 
-446:                                              ; preds = %441
+446:                                              ; preds = %442
   call void @free(ptr noundef %444) #28
   br label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %441, %446
+_ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %442, %446
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %443, label %508, label %537
 
@@ -38146,14 +38146,18 @@ declare i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, %1
+  %.tr = phi ptr [ %0, %1 ], [ %18, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1 ]
+  %2 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 256
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, label %5
 
-5:                                                ; preds = %1
-  %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #28
+5:                                                ; preds = %tailrecurse
+  %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %.tr) #28
   %7 = load ptr, ptr %6, align 8, !tbaa !352
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !353
@@ -38178,24 +38182,15 @@ define internal fastcc noundef zeroext i1 @_ZL25hasObjCExceptionAttributeRN5clan
 
 _ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
   %.not3 = icmp eq ptr %.sroa.07.1.i.i.i.i, %11
-  br i1 %.not3, label %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, label %22
+  br i1 %.not3, label %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, label %19
 
-_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1: ; preds = %16, %5, %1, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit
-  %18 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #28
-  %.not.not = icmp ne ptr %18, null
-  br i1 %.not.not, label %19, label %21
+_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1: ; preds = %16, %5, %tailrecurse, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit
+  %18 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr) #28
+  %.not.not.not = icmp eq ptr %18, null
+  br i1 %.not.not.not, label %19, label %tailrecurse
 
-19:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1
-  %20 = tail call fastcc noundef zeroext i1 @_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE(ptr noundef nonnull %18)
-  br label %21
-
-21:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, %19
-  %.1 = phi i1 [ %20, %19 ], [ undef, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1 ]
-  %spec.select = and i1 %.not.not, %.1
-  br label %22
-
-22:                                               ; preds = %21, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit
-  %.06 = phi i1 [ %spec.select, %21 ], [ true, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit ]
+19:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit
+  %.06 = phi i1 [ true, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit ], [ false, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread1 ]
   ret i1 %.06
 }
 

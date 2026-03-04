@@ -4496,7 +4496,7 @@ _ZNK6vectorIN11user_solver6solver9prop_infoELb1EjE4sizeEv.exit: ; preds = %1, %7
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %11, %17
   %.0.i12 = phi i32 [ %19, %17 ], [ 0, %11 ]
   %20 = icmp eq i32 %13, %.0.i12
-  br i1 %20, label %134, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit, %_ZNK6vectorIN11user_solver6solver9prop_infoELb1EjE4sizeEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4703,15 +4703,11 @@ _ZN11user_solver6solver19propagate_new_fixedERKNS0_9prop_infoE.exit: ; preds = %
 .critedge.loopexit:                               ; preds = %126, %_ZNK6vectorIN11user_solver6solver9prop_infoELb1EjE4sizeEv.exit25, %105
   %.pre35 = load i32, ptr %95, align 8, !tbaa !504
   %131 = icmp ult i32 %96, %.pre35
+  %132 = or i1 %72, %131
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %88
-  %132 = phi i1 [ %131, %.critedge.loopexit ], [ false, %88 ]
-  %133 = or i1 %72, %132
-  br label %134
-
-134:                                              ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit, %.critedge
-  %.0 = phi i1 [ %133, %.critedge ], [ false, %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit ]
+.critedge:                                        ; preds = %88, %.critedge.loopexit, %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit
+  %.0 = phi i1 [ false, %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit ], [ %132, %.critedge.loopexit ], [ %72, %88 ]
   ret i1 %.0
 }
 

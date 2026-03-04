@@ -129,7 +129,7 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
   %.0.i37 = xor i64 %26, %29
   %30 = and i64 %.0.i37, %5
   %31 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
-  %32 = xor i64 %30, %28
+  %32 = xor i64 %28, %30
   store i64 %32, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

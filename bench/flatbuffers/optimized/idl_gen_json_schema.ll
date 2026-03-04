@@ -15885,6 +15885,7 @@ define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !25, !alias.scope !653
+  store ptr %8, ptr %5, align 8, !tbaa !16
   store i64 0, ptr %14, align 8, !tbaa !25
   store i8 0, ptr %8, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -16040,6 +16041,7 @@ define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %15, align 8, !tbaa !25, !alias.scope !659
+  store ptr %8, ptr %5, align 8, !tbaa !16
   store i64 0, ptr %14, align 8, !tbaa !25
   store i8 0, ptr %8, align 8, !tbaa !10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

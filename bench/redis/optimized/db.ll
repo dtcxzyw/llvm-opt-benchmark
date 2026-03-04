@@ -2261,8 +2261,8 @@ dbFind.exit:                                      ; preds = %39, %43
 dbFind.exit37:                                    ; preds = %58, %62
   %.0.i.i.i35 = phi i32 [ %63, %62 ], [ %56, %58 ]
   %64 = tail call ptr @kvstoreDictFind(ptr noundef %52, i32 noundef %.0.i.i.i35, ptr noundef %51) #20
-  %.not31 = icmp ne ptr %64, null
-  br i1 %.not31, label %65, label %69
+  %.not31 = icmp eq ptr %64, null
+  br i1 %.not31, label %69, label %65
 
 65:                                               ; preds = %dbFind.exit37
   %66 = tail call ptr @dictGetVal(ptr noundef nonnull %64) #20
@@ -2272,7 +2272,7 @@ dbFind.exit37:                                    ; preds = %58, %62
 
 69:                                               ; preds = %dbFind.exit37, %65
   %.023 = phi i32 [ %68, %65 ], [ -1, %dbFind.exit37 ]
-  %or.cond = or i1 %.not29, %.not31
+  %or.cond = phi i1 [ true, %65 ], [ %.not29, %dbFind.exit37 ]
   %.not32 = icmp eq i32 %.024, %.023
   %or.cond33 = select i1 %or.cond, i1 %.not32, i1 false
   br i1 %or.cond33, label %71, label %70

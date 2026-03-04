@@ -57,7 +57,7 @@ define dso_local noundef zeroext i1 @_Z14inferAlignmentRN4llvm8FunctionERNS_15As
   br i1 %.not8284, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit, %.lr.ph93
-  %.1.lcssa = phi i1 [ %.090, %.lr.ph93 ], [ %32, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit ]
+  %.1.lcssa = phi i1 [ %.090, %.lr.ph93 ], [ %.1.i, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.077.091, i64 8
   %.sroa.077.0 = load ptr, ptr %13, align 8, !tbaa !3
   %.not = icmp eq ptr %.sroa.077.0, %7
@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @_Z14inferAlignmentRN4llvm8FunctionERNS_15As
 
 .lr.ph:                                           ; preds = %.lr.ph93, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit
   %.sroa.071.086 = phi ptr [ %.sroa.071.0, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit ], [ %.sroa.071.083, %.lr.ph93 ]
-  %.185 = phi i1 [ %32, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit ], [ %.090, %.lr.ph93 ]
+  %.185 = phi i1 [ %.1.i, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit ], [ %.090, %.lr.ph93 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.071.086, i64 -24
   %15 = load i8, ptr %14, align 8, !tbaa !12
   %.off.i.i.i = add i8 %15, -61
@@ -115,10 +115,9 @@ _ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i:   ; preds = %20, %18
   br label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit
 
 _ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit: ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i, %.lr.ph, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_0EES1_lS3_S1_S1_.exit", %27
-  %.1.i = phi i1 [ true, %27 ], [ false, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_0EES1_lS3_S1_S1_.exit" ], [ false, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i ], [ false, %.lr.ph ], [ false, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i ]
-  %32 = or i1 %.185, %.1.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.071.086, i64 8
-  %.sroa.071.0 = load ptr, ptr %33, align 8, !tbaa !9
+  %.1.i = phi i1 [ true, %27 ], [ %.185, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_0EES1_lS3_S1_S1_.exit" ], [ %.185, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i ], [ %.185, %.lr.ph ], [ %.185, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.071.086, i64 8
+  %.sroa.071.0 = load ptr, ptr %32, align 8, !tbaa !9
   %.not82 = icmp eq ptr %.sroa.071.0, %12
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
@@ -129,124 +128,123 @@ _ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIF
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %._crit_edge102
   %.sroa.063.0107 = phi ptr [ %.sroa.063.0, %._crit_edge102 ], [ %.sroa.063.0104, %.lr.ph108.preheader ]
   %.2106 = phi i1 [ %.3.lcssa, %._crit_edge102 ], [ %.0.lcssa, %.lr.ph108.preheader ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 24
-  %.sroa.059.095 = load ptr, ptr %34, align 8, !tbaa !9
-  %.not8196 = icmp eq ptr %.sroa.059.095, %35
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 24
+  %.sroa.059.095 = load ptr, ptr %33, align 8, !tbaa !9
+  %.not8196 = icmp eq ptr %.sroa.059.095, %34
   br i1 %.not8196, label %._crit_edge102, label %.lr.ph101
 
 ._crit_edge102:                                   ; preds = %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57, %.lr.ph108
-  %.3.lcssa = phi i1 [ %.2106, %.lr.ph108 ], [ %77, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 8
-  %.sroa.063.0 = load ptr, ptr %36, align 8, !tbaa !3
+  %.3.lcssa = phi i1 [ %.2106, %.lr.ph108 ], [ %.1.i44, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.063.0107, i64 8
+  %.sroa.063.0 = load ptr, ptr %35, align 8, !tbaa !3
   %.not80 = icmp eq ptr %.sroa.063.0, %7
   br i1 %.not80, label %._crit_edge109, label %.lr.ph108
 
 .lr.ph101:                                        ; preds = %.lr.ph108, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57
   %.sroa.059.098 = phi ptr [ %.sroa.059.0, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57 ], [ %.sroa.059.095, %.lr.ph108 ]
-  %.397 = phi i1 [ %77, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57 ], [ %.2106, %.lr.ph108 ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -24
-  %38 = load i8, ptr %37, align 8, !tbaa !12
-  %.off.i.i.i42 = add i8 %38, -61
+  %.397 = phi i1 [ %.1.i44, %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57 ], [ %.2106, %.lr.ph108 ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -24
+  %37 = load i8, ptr %36, align 8, !tbaa !12
+  %.off.i.i.i42 = add i8 %37, -61
   %switch.i.i.i43 = icmp ult i8 %.off.i.i.i42, 2
   br i1 %switch.i.i.i43, label %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57
 
 _ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45: ; preds = %.lr.ph101
-  %39 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -56
-  %40 = load ptr, ptr %39, align 8, !tbaa !18
-  %.not.i46 = icmp eq ptr %40, null
-  br i1 %.not.i46, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57, label %41
+  %38 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -56
+  %39 = load ptr, ptr %38, align 8, !tbaa !18
+  %.not.i46 = icmp eq ptr %39, null
+  br i1 %.not.i46, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57, label %40
 
-41:                                               ; preds = %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45
+40:                                               ; preds = %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45
   %.sroa.0.1.in.in.in.in.i.i47 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -22
   %.sroa.0.1.in.in.in.i.i48 = load i16, ptr %.sroa.0.1.in.in.in.in.i.i47, align 2, !tbaa !23
   %.sroa.0.1.in.in.i.i49 = trunc i16 %.sroa.0.1.in.in.in.i.i48 to i8
   %.sroa.0.1.in.i.i50 = lshr i8 %.sroa.0.1.in.in.i.i49, 1
   %.sroa.0.1.i.i51 = and i8 %.sroa.0.1.in.i.i50, 63
-  %42 = icmp eq i8 %38, 61
-  br i1 %42, label %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52, label %43
+  %41 = icmp eq i8 %37, 61
+  br i1 %41, label %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52, label %42
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -88
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %.sroa.059.098, i64 -88
+  %44 = load ptr, ptr %43, align 8, !tbaa !18
   br label %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52
 
-_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52: ; preds = %43, %41
-  %.pn.i.i53 = phi ptr [ %45, %43 ], [ %37, %41 ]
+_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52: ; preds = %42, %40
+  %.pn.i.i53 = phi ptr [ %44, %42 ], [ %36, %40 ]
   %.1.in.i.i54 = getelementptr inbounds nuw i8, ptr %.pn.i.i53, i64 8
   %.1.i.i55 = load ptr, ptr %.1.in.i.i54, align 8, !tbaa !24
-  %46 = call i8 @_ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %5, ptr noundef %.1.i.i55) #7
+  %45 = call i8 @_ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %5, ptr noundef %.1.i.i55) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(496) %5, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %37, ptr noundef nonnull %2, i1 noundef zeroext true) #7
-  %47 = load i32, ptr %8, align 8, !tbaa !25
-  %48 = icmp ult i32 %47, 65
-  br i1 %48, label %49, label %54
+  call void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(496) %5, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %2, i1 noundef zeroext true) #7
+  %46 = load i32, ptr %8, align 8, !tbaa !25
+  %47 = icmp ult i32 %46, 65
+  br i1 %47, label %48, label %53
 
-49:                                               ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52
-  %50 = load i64, ptr %4, align 8, !tbaa !27
-  %51 = xor i64 %50, -1
-  %52 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %51, i1 false)
-  %53 = trunc nuw nsw i64 %52 to i32
+48:                                               ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52
+  %49 = load i64, ptr %4, align 8, !tbaa !27
+  %50 = xor i64 %49, -1
+  %51 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 false)
+  %52 = trunc nuw nsw i64 %51 to i32
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
 
-54:                                               ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52
-  %55 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+53:                                               ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i52
+  %54 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
 
-_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i: ; preds = %54, %49
-  %.0.i.i.i.i = phi i32 [ %53, %49 ], [ %55, %54 ]
-  %56 = load i32, ptr %9, align 8, !tbaa !25
-  %57 = icmp ugt i32 %56, 64
-  br i1 %57, label %58, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
+_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i: ; preds = %53, %48
+  %.0.i.i.i.i = phi i32 [ %52, %48 ], [ %54, %53 ]
+  %55 = load i32, ptr %9, align 8, !tbaa !25
+  %56 = icmp ugt i32 %55, 64
+  br i1 %56, label %57, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
 
-58:                                               ; preds = %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
-  %59 = load ptr, ptr %10, align 8, !tbaa !27
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN4llvm5APIntD2Ev.exit.i.i.i, label %61
+57:                                               ; preds = %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
+  %58 = load ptr, ptr %10, align 8, !tbaa !27
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZN4llvm5APIntD2Ev.exit.i.i.i, label %60
 
-61:                                               ; preds = %58
-  call void @_ZdaPv(ptr noundef nonnull %59) #9
+60:                                               ; preds = %57
+  call void @_ZdaPv(ptr noundef nonnull %58) #9
   %.pre.i.i = load i32, ptr %8, align 8, !tbaa !25
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i
 
-_ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %61, %58, %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
-  %62 = phi i32 [ %.pre.i.i, %61 ], [ %47, %58 ], [ %47, %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i ]
-  %63 = icmp ugt i32 %62, 64
-  br i1 %63, label %64, label %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
+_ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %60, %57, %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
+  %61 = phi i32 [ %.pre.i.i, %60 ], [ %46, %57 ], [ %46, %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i ]
+  %62 = icmp ugt i32 %61, 64
+  br i1 %62, label %63, label %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
 
-64:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
-  %65 = load ptr, ptr %4, align 8, !tbaa !27
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit", label %67
+63:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
+  %64 = load ptr, ptr %4, align 8, !tbaa !27
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit", label %66
 
-67:                                               ; preds = %64
-  call void @_ZdaPv(ptr noundef nonnull %65) #9
+66:                                               ; preds = %63
+  call void @_ZdaPv(ptr noundef nonnull %64) #9
   br label %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
 
-"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit": ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i, %64, %67
-  %68 = add i32 %47, -1
-  %.sroa.speculated6.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i.i.i, i32 %68)
+"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit": ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i, %63, %66
+  %67 = add i32 %46, -1
+  %.sroa.speculated6.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i.i.i, i32 %67)
   %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %.sroa.speculated6.i.i, i32 32)
-  %69 = trunc nuw nsw i32 %.sroa.speculated.i.i to i8
+  %68 = trunc nuw nsw i32 %.sroa.speculated.i.i to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %70 = icmp samesign ult i8 %.sroa.0.1.i.i51, %69
-  br i1 %70, label %71, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57
+  %69 = icmp samesign ult i8 %.sroa.0.1.i.i51, %68
+  br i1 %69, label %70, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57
 
-71:                                               ; preds = %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
-  %72 = load i16, ptr %.sroa.0.1.in.in.in.in.i.i47, align 2, !tbaa !23
-  %73 = and i16 %72, -127
-  %74 = shl nuw nsw i8 %69, 1
-  %75 = zext nneg i8 %74 to i16
-  %76 = or disjoint i16 %73, %75
-  store i16 %76, ptr %.sroa.0.1.in.in.in.in.i.i47, align 2, !tbaa !23
+70:                                               ; preds = %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
+  %71 = load i16, ptr %.sroa.0.1.in.in.in.in.i.i47, align 2, !tbaa !23
+  %72 = and i16 %71, -127
+  %73 = shl nuw nsw i8 %68, 1
+  %74 = zext nneg i8 %73 to i16
+  %75 = or disjoint i16 %72, %74
+  store i16 %75, ptr %.sroa.0.1.in.in.in.in.i.i47, align 2, !tbaa !23
   br label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57
 
-_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57: ; preds = %.lr.ph101, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit", %71
-  %.1.i44 = phi i1 [ true, %71 ], [ false, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit" ], [ false, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45 ], [ false, %.lr.ph101 ]
-  %77 = or i1 %.397, %.1.i44
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.059.098, i64 8
-  %.sroa.059.0 = load ptr, ptr %78, align 8, !tbaa !9
-  %.not81 = icmp eq ptr %.sroa.059.0, %35
+_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit57: ; preds = %.lr.ph101, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit", %70
+  %.1.i44 = phi i1 [ true, %70 ], [ %.397, %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit" ], [ %.397, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.i45 ], [ %.397, %.lr.ph101 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.059.098, i64 8
+  %.sroa.059.0 = load ptr, ptr %76, align 8, !tbaa !9
+  %.not81 = icmp eq ptr %.sroa.059.0, %34
   br i1 %.not81, label %._crit_edge102, label %.lr.ph101
 }
 

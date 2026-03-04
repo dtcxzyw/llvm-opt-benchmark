@@ -7607,8 +7607,8 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %109 = load i32, ptr %108, align 4, !tbaa !559
   %.not184 = icmp ult i32 %106, %109
-  %or.cond234 = select i1 %107, i1 true, i1 %.not184
-  br i1 %or.cond234, label %._crit_edge224, label %110
+  %or.cond233 = select i1 %107, i1 true, i1 %.not184
+  br i1 %or.cond233, label %._crit_edge224, label %110
 
 110:                                              ; preds = %105
   store i32 6, ptr %8, align 4, !tbaa !59
@@ -7664,7 +7664,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %134 = load i32, ptr %133, align 4, !tbaa !125
   %135 = icmp ne i32 %134, 65535
   %or.cond5 = or i1 %121, %135
-  br i1 %or.cond5, label %136, label %184
+  br i1 %or.cond5, label %136, label %185
 
 136:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -7709,7 +7709,10 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
 .preheader211:                                    ; preds = %152
   %157 = load i32, ptr %149, align 4, !tbaa !518
   %.not216 = icmp eq i32 %157, 0
-  br i1 %.not216, label %._crit_edge, label %.lr.ph
+  br i1 %.not216, label %.preheader.thread, label %.lr.ph
+
+.preheader.thread:                                ; preds = %.preheader211
+  br i1 %.not168, label %175, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader211
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 2872
@@ -7735,7 +7738,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %165 = load i32, ptr %149, align 4, !tbaa !518
   %166 = zext i32 %165 to i64
   %167 = icmp samesign ult i64 %indvars.iv.next221, %166
-  br i1 %167, label %168, label %._crit_edge.loopexit, !llvm.loop !566
+  br i1 %167, label %168, label %._crit_edge, !llvm.loop !566
 
 168:                                              ; preds = %.lr.ph215, %164
   %indvars.iv220 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next221, %164 ]
@@ -7747,137 +7750,133 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %.not192 = icmp eq i32 %172, 0
   br i1 %.not192, label %164, label %.loopexit
 
-._crit_edge.loopexit:                             ; preds = %164
+._crit_edge:                                      ; preds = %164
   %173 = icmp ugt i32 %165, 1
-  br label %._crit_edge
+  %174 = or i1 %.not168, %173
+  br i1 %174, label %175, label %.loopexit
 
-._crit_edge:                                      ; preds = %.preheader211, %._crit_edge.loopexit
-  %.lcssa = phi i1 [ %173, %._crit_edge.loopexit ], [ false, %.preheader211 ]
-  %or.cond8 = or i1 %.not168, %.lcssa
-  br i1 %or.cond8, label %174, label %.loopexit
-
-174:                                              ; preds = %._crit_edge
-  %175 = getelementptr inbounds nuw i8, ptr %3, i64 4920
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 1356
-  %177 = load i32, ptr %176, align 4, !tbaa !143
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 1936
-  %179 = load i64, ptr %178, align 8, !tbaa !567
-  %180 = add i64 %179, %14
-  %181 = call fastcc i32 @CFF_Load_FD_Select(ptr noundef nonnull %175, i32 noundef %177, ptr noundef nonnull %1, i64 noundef %180)
-  store i32 %181, ptr %8, align 4, !tbaa !59
+175:                                              ; preds = %.preheader.thread, %._crit_edge
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 4920
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 1356
+  %178 = load i32, ptr %177, align 4, !tbaa !143
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 1936
+  %180 = load i64, ptr %179, align 8, !tbaa !567
+  %181 = add i64 %180, %14
+  %182 = call fastcc i32 @CFF_Load_FD_Select(ptr noundef nonnull %176, i32 noundef %178, ptr noundef nonnull %1, i64 noundef %181)
+  store i32 %182, ptr %8, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %168, %174, %._crit_edge, %152, %148
+.loopexit:                                        ; preds = %168, %.preheader.thread, %175, %._crit_edge, %152, %148
   call fastcc void @cff_index_done(ptr noundef %10)
-  %182 = load i32, ptr %8, align 4, !tbaa !59
-  %.not193 = icmp eq i32 %182, 0
-  br i1 %.not193, label %183, label %.thread206
+  %183 = load i32, ptr %8, align 4, !tbaa !59
+  %.not193 = icmp eq i32 %183, 0
+  br i1 %.not193, label %184, label %.thread206
 
 .thread206:                                       ; preds = %146, %136, %141, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-183:                                              ; preds = %.loopexit
+184:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %186
+  br label %187
 
-184:                                              ; preds = %132
-  %185 = getelementptr inbounds nuw i8, ptr %3, i64 2864
-  store i32 0, ptr %185, align 8, !tbaa !137
-  br label %186
+185:                                              ; preds = %132
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 2864
+  store i32 0, ptr %186, align 8, !tbaa !137
+  br label %187
 
-186:                                              ; preds = %183, %184
-  %187 = load i64, ptr %125, align 8, !tbaa !562
-  %188 = icmp eq i64 %187, 0
-  br i1 %188, label %189, label %190
+187:                                              ; preds = %184, %185
+  %188 = load i64, ptr %125, align 8, !tbaa !562
+  %189 = icmp eq i64 %188, 0
+  br i1 %189, label %190, label %191
 
-189:                                              ; preds = %186
+190:                                              ; preds = %187
   store i32 3, ptr %8, align 4, !tbaa !59
   br label %.thread
 
-190:                                              ; preds = %186
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 1356
-  %192 = load i32, ptr %191, align 4, !tbaa !143
-  %193 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %192, ptr %193, align 4, !tbaa !88
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 1600
-  %196 = call fastcc i32 @cff_index_get_pointers(ptr noundef nonnull %194, ptr noundef nonnull %195, ptr noundef null, ptr noundef null)
-  store i32 %196, ptr %8, align 4, !tbaa !59
-  %.not194 = icmp eq i32 %196, 0
-  br i1 %.not194, label %197, label %.thread
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 1356
+  %193 = load i32, ptr %192, align 4, !tbaa !143
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %193, ptr %194, align 4, !tbaa !88
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 1600
+  %197 = call fastcc i32 @cff_index_get_pointers(ptr noundef nonnull %195, ptr noundef nonnull %196, ptr noundef null, ptr noundef null)
+  store i32 %197, ptr %8, align 4, !tbaa !59
+  %.not194 = icmp eq i32 %197, 0
+  br i1 %.not194, label %198, label %.thread
 
-197:                                              ; preds = %190
-  br i1 %.not168, label %198, label %219
+198:                                              ; preds = %191
+  br i1 %.not168, label %199, label %220
 
-198:                                              ; preds = %197
-  %199 = load i32, ptr %193, align 4, !tbaa !88
-  %.not195 = icmp eq i32 %199, 0
-  br i1 %.not195, label %219, label %200
+199:                                              ; preds = %198
+  %200 = load i32, ptr %194, align 4, !tbaa !88
+  %.not195 = icmp eq i32 %200, 0
+  br i1 %.not195, label %220, label %201
 
-200:                                              ; preds = %198
-  %201 = load i32, ptr %133, align 4, !tbaa !125
-  %202 = icmp ne i32 %201, 65535
-  %203 = icmp ne i8 %5, 0
-  %204 = and i1 %203, %202
-  %205 = zext i1 %204 to i8
-  %206 = getelementptr inbounds nuw i8, ptr %3, i64 1296
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 1816
-  %208 = load i64, ptr %207, align 8, !tbaa !568
-  %209 = call fastcc i32 @cff_charset_load(ptr noundef nonnull %206, i32 noundef %199, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %208, i8 noundef zeroext %205)
-  store i32 %209, ptr %8, align 4, !tbaa !59
-  %.not196 = icmp eq i32 %209, 0
-  br i1 %.not196, label %210, label %.thread
+201:                                              ; preds = %199
+  %202 = load i32, ptr %133, align 4, !tbaa !125
+  %203 = icmp ne i32 %202, 65535
+  %204 = icmp ne i8 %5, 0
+  %205 = and i1 %204, %203
+  %206 = zext i1 %205 to i8
+  %207 = getelementptr inbounds nuw i8, ptr %3, i64 1296
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 1816
+  %209 = load i64, ptr %208, align 8, !tbaa !568
+  %210 = call fastcc i32 @cff_charset_load(ptr noundef nonnull %207, i32 noundef %200, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %209, i8 noundef zeroext %206)
+  store i32 %210, ptr %8, align 4, !tbaa !59
+  %.not196 = icmp eq i32 %210, 0
+  br i1 %.not196, label %211, label %.thread
 
-210:                                              ; preds = %200
-  %211 = load i32, ptr %133, align 4, !tbaa !125
-  %212 = icmp eq i32 %211, 65535
-  br i1 %212, label %213, label %219
+211:                                              ; preds = %201
+  %212 = load i32, ptr %133, align 4, !tbaa !125
+  %213 = icmp eq i32 %212, 65535
+  br i1 %213, label %214, label %220
 
-213:                                              ; preds = %210
-  %214 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %215 = load i32, ptr %193, align 4, !tbaa !88
-  %216 = getelementptr inbounds nuw i8, ptr %3, i64 1824
-  %217 = load i64, ptr %216, align 8, !tbaa !569
-  %218 = call fastcc i32 @cff_encoding_load(ptr noundef nonnull %214, ptr noundef nonnull %206, i32 noundef %215, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %217)
-  store i32 %218, ptr %8, align 4, !tbaa !59
-  %.not197 = icmp eq i32 %218, 0
-  br i1 %.not197, label %219, label %.thread
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %216 = load i32, ptr %194, align 4, !tbaa !88
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 1824
+  %218 = load i64, ptr %217, align 8, !tbaa !569
+  %219 = call fastcc i32 @cff_encoding_load(ptr noundef nonnull %215, ptr noundef nonnull %207, i32 noundef %216, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %218)
+  store i32 %219, ptr %8, align 4, !tbaa !59
+  %.not197 = icmp eq i32 %219, 0
+  br i1 %.not197, label %220, label %.thread
 
-219:                                              ; preds = %213, %210, %198, %197
-  %220 = call fastcc ptr @cff_index_get_name(ptr noundef nonnull %3, i32 noundef %.0161)
-  %221 = getelementptr inbounds nuw i8, ptr %3, i64 1592
-  store ptr %220, ptr %221, align 8, !tbaa !205
+220:                                              ; preds = %214, %211, %199, %198
+  %221 = call fastcc ptr @cff_index_get_name(ptr noundef nonnull %3, i32 noundef %.0161)
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 1592
+  store ptr %221, ptr %222, align 8, !tbaa !205
   br label %.thread
 
-.thread:                                          ; preds = %213, %200, %45, %34, %.thread206, %190, %129, %124, %119, %117, %82, %85, %87, %90, %69, %70, %63, %54, %51, %52, %29, %7, %219, %189, %116, %110, %100, %80, %28
-  %222 = load ptr, ptr %9, align 8, !tbaa !189
-  %.not.i = icmp eq ptr %222, null
-  br i1 %.not.i, label %cff_index_done.exit, label %223
+.thread:                                          ; preds = %214, %201, %45, %34, %.thread206, %191, %129, %124, %119, %117, %82, %85, %87, %90, %69, %70, %63, %54, %51, %52, %29, %7, %220, %190, %116, %110, %100, %80, %28
+  %223 = load ptr, ptr %9, align 8, !tbaa !189
+  %.not.i = icmp eq ptr %223, null
+  br i1 %.not.i, label %cff_index_done.exit, label %224
 
-223:                                              ; preds = %.thread
-  %224 = getelementptr inbounds nuw i8, ptr %222, i64 56
-  %225 = load ptr, ptr %224, align 8, !tbaa !190
-  %226 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %227 = load ptr, ptr %226, align 8, !tbaa !192
-  %.not10.i = icmp eq ptr %227, null
-  br i1 %.not10.i, label %229, label %228
+224:                                              ; preds = %.thread
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 56
+  %226 = load ptr, ptr %225, align 8, !tbaa !190
+  %227 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %228 = load ptr, ptr %227, align 8, !tbaa !192
+  %.not10.i = icmp eq ptr %228, null
+  br i1 %.not10.i, label %230, label %229
 
-228:                                              ; preds = %223
-  call void @FT_Stream_ReleaseFrame(ptr noundef nonnull %222, ptr noundef nonnull %226) #20
-  br label %229
+229:                                              ; preds = %224
+  call void @FT_Stream_ReleaseFrame(ptr noundef nonnull %223, ptr noundef nonnull %227) #20
+  br label %230
 
-229:                                              ; preds = %228, %223
-  %230 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %231 = load ptr, ptr %230, align 8, !tbaa !193
-  call void @ft_mem_free(ptr noundef %225, ptr noundef %231) #20
+230:                                              ; preds = %229, %224
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %232 = load ptr, ptr %231, align 8, !tbaa !193
+  call void @ft_mem_free(ptr noundef %226, ptr noundef %232) #20
   br label %cff_index_done.exit
 
-cff_index_done.exit:                              ; preds = %.thread, %229
-  %232 = load i32, ptr %8, align 4, !tbaa !59
+cff_index_done.exit:                              ; preds = %.thread, %230
+  %233 = load i32, ptr %8, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %232
+  ret i32 %233
 }
 
 declare i32 @FT_Set_Named_Instance(ptr noundef, i32 noundef) local_unnamed_addr #8

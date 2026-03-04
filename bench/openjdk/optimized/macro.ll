@@ -13104,20 +13104,20 @@ define hidden void @_ZN16PhaseMacroExpand21eliminate_macro_nodesEv(ptr noundef n
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.split, label %.split36.us
 
-.loopexit29:                                      ; preds = %44
-  br i1 %46, label %.split, label %.split36.us, !llvm.loop !46
+.loopexit29:                                      ; preds = %45
+  br i1 %.025, label %.split, label %.split36.us, !llvm.loop !46
 
 .split:                                           ; preds = %21, %.loopexit29
-  %27 = phi ptr [ %45, %.loopexit29 ], [ %23, %21 ]
+  %27 = phi ptr [ %46, %.loopexit29 ], [ %23, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 416
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph34, label %.split36.us
 
-.lr.ph34:                                         ; preds = %.split, %44
-  %31 = phi ptr [ %45, %44 ], [ %27, %.split ]
-  %.132 = phi i1 [ %46, %44 ], [ false, %.split ]
-  %.02731 = phi i32 [ %49, %44 ], [ %29, %.split ]
+.lr.ph34:                                         ; preds = %.split, %45
+  %31 = phi ptr [ %46, %45 ], [ %27, %.split ]
+  %.132 = phi i1 [ %.025, %45 ], [ false, %.split ]
+  %.02731 = phi i32 [ %49, %45 ], [ %29, %.split ]
   %32 = add nsw i32 %.02731, -1
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 424
   %34 = load ptr, ptr %33, align 8
@@ -13128,25 +13128,25 @@ define hidden void @_ZN16PhaseMacroExpand21eliminate_macro_nodesEv(ptr noundef n
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 127
   %41 = icmp eq i32 %40, 71
-  br i1 %41, label %42, label %44
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %.lr.ph34
   %43 = tail call noundef zeroext i1 @_ZN16PhaseMacroExpand22eliminate_locking_nodeEP16AbstractLockNode(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %37)
-  %.pre45 = load ptr, ptr %2, align 8
-  br label %44
+  %44 = or i1 %.132, %43
+  %.pre44 = load ptr, ptr %2, align 8
+  br label %45
 
-44:                                               ; preds = %42, %.lr.ph34
-  %45 = phi ptr [ %.pre45, %42 ], [ %31, %.lr.ph34 ]
-  %.025 = phi i1 [ %43, %42 ], [ false, %.lr.ph34 ]
-  %46 = or i1 %.132, %.025
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 416
+45:                                               ; preds = %42, %.lr.ph34
+  %46 = phi ptr [ %.pre44, %42 ], [ %31, %.lr.ph34 ]
+  %.025 = phi i1 [ %44, %42 ], [ %.132, %.lr.ph34 ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 416
   %48 = load i32, ptr %47, align 4
   %49 = tail call noundef i32 @llvm.smin.i32(i32 %32, i32 %48)
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph34, label %.loopexit29, !llvm.loop !48
 
 .split36.us:                                      ; preds = %.loopexit29, %.split, %21
-  %51 = phi ptr [ %23, %21 ], [ %27, %.split ], [ %45, %.loopexit29 ]
+  %51 = phi ptr [ %23, %21 ], [ %27, %.split ], [ %46, %.loopexit29 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 416

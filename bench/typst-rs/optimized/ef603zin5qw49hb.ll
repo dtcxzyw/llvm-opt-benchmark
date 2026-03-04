@@ -1315,9 +1315,9 @@ define void @_ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E(ptr no
   br i1 %8, label %_ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llvm.5914695560033043764.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i
-  %.025.i = phi i1 [ %47, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ false, %3 ]
+  %.025.i = phi i1 [ %.0.i13.i, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ false, %3 ]
   %.0724.i = phi i64 [ %34, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ 0, %3 ]
-  %.0823.i = phi i64 [ %46, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ 1, %3 ]
+  %.0823.i = phi i64 [ %47, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ 1, %3 ]
   %.sroa.0.022.i = phi ptr [ %9, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i ], [ %.val.i, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
@@ -1363,7 +1363,7 @@ default.unreachable:                              ; preds = %_ZN12typst_syntax4n
   br label %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i
-  %33 = zext i1 %47 to i8
+  %33 = zext i1 %.0.i13.i to i8
   br label %_ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llvm.5914695560033043764.exit
 
 _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i: ; preds = %24, %20, %12
@@ -1385,7 +1385,7 @@ _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i: ; pr
   switch i8 %trunc.i.i, label %default.unreachable [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i
     i8 1, label %40
-    i8 2, label %45
+    i8 2, label %46
   ]
 
 40:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
@@ -1393,20 +1393,20 @@ _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i: ; pr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load i8, ptr %42, align 8, !range !17, !noalias !163, !noundef !7
   %44 = trunc nuw i8 %43 to i1
+  %45 = or i1 %.025.i, %44
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i
 
-45:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
+46:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i
 
-_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i: ; preds = %45, %40, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
-  %.0.i13.i = phi i1 [ true, %45 ], [ %44, %40 ], [ false, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i ]
-  %46 = add i64 %.0.i11.i, %.0823.i
-  %47 = or i1 %.025.i, %.0.i13.i
+_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.i: ; preds = %46, %40, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
+  %.0.i13.i = phi i1 [ true, %46 ], [ %45, %40 ], [ %.025.i, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i ]
+  %47 = add i64 %.0.i11.i, %.0823.i
   %48 = icmp eq ptr %9, %7
   br i1 %48, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 _ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llvm.5914695560033043764.exit: ; preds = %3, %._crit_edge.loopexit.i
-  %.08.lcssa.i = phi i64 [ 1, %3 ], [ %46, %._crit_edge.loopexit.i ]
+  %.08.lcssa.i = phi i64 [ 1, %3 ], [ %47, %._crit_edge.loopexit.i ]
   %.07.lcssa.i = phi i64 [ 0, %3 ], [ %34, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i8 [ 0, %3 ], [ %33, %._crit_edge.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3250,9 +3250,9 @@ define hidden void @_ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llv
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
-  %.025 = phi i1 [ %53, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ false, %4 ]
+  %.025 = phi i1 [ %.0.i13, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ false, %4 ]
   %.0724 = phi i64 [ %40, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ 0, %4 ]
-  %.0823 = phi i64 [ %52, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ 1, %4 ]
+  %.0823 = phi i64 [ %53, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ 1, %4 ]
   %.sroa.0.022 = phi ptr [ %9, %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit ], [ %.val, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
@@ -3298,11 +3298,11 @@ default.unreachable:                              ; preds = %_ZN12typst_syntax4n
   br label %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
-  %33 = zext i1 %53 to i8
+  %33 = zext i1 %.0.i13 to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.08.lcssa = phi i64 [ 1, %4 ], [ %52, %._crit_edge.loopexit ]
+  %.08.lcssa = phi i64 [ 1, %4 ], [ %53, %._crit_edge.loopexit ]
   %.07.lcssa = phi i64 [ 0, %4 ], [ %40, %._crit_edge.loopexit ]
   %.0.lcssa = phi i8 [ 0, %4 ], [ %33, %._crit_edge.loopexit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -3339,7 +3339,7 @@ _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit: ; pred
   switch i8 %trunc.i, label %default.unreachable [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
     i8 1, label %46
-    i8 2, label %51
+    i8 2, label %52
   ]
 
 46:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
@@ -3347,15 +3347,15 @@ _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit: ; pred
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %49 = load i8, ptr %48, align 8, !range !17, !noalias !506, !noundef !7
   %50 = trunc nuw i8 %49 to i1
+  %51 = or i1 %.025, %50
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
 
-51:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
+52:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
 
-_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit: ; preds = %51, %46, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
-  %.0.i13 = phi i1 [ true, %51 ], [ %50, %46 ], [ false, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit ]
-  %52 = add i64 %.0.i11, %.0823
-  %53 = or i1 %.025, %.0.i13
+_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit: ; preds = %52, %46, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
+  %.0.i13 = phi i1 [ true, %52 ], [ %51, %46 ], [ %.025, %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit ]
+  %53 = add i64 %.0.i11, %.0823
   %54 = icmp eq ptr %9, %7
   br i1 %54, label %._crit_edge.loopexit, label %.lr.ph
 }

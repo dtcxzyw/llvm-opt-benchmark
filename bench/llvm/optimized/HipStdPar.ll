@@ -2172,9 +2172,8 @@ define internal noundef zeroext i1 @_ZN4llvm12function_refIFbPNS_8ConstantEEE11c
   br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.exit
 
 _ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.exit: ; preds = %.lr.ph.i.i.i, %2, %9, %17
-  %.05.i = phi i1 [ undef, %2 ], [ %19, %17 ], [ true, %9 ], [ %.not1.i.not, %.lr.ph.i.i.i ]
-  %spec.select.i = and i1 %.not.i, %.05.i
-  ret i1 %spec.select.i
+  %.05.i = phi i1 [ false, %2 ], [ %19, %17 ], [ true, %9 ], [ %.not1.i.not, %.lr.ph.i.i.i ]
+  ret i1 %.05.i
 }
 
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2

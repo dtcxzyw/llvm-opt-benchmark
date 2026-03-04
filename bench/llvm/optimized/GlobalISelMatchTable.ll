@@ -17349,6 +17349,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %56, ptr %60, align 8, !tbaa !77, !alias.scope !1331
+  store ptr %53, ptr %50, align 8, !tbaa !76
   store i64 0, ptr %59, align 8, !tbaa !77
   store i8 0, ptr %53, align 8, !tbaa !79
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -20249,68 +20250,61 @@ define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher20isH
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !313
   %7 = icmp slt i32 %4, %6
-  br i1 %7, label %32, label %8
+  br i1 %7, label %30, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp slt i32 %6, %4
-  br i1 %9, label %32, label %10
+  %.not = icmp eq i32 %6, 0
+  %9 = icmp slt i32 %4, 1
+  %or.cond = and i1 %.not, %9
+  br i1 %or.cond, label %10, label %30
 
 10:                                               ; preds = %8
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %11, label %31
-
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !9
-  %14 = load ptr, ptr %13, align 8, !tbaa !376
-  %15 = load ptr, ptr %14, align 8, !tbaa !378
-  %16 = load ptr, ptr %15, align 8, !tbaa !97
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
+  %13 = load ptr, ptr %12, align 8, !tbaa !376
+  %14 = load ptr, ptr %13, align 8, !tbaa !378
+  %15 = load ptr, ptr %14, align 8, !tbaa !97
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !78
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !9
-  %19 = load ptr, ptr %18, align 8, !tbaa !376
-  %20 = load ptr, ptr %19, align 8, !tbaa !378
-  %21 = load ptr, ptr %20, align 8, !tbaa !97
-  %.sroa.2.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
+  %18 = load ptr, ptr %17, align 8, !tbaa !376
+  %19 = load ptr, ptr %18, align 8, !tbaa !378
+  %20 = load ptr, ptr %19, align 8, !tbaa !97
+  %.sroa.2.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.sroa.2.0.copyload.i.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i.i12, align 8, !tbaa !78
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i13, i64 %.sroa.2.0.copyload.i.i)
-  %22 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %22, label %.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
+  %21 = icmp eq i64 %.sroa.speculated.i.i, 0
+  br i1 %21, label %.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %11
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sroa.0.0.copyload.i.i11 = load ptr, ptr %23, align 8, !tbaa !133
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %24, align 8, !tbaa !133
-  %25 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i11, i64 noundef %.sroa.speculated.i.i) #37
-  %.fr.i.i = freeze i32 %25
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %10
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sroa.0.0.copyload.i.i11 = load ptr, ptr %22, align 8, !tbaa !133
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %23, align 8, !tbaa !133
+  %24 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i11, i64 noundef %.sroa.speculated.i.i) #37
+  %.fr.i.i = freeze i32 %24
   %.not.not.i.i = icmp eq i32 %.fr.i.i, 0
   %.inv.i.i = icmp sgt i32 %.fr.i.i, -1
   %spec.select.i.i16 = select i1 %.inv.i.i, i32 1, i32 -1
   br i1 %.not.not.i.i, label %.thread.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit
 
-.thread.i.i:                                      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %11
-  %26 = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i.i13
-  br i1 %26, label %_ZN4llvmltENS_9StringRefES0_.exit, label %27
+.thread.i.i:                                      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %10
+  %25 = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i.i13
+  br i1 %25, label %_ZN4llvmltENS_9StringRefES0_.exit, label %26
 
-27:                                               ; preds = %.thread.i.i
-  %28 = icmp ult i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i.i13
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %.thread.i.i
+  %27 = icmp ult i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i.i13
+  %28 = select i1 %27, i32 -1, i32 1
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %27
-  %.1.i.i = phi i32 [ %spec.select.i.i16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %29, %27 ], [ 0, %.thread.i.i ]
-  %30 = icmp slt i32 %.1.i.i, 0
-  br label %31
+_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %26
+  %.1.i.i = phi i32 [ %spec.select.i.i16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %28, %26 ], [ 0, %.thread.i.i ]
+  %29 = icmp slt i32 %.1.i.i, 0
+  br label %30
 
-31:                                               ; preds = %10, %_ZN4llvmltENS_9StringRefES0_.exit
-  %.1 = phi i1 [ %30, %_ZN4llvmltENS_9StringRefES0_.exit ], [ undef, %10 ]
-  %spec.select = and i1 %.not, %.1
-  br label %32
-
-32:                                               ; preds = %31, %8, %2
-  %.09 = phi i1 [ %spec.select, %31 ], [ true, %2 ], [ false, %8 ]
+30:                                               ; preds = %_ZN4llvmltENS_9StringRefES0_.exit, %8, %2
+  %.09 = phi i1 [ false, %8 ], [ true, %2 ], [ %29, %_ZN4llvmltENS_9StringRefES0_.exit ]
   ret i1 %.09
 }
 

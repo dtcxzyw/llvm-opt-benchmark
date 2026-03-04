@@ -2995,27 +2995,28 @@ _ioppr_reset_iop_order.exit:                      ; preds = %.lr.ph.i, %._crit_e
   %16 = load i8, ptr %15, align 8, !tbaa !59
   %.not79 = icmp eq i8 %16, 0
   %.pre154 = load ptr, ptr %4, align 8, !tbaa !93
-  br i1 %.not79, label %20, label %17
+  br i1 %.not79, label %21, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = tail call ptr @dt_iop_get_module_by_instance_name(ptr noundef %.pre154, ptr noundef nonnull %18, ptr noundef nonnull %15) #15
   %.not80 = icmp eq ptr %19, null
+  %20 = or i1 %6, %.not80
   %.pre = load ptr, ptr %4, align 8, !tbaa !93
-  br label %20
+  br label %21
 
-20:                                               ; preds = %17, %13
-  %21 = phi ptr [ %.pre, %17 ], [ %.pre154, %13 ]
-  %22 = phi i1 [ %.not80, %17 ], [ false, %13 ]
+21:                                               ; preds = %17, %13
+  %22 = phi ptr [ %.pre, %17 ], [ %.pre154, %13 ]
+  %or.cond = phi i1 [ %20, %17 ], [ %6, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.not26.i = icmp eq ptr %21, null
+  %.not26.i = icmp eq ptr %22, null
   br i1 %.not26.i, label %_count_iop_module.exit, label %.lr.ph.i88
 
-.lr.ph.i88:                                       ; preds = %20, %36
-  %.0114 = phi i32 [ %.1115, %36 ], [ 0, %20 ]
-  %.0111 = phi i32 [ %.1112, %36 ], [ 0, %20 ]
-  %.0106 = phi i32 [ %.1107, %36 ], [ 0, %20 ]
-  %.027.i = phi ptr [ %38, %36 ], [ %21, %20 ]
+.lr.ph.i88:                                       ; preds = %21, %36
+  %.0114 = phi i32 [ %.1115, %36 ], [ 0, %21 ]
+  %.0111 = phi i32 [ %.1112, %36 ], [ 0, %21 ]
+  %.0106 = phi i32 [ %.1107, %36 ], [ 0, %21 ]
+  %.027.i = phi ptr [ %38, %36 ], [ %22, %21 ]
   %24 = load ptr, ptr %.027.i, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 944
   %26 = load ptr, ptr %25, align 16, !tbaa !114
@@ -3049,10 +3050,10 @@ _count_iop_module.exit.loopexit:                  ; preds = %36
   %39 = add nuw nsw i32 %.1115, 1
   br label %_count_iop_module.exit
 
-_count_iop_module.exit:                           ; preds = %_count_iop_module.exit.loopexit, %20
-  %.3 = phi i32 [ 1, %20 ], [ %39, %_count_iop_module.exit.loopexit ]
-  %.2113 = phi i32 [ 0, %20 ], [ %.1112, %_count_iop_module.exit.loopexit ]
-  %.2108 = phi i32 [ 0, %20 ], [ %.1107, %_count_iop_module.exit.loopexit ]
+_count_iop_module.exit:                           ; preds = %_count_iop_module.exit.loopexit, %21
+  %.3 = phi i32 [ 1, %21 ], [ %39, %_count_iop_module.exit.loopexit ]
+  %.2113 = phi i32 [ 0, %21 ], [ %.1112, %_count_iop_module.exit.loopexit ]
+  %.2108 = phi i32 [ 0, %21 ], [ %.1107, %_count_iop_module.exit.loopexit ]
   %40 = load ptr, ptr %5, align 16, !tbaa !63
   %41 = tail call ptr @g_list_last(ptr noundef %40) #15
   %.not81127 = icmp eq ptr %41, null
@@ -3095,7 +3096,6 @@ _count_iop_module.exit:                           ; preds = %_count_iop_module.e
   br i1 %.not.i93, label %_count_entries_operation.exit, label %.lr.ph.i91
 
 _count_entries_operation.exit:                    ; preds = %.lr.ph.i91
-  %or.cond = or i1 %6, %22
   %55 = select i1 %or.cond, i32 %.2108, i32 0
   %.sink172 = sub nsw i32 %.2113, %55
   %56 = sub nsw i32 %spec.select.i, %.sink172

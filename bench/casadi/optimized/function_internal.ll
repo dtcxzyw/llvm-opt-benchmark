@@ -66130,6 +66130,7 @@ _ZNSt7__cxx119to_stringEx.exit:                   ; preds = %226, %233
   %247 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %248 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %244, ptr %248, align 8, !tbaa !14, !alias.scope !966
+  store ptr %241, ptr %238, align 8, !tbaa !11
   store i64 0, ptr %247, align 8, !tbaa !14
   store i8 0, ptr %241, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -69265,6 +69266,7 @@ define linkonce_odr hidden void @_ZN6casadi16FunctionInternal12forward_nameERKNS
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !14, !alias.scope !999
+  store ptr %11, ptr %8, align 8, !tbaa !11
   store i64 0, ptr %17, align 8, !tbaa !14
   store i8 0, ptr %11, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -72059,6 +72061,7 @@ define linkonce_odr hidden void @_ZN6casadi16FunctionInternal12reverse_nameERKNS
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !14, !alias.scope !1031
+  store ptr %11, ptr %8, align 8, !tbaa !11
   store i64 0, ptr %17, align 8, !tbaa !14
   store i8 0, ptr %11, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

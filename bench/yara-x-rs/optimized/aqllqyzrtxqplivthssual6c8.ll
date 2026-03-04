@@ -71282,9 +71282,9 @@ define hidden void @_ZN6yara_x7modules2pe6parser11ord_to_name17ha8b458fb9a062f75
   %23 = load i8, ptr %22, align 1, !alias.scope !10508, !noalias !10511, !noundef !3
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.sroa.03.0.i.i = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.sroa.03.0.i.i, %23
-  store i8 %26, ptr %22, align 1, !alias.scope !10508, !noalias !10511
+  %26 = select i1 %25, i8 32, i8 0
+  %.sroa.03.0.i.i = or i8 %26, %23
+  store i8 %.sroa.03.0.i.i, ptr %22, align 1, !alias.scope !10508, !noalias !10511
   %27 = add nuw i64 %.sroa.0.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %27, %2
   br i1 %exitcond.not.i.i, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h69f0bfc939692466E.exit", label %.lr.ph.i.i

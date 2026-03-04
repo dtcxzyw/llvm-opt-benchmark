@@ -8533,19 +8533,20 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %18, %18, %18, %18, %18, %12, %2
-  br i1 %7, label %19, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit"
+.critedge.i.i:                                    ; preds = %16, %16, %16, %16, %16, %12, %2
+  br i1 %7, label %17, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit"
 
 12:                                               ; preds = %2
   %13 = add nsw i32 %4, -48
   %.0.i.i.i = icmp ult i32 %13, 10
-  %14 = and i32 %4, 2097119
-  %15 = add nsw i32 %14, -65
-  %16 = icmp ult i32 %15, 26
-  %17 = or i1 %.0.i.i.i, %16
-  br i1 %17, label %.critedge.i.i, label %18
+  %14 = icmp samesign ugt i32 %4, 64
+  %15 = icmp samesign ugt i32 %4, 96
+  %spec.select.v.i.i.i = select i1 %15, i32 123, i32 91
+  %spec.select.i.i.i = icmp samesign ult i32 %4, %spec.select.v.i.i.i
+  %.04.i.i.i = select i1 %14, i1 %spec.select.i.i.i, i1 %.0.i.i.i
+  br i1 %.04.i.i.i, label %.critedge.i.i, label %16
 
-18:                                               ; preds = %12
+16:                                               ; preds = %12
   switch i32 %4, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit" [
     i32 9, label %.critedge.i.i
     i32 10, label %.critedge.i.i
@@ -8554,16 +8555,16 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
     i32 32, label %.critedge.i.i
   ]
 
-19:                                               ; preds = %.critedge.i.i
-  %20 = icmp samesign ugt i32 %4, 31
-  %21 = icmp ne i32 %4, 127
-  %.07.i.i = and i1 %20, %21
-  %22 = icmp samesign ult i32 %4, 128
-  %or.cond3.i.i = select i1 %.07.i.i, i1 %22, i1 false
+17:                                               ; preds = %.critedge.i.i
+  %18 = icmp samesign ugt i32 %4, 31
+  %19 = icmp ne i32 %4, 127
+  %.07.i.i = and i1 %18, %19
+  %20 = icmp samesign ult i32 %4, 128
+  %or.cond3.i.i = select i1 %.07.i.i, i1 %20, i1 false
   br label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit"
 
-"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit": ; preds = %.critedge.i.i, %18, %19
-  %.0.i.i = phi i1 [ false, %18 ], [ true, %.critedge.i.i ], [ %or.cond3.i.i, %19 ]
+"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h6b2172cc96a7de2cE.llvm.7442906621139507621.exit": ; preds = %.critedge.i.i, %16, %17
+  %.0.i.i = phi i1 [ false, %16 ], [ true, %.critedge.i.i ], [ %or.cond3.i.i, %17 ]
   ret i1 %.0.i.i
 }
 
@@ -8582,19 +8583,20 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %18, %18, %18, %18, %18, %12, %2
-  br i1 %7, label %19, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit"
+.critedge.i.i:                                    ; preds = %16, %16, %16, %16, %16, %12, %2
+  br i1 %7, label %17, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit"
 
 12:                                               ; preds = %2
   %13 = add nsw i32 %4, -48
   %.0.i.i.i = icmp ult i32 %13, 10
-  %14 = and i32 %4, 2097119
-  %15 = add nsw i32 %14, -65
-  %16 = icmp ult i32 %15, 26
-  %17 = or i1 %.0.i.i.i, %16
-  br i1 %17, label %.critedge.i.i, label %18
+  %14 = icmp samesign ugt i32 %4, 64
+  %15 = icmp samesign ugt i32 %4, 96
+  %spec.select.v.i.i.i = select i1 %15, i32 123, i32 91
+  %spec.select.i.i.i = icmp samesign ult i32 %4, %spec.select.v.i.i.i
+  %.04.i.i.i = select i1 %14, i1 %spec.select.i.i.i, i1 %.0.i.i.i
+  br i1 %.04.i.i.i, label %.critedge.i.i, label %16
 
-18:                                               ; preds = %12
+16:                                               ; preds = %12
   switch i32 %4, label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit" [
     i32 9, label %.critedge.i.i
     i32 10, label %.critedge.i.i
@@ -8603,16 +8605,16 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
     i32 32, label %.critedge.i.i
   ]
 
-19:                                               ; preds = %.critedge.i.i
-  %20 = icmp samesign ugt i32 %4, 31
-  %21 = icmp ne i32 %4, 127
-  %.07.i.i = and i1 %20, %21
-  %22 = icmp samesign ult i32 %4, 128
-  %or.cond3.i.i = select i1 %.07.i.i, i1 %22, i1 false
+17:                                               ; preds = %.critedge.i.i
+  %18 = icmp samesign ugt i32 %4, 31
+  %19 = icmp ne i32 %4, 127
+  %.07.i.i = and i1 %18, %19
+  %20 = icmp samesign ult i32 %4, 128
+  %or.cond3.i.i = select i1 %.07.i.i, i1 %20, i1 false
   br label %"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit"
 
-"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit": ; preds = %.critedge.i.i, %18, %19
-  %.0.i.i = phi i1 [ false, %18 ], [ true, %.critedge.i.i ], [ %or.cond3.i.i, %19 ]
+"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h89d28d2b4bb99c06E.llvm.7442906621139507621.exit": ; preds = %.critedge.i.i, %16, %17
+  %.0.i.i = phi i1 [ false, %16 ], [ true, %.critedge.i.i ], [ %or.cond3.i.i, %17 ]
   ret i1 %.0.i.i
 }
 
@@ -15513,19 +15515,20 @@ define hidden noundef zeroext i1 @"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.critedge.i
 
-.critedge.i:                                      ; preds = %17, %17, %17, %17, %17, %11, %2
-  br i1 %6, label %18, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
+.critedge.i:                                      ; preds = %15, %15, %15, %15, %15, %11, %2
+  br i1 %6, label %16, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
 
 11:                                               ; preds = %2
   %12 = add nsw i32 %3, -48
   %.0.i.i = icmp ult i32 %12, 10
-  %13 = and i32 %3, 2097119
-  %14 = add nsw i32 %13, -65
-  %15 = icmp ult i32 %14, 26
-  %16 = or i1 %.0.i.i, %15
-  br i1 %16, label %.critedge.i, label %17
+  %13 = icmp samesign ugt i32 %3, 64
+  %14 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i.i = select i1 %14, i32 123, i32 91
+  %spec.select.i.i = icmp samesign ult i32 %3, %spec.select.v.i.i
+  %.04.i.i = select i1 %13, i1 %spec.select.i.i, i1 %.0.i.i
+  br i1 %.04.i.i, label %.critedge.i, label %15
 
-17:                                               ; preds = %11
+15:                                               ; preds = %11
   switch i32 %3, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit [
     i32 9, label %.critedge.i
     i32 10, label %.critedge.i
@@ -15534,16 +15537,16 @@ define hidden noundef zeroext i1 @"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28
     i32 32, label %.critedge.i
   ]
 
-18:                                               ; preds = %.critedge.i
-  %19 = icmp samesign ugt i32 %3, 31
-  %20 = icmp ne i32 %3, 127
-  %.07.i = and i1 %19, %20
-  %21 = icmp samesign ult i32 %3, 128
-  %or.cond3.i = select i1 %.07.i, i1 %21, i1 false
+16:                                               ; preds = %.critedge.i
+  %17 = icmp samesign ugt i32 %3, 31
+  %18 = icmp ne i32 %3, 127
+  %.07.i = and i1 %17, %18
+  %19 = icmp samesign ult i32 %3, 128
+  %or.cond3.i = select i1 %.07.i, i1 %19, i1 false
   br label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
 
-_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit: ; preds = %.critedge.i, %17, %18
-  %.0.i = phi i1 [ false, %17 ], [ true, %.critedge.i ], [ %or.cond3.i, %18 ]
+_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit: ; preds = %.critedge.i, %15, %16
+  %.0.i = phi i1 [ false, %15 ], [ true, %.critedge.i ], [ %or.cond3.i, %16 ]
   ret i1 %.0.i
 }
 
@@ -15559,19 +15562,20 @@ define hidden noundef zeroext i1 @"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.critedge.i
 
-.critedge.i:                                      ; preds = %17, %17, %17, %17, %17, %11, %2
-  br i1 %6, label %18, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
+.critedge.i:                                      ; preds = %15, %15, %15, %15, %15, %11, %2
+  br i1 %6, label %16, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
 
 11:                                               ; preds = %2
   %12 = add nsw i32 %3, -48
   %.0.i.i = icmp ult i32 %12, 10
-  %13 = and i32 %3, 2097119
-  %14 = add nsw i32 %13, -65
-  %15 = icmp ult i32 %14, 26
-  %16 = or i1 %.0.i.i, %15
-  br i1 %16, label %.critedge.i, label %17
+  %13 = icmp samesign ugt i32 %3, 64
+  %14 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i.i = select i1 %14, i32 123, i32 91
+  %spec.select.i.i = icmp samesign ult i32 %3, %spec.select.v.i.i
+  %.04.i.i = select i1 %13, i1 %spec.select.i.i, i1 %.0.i.i
+  br i1 %.04.i.i, label %.critedge.i, label %15
 
-17:                                               ; preds = %11
+15:                                               ; preds = %11
   switch i32 %3, label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit [
     i32 9, label %.critedge.i
     i32 10, label %.critedge.i
@@ -15580,16 +15584,16 @@ define hidden noundef zeroext i1 @"_ZN7uu_sort14custom_str_cmp14custom_str_cmp28
     i32 32, label %.critedge.i
   ]
 
-18:                                               ; preds = %.critedge.i
-  %19 = icmp samesign ugt i32 %3, 31
-  %20 = icmp ne i32 %3, 127
-  %.07.i = and i1 %19, %20
-  %21 = icmp samesign ult i32 %3, 128
-  %or.cond3.i = select i1 %.07.i, i1 %21, i1 false
+16:                                               ; preds = %.critedge.i
+  %17 = icmp samesign ugt i32 %3, 31
+  %18 = icmp ne i32 %3, 127
+  %.07.i = and i1 %17, %18
+  %19 = icmp samesign ult i32 %3, 128
+  %or.cond3.i = select i1 %.07.i, i1 %19, i1 false
   br label %_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit
 
-_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit: ; preds = %.critedge.i, %17, %18
-  %.0.i = phi i1 [ false, %17 ], [ true, %.critedge.i ], [ %or.cond3.i, %18 ]
+_ZN7uu_sort14custom_str_cmp11filter_char17h37506ebfc2881954E.exit: ; preds = %.critedge.i, %15, %16
+  %.0.i = phi i1 [ false, %15 ], [ true, %.critedge.i ], [ %or.cond3.i, %16 ]
   ret i1 %.0.i
 }
 

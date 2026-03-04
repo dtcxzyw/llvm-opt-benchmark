@@ -1049,20 +1049,19 @@ _ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EEaSEOS4_.exit:
   %90 = trunc nuw i8 %89 to i1
   %91 = icmp ne ptr %88, null
   %or.cond.i = and i1 %91, %90
-  br i1 %or.cond.i, label %92, label %96
+  br i1 %or.cond.i, label %92, label %97
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !141
   %95 = icmp ne ptr %94, null
-  br label %96
+  %96 = or i1 %87, %95
+  br i1 %96, label %98, label %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread
 
-96:                                               ; preds = %92, %86
-  %97 = phi i1 [ %95, %92 ], [ false, %86 ]
-  %or.cond3.i = or i1 %87, %97
-  br i1 %or.cond3.i, label %98, label %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread
+97:                                               ; preds = %86
+  br i1 %87, label %98, label %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread
 
-98:                                               ; preds = %96
+98:                                               ; preds = %97, %92
   %99 = getelementptr inbounds nuw i8, ptr %80, i64 288
   %100 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr %99, ptr %100, align 8, !tbaa !145
@@ -3009,7 +3008,7 @@ _ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit: ; preds = %_ZN4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0132.i)
   br i1 %720, label %982, label %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread
 
-_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread: ; preds = %98, %96, %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread16, %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit
+_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread: ; preds = %92, %98, %97, %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit.thread16, %_ZN12_GLOBAL__N_115LoopPredication9runOnLoopEPN4llvm4LoopE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !28, !alias.scope !384
   %972 = getelementptr inbounds nuw i8, ptr %0, i64 8

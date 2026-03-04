@@ -63,7 +63,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
 
 17:                                               ; preds = %13
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #7
-  br label %137
+  br label %136
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -73,7 +73,7 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
 
 21:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12) #7
-  br label %137
+  br label %136
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -88,13 +88,13 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   store i8 26, ptr %27, align 1, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 120, ptr %28, align 8, !tbaa !40
-  br label %105
+  br label %110
 
 29:                                               ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %31 = load i32, ptr %30, align 4, !tbaa !41
   %32 = icmp slt i32 %31, 30091
-  br i1 %32, label %33, label %104
+  br i1 %32, label %33, label %109
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -190,72 +190,71 @@ define internal range(i32 -22, 1) i32 @sbc_encode_init(ptr noundef %0) #0 {
   %100 = mul nuw nsw i32 %99, %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 %100, ptr %101, align 8, !tbaa !40
-  %102 = zext nneg i8 %.101 to i32
-  %103 = and i32 %66, 28
-  br label %105
+  %102 = and i32 %66, 28
+  %103 = select i1 %brmerge.sink, i32 2, i32 3
+  %104 = shl i32 %35, %103
+  %105 = trunc i32 %35 to i8
+  %106 = mul i32 %104, %102
+  %107 = trunc i32 %106 to i16
+  %108 = shl i16 %107, 1
+  br label %110
 
-104:                                              ; preds = %29
+109:                                              ; preds = %29
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #7
-  br label %137
-
-105:                                              ; preds = %.thread, %22
-  %106 = phi ptr [ %12, %.thread ], [ %14, %22 ]
-  %107 = phi i32 [ %103, %.thread ], [ 15, %22 ]
-  %108 = phi i32 [ %102, %.thread ], [ 8, %22 ]
-  %109 = phi i32 [ %35, %.thread ], [ 1, %22 ]
-  %110 = phi i32 [ %57, %.thread ], [ 16000, %22 ]
-  br label %130
-
-111:                                              ; preds = %136
-  %112 = trunc i32 %109 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 %112, ptr %113, align 8, !tbaa !44
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %115 = mul i32 %109, %108
-  %116 = mul i32 %115, %107
-  %.tr = trunc i32 %116 to i16
-  %117 = shl i16 %.tr, 1
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 50
-  store i16 %117, ptr %118, align 2, !tbaa !45
-  %119 = tail call ptr @av_crc_get_table(i32 noundef 7) #7
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 2176
-  store ptr %119, ptr %120, align 16, !tbaa !46
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 2192
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 2208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1312) %122, i8 0, i64 1312, i1 false)
-  %123 = load i8, ptr %114, align 16, !tbaa !36
-  %124 = zext i8 %123 to i32
-  %.neg = mul nsw i32 %124, -9
-  %125 = and i32 %.neg, -8
-  %126 = add nsw i32 %125, 328
-  store i32 %126, ptr %121, align 16, !tbaa !47
-  %127 = load i32, ptr %106, align 16, !tbaa !28
-  %.not83 = icmp eq i32 %127, 0
-  %128 = select i1 %.not83, i8 4, i8 1
-  %129 = getelementptr inbounds nuw i8, ptr %3, i64 2196
-  store i8 %128, ptr %129, align 4, !tbaa !48
-  tail call void @ff_sbcdsp_init(ptr noundef nonnull %121) #7
-  br label %137
-
-130:                                              ; preds = %105, %136
-  %indvars.iv = phi i64 [ 0, %105 ], [ %indvars.iv.next, %136 ]
-  %131 = getelementptr inbounds nuw i32, ptr @sbc_samplerates, i64 %indvars.iv
-  %132 = load i32, ptr %131, align 4, !tbaa !49
-  %133 = icmp eq i32 %110, %132
-  br i1 %133, label %134, label %136
-
-134:                                              ; preds = %130
-  %135 = trunc i64 %indvars.iv to i8
-  store i8 %135, ptr %4, align 16, !tbaa !50
   br label %136
 
-136:                                              ; preds = %130, %134
+110:                                              ; preds = %.thread, %22
+  %111 = phi ptr [ %12, %.thread ], [ %14, %22 ]
+  %.tr = phi i16 [ %108, %.thread ], [ 240, %22 ]
+  %112 = phi i8 [ %105, %.thread ], [ 1, %22 ]
+  %113 = phi i32 [ %57, %.thread ], [ 16000, %22 ]
+  br label %129
+
+114:                                              ; preds = %135
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i8 %112, ptr %115, align 8, !tbaa !44
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 50
+  store i16 %.tr, ptr %117, align 2, !tbaa !45
+  %118 = tail call ptr @av_crc_get_table(i32 noundef 7) #7
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 2176
+  store ptr %118, ptr %119, align 16, !tbaa !46
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 2192
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 2208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1312) %121, i8 0, i64 1312, i1 false)
+  %122 = load i8, ptr %116, align 16, !tbaa !36
+  %123 = zext i8 %122 to i32
+  %.neg = mul nsw i32 %123, -9
+  %124 = and i32 %.neg, -8
+  %125 = add nsw i32 %124, 328
+  store i32 %125, ptr %120, align 16, !tbaa !47
+  %126 = load i32, ptr %111, align 16, !tbaa !28
+  %.not83 = icmp eq i32 %126, 0
+  %127 = select i1 %.not83, i8 4, i8 1
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 2196
+  store i8 %127, ptr %128, align 4, !tbaa !48
+  tail call void @ff_sbcdsp_init(ptr noundef nonnull %120) #7
+  br label %136
+
+129:                                              ; preds = %110, %135
+  %indvars.iv = phi i64 [ 0, %110 ], [ %indvars.iv.next, %135 ]
+  %130 = getelementptr inbounds nuw i32, ptr @sbc_samplerates, i64 %indvars.iv
+  %131 = load i32, ptr %130, align 4, !tbaa !49
+  %132 = icmp eq i32 %113, %131
+  br i1 %132, label %133, label %135
+
+133:                                              ; preds = %129
+  %134 = trunc i64 %indvars.iv to i8
+  store i8 %134, ptr %4, align 16, !tbaa !50
+  br label %135
+
+135:                                              ; preds = %129, %133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not82, label %111, label %130, !llvm.loop !51
+  br i1 %.not82, label %114, label %129, !llvm.loop !51
 
-137:                                              ; preds = %104, %111, %21, %17
-  %.075 = phi i32 [ -22, %17 ], [ -22, %21 ], [ 0, %111 ], [ -22, %104 ]
+136:                                              ; preds = %109, %114, %21, %17
+  %.075 = phi i32 [ -22, %17 ], [ -22, %21 ], [ 0, %114 ], [ -22, %109 ]
   ret i32 %.075
 }
 

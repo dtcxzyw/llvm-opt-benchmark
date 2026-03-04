@@ -3127,7 +3127,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -3136,7 +3136,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1393d190cdde9931E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !58, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -3154,8 +3154,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i32, ptr %24, align 4, !alias.scope !67, !noalias !68, !noundef !3
   %.not.i = icmp eq i32 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -3174,8 +3174,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !69, !noalias !58
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !69, !noalias !58
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !69, !noalias !58
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -3299,7 +3299,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 21:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i", %17
   %.sroa.04.052.i = phi i8 [ 1, %17 ], [ %45, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %17 ], [ %44, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %17 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %17 ], [ %43, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %17 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -3309,7 +3309,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.thread.i" ], [ %18, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.thread.i" ], [ %44, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h204aa3a7876cfd1cE.exit.i" ]
   %22 = load i64, ptr %13, align 8, !noalias !81, !noundef !3
   %23 = icmp sgt i64 %22, -1
   call void @llvm.assume(i1 %23)
@@ -3339,8 +3339,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %41 = lshr i8 %38, %40
   %42 = trunc i8 %41 to i1
   %43 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %42, i8 %.sroa.04.052.i, i8 0
-  %44 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %44 = select i1 %42, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %44, %.sroa.09.051.i
   %45 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %43 to i32
   %exitcond = icmp eq i32 %20, %lftr.wideiv
@@ -3359,8 +3359,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 47:                                               ; preds = %50
   %.pre.i = load i64, ptr %13, align 8, !alias.scope !85, !noalias !81
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !85, !noalias !81
-  %48 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !85, !noalias !81
+  %48 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %48, label %49, label %.thread.i
 
 49:                                               ; preds = %47
@@ -3483,7 +3483,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -3492,7 +3492,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84c3fae219613328E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !97, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -3513,8 +3513,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %27 = fcmp oeq double %.val.i.i, %.val3.i.i
   %.sroa.0.0.in.i.i.i.i = select i1 %25, i1 %26, i1 %27
   %28 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.in.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %29 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %29 = select i1 %.sroa.0.0.in.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %29, %.sroa.09.057.i
   %30 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %28 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -3533,8 +3533,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 32:                                               ; preds = %35
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !101, !noalias !97
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !101, !noalias !97
-  %33 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !101, !noalias !97
+  %33 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %32
@@ -3655,7 +3655,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -3664,7 +3664,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.thread.i" ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122b42e698bc7185E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !113, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -3688,8 +3688,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %28 = icmp ne i128 %.val.i.i, %.val4.i.i
   %.not6.i.i.i.i = or i1 %28, %27
   %29 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not6.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %30 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %30 = select i1 %.not6.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %30, %.sroa.09.057.i
   %31 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %29 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -3708,8 +3708,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 33:                                               ; preds = %36
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !117, !noalias !113
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !117, !noalias !113
-  %34 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !117, !noalias !113
+  %34 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %34, label %35, label %.thread.i
 
 35:                                               ; preds = %33
@@ -3830,7 +3830,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -3840,7 +3840,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8db0be197f6f2aeaE.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !129, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -3853,8 +3853,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val.i.i = load i64, ptr %.sroa.0.149.i, align 8, !noalias !130, !noundef !3
   %.sroa.06.0.i.i.i.i.i = icmp ult i64 %.val.i.i, 86400000000000
   %26 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %27 = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.051.i
   %28 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -3873,8 +3873,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !133, !noalias !129
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !133, !noalias !129
-  %31 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !133, !noalias !129
+  %31 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -3997,7 +3997,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -4006,7 +4006,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habe137e3f0bdf76aE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !145, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -4024,8 +4024,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i32, ptr %24, align 4, !alias.scope !153, !noalias !154, !noundef !3
   %25 = icmp eq i32 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -4044,8 +4044,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !155, !noalias !145
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !155, !noalias !145
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !155, !noalias !145
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -4168,7 +4168,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -4178,7 +4178,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94768133a23f62aaE.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !167, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -4193,8 +4193,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i32, ptr %.sroa.10.0.copyload.i, align 4, !alias.scope !175, !noalias !178, !noundef !3
   %.not.i = icmp eq i32 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -4213,8 +4213,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !180, !noalias !167
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !180, !noalias !167
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !180, !noalias !167
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -4339,7 +4339,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -4349,7 +4349,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bb005a8f6603e2E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !192, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -4364,8 +4364,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i128, ptr %.sroa.10.0.copyload.i, align 16, !alias.scope !200, !noalias !203, !noundef !3
   %.not.i = icmp eq i128 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -4384,8 +4384,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !205, !noalias !192
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !205, !noalias !192
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !205, !noalias !192
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -4508,7 +4508,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -4518,7 +4518,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h81e64e1dec7779e4E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !217, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -4531,8 +4531,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val.i.i = load i64, ptr %.sroa.0.149.i, align 8, !noalias !218, !noundef !3
   %.sroa.06.0.i.i.i.i.i = icmp ult i64 %.val.i.i, 86400000000
   %26 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %27 = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.051.i
   %28 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -4551,8 +4551,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !221, !noalias !217
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !221, !noalias !217
-  %31 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !221, !noalias !217
+  %31 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -4675,7 +4675,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -4684,7 +4684,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6af91880dc2cc9d5E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !233, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -4702,8 +4702,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i64, ptr %24, align 8, !alias.scope !241, !noalias !242, !noundef !3
   %25 = icmp eq i64 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -4722,8 +4722,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !243, !noalias !233
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !243, !noalias !233
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !243, !noalias !233
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -4844,7 +4844,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -4853,7 +4853,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f2c1610bbf7645E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !255, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -4871,8 +4871,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i128, ptr %24, align 16, !alias.scope !263, !noalias !264, !noundef !3
   %25 = icmp eq i128 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -4891,8 +4891,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !265, !noalias !255
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !265, !noalias !255
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !265, !noalias !255
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -5015,7 +5015,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -5025,7 +5025,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34a2a1402b336dfcE.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !277, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -5040,8 +5040,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i128, ptr %.sroa.10.0.copyload.i, align 16, !alias.scope !285, !noalias !288, !noundef !3
   %.not.i = icmp eq i128 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -5060,8 +5060,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !290, !noalias !277
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !290, !noalias !277
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !290, !noalias !277
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -5184,7 +5184,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -5193,7 +5193,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68b9ac5ee0f63ceE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !302, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -5211,8 +5211,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i8, ptr %24, align 1, !alias.scope !310, !noalias !311, !noundef !3
   %25 = icmp eq i8 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -5231,8 +5231,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !312, !noalias !302
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !312, !noalias !302
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !312, !noalias !302
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -5360,7 +5360,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i", %12
   %.sroa.04.069.i = phi i8 [ 1, %12 ], [ %33, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
-  %.sroa.09.068.i = phi i8 [ 0, %12 ], [ %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
+  %.sroa.09.068.i = phi i8 [ 0, %12 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
   %.sroa.013.167.i = phi i64 [ %.sroa.013.0.i, %12 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
   %.sroa.8.166.i = phi i64 [ %.sroa.8.0.i, %12 ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
   %17 = icmp ult i64 %.sroa.8.166.i, %.sroa.12.0.copyload.i
@@ -5387,7 +5387,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.thread.i"
   %.sroa.8.165.i = phi i64 [ %.sroa.8.166.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.thread.i" ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
   %.sroa.013.161.i = phi i64 [ %.sroa.013.167.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.thread.i" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
-  %.sroa.09.058.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.thread.i" ], [ %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
+  %.sroa.09.058.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i" ]
   %26 = load i64, ptr %8, align 8, !noalias !324, !noundef !3
   %27 = icmp sgt i64 %26, -1
   call void @llvm.assume(i1 %27)
@@ -5398,8 +5398,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4980e4748ba91dc8E.exit.i": ; preds = %.noexc.i
   %30 = icmp ult i64 %24, %25
   %31 = add i64 %.sroa.013.167.i, 1
-  %.sroa.04.0..i = select i1 %30, i8 %.sroa.04.069.i, i8 0
-  %32 = or i8 %.sroa.04.0..i, %.sroa.09.068.i
+  %32 = select i1 %30, i8 %.sroa.04.069.i, i8 0
+  %.sroa.03.0.i = or i8 %32, %.sroa.09.068.i
   %33 = shl i8 %.sroa.04.069.i, 1
   %lftr.wideiv = trunc i64 %31 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -5418,8 +5418,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 35:                                               ; preds = %38
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !331, !noalias !324
-  %.pre85.i = load i64, ptr %4, align 8, !range !59, !alias.scope !331, !noalias !324
-  %36 = icmp eq i64 %.pre.i, %.pre85.i
+  %.pre84.i = load i64, ptr %4, align 8, !range !59, !alias.scope !331, !noalias !324
+  %36 = icmp eq i64 %.pre.i, %.pre84.i
   br i1 %36, label %37, label %.thread.i
 
 37:                                               ; preds = %35
@@ -5545,7 +5545,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -5554,7 +5554,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c95adf98c65ba71E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !343, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -5572,8 +5572,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i64, ptr %24, align 8, !alias.scope !351, !noalias !352, !noundef !3
   %.not.i = icmp eq i64 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -5592,8 +5592,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !353, !noalias !343
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !353, !noalias !343
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !353, !noalias !343
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -5699,7 +5699,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %13
 
-11:                                               ; preds = %45
+11:                                               ; preds = %44
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !359
@@ -5713,8 +5713,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br label %16
 
 16:                                               ; preds = %41, %13
-  %.sroa.04.059.i = phi i8 [ 1, %13 ], [ %44, %41 ]
-  %.sroa.09.058.i = phi i8 [ 0, %13 ], [ %43, %41 ]
+  %.sroa.04.059.i = phi i8 [ 1, %13 ], [ %43, %41 ]
+  %.sroa.09.058.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %41 ]
   %.sroa.013.157.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %42, %41 ]
   %.sroa.529.156.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %19, %41 ]
   %17 = icmp ult i64 %.sroa.529.156.i, %.sroa.9.0.copyload.i
@@ -5759,104 +5759,104 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %41, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i"
   %.sroa.529.155.i = phi i64 [ %.sroa.529.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i" ], [ %19, %41 ]
   %.sroa.013.152.i = phi i64 [ %.sroa.013.157.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i" ], [ %42, %41 ]
-  %.sroa.09.050.i = phi i8 [ %.sroa.09.058.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i" ], [ %43, %41 ]
+  %.sroa.09.050.i = phi i8 [ %.sroa.09.058.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i" ], [ %.sroa.03.0.i, %41 ]
   %37 = load i64, ptr %9, align 8, !noalias !365, !noundef !3
   %38 = icmp sgt i64 %37, -1
   call void @llvm.assume(i1 %38)
   %39 = load i64, ptr %4, align 8, !range !59, !noalias !365, !noundef !3
   %40 = icmp eq i64 %37, %39
-  br i1 %40, label %49, label %.thread.i
+  br i1 %40, label %48, label %.thread.i
 
 41:                                               ; preds = %31, %25, %18
   %.sroa.0.0.i.ph.i = phi i8 [ %.sroa.04.059.i, %18 ], [ %.sroa.04.059.i, %25 ], [ %36, %31 ]
   %42 = add i64 %.sroa.013.157.i, 1
-  %43 = or i8 %.sroa.0.0.i.ph.i, %.sroa.09.058.i
-  %44 = shl i8 %.sroa.04.059.i, 1
+  %.sroa.03.0.i = or i8 %.sroa.0.0.i.ph.i, %.sroa.09.058.i
+  %43 = shl i8 %.sroa.04.059.i, 1
   %lftr.wideiv = trunc i64 %42 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
   br i1 %exitcond, label %.loopexit.i, label %16
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i": ; preds = %16
   %.old1.i = icmp eq i8 %.sroa.04.059.i, 1
-  br i1 %.old1.i, label %45, label %.loopexit.i
+  br i1 %.old1.i, label %44, label %.loopexit.i
 
-45:                                               ; preds = %.thread.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i"
+44:                                               ; preds = %.thread.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i"
   %.sroa.013.153.i = phi i64 [ %.sroa.013.157.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7698f81cf71afaaE.exit.i" ], [ %.sroa.013.152.i, %.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !365
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %61 unwind label %11, !noalias !359
+          to label %60 unwind label %11, !noalias !359
 
-46:                                               ; preds = %49
+45:                                               ; preds = %48
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !392, !noalias !365
-  %.pre69.i = load i64, ptr %4, align 8, !range !59, !alias.scope !392, !noalias !365
-  %47 = icmp eq i64 %.pre.i, %.pre69.i
-  br i1 %47, label %48, label %.thread.i
+  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !392, !noalias !365
+  %46 = icmp eq i64 %.pre.i, %.pre68.i
+  br i1 %46, label %47, label %.thread.i
 
-48:                                               ; preds = %46
+47:                                               ; preds = %45
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha89d2023a74bc1f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9334a021208527b46729323ef81de40f.11)
           to label %.thread.i unwind label %.loopexit45.i, !noalias !365
 
-49:                                               ; preds = %.loopexit.i
-  %50 = sub i64 %.sroa.9.0.copyload.i, %.sroa.529.155.i
-  %51 = call i64 @llvm.uadd.sat.i64(i64 %50, i64 7)
-  %52 = lshr i64 %51, 3
-  %53 = add nuw nsw i64 %52, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h49f40da505f525f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9334a021208527b46729323ef81de40f.10)
-          to label %46 unwind label %.loopexit45.i, !noalias !365
+48:                                               ; preds = %.loopexit.i
+  %49 = sub i64 %.sroa.9.0.copyload.i, %.sroa.529.155.i
+  %50 = call i64 @llvm.uadd.sat.i64(i64 %49, i64 7)
+  %51 = lshr i64 %50, 3
+  %52 = add nuw nsw i64 %51, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h49f40da505f525f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9334a021208527b46729323ef81de40f.10)
+          to label %45 unwind label %.loopexit45.i, !noalias !365
 
-.thread.i:                                        ; preds = %48, %46, %.loopexit.i
-  %54 = phi i64 [ %.pre.i, %48 ], [ %.pre.i, %46 ], [ %37, %.loopexit.i ]
-  %55 = load ptr, ptr %10, align 8, !alias.scope !392, !noalias !365, !nonnull !3, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %54
-  store i8 %.sroa.09.050.i, ptr %56, align 1, !noalias !365
-  %57 = add i64 %54, 1
-  store i64 %57, ptr %9, align 8, !alias.scope !392, !noalias !365
-  br i1 %17, label %13, label %45
+.thread.i:                                        ; preds = %47, %45, %.loopexit.i
+  %53 = phi i64 [ %.pre.i, %47 ], [ %.pre.i, %45 ], [ %37, %.loopexit.i ]
+  %54 = load ptr, ptr %10, align 8, !alias.scope !392, !noalias !365, !nonnull !3, !noundef !3
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
+  store i8 %.sroa.09.050.i, ptr %55, align 1, !noalias !365
+  %56 = add i64 %53, 1
+  store i64 %56, ptr %9, align 8, !alias.scope !392, !noalias !365
+  br i1 %17, label %13, label %44
 
-.loopexit45.i:                                    ; preds = %49, %48
+.loopexit45.i:                                    ; preds = %48, %47
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
 .loopexit.split-lp.i:                             ; preds = %2
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
-58:                                               ; preds = %.loopexit.split-lp.i, %.loopexit45.i
+57:                                               ; preds = %.loopexit.split-lp.i, %.loopexit45.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit45.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #23
-          to label %.body unwind label %59, !noalias !365
+          to label %.body unwind label %58, !noalias !365
 
-59:                                               ; preds = %58
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !365
   unreachable
 
-.body:                                            ; preds = %11, %58
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi.i, %58 ]
+.body:                                            ; preds = %11, %57
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi.i, %57 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #23
-          to label %65 unwind label %63
+          to label %64 unwind label %62
 
-61:                                               ; preds = %45
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
+60:                                               ; preds = %44
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !359
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store i64 %.sroa.013.153.i, ptr %62, align 8, !alias.scope !356, !noalias !359
+  store i64 %.sroa.013.153.i, ptr %61, align 8, !alias.scope !356, !noalias !359
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !365
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-63:                                               ; preds = %.body
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %.body
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24
   unreachable
 
-65:                                               ; preds = %.body
+64:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -5911,8 +5911,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i", %13
   %.sroa.04.061.i = phi i8 [ 1, %13 ], [ %39, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
-  %.sroa.09.060.i = phi i8 [ 0, %13 ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
-  %.sroa.013.159.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
+  %.sroa.09.060.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
+  %.sroa.013.159.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
   %.sroa.529.158.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
   %17 = icmp ult i64 %.sroa.529.158.i, %.sroa.9.0.copyload.i
   br i1 %17, label %18, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i"
@@ -5945,8 +5945,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i"
   %.sroa.529.157.i = phi i64 [ %.sroa.529.158.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i" ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
-  %.sroa.013.154.i = phi i64 [ %.sroa.013.159.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i" ], [ %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
-  %.sroa.09.052.i = phi i8 [ %.sroa.09.060.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i" ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
+  %.sroa.013.154.i = phi i64 [ %.sroa.013.159.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i" ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
+  %.sroa.09.052.i = phi i8 [ %.sroa.09.060.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i" ]
   %32 = load i64, ptr %9, align 8, !noalias !404, !noundef !3
   %33 = icmp sgt i64 %32, -1
   call void @llvm.assume(i1 %33)
@@ -5960,11 +5960,11 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.i", %26
-  %.sroa.04.0..i = phi i8 [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.i" ], [ %.sroa.04.061.i, %26 ]
-  %37 = add i64 %.sroa.013.159.i, 1
-  %38 = or i8 %.sroa.04.0..i, %.sroa.09.060.i
+  %37 = phi i8 [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.i" ], [ %.sroa.04.061.i, %26 ]
+  %38 = add i64 %.sroa.013.159.i, 1
+  %.sroa.03.0.i = or i8 %37, %.sroa.09.060.i
   %39 = shl i8 %.sroa.04.061.i, 1
-  %lftr.wideiv = trunc i64 %37 to i32
+  %lftr.wideiv = trunc i64 %38 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
   br i1 %exitcond, label %.loopexit.i, label %16
 
@@ -5981,8 +5981,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 41:                                               ; preds = %44
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !408, !noalias !404
-  %.pre71.i = load i64, ptr %4, align 8, !range !59, !alias.scope !408, !noalias !404
-  %42 = icmp eq i64 %.pre.i, %.pre71.i
+  %.pre70.i = load i64, ptr %4, align 8, !range !59, !alias.scope !408, !noalias !404
+  %42 = icmp eq i64 %.pre.i, %.pre70.i
   br i1 %42, label %43, label %.thread.i
 
 43:                                               ; preds = %41
@@ -6105,7 +6105,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -6115,7 +6115,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f124caf9ec55755E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !420, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -6130,8 +6130,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i16, ptr %.sroa.10.0.copyload.i, align 2, !alias.scope !428, !noalias !431, !noundef !3
   %.not.i = icmp eq i16 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -6150,8 +6150,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !433, !noalias !420
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !433, !noalias !420
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !433, !noalias !420
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -6274,7 +6274,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -6283,7 +6283,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c75bb090e5b3dc4E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !445, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -6301,8 +6301,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i64, ptr %24, align 8, !alias.scope !453, !noalias !454, !noundef !3
   %.not.i = icmp eq i64 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -6321,8 +6321,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !455, !noalias !445
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !455, !noalias !445
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !455, !noalias !445
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -6445,7 +6445,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -6455,7 +6455,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bc165d2f4248613E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !467, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -6470,8 +6470,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i64, ptr %.sroa.10.0.copyload.i, align 8, !alias.scope !475, !noalias !478, !noundef !3
   %.not.i = icmp eq i64 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -6490,8 +6490,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !480, !noalias !467
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !480, !noalias !467
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !480, !noalias !467
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -6614,7 +6614,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -6623,7 +6623,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e7d832043467688E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !492, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -6641,8 +6641,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i128, ptr %24, align 16, !alias.scope !500, !noalias !501, !noundef !3
   %25 = icmp eq i128 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -6661,8 +6661,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !502, !noalias !492
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !502, !noalias !492
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !502, !noalias !492
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -6980,7 +6980,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -6990,7 +6990,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacf80768d9f8e14dE.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !548, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -7005,8 +7005,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i64, ptr %.sroa.10.0.copyload.i, align 8, !alias.scope !556, !noalias !559, !noundef !3
   %.not.i = icmp eq i64 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -7025,8 +7025,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !561, !noalias !548
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !561, !noalias !548
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !561, !noalias !548
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -7155,7 +7155,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i", %12
   %.sroa.04.068.i = phi i8 [ 1, %12 ], [ %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
-  %.sroa.09.067.i = phi i8 [ 0, %12 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
+  %.sroa.09.067.i = phi i8 [ 0, %12 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
   %.sroa.013.166.i = phi i64 [ %.sroa.013.0.i, %12 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
   %.sroa.7.165.i = phi i64 [ %.sroa.7.0.i, %12 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
   %17 = icmp ult i64 %.sroa.7.165.i, %.sroa.11.0.copyload.i
@@ -7175,7 +7175,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.thread.i"
   %.sroa.7.164.i = phi i64 [ %.sroa.7.165.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
   %.sroa.013.160.i = phi i64 [ %.sroa.013.166.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.thread.i" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ %.sroa.09.067.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.thread.i" ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ %.sroa.09.067.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h643a056c417030c1E.exit.i" ]
   %24 = load i64, ptr %8, align 8, !noalias !573, !noundef !3
   %25 = icmp sgt i64 %24, -1
   call void @llvm.assume(i1 %25)
@@ -7187,8 +7187,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %28 = add nuw i64 %.sroa.7.165.i, 1
   %29 = icmp eq i64 %23, 0
   %30 = add i64 %.sroa.013.166.i, 1
-  %.sroa.04.0..i = select i1 %29, i8 %.sroa.04.068.i, i8 0
-  %31 = or i8 %.sroa.04.0..i, %.sroa.09.067.i
+  %31 = select i1 %29, i8 %.sroa.04.068.i, i8 0
+  %.sroa.03.0.i = or i8 %31, %.sroa.09.067.i
   %32 = shl i8 %.sroa.04.068.i, 1
   %lftr.wideiv = trunc i64 %30 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -7207,8 +7207,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 34:                                               ; preds = %37
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !579, !noalias !573
-  %.pre83.i = load i64, ptr %4, align 8, !range !59, !alias.scope !579, !noalias !573
-  %35 = icmp eq i64 %.pre.i, %.pre83.i
+  %.pre82.i = load i64, ptr %4, align 8, !range !59, !alias.scope !579, !noalias !573
+  %35 = icmp eq i64 %.pre.i, %.pre82.i
   br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %34
@@ -7348,7 +7348,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 24:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i", %20
   %.sroa.04.069.i = phi i8 [ 1, %20 ], [ %52, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
-  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
+  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.sroa.013.167.i = phi i64 [ %.sroa.013.0.i, %20 ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.sroa.12.166.i = phi i64 [ %.sroa.12.0.i, %20 ], [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.sroa.4.165.i = phi i64 [ %.sroa.4.0.i, %20 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
@@ -7397,7 +7397,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i"
   %.sroa.013.159.i = phi i64 [ %.sroa.013.167.lcssa.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
-  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
+  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.not2151.i = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ true, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.sroa.4.2.i = phi i64 [ %.sroa.4.343.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
   %.sroa.12.2.i = phi i64 [ %.sroa.12.344.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i" ], [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i" ]
@@ -7410,8 +7410,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.i": ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ce892fc96e7d8feE.exit.i.i"
   %50 = add i64 %.sroa.013.167.i, 1
-  %.sroa.04.0..i = select i1 %45, i8 %.sroa.04.069.i, i8 0
-  %51 = or i8 %.sroa.04.0..i, %.sroa.09.068.i
+  %51 = select i1 %45, i8 %.sroa.04.069.i, i8 0
+  %.sroa.03.0.i = or i8 %51, %.sroa.09.068.i
   %52 = shl i8 %.sroa.04.069.i, 1
   %.not21.i = icmp eq i8 %52, 0
   br i1 %.not21.i, label %.loopexit.i, label %24
@@ -7432,8 +7432,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 54:                                               ; preds = %57
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !606, !noalias !591
-  %.pre82.i = load i64, ptr %4, align 8, !range !59, !alias.scope !606, !noalias !591
-  %55 = icmp eq i64 %.pre.i, %.pre82.i
+  %.pre81.i = load i64, ptr %4, align 8, !range !59, !alias.scope !606, !noalias !591
+  %55 = icmp eq i64 %.pre.i, %.pre81.i
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %54
@@ -7561,7 +7561,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -7570,7 +7570,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d0ba894e842775bE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !618, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -7588,8 +7588,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i8, ptr %24, align 1, !alias.scope !626, !noalias !627, !noundef !3
   %.not.i = icmp eq i8 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -7608,8 +7608,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !628, !noalias !618
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !628, !noalias !618
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !628, !noalias !618
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -7730,7 +7730,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -7739,7 +7739,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb06020a5ca6f2998E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !640, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -7757,8 +7757,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i16, ptr %24, align 2, !alias.scope !648, !noalias !649, !noundef !3
   %.not.i = icmp eq i16 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -7777,8 +7777,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !650, !noalias !640
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !650, !noalias !640
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !650, !noalias !640
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -7913,7 +7913,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 24:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i", %20
   %.sroa.04.069.i = phi i8 [ 1, %20 ], [ %56, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
-  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %55, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
+  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.sroa.013.167.i = phi i64 [ %.sroa.013.0.i, %20 ], [ %54, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.sroa.12.166.i = phi i64 [ %.sroa.12.0.i, %20 ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.sroa.4.165.i = phi i64 [ %.sroa.4.0.i, %20 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
@@ -7966,7 +7966,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i"
   %.sroa.013.159.i = phi i64 [ %.sroa.013.167.lcssa.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
-  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ %55, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
+  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.not2151.i = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ true, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.sroa.4.2.i = phi i64 [ %.sroa.4.343.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
   %.sroa.12.2.i = phi i64 [ %.sroa.12.344.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i" ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i" ]
@@ -7979,8 +7979,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.i": ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe600c7949043e21E.exit.i.i"
   %54 = add i64 %.sroa.013.167.i, 1
-  %.sroa.04.0..i = select i1 %49, i8 %.sroa.04.069.i, i8 0
-  %55 = or i8 %.sroa.04.0..i, %.sroa.09.068.i
+  %55 = select i1 %49, i8 %.sroa.04.069.i, i8 0
+  %.sroa.03.0.i = or i8 %55, %.sroa.09.068.i
   %56 = shl i8 %.sroa.04.069.i, 1
   %.not21.i = icmp eq i8 %56, 0
   br i1 %.not21.i, label %.loopexit.i, label %24
@@ -8001,8 +8001,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 58:                                               ; preds = %61
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !677, !noalias !662
-  %.pre82.i = load i64, ptr %4, align 8, !range !59, !alias.scope !677, !noalias !662
-  %59 = icmp eq i64 %.pre.i, %.pre82.i
+  %.pre81.i = load i64, ptr %4, align 8, !range !59, !alias.scope !677, !noalias !662
+  %59 = icmp eq i64 %.pre.i, %.pre81.i
   br i1 %59, label %60, label %.thread.i
 
 60:                                               ; preds = %58
@@ -8130,7 +8130,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -8139,7 +8139,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7419abdef8977abE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !689, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -8157,8 +8157,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i8, ptr %24, align 1, !alias.scope !697, !noalias !698, !noundef !3
   %25 = icmp eq i8 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -8177,8 +8177,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !699, !noalias !689
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !699, !noalias !689
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !699, !noalias !689
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -8299,7 +8299,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -8308,7 +8308,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h024bb140e89374fbE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !711, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -8329,8 +8329,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %27 = fcmp une double %.val.i.i, %.val3.i.i
   %.sroa.0.0.in.i.i.i.i.i = select i1 %25, i1 %26, i1 %27
   %28 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.in.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %29 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %29 = select i1 %.sroa.0.0.in.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %29, %.sroa.09.057.i
   %30 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %28 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -8349,8 +8349,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 32:                                               ; preds = %35
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !715, !noalias !711
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !715, !noalias !711
-  %33 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !715, !noalias !711
+  %33 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %32
@@ -8471,7 +8471,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -8481,7 +8481,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04bf87152dfe82d9E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !727, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -8494,8 +8494,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val.i.i = load i32, ptr %.sroa.0.149.i, align 4, !noalias !728, !noundef !3
   %.sroa.06.0.i.i.i.i.i = icmp ult i32 %.val.i.i, 86400000
   %26 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %27 = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.051.i
   %28 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -8514,8 +8514,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !731, !noalias !727
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !731, !noalias !727
-  %31 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !731, !noalias !727
+  %31 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -8638,7 +8638,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i", %15
   %.sroa.04.052.i = phi i8 [ 1, %15 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %15 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %15 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %15 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %15 ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -8648,7 +8648,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab2684a08bd6d6d6E.exit.i" ]
   %19 = load i64, ptr %11, align 8, !noalias !743, !noundef !3
   %20 = icmp sgt i64 %19, -1
   call void @llvm.assume(i1 %20)
@@ -8663,8 +8663,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %24 = load i8, ptr %.sroa.10.0.copyload.i, align 1, !alias.scope !751, !noalias !754, !noundef !3
   %.not.i = icmp eq i8 %.val3.i.i, %24
   %25 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.051.i
   %27 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %17, %lftr.wideiv
@@ -8683,8 +8683,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %11, align 8, !alias.scope !756, !noalias !743
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !756, !noalias !743
-  %30 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !756, !noalias !743
+  %30 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -8806,7 +8806,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i", %15
   %.sroa.04.052.i = phi i8 [ 1, %15 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %15 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %15 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %15 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %15 ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -8816,7 +8816,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h346d847928bef2a7E.exit.i" ]
   %19 = load i64, ptr %11, align 8, !noalias !768, !noundef !3
   %20 = icmp sgt i64 %19, -1
   call void @llvm.assume(i1 %20)
@@ -8831,8 +8831,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %24 = load i8, ptr %.sroa.10.0.copyload.i, align 1, !alias.scope !776, !noalias !779, !noundef !3
   %.not.i = icmp eq i8 %.val3.i.i, %24
   %25 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.051.i
   %27 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %17, %lftr.wideiv
@@ -8851,8 +8851,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %11, align 8, !alias.scope !781, !noalias !768
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !781, !noalias !768
-  %30 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !781, !noalias !768
+  %30 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -8974,7 +8974,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -8983,7 +8983,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3d3564e64b64aE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !793, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -9001,8 +9001,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i16, ptr %24, align 2, !alias.scope !801, !noalias !802, !noundef !3
   %25 = icmp eq i16 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -9021,8 +9021,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !803, !noalias !793
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !803, !noalias !793
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !803, !noalias !793
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -9145,7 +9145,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -9155,7 +9155,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h657656b41719a776E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !815, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -9170,8 +9170,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i16, ptr %.sroa.10.0.copyload.i, align 2, !alias.scope !823, !noalias !826, !noundef !3
   %.not.i = icmp eq i16 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -9190,8 +9190,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !828, !noalias !815
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !828, !noalias !815
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !828, !noalias !815
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -9314,7 +9314,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -9323,7 +9323,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25f0d55e2500b820E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !840, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -9341,8 +9341,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i32, ptr %24, align 4, !alias.scope !848, !noalias !849, !noundef !3
   %.not.i = icmp eq i32 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -9361,8 +9361,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !850, !noalias !840
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !850, !noalias !840
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !850, !noalias !840
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -9483,7 +9483,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -9492,7 +9492,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16dc4e15a2639e4fE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !862, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -9510,8 +9510,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i128, ptr %24, align 16, !alias.scope !870, !noalias !871, !noundef !3
   %.not.i = icmp eq i128 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -9530,8 +9530,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !872, !noalias !862
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !872, !noalias !862
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !872, !noalias !862
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -9652,7 +9652,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -9662,7 +9662,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98c6610deb093cE.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !884, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -9675,8 +9675,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val.i.i = load i32, ptr %.sroa.0.149.i, align 4, !noalias !885, !noundef !3
   %.sroa.06.0.i.i.i.i.i = icmp ult i32 %.val.i.i, 86400
   %26 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %27 = select i1 %.sroa.06.0.i.i.i.i.i, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.051.i
   %28 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -9695,8 +9695,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !888, !noalias !884
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !888, !noalias !884
-  %31 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !888, !noalias !884
+  %31 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -9819,7 +9819,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -9828,7 +9828,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d5c19d7351ec3b1E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !900, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -9846,8 +9846,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i16, ptr %24, align 2, !alias.scope !908, !noalias !909, !noundef !3
   %.not.i = icmp eq i16 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -9866,8 +9866,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !910, !noalias !900
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !910, !noalias !900
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !910, !noalias !900
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -9988,7 +9988,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i", %13
   %.sroa.04.061.i = phi i8 [ 1, %13 ], [ %39, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
-  %.sroa.09.060.i = phi i8 [ 0, %13 ], [ %.sroa.04.0..i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
+  %.sroa.09.060.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
   %.sroa.013.159.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
   %.sroa.529.158.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
   %17 = icmp ult i64 %.sroa.529.158.i, %.sroa.9.0.copyload.i
@@ -10023,7 +10023,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread.i"
   %.sroa.529.157.i = phi i64 [ %.sroa.529.158.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread.i" ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
   %.sroa.013.154.i = phi i64 [ %.sroa.013.159.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread.i" ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
-  %.sroa.09.052.i = phi i8 [ %.sroa.09.060.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread.i" ], [ %.sroa.04.0..i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
+  %.sroa.09.052.i = phi i8 [ %.sroa.09.060.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i" ]
   %32 = load i64, ptr %9, align 8, !noalias !922, !noundef !3
   %33 = icmp sgt i64 %32, -1
   call void @llvm.assume(i1 %33)
@@ -10038,7 +10038,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.i", %26
-  %.sroa.04.0..i = phi i8 [ %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.i" ], [ %.sroa.09.060.i, %26 ]
+  %.sroa.03.0.i = phi i8 [ %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.i" ], [ %.sroa.09.060.i, %26 ]
   %38 = add i64 %.sroa.013.159.i, 1
   %39 = shl i8 %.sroa.04.061.i, 1
   %lftr.wideiv = trunc i64 %38 to i32
@@ -10185,7 +10185,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i", %16
   %.sroa.04.080.i = phi i8 [ 1, %16 ], [ %44, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
-  %.sroa.09.079.i = phi i8 [ 0, %16 ], [ %43, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
+  %.sroa.09.079.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
   %.sroa.013.178.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %42, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
   %.sroa.5.177.i = phi i64 [ %.sroa.5.0.i, %16 ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
   %21 = icmp ult i64 %.sroa.5.177.i, %.sroa.9.0.copyload.i
@@ -10231,7 +10231,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.thread.i"
   %.sroa.5.176.i = phi i64 [ %.sroa.5.177.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
   %.sroa.013.170.i = phi i64 [ %.sroa.013.178.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
-  %.sroa.09.065.i = phi i8 [ %.sroa.09.079.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.thread.i" ], [ %43, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
+  %.sroa.09.065.i = phi i8 [ %.sroa.09.079.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i" ]
   %38 = load i64, ptr %12, align 8, !noalias !938, !noundef !3
   %39 = icmp sgt i64 %38, -1
   call void @llvm.assume(i1 %39)
@@ -10241,8 +10241,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h561e47868809d668E.exit.i": ; preds = %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$23tot_eq_kernel_broadcast28_$u7b$$u7b$closure$u7d$$u7d$17hf7fa18ce66663366E.exit.i.i"
   %42 = add i64 %.sroa.013.178.i, 1
-  %.sroa.04.0..i = select i1 %37, i8 %.sroa.04.080.i, i8 0
-  %43 = or i8 %.sroa.04.0..i, %.sroa.09.079.i
+  %43 = select i1 %37, i8 %.sroa.04.080.i, i8 0
+  %.sroa.03.0.i = or i8 %43, %.sroa.09.079.i
   %44 = shl i8 %.sroa.04.080.i, 1
   %lftr.wideiv = trunc i64 %42 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -10261,8 +10261,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 46:                                               ; preds = %49
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !944, !noalias !938
-  %.pre108.i = load i64, ptr %4, align 8, !range !59, !alias.scope !944, !noalias !938
-  %47 = icmp eq i64 %.pre.i, %.pre108.i
+  %.pre107.i = load i64, ptr %4, align 8, !range !59, !alias.scope !944, !noalias !938
+  %47 = icmp eq i64 %.pre.i, %.pre107.i
   br i1 %47, label %48, label %.thread.i
 
 48:                                               ; preds = %46
@@ -10388,7 +10388,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -10397,7 +10397,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957802067b18d873E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !956, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -10415,8 +10415,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i128, ptr %24, align 16, !alias.scope !964, !noalias !965, !noundef !3
   %.not.i = icmp eq i128 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -10435,8 +10435,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !966, !noalias !956
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !966, !noalias !956
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !966, !noalias !956
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -10562,7 +10562,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 21:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i", %17
   %.sroa.04.052.i = phi i8 [ 1, %17 ], [ %46, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %17 ], [ %45, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %17 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %17 ], [ %44, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %17 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -10572,7 +10572,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.thread.i" ], [ %18, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.thread.i" ], [ %45, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e653c86d56230fdE.exit.i" ]
   %22 = load i64, ptr %13, align 8, !noalias !978, !noundef !3
   %23 = icmp sgt i64 %22, -1
   call void @llvm.assume(i1 %23)
@@ -10605,8 +10605,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %42 = lshr i8 %39, %41
   %43 = trunc i8 %42 to i1
   %44 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %43, i8 %.sroa.04.052.i, i8 0
-  %45 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %45 = select i1 %43, i8 %.sroa.04.052.i, i8 0
+  %.sroa.03.0.i = or i8 %45, %.sroa.09.051.i
   %46 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %44 to i32
   %exitcond = icmp eq i32 %20, %lftr.wideiv
@@ -10625,8 +10625,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 48:                                               ; preds = %51
   %.pre.i = load i64, ptr %13, align 8, !alias.scope !982, !noalias !978
-  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !982, !noalias !978
-  %49 = icmp eq i64 %.pre.i, %.pre62.i
+  %.pre61.i = load i64, ptr %4, align 8, !range !59, !alias.scope !982, !noalias !978
+  %49 = icmp eq i64 %.pre.i, %.pre61.i
   br i1 %49, label %50, label %.thread.i
 
 50:                                               ; preds = %48
@@ -10749,7 +10749,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -10758,7 +10758,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47464012ca586c89E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !994, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -10779,8 +10779,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %27 = fcmp une float %.val.i.i, %.val3.i.i
   %.sroa.0.0.in.i.i.i.i.i = select i1 %25, i1 %26, i1 %27
   %28 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.in.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %29 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %29 = select i1 %.sroa.0.0.in.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %29, %.sroa.09.057.i
   %30 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %28 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -10799,8 +10799,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 32:                                               ; preds = %35
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !998, !noalias !994
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !998, !noalias !994
-  %33 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !998, !noalias !994
+  %33 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %32
@@ -10921,7 +10921,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -10930,7 +10930,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.thread.i" ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hffd85d7f2908dd75E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1010, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -10954,8 +10954,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %28 = icmp eq i32 %.val3.i.i, %.val5.i.i
   %.sroa.0.0.i.i.i.i.i = select i1 %27, i1 %28, i1 false
   %29 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %30 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %30 = select i1 %.sroa.0.0.i.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %30, %.sroa.09.057.i
   %31 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %29 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -10974,8 +10974,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 33:                                               ; preds = %36
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1014, !noalias !1010
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1014, !noalias !1010
-  %34 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1014, !noalias !1010
+  %34 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %34, label %35, label %.thread.i
 
 35:                                               ; preds = %33
@@ -11110,7 +11110,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 24:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i", %20
   %.sroa.04.069.i = phi i8 [ 1, %20 ], [ %56, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
-  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %55, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
+  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.sroa.013.167.i = phi i64 [ %.sroa.013.0.i, %20 ], [ %54, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.sroa.12.166.i = phi i64 [ %.sroa.12.0.i, %20 ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.sroa.4.165.i = phi i64 [ %.sroa.4.0.i, %20 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
@@ -11163,7 +11163,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i"
   %.sroa.013.159.i = phi i64 [ %.sroa.013.167.lcssa.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
-  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ %55, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
+  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.not2151.i = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ true, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.sroa.4.2.i = phi i64 [ %.sroa.4.343.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
   %.sroa.12.2.i = phi i64 [ %.sroa.12.344.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i" ], [ %38, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i" ]
@@ -11176,8 +11176,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.i": ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe600c7949043e21E.exit.i.i"
   %54 = add i64 %.sroa.013.167.i, 1
-  %.sroa.04.0..i = select i1 %49, i8 0, i8 %.sroa.04.069.i
-  %55 = or i8 %.sroa.04.0..i, %.sroa.09.068.i
+  %55 = select i1 %49, i8 0, i8 %.sroa.04.069.i
+  %.sroa.03.0.i = or i8 %55, %.sroa.09.068.i
   %56 = shl i8 %.sroa.04.069.i, 1
   %.not21.i = icmp eq i8 %56, 0
   br i1 %.not21.i, label %.loopexit.i, label %24
@@ -11198,8 +11198,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 58:                                               ; preds = %61
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !1041, !noalias !1026
-  %.pre82.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1041, !noalias !1026
-  %59 = icmp eq i64 %.pre.i, %.pre82.i
+  %.pre81.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1041, !noalias !1026
+  %59 = icmp eq i64 %.pre.i, %.pre81.i
   br i1 %59, label %60, label %.thread.i
 
 60:                                               ; preds = %58
@@ -11327,7 +11327,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -11336,7 +11336,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa843caaed905c54E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1053, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -11354,8 +11354,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i16, ptr %24, align 2, !alias.scope !1061, !noalias !1062, !noundef !3
   %25 = icmp eq i16 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -11374,8 +11374,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1063, !noalias !1053
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1063, !noalias !1053
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1063, !noalias !1053
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -11496,7 +11496,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -11505,7 +11505,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd05662c0669b1c63E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1075, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -11526,8 +11526,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %27 = fcmp oeq float %.val.i.i, %.val3.i.i
   %.sroa.0.0.in.i.i.i.i = select i1 %25, i1 %26, i1 %27
   %28 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.in.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %29 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %29 = select i1 %.sroa.0.0.in.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %29, %.sroa.09.057.i
   %30 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %28 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -11546,8 +11546,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 32:                                               ; preds = %35
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1079, !noalias !1075
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1079, !noalias !1075
-  %33 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1079, !noalias !1075
+  %33 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %32
@@ -11668,7 +11668,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -11677,7 +11677,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.thread.i" ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.thread.i" ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20dca0f9095b813dE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1091, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -11701,8 +11701,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %28 = icmp eq i128 %.val.i.i, %.val4.i.i
   %29 = and i1 %28, %27
   %30 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %29, i8 %.sroa.04.058.i, i8 0
-  %31 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %31 = select i1 %29, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %31, %.sroa.09.057.i
   %32 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %30 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -11721,8 +11721,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 34:                                               ; preds = %37
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1095, !noalias !1091
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1095, !noalias !1091
-  %35 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1095, !noalias !1091
+  %35 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %34
@@ -11843,7 +11843,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -11852,7 +11852,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.thread.i" ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.thread.i" ], [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a715f6edaa26090E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1107, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -11876,8 +11876,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %28 = icmp ne i32 %.val3.i.i, %.val5.i.i
   %.sroa.0.0.i.i.not.i.i.i.i = select i1 %27, i1 true, i1 %28
   %29 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.sroa.0.0.i.i.not.i.i.i.i, i8 %.sroa.04.058.i, i8 0
-  %30 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %30 = select i1 %.sroa.0.0.i.i.not.i.i.i.i, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %30, %.sroa.09.057.i
   %31 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %29 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -11896,8 +11896,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 33:                                               ; preds = %36
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1111, !noalias !1107
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1111, !noalias !1107
-  %34 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1111, !noalias !1107
+  %34 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %34, label %35, label %.thread.i
 
 35:                                               ; preds = %33
@@ -12023,7 +12023,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i", %16
   %.sroa.04.080.i = phi i8 [ 1, %16 ], [ %44, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
-  %.sroa.09.079.i = phi i8 [ 0, %16 ], [ %43, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
+  %.sroa.09.079.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
   %.sroa.013.178.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %42, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
   %.sroa.5.177.i = phi i64 [ %.sroa.5.0.i, %16 ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
   %21 = icmp ult i64 %.sroa.5.177.i, %.sroa.9.0.copyload.i
@@ -12069,7 +12069,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.thread.i"
   %.sroa.5.176.i = phi i64 [ %.sroa.5.177.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
   %.sroa.013.170.i = phi i64 [ %.sroa.013.178.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
-  %.sroa.09.065.i = phi i8 [ %.sroa.09.079.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.thread.i" ], [ %43, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
+  %.sroa.09.065.i = phi i8 [ %.sroa.09.079.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i" ]
   %38 = load i64, ptr %12, align 8, !noalias !1123, !noundef !3
   %39 = icmp sgt i64 %38, -1
   call void @llvm.assume(i1 %39)
@@ -12079,8 +12079,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67821b59dcdd64adE.exit.i": ; preds = %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$23tot_ne_kernel_broadcast28_$u7b$$u7b$closure$u7d$$u7d$17h2a0c8b846ac02a85E.exit.i.i"
   %42 = add i64 %.sroa.013.178.i, 1
-  %.sroa.04.0..i = select i1 %37, i8 0, i8 %.sroa.04.080.i
-  %43 = or i8 %.sroa.04.0..i, %.sroa.09.079.i
+  %43 = select i1 %37, i8 0, i8 %.sroa.04.080.i
+  %.sroa.03.0.i = or i8 %43, %.sroa.09.079.i
   %44 = shl i8 %.sroa.04.080.i, 1
   %lftr.wideiv = trunc i64 %42 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -12099,8 +12099,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 46:                                               ; preds = %49
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !1127, !noalias !1123
-  %.pre108.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1127, !noalias !1123
-  %47 = icmp eq i64 %.pre.i, %.pre108.i
+  %.pre107.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1127, !noalias !1123
+  %47 = icmp eq i64 %.pre.i, %.pre107.i
   br i1 %47, label %48, label %.thread.i
 
 48:                                               ; preds = %46
@@ -12233,7 +12233,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i", %18
   %.sroa.04.092.i = phi i8 [ 1, %18 ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
-  %.sroa.09.091.i = phi i8 [ 0, %18 ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
+  %.sroa.09.091.i = phi i8 [ 0, %18 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
   %.sroa.013.190.i = phi i64 [ %.sroa.013.0.i, %18 ], [ %49, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
   %.sroa.5.189.i = phi i64 [ %.sroa.5.0.i, %18 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
   %23 = icmp ult i64 %.sroa.5.189.i, %.sroa.9.0.copyload.i
@@ -12244,7 +12244,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i) ]
   %26 = load i64, ptr %8, align 8, !noalias !1140, !noundef !3
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.invoke174.i, label %28
+  br i1 %27, label %.invoke172.i, label %28
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %9, align 8, !noalias !1140, !noundef !3
@@ -12257,7 +12257,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i) ]
   %33 = load i64, ptr %11, align 8, !noalias !1140, !noundef !3
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.invoke174.i, label %35
+  br i1 %34, label %.invoke172.i, label %35
 
 35:                                               ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i
   %36 = load i64, ptr %12, align 8, !noalias !1140, !noundef !3
@@ -12265,11 +12265,11 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   %38 = icmp ult i64 %.sroa.5.189.i, %37
   br i1 %38, label %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$13tot_ne_kernel28_$u7b$$u7b$closure$u7d$$u7d$17hc514da435bb812baE.exit.i.i", label %.invoke.i, !prof !942
 
-.invoke174.i:                                     ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i, %24
+.invoke172.i:                                     ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i, %24
   invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h17dcb8d3e254896dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9334a021208527b46729323ef81de40f.5) #25
-          to label %.cont175.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1139
+          to label %.cont173.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1139
 
-.cont175.i:                                       ; preds = %.invoke174.i
+.cont173.i:                                       ; preds = %.invoke172.i
   unreachable
 
 .invoke.i:                                        ; preds = %35, %28
@@ -12291,7 +12291,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.thread.i"
   %.sroa.5.188.i = phi i64 [ %.sroa.5.189.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
   %.sroa.013.180.i = phi i64 [ %.sroa.013.190.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.thread.i" ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
-  %.sroa.09.073.i = phi i8 [ %.sroa.09.091.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.thread.i" ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
+  %.sroa.09.073.i = phi i8 [ %.sroa.09.091.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i" ]
   %45 = load i64, ptr %14, align 8, !noalias !1139, !noundef !3
   %46 = icmp sgt i64 %45, -1
   call void @llvm.assume(i1 %46)
@@ -12301,8 +12301,8 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heced62fe0233baacE.exit.i": ; preds = %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$13tot_ne_kernel28_$u7b$$u7b$closure$u7d$$u7d$17hc514da435bb812baE.exit.i.i"
   %49 = add i64 %.sroa.013.190.i, 1
-  %.sroa.04.0..i = select i1 %44, i8 0, i8 %.sroa.04.092.i
-  %50 = or i8 %.sroa.04.0..i, %.sroa.09.091.i
+  %50 = select i1 %44, i8 0, i8 %.sroa.04.092.i
+  %.sroa.03.0.i = or i8 %50, %.sroa.09.091.i
   %51 = shl i8 %.sroa.04.092.i, 1
   %lftr.wideiv = trunc i64 %49 to i32
   %exitcond = icmp eq i32 %21, %lftr.wideiv
@@ -12321,8 +12321,8 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 
 53:                                               ; preds = %56
   %.pre.i = load i64, ptr %14, align 8, !alias.scope !1143, !noalias !1139
-  %.pre132.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1143, !noalias !1139
-  %54 = icmp eq i64 %.pre.i, %.pre132.i
+  %.pre131.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1143, !noalias !1139
+  %54 = icmp eq i64 %.pre.i, %.pre131.i
   br i1 %54, label %55, label %.thread.i
 
 55:                                               ; preds = %53
@@ -12356,7 +12356,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke174.i, %2
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke172.i, %2
   %lpad.loopexit.split-lp52.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -12462,7 +12462,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 24:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i", %20
   %.sroa.04.069.i = phi i8 [ 1, %20 ], [ %52, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
-  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
+  %.sroa.09.068.i = phi i8 [ 0, %20 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.sroa.013.167.i = phi i64 [ %.sroa.013.0.i, %20 ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.sroa.12.166.i = phi i64 [ %.sroa.12.0.i, %20 ], [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.sroa.4.165.i = phi i64 [ %.sroa.4.0.i, %20 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
@@ -12511,7 +12511,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i"
   %.sroa.013.159.i = phi i64 [ %.sroa.013.167.lcssa.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ %23, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
-  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
+  %.sroa.09.056.i = phi i8 [ %.sroa.09.068.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.not2151.i = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ true, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.sroa.4.2.i = phi i64 [ %.sroa.4.343.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
   %.sroa.12.2.i = phi i64 [ %.sroa.12.344.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i" ], [ %36, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i" ]
@@ -12524,8 +12524,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.i": ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ce892fc96e7d8feE.exit.i.i"
   %50 = add i64 %.sroa.013.167.i, 1
-  %.sroa.04.0..i = select i1 %45, i8 0, i8 %.sroa.04.069.i
-  %51 = or i8 %.sroa.04.0..i, %.sroa.09.068.i
+  %51 = select i1 %45, i8 0, i8 %.sroa.04.069.i
+  %.sroa.03.0.i = or i8 %51, %.sroa.09.068.i
   %52 = shl i8 %.sroa.04.069.i, 1
   %.not21.i = icmp eq i8 %52, 0
   br i1 %.not21.i, label %.loopexit.i, label %24
@@ -12546,8 +12546,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 54:                                               ; preds = %57
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !1170, !noalias !1155
-  %.pre82.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1170, !noalias !1155
-  %55 = icmp eq i64 %.pre.i, %.pre82.i
+  %.pre81.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1170, !noalias !1155
+  %55 = icmp eq i64 %.pre.i, %.pre81.i
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %54
@@ -12677,7 +12677,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i", %16
   %.sroa.04.052.i = phi i8 [ 1, %16 ], [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
-  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
+  %.sroa.09.051.i = phi i8 [ 0, %16 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
   %.sroa.013.150.i = phi i64 [ %.sroa.013.0.i, %16 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
   %.sroa.0.149.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.149.i) ]
@@ -12687,7 +12687,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.thread.i"
   %.sroa.0.148.i = phi ptr [ %.sroa.0.149.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
   %.sroa.013.145.i = phi i64 [ %.sroa.013.150.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.thread.i" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
-  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.thread.i" ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
+  %.sroa.09.043.i = phi i8 [ %.sroa.09.051.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea64376127be75b7E.exit.i" ]
   %21 = load i64, ptr %12, align 8, !noalias !1182, !noundef !3
   %22 = icmp sgt i64 %21, -1
   call void @llvm.assume(i1 %22)
@@ -12702,8 +12702,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %26 = load i32, ptr %.sroa.10.0.copyload.i, align 4, !alias.scope !1190, !noalias !1193, !noundef !3
   %.not.i = icmp eq i32 %.val3.i.i, %26
   %27 = add i64 %.sroa.013.150.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
-  %28 = or i8 %.sroa.04.0..i, %.sroa.09.051.i
+  %28 = select i1 %.not.i, i8 0, i8 %.sroa.04.052.i
+  %.sroa.03.0.i = or i8 %28, %.sroa.09.051.i
   %29 = shl i8 %.sroa.04.052.i, 1
   %lftr.wideiv = trunc i64 %27 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
@@ -12722,8 +12722,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 31:                                               ; preds = %34
   %.pre.i = load i64, ptr %12, align 8, !alias.scope !1195, !noalias !1182
-  %.pre63.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1195, !noalias !1182
-  %32 = icmp eq i64 %.pre.i, %.pre63.i
+  %.pre62.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1195, !noalias !1182
+  %32 = icmp eq i64 %.pre.i, %.pre62.i
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %31
@@ -12853,7 +12853,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i", %18
   %.sroa.04.092.i = phi i8 [ 1, %18 ], [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
-  %.sroa.09.091.i = phi i8 [ 0, %18 ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
+  %.sroa.09.091.i = phi i8 [ 0, %18 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
   %.sroa.013.190.i = phi i64 [ %.sroa.013.0.i, %18 ], [ %49, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
   %.sroa.5.189.i = phi i64 [ %.sroa.5.0.i, %18 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
   %23 = icmp ult i64 %.sroa.5.189.i, %.sroa.9.0.copyload.i
@@ -12864,7 +12864,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i) ]
   %26 = load i64, ptr %8, align 8, !noalias !1208, !noundef !3
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.invoke174.i, label %28
+  br i1 %27, label %.invoke172.i, label %28
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %9, align 8, !noalias !1208, !noundef !3
@@ -12877,7 +12877,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i) ]
   %33 = load i64, ptr %11, align 8, !noalias !1208, !noundef !3
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.invoke174.i, label %35
+  br i1 %34, label %.invoke172.i, label %35
 
 35:                                               ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i
   %36 = load i64, ptr %12, align 8, !noalias !1208, !noundef !3
@@ -12885,11 +12885,11 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   %38 = icmp ult i64 %.sroa.5.189.i, %37
   br i1 %38, label %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$13tot_eq_kernel28_$u7b$$u7b$closure$u7d$$u7d$17h7ab1de88808a0020E.exit.i.i", label %.invoke.i, !prof !942
 
-.invoke174.i:                                     ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i, %24
+.invoke172.i:                                     ; preds = %_ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f7d0a5c948E.exit.i.i.i, %24
   invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h17dcb8d3e254896dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9334a021208527b46729323ef81de40f.5) #25
-          to label %.cont175.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1207
+          to label %.cont173.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1207
 
-.cont175.i:                                       ; preds = %.invoke174.i
+.cont173.i:                                       ; preds = %.invoke172.i
   unreachable
 
 .invoke.i:                                        ; preds = %35, %28
@@ -12911,7 +12911,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.thread.i"
   %.sroa.5.188.i = phi i64 [ %.sroa.5.189.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
   %.sroa.013.180.i = phi i64 [ %.sroa.013.190.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.thread.i" ], [ %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
-  %.sroa.09.073.i = phi i8 [ %.sroa.09.091.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.thread.i" ], [ %50, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
+  %.sroa.09.073.i = phi i8 [ %.sroa.09.091.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i" ]
   %45 = load i64, ptr %14, align 8, !noalias !1207, !noundef !3
   %46 = icmp sgt i64 %45, -1
   call void @llvm.assume(i1 %46)
@@ -12921,8 +12921,8 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40829d7a766fc5d9E.exit.i": ; preds = %"_ZN14polars_compute11comparisons6binary133_$LT$impl$u20$polars_compute..comparisons..TotalEqKernel$u20$for$u20$polars_arrow..array..fixed_size_binary..FixedSizeBinaryArray$GT$13tot_eq_kernel28_$u7b$$u7b$closure$u7d$$u7d$17h7ab1de88808a0020E.exit.i.i"
   %49 = add i64 %.sroa.013.190.i, 1
-  %.sroa.04.0..i = select i1 %44, i8 %.sroa.04.092.i, i8 0
-  %50 = or i8 %.sroa.04.0..i, %.sroa.09.091.i
+  %50 = select i1 %44, i8 %.sroa.04.092.i, i8 0
+  %.sroa.03.0.i = or i8 %50, %.sroa.09.091.i
   %51 = shl i8 %.sroa.04.092.i, 1
   %lftr.wideiv = trunc i64 %49 to i32
   %exitcond = icmp eq i32 %21, %lftr.wideiv
@@ -12941,8 +12941,8 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
 
 53:                                               ; preds = %56
   %.pre.i = load i64, ptr %14, align 8, !alias.scope !1211, !noalias !1207
-  %.pre132.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1211, !noalias !1207
-  %54 = icmp eq i64 %.pre.i, %.pre132.i
+  %.pre131.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1211, !noalias !1207
+  %54 = icmp eq i64 %.pre.i, %.pre131.i
   br i1 %54, label %55, label %.thread.i
 
 55:                                               ; preds = %53
@@ -12976,7 +12976,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke174.i, %2
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke172.i, %2
   %lpad.loopexit.split-lp52.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -13068,7 +13068,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -13077,7 +13077,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53c471bc687d45aaE.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1223, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -13095,8 +13095,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i64, ptr %24, align 8, !alias.scope !1231, !noalias !1232, !noundef !3
   %25 = icmp eq i64 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -13115,8 +13115,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1233, !noalias !1223
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1233, !noalias !1223
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1233, !noalias !1223
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30
@@ -13237,7 +13237,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -13246,7 +13246,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.thread.i" ], [ %25, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96a4a3ad4d764459E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1245, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -13264,8 +13264,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i8, ptr %24, align 1, !alias.scope !1253, !noalias !1254, !noundef !3
   %.not.i = icmp eq i8 %.val.i.i, %.val3.i.i
   %25 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
-  %26 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %26 = select i1 %.not.i, i8 0, i8 %.sroa.04.058.i
+  %.sroa.03.0.i = or i8 %26, %.sroa.09.057.i
   %27 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %25 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -13284,8 +13284,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 29:                                               ; preds = %32
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1255, !noalias !1245
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1255, !noalias !1245
-  %30 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1255, !noalias !1245
+  %30 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
@@ -13406,7 +13406,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i", %13
   %.sroa.04.058.i = phi i8 [ 1, %13 ], [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
-  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
+  %.sroa.09.057.i = phi i8 [ 0, %13 ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
   %.sroa.013.156.i = phi i64 [ %.sroa.013.0.i, %13 ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
   %.sroa.529.155.i = phi i64 [ %.sroa.529.0.i, %13 ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
   %17 = icmp ult i64 %.sroa.529.155.i, %.sroa.9.0.copyload.i
@@ -13415,7 +13415,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 .loopexit.i:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.thread.i"
   %.sroa.529.154.i = phi i64 [ %.sroa.529.155.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.thread.i" ], [ %22, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
   %.sroa.013.151.i = phi i64 [ %.sroa.013.156.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.thread.i" ], [ %26, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
-  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.thread.i" ], [ %27, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
+  %.sroa.09.049.i = phi i8 [ %.sroa.09.057.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.thread.i" ], [ %.sroa.03.0.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b91a2ac00b5a7c0E.exit.i" ]
   %18 = load i64, ptr %9, align 8, !noalias !1267, !noundef !3
   %19 = icmp sgt i64 %18, -1
   call void @llvm.assume(i1 %19)
@@ -13433,8 +13433,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   %.val3.i.i = load i32, ptr %24, align 4, !alias.scope !1275, !noalias !1276, !noundef !3
   %25 = icmp eq i32 %.val.i.i, %.val3.i.i
   %26 = add i64 %.sroa.013.156.i, 1
-  %.sroa.04.0..i = select i1 %25, i8 %.sroa.04.058.i, i8 0
-  %27 = or i8 %.sroa.04.0..i, %.sroa.09.057.i
+  %27 = select i1 %25, i8 %.sroa.04.058.i, i8 0
+  %.sroa.03.0.i = or i8 %27, %.sroa.09.057.i
   %28 = shl i8 %.sroa.04.058.i, 1
   %lftr.wideiv = trunc i64 %26 to i32
   %exitcond = icmp eq i32 %15, %lftr.wideiv
@@ -13453,8 +13453,8 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
 
 30:                                               ; preds = %33
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !1277, !noalias !1267
-  %.pre68.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1277, !noalias !1267
-  %31 = icmp eq i64 %.pre.i, %.pre68.i
+  %.pre67.i = load i64, ptr %4, align 8, !range !59, !alias.scope !1277, !noalias !1267
+  %31 = icmp eq i64 %.pre.i, %.pre67.i
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %30

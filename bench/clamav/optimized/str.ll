@@ -2066,47 +2066,47 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   %61 = load i32, ptr %60, align 4, !tbaa !6
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = shl i32 %62, 4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !6
-  %69 = load i64, ptr %4, align 8, !tbaa !19
-  %70 = add i64 %69, 4
-  %71 = load i64, ptr %5, align 8, !tbaa !21
-  %72 = icmp ugt i64 %70, %71
+  %64 = or i32 %56, %63
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %40
+  %66 = load i8, ptr %65, align 1, !tbaa !3
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !6
+  %70 = load i64, ptr %4, align 8, !tbaa !19
+  %71 = add i64 %70, 4
+  %72 = load i64, ptr %5, align 8, !tbaa !21
+  %73 = icmp ugt i64 %71, %72
   %.pre = load ptr, ptr %0, align 8, !tbaa !22
-  br i1 %72, label %73, label %77
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %42
-  %74 = add i64 %71, 4096
-  %..i = tail call i64 @llvm.umax.i64(i64 %70, i64 %74)
-  %75 = and i64 %..i, 4294967295
-  %76 = tail call ptr @cli_max_realloc(ptr noundef %.pre, i64 noundef %75) #24
-  %.not.i = icmp eq ptr %76, null
+74:                                               ; preds = %42
+  %75 = add i64 %72, 4096
+  %..i = tail call i64 @llvm.umax.i64(i64 %71, i64 %75)
+  %76 = and i64 %..i, 4294967295
+  %77 = tail call ptr @cli_max_realloc(ptr noundef %.pre, i64 noundef %76) #24
+  %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %textbuffer_ensure_capacity.exit.thread65, label %.thread.i
 
-.thread.i:                                        ; preds = %73
-  store i64 %75, ptr %5, align 8, !tbaa !21
-  store ptr %76, ptr %0, align 8, !tbaa !22
+.thread.i:                                        ; preds = %74
+  store i64 %76, ptr %5, align 8, !tbaa !21
+  store ptr %77, ptr %0, align 8, !tbaa !22
   %.pre74 = load i64, ptr %4, align 8, !tbaa !19
-  br label %77
+  br label %78
 
-77:                                               ; preds = %.thread.i, %42
-  %78 = phi i64 [ %.pre74, %.thread.i ], [ %69, %42 ]
-  %79 = phi ptr [ %76, %.thread.i ], [ %.pre, %42 ]
-  %80 = or i32 %56, %63
-  %81 = or i32 %80, %68
+78:                                               ; preds = %.thread.i, %42
+  %79 = phi i64 [ %.pre74, %.thread.i ], [ %70, %42 ]
+  %80 = phi ptr [ %77, %.thread.i ], [ %.pre, %42 ]
+  %81 = or i32 %64, %69
   %82 = trunc i32 %81 to i16
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %78
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %79
   %.not.i60 = icmp eq i16 %82, 0
   br i1 %.not.i60, label %84, label %85
 
-84:                                               ; preds = %77
+84:                                               ; preds = %78
   store i8 1, ptr %83, align 1, !tbaa !3
   br label %output_utf8.exit
 
-85:                                               ; preds = %77
+85:                                               ; preds = %78
   %86 = icmp ult i16 %82, 128
   br i1 %86, label %87, label %89
 
@@ -2199,8 +2199,8 @@ textbuffer_ensure_capacity.exit:                  ; preds = %output_utf8.exit, %
   %127 = icmp ult i64 %126, %2
   br i1 %127, label %6, label %textbuffer_ensure_capacity.exit.thread65
 
-textbuffer_ensure_capacity.exit.thread65:         ; preds = %textbuffer_ensure_capacity.exit, %73, %119, %3
-  %.3 = phi i32 [ 0, %3 ], [ -1, %73 ], [ -1, %119 ], [ 0, %textbuffer_ensure_capacity.exit ]
+textbuffer_ensure_capacity.exit.thread65:         ; preds = %textbuffer_ensure_capacity.exit, %74, %119, %3
+  %.3 = phi i32 [ 0, %3 ], [ -1, %74 ], [ -1, %119 ], [ 0, %textbuffer_ensure_capacity.exit ]
   ret i32 %.3
 }
 

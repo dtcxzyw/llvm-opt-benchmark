@@ -4424,7 +4424,7 @@ define hidden noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker10check_mainEv(pt
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %5 = load i32, ptr %4, align 4, !tbaa !291
   %.not = icmp eq i32 %5, 2
-  br i1 %.not, label %6, label %.thread56
+  br i1 %.not, label %6, label %.thread60
 
 6:                                                ; preds = %1
   %7 = tail call noundef ptr @_ZNK4LIEF5MachO6Binary12main_commandEv(ptr noundef nonnull align 8 dereferenceable(488) %3) #24
@@ -4443,7 +4443,7 @@ define hidden noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker10check_mainEv(pt
   %17 = load ptr, ptr %2, align 8, !tbaa !3
   %18 = tail call noundef ptr @_ZNK4LIEF5MachO6Binary28segment_from_virtual_addressEm(ptr noundef nonnull align 8 dereferenceable(488) %17, i64 noundef %16) #24
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread56.sink.split, label %20
+  br i1 %19, label %.thread60.sink.split, label %20
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 124
@@ -4455,50 +4455,50 @@ define hidden noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker10check_mainEv(pt
   %26 = and i32 %25, 4
   %27 = icmp ne i32 %26, 0
   %28 = select i1 %.not.i, i1 true, i1 %27
-  br i1 %28, label %.thread, label %.thread56.sink.split
+  br i1 %28, label %.thread, label %.thread60.sink.split
 
 29:                                               ; preds = %6
   %30 = tail call noundef ptr @_ZNK4LIEF5MachO6Binary14thread_commandEv(ptr noundef nonnull align 8 dereferenceable(488) %8) #24
   %.not41.not = icmp eq ptr %30, null
-  br i1 %.not41.not, label %.thread56.sink.split, label %33
+  br i1 %.not41.not, label %.thread60.sink.split, label %33
 
 .thread:                                          ; preds = %20
   %31 = load ptr, ptr %2, align 8, !tbaa !3
   %32 = tail call noundef ptr @_ZNK4LIEF5MachO6Binary14thread_commandEv(ptr noundef nonnull align 8 dereferenceable(488) %31) #24
-  %.not41.not65 = icmp eq ptr %32, null
-  br i1 %.not41.not65, label %.thread56, label %33
+  %.not41.not70 = icmp eq ptr %32, null
+  br i1 %.not41.not70, label %.thread60, label %33
 
 33:                                               ; preds = %.thread, %29
   %34 = phi ptr [ %32, %.thread ], [ %30, %29 ]
   %35 = tail call noundef i64 @_ZNK4LIEF5MachO13ThreadCommand2pcEv(ptr noundef nonnull align 8 dereferenceable(96) %34) #24
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.thread56.sink.split, label %37
+  br i1 %36, label %.thread60.sink.split, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %2, align 8, !tbaa !3
   %39 = tail call noundef ptr @_ZNK4LIEF5MachO6Binary28segment_from_virtual_addressEm(ptr noundef nonnull align 8 dereferenceable(488) %38, i64 noundef %35) #24
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread56.sink.split, label %41
+  br i1 %40, label %.thread60.sink.split, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 124
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %44 = and i32 %43, 4
-  %.not.i45 = icmp ne i32 %44, 0
+  %.not.i43 = icmp ne i32 %44, 0
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 4
   %48 = icmp ne i32 %47, 0
-  %49 = select i1 %.not.i45, i1 true, i1 %48
-  br i1 %49, label %.thread56, label %.thread56.sink.split
+  %49 = select i1 %.not.i43, i1 true, i1 %48
+  br i1 %49, label %.thread60, label %.thread60.sink.split
 
-.thread56.sink.split:                             ; preds = %29, %41, %37, %33, %20, %9
-  %.str.27.sink = phi ptr [ @.str.26, %37 ], [ @.str.28, %33 ], [ @.str.27, %20 ], [ @.str.26, %9 ], [ @.str.27, %41 ], [ @.str.29, %29 ]
-  %50 = tail call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJEEEbPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.str.27.sink)
-  br label %.thread56
+.thread60.sink.split:                             ; preds = %29, %41, %37, %33, %20, %9
+  %.str.28.sink = phi ptr [ @.str.27, %20 ], [ @.str.28, %33 ], [ @.str.26, %37 ], [ @.str.26, %9 ], [ @.str.27, %41 ], [ @.str.29, %29 ]
+  %50 = tail call noundef zeroext i1 @_ZN4LIEF5MachO13LayoutChecker5errorIJEEEbPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.str.28.sink)
+  br label %.thread60
 
-.thread56:                                        ; preds = %.thread56.sink.split, %.thread, %41, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %41 ], [ true, %.thread ], [ %50, %.thread56.sink.split ]
+.thread60:                                        ; preds = %.thread60.sink.split, %.thread, %41, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %41 ], [ true, %.thread ], [ %50, %.thread60.sink.split ]
   ret i1 %.0
 }
 
@@ -25359,12 +25359,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %228, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %235 = phi i64 [ %234, %228 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %236 = icmp samesign ugt i64 %226, %235
+  %236 = icmp ugt i64 %226, %235
   br i1 %236, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %237
 
 237:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %238 = sub nuw nsw i64 %235, %226
-  %239 = icmp samesign ugt i64 %238, 1
+  %239 = icmp ugt i64 %238, 1
   br i1 %239, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %240
 
 240:                                              ; preds = %237
@@ -25741,12 +25741,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211: ; preds = %405, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208
   %412 = phi i64 [ %411, %405 ], [ %.03556.i201, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
-  %413 = icmp samesign ugt i64 %403, %412
+  %413 = icmp ugt i64 %403, %412
   br i1 %413, label %.thread602, label %414
 
 414:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211
   %415 = sub nuw nsw i64 %412, %403
-  %416 = icmp samesign ugt i64 %415, 1
+  %416 = icmp ugt i64 %415, 1
   br i1 %416, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit214, label %417
 
 417:                                              ; preds = %414
@@ -25849,12 +25849,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229: ; preds = %458, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226
   %465 = phi i64 [ %464, %458 ], [ %.03556.i219, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
-  %466 = icmp samesign ugt i64 %456, %465
+  %466 = icmp ugt i64 %456, %465
   br i1 %466, label %.thread.sink.split, label %467
 
 467:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229
   %468 = sub nuw nsw i64 %465, %456
-  %469 = icmp samesign ugt i64 %468, 1
+  %469 = icmp ugt i64 %468, 1
   br i1 %469, label %.thread, label %470
 
 470:                                              ; preds = %467
@@ -26193,7 +26193,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300: ; preds = %608, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297
   %615 = phi i64 [ %614, %608 ], [ %.03556.i290, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
-  %616 = icmp samesign ugt i64 %606, %615
+  %616 = icmp ugt i64 %606, %615
   br i1 %616, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit303, label %617
 
 617:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
@@ -26323,12 +26323,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322: ; preds = %674, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319
   %681 = phi i64 [ %680, %674 ], [ %.03556.i312, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
-  %682 = icmp samesign ugt i64 %672, %681
+  %682 = icmp ugt i64 %672, %681
   br i1 %682, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %683
 
 683:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322
   %684 = sub nuw nsw i64 %681, %672
-  %685 = icmp samesign ugt i64 %684, 1
+  %685 = icmp ugt i64 %684, 1
   br i1 %685, label %.thread408, label %686
 
 686:                                              ; preds = %683

@@ -3777,24 +3777,25 @@ for.inc110.i:                                     ; preds = %if.then106.i, %if.e
 
 for.end112.loopexit.i:                            ; preds = %for.inc110.i
   %.pre377.i = load ptr, ptr %capturedVariables.i, align 8
+  %406 = or i1 %changed.0.lcssa556559.i, %changed.2.i
   br label %for.end112.i
 
 for.end112.i:                                     ; preds = %for.end112.loopexit.i, %_ZL12promoteLoadsPN6hermes10BasicBlockE.exit
-  %406 = phi ptr [ null, %_ZL12promoteLoadsPN6hermes10BasicBlockE.exit ], [ %.pre377.i, %for.end112.loopexit.i ]
-  %changed.0.lcssa.i = phi i1 [ false, %_ZL12promoteLoadsPN6hermes10BasicBlockE.exit ], [ %changed.2.i, %for.end112.loopexit.i ]
-  call void @_ZdlPv(ptr noundef %406) #10
-  %407 = load ptr, ptr %destroyer.i112, align 8
-  %408 = load i32, ptr %Size.i.i.i.i.i.i.i117, align 8
-  %conv.i.i.i166 = zext i32 %408 to i64
+  %407 = phi ptr [ null, %_ZL12promoteLoadsPN6hermes10BasicBlockE.exit ], [ %.pre377.i, %for.end112.loopexit.i ]
+  %changed.0.lcssa.i = phi i1 [ %changed.0.lcssa556559.i, %_ZL12promoteLoadsPN6hermes10BasicBlockE.exit ], [ %406, %for.end112.loopexit.i ]
+  call void @_ZdlPv(ptr noundef %407) #10
+  %408 = load ptr, ptr %destroyer.i112, align 8
+  %409 = load i32, ptr %Size.i.i.i.i.i.i.i117, align 8
+  %conv.i.i.i166 = zext i32 %409 to i64
   %add.ptr.i.idx.i298.i = shl nuw nsw i64 %conv.i.i.i166, 3
-  %add.ptr.i.i299.i = getelementptr inbounds nuw i8, ptr %407, i64 %add.ptr.i.idx.i298.i
-  %cmp.not4.i.i167 = icmp eq i32 %408, 0
+  %add.ptr.i.i299.i = getelementptr inbounds nuw i8, ptr %408, i64 %add.ptr.i.idx.i298.i
+  %cmp.not4.i.i167 = icmp eq i32 %409, 0
   br i1 %cmp.not4.i.i167, label %for.end.i302.i, label %for.body.i300.i
 
 for.body.i300.i:                                  ; preds = %for.end112.i, %for.body.i300.i
-  %__begin2.05.i.i168 = phi ptr [ %incdec.ptr.i301.i, %for.body.i300.i ], [ %407, %for.end112.i ]
-  %409 = load ptr, ptr %__begin2.05.i.i168, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %409) #10
+  %__begin2.05.i.i168 = phi ptr [ %incdec.ptr.i301.i, %for.body.i300.i ], [ %408, %for.end112.i ]
+  %410 = load ptr, ptr %__begin2.05.i.i168, align 8
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %410) #10
   %incdec.ptr.i301.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i168, i64 8
   %cmp.not.i.i169 = icmp eq ptr %incdec.ptr.i301.i, %add.ptr.i.i299.i
   br i1 %cmp.not.i.i169, label %for.end.loopexit.i.i, label %for.body.i300.i
@@ -3804,19 +3805,19 @@ for.end.loopexit.i.i:                             ; preds = %for.body.i300.i
   br label %for.end.i302.i
 
 for.end.i302.i:                                   ; preds = %for.end.loopexit.i.i, %for.end112.i
-  %410 = phi ptr [ %.pre.i.i170, %for.end.loopexit.i.i ], [ %407, %for.end112.i ]
-  %cmp.i.i.i.i304.i = icmp eq ptr %410, %add.ptr.i.i.i.i.i.i.i116
+  %411 = phi ptr [ %.pre.i.i170, %for.end.loopexit.i.i ], [ %408, %for.end112.i ]
+  %cmp.i.i.i.i304.i = icmp eq ptr %411, %add.ptr.i.i.i.i.i.i.i116
   br i1 %cmp.i.i.i.i304.i, label %_ZL15eliminateStoresPN6hermes10BasicBlockEN4llvh8ArrayRefIPNS_14AllocStackInstEEE.exit, label %if.then.i.i.i.i171
 
 if.then.i.i.i.i171:                               ; preds = %for.end.i302.i
-  call void @free(ptr noundef %410) #10
+  call void @free(ptr noundef %411) #10
   br label %_ZL15eliminateStoresPN6hermes10BasicBlockEN4llvh8ArrayRefIPNS_14AllocStackInstEEE.exit
 
 _ZL15eliminateStoresPN6hermes10BasicBlockEN4llvh8ArrayRefIPNS_14AllocStackInstEEE.exit: ; preds = %for.end.i302.i, %if.then.i.i.i.i171
-  %411 = load ptr, ptr %prevStoreStack.i, align 8
-  call void @_ZdlPv(ptr noundef %411) #10
-  %412 = load ptr, ptr %prevStoreFrame.i, align 8
+  %412 = load ptr, ptr %prevStoreStack.i, align 8
   call void @_ZdlPv(ptr noundef %412) #10
+  %413 = load ptr, ptr %prevStoreFrame.i, align 8
+  call void @_ZdlPv(ptr noundef %413) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %prevStoreFrame.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %prevStoreStack.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i112)
@@ -3824,8 +3825,7 @@ _ZL15eliminateStoresPN6hermes10BasicBlockEN4llvh8ArrayRefIPNS_14AllocStackInstEE
   call void @llvm.lifetime.end.p0(ptr nonnull %AS.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %V56.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %AS63.i)
-  %413 = or i1 %changed.0.lcssa556559.i, %changed.0.lcssa.i
-  %or1316 = or i1 %changed.01997, %413
+  %or1316 = or i1 %changed.01997, %changed.0.lcssa.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.01998, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %BasicBlockList.i

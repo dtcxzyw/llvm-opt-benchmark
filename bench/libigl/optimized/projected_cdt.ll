@@ -41316,6 +41316,7 @@ _ZN4CGAL8SkiplistINS_31Polyline_constraint_hierarchy_2INS_8internal11CC_iterator
 .thread:                                          ; preds = %.lr.ph30
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %39, ptr %41, align 8, !tbaa !323
+  store ptr %39, ptr %39, align 8, !tbaa !326
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 0, ptr %42, align 8, !tbaa !327
   br label %_ZNSt7__cxx1110_List_baseIN4CGAL31Polyline_constraint_hierarchy_2INS1_8internal11CC_iteratorINS1_17Compact_containerINS1_27Triangulation_vertex_base_2INS1_5EpickENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS6_IS7_NS8_IvEEEENS1_37Constrained_triangulation_face_base_2IS7_NS1_25Triangulation_face_base_2IS7_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEENS1_26Pct2_vertex_handle_less_xyINS1_32Constrained_triangulation_plus_2INS1_36Constrained_Delaunay_triangulation_2IS7_SI_NS1_23Exact_intersections_tagEEEEEEENS1_7Point_2IS7_EEE7ContextESaISY_EED2Ev.exit
@@ -74114,6 +74115,7 @@ _ZN4CGAL8SkiplistINS_31Polyline_constraint_hierarchy_2INS_8internal11CC_iterator
 .thread:                                          ; preds = %.lr.ph28
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %53, ptr %55, align 8, !tbaa !323
+  store ptr %53, ptr %53, align 8, !tbaa !326
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 0, ptr %56, align 8, !tbaa !327
   br label %_ZNSt7__cxx1110_List_baseIN4CGAL31Polyline_constraint_hierarchy_2INS1_8internal11CC_iteratorINS1_17Compact_containerINS1_27Triangulation_vertex_base_2INS1_5EpeckENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS6_IS7_NS8_IvEEEENS1_37Constrained_triangulation_face_base_2IS7_NS1_25Triangulation_face_base_2IS7_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEENS1_26Pct2_vertex_handle_less_xyINS1_32Constrained_triangulation_plus_2INS1_36Constrained_Delaunay_triangulation_2IS7_SI_NS1_23Exact_intersections_tagEEEEEEENS1_7Point_2IS7_EEE7ContextESaISY_EED2Ev.exit

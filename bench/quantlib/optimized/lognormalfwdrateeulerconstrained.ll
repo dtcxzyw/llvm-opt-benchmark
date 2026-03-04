@@ -4126,7 +4126,7 @@ for.cond71.preheader:                             ; preds = %for.body62, %if.the
   %numberOfFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %43 = load i64, ptr %numberOfFactors_, align 8, !tbaa !43
   %cmp7285.not = icmp eq i64 %43, 0
-  br i1 %cmp7285.not, label %for.cond.cleanup73, label %for.body74.lr.ph
+  br i1 %cmp7285.not, label %if.end89, label %for.body74.lr.ph
 
 for.body74.lr.ph:                                 ; preds = %for.cond71.preheader
   %44 = load ptr, ptr %call23, align 8, !tbaa !17
@@ -4149,22 +4149,21 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %exitcond91.not = icmp eq i64 %inc69, %16
   br i1 %exitcond91.not, label %for.cond71.preheader, label %for.body62, !llvm.loop !116
 
-for.cond.cleanup73:                               ; preds = %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71, %for.cond71.preheader
-  %weightsEffect.0.lcssa = phi double [ 1.000000e+00, %for.cond71.preheader ], [ %mul84, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71 ]
-  %mul88 = fmul double %call18, %weightsEffect.0.lcssa
+for.cond.cleanup73.loopexit:                      ; preds = %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71
+  %50 = fmul double %call18, %mul84
   br label %if.end89
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71
   %k.087 = phi i64 [ 0, %for.body74.lr.ph ], [ %inc86, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71 ]
   %weightsEffect.086 = phi double [ 1.000000e+00, %for.body74.lr.ph ], [ %mul84, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71 ]
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %k.087
-  %50 = load double, ptr %arrayidx, align 8, !tbaa !47
-  %mul = fmul double %div, %50
+  %51 = load double, ptr %arrayidx, align 8, !tbaa !47
+  %mul = fmul double %div, %51
   %add.ptr.i50 = getelementptr inbounds nuw double, ptr %46, i64 %k.087
-  %51 = load double, ptr %add.ptr.i50, align 8, !tbaa !47
-  %add78 = fadd double %mul, %51
-  %52 = fneg double %add78
-  %fneg.i.i = fmul double %add78, %52
+  %52 = load double, ptr %add.ptr.i50, align 8, !tbaa !47
+  %add78 = fadd double %mul, %52
+  %53 = fneg double %add78
+  %fneg.i.i = fmul double %add78, %53
   %div.i.i = fmul double %fneg.i.i, 5.000000e-01
   %cmp.i.i = fcmp ugt double %div.i.i, -6.900000e+02
   br i1 %cmp.i.i, label %cond.false.i.i, label %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit
@@ -4176,8 +4175,8 @@ cond.false.i.i:                                   ; preds = %for.body74
 
 _ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit: ; preds = %for.body74, %cond.false.i.i
   %cond.i.i = phi double [ %mul2.i.i, %cond.false.i.i ], [ 0.000000e+00, %for.body74 ]
-  %53 = fneg double %51
-  %fneg.i.i61 = fmul double %51, %53
+  %54 = fneg double %52
+  %fneg.i.i61 = fmul double %52, %54
   %div.i.i63 = fmul double %fneg.i.i61, 5.000000e-01
   %cmp.i.i64 = fcmp ugt double %div.i.i63, -6.900000e+02
   br i1 %cmp.i.i64, label %cond.false.i.i67, label %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71
@@ -4193,39 +4192,39 @@ _ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71: ; preds = %_ZN
   %mul84 = fmul double %weightsEffect.086, %div83
   %inc86 = add nuw i64 %k.087, 1
   %exitcond92.not = icmp eq i64 %inc86, %43
-  br i1 %exitcond92.not, label %for.cond.cleanup73, label %for.body74, !llvm.loop !117
+  br i1 %exitcond92.not, label %for.cond.cleanup73.loopexit, label %for.body74, !llvm.loop !117
 
-if.end89:                                         ; preds = %for.cond.cleanup73, %for.cond.cleanup
-  %weight.0 = phi double [ %mul88, %for.cond.cleanup73 ], [ %call18, %for.cond.cleanup ]
+if.end89:                                         ; preds = %for.cond71.preheader, %for.cond.cleanup73.loopexit, %for.cond.cleanup
+  %weight.0 = phi double [ %call18, %for.cond.cleanup ], [ %call18, %for.cond71.preheader ], [ %50, %for.cond.cleanup73.loopexit ]
   br i1 %cmp2881, label %for.body95.lr.ph, label %for.cond.cleanup94
 
 for.body95.lr.ph:                                 ; preds = %if.end89
   %logForwards_96 = getelementptr inbounds nuw i8, ptr %this, i64 528
-  %54 = load ptr, ptr %logForwards_96, align 8, !tbaa !45
+  %55 = load ptr, ptr %logForwards_96, align 8, !tbaa !45
   %displacements_ = getelementptr inbounds nuw i8, ptr %this, i64 504
-  %55 = load ptr, ptr %displacements_, align 8, !tbaa !45
+  %56 = load ptr, ptr %displacements_, align 8, !tbaa !45
   %forwards_101 = getelementptr inbounds nuw i8, ptr %this, i64 480
-  %56 = load ptr, ptr %forwards_101, align 8, !tbaa !45
+  %57 = load ptr, ptr %forwards_101, align 8, !tbaa !45
   br label %for.body95
 
 for.cond.cleanup94:                               ; preds = %for.body95, %if.end89
   %curveState_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %forwards_106 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @_ZN8QuantLib13LMMCurveState17setOnForwardRatesERKSt6vectorIdSaIdEEm(ptr noundef nonnull align 8 dereferenceable(224) %curveState_, ptr noundef nonnull align 8 dereferenceable(24) %forwards_106, i64 noundef 0)
-  %57 = load i64, ptr %currentStep_, align 8, !tbaa !50
-  %inc108 = add i64 %57, 1
+  %58 = load i64, ptr %currentStep_, align 8, !tbaa !50
+  %inc108 = add i64 %58, 1
   store i64 %inc108, ptr %currentStep_, align 8, !tbaa !50
   ret double %weight.0
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %for.body95
   %i90.090 = phi i64 [ %15, %for.body95.lr.ph ], [ %inc104, %for.body95 ]
-  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %54, i64 %i90.090
-  %58 = load double, ptr %add.ptr.i72, align 8, !tbaa !47
-  %call98 = tail call double @exp(double noundef %58) #23, !tbaa !86
-  %add.ptr.i73 = getelementptr inbounds nuw double, ptr %55, i64 %i90.090
-  %59 = load double, ptr %add.ptr.i73, align 8, !tbaa !47
-  %sub100 = fsub double %call98, %59
-  %add.ptr.i74 = getelementptr inbounds nuw double, ptr %56, i64 %i90.090
+  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %55, i64 %i90.090
+  %59 = load double, ptr %add.ptr.i72, align 8, !tbaa !47
+  %call98 = tail call double @exp(double noundef %59) #23, !tbaa !86
+  %add.ptr.i73 = getelementptr inbounds nuw double, ptr %56, i64 %i90.090
+  %60 = load double, ptr %add.ptr.i73, align 8, !tbaa !47
+  %sub100 = fsub double %call98, %60
+  %add.ptr.i74 = getelementptr inbounds nuw double, ptr %57, i64 %i90.090
   store double %sub100, ptr %add.ptr.i74, align 8, !tbaa !47
   %inc104 = add nuw i64 %i90.090, 1
   %exitcond93.not = icmp eq i64 %inc104, %16

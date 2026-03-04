@@ -11090,6 +11090,7 @@ define linkonce_odr void @_ZN7xgboost6detail14TypeCheckErrorINS_10JsonStringEEEN
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %21, align 8, !tbaa !124, !alias.scope !325
+  store ptr %14, ptr %11, align 8, !tbaa !72
   store i64 0, ptr %20, align 8, !tbaa !124
   store i8 0, ptr %14, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -11975,6 +11976,7 @@ define linkonce_odr void @_ZN7xgboost6detail14TypeCheckErrorINS_11JsonIntegerEEE
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %14, ptr %18, align 8, !tbaa !124, !alias.scope !342
+  store ptr %11, ptr %8, align 8, !tbaa !72
   store i64 0, ptr %17, align 8, !tbaa !124
   store i8 0, ptr %11, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

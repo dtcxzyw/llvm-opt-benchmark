@@ -249,16 +249,16 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %.us-phi25 = phi i32 [ %57, %55 ], [ %118, %116 ]
   %.us-phi26 = phi i8 [ %58, %55 ], [ %119, %116 ]
   %61 = icmp eq i8 %.us-phi26, 0
+  %62 = or i32 %.us-phi25, %.us-phi
+  %63 = zext i32 %62 to i64
+  %64 = zext i32 %.us-phi25 to i64
   br label %._crit_edge41
 
 ._crit_edge41:                                    ; preds = %5, %.split24.us
-  %62 = phi i32 [ %.us-phi, %.split24.us ], [ 0, %5 ]
-  %63 = phi i32 [ %.us-phi25, %.split24.us ], [ 0, %5 ]
-  %64 = phi i1 [ %61, %.split24.us ], [ true, %5 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 6144
-  %66 = or i32 %63, %62
-  %67 = zext i32 %66 to i64
-  %68 = zext i32 %63 to i64
+  %65 = phi i64 [ %63, %.split24.us ], [ 0, %5 ]
+  %66 = phi i64 [ %64, %.split24.us ], [ 0, %5 ]
+  %67 = phi i1 [ %61, %.split24.us ], [ true, %5 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 6144
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 6384
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 6556
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 6560
@@ -352,7 +352,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 
 128:                                              ; preds = %122
   %.idx = shl i64 %123, 4
-  %129 = getelementptr i8, ptr %65, i64 %.idx
+  %129 = getelementptr i8, ptr %68, i64 %.idx
   %130 = getelementptr i8, ptr %129, i64 12
   %131 = load i32, ptr %130, align 4
   switch i32 %131, label %203 [
@@ -396,12 +396,12 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br label %203
 
 152:                                              ; preds = %128
-  %153 = and i64 %125, %67
+  %153 = and i64 %125, %65
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %.thread9, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr %struct.anon.36, ptr %65, i64 %123
+  %156 = getelementptr %struct.anon.36, ptr %68, i64 %123
   %157 = load i64, ptr %156, align 8
   %158 = load i32, ptr %70, align 4
   %159 = icmp eq i32 %158, 0
@@ -412,14 +412,14 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %161 = trunc i64 %125 to i32
   %162 = or i32 %160, %161
   store i32 %162, ptr %69, align 8
-  %163 = getelementptr %struct.anon.36, ptr %65, i64 %123
+  %163 = getelementptr %struct.anon.36, ptr %68, i64 %123
   %164 = load i64, ptr %163, align 8
   %165 = load i32, ptr %70, align 4
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %203, label %.thread10
 
 167:                                              ; preds = %155
-  %168 = and i64 %125, %68
+  %168 = and i64 %125, %66
   %.fr = freeze i64 %168
   %.not = icmp eq i64 %.fr, 0
   br i1 %.not, label %169, label %.thread10
@@ -448,7 +448,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %184, label %._crit_edge, label %185
 
 ._crit_edge:                                      ; preds = %180
-  %.phi.trans.insert = getelementptr %struct.anon.36, ptr %65, i64 %123
+  %.phi.trans.insert = getelementptr %struct.anon.36, ptr %68, i64 %123
   %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre = load i32, ptr %.phi.trans.insert40, align 8
   br label %187
@@ -460,7 +460,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 
 187:                                              ; preds = %._crit_edge, %185
   %188 = phi i32 [ %.pre, %._crit_edge ], [ 0, %185 ]
-  %189 = getelementptr %struct.anon.36, ptr %65, i64 %123
+  %189 = getelementptr %struct.anon.36, ptr %68, i64 %123
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = add i32 %188, %175
   store i32 %191, ptr %190, align 8
@@ -519,7 +519,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 217:                                              ; preds = %.thread12, %215
   %218 = phi i8 [ %216, %.thread12 ], [ %204, %215 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #8
-  br i1 %64, label %224, label %219
+  br i1 %67, label %224, label %219
 
 219:                                              ; preds = %217
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 6576

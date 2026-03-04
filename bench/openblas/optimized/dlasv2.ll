@@ -59,13 +59,13 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %storemerge, ptr %3, align 8, !tbaa !3
   %37 = fdiv double %.0167, %21
   %38 = fdiv double %.0169, %21
-  %.0159..0157230 = select i1 %18, double %38, double %37
-  %.0157..0159231 = select i1 %18, double %37, double %38
+  %.0159..0157229 = select i1 %18, double %38, double %37
+  %.0157..0159230 = select i1 %18, double %37, double %38
   store double 1.000000e+00, ptr %8, align 8, !tbaa !3
-  store double %.0159..0157230, ptr %7, align 8, !tbaa !3
-  store double %.0157..0159231, ptr %6, align 8, !tbaa !3
+  store double %.0159..0157229, ptr %7, align 8, !tbaa !3
+  store double %.0157..0159230, ptr %6, align 8, !tbaa !3
   store double 1.000000e+00, ptr %5, align 8, !tbaa !3
-  br label %.thread208
+  br label %.thread207
 
 39:                                               ; preds = %29, %27
   %.2.ph = phi i32 [ %.0163, %27 ], [ 2, %29 ]
@@ -90,11 +90,11 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 53:                                               ; preds = %39
   %54 = tail call double @llvm.fmuladd.f64(double %.0166, double %.0166, double %45)
-  %sqrt212 = tail call double @llvm.sqrt.f64(double %54)
+  %sqrt211 = tail call double @llvm.sqrt.f64(double %54)
   br label %55
 
 55:                                               ; preds = %53, %49
-  %.0168 = phi double [ %52, %49 ], [ %sqrt212, %53 ]
+  %.0168 = phi double [ %52, %49 ], [ %sqrt211, %53 ]
   %56 = fadd double %sqrt, %.0168
   %57 = fmul double %56, 5.000000e-01
   %58 = fdiv double %.0170, %57
@@ -110,8 +110,8 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 63:                                               ; preds = %61
   %. = select i1 %62, double -2.000000e+00, double 2.000000e+00
-  %64 = fneg nnan double %.
-  %65 = select nnan i1 %22, double %., double %64
+  %64 = fneg double %.
+  %65 = select i1 %22, double %., double %64
   br label %81
 
 66:                                               ; preds = %61
@@ -137,9 +137,9 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 81:                                               ; preds = %63, %66, %73
   %.0171 = phi double [ %65, %63 ], [ %72, %66 ], [ %80, %73 ]
   %82 = tail call double @llvm.fmuladd.f64(double %.0171, double %.0171, double 4.000000e+00)
-  %sqrt213 = tail call double @llvm.sqrt.f64(double %82)
-  %83 = fdiv double 2.000000e+00, %sqrt213
-  %84 = fdiv double %.0171, %sqrt213
+  %sqrt212 = tail call double @llvm.sqrt.f64(double %82)
+  %83 = fdiv double 2.000000e+00, %sqrt212
+  %84 = fdiv double %.0171, %sqrt212
   %85 = tail call double @llvm.fmuladd.f64(double %84, double %43, double %83)
   %86 = fdiv double %85, %57
   %87 = fdiv double %.0167, %.0169
@@ -162,79 +162,79 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %.0157..0159, ptr %6, align 8, !tbaa !3
   store double %.0161..0, ptr %5, align 8, !tbaa !3
   switch i32 %.1164, label %92 [
-    i32 1, label %.thread205
-    i32 2, label %.thread208
+    i32 1, label %.thread204
+    i32 2, label %.thread207
   ]
 
-.thread205:                                       ; preds = %90
+.thread204:                                       ; preds = %90
   %91 = load double, ptr %6, align 8, !tbaa !3
-  br label %.thread208
+  br label %.thread207
 
 92:                                               ; preds = %90
-  br label %.thread208
+  br label %.thread207
 
-.thread208:                                       ; preds = %90, %.thread, %.thread205, %92
-  %.0161..0233.sink = phi double [ %.0161..0, %92 ], [ %91, %.thread205 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
-  %.sink244 = phi ptr [ %7, %92 ], [ %8, %.thread205 ], [ %8, %.thread ], [ %8, %90 ]
-  %.sink = phi ptr [ %2, %92 ], [ %0, %.thread205 ], [ %1, %.thread ], [ %1, %90 ]
-  %93 = fcmp ult double %.0161..0233.sink, 0.000000e+00
-  %94 = load double, ptr %.sink244, align 8, !tbaa !3
+.thread207:                                       ; preds = %90, %.thread, %.thread204, %92
+  %.0161..0232.sink = phi double [ %.0161..0, %92 ], [ %91, %.thread204 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
+  %.sink241 = phi ptr [ %7, %92 ], [ %8, %.thread204 ], [ %8, %.thread ], [ %8, %90 ]
+  %.sink = phi ptr [ %2, %92 ], [ %0, %.thread204 ], [ %1, %.thread ], [ %1, %90 ]
+  %93 = fcmp ult double %.0161..0232.sink, 0.000000e+00
+  %.197 = select i1 %93, double -1.000000e+00, double 1.000000e+00
+  %94 = load double, ptr %.sink241, align 8, !tbaa !3
   %95 = fcmp ult double %94, 0.000000e+00
-  %96 = select i1 %95, double -1.000000e+00, double 1.000000e+00
-  %97 = fneg nnan double %96
-  %98 = select nnan i1 %93, double %97, double %96
-  %99 = load double, ptr %.sink, align 8, !tbaa !3
-  %100 = fcmp ult double %99, 0.000000e+00
-  %101 = fneg nnan double %98
-  %102 = select nnan i1 %100, double %101, double %98
-  %103 = fcmp ult double %102, 0.000000e+00
-  %104 = load double, ptr %4, align 8, !tbaa !3
-  %105 = fcmp ult double %104, 0.000000e+00
-  br i1 %103, label %109, label %106
+  %96 = fneg double %.197
+  %97 = select i1 %95, double %96, double %.197
+  %98 = load double, ptr %.sink, align 8, !tbaa !3
+  %99 = fcmp ult double %98, 0.000000e+00
+  %100 = fneg double %97
+  %101 = select i1 %99, double %100, double %97
+  %102 = fcmp ult double %101, 0.000000e+00
+  %103 = load double, ptr %4, align 8, !tbaa !3
+  %104 = fcmp ult double %103, 0.000000e+00
+  br i1 %102, label %108, label %105
 
-106:                                              ; preds = %.thread208
-  br i1 %105, label %107, label %111
+105:                                              ; preds = %.thread207
+  br i1 %104, label %106, label %110
 
-107:                                              ; preds = %106
-  %108 = fneg double %104
-  br label %111
+106:                                              ; preds = %105
+  %107 = fneg double %103
+  br label %110
 
-109:                                              ; preds = %.thread208
-  %.neg210 = fneg double %104
-  %110 = select i1 %105, double %104, double %.neg210
-  br label %111
+108:                                              ; preds = %.thread207
+  %.neg209 = fneg double %103
+  %109 = select i1 %104, double %103, double %.neg209
+  br label %110
 
-111:                                              ; preds = %106, %107, %109
-  %112 = phi double [ %110, %109 ], [ %108, %107 ], [ %104, %106 ]
-  store double %112, ptr %4, align 8, !tbaa !3
-  %113 = load double, ptr %0, align 8, !tbaa !3
-  %114 = fcmp ult double %113, 0.000000e+00
-  %115 = fneg double %102
-  %116 = select i1 %114, double %115, double %102
-  %117 = load double, ptr %2, align 8, !tbaa !3
-  %118 = fcmp ult double %117, 0.000000e+00
-  %119 = fneg double %116
-  %120 = select i1 %118, double %119, double %116
-  %121 = fcmp ult double %120, 0.000000e+00
-  %122 = load double, ptr %3, align 8, !tbaa !3
-  %123 = fcmp ult double %122, 0.000000e+00
-  br i1 %121, label %127, label %124
+110:                                              ; preds = %105, %106, %108
+  %111 = phi double [ %109, %108 ], [ %107, %106 ], [ %103, %105 ]
+  store double %111, ptr %4, align 8, !tbaa !3
+  %112 = load double, ptr %0, align 8, !tbaa !3
+  %113 = fcmp ult double %112, 0.000000e+00
+  %114 = fneg double %101
+  %115 = select i1 %113, double %114, double %101
+  %116 = load double, ptr %2, align 8, !tbaa !3
+  %117 = fcmp ult double %116, 0.000000e+00
+  %118 = fneg double %115
+  %119 = select i1 %117, double %118, double %115
+  %120 = fcmp ult double %119, 0.000000e+00
+  %121 = load double, ptr %3, align 8, !tbaa !3
+  %122 = fcmp ult double %121, 0.000000e+00
+  br i1 %120, label %126, label %123
 
-124:                                              ; preds = %111
-  br i1 %123, label %125, label %129
+123:                                              ; preds = %110
+  br i1 %122, label %124, label %128
 
-125:                                              ; preds = %124
-  %126 = fneg double %122
-  br label %129
+124:                                              ; preds = %123
+  %125 = fneg double %121
+  br label %128
 
-127:                                              ; preds = %111
-  %.neg211 = fneg double %122
-  %128 = select i1 %123, double %122, double %.neg211
-  br label %129
+126:                                              ; preds = %110
+  %.neg210 = fneg double %121
+  %127 = select i1 %122, double %121, double %.neg210
+  br label %128
 
-129:                                              ; preds = %124, %125, %127
-  %130 = phi double [ %128, %127 ], [ %126, %125 ], [ %122, %124 ]
-  store double %130, ptr %3, align 8, !tbaa !3
+128:                                              ; preds = %123, %124, %126
+  %129 = phi double [ %127, %126 ], [ %125, %124 ], [ %121, %123 ]
+  store double %129, ptr %3, align 8, !tbaa !3
   ret void
 }
 

@@ -3166,13 +3166,13 @@ define hidden noundef zeroext i1 @"_ZN11markup5ever9interface12tree_builder14cre
   %.val6.i.i = load i8, ptr %48, align 1, !noalias !743, !noundef !4
   %49 = add i8 %.val.i.i, -65
   %50 = icmp ult i8 %49, 26
-  %.sroa.0.0.i.i7.i.i = select i1 %50, i8 32, i8 0
-  %51 = add i8 %.val6.i.i, -65
-  %52 = icmp ult i8 %51, 26
-  %.sroa.01.0.i.i.i.i = select i1 %52, i8 32, i8 0
-  %53 = or i8 %.sroa.0.0.i.i7.i.i, %.val.i.i
-  %54 = or i8 %.sroa.01.0.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %53, %54
+  %51 = select i1 %50, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i = or i8 %51, %.val.i.i
+  %52 = add i8 %.val6.i.i, -65
+  %53 = icmp ult i8 %52, 26
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i = or i8 %54, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i, %.sroa.01.0.i.i.i.i
   br i1 %.not.i.i, label %43, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread.loopexit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread.loopexit": ; preds = %45
@@ -3245,13 +3245,13 @@ define hidden noundef zeroext i1 @"_ZN11markup5ever9interface12tree_builder14cre
   %.val6.i.i24 = load i8, ptr %85, align 1, !noalias !767, !noundef !4
   %86 = add i8 %.val.i.i23, -65
   %87 = icmp ult i8 %86, 26
-  %.sroa.0.0.i.i7.i.i25 = select i1 %87, i8 32, i8 0
-  %88 = add i8 %.val6.i.i24, -65
-  %89 = icmp ult i8 %88, 26
-  %.sroa.01.0.i.i.i.i26 = select i1 %89, i8 32, i8 0
-  %90 = or i8 %.sroa.0.0.i.i7.i.i25, %.val.i.i23
-  %91 = or i8 %.sroa.01.0.i.i.i.i26, %.val6.i.i24
-  %.not.i.i27 = icmp eq i8 %90, %91
+  %88 = select i1 %87, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i25 = or i8 %88, %.val.i.i23
+  %89 = add i8 %.val6.i.i24, -65
+  %90 = icmp ult i8 %89, 26
+  %91 = select i1 %90, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i26 = or i8 %91, %.val6.i.i24
+  %.not.i.i27 = icmp eq i8 %.sroa.0.0.i.i7.i.i25, %.sroa.01.0.i.i.i.i26
   br i1 %.not.i.i27, label %80, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit"
 }
 

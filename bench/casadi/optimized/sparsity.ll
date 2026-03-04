@@ -12035,6 +12035,7 @@ define void @_ZNK6casadi8Sparsity11postfix_dimB5cxx11Ev(ptr dead_on_unwind noali
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %37, ptr %41, align 8, !tbaa !18, !alias.scope !186
+  store ptr %34, ptr %31, align 8, !tbaa !12
   store i64 0, ptr %40, align 8, !tbaa !18
   store i8 0, ptr %34, align 8, !tbaa !17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -12189,6 +12190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %93, ptr %97, align 8, !tbaa !18, !alias.scope !195
+  store ptr %90, ptr %87, align 8, !tbaa !12
   store i64 0, ptr %96, align 8, !tbaa !18
   store i8 0, ptr %90, align 8, !tbaa !17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i38
@@ -12341,6 +12343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %149, ptr %153, align 8, !tbaa !18, !alias.scope !204
+  store ptr %146, ptr %143, align 8, !tbaa !12
   store i64 0, ptr %152, align 8, !tbaa !18
   store i8 0, ptr %146, align 8, !tbaa !17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i62

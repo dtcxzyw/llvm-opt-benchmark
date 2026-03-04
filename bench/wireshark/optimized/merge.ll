@@ -1493,9 +1493,9 @@ map_rec_interface_id.exit.thread:                 ; preds = %121
   br label %.outer
 
 map_rec_interface_id.exit:                        ; preds = %121, %.loopexit205, %94, %78, %merge_read_packet.exit, %merge_read_packet.exit.thread
-  %or.cond = phi i1 [ true, %merge_read_packet.exit.thread ], [ %77, %78 ], [ %77, %merge_read_packet.exit ], [ false, %94 ], [ false, %.loopexit205 ], [ false, %121 ]
   %.0143200 = phi ptr [ null, %merge_read_packet.exit.thread ], [ %.0143, %78 ], [ null, %merge_read_packet.exit ], [ %.0143, %94 ], [ %.0143, %.loopexit205 ], [ %.0143, %121 ]
   %.1150 = phi i32 [ %.0149.ph, %merge_read_packet.exit.thread ], [ %.0149.ph, %78 ], [ %.0149.ph, %merge_read_packet.exit ], [ %85, %94 ], [ %85, %.loopexit205 ], [ %85, %121 ]
+  %or.cond = phi i1 [ true, %merge_read_packet.exit.thread ], [ %77, %78 ], [ %77, %merge_read_packet.exit ], [ false, %94 ], [ false, %.loopexit205 ], [ false, %121 ]
   %.0140 = phi i32 [ 0, %merge_read_packet.exit.thread ], [ 4, %78 ], [ 0, %merge_read_packet.exit ], [ 6, %94 ], [ 5, %121 ], [ 6, %.loopexit205 ]
   br i1 %.not166, label %185, label %map_rec_interface_id.exit.thread299
 
@@ -1509,7 +1509,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   br i1 %or.cond, label %186, label %.loopexit201
 
 186:                                              ; preds = %map_rec_interface_id.exit.thread299.thread, %map_rec_interface_id.exit.thread299, %185
-  %.0143200307312 = phi ptr [ %.0143200, %map_rec_interface_id.exit.thread299 ], [ %.0143200, %185 ], [ %.0143, %map_rec_interface_id.exit.thread299.thread ]
+  %.0143200305312 = phi ptr [ %.0143200, %map_rec_interface_id.exit.thread299 ], [ %.0143200, %185 ], [ %.0143, %map_rec_interface_id.exit.thread299.thread ]
   %.0140310311 = phi i32 [ %.0140, %map_rec_interface_id.exit.thread299 ], [ %.0140, %185 ], [ 1, %map_rec_interface_id.exit.thread299.thread ]
   %187 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %1, i32 noundef 1)
   %.not175 = icmp eq i32 %187, 0
@@ -1570,7 +1570,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   br i1 %exitcond.not, label %.loopexit204, label %.preheader203, !llvm.loop !28
 
 .loopexit204:                                     ; preds = %.loopexit202, %190
-  %.2145 = phi ptr [ %.0143200307312, %190 ], [ %191, %.loopexit202 ]
+  %.2145 = phi ptr [ %.0143200305312, %190 ], [ %191, %.loopexit202 ]
   br i1 %.not172, label %.loopexit201, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit204, %.loopexit

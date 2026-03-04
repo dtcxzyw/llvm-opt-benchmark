@@ -702,7 +702,7 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjEncoder13GetAddedEdgesEv(ptr 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %51, label %._crit_edge.i.i
+  br i1 %.not, label %50, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -808,13 +808,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   store ptr %28, ptr %49, align 8, !tbaa !111
   br label %50
 
-50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %48, %35, %32, %24
-  %.2 = phi i1 [ false, %24 ], [ true, %48 ], [ false, %35 ], [ false, %32 ], [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ]
-  %spec.select = or i1 %.not22, %.2
-  br label %51
-
-51:                                               ; preds = %50, %1
-  %.0 = phi i1 [ true, %1 ], [ %spec.select, %50 ]
+50:                                               ; preds = %24, %32, %35, %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %1
+  %.0 = phi i1 [ true, %1 ], [ false, %24 ], [ true, %48 ], [ false, %35 ], [ false, %32 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ]
   ret i1 %.0
 }
 

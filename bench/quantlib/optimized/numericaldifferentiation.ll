@@ -1375,9 +1375,9 @@ for.body.i4:                                      ; preds = %for.body.i4, %_ZSt1
   %3 = load i8, ptr %arrayidx.i.i9.i, align 1, !tbaa !81, !range !89, !noundef !90
   %loadedv.i.i = trunc nuw i8 %3 to i1
   %4 = sub nsw i64 0, %stride.013.i
-  %mul.i = select i1 %loadedv.i.i, i64 %stride.013.i, i64 %4
+  %spec.select.i = select i1 %loadedv.i.i, i64 %stride.013.i, i64 %4
   %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %2
-  store i64 %mul.i, ptr %arrayidx.i.i, align 8, !tbaa !7
+  store i64 %spec.select.i, ptr %arrayidx.i.i, align 8, !tbaa !7
   %5 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !7
   %arrayidx.i12.i = getelementptr inbounds nuw i64, ptr %extent_list_.ptr, i64 %5
   %6 = load i64, ptr %arrayidx.i12.i, align 8, !tbaa !7
@@ -1463,7 +1463,7 @@ _ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i: ; preds = 
   br i1 %15, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i9
 
 for.body.i9:                                      ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i, %for.inc.i
-  %n.09.i = phi i64 [ %inc.i14, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
+  %n.09.i = phi i64 [ %inc.i13, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
   %offset.18.i = phi i64 [ %offset.2.i, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
   %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr %ascending_.i.i, i64 %n.09.i
   %16 = load i8, ptr %arrayidx.i.i.i10, align 1, !tbaa !81, !range !89, !noundef !90
@@ -1476,15 +1476,15 @@ if.then3.i:                                       ; preds = %for.body.i9
   %sub.i = add i64 %17, -1
   %arrayidx.i7.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %n.09.i
   %18 = load i64, ptr %arrayidx.i7.i, align 8, !tbaa !7
-  %mul.i13 = mul i64 %sub.i, %18
-  %sub6.i = sub i64 %offset.18.i, %mul.i13
+  %mul.i = mul i64 %sub.i, %18
+  %sub6.i = sub i64 %offset.18.i, %mul.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then3.i, %for.body.i9
   %offset.2.i = phi i64 [ %offset.18.i, %for.body.i9 ], [ %sub6.i, %if.then3.i ]
-  %inc.i14 = add nuw nsw i64 %n.09.i, 1
-  %cmp.not.i15 = icmp eq i64 %inc.i14, 3
-  br i1 %cmp.not.i15, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i9, !llvm.loop !93
+  %inc.i13 = add nuw nsw i64 %n.09.i, 1
+  %cmp.not.i14 = icmp eq i64 %inc.i13, 3
+  br i1 %cmp.not.i14, label %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit, label %for.body.i9, !llvm.loop !93
 
 _ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit: ; preds = %for.inc.i, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i
   %offset.0.i = phi i64 [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ], [ %offset.2.i, %for.inc.i ]

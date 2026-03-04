@@ -2225,11 +2225,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i43:              ; preds = %.lr.ph93.split, %_Z
   %236 = shl nuw i32 1, %235
   %237 = and i32 %234, %236
   %238 = icmp ne i32 %237, 0
+  %239 = or i1 %.03191, %238
   br label %_ZNK8uint_set8containsEj.exit44
 
 _ZNK8uint_set8containsEj.exit44:                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i43, %231
-  %239 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i43 ], [ %238, %231 ]
-  %240 = or i1 %.03191, %239
+  %240 = phi i1 [ %.03191, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i43 ], [ %239, %231 ]
   %241 = getelementptr inbounds nuw i8, ptr %.02892, i64 4
   %.not34 = icmp eq ptr %241, %223
   br i1 %.not34, label %_ZNK8uint_set8containsEj.exit46, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i43

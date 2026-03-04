@@ -260,8 +260,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm15CloneBasicBlockEPKNS_10BasicBloc
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 268435456
   %.not89 = icmp eq i32 %18, 0
-  %.sink129.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink129.sroa.gep130 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink126.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink126.sroa.gep127 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not89, label %33, label %19
 
 19:                                               ; preds = %5
@@ -300,17 +300,17 @@ define dso_local noundef nonnull ptr @_ZN4llvm15CloneBasicBlockEPKNS_10BasicBloc
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
 
 _ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %26, %25
-  %.sink129.sroa.phi = phi ptr [ %.sink129.sroa.gep, %25 ], [ %.sink129.sroa.gep130, %26 ]
-  %.sink128 = phi i64 [ %22, %25 ], [ %.sroa.5.0.i.i, %26 ]
+  %.sink126.sroa.phi = phi ptr [ %.sink126.sroa.gep, %25 ], [ %.sink126.sroa.gep127, %26 ]
+  %.sink125 = phi i64 [ %22, %25 ], [ %.sroa.5.0.i.i, %26 ]
   %.sink.ph = phi i8 [ 1, %25 ], [ %.0.i.i, %26 ]
-  store i64 %.sink128, ptr %.sink129.sroa.phi, align 8, !tbaa !44
+  store i64 %.sink125, ptr %.sink126.sroa.phi, align 8, !tbaa !44
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %19
-  %.sink124 = phi i8 [ %24, %19 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
+  %.sink121 = phi i8 [ %24, %19 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
   %.sink = phi i8 [ 1, %19 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %.sink124, ptr %31, align 8, !tbaa !45
+  store i8 %.sink121, ptr %31, align 8, !tbaa !45
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 %.sink, ptr %32, align 1, !tbaa !45
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(34) %7) #16
@@ -336,18 +336,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
   br label %42
 
-._crit_edge:                                      ; preds = %.thread, %33
-  %.053.lcssa = phi i8 [ 0, %33 ], [ %.154121, %.thread ]
-  %.051.lcssa = phi i8 [ 0, %33 ], [ %.152, %.thread ]
-  %.0.lcssa = phi i8 [ 0, %33 ], [ %.1122, %.thread ]
+._crit_edge:                                      ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread, %33
+  %.053.lcssa = phi i8 [ 0, %33 ], [ %.154118, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
+  %.051.lcssa = phi i8 [ 0, %33 ], [ %.152, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
+  %.0.lcssa = phi i8 [ 0, %33 ], [ %.1119, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %97, label %88
+  br i1 %.not, label %96, label %87
 
-42:                                               ; preds = %.lr.ph, %.thread
-  %.sroa.084.098 = phi ptr [ %.sroa.084.093, %.lr.ph ], [ %.sroa.084.0, %.thread ]
-  %.097 = phi i8 [ 0, %.lr.ph ], [ %.1122, %.thread ]
-  %.05196 = phi i8 [ 0, %.lr.ph ], [ %.152, %.thread ]
-  %.05395 = phi i8 [ 0, %.lr.ph ], [ %.154121, %.thread ]
+42:                                               ; preds = %.lr.ph, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread
+  %.sroa.084.098 = phi ptr [ %.sroa.084.093, %.lr.ph ], [ %.sroa.084.0, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
+  %.097 = phi i8 [ 0, %.lr.ph ], [ %.1119, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
+  %.05196 = phi i8 [ 0, %.lr.ph ], [ %.152, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
+  %.05395 = phi i8 [ 0, %.lr.ph ], [ %.154118, %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread ]
   %43 = getelementptr inbounds i8, ptr %.sroa.084.098, i64 -24
   %44 = call noundef ptr @_ZNK4llvm11Instruction5cloneEv(ptr noundef nonnull align 8 dereferenceable(72) %43) #16
   %45 = getelementptr inbounds i8, ptr %.sroa.084.098, i64 -20
@@ -389,10 +389,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit74
 
 _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %48, %53, %54
-  %.sink127 = phi i8 [ 5, %54 ], [ 5, %53 ], [ %52, %48 ]
-  %.sink126 = phi i8 [ %.0.i.i69, %54 ], [ 1, %53 ], [ 1, %48 ]
-  store i8 %.sink127, ptr %37, align 8, !tbaa !45
-  store i8 %.sink126, ptr %38, align 1, !tbaa !45
+  %.sink124 = phi i8 [ 5, %54 ], [ 5, %53 ], [ %52, %48 ]
+  %.sink123 = phi i8 [ %.0.i.i69, %54 ], [ 1, %53 ], [ 1, %48 ]
+  store i8 %.sink124, ptr %37, align 8, !tbaa !45
+  store i8 %.sink123, ptr %38, align 1, !tbaa !45
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(34) %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
@@ -437,76 +437,76 @@ _ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit:      ; preds = %57, %_ZN4llvm15Valu
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = load i8, ptr %43, align 8, !tbaa !61
   %67 = icmp eq i8 %66, 85
-  br i1 %67, label %68, label %83
+  br i1 %67, label %68, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80
 
 68:                                               ; preds = %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit
   %69 = call noundef zeroext i1 @_ZNK4llvm11Instruction19isDebugOrPseudoInstEv(ptr noundef nonnull align 8 dereferenceable(72) %43) #18
-  br i1 %69, label %.thread, label %70
+  br i1 %69, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread, label %70
 
 70:                                               ; preds = %68
   %71 = load i32, ptr %45, align 4
   %72 = and i32 %71, 536870912
   %.not.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80, label %_ZNK4llvm11Instruction11hasMetadataEj.exit
+  br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split, label %_ZNK4llvm11Instruction11hasMetadataEj.exit
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %70
   %73 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %43, i32 noundef 34) #16
   %74 = icmp ne ptr %73, null
   %75 = zext i1 %74 to i8
   %.pre = load i32, ptr %45, align 4
-  %.pre109 = and i32 %.pre, 536870912
+  %.pre108 = and i32 %.pre, 536870912
   %76 = or i8 %.05395, %75
-  %77 = icmp eq i32 %.pre109, 0
-  br i1 %77, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80, label %78
+  %77 = icmp eq i32 %.pre108, 0
+  br i1 %77, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split, label %78
 
 78:                                               ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit
   %79 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %43, i32 noundef 35) #16
   %80 = icmp ne ptr %79, null
   %81 = zext i1 %80 to i8
   %82 = or i8 %76, %81
+  br label %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split
+
+_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split: ; preds = %70, %_ZNK4llvm11Instruction11hasMetadataEj.exit, %78
+  %.154.ph = phi i8 [ %76, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ %82, %78 ], [ %.05395, %70 ]
+  %.pr = load i8, ptr %43, align 8, !tbaa !61
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit80
 
-_ZNK4llvm11Instruction11hasMetadataEj.exit80:     ; preds = %70, %_ZNK4llvm11Instruction11hasMetadataEj.exit, %78
-  %.0.i.i77117 = phi i8 [ %76, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ %82, %78 ], [ %.05395, %70 ]
-  %.pre108 = load i8, ptr %43, align 8, !tbaa !61
-  br label %83
+_ZNK4llvm11Instruction11hasMetadataEj.exit80:     ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit
+  %83 = phi i8 [ %.pr, %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split ], [ %66, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ]
+  %.154 = phi i8 [ %.154.ph, %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split ], [ %.05395, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ]
+  %.1 = phi i8 [ 1, %_ZNK4llvm11Instruction11hasMetadataEj.exit80thread-pre-split ], [ %.097, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ]
+  %.not92 = icmp eq i8 %83, 60
+  br i1 %.not92, label %84, label %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread
 
-83:                                               ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit80, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit
-  %84 = phi i8 [ %66, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ], [ %.pre108, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ]
-  %.154 = phi i8 [ %.05395, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ], [ %.0.i.i77117, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ]
-  %.1 = phi i8 [ %.097, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit ], [ 1, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ]
-  %.not92 = icmp eq i8 %84, 60
-  br i1 %.not92, label %85, label %.thread
+84:                                               ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit80
+  %85 = call noundef zeroext i1 @_ZNK4llvm10AllocaInst14isStaticAllocaEv(ptr noundef nonnull align 8 dereferenceable(80) %43) #16
+  %spec.select = select i1 %85, i8 %.05196, i8 1
+  br label %_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread
 
-85:                                               ; preds = %83
-  %86 = call noundef zeroext i1 @_ZNK4llvm10AllocaInst14isStaticAllocaEv(ptr noundef nonnull align 8 dereferenceable(80) %43) #16
-  %spec.select = select i1 %86, i8 %.05196, i8 1
-  br label %.thread
-
-.thread:                                          ; preds = %68, %85, %83
-  %.1122 = phi i8 [ %.1, %85 ], [ %.1, %83 ], [ %.097, %68 ]
-  %.154121 = phi i8 [ %.154, %85 ], [ %.154, %83 ], [ %.05395, %68 ]
-  %.152 = phi i8 [ %spec.select, %85 ], [ %.05196, %83 ], [ %.05196, %68 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.084.098, i64 8
-  %.sroa.084.0 = load ptr, ptr %87, align 8, !tbaa !46
+_ZNK4llvm11Instruction11hasMetadataEj.exit80.thread: ; preds = %68, %84, %_ZNK4llvm11Instruction11hasMetadataEj.exit80
+  %.1119 = phi i8 [ %.1, %84 ], [ %.1, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ], [ %.097, %68 ]
+  %.154118 = phi i8 [ %.154, %84 ], [ %.154, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ], [ %.05395, %68 ]
+  %.152 = phi i8 [ %spec.select, %84 ], [ %.05196, %_ZNK4llvm11Instruction11hasMetadataEj.exit80 ], [ %.05196, %68 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.084.098, i64 8
+  %.sroa.084.0 = load ptr, ptr %86, align 8, !tbaa !46
   %.not90 = icmp eq ptr %.sroa.084.0, %35
   br i1 %.not90, label %._crit_edge, label %42
 
-88:                                               ; preds = %._crit_edge
-  %89 = load i8, ptr %4, align 8, !tbaa !62, !range !31, !noundef !32
-  %90 = or i8 %89, %.0.lcssa
-  store i8 %90, ptr %4, align 8, !tbaa !62
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %92 = load i8, ptr %91, align 1, !tbaa !71, !range !31, !noundef !32
-  %93 = or i8 %92, %.053.lcssa
-  store i8 %93, ptr %91, align 1, !tbaa !71
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %95 = load i8, ptr %94, align 2, !tbaa !72, !range !31, !noundef !32
-  %96 = or i8 %95, %.051.lcssa
-  store i8 %96, ptr %94, align 2, !tbaa !72
-  br label %97
+87:                                               ; preds = %._crit_edge
+  %88 = load i8, ptr %4, align 8, !tbaa !62, !range !31, !noundef !32
+  %89 = or i8 %88, %.0.lcssa
+  store i8 %89, ptr %4, align 8, !tbaa !62
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %91 = load i8, ptr %90, align 1, !tbaa !71, !range !31, !noundef !32
+  %92 = or i8 %91, %.053.lcssa
+  store i8 %92, ptr %90, align 1, !tbaa !71
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %94 = load i8, ptr %93, align 2, !tbaa !72, !range !31, !noundef !32
+  %95 = or i8 %94, %.051.lcssa
+  store i8 %95, ptr %93, align 2, !tbaa !72
+  br label %96
 
-97:                                               ; preds = %88, %._crit_edge
+96:                                               ; preds = %87, %._crit_edge
   ret ptr %12
 }
 
@@ -6259,7 +6259,7 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %390
   %402 = or i8 %396, %401
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit217
 
-_ZNK4llvm11Instruction11hasMetadataEj.exit217:    ; preds = %398, %_ZNK4llvm11Instruction11hasMetadataEj.exit, %390, %388, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit212
+_ZNK4llvm11Instruction11hasMetadataEj.exit217:    ; preds = %390, %398, %_ZNK4llvm11Instruction11hasMetadataEj.exit, %388, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit212
   %.3151 = phi i8 [ %.0148449, %388 ], [ %.0148449, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit212 ], [ %396, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ %402, %398 ], [ %.0148449, %390 ]
   %.3 = phi i8 [ %.0138452, %388 ], [ %.0138452, %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit212 ], [ 1, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ 1, %398 ], [ 1, %390 ]
   %.val.val = load i8, ptr %62, align 8, !tbaa !3, !range !31, !noundef !32
@@ -6409,11 +6409,11 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZNSt6vectorIN4llvm
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.threadthread-pre-split
 
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.threadthread-pre-split: ; preds = %"_ZZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EEENK3$_0clEPS8_SA_.exit", %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit, %_ZN4llvm15ValueHandleBaseD2Ev.exit
-  %.pr540 = load i8, ptr %116, align 8, !tbaa !61
+  %.pr539 = load i8, ptr %116, align 8, !tbaa !61
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.threadthread-pre-split, %412
-  %450 = phi i8 [ %.pr540, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.threadthread-pre-split ], [ %415, %412 ]
+  %450 = phi i8 [ %.pr539, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.threadthread-pre-split ], [ %415, %412 ]
   %.not443 = icmp eq i8 %450, 60
   br i1 %.not443, label %451, label %456
 

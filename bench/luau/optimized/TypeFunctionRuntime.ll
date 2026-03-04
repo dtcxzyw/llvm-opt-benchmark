@@ -2964,6 +2964,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
   %93 = add nuw nsw i64 %91, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %88, ptr noundef nonnull align 8 dereferenceable(1) %70, i64 %93, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %70, ptr %9, align 8, !tbaa !15
   store i64 0, ptr %84, align 8, !tbaa !18
   store i8 0, ptr %70, align 8, !tbaa !19
   store i32 1, ptr %7, align 8, !tbaa !53
@@ -6940,6 +6941,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
   call void @llvm.assume(i1 %63)
   %64 = add nuw nsw i64 %62, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, ptr noundef nonnull align 8 dereferenceable(1) %30, i64 %64, i1 false)
+  store ptr %30, ptr %7, align 8, !tbaa !15
   store i64 0, ptr %31, align 8, !tbaa !18
   store i8 0, ptr %30, align 8, !tbaa !19
   store i32 1, ptr %5, align 8, !tbaa !53
@@ -7332,6 +7334,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
   call void @llvm.assume(i1 %229)
   %230 = add nuw nsw i64 %228, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %199, ptr noundef nonnull align 8 dereferenceable(1) %196, i64 %230, i1 false)
+  store ptr %196, ptr %13, align 8, !tbaa !15
   store i64 0, ptr %197, align 8, !tbaa !18
   store i8 0, ptr %196, align 8, !tbaa !19
   store i32 1, ptr %11, align 8, !tbaa !53
@@ -10970,7 +10973,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
   %4 = load i32, ptr %1, align 8, !tbaa !31
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %6, label %47
+  br i1 %.not, label %6, label %44
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10982,14 +10985,14 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
   %10 = load i32, ptr %7, align 8, !tbaa !105
   %11 = load i32, ptr %8, align 8, !tbaa !105
   %12 = icmp eq i32 %10, %11
-  br label %47
+  br label %44
 
 13:                                               ; preds = %6
   %14 = icmp ult i32 %4, 4
-  br i1 %14, label %47, label %15
+  br i1 %14, label %44, label %15
 
 15:                                               ; preds = %13
-  switch i32 %4, label %30 [
+  switch i32 %4, label %44 [
     i32 4, label %16
     i32 5, label %18
     i32 6, label %20
@@ -10997,67 +11000,59 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
     i32 9, label %24
     i32 8, label %26
     i32 10, label %28
+    i32 11, label %30
   ]
 
 16:                                               ; preds = %15
   %17 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_25TypeFunctionSingletonTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  br label %47
+  br label %44
 
 18:                                               ; preds = %15
   %19 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionUnionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  br label %47
+  br label %44
 
 20:                                               ; preds = %15
   %21 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_28TypeFunctionIntersectionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  br label %47
+  br label %44
 
 22:                                               ; preds = %15
   %23 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  br label %47
+  br label %44
 
 24:                                               ; preds = %15
   %25 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionTableTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
-  br label %47
+  br label %44
 
 26:                                               ; preds = %15
   %27 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
-  br label %47
+  br label %44
 
 28:                                               ; preds = %15
   %29 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionClassTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %8)
-  br label %47
+  br label %44
 
 30:                                               ; preds = %15
-  %31 = icmp eq i32 %4, 11
-  br i1 %31, label %32, label %46
+  %31 = load i8, ptr %7, align 8, !tbaa !95, !range !101, !noundef !102
+  %32 = load i8, ptr %8, align 8, !tbaa !95, !range !101, !noundef !102
+  %33 = icmp eq i8 %31, %32
+  br i1 %33, label %34, label %44
 
-32:                                               ; preds = %30
-  %33 = load i8, ptr %7, align 8, !tbaa !95, !range !101, !noundef !102
-  %34 = load i8, ptr %8, align 8, !tbaa !95, !range !101, !noundef !102
-  %35 = icmp eq i8 %33, %34
-  br i1 %35, label %36, label %46
-
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 9
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %36 = load i8, ptr %35, align 1, !tbaa !97, !range !101, !noundef !102
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %38 = load i8, ptr %37, align 1, !tbaa !97, !range !101, !noundef !102
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !97, !range !101, !noundef !102
-  %41 = icmp eq i8 %38, %40
-  br i1 %41, label %42, label %46
+  %39 = icmp eq i8 %36, %38
+  br i1 %39, label %40, label %44
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %45 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %44) #27
-  br label %46
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %43 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42) #27
+  br label %44
 
-46:                                               ; preds = %30, %32, %36, %42
-  %.9 = phi i1 [ %45, %42 ], [ false, %36 ], [ false, %32 ], [ undef, %30 ]
-  %spec.select = and i1 %31, %.9
-  br label %47
-
-47:                                               ; preds = %13, %28, %26, %24, %22, %20, %18, %16, %9, %46, %3
-  %.0 = phi i1 [ %12, %9 ], [ false, %3 ], [ true, %13 ], [ %17, %16 ], [ %19, %18 ], [ %spec.select, %46 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+44:                                               ; preds = %15, %13, %40, %34, %30, %28, %26, %24, %22, %20, %18, %16, %9, %3
+  %.0 = phi i1 [ %12, %9 ], [ false, %3 ], [ true, %13 ], [ false, %15 ], [ false, %30 ], [ %17, %16 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %43, %40 ], [ false, %34 ]
   ret i1 %.0
 }
 

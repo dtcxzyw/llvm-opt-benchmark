@@ -9367,7 +9367,7 @@ define hidden void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..
   %36 = load i64, ptr %35, align 8, !alias.scope !1228, !noalias !1231
   %.not1.i.i = icmp eq i64 %36, 0
   %or.cond.i.i = select i1 %.not.i.i, i1 %.not1.i.i, i1 false
-  br i1 %or.cond.i.i, label %.invoke309, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17h7c446ea03506871cE.exit"
+  br i1 %or.cond.i.i, label %.invoke308, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17h7c446ea03506871cE.exit"
 
 .body102:                                         ; preds = %.loopexit, %.loopexit.split-lp, %93, %47, %61, %76, %72, %205, %209, %194, %183, %223
   %.2 = phi i8 [ 1, %205 ], [ 1, %223 ], [ 0, %93 ], [ 1, %194 ], [ 1, %183 ], [ 1, %209 ], [ 0, %72 ], [ 0, %76 ], [ 0, %61 ], [ 0, %47 ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
@@ -9380,7 +9380,7 @@ define hidden void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..
           cleanup
   br label %.body102
 
-.loopexit.split-lp:                               ; preds = %.invoke312, %.invoke310, %.invoke309
+.loopexit.split-lp:                               ; preds = %.invoke311, %.invoke309, %.invoke308
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -9616,13 +9616,13 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
 103:                                              ; preds = %.thread186
   %104 = load i64, ptr %33, align 8, !range !559, !alias.scope !1254, !noalias !1257, !noundef !5
   %105 = icmp eq i64 %104, -9223372036854775808
-  br i1 %105, label %.invoke309, label %127
+  br i1 %105, label %.invoke308, label %127
 
 106:                                              ; preds = %.thread186
   call void @llvm.experimental.noalias.scope.decl(metadata !1260)
   %107 = load i64, ptr %33, align 8, !range !559, !alias.scope !1260, !noalias !1263, !noundef !5
   %108 = icmp eq i64 %107, -9223372036854775808
-  br i1 %108, label %.invoke309, label %109
+  br i1 %108, label %.invoke308, label %109
 
 109:                                              ; preds = %106
   call void @llvm.experimental.noalias.scope.decl(metadata !1266)
@@ -9636,30 +9636,30 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %117 = load ptr, ptr %116, align 8, !alias.scope !1273, !noalias !1276, !nonnull !5, !noundef !5
   %118 = icmp ugt i64 %113, %115
-  br i1 %118, label %.invoke310, label %119
+  br i1 %118, label %.invoke309, label %119
 
 119:                                              ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %121 = load i64, ptr %120, align 8, !alias.scope !1273, !noalias !1276, !noundef !5
   %122 = icmp ugt i64 %115, %121
-  br i1 %122, label %.invoke312, label %153
+  br i1 %122, label %.invoke311, label %153
 
-.invoke310:                                       ; preds = %127, %109
+.invoke309:                                       ; preds = %127, %109
   %123 = phi i64 [ %113, %109 ], [ %134, %127 ]
   %124 = phi i64 [ %115, %109 ], [ %136, %127 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %123, i64 noundef %124, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.793bbfb63c8dcecf5e3f5a1d1c94ad0f.77.llvm.10393531995006364539) #32
-          to label %.cont311 unwind label %.loopexit.split-lp
+          to label %.cont310 unwind label %.loopexit.split-lp
 
-.cont311:                                         ; preds = %.invoke310
+.cont310:                                         ; preds = %.invoke309
   unreachable
 
-.invoke312:                                       ; preds = %140, %119
+.invoke311:                                       ; preds = %140, %119
   %125 = phi i64 [ %115, %119 ], [ %136, %140 ]
   %126 = phi i64 [ %121, %119 ], [ %142, %140 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %125, i64 noundef %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.793bbfb63c8dcecf5e3f5a1d1c94ad0f.77.llvm.10393531995006364539) #32
-          to label %.cont313 unwind label %.loopexit.split-lp
+          to label %.cont312 unwind label %.loopexit.split-lp
 
-.cont313:                                         ; preds = %.invoke312
+.cont312:                                         ; preds = %.invoke311
   unreachable
 
 127:                                              ; preds = %103
@@ -9678,13 +9678,13 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %138 = load ptr, ptr %137, align 8, !alias.scope !1298, !noalias !1301, !nonnull !5, !noundef !5
   %139 = icmp ugt i64 %134, %136
-  br i1 %139, label %.invoke310, label %140
+  br i1 %139, label %.invoke309, label %140
 
 140:                                              ; preds = %127
   %141 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %142 = load i64, ptr %141, align 8, !alias.scope !1298, !noalias !1301, !noundef !5
   %143 = icmp ugt i64 %136, %142
-  br i1 %143, label %.invoke312, label %144
+  br i1 %143, label %.invoke311, label %144
 
 144:                                              ; preds = %140
   %145 = sub nuw i64 %136, %134
@@ -9747,16 +9747,16 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
   %.sroa.0.0.copyload = load i64, ptr %19, align 8
   store i64 -9223372036854775808, ptr %19, align 8
   %175 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %175, label %.invoke309, label %179
+  br i1 %175, label %.invoke308, label %179
 
-.invoke309:                                       ; preds = %31, %173, %106, %103
+.invoke308:                                       ; preds = %31, %173, %106, %103
   %176 = phi ptr [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.7.llvm.18092150996463083177, %106 ], [ @anon.6903d6ba5bf63af66eb3321e664966d3.63, %173 ], [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.7.llvm.18092150996463083177, %103 ], [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.78.llvm.18092150996463083177, %31 ]
   %177 = phi i64 [ 43, %106 ], [ 43, %173 ], [ 43, %103 ], [ 36, %31 ]
   %178 = phi ptr [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.77.llvm.18092150996463083177, %106 ], [ @anon.6903d6ba5bf63af66eb3321e664966d3.66, %173 ], [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.76.llvm.18092150996463083177, %103 ], [ @anon.46014f5de8b8ca308edbff6e9cb5dbe3.79.llvm.18092150996463083177, %31 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %176, i64 noundef %177, ptr noalias noundef readonly align 8 dereferenceable(24) %178) #32
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke309
+.cont:                                            ; preds = %.invoke308
   unreachable
 
 179:                                              ; preds = %173

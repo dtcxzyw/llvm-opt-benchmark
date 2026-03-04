@@ -728,11 +728,12 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h53e0696
   %3 = load i32, ptr %1, align 4, !range !74, !alias.scope !75, !noundef !7
   %4 = add nsw i32 %3, -48
   %.0.i = icmp ult i32 %4, 10
-  %5 = and i32 %3, 2097119
-  %6 = add nsw i32 %5, -65
-  %7 = icmp ult i32 %6, 26
-  %8 = or i1 %.0.i, %7
-  ret i1 %8
+  %5 = icmp samesign ugt i32 %3, 64
+  %6 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i = select i1 %6, i32 123, i32 91
+  %spec.select.i = icmp samesign ult i32 %3, %spec.select.v.i
+  %.04.i = select i1 %5, i1 %spec.select.i, i1 %.0.i
+  ret i1 %.04.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -740,11 +741,12 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h5b9f4d5
   %3 = load i32, ptr %1, align 4, !range !74, !alias.scope !78, !noundef !7
   %4 = add nsw i32 %3, -48
   %.0.i = icmp ult i32 %4, 10
-  %5 = and i32 %3, 2097119
-  %6 = add nsw i32 %5, -65
-  %7 = icmp ult i32 %6, 6
-  %8 = or i1 %.0.i, %7
-  ret i1 %8
+  %5 = icmp samesign ugt i32 %3, 64
+  %6 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i = select i1 %6, i32 103, i32 71
+  %spec.select.i = icmp samesign ult i32 %3, %spec.select.v.i
+  %.04.i = select i1 %5, i1 %spec.select.i, i1 %.0.i
+  ret i1 %.04.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -768,11 +770,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$co
   %3 = load i32, ptr %1, align 4, !range !74, !alias.scope !89, !noundef !7
   %4 = add nsw i32 %3, -48
   %.0.i.i = icmp ult i32 %4, 10
-  %5 = and i32 %3, 2097119
-  %6 = add nsw i32 %5, -65
-  %7 = icmp ult i32 %6, 26
-  %8 = or i1 %.0.i.i, %7
-  ret i1 %8
+  %5 = icmp samesign ugt i32 %3, 64
+  %6 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i.i = select i1 %6, i32 123, i32 91
+  %spec.select.i.i = icmp samesign ult i32 %3, %spec.select.v.i.i
+  %.04.i.i = select i1 %5, i1 %spec.select.i.i, i1 %.0.i.i
+  ret i1 %.04.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -780,11 +783,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$co
   %3 = load i32, ptr %1, align 4, !range !74, !alias.scope !94, !noundef !7
   %4 = add nsw i32 %3, -48
   %.0.i.i = icmp ult i32 %4, 10
-  %5 = and i32 %3, 2097119
-  %6 = add nsw i32 %5, -65
-  %7 = icmp ult i32 %6, 6
-  %8 = or i1 %.0.i.i, %7
-  ret i1 %8
+  %5 = icmp samesign ugt i32 %3, 64
+  %6 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i.i = select i1 %6, i32 103, i32 71
+  %spec.select.i.i = icmp samesign ult i32 %3, %spec.select.v.i.i
+  %.04.i.i = select i1 %5, i1 %spec.select.i.i, i1 %.0.i.i
+  ret i1 %.04.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -797,26 +801,30 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$17is_ascii_hexdigit17h9156661adc8e0480E.llvm.16628960515194932193"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
-  %2 = load i32, ptr %0, align 4, !range !74, !noundef !7
-  %3 = add nsw i32 %2, -48
-  %.0 = icmp ult i32 %3, 10
-  %4 = and i32 %2, 2097119
-  %5 = add nsw i32 %4, -65
-  %6 = icmp ult i32 %5, 6
-  %7 = or i1 %.0, %6
-  ret i1 %7
+.thread:
+  %1 = load i32, ptr %0, align 4, !range !74, !noundef !7
+  %2 = add nsw i32 %1, -48
+  %.0 = icmp ult i32 %2, 10
+  %3 = icmp samesign ugt i32 %1, 64
+  %4 = icmp samesign ugt i32 %1, 96
+  %spec.select.v = select i1 %4, i32 103, i32 71
+  %spec.select = icmp samesign ult i32 %1, %spec.select.v
+  %.04 = select i1 %3, i1 %spec.select, i1 %.0
+  ret i1 %.04
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$21is_ascii_alphanumeric17hef65caaa41f603afE.llvm.16628960515194932193"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
-  %2 = load i32, ptr %0, align 4, !range !74, !noundef !7
-  %3 = add nsw i32 %2, -48
-  %.0 = icmp ult i32 %3, 10
-  %4 = and i32 %2, 2097119
-  %5 = add nsw i32 %4, -65
-  %6 = icmp ult i32 %5, 26
-  %7 = or i1 %.0, %6
-  ret i1 %7
+.thread:
+  %1 = load i32, ptr %0, align 4, !range !74, !noundef !7
+  %2 = add nsw i32 %1, -48
+  %.0 = icmp ult i32 %2, 10
+  %3 = icmp samesign ugt i32 %1, 64
+  %4 = icmp samesign ugt i32 %1, 96
+  %spec.select.v = select i1 %4, i32 123, i32 91
+  %spec.select = icmp samesign ult i32 %1, %spec.select.v
+  %.04 = select i1 %3, i1 %spec.select, i1 %.0
+  ret i1 %.04
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable

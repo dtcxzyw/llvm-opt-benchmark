@@ -6494,29 +6494,29 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %79
 92:                                               ; preds = %87
   %93 = add i16 %91, -17
   %spec.select.i.i230 = icmp ult i16 %93, 174
-  br i1 %spec.select.i.i230, label %95, label %98
+  br i1 %spec.select.i.i230, label %95, label %99
 
 _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %87
   %94 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #24
-  br i1 %94, label %95, label %98
+  br i1 %94, label %95, label %99
 
 95:                                               ; preds = %92, %_ZNK4llvm3EVT8isVectorEv.exit
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i231 = load i16, ptr %96, align 8, !tbaa !3
   %97 = add i16 %.sroa.0.0.copyload.i231, -191
   %spec.select.i = icmp ult i16 %97, -174
-  br label %98
+  %98 = or i1 %77, %spec.select.i
+  br label %99
 
-98:                                               ; preds = %92, %95, %_ZNK4llvm3EVT8isVectorEv.exit
-  %99 = phi i1 [ false, %_ZNK4llvm3EVT8isVectorEv.exit ], [ %spec.select.i, %95 ], [ false, %92 ]
-  %100 = and i64 %.sroa.0295.0.copyload, 8589934592
-  %101 = icmp eq i64 %100, 0
-  %102 = or i1 %77, %99
-  %or.cond5 = or i1 %76, %102
-  %or.cond308 = select i1 %101, i1 true, i1 %or.cond5
+99:                                               ; preds = %92, %95, %_ZNK4llvm3EVT8isVectorEv.exit
+  %100 = phi i1 [ %77, %_ZNK4llvm3EVT8isVectorEv.exit ], [ %98, %95 ], [ %77, %92 ]
+  %101 = and i64 %.sroa.0295.0.copyload, 8589934592
+  %102 = icmp eq i64 %101, 0
+  %or.cond5 = or i1 %76, %100
+  %or.cond308 = select i1 %102, i1 true, i1 %or.cond5
   br i1 %or.cond308, label %.thread304, label %103
 
-103:                                              ; preds = %98
+103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %105 = load i32, ptr %104, align 8, !tbaa !684
   %106 = icmp eq i32 %105, 0
@@ -6697,7 +6697,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %131, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %237
 
-.thread304:                                       ; preds = %156, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %98
+.thread304:                                       ; preds = %156, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %99
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %176 = load i16, ptr %11, align 8, !tbaa !7
   %.not.i239 = icmp eq i16 %176, 0
@@ -12920,7 +12920,7 @@ _ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread: ; preds = %1441,
 
 1460:                                             ; preds = %_ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread
   %1461 = zext i32 %.0872 to i64
-  br label %1464
+  br label %_ZL15canGuaranteeTCOj.exit1212
 
 1462:                                             ; preds = %_ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread
   switch i32 %89, label %1463 [
@@ -12933,19 +12933,14 @@ _ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread: ; preds = %1441,
   ]
 
 1463:                                             ; preds = %1462
+  %1464 = select i1 %132, i64 4, i64 0
   br label %_ZL15canGuaranteeTCOj.exit1212
 
-_ZL15canGuaranteeTCOj.exit1212:                   ; preds = %1462, %1462, %1462, %1462, %1462, %1462, %1463
-  %.not35 = phi i1 [ false, %1462 ], [ true, %1463 ], [ false, %1462 ], [ false, %1462 ], [ false, %1462 ], [ false, %1462 ], [ false, %1462 ]
-  %or.cond37 = and i1 %132, %.not35
-  %spec.select936 = select i1 %or.cond37, i64 4, i64 0
-  br label %1464
-
-1464:                                             ; preds = %_ZL15canGuaranteeTCOj.exit1212, %1460
-  %.0889 = phi i64 [ %1461, %1460 ], [ %spec.select936, %_ZL15canGuaranteeTCOj.exit1212 ]
+_ZL15canGuaranteeTCOj.exit1212:                   ; preds = %1463, %1462, %1462, %1462, %1462, %1462, %1462, %1460
+  %.0889 = phi i64 [ %1461, %1460 ], [ 0, %1462 ], [ %1464, %1463 ], [ 0, %1462 ], [ 0, %1462 ], [ 0, %1462 ], [ 0, %1462 ], [ 0, %1462 ]
   br i1 %.0, label %1468, label %1465
 
-1465:                                             ; preds = %1464
+1465:                                             ; preds = %_ZL15canGuaranteeTCOj.exit1212
   %1466 = zext i32 %.0872 to i64
   store ptr %.sroa.01423.10, ptr %80, align 8, !tbaa !625
   %.sroa.131276.0..sroa_idx1279 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -12955,9 +12950,9 @@ _ZL15canGuaranteeTCOj.exit1212:                   ; preds = %1462, %1462, %1462,
   %.fca.1.extract54 = extractvalue { ptr, i32 } %1467, 1
   br label %1468
 
-1468:                                             ; preds = %1465, %1464
-  %.sroa.01273.2 = phi ptr [ %.sroa.01423.10, %1464 ], [ %.fca.0.extract53, %1465 ]
-  %.sroa.39.11 = phi i32 [ %.sroa.39.10, %1464 ], [ %.fca.1.extract54, %1465 ]
+1468:                                             ; preds = %1465, %_ZL15canGuaranteeTCOj.exit1212
+  %.sroa.01273.2 = phi ptr [ %.sroa.01423.10, %_ZL15canGuaranteeTCOj.exit1212 ], [ %.fca.0.extract53, %1465 ]
+  %.sroa.39.11 = phi i32 [ %.sroa.39.10, %_ZL15canGuaranteeTCOj.exit1212 ], [ %.fca.1.extract54, %1465 ]
   %1469 = icmp eq i32 %89, 21
   br i1 %1469, label %1470, label %.loopexit
 

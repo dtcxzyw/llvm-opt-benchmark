@@ -734,54 +734,54 @@ set_guc_source.exit:                              ; preds = %122
 201:                                              ; preds = %._crit_edge270
   %202 = call i64 @GetCurrentTimestamp() #29
   store i64 %202, ptr @PgReloadTime, align 8
-  br label %203
+  br i1 %.6.lcssa, label %.thread291, label %.thread223
 
-203:                                              ; preds = %11, %3, %201, %._crit_edge248
-  %.0174 = phi ptr [ %.2176, %._crit_edge248 ], [ %.4178.lcssa, %201 ], [ @.str, %11 ], [ %7, %3 ]
-  %.0171 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %11 ], [ false, %3 ]
-  %.0170 = phi i1 [ true, %._crit_edge248 ], [ %.6.lcssa, %201 ], [ true, %11 ], [ true, %3 ]
-  %or.cond26 = and i1 %1, %.0170
-  br i1 %or.cond26, label %204, label %.thread223
+203:                                              ; preds = %11, %3, %._crit_edge248
+  %.0174 = phi ptr [ %.2176, %._crit_edge248 ], [ %7, %3 ], [ @.str, %11 ]
+  br i1 %1, label %204, label %.thread223
 
 204:                                              ; preds = %203
   %205 = icmp eq i32 %0, 1
-  br i1 %205, label %206, label %210
+  br i1 %205, label %207, label %216
 
-206:                                              ; preds = %204
-  %207 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
-  %208 = call i32 @errcode(i32 noundef 22) #29
-  %209 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.0174) #29
+.thread291:                                       ; preds = %201
+  %206 = icmp eq i32 %0, 1
+  br i1 %206, label %207, label %211
+
+207:                                              ; preds = %.thread291, %204
+  %.0174289295 = phi ptr [ %.4178.lcssa, %.thread291 ], [ %.0174, %204 ]
+  %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
+  %209 = call i32 @errcode(i32 noundef 22) #29
+  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.0174289295) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   unreachable
 
-210:                                              ; preds = %204
-  %211 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #29
-  br i1 %.0171, label %212, label %216
+211:                                              ; preds = %.thread291
+  %212 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #29
+  br i1 %212, label %213, label %.thread223
 
-212:                                              ; preds = %210
-  br i1 %211, label %213, label %.thread223
-
-213:                                              ; preds = %212
+213:                                              ; preds = %211
   %214 = call i32 @errcode(i32 noundef 22) #29
-  %215 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %.0174) #29
+  %215 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %.4178.lcssa) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 617, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   br label %.thread223
 
-216:                                              ; preds = %210
-  br i1 %211, label %217, label %.thread223
+216:                                              ; preds = %204
+  %217 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #29
+  br i1 %217, label %218, label %.thread223
 
-217:                                              ; preds = %216
-  %218 = call i32 @errcode(i32 noundef 22) #29
-  %219 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %.0174) #29
+218:                                              ; preds = %216
+  %219 = call i32 @errcode(i32 noundef 22) #29
+  %220 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %.0174) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 622, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   br label %.thread223
 
-.thread223:                                       ; preds = %216, %217, %212, %213, %.thread, %._crit_edge270, %203
-  %220 = load ptr, ptr %4, align 8
+.thread223:                                       ; preds = %216, %218, %211, %213, %201, %.thread, %._crit_edge270, %203
+  %221 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %220
+  ret ptr %221
 }
 
 declare zeroext i1 @ParseConfigFile(ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

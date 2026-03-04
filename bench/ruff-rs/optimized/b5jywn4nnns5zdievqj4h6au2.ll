@@ -7943,14 +7943,14 @@ define hidden noundef zeroext i1 @_ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case
   %10 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !290, !noalias !293, !noundef !27
   %11 = add i8 %10, -65
   %12 = icmp ult i8 %11, 26
-  %.sroa.04.0.i = select i1 %12, i8 32, i8 0
-  %13 = or i8 %.sroa.04.0.i, %10
+  %13 = select i1 %12, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %13, %10
   %14 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !293, !noalias !290, !noundef !27
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %.sroa.05.0.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.sroa.05.0.i, %14
-  %18 = icmp eq i8 %13, %17
+  %17 = select i1 %16, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %17, %14
+  %18 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %18, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit": ; preds = %.preheader.i, %6, %4

@@ -10862,43 +10862,46 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55, %
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %68 = icmp sgt i32 %.sroa.069.0.extract.trunc, 0
-  br i1 %68, label %.lr.ph168.split.us, label %.loopexit
+  br i1 %68, label %.lr.ph168.split.us.preheader, label %.loopexit
 
-.lr.ph168.split.us:                               ; preds = %.lr.ph168, %._crit_edge161.us
-  %.081167.us = phi i32 [ %90, %._crit_edge161.us ], [ 0, %.lr.ph168 ]
-  %.083166.us = phi i32 [ %110, %._crit_edge161.us ], [ 0, %.lr.ph168 ]
-  %.sroa.6.0165.us = phi i32 [ %99, %._crit_edge161.us ], [ 0, %.lr.ph168 ]
-  %.sroa.0130.0164.us = phi i32 [ %95, %._crit_edge161.us ], [ 0, %.lr.ph168 ]
-  %69 = urem i32 %.083166.us, 7
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN2cv21drawChessboardCornersERKNS_17_InputOutputArrayENS_5Size_IiEERKNS_11_InputArrayEbE11line_colors, i64 %70
+.lr.ph168.split.us.preheader:                     ; preds = %.lr.ph168
+  %69 = fmul nnan double %switch.select98, 2.000000e+02
+  br label %.lr.ph168.split.us
+
+.lr.ph168.split.us:                               ; preds = %.lr.ph168.split.us.preheader, %._crit_edge161.us
+  %.081167.us = phi i32 [ %90, %._crit_edge161.us ], [ 0, %.lr.ph168.split.us.preheader ]
+  %.083166.us = phi i32 [ %110, %._crit_edge161.us ], [ 0, %.lr.ph168.split.us.preheader ]
+  %.sroa.6.0165.us = phi i32 [ %99, %._crit_edge161.us ], [ 0, %.lr.ph168.split.us.preheader ]
+  %.sroa.0130.0164.us = phi i32 [ %95, %._crit_edge161.us ], [ 0, %.lr.ph168.split.us.preheader ]
+  %70 = urem i32 %.083166.us, 7
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN2cv21drawChessboardCornersERKNS_17_InputOutputArrayENS_5Size_IiEERKNS_11_InputArrayEbE11line_colors, i64 %71
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %72 = load i32, ptr %71, align 16, !tbaa !87
-  %73 = sitofp i32 %72 to double
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !87
-  %76 = sitofp i32 %75 to double
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !87
-  %79 = sitofp i32 %78 to double
-  br i1 %14, label %80, label %.lr.ph160.us
+  %73 = load i32, ptr %72, align 16, !tbaa !87
+  %74 = sitofp i32 %73 to double
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !87
+  %77 = sitofp i32 %76 to double
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %79 = load i32, ptr %78, align 8, !tbaa !87
+  %80 = sitofp i32 %79 to double
+  br i1 %14, label %81, label %.lr.ph160.us
 
-80:                                               ; preds = %.lr.ph168.split.us
+81:                                               ; preds = %.lr.ph168.split.us
   br label %.lr.ph160.us
 
-.lr.ph160.us:                                     ; preds = %80, %.lr.ph168.split.us
-  %81 = phi double [ 2.000000e+02, %80 ], [ 0.000000e+00, %.lr.ph168.split.us ]
-  %82 = phi double [ 2.000000e+02, %80 ], [ %79, %.lr.ph168.split.us ]
-  %83 = phi double [ 2.000000e+02, %80 ], [ %76, %.lr.ph168.split.us ]
-  %84 = phi double [ 2.000000e+02, %80 ], [ %73, %.lr.ph168.split.us ]
-  %85 = fmul nnan double %switch.select98, %84
-  store double %85, ptr %10, align 8, !tbaa !167
-  %86 = fmul nnan double %switch.select98, %83
-  store double %86, ptr %65, align 8, !tbaa !167
-  %87 = fmul nnan double %switch.select98, %82
-  store double %87, ptr %66, align 8, !tbaa !167
-  %88 = fmul nnan double %switch.select98, %81
-  store double %88, ptr %67, align 8, !tbaa !167
+.lr.ph160.us:                                     ; preds = %81, %.lr.ph168.split.us
+  %82 = phi double [ %69, %81 ], [ 0.000000e+00, %.lr.ph168.split.us ]
+  %83 = phi double [ 2.000000e+02, %81 ], [ %80, %.lr.ph168.split.us ]
+  %84 = phi double [ 2.000000e+02, %81 ], [ %77, %.lr.ph168.split.us ]
+  %85 = phi double [ 2.000000e+02, %81 ], [ %74, %.lr.ph168.split.us ]
+  %86 = fmul nnan double %switch.select98, %85
+  store double %86, ptr %10, align 8, !tbaa !167
+  %87 = fmul nnan double %switch.select98, %84
+  store double %87, ptr %65, align 8, !tbaa !167
+  %88 = fmul nnan double %switch.select98, %83
+  store double %88, ptr %66, align 8, !tbaa !167
+  store double %82, ptr %67, align 8, !tbaa !167
   %89 = sext i32 %.081167.us to i64
   %90 = add i32 %.081167.us, %.sroa.069.0.extract.trunc
   br label %91
@@ -10983,12 +10986,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55, %
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %116 = select i1 %14, double 2.000000e+02, double 2.550000e+02
-  %117 = select i1 %14, double 2.000000e+02, double 0.000000e+00
-  %118 = fmul nnan double %switch.select98, %117
+  %116 = fmul nnan double %switch.select98, 2.000000e+02
+  %117 = select i1 %14, double 2.000000e+02, double 2.550000e+02
+  %118 = select i1 %14, double %116, double 0.000000e+00
   store double %118, ptr %9, align 8, !tbaa !167
   store double %118, ptr %113, align 8, !tbaa !167
-  %119 = fmul nnan double %switch.select98, %116
+  %119 = fmul nnan double %switch.select98, %117
   store double %119, ptr %114, align 8, !tbaa !167
   store double %118, ptr %115, align 8, !tbaa !167
   %.not = icmp eq i32 %43, 0

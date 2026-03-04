@@ -2373,12 +2373,12 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db8zoneinfo5inner11CachedZones1
   %46 = load i8, ptr %45, align 1, !alias.scope !211, !noalias !216, !noundef !3
   %47 = add i8 %46, -65
   %48 = icmp ult i8 %47, 26
-  %.sroa.025.0.i.i.i = select i1 %48, i8 32, i8 0
-  %49 = or i8 %.sroa.025.0.i.i.i, %46
+  %49 = select i1 %48, i8 32, i8 0
+  %.sroa.025.0.i.i.i = or i8 %49, %46
   br label %50
 
 50:                                               ; preds = %44, %42
-  %.sroa.615.0.i.i.i = phi i8 [ %49, %44 ], [ undef, %42 ]
+  %.sroa.615.0.i.i.i = phi i8 [ %.sroa.025.0.i.i.i, %44 ], [ undef, %42 ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %1
   br i1 %exitcond.not.i.i.i, label %51, label %52
 
@@ -2387,22 +2387,22 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db8zoneinfo5inner11CachedZones1
   br label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.i"
 
 52:                                               ; preds = %50
-  %exitcond40.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %41
-  br i1 %exitcond40.not.i.i.i, label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.thread.i", label %53
+  %exitcond38.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %41
+  br i1 %exitcond38.not.i.i.i, label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.thread.i", label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i.i
   %55 = load i8, ptr %54, align 1, !alias.scope !217, !noalias !218, !noundef !3
   %56 = add i8 %55, -65
   %57 = icmp ult i8 %56, 26
-  %.sroa.026.0.i.i.i = select i1 %57, i8 32, i8 0
-  %58 = or i8 %.sroa.026.0.i.i.i, %55
-  %59 = icmp eq i8 %.sroa.615.0.i.i.i, %58
+  %58 = select i1 %57, i8 32, i8 0
+  %.sroa.026.0.i.i.i = or i8 %58, %55
+  %59 = icmp eq i8 %.sroa.615.0.i.i.i, %.sroa.026.0.i.i.i
   %60 = add i64 %.sroa.05.0.i.i.i, 1
   br i1 %59, label %42, label %61
 
 61:                                               ; preds = %53
-  %62 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %58)
+  %62 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %.sroa.026.0.i.i.i)
   br label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.i": ; preds = %61, %51
@@ -2411,10 +2411,10 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db8zoneinfo5inner11CachedZones1
   br i1 %63, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3d6997e8247fc6a0E.exit", label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit.thread.i"
 
 .lr.ph.i6:                                        ; preds = %32, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i"
-  %.sroa.01.051.i = phi i64 [ %94, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i" ], [ %.16.val, %32 ]
-  %.sroa.05.050.i = phi i64 [ %93, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i" ], [ 0, %32 ]
-  %64 = lshr i64 %.sroa.01.051.i, 1
-  %65 = add i64 %64, %.sroa.05.050.i
+  %.sroa.01.049.i = phi i64 [ %94, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i" ], [ %.16.val, %32 ]
+  %.sroa.05.048.i = phi i64 [ %93, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i" ], [ 0, %32 ]
+  %64 = lshr i64 %.sroa.01.049.i, 1
+  %65 = add i64 %64, %.sroa.05.048.i
   %66 = icmp ult i64 %65, %.16.val
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr, ptr }, ptr %.8.val, i64 %65
@@ -2438,43 +2438,43 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db8zoneinfo5inner11CachedZones1
   %77 = load i8, ptr %76, align 1, !alias.scope !219, !noalias !224, !noundef !3
   %78 = add i8 %77, -65
   %79 = icmp ult i8 %78, 26
-  %.sroa.025.0.i.i32.i = select i1 %79, i8 32, i8 0
-  %80 = or i8 %.sroa.025.0.i.i32.i, %77
+  %80 = select i1 %79, i8 32, i8 0
+  %.sroa.025.0.i.i32.i = or i8 %80, %77
   br label %81
 
 81:                                               ; preds = %75, %73
-  %.sroa.615.0.i.i26.i = phi i8 [ %80, %75 ], [ undef, %73 ]
+  %.sroa.615.0.i.i26.i = phi i8 [ %.sroa.025.0.i.i32.i, %75 ], [ undef, %73 ]
   %.sroa.615.0.i.i26.fr.i = freeze i8 %.sroa.615.0.i.i26.i
   %exitcond.not.i.i27.i = icmp eq i64 %.sroa.05.0.i.i25.i, %1
   br i1 %exitcond.not.i.i27.i, label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.i", label %82
 
 82:                                               ; preds = %81
-  %exitcond40.not.i.i28.i = icmp eq i64 %.sroa.05.0.i.i25.i, %72
-  br i1 %exitcond40.not.i.i28.i, label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i", label %83
+  %exitcond38.not.i.i28.i = icmp eq i64 %.sroa.05.0.i.i25.i, %72
+  br i1 %exitcond38.not.i.i28.i, label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i", label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i25.i
   %85 = load i8, ptr %84, align 1, !alias.scope !225, !noalias !226, !noundef !3
   %86 = add i8 %85, -65
   %87 = icmp ult i8 %86, 26
-  %.sroa.026.0.i.i29.i = select i1 %87, i8 32, i8 0
-  %88 = or i8 %.sroa.026.0.i.i29.i, %85
-  %89 = icmp eq i8 %.sroa.615.0.i.i26.fr.i, %88
+  %88 = select i1 %87, i8 32, i8 0
+  %.sroa.026.0.i.i29.i = or i8 %88, %85
+  %89 = icmp eq i8 %.sroa.615.0.i.i26.fr.i, %.sroa.026.0.i.i29.i
   %90 = add i64 %.sroa.05.0.i.i25.i, 1
   br i1 %89, label %73, label %91
 
 91:                                               ; preds = %83
-  %92 = icmp ugt i8 %.sroa.615.0.i.i26.fr.i, %88
+  %92 = icmp ugt i8 %.sroa.615.0.i.i26.fr.i, %.sroa.026.0.i.i29.i
   br label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.i": ; preds = %81, %91
   %.sroa.0.0.i.i30.i = phi i1 [ %92, %91 ], [ %74, %81 ]
-  %spec.select.i = select i1 %.sroa.0.0.i.i30.i, i64 %.sroa.05.050.i, i64 %65
+  %spec.select.i = select i1 %.sroa.0.0.i.i30.i, i64 %.sroa.05.048.i, i64 %65
   br label %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.thread.i": ; preds = %82, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.i"
   %93 = phi i64 [ %spec.select.i, %"_ZN4jiff2tz2db8zoneinfo5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17h4b75e325cd0475cdE.exit33.i" ], [ %65, %82 ]
-  %94 = sub i64 %.sroa.01.051.i, %64
+  %94 = sub i64 %.sroa.01.049.i, %64
   %95 = icmp ugt i64 %94, 1
   br i1 %95, label %.lr.ph.i6, label %._crit_edge.i2
 
@@ -2735,12 +2735,12 @@ define internal fastcc noundef ptr @_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNames
   %13 = load i8, ptr %12, align 1, !alias.scope !239, !noalias !244, !noundef !3
   %14 = add i8 %13, -65
   %15 = icmp ult i8 %14, 26
-  %.sroa.025.0.i.i.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.sroa.025.0.i.i.i, %13
+  %16 = select i1 %15, i8 32, i8 0
+  %.sroa.025.0.i.i.i = or i8 %16, %13
   br label %17
 
 17:                                               ; preds = %11, %9
-  %.sroa.615.0.i.i.i = phi i8 [ %16, %11 ], [ undef, %9 ]
+  %.sroa.615.0.i.i.i = phi i8 [ %.sroa.025.0.i.i.i, %11 ], [ undef, %9 ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %1
   br i1 %exitcond.not.i.i.i, label %18, label %19
 
@@ -2749,22 +2749,22 @@ define internal fastcc noundef ptr @_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNames
   br label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.i"
 
 19:                                               ; preds = %17
-  %exitcond40.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %8
-  br i1 %exitcond40.not.i.i.i, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.thread.i", label %20
+  %exitcond38.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %8
+  br i1 %exitcond38.not.i.i.i, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.thread.i", label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i.i
   %22 = load i8, ptr %21, align 1, !alias.scope !245, !noalias !246, !noundef !3
   %23 = add i8 %22, -65
   %24 = icmp ult i8 %23, 26
-  %.sroa.026.0.i.i.i = select i1 %24, i8 32, i8 0
-  %25 = or i8 %.sroa.026.0.i.i.i, %22
-  %26 = icmp eq i8 %.sroa.615.0.i.i.i, %25
+  %25 = select i1 %24, i8 32, i8 0
+  %.sroa.026.0.i.i.i = or i8 %25, %22
+  %26 = icmp eq i8 %.sroa.615.0.i.i.i, %.sroa.026.0.i.i.i
   %27 = add i64 %.sroa.05.0.i.i.i, 1
   br i1 %26, label %9, label %28
 
 28:                                               ; preds = %20
-  %29 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %25)
+  %29 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %.sroa.026.0.i.i.i)
   br label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.i": ; preds = %28, %18
@@ -2773,10 +2773,10 @@ define internal fastcc noundef ptr @_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNames
   br i1 %30, label %66, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit.thread.i"
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i"
-  %.sroa.01.051.i = phi i64 [ %60, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i" ], [ %.40.val, %2 ]
-  %.sroa.05.050.i = phi i64 [ %59, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i" ], [ 0, %2 ]
-  %31 = lshr i64 %.sroa.01.051.i, 1
-  %32 = add i64 %31, %.sroa.05.050.i
+  %.sroa.01.049.i = phi i64 [ %60, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i" ], [ %.40.val, %2 ]
+  %.sroa.05.048.i = phi i64 [ %59, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i" ], [ 0, %2 ]
+  %31 = lshr i64 %.sroa.01.049.i, 1
+  %32 = add i64 %31, %.sroa.05.048.i
   %33 = icmp ult i64 %32, %.40.val
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw ptr, ptr %.32.val, i64 %32
@@ -2799,43 +2799,43 @@ define internal fastcc noundef ptr @_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNames
   %43 = load i8, ptr %42, align 1, !alias.scope !247, !noalias !252, !noundef !3
   %44 = add i8 %43, -65
   %45 = icmp ult i8 %44, 26
-  %.sroa.025.0.i.i32.i = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.sroa.025.0.i.i32.i, %43
+  %46 = select i1 %45, i8 32, i8 0
+  %.sroa.025.0.i.i32.i = or i8 %46, %43
   br label %47
 
 47:                                               ; preds = %41, %39
-  %.sroa.615.0.i.i26.i = phi i8 [ %46, %41 ], [ undef, %39 ]
+  %.sroa.615.0.i.i26.i = phi i8 [ %.sroa.025.0.i.i32.i, %41 ], [ undef, %39 ]
   %.sroa.615.0.i.i26.fr.i = freeze i8 %.sroa.615.0.i.i26.i
   %exitcond.not.i.i27.i = icmp eq i64 %.sroa.05.0.i.i25.i, %1
   br i1 %exitcond.not.i.i27.i, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.i", label %48
 
 48:                                               ; preds = %47
-  %exitcond40.not.i.i28.i = icmp eq i64 %.sroa.05.0.i.i25.i, %38
-  br i1 %exitcond40.not.i.i28.i, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i", label %49
+  %exitcond38.not.i.i28.i = icmp eq i64 %.sroa.05.0.i.i25.i, %38
+  br i1 %exitcond38.not.i.i28.i, label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i", label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i25.i
   %51 = load i8, ptr %50, align 1, !alias.scope !253, !noalias !254, !noundef !3
   %52 = add i8 %51, -65
   %53 = icmp ult i8 %52, 26
-  %.sroa.026.0.i.i29.i = select i1 %53, i8 32, i8 0
-  %54 = or i8 %.sroa.026.0.i.i29.i, %51
-  %55 = icmp eq i8 %.sroa.615.0.i.i26.fr.i, %54
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.026.0.i.i29.i = or i8 %54, %51
+  %55 = icmp eq i8 %.sroa.615.0.i.i26.fr.i, %.sroa.026.0.i.i29.i
   %56 = add i64 %.sroa.05.0.i.i25.i, 1
   br i1 %55, label %39, label %57
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i8 %.sroa.615.0.i.i26.fr.i, %54
+  %58 = icmp ugt i8 %.sroa.615.0.i.i26.fr.i, %.sroa.026.0.i.i29.i
   br label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.i": ; preds = %47, %57
   %.sroa.0.0.i.i30.i = phi i1 [ %58, %57 ], [ %40, %47 ]
-  %spec.select.i = select i1 %.sroa.0.0.i.i30.i, i64 %.sroa.05.050.i, i64 %32
+  %spec.select.i = select i1 %.sroa.0.0.i.i30.i, i64 %.sroa.05.048.i, i64 %32
   br label %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i"
 
 "_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.thread.i": ; preds = %48, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.i"
   %59 = phi i64 [ %spec.select.i, %"_ZN4jiff2tz2db8zoneinfo5inner18ZoneInfoNamesInner3get28_$u7b$$u7b$closure$u7d$$u7d$17hbf18c453dd936072E.exit33.i" ], [ %32, %48 ]
-  %60 = sub i64 %.sroa.01.051.i, %31
+  %60 = sub i64 %.sroa.01.049.i, %31
   %61 = icmp ugt i64 %60, 1
   br i1 %61, label %.lr.ph.i, label %._crit_edge.i
 
@@ -3590,9 +3590,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.thread.i: ; p
   %216 = load i8, ptr %215, align 1, !alias.scope !313, !noalias !316, !noundef !3
   %217 = add i8 %216, -65
   %218 = icmp ult i8 %217, 26
-  %.sroa.03.0.i.i.i = select i1 %218, i8 32, i8 0
-  %219 = or i8 %.sroa.03.0.i.i.i, %216
-  store i8 %219, ptr %215, align 1, !alias.scope !313, !noalias !316
+  %219 = select i1 %218, i8 32, i8 0
+  %.sroa.03.0.i.i.i = or i8 %219, %216
+  store i8 %.sroa.03.0.i.i.i, ptr %215, align 1, !alias.scope !313, !noalias !316
   %220 = add nuw nsw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %220, %207
   br i1 %exitcond.not.i.i.i, label %221, label %.lr.ph.i.i.i
@@ -4694,24 +4694,24 @@ _ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread: ; pr
   %58 = load i8, ptr %57, align 1, !alias.scope !422, !noalias !427, !noundef !3
   %59 = add i8 %58, -65
   %60 = icmp ult i8 %59, 26
-  %.sroa.025.0.i.i.i = select i1 %60, i8 32, i8 0
-  %61 = or i8 %.sroa.025.0.i.i.i, %58
+  %61 = select i1 %60, i8 32, i8 0
+  %.sroa.025.0.i.i.i = or i8 %61, %58
   %exitcond.not.i19.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %2
   br i1 %exitcond.not.i19.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i.i, label %.thread27.i.i
 
 62:                                               ; preds = %56
-  %exitcond40.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, 3
-  br i1 %exitcond40.not.i.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i.i, label %.thread27.i.i
+  %exitcond38.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, 3
+  br i1 %exitcond38.not.i.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i.i, label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %62, %.thread.i.i
-  %.sroa.615.0.i2030.i.i = phi i8 [ undef, %62 ], [ %61, %.thread.i.i ]
+  %.sroa.615.0.i2030.i.i = phi i8 [ undef, %62 ], [ %.sroa.025.0.i.i.i, %.thread.i.i ]
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.05.0.i.i.i
   %64 = load i8, ptr %63, align 1, !alias.scope !427, !noalias !422, !noundef !3
   %65 = add i8 %64, -65
   %66 = icmp ult i8 %65, 26
-  %.sroa.026.0.i.i.i = select i1 %66, i8 32, i8 0
-  %67 = or i8 %.sroa.026.0.i.i.i, %64
-  %68 = icmp eq i8 %.sroa.615.0.i2030.i.i, %67
+  %67 = select i1 %66, i8 32, i8 0
+  %.sroa.026.0.i.i.i = or i8 %67, %64
+  %68 = icmp eq i8 %.sroa.615.0.i2030.i.i, %.sroa.026.0.i.i.i
   %69 = add nuw nsw i64 %.sroa.05.0.i.i.i, 1
   br i1 %68, label %54, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i.i
 
@@ -4734,24 +4734,24 @@ _ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.
   %74 = load i8, ptr %73, align 1, !alias.scope !428, !noalias !433, !noundef !3
   %75 = add i8 %74, -65
   %76 = icmp ult i8 %75, 26
-  %.sroa.025.0.i8.i.i = select i1 %76, i8 32, i8 0
-  %77 = or i8 %.sroa.025.0.i8.i.i, %74
+  %77 = select i1 %76, i8 32, i8 0
+  %.sroa.025.0.i8.i.i = or i8 %77, %74
   %exitcond.not.i324.i.i = icmp eq i64 %.sroa.05.0.i1.i.i, %2
   br i1 %exitcond.not.i324.i.i, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit.i", label %.thread31.i.i
 
 78:                                               ; preds = %72
-  %exitcond40.not.i4.i.i = icmp eq i64 %.sroa.05.0.i1.i.i, 11
-  br i1 %exitcond40.not.i4.i.i, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit.i", label %.thread31.i.i
+  %exitcond38.not.i4.i.i = icmp eq i64 %.sroa.05.0.i1.i.i, 11
+  br i1 %exitcond38.not.i4.i.i, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit.i", label %.thread31.i.i
 
 .thread31.i.i:                                    ; preds = %78, %.thread22.i.i
-  %.sroa.615.0.i22534.i.i = phi i8 [ undef, %78 ], [ %77, %.thread22.i.i ]
+  %.sroa.615.0.i22534.i.i = phi i8 [ undef, %78 ], [ %.sroa.025.0.i8.i.i, %.thread22.i.i ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.05.0.i1.i.i
   %80 = load i8, ptr %79, align 1, !alias.scope !433, !noalias !428, !noundef !3
   %81 = add i8 %80, -65
   %82 = icmp ult i8 %81, 26
-  %.sroa.026.0.i5.i.i = select i1 %82, i8 32, i8 0
-  %83 = or i8 %.sroa.026.0.i5.i.i, %80
-  %84 = icmp eq i8 %.sroa.615.0.i22534.i.i, %83
+  %83 = select i1 %82, i8 32, i8 0
+  %.sroa.026.0.i5.i.i = or i8 %83, %80
+  %84 = icmp eq i8 %.sroa.615.0.i22534.i.i, %.sroa.026.0.i5.i.i
   %85 = add nuw nsw i64 %.sroa.05.0.i1.i.i, 1
   br i1 %84, label %70, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit.i"
 
@@ -6445,24 +6445,24 @@ define hidden { i64, ptr } @_ZN4jiff2tz2db17special_time_zone17h9739d6501f107ee2
   %7 = load i8, ptr %6, align 1, !alias.scope !593, !noalias !596, !noundef !3
   %8 = add i8 %7, -65
   %9 = icmp ult i8 %8, 26
-  %.sroa.025.0.i = select i1 %9, i8 32, i8 0
-  %10 = or i8 %.sroa.025.0.i, %7
+  %10 = select i1 %9, i8 32, i8 0
+  %.sroa.025.0.i = or i8 %10, %7
   %exitcond.not.i19 = icmp eq i64 %.sroa.05.0.i, %1
   br i1 %exitcond.not.i19, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread, label %.thread27
 
 11:                                               ; preds = %5
-  %exitcond40.not.i = icmp eq i64 %.sroa.05.0.i, 3
-  br i1 %exitcond40.not.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread, label %.thread27
+  %exitcond38.not.i = icmp eq i64 %.sroa.05.0.i, 3
+  br i1 %exitcond38.not.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread, label %.thread27
 
 .thread27:                                        ; preds = %.thread, %11
-  %.sroa.615.0.i2030 = phi i8 [ undef, %11 ], [ %10, %.thread ]
+  %.sroa.615.0.i2030 = phi i8 [ undef, %11 ], [ %.sroa.025.0.i, %.thread ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i
   %13 = load i8, ptr %12, align 1, !alias.scope !596, !noalias !593, !noundef !3
   %14 = add i8 %13, -65
   %15 = icmp ult i8 %14, 26
-  %.sroa.026.0.i = select i1 %15, i8 32, i8 0
-  %16 = or i8 %.sroa.026.0.i, %13
-  %17 = icmp eq i8 %.sroa.615.0.i2030, %16
+  %16 = select i1 %15, i8 32, i8 0
+  %.sroa.026.0.i = or i8 %16, %13
+  %17 = icmp eq i8 %.sroa.615.0.i2030, %.sroa.026.0.i
   %18 = add nuw nsw i64 %.sroa.05.0.i, 1
   br i1 %17, label %3, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread
 
@@ -6485,24 +6485,24 @@ _ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread:
   %23 = load i8, ptr %22, align 1, !alias.scope !598, !noalias !601, !noundef !3
   %24 = add i8 %23, -65
   %25 = icmp ult i8 %24, 26
-  %.sroa.025.0.i8 = select i1 %25, i8 32, i8 0
-  %26 = or i8 %.sroa.025.0.i8, %23
+  %26 = select i1 %25, i8 32, i8 0
+  %.sroa.025.0.i8 = or i8 %26, %23
   %exitcond.not.i324 = icmp eq i64 %.sroa.05.0.i1, %1
   br i1 %exitcond.not.i324, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread, label %.thread31
 
 27:                                               ; preds = %21
-  %exitcond40.not.i4 = icmp eq i64 %.sroa.05.0.i1, 11
-  br i1 %exitcond40.not.i4, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread, label %.thread31
+  %exitcond38.not.i4 = icmp eq i64 %.sroa.05.0.i1, 11
+  br i1 %exitcond38.not.i4, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread, label %.thread31
 
 .thread31:                                        ; preds = %.thread22, %27
-  %.sroa.615.0.i22534 = phi i8 [ undef, %27 ], [ %26, %.thread22 ]
+  %.sroa.615.0.i22534 = phi i8 [ undef, %27 ], [ %.sroa.025.0.i8, %.thread22 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i1
   %29 = load i8, ptr %28, align 1, !alias.scope !601, !noalias !598, !noundef !3
   %30 = add i8 %29, -65
   %31 = icmp ult i8 %30, 26
-  %.sroa.026.0.i5 = select i1 %31, i8 32, i8 0
-  %32 = or i8 %.sroa.026.0.i5, %29
-  %33 = icmp eq i8 %.sroa.615.0.i22534, %32
+  %32 = select i1 %31, i8 32, i8 0
+  %.sroa.026.0.i5 = or i8 %32, %29
+  %33 = icmp eq i8 %.sroa.615.0.i22534, %.sroa.026.0.i5
   %34 = add nuw nsw i64 %.sroa.05.0.i1, 1
   br i1 %33, label %19, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread
 

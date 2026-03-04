@@ -64923,10 +64923,10 @@ _ZNK5boost4json6detail8charconv6detail10fast_float6bigint7compareERKS5_.exit: ; 
   %123 = icmp sgt i32 %122, 63
   %124 = zext nneg i32 %.sroa.speculated89 to i64
   %125 = lshr i64 %1, %124
-  %storemerge.i.i52 = select i1 %123, i64 0, i64 %125
-  %..i.i = and i64 %.not.i.i53, %storemerge.i.i52
+  %storemerge.i52 = select i1 %123, i64 0, i64 %125
+  %..i.i = and i64 %.not.i.i53, %storemerge.i52
   %narrow.i = select i1 %120, i64 1, i64 %..i.i
-  %126 = add i64 %narrow.i, %storemerge.i.i52
+  %126 = add i64 %narrow.i, %storemerge.i52
   %127 = icmp ugt i64 %126, 4503599627370495
   %128 = zext i1 %127 to i32
   br label %_ZN5boost4json6detail8charconv6detail10fast_float5roundIdZNS4_19negative_digit_compIdEENS4_17adjusted_mantissaERNS4_6bigintES7_iEUlRS7_iE0_EEvSA_T0_.exit

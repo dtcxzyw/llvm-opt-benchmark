@@ -8160,9 +8160,8 @@ JsonValueListNext.exit:                           ; preds = %19, %29
   unreachable
 
 JsonTablePlanScanNextRow.exit:                    ; preds = %32, %12, %53, %49, %31
-  %.0 = phi i1 [ false, %49 ], [ false, %31 ], [ true, %53 ], [ true, %12 ], [ true, %32 ]
-  %current.ret.tr9 = or i1 %ret.known.tr, %.0
-  ret i1 %current.ret.tr9
+  %.0 = phi i1 [ %ret.known.tr, %49 ], [ %ret.known.tr, %31 ], [ true, %53 ], [ true, %12 ], [ true, %32 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

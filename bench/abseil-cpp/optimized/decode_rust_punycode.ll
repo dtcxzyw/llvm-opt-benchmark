@@ -316,8 +316,8 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %40, %67, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i, %56, %.critedge.critedge, %._crit_edge107
-  %.3 = phi ptr [ %149, %._crit_edge107 ], [ null, %.critedge.critedge ], [ null, %67 ], [ null, %56 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %40 ]
+.critedge:                                        ; preds = %40, %56, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i, %67, %.critedge.critedge, %._crit_edge107
+  %.3 = phi ptr [ %149, %._crit_edge107 ], [ null, %.critedge.critedge ], [ null, %56 ], [ null, %67 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 

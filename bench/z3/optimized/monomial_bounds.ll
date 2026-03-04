@@ -5907,13 +5907,13 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %.not28.i = icmp eq i32 %12, 0
-  br i1 %.not28.i, label %.thread, label %.lr.ph.i
+  %.not26.i = icmp eq i32 %12, 0
+  br i1 %.not26.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3nla5monic3endEv.exit.i, %25
   %.013 = phi i32 [ %.1, %25 ], [ -1, %_ZNK3nla5monic3endEv.exit.i ]
-  %.02129.i = phi ptr [ %26, %25 ], [ %9, %_ZNK3nla5monic3endEv.exit.i ]
-  %16 = load i32, ptr %.02129.i, align 4, !tbaa !44
+  %.02127.i = phi ptr [ %26, %25 ], [ %9, %_ZNK3nla5monic3endEv.exit.i ]
+  %16 = load i32, ptr %.02127.i, align 4, !tbaa !44
   %17 = load ptr, ptr %0, align 8, !tbaa !41
   %18 = tail call noundef zeroext i1 @_ZNK3nla4core12var_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(4736) %17, i32 noundef %16)
   br i1 %18, label %20, label %19
@@ -5931,7 +5931,7 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
 
 25:                                               ; preds = %19, %20
   %.1 = phi i32 [ %.013, %20 ], [ %16, %19 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 4
   %.not.i = icmp eq ptr %26, %15
   br i1 %.not.i, label %.thread, label %.lr.ph.i
 
@@ -6030,12 +6030,12 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %4
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  %.not28 = icmp eq i32 %9, 0
-  br i1 %.not28, label %.loopexit, label %.lr.ph
+  %.not26 = icmp eq i32 %9, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3nla5monic3endEv.exit, %25
-  %.02129 = phi ptr [ %26, %25 ], [ %6, %_ZNK3nla5monic3endEv.exit ]
-  %13 = load i32, ptr %.02129, align 4, !tbaa !44
+  %.02127 = phi ptr [ %26, %25 ], [ %6, %_ZNK3nla5monic3endEv.exit ]
+  %13 = load i32, ptr %.02127, align 4, !tbaa !44
   %14 = load ptr, ptr %0, align 8, !tbaa !41
   %15 = tail call noundef zeroext i1 @_ZNK3nla4core12var_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(4736) %14, i32 noundef %13)
   br i1 %15, label %19, label %16
@@ -6061,13 +6061,13 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %4
   br label %.loopexit
 
 25:                                               ; preds = %19, %18
-  %26 = getelementptr inbounds nuw i8, ptr %.02129, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.02127, i64 4
   %.not = icmp eq ptr %26, %12
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %25, %16, %4, %_ZNK3nla5monic3endEv.exit, %24
-  %.not27 = phi i1 [ true, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ false, %16 ], [ true, %25 ]
-  ret i1 %.not27
+  %.1 = phi i1 [ true, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ false, %16 ], [ true, %25 ]
+  ret i1 %.1
 }
 
 declare void @_ZN3nla7emonics14set_propagatedERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #0

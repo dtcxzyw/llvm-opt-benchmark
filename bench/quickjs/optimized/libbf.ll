@@ -24282,13 +24282,13 @@ bf_mul_log2_radix.exit:                           ; preds = %ceil_log2.exit.i, %
   %117 = add nsw i64 %116, -1
   %118 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %117, i1 false)
   %119 = sub nuw nsw i64 64, %118
-  %120 = or disjoint i32 %5, 16
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %123 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %spec.select116 = select i1 %115, i64 0, i64 %119
-  %125 = mul i64 %spec.select116, %.036.i77
+  %120 = mul i64 %119, %.036.i77
+  %121 = or disjoint i32 %5, 16
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %spec.select116 = select i1 %115, i64 0, i64 %120
   br label %126
 
 126:                                              ; preds = %231, %99
@@ -24308,7 +24308,7 @@ bf_mul_log2_radix.exit:                           ; preds = %ceil_log2.exit.i, %
   br label %bf_mul_log2_radix.exit84
 
 bf_mul_log2_radix.exit84:                         ; preds = %126, %129
-  %.3.i80 = phi i64 [ %134, %129 ], [ %125, %126 ]
+  %.3.i80 = phi i64 [ %134, %129 ], [ %spec.select116, %126 ]
   %135 = sub i64 0, %.3.i80
   %spec.select.i81 = select i1 %101, i64 %135, i64 %.3.i80
   %136 = add i64 %spec.select, -1
@@ -24436,7 +24436,7 @@ bf_can_round.exit.thread103:                      ; preds = %get_bit.exit38.i, %
   br i1 %188, label %bf_rint.exit.thread, label %bf_rint.exit
 
 bf_rint.exit:                                     ; preds = %bf_can_round.exit.thread103
-  %189 = call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef 0, i32 noundef %120, i64 noundef %187, i32 noundef 0)
+  %189 = call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef 0, i32 noundef %121, i64 noundef %187, i32 noundef 0)
   %.not74 = icmp samesign ult i32 %189, 32
   br i1 %.not74, label %bf_rint.exit.thread, label %bf_set.exit
 
@@ -24446,9 +24446,9 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
 190:                                              ; preds = %bf_rint.exit.thread
   %191 = load ptr, ptr %0, align 8, !tbaa !28
   store ptr %191, ptr %8, align 8, !tbaa !28
-  store i32 0, ptr %121, align 8, !tbaa !30
-  store i64 -9223372036854775808, ptr %122, align 8, !tbaa !31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
+  store i32 0, ptr %122, align 8, !tbaa !30
+  store i64 -9223372036854775808, ptr %123, align 8, !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   %192 = call fastcc i32 @bf_pow_ui_ui(ptr noundef %8, i64 noundef %102, i64 noundef %4, i64 noundef 4611686018427387903, i32 noundef 1)
   %.not75 = icmp eq i32 %192, 0
   br i1 %.not75, label %200, label %193
@@ -24459,7 +24459,7 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
   br i1 %.not.i91, label %bf_set.exit, label %195
 
 195:                                              ; preds = %193
-  %196 = load ptr, ptr %124, align 8, !tbaa !29
+  %196 = load ptr, ptr %125, align 8, !tbaa !29
   %.not6.i = icmp eq ptr %196, null
   br i1 %.not6.i, label %bf_set.exit, label %197
 
@@ -24472,7 +24472,7 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
 
 200:                                              ; preds = %190
   %201 = load i64, ptr %103, align 8, !tbaa !31
-  %202 = load i64, ptr %122, align 8, !tbaa !31
+  %202 = load i64, ptr %123, align 8, !tbaa !31
   %.not.i92 = icmp eq i64 %201, %202
   br i1 %.not.i92, label %205, label %203
 
@@ -24482,11 +24482,11 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
 
 205:                                              ; preds = %200
   %206 = load i64, ptr %107, align 8, !tbaa !32
-  %207 = load i64, ptr %123, align 8, !tbaa !32
+  %207 = load i64, ptr %124, align 8, !tbaa !32
   %..i.i = call noundef i64 @llvm.smax.i64(i64 %206, i64 %207)
   %208 = sub i64 %206, %..i.i
   %209 = sub i64 %207, %..i.i
-  %210 = load ptr, ptr %124, align 8
+  %210 = load ptr, ptr %125, align 8
   br label %211
 
 211:                                              ; preds = %get_limbz.exit30.i, %205
@@ -24533,7 +24533,7 @@ bf_cmpu.exit:                                     ; preds = %211, %203, %223
   br i1 %.not.i96, label %bf_delete.exit100, label %226
 
 226:                                              ; preds = %bf_cmpu.exit
-  %227 = load ptr, ptr %124, align 8, !tbaa !29
+  %227 = load ptr, ptr %125, align 8, !tbaa !29
   %.not6.i97 = icmp eq ptr %227, null
   br i1 %.not6.i97, label %bf_delete.exit100, label %228
 
@@ -24808,7 +24808,7 @@ bf_set_ui.exit:                                   ; preds = %bf_resize.exit18.th
   %141 = mul i64 %139, %140
   %142 = add i64 %141, 2
   %143 = call fastcc i32 @bf_op2(ptr noundef %129, ptr noundef nonnull %10, ptr noundef nonnull %128, i64 noundef %142, i32 noundef 0, ptr noundef nonnull @__bf_div)
-  %144 = or i32 %.013.i, %143
+  %144 = or i32 %143, %.013.i
   br label %145
 
 145:                                              ; preds = %._crit_edge, %bf_set_ui.exit
@@ -24823,13 +24823,13 @@ bf_set_ui.exit:                                   ; preds = %bf_resize.exit18.th
 
 151:                                              ; preds = %145
   %152 = call fastcc i32 @__bf_round(ptr noundef nonnull %9, i64 noundef 0, i32 noundef 17, i64 noundef %149, i32 noundef 0)
+  %153 = or i32 %152, %148
   br label %bf_rint.exit
 
 bf_rint.exit:                                     ; preds = %145, %151
-  %.0.i.i = phi i32 [ %152, %151 ], [ 0, %145 ]
-  %153 = or i32 %148, %.0.i.i
+  %.0.i.i = phi i32 [ %153, %151 ], [ %148, %145 ]
   %154 = call i32 @bf_mul(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %128, i64 noundef 4611686018427387903, i32 noundef 1)
-  %155 = or i32 %153, %154
+  %155 = or i32 %154, %.0.i.i
   %156 = call fastcc i32 @bf_op2(ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef nonnull %10, i64 noundef 4611686018427387903, i32 noundef 1, ptr noundef nonnull @__bf_sub)
   %157 = or i32 %155, %156
   %158 = and i32 %157, 32

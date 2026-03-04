@@ -4941,13 +4941,13 @@ define void @_ZN5faiss15rq_encode_steps14refine_beam_mpERKNS_17ResidualQuantizer
 
 ._crit_edge.loopexit:                             ; preds = %110
   %16 = zext nneg i32 %spec.select to i64
+  %17 = mul i64 %1, %16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %.0103.lcssa = phi i64 [ 0, %9 ], [ %16, %._crit_edge.loopexit ]
-  %17 = mul i64 %1, %.0103.lcssa
+  %.0103.lcssa = phi i64 [ 0, %9 ], [ %17, %._crit_edge.loopexit ]
   %18 = add nuw nsw i64 %13, 1
-  %19 = mul i64 %17, %18
+  %19 = mul i64 %.0103.lcssa, %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !422
   %22 = load ptr, ptr %8, align 8, !tbaa !424
@@ -4980,7 +4980,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !425
-  %38 = mul i64 %37, %17
+  %38 = mul i64 %37, %.0103.lcssa
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = load ptr, ptr %35, align 8, !tbaa !31
@@ -5013,7 +5013,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %55 = load i64, ptr %12, align 8, !tbaa !399
   %56 = add i64 %55, 1
-  %57 = mul i64 %56, %17
+  %57 = mul i64 %56, %.0103.lcssa
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !422
   %60 = load ptr, ptr %54, align 8, !tbaa !424
@@ -5051,20 +5051,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit131:            ; preds = %66, %68, %70, %72
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 2
-  %81 = icmp ugt i64 %17, %80
+  %81 = icmp ugt i64 %.0103.lcssa, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit131
-  %83 = sub nuw i64 %17, %80
+  %83 = sub nuw i64 %.0103.lcssa, %80
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %83)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit133
 
 84:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit131
-  %85 = icmp ult i64 %17, %80
+  %85 = icmp ult i64 %.0103.lcssa, %80
   br i1 %85, label %86, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit133
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw float, ptr %76, i64 %17
+  %87 = getelementptr inbounds nuw float, ptr %76, i64 %.0103.lcssa
   %.not.i.i132 = icmp eq ptr %75, %87
   br i1 %.not.i.i132, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit133, label %88
 
@@ -5075,7 +5075,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit131:            ; preds = %66, %68, %70, %72
 _ZNSt6vectorIfSaIfEE6resizeEm.exit133:            ; preds = %82, %84, %86, %88
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %90 = load i64, ptr %36, align 8, !tbaa !425
-  %91 = mul i64 %17, %90
+  %91 = mul i64 %.0103.lcssa, %90
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %93 = load ptr, ptr %92, align 8, !tbaa !33
   %94 = load ptr, ptr %89, align 8, !tbaa !31
@@ -5459,13 +5459,13 @@ define void @_ZN5faiss15rq_encode_steps18refine_beam_LUT_mpERKNS_17ResidualQuant
 
 ._crit_edge.loopexit:                             ; preds = %85
   %15 = zext nneg i32 %spec.select to i64
+  %16 = mul i64 %1, %15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.0100.lcssa = phi i64 [ 0, %8 ], [ %15, %._crit_edge.loopexit ]
-  %16 = mul i64 %1, %.0100.lcssa
+  %.0100.lcssa = phi i64 [ 0, %8 ], [ %16, %._crit_edge.loopexit ]
   %17 = add nuw nsw i64 %12, 1
-  %18 = mul i64 %16, %17
+  %18 = mul i64 %.0100.lcssa, %17
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !422
   %21 = load ptr, ptr %7, align 8, !tbaa !424
@@ -5503,20 +5503,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %27, %29, %31, %33
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 2
-  %42 = icmp ugt i64 %16, %41
+  %42 = icmp ugt i64 %.0100.lcssa, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %44 = sub nuw i64 %16, %41
+  %44 = sub nuw i64 %.0100.lcssa, %41
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %44)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 45:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %46 = icmp ult i64 %16, %41
+  %46 = icmp ult i64 %.0100.lcssa, %41
   br i1 %46, label %47, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw float, ptr %37, i64 %16
+  %48 = getelementptr inbounds nuw float, ptr %37, i64 %.0100.lcssa
   %.not.i.i119 = icmp eq ptr %36, %48
   br i1 %.not.i.i119, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %49
 
@@ -5528,7 +5528,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %43, %45, %47, %49
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %51 = load i64, ptr %11, align 8, !tbaa !399
   %52 = add i64 %51, 1
-  %53 = mul i64 %52, %16
+  %53 = mul i64 %52, %.0100.lcssa
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !422
   %56 = load ptr, ptr %50, align 8, !tbaa !424
@@ -5566,21 +5566,21 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit121:            ; preds = %62, %64, %66, %68
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 2
-  %77 = icmp ugt i64 %16, %76
+  %77 = icmp ugt i64 %.0100.lcssa, %76
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit121
-  %79 = sub nuw i64 %16, %76
+  %79 = sub nuw i64 %.0100.lcssa, %76
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   %.pre.pre = load ptr, ptr %69, align 8, !tbaa !31
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit123
 
 80:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit121
-  %81 = icmp ult i64 %16, %76
+  %81 = icmp ult i64 %.0100.lcssa, %76
   br i1 %81, label %82, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit123
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw float, ptr %72, i64 %16
+  %83 = getelementptr inbounds nuw float, ptr %72, i64 %.0100.lcssa
   %.not.i.i122 = icmp eq ptr %71, %83
   br i1 %.not.i.i122, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit123, label %84
 

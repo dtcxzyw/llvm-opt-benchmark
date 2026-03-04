@@ -164163,7 +164163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit.thread: ; 
   %175 = add nsw i32 %174, -48
   %176 = icmp ugt i32 %175, 4
   %177 = icmp eq i32 %175, 5
-  br i1 %177, label %178, label %191
+  br i1 %177, label %178, label %._crit_edge
 
 178:                                              ; preds = %170
   %179 = icmp eq i64 %.1169, 0
@@ -164174,47 +164174,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit.thread: ; 
   %182 = load i8, ptr %181, align 1, !tbaa !24
   %183 = and i8 %182, 1
   %184 = icmp eq i8 %183, 0
-  br i1 %184, label %.critedge105, label %191
+  br i1 %184, label %.critedge105, label %._crit_edge
 
 .critedge105:                                     ; preds = %178, %180
   %185 = add nuw nsw i64 %.1169, 1
   %186 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 48, i64 noundef %185) #60
   %187 = icmp eq i64 %186, -1
-  br i1 %187, label %.preheader171, label %191
+  br i1 %187, label %.preheader171, label %._crit_edge
 
 .preheader171:                                    ; preds = %.critedge105
   %.not90178 = icmp ult i64 %66, 10
   br i1 %.not90178, label %.lr.ph181, label %._crit_edge
 
-.lr.ph181:                                        ; preds = %.preheader171, %.lr.ph181
-  %.062179 = phi i64 [ %190, %.lr.ph181 ], [ %.sroa.speculated, %.preheader171 ]
-  %188 = getelementptr inbounds nuw i32, ptr %1, i64 %.062179
-  %189 = load i32, ptr %188, align 4, !tbaa !263
-  %.not89.not = icmp ne i32 %189, 0
-  %190 = add nuw nsw i64 %.062179, 1
-  %exitcond196.not = icmp eq i64 %190, 10
-  %or.cond = select i1 %.not89.not, i1 true, i1 %exitcond196.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph181, !llvm.loop !3763
+188:                                              ; preds = %.lr.ph181
+  %189 = add nuw nsw i64 %.062179, 1
+  %exitcond196.not = icmp eq i64 %189, 10
+  br i1 %exitcond196.not, label %._crit_edge, label %.lr.ph181, !llvm.loop !3763
 
-._crit_edge:                                      ; preds = %.lr.ph181, %.preheader171
-  %.not90.lcssa = phi i1 [ false, %.preheader171 ], [ %.not89.not, %.lr.ph181 ]
-  %spec.select106 = and i1 %176, %.not90.lcssa
-  br label %191
+.lr.ph181:                                        ; preds = %.preheader171, %188
+  %.062179 = phi i64 [ %189, %188 ], [ %.sroa.speculated, %.preheader171 ]
+  %190 = getelementptr inbounds nuw i32, ptr %1, i64 %.062179
+  %191 = load i32, ptr %190, align 4, !tbaa !263
+  %.not89 = icmp eq i32 %191, 0
+  br i1 %.not89, label %188, label %._crit_edge
 
-191:                                              ; preds = %180, %._crit_edge, %.critedge105, %170
-  %.065 = phi i1 [ %176, %170 ], [ %spec.select106, %._crit_edge ], [ %176, %.critedge105 ], [ %176, %180 ]
+._crit_edge:                                      ; preds = %.lr.ph181, %188, %.preheader171, %180, %.critedge105, %170
+  %.065 = phi i1 [ %176, %170 ], [ %176, %180 ], [ %176, %.critedge105 ], [ false, %.preheader171 ], [ %176, %.lr.ph181 ], [ false, %188 ]
   %192 = load i64, ptr %28, align 8, !tbaa !11
   %193 = icmp ugt i64 %.1169, %192
   br i1 %193, label %194, label %195
 
-194:                                              ; preds = %191
+194:                                              ; preds = %._crit_edge
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.736, ptr noundef nonnull @.str.737, i64 noundef %.1169, i64 noundef %192) #59
           to label %.noexc136 unwind label %206
 
 .noexc136:                                        ; preds = %194
   unreachable
 
-195:                                              ; preds = %191
+195:                                              ; preds = %._crit_edge
   store i64 %.1169, ptr %28, align 8, !tbaa !11
   %196 = load ptr, ptr %0, align 8, !tbaa !4
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.1169

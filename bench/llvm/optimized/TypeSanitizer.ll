@@ -2393,12 +2393,12 @@ _ZN12_GLOBAL__N_113TypeSanitizer22generateTypeDescriptorEPKN4llvm6MDNodeERNS1_13
 .thread129.i:                                     ; preds = %.thread.i
   %683 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113TypeSanitizer13getShadowBaseERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %71, ptr noundef nonnull align 8 dereferenceable(136) %330)
   %684 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113TypeSanitizer13getAppMemMaskERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %71, ptr noundef nonnull align 8 dereferenceable(136) %330)
-  %.pre171.i = load i32, ptr %238, align 8, !tbaa !26
+  %.pre170.i = load i32, ptr %238, align 8, !tbaa !26
   %685 = load ptr, ptr %49, align 8, !tbaa !25
-  %686 = zext i32 %.pre171.i to i64
+  %686 = zext i32 %.pre170.i to i64
   %.idx159.i = mul nuw nsw i64 %686, 56
   %687 = getelementptr inbounds nuw i8, ptr %685, i64 %.idx159.i
-  %.not79148.i = icmp eq i32 %.pre171.i, 0
+  %.not79148.i = icmp eq i32 %.pre170.i, 0
   br i1 %.not79148.i, label %._crit_edge151.i, label %.lr.ph150.i
 
 ._crit_edge151.i:                                 ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i28, %.thread129.i

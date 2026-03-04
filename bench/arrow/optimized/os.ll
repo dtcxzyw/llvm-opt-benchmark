@@ -400,25 +400,25 @@ _mi_align_up.exit:                                ; preds = %36, %39
   %.0.i13 = phi i64 [ %38, %36 ], [ %41, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %45, label %42
+  br i1 %.not, label %46, label %42
 
 42:                                               ; preds = %_mi_align_up.exit
   %43 = load i8, ptr %3, align 1, !tbaa !3, !range !7, !noundef !8
   store i8 0, ptr %3, align 1, !tbaa !3
   %44 = trunc nuw i8 %43 to i1
-  br label %45
+  %45 = and i1 %2, %44
+  br label %46
 
-45:                                               ; preds = %42, %_mi_align_up.exit
-  %46 = phi i1 [ %44, %42 ], [ false, %_mi_align_up.exit ]
+46:                                               ; preds = %42, %_mi_align_up.exit
+  %spec.select.i = phi i1 [ %45, %42 ], [ false, %_mi_align_up.exit ]
   %47 = phi ptr [ %3, %42 ], [ %6, %_mi_align_up.exit ]
-  %spec.select.i = and i1 %2, %46
   %.not.i14 = icmp uge i64 %.0.i13, %31
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i13)
   %49 = icmp samesign ult i64 %48, 2
   %or.cond.i = select i1 %.not.i14, i1 %49, i1 false
   br i1 %or.cond.i, label %50, label %mi_os_mem_alloc_aligned.exit
 
-50:                                               ; preds = %45
+50:                                               ; preds = %46
   %51 = add i64 %31, -1
   %52 = add i64 %51, %.010.i
   br i1 %33, label %53, label %56
@@ -610,8 +610,8 @@ mi_os_mem_free.exit81.i:                          ; preds = %116, %_mi_align_up.
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %106) #10
   br label %mi_os_mem_alloc_aligned.exit
 
-mi_os_mem_alloc_aligned.exit:                     ; preds = %45, %_mi_align_up.exit.i, %60, %mi_os_mem_alloc.exit.i, %mi_os_mem_free.exit.i, %77, %mi_unix_mmap.exit.thread.i, %mi_os_mem_free.exit81.i, %117, %128
-  %.0.i15 = phi ptr [ null, %45 ], [ %61, %mi_os_mem_alloc.exit.i ], [ %92, %mi_os_mem_free.exit81.i ], [ null, %60 ], [ null, %mi_os_mem_free.exit.i ], [ %92, %128 ], [ %92, %117 ], [ null, %_mi_align_up.exit.i ], [ null, %77 ], [ null, %mi_unix_mmap.exit.thread.i ]
+mi_os_mem_alloc_aligned.exit:                     ; preds = %46, %_mi_align_up.exit.i, %60, %mi_os_mem_alloc.exit.i, %mi_os_mem_free.exit.i, %77, %mi_unix_mmap.exit.thread.i, %mi_os_mem_free.exit81.i, %117, %128
+  %.0.i15 = phi ptr [ null, %46 ], [ %61, %mi_os_mem_alloc.exit.i ], [ %92, %mi_os_mem_free.exit81.i ], [ null, %60 ], [ null, %mi_os_mem_free.exit.i ], [ %92, %128 ], [ %92, %117 ], [ null, %_mi_align_up.exit.i ], [ null, %77 ], [ null, %mi_unix_mmap.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 

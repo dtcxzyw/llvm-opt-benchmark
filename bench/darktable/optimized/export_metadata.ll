@@ -439,18 +439,18 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %.not196 = icmp eq i32 %240, 0
   %241 = select i1 %.not196, i32 0, i32 32
   %242 = or i32 %238, %241
-  br i1 %.not, label %243, label %247
+  br i1 %.not, label %243, label %248
 
 243:                                              ; preds = %204
   %244 = call ptr @g_type_check_instance_cast(ptr noundef %.0173, i64 noundef %155) #9
   %245 = call i32 @gtk_toggle_button_get_active(ptr noundef %244) #9
   %.not197 = icmp eq i32 %245, 0
   %246 = select i1 %.not197, i32 0, i32 524288
-  br label %247
+  %247 = or i32 %246, %242
+  br label %248
 
-247:                                              ; preds = %204, %243
-  %248 = phi i32 [ %246, %243 ], [ 0, %204 ]
-  %249 = or i32 %242, %248
+248:                                              ; preds = %204, %243
+  %249 = phi i32 [ %247, %243 ], [ %242, %204 ]
   %250 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %249) #9
   store ptr %250, ptr %5, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -460,7 +460,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %.not198200 = icmp eq i32 %253, 0
   br i1 %.not198200, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %247, %.lr.ph
+.lr.ph:                                           ; preds = %248, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %254 = load ptr, ptr %133, align 8, !tbaa !65
@@ -481,7 +481,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %.not198 = icmp eq i32 %262, 0
   br i1 %.not198, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %247
+._crit_edge:                                      ; preds = %.lr.ph, %248
   call void @g_free(ptr noundef %0) #9
   %263 = load ptr, ptr %5, align 8, !tbaa !70
   call void @dt_lib_export_metadata_set_conf(ptr noundef %263) #9

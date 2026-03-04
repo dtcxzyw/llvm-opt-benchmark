@@ -4327,9 +4327,9 @@ common.resume:                                    ; preds = %33, %"_ZN63_$LT$all
   %50 = load i8, ptr %.sroa.0.05.i.i, align 1, !alias.scope !1498, !noalias !1501, !noundef !5
   %51 = add i8 %50, -65
   %52 = icmp ult i8 %51, 26
-  %.sroa.02.0.i.i = select i1 %52, i8 32, i8 0
-  %53 = or i8 %.sroa.02.0.i.i, %50
-  store i8 %53, ptr %.sroa.0.05.i.i, align 1, !alias.scope !1498, !noalias !1501
+  %53 = select i1 %52, i8 32, i8 0
+  %.sroa.02.0.i.i = or i8 %53, %50
+  store i8 %.sroa.02.0.i.i, ptr %.sroa.0.05.i.i, align 1, !alias.scope !1498, !noalias !1501
   %54 = icmp eq ptr %49, %47
   br i1 %54, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h09192dc906756480E.exit", label %.lr.ph.i.i
 

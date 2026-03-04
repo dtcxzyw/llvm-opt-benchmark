@@ -1440,36 +1440,36 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i: ; pre
 ._crit_edge102.loopexit.i.i:                      ; preds = %.lr.ph101.i.i
   %.pre.i12.i = load i32, ptr %45, align 8, !tbaa !163
   %536 = icmp ne i32 %.pre.i12.i, 0
+  %537 = or i1 %.not.i27.i.i, %536
   br label %._crit_edge102.i.i
 
 ._crit_edge102.i.i:                               ; preds = %._crit_edge102.loopexit.i.i, %._crit_edge.i9.i
-  %.not.i49.i.i = phi i1 [ %536, %._crit_edge102.loopexit.i.i ], [ false, %._crit_edge.i9.i ]
-  %537 = load ptr, ptr %6, align 8, !tbaa !265
-  %538 = load i32, ptr %48, align 8, !tbaa !268
-  %539 = zext i32 %538 to i64
-  %540 = mul nuw nsw i64 %539, 56
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %537, i64 noundef %540, i64 noundef 8) #14
+  %.not.i49.i.i = phi i1 [ %537, %._crit_edge102.loopexit.i.i ], [ %.not.i27.i.i, %._crit_edge.i9.i ]
+  %538 = load ptr, ptr %6, align 8, !tbaa !265
+  %539 = load i32, ptr %48, align 8, !tbaa !268
+  %540 = zext i32 %539 to i64
+  %541 = mul nuw nsw i64 %540, 56
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %538, i64 noundef %541, i64 noundef 8) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %541 = load ptr, ptr %5, align 8, !tbaa !144
-  %542 = icmp eq ptr %541, %44
-  br i1 %542, label %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i, label %543
+  %542 = load ptr, ptr %5, align 8, !tbaa !144
+  %543 = icmp eq ptr %542, %44
+  br i1 %543, label %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i, label %544
 
-543:                                              ; preds = %._crit_edge102.i.i
-  call void @free(ptr noundef %541) #14
+544:                                              ; preds = %._crit_edge102.i.i
+  call void @free(ptr noundef %542) #14
   br label %_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i
 
 .lr.ph101.i.i:                                    ; preds = %._crit_edge.i9.i, %.lr.ph101.i.i
-  %.03599.i.i = phi ptr [ %545, %.lr.ph101.i.i ], [ %257, %._crit_edge.i9.i ]
-  %544 = load ptr, ptr %.03599.i.i, align 8, !tbaa !222
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %544) #14
-  %545 = getelementptr inbounds nuw i8, ptr %.03599.i.i, i64 8
-  %.not.i11.i = icmp eq ptr %545, %260
+  %.03599.i.i = phi ptr [ %546, %.lr.ph101.i.i ], [ %257, %._crit_edge.i9.i ]
+  %545 = load ptr, ptr %.03599.i.i, align 8, !tbaa !222
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %545) #14
+  %546 = getelementptr inbounds nuw i8, ptr %.03599.i.i, i64 8
+  %.not.i11.i = icmp eq ptr %546, %260
   br i1 %.not.i11.i, label %._crit_edge102.loopexit.i.i, label %.lr.ph101.i.i
 
-_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i: ; preds = %543, %._crit_edge102.i.i
+_ZL24reduceDbgValsForwardScanRN4llvm17MachineBasicBlockE.exit.i: ; preds = %544, %._crit_edge102.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %546 = or i1 %.not.i27.i.i, %.not.i49.i.i
-  %547 = or i1 %.021.i, %546
+  %547 = or i1 %.021.i, %.not.i49.i.i
   %548 = getelementptr inbounds nuw i8, ptr %.sroa.01.022.i, i64 8
   %.sroa.01.0.i = load ptr, ptr %548, align 8, !tbaa !162
   %.not.i = icmp eq ptr %.sroa.01.0.i, %34

@@ -2184,16 +2184,16 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 .loopexit:                                        ; preds = %.lr.ph.split.split.i, %.critedge34.i, %.critedge34.us21.i, %.lr.ph.split.split.us.i, %.critedge34.us.i, %.lr.ph.split.us.split.i, %.loopexit.loopexit, %mv_merge_temporal_candidate.exit.thread
   %.10.ph = phi i32 [ %.0, %mv_merge_temporal_candidate.exit.thread ], [ %.10.ph.ph, %.loopexit.loopexit ], [ %.6, %.critedge34.us21.i ], [ %.7, %.lr.ph.split.us.split.i ], [ %.8, %.critedge34.us.i ], [ %.5, %.lr.ph.split.split.us.i ], [ %.4, %.critedge34.i ], [ %.3, %.lr.ph.split.split.i ]
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
-  %465 = load ptr, ptr %464, align 16, !tbaa !10
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %467 = load ptr, ptr %466, align 8, !tbaa !28
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 1345
-  %469 = load i8, ptr %468, align 1, !tbaa !178
-  %470 = icmp eq i8 %469, 0
-  %471 = icmp sgt i32 %.10.ph, 1
-  br i1 %471, label %472, label %mv_merge_pairwise_candidate.exit.thread
+  %465 = icmp sgt i32 %.10.ph, 1
+  br i1 %465, label %466, label %mv_merge_pairwise_candidate.exit.thread
 
-472:                                              ; preds = %.loopexit
+466:                                              ; preds = %.loopexit
+  %467 = load ptr, ptr %464, align 16, !tbaa !10
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
+  %469 = load ptr, ptr %468, align 8, !tbaa !28
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 1345
+  %471 = load i8, ptr %470, align 1, !tbaa !178
+  %472 = icmp eq i8 %471, 0
   %473 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %474 = zext nneg i32 %.10.ph to i64
   %475 = getelementptr inbounds nuw %struct.MvField, ptr %2, i64 %474
@@ -2208,12 +2208,12 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 482:                                              ; preds = %535
   %.not62.not.i = icmp eq i8 %536, 0
-  br i1 %.not62.not.i, label %mv_merge_pairwise_candidate.exit.thread, label %538
+  br i1 %.not62.not.i, label %mv_merge_pairwise_candidate.exit.thread, label %537
 
-483:                                              ; preds = %535, %472
-  %484 = phi i8 [ 0, %472 ], [ %536, %535 ]
-  %485 = phi i1 [ true, %472 ], [ false, %535 ]
-  %indvars.iv.i33 = phi i64 [ 0, %472 ], [ 1, %535 ]
+483:                                              ; preds = %535, %466
+  %484 = phi i8 [ 0, %466 ], [ %536, %535 ]
+  %485 = phi i1 [ %472, %466 ], [ false, %535 ]
+  %indvars.iv.i33 = phi i64 [ 0, %466 ], [ 1, %535 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i33, 1
   %486 = load i8, ptr %477, align 4, !tbaa !92
   %487 = zext i8 %486 to i32
@@ -2291,91 +2291,90 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 535:                                              ; preds = %526, %522, %520, %501
   %536 = phi i8 [ %528, %526 ], [ %484, %522 ], [ %492, %520 ], [ %492, %501 ]
-  %537 = and i1 %470, %485
-  br i1 %537, label %483, label %482, !llvm.loop !186
+  br i1 %485, label %483, label %482, !llvm.loop !186
 
-538:                                              ; preds = %482
-  %539 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %540 = load i8, ptr %539, align 2, !tbaa !103
-  %541 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  %542 = load i8, ptr %541, align 2, !tbaa !103
-  %543 = icmp eq i8 %540, %542
-  %spec.select.i34 = select i1 %543, i8 %540, i8 0
-  %544 = getelementptr inbounds nuw i8, ptr %475, i64 18
-  store i8 %spec.select.i34, ptr %544, align 2, !tbaa !103
-  %545 = getelementptr inbounds nuw i8, ptr %475, i64 19
-  store i8 0, ptr %545, align 1, !tbaa !101
-  %546 = getelementptr inbounds nuw i8, ptr %475, i64 21
-  store i8 0, ptr %546, align 1, !tbaa !94
-  %547 = icmp eq i32 %1, %.10.ph
-  br i1 %547, label %mv_merge_history_candidates.exit, label %548
+537:                                              ; preds = %482
+  %538 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %539 = load i8, ptr %538, align 2, !tbaa !103
+  %540 = getelementptr inbounds nuw i8, ptr %2, i64 42
+  %541 = load i8, ptr %540, align 2, !tbaa !103
+  %542 = icmp eq i8 %539, %541
+  %spec.select.i34 = select i1 %542, i8 %539, i8 0
+  %543 = getelementptr inbounds nuw i8, ptr %475, i64 18
+  store i8 %spec.select.i34, ptr %543, align 2, !tbaa !103
+  %544 = getelementptr inbounds nuw i8, ptr %475, i64 19
+  store i8 0, ptr %544, align 1, !tbaa !101
+  %545 = getelementptr inbounds nuw i8, ptr %475, i64 21
+  store i8 0, ptr %545, align 1, !tbaa !94
+  %546 = icmp eq i32 %1, %.10.ph
+  br i1 %546, label %mv_merge_history_candidates.exit, label %547
 
-548:                                              ; preds = %538
-  %549 = add nuw nsw i32 %.10.ph, 1
+547:                                              ; preds = %537
+  %548 = add nuw nsw i32 %.10.ph, 1
   br label %mv_merge_pairwise_candidate.exit.thread
 
-mv_merge_pairwise_candidate.exit.thread:          ; preds = %482, %.loopexit, %548
-  %.1 = phi i32 [ %549, %548 ], [ %.10.ph, %.loopexit ], [ %.10.ph, %482 ]
+mv_merge_pairwise_candidate.exit.thread:          ; preds = %482, %.loopexit, %547
+  %.1 = phi i32 [ %548, %547 ], [ %.10.ph, %.loopexit ], [ %.10.ph, %482 ]
   %.val21 = load ptr, ptr %464, align 16, !tbaa !10
   %.val22 = load ptr, ptr %16, align 8, !tbaa !30
-  %550 = getelementptr i8, ptr %.val21, i64 8
-  %.val21.val = load ptr, ptr %550, align 8, !tbaa !28
-  %551 = getelementptr i8, ptr %.val22, i64 1928
-  %.val22.val = load ptr, ptr %551, align 8, !tbaa !104
-  %552 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 1345
-  %553 = load i8, ptr %552, align 1, !tbaa !178
-  %554 = icmp eq i8 %553, 1
-  %555 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 18816
-  %556 = load i8, ptr %555, align 4, !tbaa !29
-  br i1 %554, label %560, label %557
+  %549 = getelementptr i8, ptr %.val21, i64 8
+  %.val21.val = load ptr, ptr %549, align 8, !tbaa !28
+  %550 = getelementptr i8, ptr %.val22, i64 1928
+  %.val22.val = load ptr, ptr %550, align 8, !tbaa !104
+  %551 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 1345
+  %552 = load i8, ptr %551, align 1, !tbaa !178
+  %553 = icmp eq i8 %552, 1
+  %554 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 18816
+  %555 = load i8, ptr %554, align 4, !tbaa !29
+  br i1 %553, label %559, label %556
 
-557:                                              ; preds = %mv_merge_pairwise_candidate.exit.thread
-  %558 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 18817
-  %559 = load i8, ptr %558, align 1, !tbaa !29
-  %..i = tail call i8 @llvm.umin.i8(i8 %556, i8 %559)
-  br label %560
+556:                                              ; preds = %mv_merge_pairwise_candidate.exit.thread
+  %557 = getelementptr inbounds nuw i8, ptr %.val21.val, i64 18817
+  %558 = load i8, ptr %557, align 1, !tbaa !29
+  %..i = tail call i8 @llvm.umin.i8(i8 %555, i8 %558)
+  br label %559
 
-560:                                              ; preds = %557, %mv_merge_pairwise_candidate.exit.thread
-  %.in.i = phi i8 [ %..i, %557 ], [ %556, %mv_merge_pairwise_candidate.exit.thread ]
-  %561 = zext i8 %.in.i to i32
-  %562 = getelementptr inbounds nuw i8, ptr %.val22.val, i64 38
-  %563 = sext i32 %.1 to i64
+559:                                              ; preds = %556, %mv_merge_pairwise_candidate.exit.thread
+  %.in.i = phi i8 [ %..i, %556 ], [ %555, %mv_merge_pairwise_candidate.exit.thread ]
+  %560 = zext i8 %.in.i to i32
+  %561 = getelementptr inbounds nuw i8, ptr %.val22.val, i64 38
+  %562 = sext i32 %.1 to i64
   %sext.i = sext i32 %1 to i64
-  br label %564
+  br label %563
 
-564:                                              ; preds = %568, %560
-  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %568 ], [ %563, %560 ]
-  %.031.i = phi i32 [ %582, %568 ], [ 0, %560 ]
-  %565 = load i8, ptr %562, align 2, !tbaa !184
-  %566 = zext i8 %565 to i64
-  %567 = icmp slt i64 %indvars.iv.i35, %566
-  br i1 %567, label %568, label %mv_merge_history_candidates.exit
+563:                                              ; preds = %567, %559
+  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %567 ], [ %562, %559 ]
+  %.031.i = phi i32 [ %581, %567 ], [ 0, %559 ]
+  %564 = load i8, ptr %561, align 2, !tbaa !184
+  %565 = zext i8 %564 to i64
+  %566 = icmp slt i64 %indvars.iv.i35, %565
+  br i1 %566, label %567, label %mv_merge_history_candidates.exit
 
-568:                                              ; preds = %564
-  %569 = getelementptr inbounds %struct.MvField, ptr %2, i64 %indvars.iv.i35
-  %570 = load i8, ptr %552, align 1, !tbaa !178
-  %571 = icmp eq i8 %570, 0
-  %572 = select i1 %571, i8 3, i8 1
-  %573 = getelementptr inbounds nuw i8, ptr %569, i64 20
-  store i8 %572, ptr %573, align 4, !tbaa !92
-  %574 = icmp samesign ult i32 %.031.i, %561
-  %575 = trunc i32 %.031.i to i8
-  %576 = select i1 %574, i8 %575, i8 0
-  %577 = getelementptr inbounds nuw i8, ptr %569, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %569, i8 0, i64 16, i1 false)
-  store i8 %576, ptr %577, align 8, !tbaa !29
-  %578 = getelementptr inbounds nuw i8, ptr %569, i64 17
-  store i8 %576, ptr %578, align 1, !tbaa !29
-  %579 = getelementptr inbounds nuw i8, ptr %569, i64 19
-  store i8 0, ptr %579, align 1, !tbaa !101
-  %580 = getelementptr inbounds nuw i8, ptr %569, i64 18
-  store i8 0, ptr %580, align 2, !tbaa !103
-  %581 = icmp eq i64 %indvars.iv.i35, %sext.i
+567:                                              ; preds = %563
+  %568 = getelementptr inbounds %struct.MvField, ptr %2, i64 %indvars.iv.i35
+  %569 = load i8, ptr %551, align 1, !tbaa !178
+  %570 = icmp eq i8 %569, 0
+  %571 = select i1 %570, i8 3, i8 1
+  %572 = getelementptr inbounds nuw i8, ptr %568, i64 20
+  store i8 %571, ptr %572, align 4, !tbaa !92
+  %573 = icmp samesign ult i32 %.031.i, %560
+  %574 = trunc i32 %.031.i to i8
+  %575 = select i1 %573, i8 %574, i8 0
+  %576 = getelementptr inbounds nuw i8, ptr %568, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %568, i8 0, i64 16, i1 false)
+  store i8 %575, ptr %576, align 8, !tbaa !29
+  %577 = getelementptr inbounds nuw i8, ptr %568, i64 17
+  store i8 %575, ptr %577, align 1, !tbaa !29
+  %578 = getelementptr inbounds nuw i8, ptr %568, i64 19
+  store i8 0, ptr %578, align 1, !tbaa !101
+  %579 = getelementptr inbounds nuw i8, ptr %568, i64 18
+  store i8 0, ptr %579, align 2, !tbaa !103
+  %580 = icmp eq i64 %indvars.iv.i35, %sext.i
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i35, 1
-  %582 = add nuw nsw i32 %.031.i, 1
-  br i1 %581, label %mv_merge_history_candidates.exit, label %564, !llvm.loop !187
+  %581 = add nuw nsw i32 %.031.i, 1
+  br i1 %580, label %mv_merge_history_candidates.exit, label %563, !llvm.loop !187
 
-mv_merge_history_candidates.exit:                 ; preds = %.critedge32.i, %.critedge32.us20.i, %.critedge32.us.i, %.critedge32.us.us.i, %568, %564, %mv_merge_spatial_candidates.exit, %538, %293
+mv_merge_history_candidates.exit:                 ; preds = %.critedge32.i, %.critedge32.us20.i, %.critedge32.us.i, %.critedge32.us.us.i, %567, %563, %mv_merge_spatial_candidates.exit, %537, %293
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

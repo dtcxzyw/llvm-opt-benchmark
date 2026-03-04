@@ -7565,6 +7565,7 @@ _ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13Lazy
 
 .thread69.thread.i.i:                             ; preds = %.thread72.i.i
   store ptr inttoptr (i64 -4096 to ptr), ptr %319, align 8, !tbaa !382
+  store ptr inttoptr (i64 -4096 to ptr), ptr %320, align 8, !tbaa !382
   br label %.thread70.i.i
 
 329:                                              ; preds = %323

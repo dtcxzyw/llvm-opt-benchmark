@@ -16397,15 +16397,15 @@ vec3isnull.exit.thread:                           ; preds = %shuffle.exit
   %158 = load float, ptr %157, align 4, !tbaa !447
   %159 = fmul reassoc nsz arcp contract afn float %158, 0x3FD51EB860000000
   %160 = fmul reassoc nsz arcp contract afn float %159, %37
-  %161 = fadd reassoc nsz arcp contract afn float %160, %36
-  %162 = fmul reassoc nsz arcp contract afn float %152, 0x3FD51EB860000000
-  %163 = fmul reassoc nsz arcp contract afn float %162, %138
-  %164 = fsub reassoc nsz arcp contract afn float 0x3FD51EB860000000, %163
-  %165 = fmul reassoc nsz arcp contract afn float %164, %35
-  %166 = fmul reassoc nsz arcp contract afn float %165, %158
-  %167 = fmul reassoc nsz arcp contract afn float %166, %38
-  %168 = fadd reassoc nsz arcp contract afn float %161, %167
-  %169 = fadd reassoc nsz arcp contract afn float %168, %.1115158
+  %161 = fmul reassoc nsz arcp contract afn float %152, 0x3FD51EB860000000
+  %162 = fmul reassoc nsz arcp contract afn float %161, %138
+  %163 = fsub reassoc nsz arcp contract afn float 0x3FD51EB860000000, %162
+  %164 = fmul reassoc nsz arcp contract afn float %163, %35
+  %165 = fmul reassoc nsz arcp contract afn float %164, %158
+  %166 = fmul reassoc nsz arcp contract afn float %165, %38
+  %167 = fadd reassoc nsz arcp contract afn float %.1115158, %36
+  %168 = fadd reassoc nsz arcp contract afn float %167, %160
+  %169 = fadd reassoc nsz arcp contract afn float %168, %166
   br label %172
 
 170:                                              ; preds = %141

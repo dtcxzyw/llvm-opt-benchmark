@@ -1814,26 +1814,26 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %65
   %73 = trunc nuw i8 %.1 to i1
-  %or.cond = and i1 %4, %73
-  br i1 %or.cond, label %74, label %._crit_edge.thread
+  %74 = and i1 %4, %73
+  br i1 %74, label %75, label %._crit_edge.thread
 
-74:                                               ; preds = %._crit_edge
+75:                                               ; preds = %._crit_edge
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.24)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %74, %._crit_edge
-  %75 = call ptr @except_pop()
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %78 = load ptr, ptr %77, align 8
-  call void %76(ptr noundef %78)
+._crit_edge.thread:                               ; preds = %5, %75, %._crit_edge
+  %76 = call ptr @except_pop()
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %79 = load ptr, ptr %78, align 8
+  call void %77(ptr noundef %79)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %79 = call ptr @except_pop()
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %82 = load ptr, ptr %81, align 8
-  call void %80(ptr noundef %82)
+  %80 = call ptr @except_pop()
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %83 = load ptr, ptr %82, align 8
+  call void %81(ptr noundef %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

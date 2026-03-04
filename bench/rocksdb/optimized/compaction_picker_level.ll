@@ -2683,12 +2683,12 @@ _ZNSt16allocator_traitsISaIN7rocksdb28AtomicCompactionUnitBoundaryEEE8allocateER
   %1001 = getelementptr inbounds nuw i32, ptr %972, i64 %1000
   %1002 = load i32, ptr %1001, align 4, !tbaa !136
   %1003 = sitofp i32 %1002 to double
+  %1004 = fmul double %998, %1003
   br label %_ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit.us.i.i.i
 
 _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit.us.i.i.i: ; preds = %999, %996
-  %.0.i.us.i.i.i = phi double [ %1003, %999 ], [ 1.000000e+00, %996 ]
-  %1004 = fmul double %998, %.0.i.us.i.i.i
-  %1005 = fptoui double %1004 to i64
+  %.0.i.us.i.i.i = phi double [ %1004, %999 ], [ %998, %996 ]
+  %1005 = fptoui double %.0.i.us.i.i.i to i64
   br label %1006
 
 1006:                                             ; preds = %_ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit.us.i.i.i, %993

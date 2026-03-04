@@ -2586,10 +2586,11 @@ land.rhs611:                                      ; preds = %land.end608
   %is_climbing = getelementptr inbounds nuw i8, ptr %player, i64 438
   %362 = load i8, ptr %is_climbing, align 2, !tbaa !242, !range !122, !noundef !123
   %tobool612 = icmp ne i8 %362, 0
+  %363 = or i1 %brmerge, %tobool612
   br label %land.end613
 
 land.end613:                                      ; preds = %land.rhs611, %land.end608
-  %363 = phi i1 [ false, %land.end608 ], [ %tobool612, %land.rhs611 ]
+  %brmerge784 = phi i1 [ %brmerge, %land.end608 ], [ %363, %land.rhs611 ]
   %364 = load ptr, ptr @g_settings, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp615)
   %365 = getelementptr inbounds nuw i8, ptr %ref.tmp615, i64 16
@@ -2646,7 +2647,6 @@ if.then.i.i1058:                                  ; preds = %cleanup.done651
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1062: ; preds = %cleanup.done651, %if.then.i.i1058
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp615)
-  %brmerge784 = or i1 %brmerge, %363
   %brmerge784.not = xor i1 %brmerge784, true
   %brmerge785 = or i1 %369, %brmerge784.not
   %m_view_bobbing_state677 = getelementptr inbounds nuw i8, ptr %this, i64 172

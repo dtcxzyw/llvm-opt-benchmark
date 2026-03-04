@@ -323,7 +323,7 @@ define hidden zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef %0, i32 noundef %1)
 
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
-  br label %29
+  br label %30
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -334,7 +334,7 @@ define hidden zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef %0, i32 noundef %1)
 
 10:                                               ; preds = %6
   %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #9
-  br label %29
+  br label %30
 
 12:                                               ; preds = %6
   %or.cond = icmp ugt i32 %1, 100
@@ -342,38 +342,41 @@ define hidden zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef %0, i32 noundef %1)
 
 13:                                               ; preds = %12
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13) #9
-  br label %29
+  br label %30
 
 15:                                               ; preds = %12
   %16 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.14) #9
   %.not22 = icmp eq ptr %16, null
-  br i1 %.not22, label %23, label %17
+  br i1 %.not22, label %24, label %17
 
 17:                                               ; preds = %15
   %18 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %16) #9
-  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
-  %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 100)
-  %21 = mul nuw nsw i32 %20, %1
-  %.lhs.trunc = trunc nuw nsw i32 %21 to i16
-  %22 = udiv i16 %.lhs.trunc, 100
-  %.zext = zext nneg i16 %22 to i32
-  br label %23
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %24, label %20
 
-23:                                               ; preds = %15, %17
-  %.017 = phi i32 [ %.zext, %17 ], [ %1, %15 ]
-  %24 = tail call zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef nonnull %0) #9
-  br i1 %24, label %25, label %27
+20:                                               ; preds = %17
+  %21 = tail call i32 @llvm.umin.i32(i32 %18, i32 100)
+  %22 = mul nuw nsw i32 %21, %1
+  %.lhs.trunc = trunc nuw nsw i32 %22 to i16
+  %23 = udiv i16 %.lhs.trunc, 100
+  %.zext = zext nneg i16 %23 to i32
+  br label %24
 
-25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @SDL_HIDAPI_HapticSetGain(ptr noundef nonnull %0, i32 noundef %.017) #9
-  br label %29
+24:                                               ; preds = %15, %20, %17
+  %.017 = phi i32 [ 0, %17 ], [ %.zext, %20 ], [ %1, %15 ]
+  %25 = tail call zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef nonnull %0) #9
+  br i1 %25, label %26, label %28
 
-27:                                               ; preds = %23
-  %28 = tail call zeroext i1 @SDL_SYS_HapticSetGain(ptr noundef nonnull %0, i32 noundef %.017) #9
-  br label %29
+26:                                               ; preds = %24
+  %27 = tail call zeroext i1 @SDL_HIDAPI_HapticSetGain(ptr noundef nonnull %0, i32 noundef %.017) #9
+  br label %30
 
-29:                                               ; preds = %27, %25, %13, %10, %4
-  %.018 = phi i1 [ %14, %13 ], [ %26, %25 ], [ %28, %27 ], [ %11, %10 ], [ false, %4 ]
+28:                                               ; preds = %24
+  %29 = tail call zeroext i1 @SDL_SYS_HapticSetGain(ptr noundef nonnull %0, i32 noundef %.017) #9
+  br label %30
+
+30:                                               ; preds = %28, %26, %13, %10, %4
+  %.018 = phi i1 [ %14, %13 ], [ %27, %26 ], [ %29, %28 ], [ %11, %10 ], [ false, %4 ]
   ret i1 %.018
 }
 
@@ -1909,9 +1912,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

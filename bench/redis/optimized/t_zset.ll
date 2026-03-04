@@ -8577,117 +8577,118 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %.1243411 = phi i32 [ 1, %.lr.ph416 ], [ %.2244, %.loopexit381 ]
   %.0247409 = phi i32 [ %75, %.lr.ph416 ], [ %.2249, %.loopexit381 ]
   %.1260408 = phi i32 [ 0, %.lr.ph416 ], [ %.2261, %.loopexit381 ]
-  br i1 %or.cond, label %.thread, label %81
+  br i1 %or.cond, label %.thread, label %82
 
 .thread:                                          ; preds = %79
   %80 = icmp sgt i32 %.0247409, 1
-  br label %129
+  %81 = and i1 %77, %80
+  br label %130
 
-81:                                               ; preds = %79
-  %82 = sext i32 %.0247409 to i64
-  %83 = load i64, ptr %6, align 8, !tbaa !26
-  %.not280.not = icmp slt i64 %83, %82
-  br i1 %.not280.not, label %84, label %104
+82:                                               ; preds = %79
+  %83 = sext i32 %.0247409 to i64
+  %84 = load i64, ptr %6, align 8, !tbaa !26
+  %.not280.not = icmp slt i64 %84, %83
+  br i1 %.not280.not, label %85, label %105
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %13, align 8, !tbaa !136
-  %86 = sext i32 %.1240413 to i64
-  %87 = getelementptr inbounds ptr, ptr %85, i64 %86
-  %88 = load ptr, ptr %87, align 8, !tbaa !146
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !75
-  %91 = call i32 @strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.42) #21
-  %.not281 = icmp eq i32 %91, 0
-  br i1 %.not281, label %.preheader, label %104
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %13, align 8, !tbaa !136
+  %87 = sext i32 %.1240413 to i64
+  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  %89 = load ptr, ptr %88, align 8, !tbaa !146
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !75
+  %92 = call i32 @strcasecmp(ptr noundef %91, ptr noundef nonnull @.str.42) #21
+  %.not281 = icmp eq i32 %92, 0
+  br i1 %.not281, label %.preheader, label %105
 
-.preheader:                                       ; preds = %84
+.preheader:                                       ; preds = %85
   %.2241399 = add i32 %.1240413, 1
   %.1248400 = add nsw i32 %.0247409, -1
-  %92 = icmp sgt i64 %83, 0
-  br i1 %92, label %.lr.ph404.preheader, label %.loopexit381
+  %93 = icmp sgt i64 %84, 0
+  br i1 %93, label %.lr.ph404.preheader, label %.loopexit381
 
 .lr.ph404.preheader:                              ; preds = %.preheader
-  %93 = sext i32 %.2241399 to i64
+  %94 = sext i32 %.2241399 to i64
   br label %.lr.ph404
 
-94:                                               ; preds = %.lr.ph404
+95:                                               ; preds = %.lr.ph404
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, 1
   %.1248 = add nsw i32 %.1248403, -1
-  %95 = load i64, ptr %6, align 8, !tbaa !26
-  %96 = icmp sgt i64 %95, %indvars.iv.next479
-  br i1 %96, label %.lr.ph404, label %.loopexit381.loopexit, !llvm.loop !178
+  %96 = load i64, ptr %6, align 8, !tbaa !26
+  %97 = icmp sgt i64 %96, %indvars.iv.next479
+  br i1 %97, label %.lr.ph404, label %.loopexit381.loopexit, !llvm.loop !178
 
-.lr.ph404:                                        ; preds = %.lr.ph404.preheader, %94
-  %indvars.iv478 = phi i64 [ 0, %.lr.ph404.preheader ], [ %indvars.iv.next479, %94 ]
-  %indvars.iv476 = phi i64 [ %93, %.lr.ph404.preheader ], [ %indvars.iv.next477, %94 ]
-  %.1248403 = phi i32 [ %.1248400, %.lr.ph404.preheader ], [ %.1248, %94 ]
-  %97 = load ptr, ptr %13, align 8, !tbaa !136
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv476
-  %99 = load ptr, ptr %98, align 8, !tbaa !146
-  %100 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv478
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %99, ptr noundef nonnull %101, ptr noundef nonnull @.str.43) #19
-  %.not282 = icmp eq i32 %102, 0
-  br i1 %.not282, label %94, label %103
+.lr.ph404:                                        ; preds = %.lr.ph404.preheader, %95
+  %indvars.iv478 = phi i64 [ 0, %.lr.ph404.preheader ], [ %indvars.iv.next479, %95 ]
+  %indvars.iv476 = phi i64 [ %94, %.lr.ph404.preheader ], [ %indvars.iv.next477, %95 ]
+  %.1248403 = phi i32 [ %.1248400, %.lr.ph404.preheader ], [ %.1248, %95 ]
+  %98 = load ptr, ptr %13, align 8, !tbaa !136
+  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv476
+  %100 = load ptr, ptr %99, align 8, !tbaa !146
+  %101 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv478
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %103 = call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %100, ptr noundef nonnull %102, ptr noundef nonnull @.str.43) #19
+  %.not282 = icmp eq i32 %103, 0
+  br i1 %.not282, label %95, label %104
 
-103:                                              ; preds = %.lr.ph404
+104:                                              ; preds = %.lr.ph404
   call void @zfree(ptr noundef nonnull %38) #19
   br label %544
 
-104:                                              ; preds = %84, %81
-  %105 = icmp sgt i32 %.0247409, 1
-  br i1 %105, label %106, label %129
+105:                                              ; preds = %85, %82
+  %106 = icmp sgt i32 %.0247409, 1
+  br i1 %106, label %107, label %130
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %13, align 8, !tbaa !136
-  %108 = sext i32 %.1240413 to i64
-  %109 = getelementptr ptr, ptr %107, i64 %108
-  %110 = load ptr, ptr %109, align 8, !tbaa !146
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !75
-  %113 = call i32 @strcasecmp(ptr noundef %112, ptr noundef nonnull @.str.44) #21
-  %.not283 = icmp eq i32 %113, 0
-  br i1 %.not283, label %114, label %129
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %13, align 8, !tbaa !136
+  %109 = sext i32 %.1240413 to i64
+  %110 = getelementptr ptr, ptr %108, i64 %109
+  %111 = load ptr, ptr %110, align 8, !tbaa !146
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !75
+  %114 = call i32 @strcasecmp(ptr noundef %113, ptr noundef nonnull @.str.44) #21
+  %.not283 = icmp eq i32 %114, 0
+  br i1 %.not283, label %115, label %130
 
-114:                                              ; preds = %106
-  %115 = getelementptr i8, ptr %109, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !146
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !75
-  %119 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.45) #21
-  %.not284 = icmp eq i32 %119, 0
-  br i1 %.not284, label %126, label %120
+115:                                              ; preds = %107
+  %116 = getelementptr i8, ptr %110, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !146
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !75
+  %120 = call i32 @strcasecmp(ptr noundef %119, ptr noundef nonnull @.str.45) #21
+  %.not284 = icmp eq i32 %120, 0
+  br i1 %.not284, label %127, label %121
 
-120:                                              ; preds = %114
-  %121 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.46) #21
-  %.not285 = icmp eq i32 %121, 0
-  br i1 %.not285, label %126, label %122
+121:                                              ; preds = %115
+  %122 = call i32 @strcasecmp(ptr noundef %119, ptr noundef nonnull @.str.46) #21
+  %.not285 = icmp eq i32 %122, 0
+  br i1 %.not285, label %127, label %123
 
-122:                                              ; preds = %120
-  %123 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.47) #21
-  %.not286 = icmp eq i32 %123, 0
-  br i1 %.not286, label %126, label %124
+123:                                              ; preds = %121
+  %124 = call i32 @strcasecmp(ptr noundef %119, ptr noundef nonnull @.str.47) #21
+  %.not286 = icmp eq i32 %124, 0
+  br i1 %.not286, label %127, label %125
 
-124:                                              ; preds = %122
+125:                                              ; preds = %123
   call void @zfree(ptr noundef %38) #19
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %125) #19
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %126) #19
   br label %544
 
-126:                                              ; preds = %122, %120, %114
-  %.3245 = phi i32 [ 2, %120 ], [ 1, %114 ], [ 3, %122 ]
-  %127 = add nsw i32 %.1240413, 2
-  %128 = add nsw i32 %.0247409, -2
+127:                                              ; preds = %123, %121, %115
+  %.3245 = phi i32 [ 2, %121 ], [ 1, %115 ], [ 3, %123 ]
+  %128 = add nsw i32 %.1240413, 2
+  %129 = add nsw i32 %.0247409, -2
   br label %.loopexit381
 
-129:                                              ; preds = %.thread, %106, %104
-  %130 = phi i1 [ %80, %.thread ], [ true, %106 ], [ false, %104 ]
+130:                                              ; preds = %.thread, %107, %105
+  %or.cond12 = phi i1 [ %81, %.thread ], [ false, %107 ], [ false, %105 ]
   %131 = icmp slt i32 %.0247409, 1
   %or.cond10.reass.reass.reass = or i1 %131, %invariant.op
   br i1 %or.cond10.reass.reass.reass, label %143, label %132
 
-132:                                              ; preds = %129
+132:                                              ; preds = %130
   %133 = load ptr, ptr %13, align 8, !tbaa !136
   %134 = sext i32 %.1240413 to i64
   %135 = getelementptr inbounds ptr, ptr %133, i64 %134
@@ -8703,8 +8704,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %142 = add nsw i32 %.0247409, -1
   br label %.loopexit381
 
-143:                                              ; preds = %129
-  %or.cond12 = and i1 %77, %130
+143:                                              ; preds = %130
   br i1 %or.cond12, label %144, label %.thread356
 
 144:                                              ; preds = %143
@@ -8740,15 +8740,15 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   call void @addReplyErrorObject(ptr noundef %0, ptr noundef %160) #19
   br label %544
 
-.loopexit381.loopexit:                            ; preds = %94
+.loopexit381.loopexit:                            ; preds = %95
   %161 = trunc nsw i64 %indvars.iv.next477 to i32
   br label %.loopexit381
 
-.loopexit381:                                     ; preds = %.loopexit381.loopexit, %.preheader, %126, %157, %140
-  %.2261 = phi i32 [ %.1260408, %157 ], [ 1, %140 ], [ %.1260408, %126 ], [ %.1260408, %.preheader ], [ %.1260408, %.loopexit381.loopexit ]
-  %.2249 = phi i32 [ %159, %157 ], [ %142, %140 ], [ %128, %126 ], [ %.1248400, %.preheader ], [ %.1248, %.loopexit381.loopexit ]
-  %.2244 = phi i32 [ %.1243411, %157 ], [ %.1243411, %140 ], [ %.3245, %126 ], [ %.1243411, %.preheader ], [ %.1243411, %.loopexit381.loopexit ]
-  %.3 = phi i32 [ %158, %157 ], [ %141, %140 ], [ %127, %126 ], [ %.2241399, %.preheader ], [ %161, %.loopexit381.loopexit ]
+.loopexit381:                                     ; preds = %.loopexit381.loopexit, %.preheader, %127, %157, %140
+  %.2261 = phi i32 [ %.1260408, %157 ], [ 1, %140 ], [ %.1260408, %127 ], [ %.1260408, %.preheader ], [ %.1260408, %.loopexit381.loopexit ]
+  %.2249 = phi i32 [ %159, %157 ], [ %142, %140 ], [ %129, %127 ], [ %.1248400, %.preheader ], [ %.1248, %.loopexit381.loopexit ]
+  %.2244 = phi i32 [ %.1243411, %157 ], [ %.1243411, %140 ], [ %.3245, %127 ], [ %.1243411, %.preheader ], [ %.1243411, %.loopexit381.loopexit ]
+  %.3 = phi i32 [ %158, %157 ], [ %141, %140 ], [ %128, %127 ], [ %.2241399, %.preheader ], [ %161, %.loopexit381.loopexit ]
   %.not279 = icmp eq i32 %.2249, 0
   br i1 %.not279, label %.critedge311.loopexit, label %79, !llvm.loop !179
 
@@ -9639,7 +9639,7 @@ sdslen.exit349.us:                                ; preds = %503, %499, %495, %4
   call void @zfree(ptr noundef %38) #19
   br label %544
 
-544:                                              ; preds = %103, %124, %156, %.thread356, %.critedge, %5, %543, %44, %34, %22
+544:                                              ; preds = %104, %125, %156, %.thread356, %.critedge, %5, %543, %44, %34, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

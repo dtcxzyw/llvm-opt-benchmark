@@ -1182,23 +1182,23 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 .preheader:                                       ; preds = %9
   %12 = load ptr, ptr %10, align 8, !tbaa !41
-  %.not5488 = icmp eq ptr %12, null
-  br i1 %.not5488, label %.thread72, label %.lr.ph91
+  %.not5480 = icmp eq ptr %12, null
+  br i1 %.not5480, label %.thread66, label %.lr.ph83
 
-.lr.ph91:                                         ; preds = %.preheader
+.lr.ph83:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %14
 
-14:                                               ; preds = %.lr.ph91, %45
-  %indvars.iv = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next, %45 ]
-  %15 = phi ptr [ %12, %.lr.ph91 ], [ %49, %45 ]
-  %.04689 = phi i32 [ 0, %.lr.ph91 ], [ %47, %45 ]
+14:                                               ; preds = %.lr.ph83, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %44 ]
+  %15 = phi ptr [ %12, %.lr.ph83 ], [ %48, %44 ]
+  %.04681 = phi i32 [ 0, %.lr.ph83 ], [ %46, %44 ]
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %17 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 0) #22
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr %4, align 4, !tbaa !40
-  %.not79 = icmp sgt i32 %19, 0
-  br i1 %.not79, label %.lr.ph, label %.loopexit
+  %.not71 = icmp sgt i32 %19, 0
+  br i1 %.not71, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
   %20 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1236,32 +1236,32 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %40 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_flag_t, ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !68
-  %43 = and i32 %42, %.04689
+  %43 = and i32 %42, %.04681
   %.not55.not = icmp eq i32 %43, 0
-  br i1 %.not55.not, label %45, label %.loopexit
+  br i1 %.not55.not, label %44, label %.loopexit
+
+44:                                               ; preds = %.split.us.split
+  %45 = load i32, ptr %40, align 8, !tbaa !67
+  %46 = or i32 %45, %.04681
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
+  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  %.not54 = icmp eq ptr %48, null
+  br i1 %.not54, label %.thread66, label %14, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
-  %44 = phi i32 [ -65, %.lr.ph.split ], [ -65, %.lr.ph.split.us.split ], [ -27, %.split.us.split ], [ -65, %14 ]
+  %49 = phi i32 [ -65, %.lr.ph.split ], [ -65, %.lr.ph.split.us.split ], [ -27, %.split.us.split ], [ -65, %14 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #22
   br label %50
 
-45:                                               ; preds = %.split.us.split
-  %46 = load i32, ptr %40, align 8, !tbaa !67
-  %47 = or i32 %46, %.04689
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
-  %49 = load ptr, ptr %48, align 8, !tbaa !41
-  %.not54 = icmp eq ptr %49, null
-  br i1 %.not54, label %.thread72, label %14, !llvm.loop !72
-
-.thread72:                                        ; preds = %45, %.preheader
-  %.046.lcssa = phi i32 [ 0, %.preheader ], [ %47, %45 ]
+.thread66:                                        ; preds = %44, %.preheader
+  %.046.lcssa = phi i32 [ 0, %.preheader ], [ %46, %44 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #22
   store i32 %.046.lcssa, ptr %2, align 4, !tbaa !40
   br label %50
 
-50:                                               ; preds = %.loopexit, %9, %3, %.thread72
-  %.044 = phi i32 [ %44, %.loopexit ], [ %8, %3 ], [ 0, %.thread72 ], [ -27, %9 ]
+50:                                               ; preds = %.loopexit, %9, %3, %.thread66
+  %.044 = phi i32 [ %49, %.loopexit ], [ %8, %3 ], [ 0, %.thread66 ], [ -27, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044

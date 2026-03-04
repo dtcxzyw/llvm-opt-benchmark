@@ -6038,7 +6038,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(52) %2) #13
   %.not = icmp eq i32 %6, %9
-  br i1 %.not, label %10, label %118
+  br i1 %.not, label %10, label %116
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6046,7 +6046,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i32, ptr %13, align 8
   %.not22 = icmp eq i32 %12, %14
-  br i1 %.not22, label %15, label %118
+  br i1 %.not22, label %15, label %116
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %0, align 8
@@ -6116,11 +6116,11 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %76 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %60, %77
-  br i1 %78, label %80, label %118
+  br i1 %78, label %80, label %116
 
 _ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit:    ; preds = %15, %48
   %79 = icmp eq ptr %32, %40
-  br i1 %79, label %80, label %118
+  br i1 %79, label %80, label %116
 
 80:                                               ; preds = %56, %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -6135,7 +6135,7 @@ _ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit:    ; preds = %15, %48
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %89 = load i32, ptr %88, align 4
   %.not23 = icmp eq i32 %87, %89
-  br i1 %.not23, label %90, label %118
+  br i1 %.not23, label %90, label %116
 
 90:                                               ; preds = %85, %80
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6145,7 +6145,7 @@ _ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit:    ; preds = %15, %48
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %93, %96
-  br i1 %97, label %118, label %98
+  br i1 %97, label %116, label %98
 
 98:                                               ; preds = %90
   %99 = icmp eq ptr %93, null
@@ -6162,7 +6162,7 @@ _ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit:    ; preds = %15, %48
 106:                                              ; preds = %100, %98
   %107 = phi i1 [ true, %98 ], [ %105, %100 ]
   %108 = icmp eq ptr %96, null
-  br i1 %108, label %115, label %109
+  br i1 %108, label %116, label %109
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6170,15 +6170,11 @@ _ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit:    ; preds = %15, %48
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef zeroext i1 @_ZNK13IdealLoopTree12is_invariantEP4Node(ptr noundef nonnull align 8 dereferenceable(113) %113, ptr noundef nonnull %96) #13
-  br label %115
+  %115 = and i1 %107, %114
+  br label %116
 
-115:                                              ; preds = %109, %106
-  %116 = phi i1 [ true, %106 ], [ %114, %109 ]
-  %117 = and i1 %107, %116
-  br label %118
-
-118:                                              ; preds = %56, %90, %3, %10, %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit, %85, %115
-  %.0 = phi i1 [ %117, %115 ], [ false, %3 ], [ false, %85 ], [ false, %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit ], [ false, %10 ], [ true, %90 ], [ false, %56 ]
+116:                                              ; preds = %56, %106, %109, %90, %3, %10, %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit, %85
+  %.0 = phi i1 [ true, %90 ], [ false, %3 ], [ false, %85 ], [ false, %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit ], [ false, %10 ], [ %107, %106 ], [ %115, %109 ], [ false, %56 ]
   ret i1 %.0
 }
 

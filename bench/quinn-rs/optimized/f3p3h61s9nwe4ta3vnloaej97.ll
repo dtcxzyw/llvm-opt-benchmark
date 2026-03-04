@@ -5744,10 +5744,10 @@ define hidden void @_ZN11quinn_proto6packet6Header6encode17hf937c52136b1ec8fE(pt
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.013.0.copyload = load i64, ptr %55, align 4
   %. = select i1 %54, i8 68, i8 64
-  %.sroa.018.0 = shl nuw nsw i8 %51, 5
-  %56 = or disjoint i8 %., %.sroa.018.0
+  %56 = shl nuw nsw i8 %51, 5
+  %.sroa.018.0 = or disjoint i8 %., %56
   %.sroa.01.0.extract.trunc.i41 = trunc i64 %.sroa.013.0.copyload to i8
-  %57 = or i8 %56, %.sroa.01.0.extract.trunc.i41
+  %57 = or i8 %.sroa.018.0, %.sroa.01.0.extract.trunc.i41
   tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32

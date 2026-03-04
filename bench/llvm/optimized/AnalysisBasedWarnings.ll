@@ -5830,7 +5830,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CheckFallThroughDiagnostics15Mak
   %12 = icmp ult i32 %11, -4
   %.not14 = icmp eq ptr %1, null
   %.not = or i1 %.not14, %12
-  br i1 %.not, label %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit, label %13
+  br i1 %.not, label %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %1, align 8, !tbaa !704
@@ -5848,27 +5848,41 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CheckFallThroughDiagnostics15Mak
   %23 = icmp ne i32 %22, 0
   br label %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
 
-_ZNK5clang13CXXMethodDecl9isVirtualEv.exit:       ; preds = %21, %13, %2
-  %.0 = phi i1 [ false, %2 ], [ %23, %21 ], [ true, %13 ]
+_ZNK5clang13CXXMethodDecl9isVirtualEv.exit:       ; preds = %21, %13
+  %.0 = phi i1 [ true, %13 ], [ %23, %21 ]
   %24 = load i32, ptr %8, align 4
   %25 = and i32 %24, 126
   %26 = add nsw i32 %25, -38
   %27 = icmp ult i32 %26, -6
   %.not12 = or i1 %.not14, %27
-  br i1 %.not12, label %30, label %28
+  br i1 %.not12, label %35, label %32
 
-28:                                               ; preds = %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
-  %29 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl23isTemplateInstantiationEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #24
-  br label %30
+_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %2
+  %28 = load i32, ptr %8, align 4
+  %29 = and i32 %28, 126
+  %30 = add nsw i32 %29, -38
+  %31 = icmp ult i32 %30, -6
+  %.not1218 = or i1 %.not14, %31
+  br i1 %.not1218, label %.thread, label %32
 
-30:                                               ; preds = %28, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
-  %.09 = phi i1 [ %29, %28 ], [ false, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit ]
-  %or.cond = or i1 %.0, %.09
-  %spec.select = select i1 %or.cond, i32 0, i32 7051
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.select, ptr %31, align 4, !tbaa !765
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %32, align 4, !tbaa !766
+32:                                               ; preds = %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
+  %.019 = phi i1 [ false, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread ], [ %.0, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit ]
+  %33 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl23isTemplateInstantiationEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #24
+  %34 = or i1 %.019, %33
+  br i1 %34, label %36, label %.thread
+
+35:                                               ; preds = %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
+  br i1 %.0, label %36, label %.thread
+
+36:                                               ; preds = %32, %35
+  br label %.thread
+
+.thread:                                          ; preds = %35, %32, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread, %36
+  %.sink = phi i32 [ 0, %36 ], [ 7051, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread ], [ 7051, %32 ], [ 7051, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %37, align 4, !tbaa !765
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %38, align 4, !tbaa !766
   ret void
 }
 
@@ -13815,6 +13829,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %29, ptr %33, align 8, !tbaa !1321, !alias.scope !1513
+  store ptr %26, ptr %23, align 8, !tbaa !1268
   store i64 0, ptr %32, align 8, !tbaa !1321
   store i8 0, ptr %26, align 8, !tbaa !814
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

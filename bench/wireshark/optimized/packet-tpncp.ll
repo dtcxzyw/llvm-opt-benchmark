@@ -1953,14 +1953,14 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %103 = mul nsw i32 %14, %96
   %104 = add i32 %.0178219, %103
   %105 = trunc i32 %100 to i8
+  %106 = and i8 %94, %105
+  %107 = zext i8 %106 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0184.lcssa = phi i8 [ 0, %.preheader ], [ %105, %._crit_edge.loopexit ]
+  %.0184.lcssa = phi i32 [ 0, %.preheader ], [ %107, %._crit_edge.loopexit ]
   %.3181.lcssa = phi i32 [ %.0178219, %.preheader ], [ %104, %._crit_edge.loopexit ]
-  %106 = and i8 %94, %.0184.lcssa
-  %107 = zext i8 %106 to i32
-  %108 = lshr i32 %107, %.0178219
+  %108 = lshr i32 %.0184.lcssa, %.0178219
   %109 = trunc nuw i32 %108 to i8
   br label %112
 

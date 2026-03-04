@@ -3411,13 +3411,13 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   %.val6.i.i = load i8, ptr %197, align 1, !noalias !586, !noundef !4
   %198 = add i8 %.val.i.i, -65
   %199 = icmp ult i8 %198, 26
-  %.0.i.i.i.i.i = select i1 %199, i8 32, i8 0
-  %200 = add i8 %.val6.i.i, -65
-  %201 = icmp ult i8 %200, 26
-  %.02.i.i.i.i.i = select i1 %201, i8 32, i8 0
-  %202 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %203 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %202, %203
+  %200 = select i1 %199, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %200, %.val.i.i
+  %201 = add i8 %.val6.i.i, -65
+  %202 = icmp ult i8 %201, 26
+  %203 = select i1 %202, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %203, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i, label %192, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit"
 
 204:                                              ; preds = %184
@@ -3466,13 +3466,13 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   %.val6.i.i563 = load i8, ptr %217, align 1, !noalias !606, !noundef !4
   %218 = add i8 %.val.i.i562, -65
   %219 = icmp ult i8 %218, 26
-  %.0.i.i.i.i.i564 = select i1 %219, i8 32, i8 0
-  %220 = add i8 %.val6.i.i563, -65
-  %221 = icmp ult i8 %220, 26
-  %.02.i.i.i.i.i565 = select i1 %221, i8 32, i8 0
-  %222 = or i8 %.0.i.i.i.i.i564, %.val.i.i562
-  %223 = or i8 %.02.i.i.i.i.i565, %.val6.i.i563
-  %.not.i.i566 = icmp eq i8 %222, %223
+  %220 = select i1 %219, i8 32, i8 0
+  %.0.i.i.i.i.i564 = or i8 %220, %.val.i.i562
+  %221 = add i8 %.val6.i.i563, -65
+  %222 = icmp ult i8 %221, 26
+  %223 = select i1 %222, i8 32, i8 0
+  %.02.i.i.i.i.i565 = or i8 %223, %.val6.i.i563
+  %.not.i.i566 = icmp eq i8 %.0.i.i.i.i.i564, %.02.i.i.i.i.i565
   br i1 %.not.i.i566, label %212, label %224
 
 224:                                              ; preds = %214
@@ -3525,13 +3525,13 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   %.val6.i.i574 = load i8, ptr %239, align 1, !noalias !626, !noundef !4
   %240 = add i8 %.val.i.i573, -65
   %241 = icmp ult i8 %240, 26
-  %.0.i.i.i.i.i575 = select i1 %241, i8 32, i8 0
-  %242 = add i8 %.val6.i.i574, -65
-  %243 = icmp ult i8 %242, 26
-  %.02.i.i.i.i.i576 = select i1 %243, i8 32, i8 0
-  %244 = or i8 %.0.i.i.i.i.i575, %.val.i.i573
-  %245 = or i8 %.02.i.i.i.i.i576, %.val6.i.i574
-  %.not.i.i577 = icmp eq i8 %244, %245
+  %242 = select i1 %241, i8 32, i8 0
+  %.0.i.i.i.i.i575 = or i8 %242, %.val.i.i573
+  %243 = add i8 %.val6.i.i574, -65
+  %244 = icmp ult i8 %243, 26
+  %245 = select i1 %244, i8 32, i8 0
+  %.02.i.i.i.i.i576 = or i8 %245, %.val6.i.i574
+  %.not.i.i577 = icmp eq i8 %.0.i.i.i.i.i575, %.02.i.i.i.i.i576
   br i1 %.not.i.i577, label %234, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit"
 
 246:                                              ; preds = %170
@@ -4475,13 +4475,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit636
   %.val6.i.i662 = load i8, ptr %587, align 1, !noalias !692, !noundef !4
   %588 = add i8 %.val.i.i661, -65
   %589 = icmp ult i8 %588, 26
-  %.0.i.i.i.i.i663 = select i1 %589, i8 32, i8 0
-  %590 = add i8 %.val6.i.i662, -65
-  %591 = icmp ult i8 %590, 26
-  %.02.i.i.i.i.i664 = select i1 %591, i8 32, i8 0
-  %592 = or i8 %.0.i.i.i.i.i663, %.val.i.i661
-  %593 = or i8 %.02.i.i.i.i.i664, %.val6.i.i662
-  %.not.i.i665 = icmp eq i8 %592, %593
+  %590 = select i1 %589, i8 32, i8 0
+  %.0.i.i.i.i.i663 = or i8 %590, %.val.i.i661
+  %591 = add i8 %.val6.i.i662, -65
+  %592 = icmp ult i8 %591, 26
+  %593 = select i1 %592, i8 32, i8 0
+  %.02.i.i.i.i.i664 = or i8 %593, %.val6.i.i662
+  %.not.i.i665 = icmp eq i8 %.0.i.i.i.i.i663, %.02.i.i.i.i.i664
   br i1 %.not.i.i665, label %582, label %thread-pre-split
 
 .thread924:                                       ; preds = %564, %570
@@ -4545,13 +4545,13 @@ thread-pre-split:                                 ; preds = %584
   %.val6.i.i673 = load i8, ptr %610, align 1, !noalias !712, !noundef !4
   %611 = add i8 %.val.i.i672, -65
   %612 = icmp ult i8 %611, 26
-  %.0.i.i.i.i.i674 = select i1 %612, i8 32, i8 0
-  %613 = add i8 %.val6.i.i673, -65
-  %614 = icmp ult i8 %613, 26
-  %.02.i.i.i.i.i675 = select i1 %614, i8 32, i8 0
-  %615 = or i8 %.0.i.i.i.i.i674, %.val.i.i672
-  %616 = or i8 %.02.i.i.i.i.i675, %.val6.i.i673
-  %.not.i.i676 = icmp eq i8 %615, %616
+  %613 = select i1 %612, i8 32, i8 0
+  %.0.i.i.i.i.i674 = or i8 %613, %.val.i.i672
+  %614 = add i8 %.val6.i.i673, -65
+  %615 = icmp ult i8 %614, 26
+  %616 = select i1 %615, i8 32, i8 0
+  %.02.i.i.i.i.i675 = or i8 %616, %.val6.i.i673
+  %.not.i.i676 = icmp eq i8 %.0.i.i.i.i.i674, %.02.i.i.i.i.i675
   br i1 %.not.i.i676, label %605, label %.loopexit
 
 .loopexit:                                        ; preds = %594, %607
@@ -5039,13 +5039,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit700
   %.val6.i.i722 = load i8, ptr %789, align 1, !noalias !764, !noundef !4
   %790 = add i8 %.val.i.i721, -65
   %791 = icmp ult i8 %790, 26
-  %.0.i.i.i.i.i723 = select i1 %791, i8 32, i8 0
-  %792 = add i8 %.val6.i.i722, -65
-  %793 = icmp ult i8 %792, 26
-  %.02.i.i.i.i.i724 = select i1 %793, i8 32, i8 0
-  %794 = or i8 %.0.i.i.i.i.i723, %.val.i.i721
-  %795 = or i8 %.02.i.i.i.i.i724, %.val6.i.i722
-  %.not.i.i725 = icmp eq i8 %794, %795
+  %792 = select i1 %791, i8 32, i8 0
+  %.0.i.i.i.i.i723 = or i8 %792, %.val.i.i721
+  %793 = add i8 %.val6.i.i722, -65
+  %794 = icmp ult i8 %793, 26
+  %795 = select i1 %794, i8 32, i8 0
+  %.02.i.i.i.i.i724 = or i8 %795, %.val6.i.i722
+  %.not.i.i725 = icmp eq i8 %.0.i.i.i.i.i723, %.02.i.i.i.i.i724
   br i1 %.not.i.i725, label %784, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit"
 
 .loopexit956:                                     ; preds = %.noexc726, %777, %770, %.noexc727, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h5c64296c46c54ed8E.exit.thread", %567, %.noexc667, %.noexc677, %597, %575, %.noexc678, %562, %327, %.noexc666, %246, %.noexc578, %226, %204, %.noexc557, %185, %173, %.noexc567, %168, %178, %.noexc558, %.noexc568, %.noexc579

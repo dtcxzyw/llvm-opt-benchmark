@@ -1918,9 +1918,9 @@ define hidden void @_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h5fdb
   %38 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !365, !noalias !368, !noundef !11
   %39 = add i8 %38, -65
   %40 = icmp ult i8 %39, 26
-  %.0.i.i = select i1 %40, i8 32, i8 0
-  %41 = or i8 %.0.i.i, %38
-  store i8 %41, ptr %.sroa.0.06.i.i, align 1, !alias.scope !365, !noalias !368
+  %41 = select i1 %40, i8 32, i8 0
+  %.0.i.i = or i8 %41, %38
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !365, !noalias !368
   %42 = icmp eq ptr %37, %35
   br i1 %42, label %62, label %.lr.ph.i.i
 

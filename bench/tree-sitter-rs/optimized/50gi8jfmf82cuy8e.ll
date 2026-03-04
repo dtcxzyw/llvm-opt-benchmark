@@ -15463,9 +15463,9 @@ define hidden void @"_ZN61_$LT$smallbitvec..SmallBitVec$u20$as$u20$core..hash..H
   %12 = icmp eq i64 %8, 63
   %13 = and i64 %.neg, 63
   %14 = shl nsw i64 -1, %13
-  %.0 = select i1 %12, i64 0, i64 %14
-  %15 = and i64 %.0, %.val
-  %16 = tail call noundef i64 @_ZN11smallbitvec12reverse_bits17hd9722047f89e97f2E(i64 noundef %15)
+  %15 = and i64 %14, %.val
+  %.0 = select i1 %12, i64 0, i64 %15
+  %16 = tail call noundef i64 @_ZN11smallbitvec12reverse_bits17hd9722047f89e97f2E(i64 noundef %.0)
   %17 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 5)
   %18 = xor i64 %17, %16
   br label %.sink.split

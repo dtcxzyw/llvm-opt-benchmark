@@ -1142,6 +1142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i.i: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %237, ptr noundef nonnull align 8 dereferenceable(1) %211, i64 %242, i1 false), !noalias !77
   %243 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %240, ptr %243, align 8, !tbaa !57, !alias.scope !86, !noalias !77
+  store ptr %211, ptr %4, align 8, !tbaa !61, !noalias !89
   store i64 0, ptr %222, align 8, !tbaa !57, !noalias !89
   store i8 0, ptr %211, align 8, !tbaa !60, !noalias !89
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 16

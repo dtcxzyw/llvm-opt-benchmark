@@ -2037,12 +2037,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %88 = mul nsw i32 %87, %.0231.i59
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61, label %.lr.ph.i57, !llvm.loop !78
+  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61.loopexit, label %.lr.ph.i57, !llvm.loop !78
 
-_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61: ; preds = %.lr.ph.i57, %.lr.ph.split, %.preheader.i54
-  %.024.i55 = phi i32 [ 0, %.lr.ph.split ], [ 1, %.preheader.i54 ], [ %88, %.lr.ph.i57 ]
-  %89 = mul nsw i32 %20, %.024.i55
-  %90 = sext i32 %89 to i64
+_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61.loopexit: ; preds = %.lr.ph.i57
+  %89 = mul nsw i32 %20, %88
+  br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61
+
+_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61.loopexit, %.lr.ph.split, %.preheader.i54
+  %.024.i55 = phi i32 [ 0, %.lr.ph.split ], [ %20, %.preheader.i54 ], [ %89, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit61.loopexit ]
+  %90 = sext i32 %.024.i55 to i64
   %91 = add nsw i64 %.02286, %90
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next, %12

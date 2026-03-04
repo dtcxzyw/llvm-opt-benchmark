@@ -2198,11 +2198,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16PopCleanupBlocksENS0_
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !697
   %24 = icmp ne i32 %21, %23
+  %25 = or i1 %.0104, %24
   br label %_ZNK5clang7CodeGen14EHCleanupScope11hasBranchesEv.exit
 
 _ZNK5clang7CodeGen14EHCleanupScope11hasBranchesEv.exit: ; preds = %.lr.ph, %19
-  %25 = phi i1 [ false, %.lr.ph ], [ %24, %19 ]
-  %26 = or i1 %.0104, %25
+  %26 = phi i1 [ %.0104, %.lr.ph ], [ %25, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %27, align 8, !tbaa !626
   %28 = icmp slt i64 %1, %.sroa.0.0.copyload.i

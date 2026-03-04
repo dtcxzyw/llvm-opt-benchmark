@@ -277,8 +277,8 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZL22getCallingConvManglingR
   %11 = and i32 %10, 126
   %12 = add nsw i32 %11, -38
   %13 = icmp ult i32 %12, -6
-  %.not33 = icmp eq ptr %1, null
-  %.not = or i1 %.not33, %13
+  %.not31 = icmp eq ptr %1, null
+  %.not = or i1 %.not31, %13
   br i1 %.not, label %.critedge23, label %14
 
 14:                                               ; preds = %8
@@ -346,14 +346,14 @@ _ZL9isExternCPKN5clang9NamedDeclE.exit.thread:    ; preds = %38, %36, %_ZL9isExt
   %47 = and i32 %46, 126
   %48 = add nsw i32 %47, -38
   %49 = icmp ult i32 %48, -6
-  %.not2134 = icmp eq ptr %1, null
-  %.not21 = or i1 %.not2134, %49
+  %.not2132 = icmp eq ptr %1, null
+  %.not21 = or i1 %.not2132, %49
   br i1 %.not21, label %67, label %50
 
 50:                                               ; preds = %.critedge
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload.i27 = load i64, ptr %51, align 8, !tbaa !397
-  %52 = and i64 %.sroa.0.0.copyload.i27, -16
+  %.sroa.0.0.copyload.i26 = load i64, ptr %51, align 8, !tbaa !397
+  %52 = and i64 %.sroa.0.0.copyload.i26, -16
   %53 = inttoptr i64 %52 to ptr
   %54 = load ptr, ptr %53, align 16, !tbaa !398
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -367,8 +367,8 @@ _ZL9isExternCPKN5clang9NamedDeclE.exit.thread:    ; preds = %38, %36, %_ZL9isExt
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %50, %58
-  %.1.i28 = phi ptr [ %59, %58 ], [ %54, %50 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.1.i28, i64 16
+  %.1.i27 = phi ptr [ %59, %58 ], [ %54, %50 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.1.i27, i64 16
   %61 = load i64, ptr %60, align 16
   %62 = trunc i64 %61 to i32
   %63 = lshr i32 %62, 19

@@ -570,7 +570,7 @@ _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit35: ; preds = %_ZN4ll
 
 141:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit
   %.sroa.039.068 = phi ptr [ %.sroa.039.065, %.lr.ph ], [ %.sroa.039.0, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit ]
-  %.01267 = phi i1 [ false, %.lr.ph ], [ %589, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit ]
+  %.01267 = phi i1 [ false, %.lr.ph ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit ]
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.039.068, i64 56
   %143 = load ptr, ptr %142, align 8, !tbaa !294
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.039.068, i64 48
@@ -1562,18 +1562,21 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit59.i: ; pre
   %.4.i = phi i1 [ %.099.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit59.i ], [ true, %576 ], [ %.099.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i = icmp eq ptr %.sroa.062.4.i, %144
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit.loopexit, label %.lr.ph.i
 
-_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit: ; preds = %588, %141
-  %.0.lcssa.i = phi i1 [ false, %141 ], [ %.4.i, %588 ]
-  %589 = or i1 %.01267, %.0.lcssa.i
+_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit.loopexit: ; preds = %588
+  %589 = or i1 %.01267, %.4.i
+  br label %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit
+
+_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit.loopexit, %141
+  %.0.lcssa.i = phi i1 [ %.01267, %141 ], [ %589, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit.loopexit ]
   %590 = getelementptr inbounds nuw i8, ptr %.sroa.039.068, i64 8
   %.sroa.039.0 = load ptr, ptr %590, align 8, !tbaa !293
   %.not = icmp eq ptr %.sroa.039.0, %133
   br i1 %.not, label %.loopexit, label %141
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit, %_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit35, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit35 ], [ %589, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit35 ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_114RISCVMoveMerge18mergeMoveSARegPairERN4llvm17MachineBasicBlockE.exit ]
   ret i1 %.0
 }
 

@@ -16545,9 +16545,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h246e9a9777d41a
   %45 = load i8, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !3439, !noalias !3442, !noundef !13
   %46 = add i8 %45, -65
   %47 = icmp ult i8 %46, 26
-  %.0.i.i.i.i = select i1 %47, i8 32, i8 0
-  %48 = or i8 %.0.i.i.i.i, %45
-  store i8 %48, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !3439, !noalias !3442
+  %48 = select i1 %47, i8 32, i8 0
+  %.0.i.i.i.i = or i8 %48, %45
+  store i8 %.0.i.i.i.i, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !3439, !noalias !3442
   %49 = icmp eq ptr %44, %42
   br i1 %49, label %.loopexit.i.i, label %.lr.ph.i.i.i.i
 

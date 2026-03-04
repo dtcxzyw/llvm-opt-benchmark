@@ -890,6 +890,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   %363 = add nuw nsw i64 %361, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %95, ptr noundef nonnull align 8 dereferenceable(1) %358, i64 %363, i1 false), !noalias !148
   store i64 %361, ptr %96, align 8, !tbaa !162, !alias.scope !171, !noalias !148
+  store ptr %358, ptr %356, align 8, !tbaa !145, !noalias !148
   store i64 0, ptr %360, align 8, !tbaa !162, !noalias !148
   store i8 0, ptr %358, align 8, !tbaa !122, !noalias !148
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i

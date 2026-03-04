@@ -7646,129 +7646,121 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %2, %_ZNSt15__except
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt9exceptionTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt9exception, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt14overflow_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt11range_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12out_of_rangeTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12length_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16invalid_argumentTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt12domain_errorTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt9bad_allocTnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -7777,17 +7769,16 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #20
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionINS_17error_already_setETnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8pybind1117error_already_setE, ptr nonnull @_ZTISt16nested_exception, i64 -2) #36
-  %.not.not = icmp ne ptr %3, null
-  br i1 %.not.not, label %4, label %6
+  %.not.not.not = icmp eq ptr %3, null
+  br i1 %.not.not.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionISt16nested_exceptionTnNSt9enable_ifIXsr3std7is_sameIS2_NS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS5_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.05 = phi i1 [ %5, %4 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %5, %4 ], [ false, %2 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: nounwind
@@ -45821,12 +45812,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %241, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %248 = phi i64 [ %247, %241 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %249 = icmp samesign ugt i64 %239, %248
+  %249 = icmp ugt i64 %239, %248
   br i1 %249, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %250
 
 250:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %251 = sub nuw nsw i64 %248, %239
-  %252 = icmp samesign ugt i64 %251, 1
+  %252 = icmp ugt i64 %251, 1
   br i1 %252, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %253
 
 253:                                              ; preds = %250
@@ -46229,12 +46220,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250: ; preds = %422, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247
   %429 = phi i64 [ %428, %422 ], [ %.03556.i240, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247 ]
-  %430 = icmp samesign ugt i64 %420, %429
+  %430 = icmp ugt i64 %420, %429
   br i1 %430, label %.thread664, label %431
 
 431:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250
   %432 = sub nuw nsw i64 %429, %420
-  %433 = icmp samesign ugt i64 %432, 1
+  %433 = icmp ugt i64 %432, 1
   br i1 %433, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253, label %434
 
 434:                                              ; preds = %431
@@ -46352,12 +46343,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268: ; preds = %477, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265
   %484 = phi i64 [ %483, %477 ], [ %.03556.i258, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265 ]
-  %485 = icmp samesign ugt i64 %475, %484
+  %485 = icmp ugt i64 %475, %484
   br i1 %485, label %.thread.sink.split, label %486
 
 486:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268
   %487 = sub nuw nsw i64 %484, %475
-  %488 = icmp samesign ugt i64 %487, 1
+  %488 = icmp ugt i64 %487, 1
   br i1 %488, label %.thread, label %489
 
 489:                                              ; preds = %486
@@ -46711,7 +46702,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344: ; preds = %628, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
   %635 = phi i64 [ %634, %628 ], [ %.03556.i334, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
-  %636 = icmp samesign ugt i64 %626, %635
+  %636 = icmp ugt i64 %626, %635
   br i1 %636, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %637
 
 637:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
@@ -46931,12 +46922,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382: ; preds = %729, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
   %736 = phi i64 [ %735, %729 ], [ %.03556.i372, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
-  %737 = icmp samesign ugt i64 %727, %736
+  %737 = icmp ugt i64 %727, %736
   br i1 %737, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %738
 
 738:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
   %739 = sub nuw nsw i64 %736, %727
-  %740 = icmp samesign ugt i64 %739, 1
+  %740 = icmp ugt i64 %739, 1
   br i1 %740, label %.thread464, label %741
 
 741:                                              ; preds = %738

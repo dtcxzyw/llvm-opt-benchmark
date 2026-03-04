@@ -1311,25 +1311,25 @@ define void @_ZN5uu_df17filter_mount_list17h16282f5412ac4a64E(ptr noalias nounde
 "_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit": ; preds = %.body, %45
   %.pn6 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$uucore..features..fsext..MountInfo$GT$$GT$17hc7700cb306c9eb55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #13
-          to label %165 unwind label %163
+          to label %171 unwind label %169
 
 45:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread"
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit"
 
-.body:                                            ; preds = %150, %162, %47
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %lpad.phi, %162 ], [ %151, %150 ]
+.body:                                            ; preds = %156, %168, %47
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %lpad.phi, %168 ], [ %157, %156 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h971717d467822b27E.llvm.10978358169496455607"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit" unwind label %163
+          to label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit" unwind label %169
 
 47:                                               ; preds = %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.lr.ph", %158
-  %49 = phi ptr [ %.sroa.4.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.lr.ph" ], [ %160, %158 ]
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.lr.ph", %164
+  %49 = phi ptr [ %.sroa.4.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.lr.ph" ], [ %166, %164 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 152
   store ptr %50, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !208, !noalias !211
@@ -1339,7 +1339,7 @@ define void @_ZN5uu_df17filter_mount_list17h16282f5412ac4a64E(ptr noalias nounde
   %51 = icmp eq i64 %.sroa.014.0.copyload15, -9223372036854775808
   br i1 %51, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread", label %52
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit", %158, %3
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit", %164, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h971717d467822b27E.llvm.10978358169496455607"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit8" unwind label %45
@@ -1446,12 +1446,12 @@ _ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22: ; preds = %64, %_ZN5uu
   %.val5.i = load i64, ptr %39, align 8, !alias.scope !229, !noalias !226, !noundef !5
   %74 = load ptr, ptr %40, align 8, !alias.scope !229, !noalias !226, !nonnull !5
   %75 = load i64, ptr %41, align 8, !alias.scope !229, !noalias !226
-  %.fr59.i = freeze i64 %75
-  %.not.i.i6.i = icmp eq i64 %.fr59.i, 0
+  %.fr58.i = freeze i64 %75
+  %.not.i.i6.i = icmp eq i64 %.fr58.i, 0
   %76 = load i64, ptr %42, align 8, !alias.scope !229, !noalias !226
   %77 = load i64, ptr %43, align 8, !alias.scope !229, !noalias !226
-  %.fr60.i = freeze i64 %77
-  %78 = icmp eq i64 %.fr60.i, 0
+  %.fr59.i = freeze i64 %77
+  %78 = icmp eq i64 %.fr59.i, 0
   %.val.i.i = load ptr, ptr %44, align 8, !alias.scope !229, !noalias !226, !nonnull !5
   br i1 %.not.i.i6.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1459,15 +1459,15 @@ _ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22: ; preds = %64, %_ZN5uu
   br i1 %78, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i"
-  %.sroa.0.015.us.us.i = phi ptr [ %79, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i" ], [ %70, %.lr.ph.split.us.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.us.i, i64 152
-  %80 = getelementptr i8, ptr %.sroa.0.015.us.us.i, i64 16
+  %.sroa.0.016.us.us.i = phi ptr [ %79, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i" ], [ %70, %.lr.ph.split.us.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.us.i, i64 152
+  %80 = getelementptr i8, ptr %.sroa.0.016.us.us.i, i64 16
   %.val3.us.us.i = load i64, ptr %80, align 8, !alias.scope !226, !noalias !229, !noundef !5
   %.not.i.i.us.us.i = icmp eq i64 %.val3.us.us.i, %.val5.i
   br i1 %.not.i.i.us.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.us.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.us.i": ; preds = %.lr.ph.split.us.split.us.i
-  %81 = getelementptr i8, ptr %.sroa.0.015.us.us.i, i64 8
+  %81 = getelementptr i8, ptr %.sroa.0.016.us.us.i, i64 8
   %.val.us.us.i = load ptr, ptr %81, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
   %bcmp.i.i.us.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.us.us.i, ptr nonnull readonly align 1 %.val4.i, i64 %.val5.i), !alias.scope !231, !noalias !235
   %82 = icmp eq i32 %bcmp.i.i.us.us.i, 0
@@ -1475,25 +1475,25 @@ _ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22: ; preds = %64, %_ZN5uu
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.us.i": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.us.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.us.i, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.us.i, i64 112
   %84 = load i64, ptr %83, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not62.i = icmp ult i64 %76, %84
-  br i1 %.not62.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i", label %85
+  %.not61.i = icmp ult i64 %76, %84
+  br i1 %.not61.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i", label %85
 
 85:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.us.i"
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.us.i, i64 40
-  %.val19.i.us.us.i = load i64, ptr %86, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i.i.i.us.us.i = icmp ne i64 %.val19.i.us.us.i, 0
-  %.not.i.i27.old.i.us.us.i = icmp eq i64 %76, %84
-  %or.cond.i13 = select i1 %.not.i.i.i.us.us.i, i1 %.not.i.i27.old.i.us.us.i, i1 false
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.us.i, i64 40
+  %.val18.i.us.us.i = load i64, ptr %86, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i.i.i.us.us.i = icmp ne i64 %.val18.i.us.us.i, 0
+  %.not.i.i26.old.i.us.us.i = icmp eq i64 %76, %84
+  %or.cond.i13 = select i1 %.not.i.i.i.us.us.i, i1 %.not.i.i26.old.i.us.us.i, i1 false
   br i1 %or.cond.i13, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
 _ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i: ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.us.i, i64 104
-  %.val14.i.us.us.i = load ptr, ptr %87, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i30.i.us.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.us.us.i, i64 %76), !alias.scope !242, !noalias !246
-  %bcmp.i.i30.fr.i.us.us.i = freeze i32 %bcmp.i.i30.i.us.us.i
-  %.not.us.us.i = icmp eq i32 %bcmp.i.i30.fr.i.us.us.i, 0
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.us.i, i64 104
+  %.val13.i.us.us.i = load ptr, ptr %87, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i29.i.us.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val13.i.us.us.i, i64 %76), !alias.scope !242, !noalias !246
+  %bcmp.i.i29.fr.i.us.us.i = freeze i32 %bcmp.i.i29.i.us.us.i
+  %.not.us.us.i = icmp eq i32 %bcmp.i.i29.fr.i.us.us.i, 0
   br i1 %.not.us.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i", label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.us.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.us.i", %.lr.ph.split.us.split.us.i
@@ -1501,15 +1501,15 @@ _ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i: ; preds = %85
   br i1 %88, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i"
-  %.sroa.0.015.us.i = phi ptr [ %89, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i" ], [ %70, %.lr.ph.split.us.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.i, i64 152
-  %90 = getelementptr i8, ptr %.sroa.0.015.us.i, i64 16
+  %.sroa.0.016.us.i = phi ptr [ %89, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i" ], [ %70, %.lr.ph.split.us.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.i, i64 152
+  %90 = getelementptr i8, ptr %.sroa.0.016.us.i, i64 16
   %.val3.us.i = load i64, ptr %90, align 8, !alias.scope !226, !noalias !229, !noundef !5
   %.not.i.i.us.i = icmp eq i64 %.val3.us.i, %.val5.i
   br i1 %.not.i.i.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.i": ; preds = %.lr.ph.split.us.split.i
-  %91 = getelementptr i8, ptr %.sroa.0.015.us.i, i64 8
+  %91 = getelementptr i8, ptr %.sroa.0.016.us.i, i64 8
   %.val.us.i = load ptr, ptr %91, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
   %bcmp.i.i.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.us.i, ptr nonnull readonly align 1 %.val4.i, i64 %.val5.i), !alias.scope !231, !noalias !235
   %92 = icmp eq i32 %bcmp.i.i.us.i, 0
@@ -1517,261 +1517,271 @@ _ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i: ; preds = %85
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.i": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.i, i64 112
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.i, i64 112
   %94 = load i64, ptr %93, align 8, !alias.scope !239, !noalias !240, !noundef !5
   %95 = icmp uge i64 %76, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.i, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.i, i64 88
   %97 = load i64, ptr %96, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %98 = icmp ne i64 %97, 0
-  %99 = icmp ugt i64 %.fr60.i, %97
-  %spec.select.i.us.i = and i1 %98, %99
-  %or.cond.i.us.i = or i1 %95, %spec.select.i.us.i
-  br i1 %or.cond.i.us.i, label %100, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i"
+  %98 = icmp eq i64 %97, 0
+  br i1 %98, label %102, label %99
 
-100:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.i"
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.i, i64 40
-  %.val19.i.us.i = load i64, ptr %101, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i.i.i.us.i = icmp ne i64 %.val19.i.us.i, 0
-  %.not.i.i27.old.i.us.i = icmp eq i64 %76, %94
-  %or.cond77.i = select i1 %.not.i.i.i.us.i, i1 %.not.i.i27.old.i.us.i, i1 false
-  br i1 %or.cond77.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+99:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.i"
+  %100 = icmp ugt i64 %.fr59.i, %97
+  %101 = or i1 %95, %100
+  br i1 %101, label %103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i"
 
-_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i: ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us.i, i64 104
-  %.val14.i.us.i = load ptr, ptr %102, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i30.i.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.us.i, i64 %76), !alias.scope !242, !noalias !246
-  %bcmp.i.i30.fr.i.us.i = freeze i32 %bcmp.i.i30.i.us.i
-  %.not.us.i = icmp eq i32 %bcmp.i.i30.fr.i.us.i, 0
+102:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.i"
+  br i1 %95, label %103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i"
+
+103:                                              ; preds = %102, %99
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.i, i64 40
+  %.val18.i.us.i = load i64, ptr %104, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i.i.i.us.i = icmp ne i64 %.val18.i.us.i, 0
+  %.not.i.i26.old.i.us.i = icmp eq i64 %76, %94
+  %or.cond78.i = select i1 %.not.i.i.i.us.i, i1 %.not.i.i26.old.i.us.i, i1 false
+  br i1 %or.cond78.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+
+_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i: ; preds = %103
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us.i, i64 104
+  %.val13.i.us.i = load ptr, ptr %105, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i29.i.us.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val13.i.us.i, i64 %76), !alias.scope !242, !noalias !246
+  %bcmp.i.i29.fr.i.us.i = freeze i32 %bcmp.i.i29.i.us.i
+  %.not.us.i = icmp eq i32 %bcmp.i.i29.fr.i.us.i, 0
   br i1 %.not.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i", label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.i", %.lr.ph.split.us.split.i
-  %103 = icmp eq ptr %89, %72
-  br i1 %103, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.us.split.i
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, %102, %99, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us.i", %.lr.ph.split.us.split.i
+  %106 = icmp eq ptr %89, %72
+  br i1 %106, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %78, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i"
-  %.sroa.0.015.us22.i = phi ptr [ %104, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i" ], [ %70, %.lr.ph.split.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 152
-  %105 = getelementptr i8, ptr %.sroa.0.015.us22.i, i64 16
-  %.val3.us24.i = load i64, ptr %105, align 8, !alias.scope !226, !noalias !229, !noundef !5
-  %.not.i.i.us25.i = icmp eq i64 %.val3.us24.i, %.val5.i
-  br i1 %.not.i.i.us25.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us26.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i"
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i"
+  %.sroa.0.016.us23.i = phi ptr [ %107, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i" ], [ %70, %.lr.ph.split.i ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 152
+  %108 = getelementptr i8, ptr %.sroa.0.016.us23.i, i64 16
+  %.val3.us25.i = load i64, ptr %108, align 8, !alias.scope !226, !noalias !229, !noundef !5
+  %.not.i.i.us26.i = icmp eq i64 %.val3.us25.i, %.val5.i
+  br i1 %.not.i.i.us26.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us27.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us26.i": ; preds = %.lr.ph.split.split.us.i
-  %106 = getelementptr i8, ptr %.sroa.0.015.us22.i, i64 8
-  %.val.us23.i = load ptr, ptr %106, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
-  %bcmp.i.i.us27.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.us23.i, ptr nonnull readonly align 1 %.val4.i, i64 %.val5.i), !alias.scope !231, !noalias !235
-  %107 = icmp eq i32 %bcmp.i.i.us27.i, 0
-  br i1 %107, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i"
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us27.i": ; preds = %.lr.ph.split.split.us.i
+  %109 = getelementptr i8, ptr %.sroa.0.016.us23.i, i64 8
+  %.val.us24.i = load ptr, ptr %109, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
+  %bcmp.i.i.us28.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.us24.i, ptr nonnull readonly align 1 %.val4.i, i64 %.val5.i), !alias.scope !231, !noalias !235
+  %110 = icmp eq i32 %bcmp.i.i.us28.i, 0
+  br i1 %110, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us26.i"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us27.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   %rhsc.i.us.i = load i8, ptr %74, align 1, !noalias !246
-  %108 = icmp eq i8 %rhsc.i.us.i, 47
-  br i1 %108, label %109, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us28.i"
+  %111 = icmp eq i8 %rhsc.i.us.i, 47
+  br i1 %111, label %112, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us29.i"
 
-109:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i"
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 40
-  %111 = load i64, ptr %110, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i20.i.us.i = icmp eq i64 %111, 0
-  br i1 %.not.i20.i.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.us.i"
+112:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i"
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 40
+  %114 = load i64, ptr %113, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i19.i.us.i = icmp eq i64 %114, 0
+  br i1 %.not.i19.i.us.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.us.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.us.i": ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 32
-  %113 = load ptr, ptr %112, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %rhsc39.i.us.i = load i8, ptr %113, align 1, !noalias !246
-  %114 = icmp eq i8 %rhsc39.i.us.i, 47
-  br i1 %114, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us28.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.us.i": ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 32
+  %116 = load ptr, ptr %115, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %rhsc37.i.us.i = load i8, ptr %116, align 1, !noalias !246
+  %117 = icmp eq i8 %rhsc37.i.us.i, 47
+  br i1 %117, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us29.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us28.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.us.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i"
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 112
-  %116 = load i64, ptr %115, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not61.i = icmp ult i64 %76, %116
-  br i1 %.not61.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i", label %117
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us29.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.us.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.us.i"
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 112
+  %119 = load i64, ptr %118, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not60.i = icmp ult i64 %76, %119
+  br i1 %.not60.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i", label %120
 
-117:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us28.i"
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 40
-  %.val19.i.us31.i = load i64, ptr %118, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i.i.i.us32.i = icmp eq i64 %.fr59.i, %.val19.i.us31.i
-  br i1 %.not.i.i.i.us32.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us35.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us33.i"
+120:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us29.i"
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 40
+  %.val18.i.us30.i = load i64, ptr %121, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i.i.i.us31.i = icmp eq i64 %.fr58.i, %.val18.i.us30.i
+  br i1 %.not.i.i.i.us31.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us34.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us32.i"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us33.i": ; preds = %117
-  %.not.i.i27.old.i.us34.i = icmp eq i64 %76, %116
-  br i1 %.not.i.i27.old.i.us34.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us40.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us32.i": ; preds = %120
+  %.not.i.i26.old.i.us33.i = icmp eq i64 %76, %119
+  br i1 %.not.i.i26.old.i.us33.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us39.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us35.i": ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 32
-  %.val18.i.us36.i = load ptr, ptr %119, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i26.i.us37.i = call i32 @bcmp(ptr nonnull readonly align 1 %74, ptr nonnull readonly align 1 %.val18.i.us36.i, i64 %.fr59.i), !alias.scope !247, !noalias !246
-  %120 = icmp ne i32 %bcmp.i.i26.i.us37.i, 0
-  %.not.i.i27.i.us38.i = icmp eq i64 %76, %116
-  %or.cond45.i.us39.i = and i1 %.not.i.i27.i.us38.i, %120
-  br i1 %or.cond45.i.us39.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us40.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us34.i": ; preds = %120
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 32
+  %.val17.i.us35.i = load ptr, ptr %122, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i25.i.us36.i = call i32 @bcmp(ptr nonnull readonly align 1 %74, ptr nonnull readonly align 1 %.val17.i.us35.i, i64 %.fr58.i), !alias.scope !247, !noalias !246
+  %123 = icmp ne i32 %bcmp.i.i25.i.us36.i, 0
+  %.not.i.i26.i.us37.i = icmp eq i64 %76, %119
+  %or.cond.i.us38.i = and i1 %.not.i.i26.i.us37.i, %123
+  br i1 %or.cond.i.us38.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us39.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us40.i: ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us35.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us33.i"
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.us22.i, i64 104
-  %.val14.i.us41.i = load ptr, ptr %121, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i30.i.us42.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.us41.i, i64 %76), !alias.scope !242, !noalias !246
-  %bcmp.i.i30.fr.i.us43.i = freeze i32 %bcmp.i.i30.i.us42.i
-  %.not.us44.i = icmp eq i32 %bcmp.i.i30.fr.i.us43.i, 0
-  br i1 %.not.us44.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i", label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us39.i: ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us34.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us32.i"
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.us23.i, i64 104
+  %.val13.i.us40.i = load ptr, ptr %124, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i29.i.us41.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val13.i.us40.i, i64 %76), !alias.scope !242, !noalias !246
+  %bcmp.i.i29.fr.i.us42.i = freeze i32 %bcmp.i.i29.i.us41.i
+  %.not.us43.i = icmp eq i32 %bcmp.i.i29.fr.i.us42.i, 0
+  br i1 %.not.us43.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i", label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us40.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us28.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.us.i", %109, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us26.i", %.lr.ph.split.split.us.i
-  %122 = icmp eq ptr %104, %72
-  br i1 %122, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.split.us.i
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us39.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.us29.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.us.i", %112, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.us27.i", %.lr.ph.split.split.us.i
+  %125 = icmp eq ptr %107, %72
+  br i1 %125, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
-  %.sroa.0.015.i = phi ptr [ %123, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i" ], [ %70, %.lr.ph.split.i ]
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 152
-  %124 = getelementptr i8, ptr %.sroa.0.015.i, i64 16
-  %.val3.i = load i64, ptr %124, align 8, !alias.scope !226, !noalias !229, !noundef !5
+  %.sroa.0.016.i = phi ptr [ %126, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i" ], [ %70, %.lr.ph.split.i ]
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 152
+  %127 = getelementptr i8, ptr %.sroa.0.016.i, i64 16
+  %.val3.i = load i64, ptr %127, align 8, !alias.scope !226, !noalias !229, !noundef !5
   %.not.i.i.i = icmp eq i64 %.val3.i, %.val5.i
   br i1 %.not.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i": ; preds = %.lr.ph.split.split.i
-  %125 = getelementptr i8, ptr %.sroa.0.015.i, i64 8
-  %.val.i = load ptr, ptr %125, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
+  %128 = getelementptr i8, ptr %.sroa.0.016.i, i64 8
+  %.val.i = load ptr, ptr %128, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
   %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val4.i, i64 %.val5.i), !alias.scope !231, !noalias !235
-  %126 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %126, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
+  %129 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %129, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   %rhsc.i.i = load i8, ptr %74, align 1, !noalias !246
-  %127 = icmp eq i8 %rhsc.i.i, 47
-  br i1 %127, label %135, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i"
+  %130 = icmp eq i8 %rhsc.i.i, 47
+  br i1 %130, label %137, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i"
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 112
-  %129 = load i64, ptr %128, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %130 = icmp uge i64 %76, %129
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 88
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i"
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 112
   %132 = load i64, ptr %131, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %133 = icmp ne i64 %132, 0
-  %134 = icmp ugt i64 %.fr60.i, %132
-  %spec.select.i.i = and i1 %133, %134
-  %or.cond.i.i = or i1 %130, %spec.select.i.i
-  br i1 %or.cond.i.i, label %141, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
+  %133 = icmp uge i64 %76, %132
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 88
+  %135 = load i64, ptr %134, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %146, label %143
 
-135:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i"
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 40
-  %137 = load i64, ptr %136, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i20.i.i = icmp eq i64 %137, 0
-  br i1 %.not.i20.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.i"
+137:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.i.i"
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 40
+  %139 = load i64, ptr %138, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i19.i.i = icmp eq i64 %139, 0
+  br i1 %.not.i19.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.i": ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 32
-  %139 = load ptr, ptr %138, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %rhsc39.i.i = load i8, ptr %139, align 1, !noalias !246
-  %140 = icmp eq i8 %rhsc39.i.i, 47
-  br i1 %140, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.i": ; preds = %137
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 32
+  %141 = load ptr, ptr %140, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %rhsc37.i.i = load i8, ptr %141, align 1, !noalias !246
+  %142 = icmp eq i8 %rhsc37.i.i, 47
+  br i1 %142, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
 
-141:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i"
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 40
-  %.val19.i.i = load i64, ptr %142, align 8, !alias.scope !239, !noalias !240, !noundef !5
-  %.not.i.i.i.i = icmp eq i64 %.fr59.i, %.val19.i.i
+143:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i"
+  %144 = icmp ugt i64 %.fr59.i, %135
+  %145 = or i1 %133, %144
+  br i1 %145, label %147, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
+
+146:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i"
+  br i1 %133, label %147, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i"
+
+147:                                              ; preds = %146, %143
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 40
+  %.val18.i.i = load i64, ptr %148, align 8, !alias.scope !239, !noalias !240, !noundef !5
+  %.not.i.i.i.i = icmp eq i64 %.fr58.i, %.val18.i.i
   br i1 %.not.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i": ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 32
-  %.val18.i.i = load ptr, ptr %143, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i26.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %74, ptr nonnull readonly align 1 %.val18.i.i, i64 %.fr59.i), !alias.scope !247, !noalias !246
-  %144 = icmp ne i32 %bcmp.i.i26.i.i, 0
-  %.not.i.i27.i.i = icmp eq i64 %76, %129
-  %or.cond45.i.i = and i1 %.not.i.i27.i.i, %144
-  br i1 %or.cond45.i.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i": ; preds = %147
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 32
+  %.val17.i.i = load ptr, ptr %149, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i25.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %74, ptr nonnull readonly align 1 %.val17.i.i, i64 %.fr58.i), !alias.scope !247, !noalias !246
+  %150 = icmp ne i32 %bcmp.i.i25.i.i, 0
+  %.not.i.i26.i.i = icmp eq i64 %76, %132
+  %or.cond.i.i = and i1 %.not.i.i26.i.i, %150
+  br i1 %or.cond.i.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i": ; preds = %141
-  %.not.i.i27.old.i.i = icmp eq i64 %76, %129
-  br i1 %.not.i.i27.old.i.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i": ; preds = %147
+  %.not.i.i26.old.i.i = icmp eq i64 %76, %132
+  br i1 %.not.i.i26.old.i.i, label %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
 _ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i: ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i"
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 104
-  %.val14.i.i = load ptr, ptr %145, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
-  %bcmp.i.i30.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.i, i64 %76), !alias.scope !242, !noalias !246
-  %bcmp.i.i30.fr.i.i = freeze i32 %bcmp.i.i30.i.i
-  %.not.i12 = icmp eq i32 %bcmp.i.i30.fr.i.i, 0
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 104
+  %.val13.i.i = load ptr, ptr %151, align 8, !alias.scope !239, !noalias !240, !nonnull !5, !noundef !5
+  %bcmp.i.i29.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val13.i.i, i64 %76), !alias.scope !242, !noalias !246
+  %bcmp.i.i29.fr.i.i = freeze i32 %bcmp.i.i29.i.i
+  %.not.i12 = icmp eq i32 %bcmp.i.i29.fr.i.i, 0
   br i1 %.not.i12, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i", label %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit24.i.i", %135, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i", %.lr.ph.split.split.i
-  %146 = icmp eq ptr %123, %72
-  br i1 %146, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.split.i
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i": ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, %146, %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2a29fa507c1a6b1eE.exit23.i.i", %137, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i", %.lr.ph.split.split.i
+  %152 = icmp eq ptr %126, %72
+  br i1 %152, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.split.split.i
 
-_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit:       ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us45.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i", %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22
+_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit:       ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us44.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.us.us.i", %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false)
-  %147 = load i64, ptr %9, align 8, !alias.scope !251, !noalias !254, !noundef !5
-  %148 = icmp eq i64 %71, %147
-  br i1 %148, label %149, label %.critedge
+  %153 = load i64, ptr %9, align 8, !alias.scope !251, !noalias !254, !noundef !5
+  %154 = icmp eq i64 %71, %153
+  br i1 %154, label %155, label %.critedge
 
-149:                                              ; preds = %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit
+155:                                              ; preds = %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hef957d03fda33f6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %71)
-          to label %._crit_edge.i unwind label %150, !noalias !254
+          to label %._crit_edge.i unwind label %156, !noalias !254
 
-._crit_edge.i:                                    ; preds = %149
+._crit_edge.i:                                    ; preds = %155
   %.pre.i = load i64, ptr %11, align 8, !alias.scope !251, !noalias !254
   %.pre = load ptr, ptr %10, align 8, !alias.scope !251, !noalias !254
   br label %.critedge
 
-150:                                              ; preds = %149
-  %151 = landingpad { ptr, i32 }
+156:                                              ; preds = %155
+  %157 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6) #13
-          to label %.body unwind label %152
+          to label %.body unwind label %158
 
-152:                                              ; preds = %150
-  %153 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
   unreachable
 
 .critedge:                                        ; preds = %._crit_edge.i, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit
-  %154 = phi ptr [ %.pre, %._crit_edge.i ], [ %70, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
-  %155 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
-  %156 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %154, i64 %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %156, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false)
-  %157 = add i64 %155, 1
-  store i64 %157, ptr %11, align 8, !alias.scope !251, !noalias !254
+  %160 = phi ptr [ %.pre, %._crit_edge.i ], [ %70, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
+  %161 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
+  %162 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %160, i64 %161
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %162, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false)
+  %163 = add i64 %161, 1
+  store i64 %163, ptr %11, align 8, !alias.scope !251, !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %158
+  br label %164
 
-158:                                              ; preds = %.critedge, %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
+164:                                              ; preds = %.critedge, %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %159 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !256, !noalias !211, !nonnull !5, !noundef !5
-  %160 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !256, !noalias !211, !nonnull !5, !noundef !5
-  %161 = icmp eq ptr %160, %159
-  br i1 %161, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit"
+  %165 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !256, !noalias !211, !nonnull !5, !noundef !5
+  %166 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !256, !noalias !211, !nonnull !5, !noundef !5
+  %167 = icmp eq ptr %166, %165
+  br i1 %167, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7680ea21421e735E.exit"
 
-_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread: ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us35.i", %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us40.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us33.i", %100, %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i, %85, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h5724491bfc85cadaE.exit.thread.i", %55, %52, %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit
+_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread: ; preds = %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.i.us34.i", %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us39.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h440920d8673b924eE.exit.thread.i.us32.i", %103, %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.i, %_ZN5uu_df13mount_info_lt17hfa2b85754956d8d8E.exit.us.us.i, %85, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h5724491bfc85cadaE.exit.thread.i", %55, %52, %_ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit
   invoke void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %7)
-          to label %158 unwind label %47
+          to label %164 unwind label %47
 
 .loopexit:                                        ; preds = %68, %66
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %162
+  br label %168
 
 .loopexit.split-lp:                               ; preds = %62, %60
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %162
+  br label %168
 
-162:                                              ; preds = %.loopexit.split-lp, %.loopexit
+168:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %7) #13
-          to label %.body unwind label %163
+          to label %.body unwind label %169
 
-163:                                              ; preds = %.body, %162, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit"
-  %164 = landingpad { ptr, i32 }
+169:                                              ; preds = %.body, %168, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit"
+  %170 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
   unreachable
 
-165:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit"
+171:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17hcd76342a4403ceaeE.exit"
   resume { ptr, i32 } %.pn6
 }
 

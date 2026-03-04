@@ -1321,218 +1321,186 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
-  %4 = alloca [16 x i8], align 16
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %1, align 8
-  %10 = zext i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 62142
-  %13 = load i8, ptr %12, align 2, !range !5, !noundef !6
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %130, label %15
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %1, align 8
+  %9 = zext i32 %8 to i64
+  %10 = shl nuw nsw i64 %9, 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 62142
+  %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %110, label %14
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 62136
-  %17 = load i8, ptr %16, align 8, !range !5, !noundef !6
-  %18 = icmp eq i8 %17, 0
-  %19 = icmp ugt i32 %9, 4
-  %20 = select i1 %18, i1 true, i1 %19
-  br i1 %20, label %130, label %21
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 62136
+  %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
+  %17 = icmp eq i8 %16, 0
+  %18 = icmp ugt i32 %8, 4
+  %19 = select i1 %17, i1 true, i1 %18
+  br i1 %19, label %110, label %20
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = tail call ptr @memdup_user(ptr noundef %24, i64 noundef %11) #6
-  %26 = icmp ugt ptr %25, inttoptr (i64 -4096 to ptr)
-  br i1 %26, label %27, label %30
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %24 = tail call ptr @memdup_user(ptr noundef %23, i64 noundef %10) #6
+  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
+  br i1 %25, label %26, label %29
 
-27:                                               ; preds = %21
-  %28 = ptrtoint ptr %25 to i64
-  %29 = trunc i64 %28 to i32
-  br label %130
+26:                                               ; preds = %20
+  %27 = ptrtoint ptr %24 to i64
+  %28 = trunc i64 %27 to i32
+  br label %110
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @mutex_lock(ptr noundef nonnull %31) #6
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %33 = load i8, ptr %32, align 8, !range !5, !noundef !6
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %.loopexit
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  tail call void @mutex_lock(ptr noundef nonnull %30) #6
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %32 = load i8, ptr %31, align 8, !range !5, !noundef !6
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %34, label %.critedge
 
-35:                                               ; preds = %30
-  %36 = icmp eq i32 %9, 0
-  br i1 %36, label %.loopexit8, label %37
+34:                                               ; preds = %29
+  %35 = icmp eq i32 %8, 0
+  br i1 %35, label %.loopexit, label %36
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 129
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 62504
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  br label %45
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 129
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 62504
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %44
 
-45:                                               ; preds = %86, %37
-  %46 = phi i64 [ 0, %37 ], [ %87, %86 ]
-  %47 = getelementptr %struct.drm_virtgpu_context_set_param, ptr %25, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i64, ptr %49, align 8
-  switch i64 %48, label %.loopexit [
-    i64 1, label %51
-    i64 2, label %65
-    i64 3, label %73
-    i64 4, label %77
+44:                                               ; preds = %85, %36
+  %45 = phi i64 [ 0, %36 ], [ %86, %85 ]
+  %46 = getelementptr %struct.drm_virtgpu_context_set_param, ptr %24, i64 %45
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i64, ptr %48, align 8
+  switch i64 %47, label %.critedge [
+    i64 1, label %50
+    i64 2, label %64
+    i64 3, label %72
+    i64 4, label %76
   ]
 
-51:                                               ; preds = %45
-  %52 = icmp ugt i64 %50, 63
-  br i1 %52, label %.loopexit, label %53
+50:                                               ; preds = %44
+  %51 = icmp ugt i64 %49, 63
+  br i1 %51, label %.critedge, label %52
 
-53:                                               ; preds = %51
-  %54 = load i64, ptr %43, align 8
-  %55 = shl nuw i64 1, %50
-  %56 = and i64 %54, %55
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.loopexit, label %58
+52:                                               ; preds = %50
+  %53 = load i64, ptr %42, align 8
+  %54 = shl nuw i64 1, %49
+  %55 = and i64 %53, %54
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %.critedge, label %57
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %44, align 4
-  %60 = and i32 %59, 255
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.loopexit
+57:                                               ; preds = %52
+  %58 = load i32, ptr %43, align 4
+  %59 = and i32 %58, 255
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %.critedge
 
-62:                                               ; preds = %58
-  %63 = trunc nuw nsw i64 %50 to i32
-  %64 = or disjoint i32 %59, %63
-  store i32 %64, ptr %44, align 4
-  br label %86
+61:                                               ; preds = %57
+  %62 = trunc nuw nsw i64 %49 to i32
+  %63 = or disjoint i32 %58, %62
+  store i32 %63, ptr %43, align 4
+  br label %85
 
-65:                                               ; preds = %45
-  %66 = load i64, ptr %41, align 8
-  %67 = icmp ne i64 %66, 0
-  %68 = icmp ugt i64 %50, 64
-  %69 = select i1 %67, i1 true, i1 %68
-  br i1 %69, label %.loopexit, label %70
+64:                                               ; preds = %44
+  %65 = load i64, ptr %40, align 8
+  %66 = icmp ne i64 %65, 0
+  %67 = icmp ugt i64 %49, 64
+  %68 = select i1 %66, i1 true, i1 %67
+  br i1 %68, label %.critedge, label %69
 
-70:                                               ; preds = %65
-  %71 = trunc nuw nsw i64 %50 to i32
-  %72 = tail call i64 @dma_fence_context_alloc(i32 noundef %71) #6
-  store i64 %72, ptr %41, align 8
-  store i32 %71, ptr %42, align 4
-  br label %86
+69:                                               ; preds = %64
+  %70 = trunc nuw nsw i64 %49 to i32
+  %71 = tail call i64 @dma_fence_context_alloc(i32 noundef %70) #6
+  store i64 %71, ptr %40, align 8
+  store i32 %70, ptr %41, align 4
+  br label %85
 
-73:                                               ; preds = %45
-  %74 = load i64, ptr %40, align 8
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %.loopexit
+72:                                               ; preds = %44
+  %73 = load i64, ptr %39, align 8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %.critedge
 
-76:                                               ; preds = %73
-  store i64 %50, ptr %40, align 8
-  br label %86
+75:                                               ; preds = %72
+  store i64 %49, ptr %39, align 8
+  br label %85
 
-77:                                               ; preds = %45
-  %78 = load i8, ptr %38, align 1, !range !5, !noundef !6
-  %79 = icmp eq i8 %78, 0
-  br i1 %79, label %80, label %.loopexit
+76:                                               ; preds = %44
+  %77 = load i8, ptr %37, align 1, !range !5, !noundef !6
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %79, label %.critedge
 
-80:                                               ; preds = %77
-  %81 = inttoptr i64 %50 to ptr
-  %82 = tail call i64 @strncpy_from_user(ptr noundef nonnull %39, ptr noundef %81, i64 noundef 64) #6
-  %83 = trunc i64 %82 to i32
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %.loopexit, label %85
+79:                                               ; preds = %76
+  %80 = inttoptr i64 %49 to ptr
+  %81 = tail call i64 @strncpy_from_user(ptr noundef nonnull %38, ptr noundef %80, i64 noundef 64) #6
+  %82 = trunc i64 %81 to i32
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %.critedge, label %84
 
-85:                                               ; preds = %80
-  store i8 1, ptr %38, align 1
-  br label %86
+84:                                               ; preds = %79
+  store i8 1, ptr %37, align 1
+  br label %85
 
-86:                                               ; preds = %85, %76, %70, %62
-  %87 = add nuw nsw i64 %46, 1
-  %88 = icmp eq i64 %87, %10
-  br i1 %88, label %.loopexit8, label %45, !llvm.loop !22
+85:                                               ; preds = %84, %75, %69, %61
+  %86 = add nuw nsw i64 %45, 1
+  %87 = icmp eq i64 %86, %9
+  br i1 %87, label %.loopexit, label %44, !llvm.loop !22
 
-.loopexit8:                                       ; preds = %86, %35
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %90 = load i64, ptr %89, align 8
-  %91 = icmp eq i64 %90, 0
-  br i1 %91, label %109, label %92
+.loopexit:                                        ; preds = %85, %34
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %108, label %91
 
-92:                                               ; preds = %.loopexit8
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %.loopexit, label %96
+91:                                               ; preds = %.loopexit
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %.critedge, label %95
 
-96:                                               ; preds = %92
-  %97 = zext i32 %94 to i64
-  br label %98
+95:                                               ; preds = %91
+  %96 = zext i32 %93 to i64
+  br label %97
 
-98:                                               ; preds = %98, %96
-  %99 = phi i64 [ 0, %96 ], [ %103, %98 ]
-  %100 = phi i64 [ 0, %96 ], [ %102, %98 ]
-  %101 = shl nuw i64 1, %99
-  %102 = or i64 %101, %100
-  %103 = add nuw nsw i64 %99, 1
-  %104 = icmp eq i64 %103, %97
-  br i1 %104, label %105, label %98, !llvm.loop !23
+97:                                               ; preds = %97, %95
+  %98 = phi i64 [ 0, %95 ], [ %102, %97 ]
+  %99 = phi i64 [ 0, %95 ], [ %101, %97 ]
+  %100 = shl nuw i64 1, %98
+  %101 = or i64 %100, %99
+  %102 = add nuw nsw i64 %98, 1
+  %103 = icmp eq i64 %102, %96
+  br i1 %103, label %104, label %97, !llvm.loop !23
 
-105:                                              ; preds = %98
-  %106 = xor i64 %102, -1
-  %107 = and i64 %90, %106
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %109, label %.loopexit
+104:                                              ; preds = %97
+  %105 = xor i64 %101, -1
+  %106 = and i64 %89, %105
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %.critedge
 
-109:                                              ; preds = %105, %.loopexit8
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 129
-  %111 = load i8, ptr %110, align 1, !range !5, !noundef !6
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %120, label %113
+108:                                              ; preds = %104, %.loopexit
+  tail call fastcc void @virtio_gpu_create_context_locked(ptr noundef %5, ptr noundef %7)
+  tail call void @virtio_gpu_notify(ptr noundef %5) #6
+  br label %.critedge
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %8, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #6
-  %119 = trunc i64 %118 to i32
-  tail call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %114, i32 noundef %116, i32 noundef %119, ptr noundef nonnull %117) #6
-  br label %virtio_gpu_create_context_locked.exit
+.critedge:                                        ; preds = %79, %76, %72, %64, %57, %52, %50, %44, %91, %108, %104, %29
+  %109 = phi i32 [ 0, %108 ], [ -17, %29 ], [ -22, %104 ], [ -22, %91 ], [ -22, %44 ], [ -22, %76 ], [ -22, %72 ], [ -22, %64 ], [ -22, %57 ], [ -22, %52 ], [ -22, %50 ], [ %82, %79 ]
+  tail call void @mutex_unlock(ptr noundef nonnull %30) #6
+  tail call void @kfree(ptr noundef %24) #6
+  br label %110
 
-120:                                              ; preds = %109
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
-  %121 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
-  %122 = inttoptr i64 %121 to ptr
-  %123 = call ptr @__get_task_comm(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %122) #6
-  %124 = load i32, ptr %8, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
-  %128 = trunc i64 %127 to i32
-  call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %124, i32 noundef %126, i32 noundef %128, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %virtio_gpu_create_context_locked.exit
-
-virtio_gpu_create_context_locked.exit:            ; preds = %113, %120
-  store i8 1, ptr %32, align 8
-  tail call void @virtio_gpu_notify(ptr noundef %6) #6
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %80, %77, %73, %65, %58, %53, %51, %45, %92, %virtio_gpu_create_context_locked.exit, %105, %30
-  %129 = phi i32 [ 0, %virtio_gpu_create_context_locked.exit ], [ -17, %30 ], [ -22, %105 ], [ -22, %92 ], [ -22, %77 ], [ -22, %73 ], [ -22, %65 ], [ -22, %58 ], [ -22, %53 ], [ -22, %51 ], [ %83, %80 ], [ -22, %45 ]
-  tail call void @mutex_unlock(ptr noundef nonnull %31) #6
-  tail call void @kfree(ptr noundef %25) #6
-  br label %130
-
-130:                                              ; preds = %.loopexit, %27, %15, %3
-  %131 = phi i32 [ %29, %27 ], [ %129, %.loopexit ], [ -22, %15 ], [ -22, %3 ]
-  ret i32 %131
+110:                                              ; preds = %.critedge, %26, %14, %3
+  %111 = phi i32 [ %28, %26 ], [ %109, %.critedge ], [ -22, %14 ], [ -22, %3 ]
+  ret i32 %111
 }
 
 ; Function Attrs: null_pointer_is_valid

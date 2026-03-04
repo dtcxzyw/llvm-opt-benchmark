@@ -2061,7 +2061,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   br i1 %26, label %.thread.i, label %dissect_rdp_cr.exit
 
 .thread.i:                                        ; preds = %24, %16, %13, %4
-  %.0434.i = phi i1 [ false, %24 ], [ true, %4 ], [ true, %16 ], [ true, %13 ]
+  %.0433.i = phi i1 [ false, %24 ], [ true, %13 ], [ true, %4 ], [ true, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 35, ptr noundef nonnull @.str.700)
@@ -2071,7 +2071,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %32 = load i32, ptr @ett_rdp, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
-  br i1 %.0434.i, label %34, label %52
+  br i1 %.0433.i, label %34, label %52
 
 34:                                               ; preds = %.thread.i
   %35 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %9, i1 noundef zeroext true)
@@ -2193,7 +2193,7 @@ dissect_rdpNegReq.exit.i:                         ; preds = %dissect_rdpCorrelat
   br label %dissect_rdp_cr.exit
 
 dissect_rdp_cr.exit:                              ; preds = %19, %21, %24, %52, %dissect_rdpNegReq.exit.i
-  %.041.i = phi i32 [ 0, %24 ], [ %.0.i.i, %dissect_rdpNegReq.exit.i ], [ %.042.i, %52 ], [ 0, %21 ], [ 0, %19 ]
+  %.041.i = phi i32 [ 0, %24 ], [ %.042.i, %52 ], [ %.0.i.i, %dissect_rdpNegReq.exit.i ], [ 0, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %102 = icmp sgt i32 %.041.i, 0

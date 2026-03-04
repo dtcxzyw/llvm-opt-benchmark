@@ -5588,6 +5588,7 @@ _ZN4llvm19MachineVerifierPassC2EOS0_.exit.i.thread.i: ; preds = %_ZNK4llvm18Code
   %868 = add nuw nsw i64 %866, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %863, ptr noundef nonnull align 8 dereferenceable(1) %837, i64 %868, i1 false), !noalias !280
   %869 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %837, ptr %22, align 8, !tbaa !140, !noalias !280
   store i64 0, ptr %838, align 8, !tbaa !143, !noalias !280
   store i8 0, ptr %837, align 8, !tbaa !145, !noalias !280
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_15MachineFunctionENS_19MachineVerifierPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %862, align 8, !tbaa !327, !noalias !280

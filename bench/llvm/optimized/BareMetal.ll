@@ -7582,29 +7582,30 @@ declare void @_ZNK5clang6driver9ToolChain13GetLinkerPathB5cxx11EPb(ptr dead_on_u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains9BareMetal22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2472) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %2 = load i32, ptr %1, align 8, !tbaa !274
-  %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #20
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = or i64 %4, 144132780261945359
-  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit27 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge
-    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge
-    i32 4, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge
-  ]
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load i32, ptr %2, align 8, !tbaa !274
+  %4 = icmp eq i32 %3, 3
+  br i1 %4, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, label %5
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
-  %6 = or i64 %4, 144132780261945407
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit27
+5:                                                ; preds = %1
+  %6 = icmp eq i32 %3, 38
+  %7 = icmp eq i32 %3, 4
+  %8 = or i1 %6, %7
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit27:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
-  %.sroa.0.0 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit25.preheader.critedge ]
-  %7 = extractvalue { i64, i64 } %3, 1
-  %8 = or i64 %7, 512
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %8, 1
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge: ; preds = %5, %1
+  %or.cond = phi i1 [ true, %1 ], [ %8, %5 ]
+  %9 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #20
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = or i64 %10, 144132780261945359
+  %12 = icmp eq i32 %3, 28
+  %or.cond3 = or i1 %12, %or.cond
+  %13 = or i64 %10, 144132780261945407
+  %spec.select = select i1 %or.cond3, i64 %13, i64 %11
+  %14 = extractvalue { i64, i64 } %9, 1
+  %15 = or i64 %14, 512
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %spec.select, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %15, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

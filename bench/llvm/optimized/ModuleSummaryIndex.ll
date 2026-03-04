@@ -1413,9 +1413,9 @@ define dso_local i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef
   %11 = add nuw i32 %.01418, 1
   %.0 = add nsw i32 %.019, -1
   %exitcond.not = icmp eq i32 %11, %5
-  br i1 %exitcond.not, label %.critedge.thread38, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond.not, label %.critedge.thread37, label %.lr.ph, !llvm.loop !103
 
-.critedge.thread38:                               ; preds = %10
+.critedge.thread37:                               ; preds = %10
   %12 = zext i32 %5 to i64
   %13 = shl nuw i64 %12, 32
   br label %.critedge2
@@ -1452,9 +1452,9 @@ define dso_local i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef
   %25 = or disjoint i64 %15, %24
   br label %.critedge2
 
-.critedge2:                                       ; preds = %1, %.critedge.thread38, %.critedge2.loopexit, %.critedge
-  %.014.lcssa37 = phi i64 [ %15, %.critedge ], [ %25, %.critedge2.loopexit ], [ %13, %.critedge.thread38 ], [ 0, %1 ]
-  ret i64 %.014.lcssa37
+.critedge2:                                       ; preds = %1, %.critedge.thread37, %.critedge2.loopexit, %.critedge
+  %.015.lcssa = phi i64 [ %15, %.critedge ], [ %25, %.critedge2.loopexit ], [ %13, %.critedge.thread37 ], [ 0, %1 ]
+  ret i64 %.015.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -6402,6 +6402,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   %1416 = add nuw nsw i64 %1414, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %239, ptr noundef nonnull align 8 dereferenceable(1) %1411, i64 %1416, i1 false)
   store i64 %1414, ptr %240, align 8, !tbaa !254, !alias.scope !410, !noalias !304
+  store ptr %1411, ptr %1409, align 8, !tbaa !256
   store i64 0, ptr %1413, align 8, !tbaa !254
   store i8 0, ptr %1411, align 8, !tbaa !204
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i15.i

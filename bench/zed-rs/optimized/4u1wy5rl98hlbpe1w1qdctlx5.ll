@@ -1014,13 +1014,13 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
   %.val6.i.i = load i8, ptr %65, align 1, !alias.scope !161, !noalias !173, !noundef !12
   %66 = add i8 %.val.i.i, -65
   %67 = icmp ult i8 %66, 26
-  %.sroa.0.0.i.i7.i.i = select i1 %67, i8 32, i8 0
-  %68 = add i8 %.val6.i.i, -65
-  %69 = icmp ult i8 %68, 26
-  %.sroa.01.0.i.i.i.i = select i1 %69, i8 32, i8 0
-  %70 = or i8 %.sroa.0.0.i.i7.i.i, %.val.i.i
-  %71 = or i8 %.sroa.01.0.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %70, %71
+  %68 = select i1 %67, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i = or i8 %68, %.val.i.i
+  %69 = add i8 %.val6.i.i, -65
+  %70 = icmp ult i8 %69, 26
+  %71 = select i1 %70, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i = or i8 %71, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i, %.sroa.01.0.i.i.i.i
   br i1 %.not.i.i, label %60, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.llvm.8537221261273048587.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.llvm.8537221261273048587.exit": ; preds = %62, %60, %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5f0a227095ac94eE.llvm.8537221261273048587.exit6", %2
@@ -1807,13 +1807,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val6 = load i8, ptr %12, align 1, !noundef !12
   %13 = add i8 %.val, -65
   %14 = icmp ult i8 %13, 26
-  %.sroa.0.0.i.i7 = select i1 %14, i8 32, i8 0
-  %15 = add i8 %.val6, -65
-  %16 = icmp ult i8 %15, 26
-  %.sroa.01.0.i.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.sroa.0.0.i.i7, %.val
-  %18 = or i8 %.sroa.01.0.i.i, %.val6
-  %.not = icmp eq i8 %17, %18
+  %15 = select i1 %14, i8 32, i8 0
+  %.sroa.0.0.i.i7 = or i8 %15, %.val
+  %16 = add i8 %.val6, -65
+  %17 = icmp ult i8 %16, 26
+  %18 = select i1 %17, i8 32, i8 0
+  %.sroa.01.0.i.i = or i8 %18, %.val6
+  %.not = icmp eq i8 %.sroa.0.0.i.i7, %.sroa.01.0.i.i
   br i1 %.not, label %6, label %19
 
 19:                                               ; preds = %6, %9
@@ -1905,13 +1905,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %.val6.i = load i8, ptr %13, align 1, !noalias !436, !noundef !12
   %14 = add i8 %.val.i, -65
   %15 = icmp ult i8 %14, 26
-  %.sroa.0.0.i.i7.i = select i1 %15, i8 32, i8 0
-  %16 = add i8 %.val6.i, -65
-  %17 = icmp ult i8 %16, 26
-  %.sroa.01.0.i.i.i = select i1 %17, i8 32, i8 0
-  %18 = or i8 %.sroa.0.0.i.i7.i, %.val.i
-  %19 = or i8 %.sroa.01.0.i.i.i, %.val6.i
-  %.not.i = icmp eq i8 %18, %19
+  %16 = select i1 %15, i8 32, i8 0
+  %.sroa.0.0.i.i7.i = or i8 %16, %.val.i
+  %17 = add i8 %.val6.i, -65
+  %18 = icmp ult i8 %17, 26
+  %19 = select i1 %18, i8 32, i8 0
+  %.sroa.01.0.i.i.i = or i8 %19, %.val6.i
+  %.not.i = icmp eq i8 %.sroa.0.0.i.i7.i, %.sroa.01.0.i.i.i
   br i1 %.not.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit: ; preds = %10, %8, %4

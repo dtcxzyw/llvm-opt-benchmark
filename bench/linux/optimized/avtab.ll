@@ -221,13 +221,13 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef captures(address_is_nul
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread9, label %4
+  br i1 %3, label %.thread6, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread9, label %8
+  br i1 %7, label %.thread6, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -282,7 +282,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread9, label %61
+  br i1 %60, label %.thread6, label %61
 
 61:                                               ; preds = %8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -300,7 +300,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %25, %71
-  br i1 %72, label %73, label %.thread15
+  br i1 %72, label %73, label %.thread11
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 4
@@ -313,41 +313,41 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %64, %79
   %81 = icmp eq i16 %80, 0
-  br i1 %81, label %82, label %.thread9
+  br i1 %81, label %82, label %.thread6
 
 82:                                               ; preds = %77, %73
   %83 = icmp ult i16 %25, %71
-  br i1 %83, label %.thread9, label %86
+  br i1 %83, label %.thread6, label %86
 
-.thread15:                                        ; preds = %69
+.thread11:                                        ; preds = %69
   %84 = icmp ult i16 %25, %71
-  br i1 %84, label %.thread9, label %.thread5
+  br i1 %84, label %.thread6, label %.thread5
 
 .thread:                                          ; preds = %65
   %85 = icmp ult i16 %36, %67
-  br i1 %85, label %.thread9, label %.thread5
+  br i1 %85, label %.thread6, label %.thread5
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %88 = load i16, ptr %87, align 2
   %89 = icmp ult i16 %12, %88
-  br i1 %89, label %.thread9, label %.thread5
+  br i1 %89, label %.thread6, label %.thread5
 
-.thread5:                                         ; preds = %.thread15, %.thread, %86
+.thread5:                                         ; preds = %.thread11, %.thread, %86
   %90 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread9, label %65, !llvm.loop !8
+  br i1 %92, label %.thread6, label %65, !llvm.loop !8
 
-.thread9:                                         ; preds = %82, %86, %.thread, %77, %.thread5, %.thread15, %8, %4, %2
-  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread15 ], [ null, %.thread5 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ], [ %66, %77 ]
+.thread6:                                         ; preds = %.thread, %86, %82, %77, %.thread5, %.thread11, %8, %4, %2
+  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread11 ], [ %66, %77 ], [ null, %.thread5 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ]
   ret ptr %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread8, label %4
+  br i1 %3, label %.thread5, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr %0, align 8
@@ -360,7 +360,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread8, label %.lr.ph
+  br i1 %14, label %.thread5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.thread4
   %15 = phi ptr [ %40, %.thread4 ], [ %13, %4 ]
@@ -372,7 +372,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, %8
-  br i1 %21, label %22, label %.thread21
+  br i1 %21, label %22, label %.thread17
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -385,34 +385,34 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %11, %28
   %30 = icmp eq i16 %29, 0
-  br i1 %30, label %31, label %.thread8
+  br i1 %30, label %31, label %.thread5
 
 31:                                               ; preds = %26, %22
   %32 = icmp ugt i16 %20, %8
-  br i1 %32, label %.thread8, label %35
+  br i1 %32, label %.thread5, label %35
 
-.thread21:                                        ; preds = %18
+.thread17:                                        ; preds = %18
   %33 = icmp ugt i16 %20, %8
-  br i1 %33, label %.thread8, label %.thread4
+  br i1 %33, label %.thread5, label %.thread4
 
 .thread:                                          ; preds = %.lr.ph
   %34 = icmp ugt i16 %16, %6
-  br i1 %34, label %.thread8, label %.thread4
+  br i1 %34, label %.thread5, label %.thread4
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %37 = load i16, ptr %36, align 2
   %38 = icmp ugt i16 %37, %10
-  br i1 %38, label %.thread8, label %.thread4
+  br i1 %38, label %.thread5, label %.thread4
 
-.thread4:                                         ; preds = %.thread21, %.thread, %35
+.thread4:                                         ; preds = %.thread17, %.thread, %35
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread8, label %.lr.ph
+  br i1 %41, label %.thread5, label %.lr.ph
 
-.thread8:                                         ; preds = %.thread4, %26, %.thread, %35, %31, %.thread21, %4, %2
-  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread21 ], [ null, %35 ], [ null, %.thread ], [ %15, %26 ], [ null, %.thread4 ], [ null, %31 ]
+.thread5:                                         ; preds = %.thread4, %26, %31, %35, %.thread, %.thread17, %4, %2
+  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread17 ], [ null, %.thread4 ], [ %15, %26 ], [ null, %31 ], [ null, %35 ], [ null, %.thread ]
   ret ptr %42
 }
 

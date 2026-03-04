@@ -14863,11 +14863,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %210 = load i32, ptr %209, align 4
   %211 = icmp eq i32 %210, 0
   %212 = select i1 %208, i1 %211, i1 false
+  %213 = and i1 %.090262, %212
   br label %_ZNK8seq_util3str7is_unitEPK4expr.exit
 
 _ZNK8seq_util3str7is_unitEPK4expr.exit:           ; preds = %206, %201, %195
-  %213 = phi i1 [ false, %195 ], [ false, %201 ], [ %212, %206 ]
-  %214 = and i1 %.090262, %213
+  %214 = phi i1 [ false, %195 ], [ false, %201 ], [ %213, %206 ]
   %215 = getelementptr inbounds nuw i8, ptr %.091261, i64 8
   %.not = icmp eq ptr %215, %193
   br i1 %.not, label %._crit_edge, label %195

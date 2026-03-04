@@ -6766,7 +6766,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i: ; pr
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge29.loopexit.i, %._crit_edge23.i
   %115 = phi ptr [ %67, %._crit_edge23.i ], [ %.pre.i, %._crit_edge29.loopexit.i ]
-  %.0.lcssa.i = phi i1 [ false, %._crit_edge23.i ], [ %136, %._crit_edge29.loopexit.i ]
+  %.0.lcssa.i = phi i1 [ false, %._crit_edge23.i ], [ %.not2932.i.i, %._crit_edge29.loopexit.i ]
   %116 = icmp eq ptr %115, %9
   br i1 %116, label %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit, label %117
 
@@ -6775,7 +6775,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i: ; pr
   br label %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit
 
 .lr.ph28.i:                                       ; preds = %_ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i, %.lr.ph28.preheader.i
-  %.026.i = phi i1 [ %136, %_ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i ], [ false, %.lr.ph28.preheader.i ]
+  %.026.i = phi i1 [ %.not2932.i.i, %_ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i ], [ false, %.lr.ph28.preheader.i ]
   %.sroa.01.025.i = phi ptr [ %118, %_ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i ], [ %70, %.lr.ph28.preheader.i ]
   %118 = getelementptr inbounds i8, ptr %.sroa.01.025.i, i64 -8
   %119 = load ptr, ptr %118, align 8, !tbaa !108
@@ -6823,61 +6823,60 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i: ; preds = %12
   br label %_ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i
 
 _ZL24addNoRecurseAttrsTopDownRN4llvm8FunctionE.exit.i: ; preds = %130, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i, %127, %.lr.ph.i.i, %.critedge.i.i
-  %.not2932.i.i = phi i1 [ true, %.critedge.i.i ], [ false, %.lr.ph.i.i ], [ false, %127 ], [ false, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i ], [ false, %130 ]
-  %136 = or i1 %.026.i, %.not2932.i.i
+  %.not2932.i.i = phi i1 [ true, %.critedge.i.i ], [ %.026.i, %.lr.ph.i.i ], [ %.026.i, %127 ], [ %.026.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i ], [ %.026.i, %130 ]
   %.not15.i = icmp eq ptr %118, %67
   br i1 %.not15.i, label %._crit_edge29.loopexit.i, label %.lr.ph28.i
 
 _ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit: ; preds = %._crit_edge29.i, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %137, ptr %0, align 8, !tbaa !28
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %138, align 8, !tbaa !29
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br i1 %.0.lcssa.i, label %149, label %140
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %136, ptr %0, align 8, !tbaa !28
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %137, align 8, !tbaa !29
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %.0.lcssa.i, label %148, label %139
 
-140:                                              ; preds = %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %141, align 8, !tbaa !31, !alias.scope !445
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %142, align 4, !tbaa !32, !alias.scope !445
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %144, ptr %143, align 8, !tbaa !28, !alias.scope !445
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %145, align 8, !tbaa !29, !alias.scope !445
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %146, align 4, !tbaa !30, !alias.scope !445
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %147, align 8, !tbaa !31, !alias.scope !445
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %148, align 4, !tbaa !32, !alias.scope !445
-  store i32 1, ptr %139, align 4, !tbaa !30, !alias.scope !445, !noalias !448
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %137, align 8, !tbaa !214, !alias.scope !445, !noalias !448
-  br label %158
+139:                                              ; preds = %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %140, align 8, !tbaa !31, !alias.scope !445
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %141, align 4, !tbaa !32, !alias.scope !445
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %143, ptr %142, align 8, !tbaa !28, !alias.scope !445
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %144, align 8, !tbaa !29, !alias.scope !445
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %145, align 4, !tbaa !30, !alias.scope !445
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %146, align 8, !tbaa !31, !alias.scope !445
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %147, align 4, !tbaa !32, !alias.scope !445
+  store i32 1, ptr %138, align 4, !tbaa !30, !alias.scope !445, !noalias !448
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %136, align 8, !tbaa !214, !alias.scope !445, !noalias !448
+  br label %157
 
-149:                                              ; preds = %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit
-  store i32 0, ptr %139, align 4, !tbaa !30
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %150, align 8, !tbaa !31
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %151, align 4, !tbaa !32
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %153, ptr %152, align 8, !tbaa !28
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %154, align 8, !tbaa !29
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %155, align 4, !tbaa !30
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %156, align 8, !tbaa !31
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %157, align 4, !tbaa !32
+148:                                              ; preds = %_ZL28deduceFunctionAttributeInRPORN4llvm6ModuleERNS_13LazyCallGraphE.exit
+  store i32 0, ptr %138, align 4, !tbaa !30
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %149, align 8, !tbaa !31
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %150, align 4, !tbaa !32
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %152, ptr %151, align 8, !tbaa !28
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %153, align 8, !tbaa !29
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %154, align 4, !tbaa !30
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %155, align 8, !tbaa !31
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %156, align 4, !tbaa !32
   call void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11AnalysisKeyE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull @_ZN4llvm21LazyCallGraphAnalysis3KeyE)
-  br label %158
+  br label %157
 
-158:                                              ; preds = %149, %140
+157:                                              ; preds = %148, %139
   ret void
 }
 

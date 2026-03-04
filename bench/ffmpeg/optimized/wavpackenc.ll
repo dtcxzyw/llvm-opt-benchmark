@@ -8987,6 +8987,7 @@ define internal fastcc void @process_float(ptr noundef captures(none) %0, ptr no
 
 ..thread52_crit_edge:                             ; preds = %22
   %.pre = and i32 %3, 8388607
+  %25 = or i32 %5, %.pre
   br label %.thread52
 
 .thread55:                                        ; preds = %16
@@ -8994,9 +8995,8 @@ define internal fastcc void @process_float(ptr noundef captures(none) %0, ptr no
   br i1 %.not3957, label %.thread52, label %.thread59
 
 .thread52:                                        ; preds = %..thread52_crit_edge, %.thread55
-  %.pre-phi = phi i32 [ %.pre, %..thread52_crit_edge ], [ 0, %.thread55 ]
-  %25 = or i32 %5, %.pre-phi
-  %or.cond = icmp eq i32 %25, 0
+  %.pre-phi = phi i32 [ %25, %..thread52_crit_edge ], [ %5, %.thread55 ]
+  %or.cond = icmp eq i32 %.pre-phi, 0
   br i1 %or.cond, label %30, label %26
 
 26:                                               ; preds = %.thread52

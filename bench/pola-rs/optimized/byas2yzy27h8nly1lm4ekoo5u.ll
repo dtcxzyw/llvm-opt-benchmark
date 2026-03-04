@@ -16096,7 +16096,7 @@ define void @"_ZN142_$LT$polars_parquet..arrow..read..deserialize..binview..BinV
   %.idx = shl nuw nsw i64 %152, 3
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx
   %154 = icmp eq i64 %152, 0
-  br i1 %154, label %.thread107, label %.lr.ph.preheader
+  br i1 %154, label %.thread106, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %148
   %.sroa.050.187 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -16104,15 +16104,15 @@ define void @"_ZN142_$LT$polars_parquet..arrow..read..deserialize..binview..BinV
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %180
   %.sroa.050.191 = phi ptr [ %.sroa.050.1, %180 ], [ %.sroa.050.187, %.lr.ph.preheader ]
-  %.sroa.025.090 = phi i1 [ %181, %180 ], [ true, %.lr.ph.preheader ]
-  %.sroa.028.089 = phi i64 [ %182, %180 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.025.090 = phi i1 [ %.sroa.024.0, %180 ], [ true, %.lr.ph.preheader ]
+  %.sroa.028.089 = phi i64 [ %181, %180 ], [ 0, %.lr.ph.preheader ]
   %.sroa.050.088 = phi ptr [ %.sroa.050.191, %180 ], [ %150, %.lr.ph.preheader ]
   %155 = load i64, ptr %.sroa.050.088, align 8, !noundef !3
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %180, label %178
 
 ._crit_edge:                                      ; preds = %180
-  br i1 %181, label %158, label %157, !prof !1563
+  br i1 %.sroa.024.0, label %158, label %157, !prof !1563
 
 157:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -16120,18 +16120,18 @@ define void @"_ZN142_$LT$polars_parquet..arrow..read..deserialize..binview..BinV
           to label %163 unwind label %161
 
 158:                                              ; preds = %._crit_edge
-  %159 = icmp ugt i64 %182, %52
+  %159 = icmp ugt i64 %181, %52
   br i1 %159, label %160, label %165, !prof !1564
 
 160:                                              ; preds = %158
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %182, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c67a6a2634d0458665f4a31f543faa7f.290) #34
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %181, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c67a6a2634d0458665f4a31f543faa7f.290) #34
           to label %.noexc unwind label %161
 
 .noexc:                                           ; preds = %160
   unreachable
 
-161:                                              ; preds = %.thread107, %167, %160, %188, %172, %157, %135
-  %.sroa.033.6 = phi i8 [ 1, %188 ], [ 1, %172 ], [ 0, %135 ], [ 1, %.thread107 ], [ 1, %160 ], [ 1, %157 ], [ 1, %167 ]
+161:                                              ; preds = %.thread106, %167, %160, %188, %172, %157, %135
+  %.sroa.033.6 = phi i8 [ 1, %188 ], [ 1, %172 ], [ 0, %135 ], [ 1, %.thread106 ], [ 1, %160 ], [ 1, %157 ], [ 1, %167 ]
   %162 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17h106916c636b60a80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #32
@@ -16147,21 +16147,21 @@ define void @"_ZN142_$LT$polars_parquet..arrow..read..deserialize..binview..BinV
           to label %177 unwind label %126
 
 165:                                              ; preds = %158
-  %166 = icmp ult i64 %182, 64
-  br i1 %166, label %.thread107, label %167
+  %166 = icmp ult i64 %181, 64
+  br i1 %166, label %.thread106, label %167
 
 167:                                              ; preds = %165
   %168 = load atomic ptr, ptr @_ZN8simdutf814implementation3x8619validate_utf8_basic2FN17h899d6df86517a782E monotonic, align 8, !noalias !1565, !nonnull !3, !noundef !3
-  %169 = invoke noundef zeroext i1 %168(ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %182)
+  %169 = invoke noundef zeroext i1 %168(ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %181)
           to label %_ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit unwind label %161
 
-.thread107:                                       ; preds = %148, %165
-  %.sroa.028.0.lcssa104106109 = phi i64 [ %182, %165 ], [ 0, %148 ]
+.thread106:                                       ; preds = %148, %165
+  %.sroa.028.0.lcssa103105108 = phi i64 [ %181, %165 ], [ 0, %148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1565
-  invoke void @_ZN4core3str8converts9from_utf817hcb63bc78b6acc319E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %.sroa.028.0.lcssa104106109)
+  invoke void @_ZN4core3str8converts9from_utf817hcb63bc78b6acc319E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %.sroa.028.0.lcssa103105108)
           to label %.noexc66 unwind label %161
 
-.noexc66:                                         ; preds = %.thread107
+.noexc66:                                         ; preds = %.thread106
   %170 = load i64, ptr %7, align 8, !range !410, !noalias !1565, !noundef !3
   %171 = trunc nuw i64 %170 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1565
@@ -16205,21 +16205,21 @@ _ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit: 
 
 178:                                              ; preds = %.lr.ph
   %179 = icmp ult i64 %.sroa.028.089, %52
-  br i1 %179, label %184, label %188
+  br i1 %179, label %183, label %188
 
-180:                                              ; preds = %.lr.ph, %184
-  %.sroa.024.0 = phi i1 [ %187, %184 ], [ true, %.lr.ph ]
-  %181 = and i1 %.sroa.025.090, %.sroa.024.0
-  %182 = add i64 %155, %.sroa.028.089
-  %183 = icmp eq ptr %.sroa.050.191, %153
-  %.sroa.050.1.idx = select i1 %183, i64 0, i64 8
+180:                                              ; preds = %.lr.ph, %183
+  %.sroa.024.0 = phi i1 [ %187, %183 ], [ %.sroa.025.090, %.lr.ph ]
+  %181 = add i64 %155, %.sroa.028.089
+  %182 = icmp eq ptr %.sroa.050.191, %153
+  %.sroa.050.1.idx = select i1 %182, i64 0, i64 8
   %.sroa.050.1 = getelementptr inbounds nuw i8, ptr %.sroa.050.191, i64 %.sroa.050.1.idx
-  br i1 %183, label %._crit_edge, label %.lr.ph
+  br i1 %182, label %._crit_edge, label %.lr.ph
 
-184:                                              ; preds = %178
-  %185 = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.028.089
-  %186 = load i8, ptr %185, align 1, !noundef !3
-  %187 = icmp sgt i8 %186, -65
+183:                                              ; preds = %178
+  %184 = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.028.089
+  %185 = load i8, ptr %184, align 1, !noundef !3
+  %186 = icmp sgt i8 %185, -65
+  %187 = and i1 %.sroa.025.090, %186
   br label %180
 
 188:                                              ; preds = %178

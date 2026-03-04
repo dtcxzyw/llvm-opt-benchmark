@@ -130,84 +130,82 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 .sink.split:                                      ; preds = %20, %18
   %.sink5 = phi i32 [ 2, %18 ], [ 1, %20 ]
   %.060.ph = phi i32 [ 106, %18 ], [ 108, %20 ]
-  %.ph = xor i1 %or.cond, true
   %22 = load ptr, ptr %10, align 8
   %23 = tail call ptr @tvb_address_to_str(ptr noundef %22, ptr noundef %0, i32 noundef %.sink5, i32 noundef 102)
   br label %24
 
 24:                                               ; preds = %.sink.split, %20
   %.062 = phi ptr [ null, %20 ], [ %23, %.sink.split ]
-  %25 = phi i1 [ false, %20 ], [ %.ph, %.sink.split ]
+  %brmerge = phi i1 [ false, %20 ], [ true, %.sink.split ]
   %.060 = phi i32 [ 102, %20 ], [ %.060.ph, %.sink.split ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void @col_set_str(ptr noundef %27, i32 noundef 35, ptr noundef nonnull @.str.7)
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void @col_set_str(ptr noundef %26, i32 noundef 35, ptr noundef nonnull @.str.7)
   store i32 1, ptr %4, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 6, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %12, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr %26, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = call ptr @address_with_resolution_to_str(ptr noundef %32, ptr noundef nonnull %4)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %33)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 6, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %12, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %25, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = call ptr @address_with_resolution_to_str(ptr noundef %31, ptr noundef nonnull %4)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %32)
   %.not65 = icmp eq ptr %.062, null
-  br i1 %.not65, label %36, label %34
+  br i1 %.not65, label %35, label %33
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %26, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull %.062)
-  br label %36
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %25, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull %.062)
+  br label %35
 
-36:                                               ; preds = %34, %24
+35:                                               ; preds = %33, %24
   %.not66 = icmp eq ptr %2, null
-  br i1 %.not66, label %.loopexit, label %37
+  br i1 %.not66, label %.loopexit, label %36
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr @proto_wol, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef %.060, i32 noundef 0)
-  %40 = load ptr, ptr %10, align 8
-  %41 = call ptr @address_with_resolution_to_str(ptr noundef %40, ptr noundef nonnull %4)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.15, ptr noundef %41)
-  br i1 %.not65, label %43, label %42
+36:                                               ; preds = %35
+  %37 = load i32, ptr @proto_wol, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef %.060, i32 noundef 0)
+  %39 = load ptr, ptr %10, align 8
+  %40 = call ptr @address_with_resolution_to_str(ptr noundef %39, ptr noundef nonnull %4)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.15, ptr noundef %40)
+  br i1 %.not65, label %42, label %41
 
-42:                                               ; preds = %37
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.16, ptr noundef nonnull %.062)
-  br label %43
+41:                                               ; preds = %36
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.16, ptr noundef nonnull %.062)
+  br label %42
 
-43:                                               ; preds = %42, %37
-  %44 = load i32, ptr @ett_wol, align 4
-  %45 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %44)
-  %46 = load i32, ptr @hf_wol_sync, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0)
-  %48 = load i32, ptr @ett_wol_macblock, align 4
-  %49 = load ptr, ptr %10, align 8
-  %50 = call ptr @address_with_resolution_to_str(ptr noundef %49, ptr noundef nonnull %4)
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %0, i32 noundef 6, i32 noundef 96, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef %50)
-  br label %52
+42:                                               ; preds = %41, %36
+  %43 = load i32, ptr @ett_wol, align 4
+  %44 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %43)
+  %45 = load i32, ptr @hf_wol_sync, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0)
+  %47 = load i32, ptr @ett_wol_macblock, align 4
+  %48 = load ptr, ptr %10, align 8
+  %49 = call ptr @address_with_resolution_to_str(ptr noundef %48, ptr noundef nonnull %4)
+  %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %44, ptr noundef %0, i32 noundef 6, i32 noundef 96, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef %49)
+  br label %51
 
-52:                                               ; preds = %43, %52
-  %.12 = phi i32 [ 6, %43 ], [ %55, %52 ]
-  %53 = load i32, ptr @hf_wol_mac, align 4
-  %54 = call ptr @proto_tree_add_ether(ptr noundef %51, i32 noundef %53, ptr noundef %0, i32 noundef %.12, i32 noundef 6, ptr noundef %12)
-  %55 = add nuw nsw i32 %.12, 6
-  %56 = icmp samesign ult i32 %.12, 96
-  br i1 %56, label %52, label %57, !llvm.loop !8
+51:                                               ; preds = %42, %51
+  %.12 = phi i32 [ 6, %42 ], [ %54, %51 ]
+  %52 = load i32, ptr @hf_wol_mac, align 4
+  %53 = call ptr @proto_tree_add_ether(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef %.12, i32 noundef 6, ptr noundef %12)
+  %54 = add nuw nsw i32 %.12, 6
+  %55 = icmp samesign ult i32 %.12, 96
+  br i1 %55, label %51, label %56, !llvm.loop !8
 
-57:                                               ; preds = %52
-  %brmerge = or i1 %or.cond, %25
+56:                                               ; preds = %51
   br i1 %brmerge, label %.loopexit.sink.split, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %57
+.loopexit.sink.split:                             ; preds = %56
   %.mux = select i1 %or.cond, i32 4, i32 6
-  %58 = load i32, ptr @hf_wol_passwd, align 4
-  %59 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %45, i32 noundef %58, ptr noundef %0, i32 noundef 102, i32 noundef %.mux, ptr noundef %.062, ptr noundef nonnull @.str.18, ptr noundef %.062)
+  %57 = load i32, ptr @hf_wol_passwd, align 4
+  %58 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %44, i32 noundef %57, ptr noundef %0, i32 noundef 102, i32 noundef %.mux, ptr noundef %.062, ptr noundef nonnull @.str.18, ptr noundef %.062)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %57, %.loopexit.sink.split, %36, %7, %3
-  %.0 = phi i32 [ %.060, %36 ], [ 0, %3 ], [ 0, %7 ], [ %.060, %57 ], [ %.060, %.loopexit.sink.split ], [ 0, %16 ]
+.loopexit:                                        ; preds = %16, %56, %.loopexit.sink.split, %35, %7, %3
+  %.0 = phi i32 [ %.060, %35 ], [ 0, %3 ], [ 0, %7 ], [ %.060, %56 ], [ %.060, %.loopexit.sink.split ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

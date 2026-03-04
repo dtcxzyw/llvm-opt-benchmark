@@ -5814,7 +5814,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %62, %68, %74
 
 83:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155
   %84 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155 ]
-  %.not78193 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155 ]
+  %.not78193 = phi i1 [ %.not67, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155 ]
   %85 = select i1 %.not67, i32 %84, i32 -1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not67, label %86, label %.noexc96
@@ -6905,8 +6905,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit153: ; preds =
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit153, %587, %593
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not78 = and i1 %.not67, %.not78193
-  br i1 %.not78, label %83, label %.critedge89, !llvm.loop !215
+  br i1 %.not78193, label %83, label %.critedge89, !llvm.loop !215
 
 .critedge85:                                      ; preds = %461
   %597 = load ptr, ptr %17, align 8, !tbaa !37

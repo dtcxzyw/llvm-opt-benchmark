@@ -2213,9 +2213,9 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %2 = load double, ptr %mTotMeanCurvature, align 8
   %mDx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load double, ptr %mDx, align 8
-  %cond = select i1 %useWorldUnits, double %3, double 1.000000e+00
-  %mul = fmul double %2, %cond
-  ret double %mul
+  %4 = fmul double %2, %3
+  %cond = select i1 %useWorldUnits, double %4, double %2
+  ret double %cond
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2276,30 +2276,30 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mUpdateArea.i = getelementptr inbounds nuw i8, ptr %this, i64 84
   %4 = load i8, ptr %mUpdateArea.i, align 4
   %tobool.i3 = trunc i8 %4 to i1
-  br i1 %tobool.i3, label %if.then.i6, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
+  br i1 %tobool.i3, label %if.then.i5, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
 
-if.then.i6:                                       ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit
+if.then.i5:                                       ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE11MeasureAreaC1EPSH_(ptr noundef nonnull align 8 dereferenceable(160) %m.i2, ptr noundef nonnull align 8 dereferenceable(86) %this)
-  %mValues.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %m.i2, i64 112
-  %5 = load ptr, ptr %mValues.i.i.i.i7, align 8
-  %tobool.not.i.i.i.i.i.i.i8 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i8, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit, label %if.then.i.i.i.i.i.i.i9
+  %mValues.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %m.i2, i64 112
+  %5 = load ptr, ptr %mValues.i.i.i.i6, align 8
+  %tobool.not.i.i.i.i.i.i.i7 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i.i.i.i.i7, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit, label %if.then.i.i.i.i.i.i.i8
 
-if.then.i.i.i.i.i.i.i9:                           ; preds = %if.then.i6
+if.then.i.i.i.i.i.i.i8:                           ; preds = %if.then.i5
   call void @_ZdlPv(ptr noundef nonnull %5) #28
   br label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
 
-_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit: ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit, %if.then.i6, %if.then.i.i.i.i.i.i.i9
-  %cond.i = select i1 %useWorldUnits, double %3, double 1.000000e+00
-  %mul.i = fmul double %2, %cond.i
+_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit: ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit, %if.then.i5, %if.then.i.i.i.i.i.i.i8
+  %6 = fmul double %2, %3
+  %cond.i = select i1 %useWorldUnits, double %6, double %2
   %mArea.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %6 = load double, ptr %mArea.i, align 8
-  %7 = load double, ptr %mDx.i, align 8
-  %mul.i.i = fmul double %7, %7
-  %mul.i5 = fmul double %6, %mul.i.i
-  %area.0.i = select i1 %useWorldUnits, double %mul.i5, double %6
+  %7 = load double, ptr %mArea.i, align 8
+  %8 = load double, ptr %mDx.i, align 8
+  %mul.i.i = fmul double %8, %8
+  %mul.i = fmul double %7, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i, double %7
   call void @llvm.lifetime.end.p0(ptr nonnull %m.i2)
-  %div = fdiv double %mul.i, %area.0.i
+  %div = fdiv double %cond.i, %area.0.i
   ret double %div
 }
 
@@ -6055,9 +6055,9 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %2 = load double, ptr %mTotMeanCurvature, align 8
   %mDx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load double, ptr %mDx, align 8
-  %cond = select i1 %useWorldUnits, double %3, double 1.000000e+00
-  %mul = fmul double %2, %cond
-  ret double %mul
+  %4 = fmul double %2, %3
+  %cond = select i1 %useWorldUnits, double %4, double %2
+  ret double %cond
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6118,30 +6118,30 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mUpdateArea.i = getelementptr inbounds nuw i8, ptr %this, i64 84
   %4 = load i8, ptr %mUpdateArea.i, align 4
   %tobool.i3 = trunc i8 %4 to i1
-  br i1 %tobool.i3, label %if.then.i6, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
+  br i1 %tobool.i3, label %if.then.i5, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
 
-if.then.i6:                                       ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit
+if.then.i5:                                       ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE11MeasureAreaC1EPSH_(ptr noundef nonnull align 8 dereferenceable(168) %m.i2, ptr noundef nonnull align 8 dereferenceable(86) %this)
-  %mValues.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %m.i2, i64 112
-  %5 = load ptr, ptr %mValues.i.i.i.i7, align 8
-  %tobool.not.i.i.i.i.i.i.i8 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i8, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit, label %if.then.i.i.i.i.i.i.i9
+  %mValues.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %m.i2, i64 112
+  %5 = load ptr, ptr %mValues.i.i.i.i6, align 8
+  %tobool.not.i.i.i.i.i.i.i7 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i.i.i.i.i7, label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit, label %if.then.i.i.i.i.i.i.i8
 
-if.then.i.i.i.i.i.i.i9:                           ; preds = %if.then.i6
+if.then.i.i.i.i.i.i.i8:                           ; preds = %if.then.i5
   call void @_ZdlPv(ptr noundef nonnull %5) #28
   br label %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit
 
-_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit: ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit, %if.then.i6, %if.then.i.i.i.i.i.i.i9
-  %cond.i = select i1 %useWorldUnits, double %3, double 1.000000e+00
-  %mul.i = fmul double %2, %cond.i
+_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE4areaEb.exit: ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16totMeanCurvatureEb.exit, %if.then.i5, %if.then.i.i.i.i.i.i.i8
+  %6 = fmul double %2, %3
+  %cond.i = select i1 %useWorldUnits, double %6, double %2
   %mArea.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %6 = load double, ptr %mArea.i, align 8
-  %7 = load double, ptr %mDx.i, align 8
-  %mul.i.i = fmul double %7, %7
-  %mul.i5 = fmul double %6, %mul.i.i
-  %area.0.i = select i1 %useWorldUnits, double %mul.i5, double %6
+  %7 = load double, ptr %mArea.i, align 8
+  %8 = load double, ptr %mDx.i, align 8
+  %mul.i.i = fmul double %8, %8
+  %mul.i = fmul double %7, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i, double %7
   call void @llvm.lifetime.end.p0(ptr nonnull %m.i2)
-  %div = fdiv double %mul.i, %area.0.i
+  %div = fdiv double %cond.i, %area.0.i
   ret double %div
 }
 

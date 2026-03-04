@@ -22449,79 +22449,88 @@ define internal void @"_ZN14ide_completion11completions9item_list18complete_item
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14ide_completion11completions9item_list12add_keywords17h52f311ca7a4510d6E.llvm.11687988487834292117(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %2) unnamed_addr #5 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread75, label %4
+  br i1 %.not, label %.thread77, label %4
 
 4:                                                ; preds = %3
   %5 = load i64, ptr %2, align 8, !range !4580, !noundef !10
   %switch = icmp samesign ult i64 %5, 2
-  %6 = add nsw i64 %5, -2
-  %switch.and = and i64 %6, -3
-  %switch.selectcmp = icmp eq i64 %switch.and, 0
-  %7 = icmp eq i64 %5, 5
-  %8 = icmp eq i64 %5, 4
-  %9 = icmp eq i64 %5, 3
-  %10 = icmp eq i64 %5, 2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %12 = load ptr, ptr %11, align 8, !noundef !10
-  %13 = icmp ne ptr %12, null
-  br i1 %9, label %22, label %14
+  switch i64 %5, label %7 [
+    i64 2, label %6
+    i64 4, label %6
+  ]
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %16 = load ptr, ptr %15, align 8, !noundef !10
-  %.not28 = icmp eq ptr %16, null
-  br i1 %.not28, label %24, label %23
+6:                                                ; preds = %4, %4
+  br label %7
 
-.thread75:                                        ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %18 = load ptr, ptr %17, align 8, !noundef !10
-  %19 = icmp ne ptr %18, null
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %21 = load ptr, ptr %20, align 8, !noundef !10
-  %.not2881 = icmp eq ptr %21, null
-  br i1 %.not2881, label %.thread88, label %.thread110.thread
+7:                                                ; preds = %6, %4
+  %.024.ph = phi i1 [ true, %6 ], [ %switch, %4 ]
+  %8 = icmp eq i64 %5, 5
+  %9 = icmp eq i64 %5, 4
+  %10 = icmp eq i64 %5, 3
+  %11 = icmp eq i64 %5, 2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %13 = load ptr, ptr %12, align 8, !noundef !10
+  %14 = icmp ne ptr %13, null
+  br i1 %10, label %23, label %15
 
-.thread110.thread:                                ; preds = %.thread75
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %17 = load ptr, ptr %16, align 8, !noundef !10
+  %.not28 = icmp eq ptr %17, null
+  br i1 %.not28, label %25, label %24
+
+.thread77:                                        ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %19 = load ptr, ptr %18, align 8, !noundef !10
+  %20 = icmp ne ptr %19, null
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %22 = load ptr, ptr %21, align 8, !noundef !10
+  %.not2883 = icmp eq ptr %22, null
+  br i1 %.not2883, label %.thread95, label %.thread90.thread
+
+.thread90.thread:                                 ; preds = %.thread77
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3373, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3374, i64 noundef 20)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3375, i64 noundef 5, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3376, i64 noundef 19)
-  br i1 %19, label %22, label %26
+  br i1 %20, label %23, label %28
 
-22:                                               ; preds = %23, %.thread110.thread, %.thread110, %25, %26, %36, %34, %4
+23:                                               ; preds = %.thread90.thread, %.thread90, %26, %27, %28, %38, %36, %7
   ret void
 
-23:                                               ; preds = %14
-  %or.cond = or i1 %switch, %switch.selectcmp
-  br i1 %or.cond, label %.thread110, label %22
+24:                                               ; preds = %15
+  br i1 %.024.ph, label %.thread90, label %26
 
-24:                                               ; preds = %14
-  br i1 %switch, label %.thread88, label %27
+25:                                               ; preds = %15
+  br i1 %switch, label %.thread95, label %29
 
-.thread110:                                       ; preds = %23
+.thread90:                                        ; preds = %24
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3373, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3374, i64 noundef 20)
-  br i1 %switch, label %25, label %22
+  br i1 %switch, label %27, label %23
 
-25:                                               ; preds = %.thread110
+26:                                               ; preds = %24
+  br i1 %switch, label %27, label %23
+
+27:                                               ; preds = %.thread90, %26
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3375, i64 noundef 5, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3376, i64 noundef 19)
-  br i1 %13, label %22, label %26
+  br i1 %14, label %23, label %28
 
-26:                                               ; preds = %.thread110.thread, %25
+28:                                               ; preds = %.thread90.thread, %27
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3377, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3378, i64 noundef 18)
-  br label %22
+  br label %23
 
-27:                                               ; preds = %31, %24
-  %28 = phi i1 [ false, %31 ], [ %13, %24 ]
-  %.027748297 = phi i1 [ %.027748298, %31 ], [ %10, %24 ]
-  %.05158738395 = phi i1 [ %.05158738396, %31 ], [ %8, %24 ]
-  %.026424861708793 = phi i1 [ %.026424861708794, %31 ], [ %7, %24 ]
-  %29 = or i1 %.not, %28
-  %brmerge2 = or i1 %29, %.05158738395
-  br i1 %brmerge2, label %.thread99, label %32
+29:                                               ; preds = %33, %25
+  %30 = phi i1 [ false, %33 ], [ %14, %25 ]
+  %.0277684104 = phi i1 [ %.0277684105, %33 ], [ %11, %25 ]
+  %.053607585102 = phi i1 [ %.053607585103, %33 ], [ %9, %25 ]
+  %.0264450637289100 = phi i1 [ %.0264450637289101, %33 ], [ %8, %25 ]
+  %31 = or i1 %.not, %30
+  %brmerge2 = or i1 %31, %.053607585102
+  br i1 %brmerge2, label %.thread106, label %34
 
-.thread88:                                        ; preds = %.thread75, %24
-  %30 = phi i1 [ %13, %24 ], [ %19, %.thread75 ]
-  %.027748298 = phi i1 [ %10, %24 ], [ false, %.thread75 ]
-  %.05158738396 = phi i1 [ %8, %24 ], [ false, %.thread75 ]
-  %.026424861708794 = phi i1 [ %7, %24 ], [ false, %.thread75 ]
+.thread95:                                        ; preds = %.thread77, %25
+  %32 = phi i1 [ %14, %25 ], [ %20, %.thread77 ]
+  %.0277684105 = phi i1 [ %11, %25 ], [ false, %.thread77 ]
+  %.053607585103 = phi i1 [ %9, %25 ], [ false, %.thread77 ]
+  %.0264450637289101 = phi i1 [ %8, %25 ], [ false, %.thread77 ]
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3379, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3380, i64 noundef 18)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3381, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3382, i64 noundef 6)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3383, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3384, i64 noundef 9)
@@ -22529,50 +22538,50 @@ define hidden void @_ZN14ide_completion11completions9item_list12add_keywords17h5
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3375, i64 noundef 5, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3376, i64 noundef 19)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3387, i64 noundef 5, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3388, i64 noundef 19)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3389, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3390, i64 noundef 6)
-  br i1 %30, label %.thread99, label %31
+  br i1 %32, label %.thread106, label %33
 
-31:                                               ; preds = %.thread88
+33:                                               ; preds = %.thread95
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3377, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3378, i64 noundef 18)
-  br label %27
+  br label %29
 
-.thread99:                                        ; preds = %.thread88, %27
-  %.026424861708793107 = phi i1 [ %.026424861708794, %.thread88 ], [ %.026424861708793, %27 ]
-  %.05158738395106 = phi i1 [ %.05158738396, %.thread88 ], [ %.05158738395, %27 ]
-  %.027748297105 = phi i1 [ %.027748298, %.thread88 ], [ %.027748297, %27 ]
-  br i1 %.026424861708793107, label %34, label %33
+.thread106:                                       ; preds = %.thread95, %29
+  %.0264450637289100114 = phi i1 [ %.0264450637289101, %.thread95 ], [ %.0264450637289100, %29 ]
+  %.053607585102113 = phi i1 [ %.053607585103, %.thread95 ], [ %.053607585102, %29 ]
+  %.0277684104112 = phi i1 [ %.0277684105, %.thread95 ], [ %.0277684104, %29 ]
+  br i1 %.0264450637289100114, label %36, label %35
 
-32:                                               ; preds = %27
+34:                                               ; preds = %29
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3391, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3391, i64 noundef 10)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3392, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3392, i64 noundef 10)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3393, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3393, i64 noundef 3)
-  br i1 %.026424861708793, label %34, label %.thread
+  br i1 %.0264450637289100, label %36, label %.thread
 
-33:                                               ; preds = %.thread99
-  br i1 %.027748297105, label %36, label %35
+35:                                               ; preds = %.thread106
+  br i1 %.0277684104112, label %38, label %37
 
-.thread:                                          ; preds = %32
-  br i1 %.027748297, label %36, label %.thread120
+.thread:                                          ; preds = %34
+  br i1 %.0277684104, label %38, label %.thread121
 
-34:                                               ; preds = %32, %.thread99
+36:                                               ; preds = %34, %.thread106
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3373, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3401, i64 noundef 10)
-  br label %22
+  br label %23
 
-35:                                               ; preds = %33
-  br i1 %.05158738395106, label %37, label %.thread120
+37:                                               ; preds = %35
+  br i1 %.053607585102113, label %39, label %.thread121
 
-36:                                               ; preds = %.thread, %37, %33
+38:                                               ; preds = %.thread, %39, %35
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3373, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3374, i64 noundef 20)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3398, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3398, i64 noundef 6)
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3399, i64 noundef 5, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3400, i64 noundef 8)
-  br label %22
+  br label %23
 
-.thread120:                                       ; preds = %.thread, %35
+.thread121:                                       ; preds = %.thread, %37
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3394, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3395, i64 noundef 9)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %.thread120, %35
+39:                                               ; preds = %.thread121, %37
   tail call void @_ZN14ide_completion11completions11Completions19add_keyword_snippet17h73528bdebd75c2f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3396, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.3397, i64 noundef 7)
-  br label %36
+  br label %38
 }
 
 ; Function Attrs: nonlazybind uwtable

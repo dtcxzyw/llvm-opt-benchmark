@@ -728,7 +728,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; pr
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17GetElementPtrInstESt4pairIPNS_5ValueES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5clearEv.exit, %._crit_edge75
-  %.033.lcssa = phi i1 [ false, %._crit_edge75 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17GetElementPtrInstESt4pairIPNS_5ValueES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5clearEv.exit ], [ %323, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit ]
+  %.033.lcssa = phi i1 [ false, %._crit_edge75 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17GetElementPtrInstESt4pairIPNS_5ValueES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5clearEv.exit ], [ %.0.i, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %182 = load i32, ptr %181, align 8, !tbaa !31
@@ -741,7 +741,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; pr
   br label %325
 
 185:                                              ; preds = %.lr.ph80, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit
-  %.03378 = phi i1 [ false, %.lr.ph80 ], [ %323, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit ]
+  %.03378 = phi i1 [ false, %.lr.ph80 ], [ %.0.i, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit ]
   %.03477 = phi ptr [ %.pre, %.lr.ph80 ], [ %324, %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit ]
   %186 = load ptr, ptr %.03477, align 8, !tbaa !244
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -778,20 +778,20 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; pr
   unreachable
 
 .thread.i:                                        ; preds = %185, %200
-  %.sink115 = phi i32 [ 1, %200 ], [ 0, %185 ]
+  %.sink113 = phi i32 [ 1, %200 ], [ 0, %185 ]
   %.pn = phi ptr [ %201, %200 ], [ %186, %185 ]
   %.sink194.i = phi i64 [ 64, %200 ], [ 32, %185 ]
   %.sink192.i = phi i64 [ 96, %200 ], [ 64, %185 ]
   %.084.ph.i.in = phi ptr [ %202, %200 ], [ %196, %185 ]
   %.083.ph.i = phi ptr [ %201, %200 ], [ null, %185 ]
-  %.sink113.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %.sink113 = load ptr, ptr %.sink113.in, align 8, !tbaa !246
+  %.sink111.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %.sink111 = load ptr, ptr %.sink111.in, align 8, !tbaa !246
   %.084.ph.i = load ptr, ptr %.084.ph.i.in, align 8, !tbaa !216
   %204 = getelementptr inbounds nuw i8, ptr %186, i64 72
-  %205 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %204, i32 noundef %.sink115) #17
+  %205 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %204, i32 noundef %.sink113) #17
   %.sroa.0137.0.extract.trunc.i = trunc i16 %205 to i8
   %206 = load ptr, ptr %56, align 8, !tbaa !198
-  %207 = getelementptr inbounds nuw i8, ptr %.sink113, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.sink111, i64 24
   %208 = load ptr, ptr %207, align 8, !tbaa !247
   %209 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %206, ptr noundef %208) #17
   %210 = and i16 %205, 256
@@ -808,16 +808,16 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; pr
   %.086.ph.i = load ptr, ptr %216, align 8, !tbaa !216
   %217 = load ptr, ptr %54, align 8, !tbaa !197
   %218 = load ptr, ptr %56, align 8, !tbaa !198
-  %219 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(412423) %217, ptr noundef nonnull align 8 dereferenceable(496) %218, ptr noundef nonnull %.sink113, i1 noundef zeroext false)
+  %219 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(412423) %217, ptr noundef nonnull align 8 dereferenceable(496) %218, ptr noundef nonnull %.sink111, i1 noundef zeroext false)
   br label %235
 
 220:                                              ; preds = %185, %197
-  %.sink133 = phi i64 [ 64, %197 ], [ 32, %185 ]
+  %.sink130 = phi i64 [ 64, %197 ], [ 32, %185 ]
   %.sink = phi i64 [ 96, %197 ], [ 64, %185 ]
   %.084.in.i = phi ptr [ %199, %197 ], [ %196, %185 ]
   %.083.i = phi ptr [ %198, %197 ], [ null, %185 ]
   %.pn.i = phi ptr [ %198, %197 ], [ %186, %185 ]
-  %221 = getelementptr inbounds nuw i8, ptr %196, i64 %.sink133
+  %221 = getelementptr inbounds nuw i8, ptr %196, i64 %.sink130
   %222 = load ptr, ptr %221, align 8, !tbaa !216
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 32
@@ -845,7 +845,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; pr
 
 235:                                              ; preds = %220, %.thread.i
   %.pn180.i = phi { i16, ptr } [ %219, %.thread.i ], [ %234, %220 ]
-  %.082176.i = phi ptr [ %.sink113, %.thread.i ], [ %.082.i, %220 ]
+  %.082176.i = phi ptr [ %.sink111, %.thread.i ], [ %.082.i, %220 ]
   %.083175.i = phi ptr [ %.083.ph.i, %.thread.i ], [ %.083.i, %220 ]
   %.084174.i = phi ptr [ %.084.ph.i, %.thread.i ], [ %.084.i, %220 ]
   %.085173.i = phi ptr [ %.085.ph.i, %.thread.i ], [ %.085.i, %220 ]
@@ -1104,14 +1104,14 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %318, %315, %310, %_
 
 _ZN4llvm9IRBuilderINS_18InstSimplifyFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i: ; preds = %322, %_ZNSt14_Function_baseD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %323 = or i1 %.03378, %.not90.i
   br label %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit
 
 _ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit: ; preds = %220, %235, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %245, %_ZN4llvm9IRBuilderINS_18InstSimplifyFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %220 ], [ false, %235 ], [ %.not90.i, %_ZN4llvm9IRBuilderINS_18InstSimplifyFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ false, %245 ]
+  %.0.i = phi i1 [ %.03378, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ %.03378, %220 ], [ %.03378, %235 ], [ %323, %_ZN4llvm9IRBuilderINS_18InstSimplifyFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ %.03378, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %323 = or i1 %.03378, %.0.i
   %324 = getelementptr inbounds nuw i8, ptr %.03477, i64 8
   %.not = icmp eq ptr %324, %97
   br i1 %.not, label %.preheader, label %185

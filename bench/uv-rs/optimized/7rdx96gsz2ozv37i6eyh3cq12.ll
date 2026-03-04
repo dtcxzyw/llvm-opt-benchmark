@@ -7932,14 +7932,14 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i: ; preds = %.
   %183 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !1453, !noalias !1451, !noundef !8
   %184 = add i8 %183, -65
   %185 = icmp ult i8 %184, 26
-  %.sroa.04.0.i.i = select i1 %185, i8 32, i8 0
-  %186 = or i8 %.sroa.04.0.i.i, %183
+  %186 = select i1 %185, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %186, %183
   %187 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !1451, !noalias !1453, !noundef !8
   %188 = add i8 %187, -65
   %189 = icmp ult i8 %188, 26
-  %.sroa.05.0.i.i = select i1 %189, i8 32, i8 0
-  %190 = or i8 %.sroa.05.0.i.i, %187
-  %191 = icmp eq i8 %186, %190
+  %190 = select i1 %189, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %190, %187
+  %191 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %191, label %.preheader.i.i, label %_ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit.thread
 
 _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit.thread: ; preds = %179, %176, %173
@@ -7997,14 +7997,14 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit: ; preds
   %211 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1461, !noalias !1464, !noundef !8
   %212 = add i8 %211, -65
   %213 = icmp ult i8 %212, 26
-  %.sroa.04.0.i = select i1 %213, i8 32, i8 0
-  %214 = or i8 %.sroa.04.0.i, %211
+  %214 = select i1 %213, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %214, %211
   %215 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1464, !noalias !1461, !noundef !8
   %216 = add i8 %215, -65
   %217 = icmp ult i8 %216, 26
-  %.sroa.05.0.i = select i1 %217, i8 32, i8 0
-  %218 = or i8 %.sroa.05.0.i, %215
-  %219 = icmp eq i8 %214, %218
+  %218 = select i1 %217, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %218, %215
+  %219 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %219, label %.preheader.i, label %.thread342
 
 .thread342:                                       ; preds = %207, %_ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit.thread, %205

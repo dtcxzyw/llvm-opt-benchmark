@@ -8499,10 +8499,10 @@ define hidden void @_ZN13wasmtime_wasi8preview19WasiP1Ctx8transact17h00bc25f0647
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i64 %7, ptr %5, align 8
-  %.sroa.3.0..sroa_idx828 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx828, align 8
-  %.sroa.4.0..sroa_idx1029 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx1029, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false)
+  %.sroa.3.0..sroa_idx829 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx829, align 8
+  %.sroa.4.0..sroa_idx1030 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx1030, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false)
   br label %24
 
 9:                                                ; preds = %2

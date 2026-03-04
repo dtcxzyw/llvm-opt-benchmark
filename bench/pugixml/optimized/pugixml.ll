@@ -24723,9 +24723,9 @@ tailrecurse:                                      ; preds = %210, %3
     i8 20, label %312
   ]
 
-common.ret336:                                    ; preds = %321, %316, %309, %307, %.loopexit, %338, %331, %325, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit107, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit99, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %73, %69, %66, %294, %287, %61, %53, %45, %37, %29, %21
-  %common.ret336.op = phi double [ %300, %294 ], [ %28, %21 ], [ %36, %29 ], [ %44, %37 ], [ %52, %45 ], [ %60, %53 ], [ %65, %61 ], [ %293, %287 ], [ %146, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit107 ], [ %117, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit99 ], [ %89, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit ], [ %76, %73 ], [ %72, %69 ], [ %68, %66 ], [ %.075.lcssa, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122 ], [ %.0.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115 ], [ %311, %309 ], [ %327, %325 ], [ %332, %331 ], [ %339, %338 ], [ 0x7FF8000000000000, %316 ], [ %323, %321 ], [ %308, %307 ], [ 0.000000e+00, %.loopexit ]
-  ret double %common.ret336.op
+common.ret331:                                    ; preds = %321, %316, %309, %307, %.loopexit, %338, %331, %325, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit107, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit99, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %73, %69, %66, %294, %287, %61, %53, %45, %37, %29, %21
+  %common.ret331.op = phi double [ %300, %294 ], [ %28, %21 ], [ %36, %29 ], [ %44, %37 ], [ %52, %45 ], [ %60, %53 ], [ %65, %61 ], [ %293, %287 ], [ %146, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit107 ], [ %117, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit99 ], [ %89, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit ], [ %76, %73 ], [ %72, %69 ], [ %68, %66 ], [ %.075.lcssa, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122 ], [ %.0.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115 ], [ %311, %309 ], [ %327, %325 ], [ %332, %331 ], [ %339, %338 ], [ 0x7FF8000000000000, %316 ], [ %323, %321 ], [ %308, %307 ], [ 0.000000e+00, %.loopexit ]
+  ret double %common.ret331.op
 
 21:                                               ; preds = %tailrecurse
   %22 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -24735,7 +24735,7 @@ common.ret336:                                    ; preds = %321, %316, %309, %3
   %26 = load ptr, ptr %25, align 8, !tbaa !375
   %27 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %28 = fadd double %24, %27
-  br label %common.ret336
+  br label %common.ret331
 
 29:                                               ; preds = %tailrecurse
   %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -24745,7 +24745,7 @@ common.ret336:                                    ; preds = %321, %316, %309, %3
   %34 = load ptr, ptr %33, align 8, !tbaa !375
   %35 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %36 = fsub double %32, %35
-  br label %common.ret336
+  br label %common.ret331
 
 37:                                               ; preds = %tailrecurse
   %38 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -24755,7 +24755,7 @@ common.ret336:                                    ; preds = %321, %316, %309, %3
   %42 = load ptr, ptr %41, align 8, !tbaa !375
   %43 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %44 = fmul double %40, %43
-  br label %common.ret336
+  br label %common.ret331
 
 45:                                               ; preds = %tailrecurse
   %46 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -24765,7 +24765,7 @@ common.ret336:                                    ; preds = %321, %316, %309, %3
   %50 = load ptr, ptr %49, align 8, !tbaa !375
   %51 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %52 = fdiv double %48, %51
-  br label %common.ret336
+  br label %common.ret331
 
 53:                                               ; preds = %tailrecurse
   %54 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -24775,31 +24775,31 @@ common.ret336:                                    ; preds = %321, %316, %309, %3
   %58 = load ptr, ptr %57, align 8, !tbaa !375
   %59 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %60 = tail call double @fmod(double noundef %56, double noundef %59) #51, !tbaa !120
-  br label %common.ret336
+  br label %common.ret331
 
 61:                                               ; preds = %tailrecurse
   %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !373
   %64 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %65 = fneg double %64
-  br label %common.ret336
+  br label %common.ret331
 
 66:                                               ; preds = %tailrecurse
   %67 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %68 = load double, ptr %67, align 8, !tbaa !28
-  br label %common.ret336
+  br label %common.ret331
 
 69:                                               ; preds = %tailrecurse
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %71 = load i64, ptr %70, align 8, !tbaa !390
   %72 = uitofp i64 %71 to double
-  br label %common.ret336
+  br label %common.ret331
 
 73:                                               ; preds = %tailrecurse
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !387
   %76 = uitofp i64 %75 to double
-  br label %common.ret336
+  br label %common.ret331
 
 77:                                               ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -24854,7 +24854,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc
   %99 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 %98, ptr %99, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %common.ret336
+  br label %common.ret331
 
 100:                                              ; preds = %77
   %101 = landingpad { ptr, i32 }
@@ -24927,7 +24927,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit99: ; preds = %.noe
   %127 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 %126, ptr %127, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret336
+  br label %common.ret331
 
 128:                                              ; preds = %102
   %129 = landingpad { ptr, i32 }
@@ -24999,7 +24999,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit107: ; preds = %.no
   %156 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 %155, ptr %156, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret336
+  br label %common.ret331
 
 157:                                              ; preds = %130
   %158 = landingpad { ptr, i32 }
@@ -25140,7 +25140,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115: ; preds = %.no
   %207 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i64 %206, ptr %207, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %common.ret336
+  br label %common.ret331
 
 208:                                              ; preds = %159
   %209 = landingpad { ptr, i32 }
@@ -25181,7 +25181,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit115: ; preds = %.no
   br label %235
 
 ._crit_edge:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150, %218
-  %.075.lcssa = phi double [ 0.000000e+00, %218 ], [ %273, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150 ]
+  %.075.lcssa = phi double [ 0.000000e+00, %218 ], [ %.0.i136, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %223 = load ptr, ptr %214, align 8, !tbaa !350
   %224 = load ptr, ptr %215, align 8, !tbaa !350
@@ -25213,7 +25213,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122: ; preds = %.no
   %232 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i64 %231, ptr %232, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %common.ret336
+  br label %common.ret331
 
 233:                                              ; preds = %213
   %234 = landingpad { ptr, i32 }
@@ -25222,7 +25222,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122: ; preds = %.no
 
 235:                                              ; preds = %.lr.ph, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150
   %.074182 = phi ptr [ %.val, %.lr.ph ], [ %283, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150 ]
-  %.075181 = phi double [ 0.000000e+00, %.lr.ph ], [ %273, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150 ]
+  %.075181 = phi double [ 0.000000e+00, %.lr.ph ], [ %.0.i136, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %236 = load ptr, ptr %2, align 8, !tbaa !396
   store ptr %236, ptr %14, align 8, !tbaa !397
@@ -25260,7 +25260,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122: ; preds = %.no
 249:                                              ; preds = %246
   %250 = add i8 %248, -58
   %.not21.i.i128 = icmp ult i8 %250, -10
-  br i1 %.not21.i.i128, label %251, label %.preheader285
+  br i1 %.not21.i.i128, label %251, label %.preheader282
 
 251:                                              ; preds = %249
   %.not22.i.i141 = icmp eq i8 %248, 46
@@ -25271,13 +25271,13 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit122: ; preds = %.no
   %254 = load i8, ptr %253, align 1, !tbaa !28
   %255 = add i8 %254, -58
   %.not23.i.i142 = icmp ult i8 %255, -10
-  br i1 %.not23.i.i142, label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit143, label %.preheader285
+  br i1 %.not23.i.i142, label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit143, label %.preheader282
 
-.preheader285:                                    ; preds = %252, %249
+.preheader282:                                    ; preds = %252, %249
   br label %256
 
-256:                                              ; preds = %.preheader285, %256
-  %.2.i.i129 = phi ptr [ %259, %256 ], [ %spec.select.i.i126, %.preheader285 ]
+256:                                              ; preds = %.preheader282, %256
+  %.2.i.i129 = phi ptr [ %259, %256 ], [ %spec.select.i.i126, %.preheader282 ]
   %257 = load i8, ptr %.2.i.i129, align 1, !tbaa !28
   %258 = add i8 %257, -58
   %.not24.i.i130 = icmp ult i8 %258, -10
@@ -25317,11 +25317,11 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i135: ; pred
 
 271:                                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i135
   %272 = call double @strtod(ptr noundef readonly captures(none) %.val90, ptr noundef null) #51
+  %273 = fadd double %.075181, %272
   br label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit143
 
 _ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit143: ; preds = %271, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i135, %252, %251, %246
-  %.0.i136 = phi double [ %272, %271 ], [ 0x7FF8000000000000, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i135 ], [ 0x7FF8000000000000, %246 ], [ 0x7FF8000000000000, %252 ], [ 0x7FF8000000000000, %251 ]
-  %273 = fadd double %.075181, %.0.i136
+  %.0.i136 = phi double [ %273, %271 ], [ 0x7FF8000000000000, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i135 ], [ 0x7FF8000000000000, %246 ], [ 0x7FF8000000000000, %252 ], [ 0x7FF8000000000000, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %274 = load ptr, ptr %236, align 8, !tbaa !350
   %275 = load ptr, ptr %221, align 8, !tbaa !350
@@ -25379,7 +25379,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
   %291 = fcmp ord double %290, 0.000000e+00
   %292 = tail call double @llvm.floor.f64(double %290)
   %293 = select i1 %291, double %292, double %290
-  br label %common.ret336
+  br label %common.ret331
 
 294:                                              ; preds = %tailrecurse
   %295 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -25388,7 +25388,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
   %298 = fcmp ord double %297, 0.000000e+00
   %299 = tail call double @llvm.ceil.f64(double %297)
   %300 = select i1 %298, double %299, double %297
-  br label %common.ret336
+  br label %common.ret331
 
 301:                                              ; preds = %tailrecurse
   %302 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -25401,12 +25401,12 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
 
 307:                                              ; preds = %301
   %308 = tail call double @llvm.ceil.f64(double %304)
-  br label %common.ret336
+  br label %common.ret331
 
 309:                                              ; preds = %301
   %310 = fadd double %304, 5.000000e-01
   %311 = tail call double @llvm.floor.f64(double %310)
-  br label %common.ret336
+  br label %common.ret331
 
 312:                                              ; preds = %tailrecurse
   %313 = getelementptr inbounds nuw i8, ptr %.tr, i64 1
@@ -25419,12 +25419,12 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
   %318 = load ptr, ptr %317, align 8, !tbaa !28
   %319 = load i32, ptr %318, align 8, !tbaa !316
   %320 = icmp eq i32 %319, 2
-  br i1 %320, label %321, label %common.ret336
+  br i1 %320, label %321, label %common.ret331
 
 321:                                              ; preds = %316
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %323 = load double, ptr %322, align 8, !tbaa !325
-  br label %common.ret336
+  br label %common.ret331
 
 .loopexit.loopexit:                               ; preds = %tailrecurse
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.tr, i64 1
@@ -25433,7 +25433,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %312
   %324 = phi i8 [ %.pre, %.loopexit.loopexit ], [ %314, %312 ]
-  switch i8 %324, label %common.ret336 [
+  switch i8 %324, label %common.ret331 [
     i8 4, label %325
     i8 3, label %328
     i8 1, label %335
@@ -25442,7 +25442,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
 325:                                              ; preds = %.loopexit
   %326 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node12eval_booleanERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %.tr, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %327 = uitofp i1 %326 to double
-  br label %common.ret336
+  br label %common.ret331
 
 328:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -25460,7 +25460,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #51
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %common.ret336
+  br label %common.ret331
 
 333:                                              ; preds = %328
   %334 = landingpad { ptr, i32 }
@@ -25486,7 +25486,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit150: ; preds = %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #51
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %common.ret336
+  br label %common.ret331
 
 340:                                              ; preds = %335
   %341 = landingpad { ptr, i32 }
@@ -44906,9 +44906,9 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   br label %73
 
 73:                                               ; preds = %79, %59
-  %.02735.i = phi i64 [ 0, %59 ], [ %80, %79 ]
-  %.02834.i = phi i64 [ %72, %59 ], [ %82, %79 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02834.i
+  %.02734.i = phi i64 [ 0, %59 ], [ %80, %79 ]
+  %.02833.i = phi i64 [ %72, %59 ], [ %82, %79 ]
+  %74 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02833.i
   %75 = load ptr, ptr %74, align 8, !tbaa !51
   %76 = icmp eq ptr %75, null
   br i1 %76, label %83, label %77
@@ -44918,14 +44918,14 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   br i1 %78, label %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread, label %79
 
 79:                                               ; preds = %77
-  %80 = add i64 %.02735.i, 1
-  %81 = add i64 %80, %.02834.i
+  %80 = add i64 %.02734.i, 1
+  %81 = add i64 %80, %.02833.i
   %82 = and i64 %81, %53
   %.not.not.i = icmp ugt i64 %80, %53
   br i1 %.not.not.i, label %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread, label %73, !llvm.loop !599
 
 83:                                               ; preds = %73
-  %84 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02834.i
+  %84 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02833.i
   store ptr %60, ptr %84, align 8, !tbaa !51
   %85 = getelementptr inbounds nuw i8, ptr %.02946, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02946, ptr noundef nonnull align 8 dereferenceable(16) %.02847, i64 16, i1 false), !tbaa.struct !310
@@ -48535,36 +48535,44 @@ _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawE
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %4, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %.lr.ph.i29
+  br i1 %4, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %.lr.ph.i29.thread
 
-.lr.ph.i29:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29.i, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29.i, %_ZNK4pugi10xpath_node6parentEv.exit28, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE.exit
+.lr.ph.i29.thread:                                ; preds = %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %4, label %.lr.ph.split.i, label %.lr.ph.split.us.i
+  br label %.lr.ph.split.us.i.preheader
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i29, %.lr.ph.split.us.i
-  %.018.us.i = phi ptr [ %56, %.lr.ph.split.us.i ], [ %.sroa.0.0.copyload.i20, %.lr.ph.i29 ]
+.lr.ph.i29:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29.i, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29.i, %_ZNK4pugi10xpath_node6parentEv.exit28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %4, label %.lr.ph.split.i, label %.lr.ph.split.us.i.preheader
+
+.lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i29.thread, %.lr.ph.i29
+  %55 = phi ptr [ %53, %.lr.ph.i29.thread ], [ %54, %.lr.ph.i29 ]
+  br label %.lr.ph.split.us.i
+
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
+  %.018.us.i = phi ptr [ %58, %.lr.ph.split.us.i ], [ %.sroa.0.0.copyload.i20, %.lr.ph.split.us.i.preheader ]
   %.val.us.i30 = load i8, ptr %33, align 1, !tbaa !379
-  %.val14.us.i = load ptr, ptr %53, align 8
-  %54 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.i30, ptr %.val14.us.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.018.us.i, ptr noundef %3)
-  %55 = getelementptr inbounds nuw i8, ptr %.018.us.i, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !80
-  %.not.us.i31 = icmp eq ptr %56, null
+  %.val14.us.i = load ptr, ptr %55, align 8
+  %56 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.i30, ptr %.val14.us.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.018.us.i, ptr noundef %3)
+  %57 = getelementptr inbounds nuw i8, ptr %.018.us.i, i64 24
+  %58 = load ptr, ptr %57, align 8, !tbaa !80
+  %.not.us.i31 = icmp eq ptr %58, null
   br i1 %.not.us.i31, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %.lr.ph.split.us.i, !llvm.loop !625
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i29, %58
-  %.018.i = phi ptr [ %60, %58 ], [ %.sroa.0.0.copyload.i20, %.lr.ph.i29 ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i29, %60
+  %.018.i = phi ptr [ %62, %60 ], [ %.sroa.0.0.copyload.i20, %.lr.ph.i29 ]
   %.val.i32 = load i8, ptr %33, align 1, !tbaa !379
-  %.val14.i33 = load ptr, ptr %53, align 8
-  %57 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.i32, ptr %.val14.i33, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.018.i, ptr noundef %3)
-  br i1 %57, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %58
+  %.val14.i33 = load ptr, ptr %54, align 8
+  %59 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.i32, ptr %.val14.i33, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.018.i, ptr noundef %3)
+  br i1 %59, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %60
 
-58:                                               ; preds = %.lr.ph.split.i
-  %59 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !80
-  %.not.i34 = icmp eq ptr %60, null
+60:                                               ; preds = %.lr.ph.split.i
+  %61 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !80
+  %.not.i34 = icmp eq ptr %62, null
   br i1 %.not.i34, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit, label %.lr.ph.split.i, !llvm.loop !625
 
-_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit: ; preds = %.lr.ph.i, %30, %.preheader.split.i, %.lr.ph.split.us.i, %58, %.lr.ph.split.i, %32, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE.exit, %.preheader.split.us.i, %_ZNK4pugi10xpath_node4nodeEv.exit16
+_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_.exit: ; preds = %.lr.ph.i, %30, %.preheader.split.i, %60, %.lr.ph.split.i, %.lr.ph.split.us.i, %32, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE.exit, %.preheader.split.us.i, %_ZNK4pugi10xpath_node4nodeEv.exit16
   ret void
 }
 

@@ -3518,35 +3518,35 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
 198:                                              ; preds = %195, %193
   %199 = phi float [ %197, %195 ], [ 1.000000e+00, %193 ]
   %.not197.us = icmp slt i64 %indvars.iv, %39
-  br i1 %.not197.us, label %204, label %200
+  br i1 %.not197.us, label %205, label %200
 
 200:                                              ; preds = %198
   %201 = xor i64 %indvars.iv, -1
   %202 = getelementptr float, ptr %43, i64 %201
   %203 = load float, ptr %202, align 4, !tbaa !97
-  br label %204
+  %204 = fmul float %199, %203
+  br label %205
 
-204:                                              ; preds = %200, %198
-  %205 = phi float [ %203, %200 ], [ 1.000000e+00, %198 ]
-  %206 = fmul float %199, %205
-  br i1 %54, label %207, label %209
+205:                                              ; preds = %200, %198
+  %206 = phi float [ %204, %200 ], [ %199, %198 ]
+  br i1 %54, label %207, label %210
 
-207:                                              ; preds = %204
+207:                                              ; preds = %205
   %208 = load float, ptr %55, align 4, !tbaa !97
-  br label %209
+  %209 = fmul float %206, %208
+  br label %210
 
-209:                                              ; preds = %207, %204
-  %210 = phi float [ %208, %207 ], [ 1.000000e+00, %204 ]
-  %211 = fmul float %206, %210
-  br i1 %.not198.us, label %214, label %212
+210:                                              ; preds = %207, %205
+  %211 = phi float [ %209, %207 ], [ %206, %205 ]
+  br i1 %.not198.us, label %215, label %212
 
-212:                                              ; preds = %209
+212:                                              ; preds = %210
   %213 = load float, ptr %59, align 4, !tbaa !97
-  br label %214
+  %214 = fmul float %211, %213
+  br label %215
 
-214:                                              ; preds = %212, %209
-  %215 = phi float [ %213, %212 ], [ 1.000000e+00, %209 ]
-  %216 = fmul float %211, %215
+215:                                              ; preds = %212, %210
+  %216 = phi float [ %214, %212 ], [ %211, %210 ]
   %217 = fmul float %187, %216
   %218 = fmul float %190, %216
   %219 = fmul float %.0191.us, %216
@@ -3554,12 +3554,12 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
   %221 = fmul float %.0187.us, %216
   br label %222
 
-222:                                              ; preds = %175, %214
-  %.1194.us = phi float [ %218, %214 ], [ %190, %175 ]
-  %.1192.us = phi float [ %219, %214 ], [ %.0191.us, %175 ]
-  %.1190.us = phi float [ %220, %214 ], [ %.0189.us, %175 ]
-  %.1188.us = phi float [ %221, %214 ], [ %.0187.us, %175 ]
-  %.1.us = phi float [ %217, %214 ], [ %187, %175 ]
+222:                                              ; preds = %175, %215
+  %.1194.us = phi float [ %218, %215 ], [ %190, %175 ]
+  %.1192.us = phi float [ %219, %215 ], [ %.0191.us, %175 ]
+  %.1190.us = phi float [ %220, %215 ], [ %.0189.us, %175 ]
+  %.1188.us = phi float [ %221, %215 ], [ %.0187.us, %175 ]
+  %.1.us = phi float [ %217, %215 ], [ %187, %175 ]
   %223 = fmul float %.1188.us, %.1188.us
   %224 = tail call float @llvm.fmuladd.f32(float %.1192.us, float %.1192.us, float %223)
   %225 = getelementptr inbounds nuw float, ptr %49, i64 %.pre-phi

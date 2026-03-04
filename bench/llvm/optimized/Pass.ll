@@ -232,6 +232,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %41, i64 %46, i1 false), !noalias !106
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %44, ptr %47, align 8, !tbaa !105, !alias.scope !116, !noalias !106
+  store ptr %41, ptr %38, align 8, !tbaa !104, !noalias !106
   store i64 0, ptr %43, align 8, !tbaa !105, !noalias !106
   store i8 0, ptr %41, align 8, !tbaa !113, !noalias !106
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
@@ -769,6 +770,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %42, i64 %47, i1 false), !noalias !135
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %45, ptr %48, align 8, !tbaa !105, !alias.scope !142, !noalias !135
+  store ptr %42, ptr %39, align 8, !tbaa !104, !noalias !135
   store i64 0, ptr %44, align 8, !tbaa !105, !noalias !135
   store i8 0, ptr %42, align 8, !tbaa !113, !noalias !135
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i

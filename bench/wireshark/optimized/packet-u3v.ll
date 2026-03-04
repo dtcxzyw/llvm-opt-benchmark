@@ -2270,8 +2270,8 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
-  %or.cond204.not = icmp ult i64 %89, %0
-  br i1 %or.cond204.not, label %90, label %96
+  %or.cond.not = icmp ult i64 %89, %0
+  br i1 %or.cond.not, label %90, label %96
 
 90:                                               ; preds = %86
   %91 = sub nuw i64 %0, %88
@@ -2296,8 +2296,8 @@ switch.lookup:                                    ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, -1
-  %or.cond205.not = icmp ult i64 %99, %0
-  br i1 %or.cond205.not, label %100, label %106
+  %or.cond204.not = icmp ult i64 %99, %0
+  br i1 %or.cond204.not, label %100, label %106
 
 100:                                              ; preds = %96
   %101 = sub nuw i64 %0, %98
@@ -2322,30 +2322,30 @@ switch.lookup4:                                   ; preds = %100
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, -1
-  %or.cond206.not = icmp ult i64 %109, %0
-  br i1 %or.cond206.not, label %110, label %116
+  %or.cond205.not = icmp ult i64 %109, %0
+  br i1 %or.cond205.not, label %110, label %.thread
 
 110:                                              ; preds = %106
   %111 = sub nuw i64 %0, %108
-  switch i64 %111, label %116 [
-    i64 0, label %.sink.split214
+  switch i64 %111, label %.thread [
+    i64 0, label %.thread.sink.split
     i64 4, label %112
     i64 8, label %113
   ]
 
 112:                                              ; preds = %110
-  br label %.sink.split214
+  br label %.thread.sink.split
 
 113:                                              ; preds = %110
-  br label %.sink.split214
+  br label %.thread.sink.split
 
-.sink.split214:                                   ; preds = %110, %113, %112
-  %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
-  %114 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
+.thread.sink.split:                               ; preds = %110, %113, %112
+  %hf_u3v_bootstrap_Maximum_Event_Transfer_Length.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
+  %114 = load i32, ptr %hf_u3v_bootstrap_Maximum_Event_Transfer_Length.sink, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
-  br label %116
+  br label %.thread
 
-116:                                              ; preds = %.sink.split214, %110, %106
+.thread:                                          ; preds = %106, %110, %.thread.sink.split
   ret void
 }
 

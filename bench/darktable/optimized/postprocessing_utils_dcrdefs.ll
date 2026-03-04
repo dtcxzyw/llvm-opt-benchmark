@@ -941,10 +941,10 @@ define void @_ZN6LibRaw12scale_colorsEv(ptr noundef nonnull align 8 dereferencea
   br label %.thread
 
 .loopexit221:                                     ; preds = %.loopexit224..loopexit221_crit_edge, %198
-  %or.cond192 = phi i1 [ %160, %.loopexit224..loopexit221_crit_edge ], [ false, %198 ]
+  %.not179 = phi i1 [ %160, %.loopexit224..loopexit221_crit_edge ], [ false, %198 ]
   %235 = load i32, ptr %22, align 4
   %.not181 = icmp eq i32 %235, 0
-  %or.cond193 = select i1 %or.cond192, i1 %.not181, i1 false
+  %or.cond193 = select i1 %.not179, i1 %.not181, i1 false
   br i1 %or.cond193, label %236, label %.thread
 
 236:                                              ; preds = %.loopexit221

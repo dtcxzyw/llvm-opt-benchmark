@@ -181,7 +181,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
 60:                                               ; preds = %55
   %61 = icmp eq i32 %37, 31153
   %62 = select i1 %61, i32 512, i32 1024
-  %63 = or disjoint i32 %62, %43
+  %63 = or disjoint i32 %43, %62
   %64 = select i1 %57, i32 0, i32 %63
   %65 = or disjoint i32 %41, %64
   %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #13

@@ -34988,6 +34988,7 @@ define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4Type
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !27, !alias.scope !760
+  store ptr %9, ptr %6, align 8, !tbaa !24
   store i64 0, ptr %15, align 8, !tbaa !27
   store i8 0, ptr %9, align 8, !tbaa !26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

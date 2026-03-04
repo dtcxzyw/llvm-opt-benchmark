@@ -926,13 +926,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val6 = load i8, ptr %12, align 1, !noundef !4
   %13 = add i8 %.val, -65
   %14 = icmp ult i8 %13, 26
-  %.0.i.i.i = select i1 %14, i8 32, i8 0
-  %15 = add i8 %.val6, -65
-  %16 = icmp ult i8 %15, 26
-  %.02.i.i.i = select i1 %16, i8 32, i8 0
-  %17 = or i8 %.0.i.i.i, %.val
-  %18 = or i8 %.02.i.i.i, %.val6
-  %.not = icmp eq i8 %17, %18
+  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i.i = or i8 %15, %.val
+  %16 = add i8 %.val6, -65
+  %17 = icmp ult i8 %16, 26
+  %18 = select i1 %17, i8 32, i8 0
+  %.02.i.i.i = or i8 %18, %.val6
+  %.not = icmp eq i8 %.0.i.i.i, %.02.i.i.i
   br i1 %.not, label %6, label %19
 
 19:                                               ; preds = %6, %9
@@ -1002,13 +1002,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %.val6.i = load i8, ptr %25, align 1, !noalias !179, !noundef !4
   %26 = add i8 %.val.i, -65
   %27 = icmp ult i8 %26, 26
-  %.0.i.i.i.i = select i1 %27, i8 32, i8 0
-  %28 = add i8 %.val6.i, -65
-  %29 = icmp ult i8 %28, 26
-  %.02.i.i.i.i = select i1 %29, i8 32, i8 0
-  %30 = or i8 %.0.i.i.i.i, %.val.i
-  %31 = or i8 %.02.i.i.i.i, %.val6.i
-  %.not.i = icmp eq i8 %30, %31
+  %28 = select i1 %27, i8 32, i8 0
+  %.0.i.i.i.i = or i8 %28, %.val.i
+  %29 = add i8 %.val6.i, -65
+  %30 = icmp ult i8 %29, 26
+  %31 = select i1 %30, i8 32, i8 0
+  %.02.i.i.i.i = or i8 %31, %.val6.i
+  %.not.i = icmp eq i8 %.0.i.i.i.i, %.02.i.i.i.i
   br i1 %.not.i, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdc3abac502efd698E.llvm.10701424160139774282.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hdc3abac502efd698E.llvm.10701424160139774282.exit: ; preds = %22, %20, %4
@@ -11891,13 +11891,13 @@ common.resume:                                    ; preds = %47, %103, %81
   %.val6.i.i = load i8, ptr %164, align 1, !noalias !2866, !noundef !4
   %165 = add i8 %.val.i.i, -65
   %166 = icmp ult i8 %165, 26
-  %.0.i.i.i.i.i = select i1 %166, i8 32, i8 0
-  %167 = add i8 %.val6.i.i, -65
-  %168 = icmp ult i8 %167, 26
-  %.02.i.i.i.i.i = select i1 %168, i8 32, i8 0
-  %169 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %170 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i104 = icmp eq i8 %169, %170
+  %167 = select i1 %166, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %167, %.val.i.i
+  %168 = add i8 %.val6.i.i, -65
+  %169 = icmp ult i8 %168, 26
+  %170 = select i1 %169, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %170, %.val6.i.i
+  %.not.i.i104 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i104, label %159, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10701424160139774282.exit"
 
 171:                                              ; preds = %159
@@ -12036,13 +12036,13 @@ define hidden noundef range(i8 0, 13) i8 @_ZN7uu_sort11month_parse17hdf577c90cad
   %.val6.i.i = load i8, ptr %41, align 1, !noalias !2895, !noundef !4
   %42 = add i8 %.val.i.i, -65
   %43 = icmp ult i8 %42, 26
-  %.0.i.i.i.i.i = select i1 %43, i8 32, i8 0
-  %44 = add i8 %.val6.i.i, -65
-  %45 = icmp ult i8 %44, 26
-  %.02.i.i.i.i.i = select i1 %45, i8 32, i8 0
-  %46 = or i8 %.0.i.i.i.i.i, %.val.i.i
-  %47 = or i8 %.02.i.i.i.i.i, %.val6.i.i
-  %.not.i.i9 = icmp eq i8 %46, %47
+  %44 = select i1 %43, i8 32, i8 0
+  %.0.i.i.i.i.i = or i8 %44, %.val.i.i
+  %45 = add i8 %.val6.i.i, -65
+  %46 = icmp ult i8 %45, 26
+  %47 = select i1 %46, i8 32, i8 0
+  %.02.i.i.i.i.i = or i8 %47, %.val6.i.i
+  %.not.i.i9 = icmp eq i8 %.0.i.i.i.i.i, %.02.i.i.i.i.i
   br i1 %.not.i.i9, label %36, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10701424160139774282.exit"
 
 48:                                               ; preds = %36

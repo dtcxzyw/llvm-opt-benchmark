@@ -15907,7 +15907,7 @@ define internal fastcc void @"_ZN6ethnum3int3api35_$LT$impl$u20$ethnum..int..I25
   %.sroa.046.0.copyload.pre = load i128, ptr %1, align 16
   %.sroa.547.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.547.0.copyload.pre = load i128, ptr %.sroa.547.0..sroa_idx.phi.trans.insert, align 16
-  br label %7
+  br label %8
 
 .lr.ph:                                           ; preds = %3
   %.promoted = load i128, ptr %1, align 16
@@ -15919,43 +15919,43 @@ define internal fastcc void @"_ZN6ethnum3int3api35_$LT$impl$u20$ethnum..int..I25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.11, i64 32, i1 false)
   br label %5
 
-5:                                                ; preds = %7, %4
+5:                                                ; preds = %8, %4
   ret void
 
 ._crit_edge:                                      ; preds = %57
   store i128 %75, ptr %.sroa.5.0..sroa_idx, align 16
   store i128 %68, ptr %1, align 16
-  %6 = mul i128 %75, %.sroa.08.1
-  br label %7
+  %6 = mul i128 %68, %.sroa.6.1
+  %7 = mul i128 %75, %.sroa.08.1
+  br label %8
 
-7:                                                ; preds = %.preheader._crit_edge, %._crit_edge
-  %.sroa.547.0.copyload = phi i128 [ %6, %._crit_edge ], [ %.sroa.547.0.copyload.pre, %.preheader._crit_edge ]
+8:                                                ; preds = %.preheader._crit_edge, %._crit_edge
+  %.sroa.547.0.copyload = phi i128 [ %7, %._crit_edge ], [ %.sroa.547.0.copyload.pre, %.preheader._crit_edge ]
   %.sroa.046.0.copyload = phi i128 [ %68, %._crit_edge ], [ %.sroa.046.0.copyload.pre, %.preheader._crit_edge ]
   %.sroa.08.0.lcssa = phi i128 [ %.sroa.08.1, %._crit_edge ], [ 1, %.preheader._crit_edge ]
-  %.sroa.6.0.lcssa = phi i128 [ %.sroa.6.1, %._crit_edge ], [ 0, %.preheader._crit_edge ]
-  %8 = and i128 %.sroa.08.0.lcssa, 18446744073709551615
-  %9 = and i128 %.sroa.046.0.copyload, 18446744073709551615
-  %10 = mul nuw i128 %9, %8
-  %11 = lshr i128 %10, 64
-  %12 = and i128 %10, 18446744073709551615
-  %13 = lshr i128 %.sroa.08.0.lcssa, 64
-  %14 = mul nuw i128 %9, %13
-  %15 = add nuw i128 %11, %14
-  %16 = lshr i128 %15, 64
-  %17 = and i128 %15, 18446744073709551615
-  %18 = lshr i128 %.sroa.046.0.copyload, 64
-  %19 = mul nuw i128 %18, %8
-  %20 = add nuw i128 %17, %19
-  %21 = shl i128 %20, 64
-  %22 = or disjoint i128 %21, %12
-  %23 = lshr i128 %20, 64
-  %24 = mul nuw i128 %18, %13
-  %25 = mul i128 %.sroa.046.0.copyload, %.sroa.6.0.lcssa
-  %26 = add i128 %.sroa.547.0.copyload, %25
-  %27 = add i128 %26, %24
-  %28 = add i128 %27, %16
-  %29 = add i128 %28, %23
-  store i128 %22, ptr %0, align 16
+  %.sroa.6.0.lcssa = phi i128 [ %6, %._crit_edge ], [ 0, %.preheader._crit_edge ]
+  %9 = and i128 %.sroa.08.0.lcssa, 18446744073709551615
+  %10 = and i128 %.sroa.046.0.copyload, 18446744073709551615
+  %11 = mul nuw i128 %10, %9
+  %12 = lshr i128 %11, 64
+  %13 = and i128 %11, 18446744073709551615
+  %14 = lshr i128 %.sroa.08.0.lcssa, 64
+  %15 = mul nuw i128 %10, %14
+  %16 = add nuw i128 %12, %15
+  %17 = lshr i128 %16, 64
+  %18 = and i128 %16, 18446744073709551615
+  %19 = lshr i128 %.sroa.046.0.copyload, 64
+  %20 = mul nuw i128 %19, %9
+  %21 = add nuw i128 %18, %20
+  %22 = shl i128 %21, 64
+  %23 = or disjoint i128 %22, %13
+  %24 = lshr i128 %21, 64
+  %25 = mul nuw i128 %19, %14
+  %26 = add i128 %.sroa.547.0.copyload, %.sroa.6.0.lcssa
+  %27 = add i128 %26, %25
+  %28 = add i128 %27, %17
+  %29 = add i128 %28, %24
+  store i128 %23, ptr %0, align 16
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %29, ptr %.sroa.457.0..sroa_idx, align 16
   br label %5

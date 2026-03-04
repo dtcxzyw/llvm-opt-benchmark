@@ -298,16 +298,16 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTest(ptr noundef %0, ptr nound
   %. = select i1 %23, double %19, double %22
   store double %., ptr %16, align 8, !tbaa !38
   %24 = fcmp ogt double %., 1.000000e+00
-  %25 = select i1 %24, double 1.000000e+00, double %.
-  %26 = fmul double %11, %25
+  %25 = fmul double %11, %.
+  %26 = select i1 %24, double %11, double %25
   %27 = fdiv double %26, %3
   %28 = fcmp ugt double %27, 1.000000e+00
   br i1 %28, label %41, label %.thread33
 
 .thread:                                          ; preds = %13
   %29 = fcmp ogt double %17, 1.000000e+00
-  %30 = select i1 %29, double 1.000000e+00, double %17
-  %31 = fmul double %11, %30
+  %30 = fmul double %11, %17
+  %31 = select i1 %29, double %11, double %30
   %32 = fdiv double %31, %3
   %33 = fcmp ugt double %32, 1.000000e+00
   br i1 %33, label %.thread31, label %34

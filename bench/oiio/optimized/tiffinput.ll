@@ -12068,10 +12068,10 @@ _ZNK11OpenImageIO6v3_1_011thread_pool9is_workerEv.exit: ; preds = %149
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit142
 
 .lr.ph214.split.split:                            ; preds = %.lr.ph214.split.split.preheader, %._crit_edge
-  %233 = phi i32 [ %244, %._crit_edge ], [ %7, %.lr.ph214.split.split.preheader ]
-  %234 = phi i8 [ %240, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
-  %235 = phi i8 [ %241, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
-  %236 = phi i8 [ %242, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
+  %233 = phi i32 [ %245, %._crit_edge ], [ %7, %.lr.ph214.split.split.preheader ]
+  %234 = phi i8 [ %241, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
+  %235 = phi i8 [ %242, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
+  %236 = phi i8 [ %243, %._crit_edge ], [ 1, %.lr.ph214.split.split.preheader ]
   %.089212 = phi i64 [ %.190.lcssa, %._crit_edge ], [ 0, %.lr.ph214.split.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %5, ptr %20, align 4, !tbaa !120
@@ -12080,6 +12080,7 @@ _ZNK11OpenImageIO6v3_1_011thread_pool9is_workerEv.exit: ; preds = %149
 
 .lr.ph210.preheader:                              ; preds = %.lr.ph214.split.split
   %238 = trunc nuw i8 %235 to i1
+  %239 = and i1 %226, %238
   br label %.lr.ph210
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -12087,25 +12088,24 @@ _ZNK11OpenImageIO6v3_1_011thread_pool9is_workerEv.exit: ; preds = %149
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph214.split.split
-  %239 = phi i32 [ %233, %.lr.ph214.split.split ], [ %.pre241, %._crit_edge.loopexit ]
-  %240 = phi i8 [ %234, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
-  %241 = phi i8 [ %235, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
-  %242 = phi i8 [ 0, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
+  %240 = phi i32 [ %233, %.lr.ph214.split.split ], [ %.pre241, %._crit_edge.loopexit ]
+  %241 = phi i8 [ %234, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
+  %242 = phi i8 [ %235, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
+  %243 = phi i8 [ 0, %.lr.ph214.split.split ], [ %425, %._crit_edge.loopexit ]
   %.190.lcssa = phi i64 [ %.089212, %.lr.ph214.split.split ], [ %.291188, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %243 = load i32, ptr %51, align 8, !tbaa !148
-  %244 = add nsw i32 %239, %243
-  store i32 %244, ptr %19, align 4, !tbaa !120
-  %245 = icmp slt i32 %244, %8
-  br i1 %245, label %.lr.ph214.split.split, label %._crit_edge215, !llvm.loop !331
+  %244 = load i32, ptr %51, align 8, !tbaa !148
+  %245 = add nsw i32 %240, %244
+  store i32 %245, ptr %19, align 4, !tbaa !120
+  %246 = icmp slt i32 %245, %8
+  br i1 %246, label %.lr.ph214.split.split, label %._crit_edge215, !llvm.loop !331
 
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %.loopexit
-  %246 = phi i8 [ 1, %.loopexit ], [ %234, %.lr.ph210.preheader ]
-  %247 = phi i1 [ true, %.loopexit ], [ %238, %.lr.ph210.preheader ]
+  %247 = phi i8 [ 1, %.loopexit ], [ %234, %.lr.ph210.preheader ]
+  %248 = phi i1 [ %226, %.loopexit ], [ %239, %.lr.ph210.preheader ]
   %.190209 = phi i64 [ %.291188, %.loopexit ], [ %.089212, %.lr.ph210.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 %3, ptr %21, align 4, !tbaa !120
-  %248 = and i1 %226, %247
   br i1 %248, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph210
@@ -12582,7 +12582,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit139
 
 .loopexit:                                        ; preds = %411, %.lr.ph210, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %425 = phi i8 [ %.pre240, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %246, %.lr.ph210 ], [ %416, %411 ]
+  %425 = phi i8 [ %.pre240, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %247, %.lr.ph210 ], [ %416, %411 ]
   %.291188 = phi i64 [ %.291208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.190209, %.lr.ph210 ], [ %415, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %426 = load i32, ptr %43, align 4, !tbaa !147
@@ -26053,12 +26053,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i:
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i: ; preds = %248, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %255 = phi i64 [ %254, %248 ], [ %.03561.i, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i ]
-  %256 = icmp samesign ugt i64 %246, %255
+  %256 = icmp ugt i64 %246, %255
   br i1 %256, label %.thread518, label %257
 
 257:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i
   %258 = sub nuw nsw i64 %255, %246
-  %259 = icmp samesign ugt i64 %258, 1
+  %259 = icmp ugt i64 %258, 1
   br i1 %259, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit, label %260
 
 260:                                              ; preds = %257
@@ -26178,12 +26178,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205: ; preds = %305, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202
   %312 = phi i64 [ %311, %305 ], [ %.03561.i195, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202 ]
-  %313 = icmp samesign ugt i64 %303, %312
+  %313 = icmp ugt i64 %303, %312
   br i1 %313, label %.thread.sink.split, label %314
 
 314:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205
   %315 = sub nuw nsw i64 %312, %303
-  %316 = icmp samesign ugt i64 %315, 1
+  %316 = icmp ugt i64 %315, 1
   br i1 %316, label %.thread, label %317
 
 317:                                              ; preds = %314
@@ -26537,7 +26537,7 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277: ; preds = %455, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274
   %462 = phi i64 [ %461, %455 ], [ %.03561.i267, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274 ]
-  %463 = icmp samesign ugt i64 %453, %462
+  %463 = icmp ugt i64 %453, %462
   br i1 %463, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit280, label %464
 
 464:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277
@@ -26757,12 +26757,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i3
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316: ; preds = %556, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313
   %563 = phi i64 [ %562, %556 ], [ %.03561.i306, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313 ]
-  %564 = icmp samesign ugt i64 %554, %563
+  %564 = icmp ugt i64 %554, %563
   br i1 %564, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit319, label %565
 
 565:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316
   %566 = sub nuw nsw i64 %563, %554
-  %567 = icmp samesign ugt i64 %566, 1
+  %567 = icmp ugt i64 %566, 1
   br i1 %567, label %.thread359, label %568
 
 568:                                              ; preds = %565

@@ -20967,8 +20967,8 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !83
   %36 = icmp eq i32 %35, 1
-  %spec.select134 = select i1 %36, i32 %spec.select, i32 1
-  %37 = mul nsw i32 %spec.select134, %33
+  %37 = select i1 %36, i32 %spec.select, i32 1
+  %spec.select134 = mul nsw i32 %37, %33
   %38 = icmp eq i32 %35, 2
   %39 = select i1 %38, i32 %spec.select, i32 1
   br i1 %.not, label %44, label %40
@@ -20986,13 +20986,13 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
   br label %48
 
 48:                                               ; preds = %44, %40
-  %.sink167 = phi i32 [ %37, %44 ], [ %43, %40 ]
-  %.sink = phi i32 [ %47, %44 ], [ %37, %40 ]
+  %.sink = phi i32 [ %spec.select134, %44 ], [ %43, %40 ]
+  %spec.select133.sink = phi i32 [ %47, %44 ], [ %spec.select134, %40 ]
   %.0124.in = phi ptr [ %45, %44 ], [ %41, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink167, ptr %49, align 8, !tbaa !65
+  store i32 %.sink, ptr %49, align 8, !tbaa !65
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.sink, ptr %50, align 4, !tbaa !66
+  store i32 %spec.select133.sink, ptr %50, align 4, !tbaa !66
   %.0124 = load i32, ptr %.0124.in, align 4, !tbaa !44
   %.0124.fr = freeze i32 %.0124
   %51 = sext i32 %.0124.fr to i64
@@ -21091,11 +21091,11 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
 
 ..loopexit_crit_edge.us.loopexit:                 ; preds = %81
   %102 = add nsw i32 %.0119143.us, 1
-  %.pre168 = load i32, ptr %8, align 4, !tbaa !77
+  %.pre167 = load i32, ptr %8, align 4, !tbaa !77
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %..loopexit_crit_edge.us.loopexit, %.lr.ph144.split.us
-  %103 = phi i32 [ %66, %.lr.ph144.split.us ], [ %.pre168, %..loopexit_crit_edge.us.loopexit ]
+  %103 = phi i32 [ %66, %.lr.ph144.split.us ], [ %.pre167, %..loopexit_crit_edge.us.loopexit ]
   %.1120.us = phi i32 [ %.0119143.us, %.lr.ph144.split.us ], [ %102, %..loopexit_crit_edge.us.loopexit ]
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %104 = sext i32 %103 to i64
@@ -21190,9 +21190,9 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
 
 ._crit_edge145._crit_edge:                        ; preds = %._crit_edge145
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre169 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !308
-  %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.pre171 = load i32, ptr %.phi.trans.insert170, align 4, !tbaa !309
+  %.pre168 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !308
+  %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.pre170 = load i32, ptr %.phi.trans.insert169, align 4, !tbaa !309
   br label %170
 
 153:                                              ; preds = %._crit_edge145
@@ -21230,8 +21230,8 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
   br label %170
 
 170:                                              ; preds = %._crit_edge145._crit_edge, %158, %164, %153
-  %171 = phi i32 [ %.pre171, %._crit_edge145._crit_edge ], [ %163, %158 ], [ %169, %164 ], [ 1, %153 ]
-  %172 = phi i32 [ %.pre169, %._crit_edge145._crit_edge ], [ %161, %158 ], [ %166, %164 ], [ 1, %153 ]
+  %171 = phi i32 [ %.pre170, %._crit_edge145._crit_edge ], [ %163, %158 ], [ %169, %164 ], [ 1, %153 ]
+  %172 = phi i32 [ %.pre168, %._crit_edge145._crit_edge ], [ %161, %158 ], [ %166, %164 ], [ 1, %153 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %175 = sext i32 %172 to i64

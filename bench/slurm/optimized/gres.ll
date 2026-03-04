@@ -3881,7 +3881,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
   br i1 %.not82.not, label %123, label %.thread
 
 .thread:                                          ; preds = %84, %89
-  %.063152 = phi ptr [ @.str.126, %89 ], [ @.str.125, %84 ]
+  %.063150 = phi ptr [ @.str.126, %89 ], [ @.str.125, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %91 = load ptr, ptr @xcpuinfo_ops, align 8
@@ -3898,7 +3898,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
   %95 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %87, align 8
-  %98 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %96, ptr noundef nonnull %.063152, ptr noundef %97) #28
+  %98 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %96, ptr noundef nonnull %.063150, ptr noundef %97) #28
   br label %122
 
 99:                                               ; preds = %.thread
@@ -3908,7 +3908,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %87, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.128, ptr noundef nonnull @__func__._parse_gres_config, ptr noundef nonnull %.063152, ptr noundef %103) #28
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.128, ptr noundef nonnull @__func__._parse_gres_config, ptr noundef nonnull %.063150, ptr noundef %103) #28
   br label %104
 
 104:                                              ; preds = %102, %99
@@ -3939,7 +3939,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %87, align 8
   %121 = load i32, ptr @gres_cpu_cnt, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.129, ptr noundef %119, ptr noundef nonnull %.063152, ptr noundef %120, i32 noundef %121) #30
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.129, ptr noundef %119, ptr noundef nonnull %.063150, ptr noundef %120, i32 noundef %121) #30
   unreachable
 
 122:                                              ; preds = %.critedge, %113
@@ -4051,21 +4051,21 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
   %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
   %.not94 = icmp eq i32 %175, 0
   %.phi.trans.insert = getelementptr i8, ptr %21, i64 56
-  %.val111.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.val110.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not94, label %_same_gres_name_as_prev.exit.thread, label %176
 
 176:                                              ; preds = %174
-  %.not.i.i113 = icmp eq ptr %.val111.pre, null
-  br i1 %.not.i.i113, label %_same_gres_name_as_prev.exit.thread.thread, label %.preheader.i.i
+  %.not.i.i112 = icmp eq ptr %.val110.pre, null
+  br i1 %.not.i.i112, label %_same_gres_name_as_prev.exit.thread.thread, label %.preheader.i.i
 
 _same_gres_name_as_prev.exit.thread.thread:       ; preds = %176
   store i32 %.060, ptr @_parse_gres_config.prev_gres, align 4
   br label %_set_prev_gres_flags.exit
 
 .preheader.i.i:                                   ; preds = %176
-  %177 = load i8, ptr %.val111.pre, align 1
+  %177 = load i8, ptr %.val110.pre, align 1
   %.not1617.i.i = icmp eq i8 %177, 0
-  br i1 %.not1617.i.i, label %.preheader.i.i115.sink.split, label %.lr.ph.i.i
+  br i1 %.not1617.i.i, label %.preheader.i.i114.sink.split, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
@@ -4078,62 +4078,62 @@ _same_gres_name_as_prev.exit.thread.thread:       ; preds = %176
   %182 = add nsw i32 %.01119.i.i, 8
   %183 = srem i32 %182, 32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %184 = getelementptr inbounds nuw i8, ptr %.val111.pre, i64 %indvars.iv.next.i.i
+  %184 = getelementptr inbounds nuw i8, ptr %.val110.pre, i64 %indvars.iv.next.i.i
   %185 = load i8, ptr %184, align 1
   %.not16.i.i = icmp eq i8 %185, 0
   br i1 %.not16.i.i, label %_same_gres_name_as_prev.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _same_gres_name_as_prev.exit:                     ; preds = %.lr.ph.i.i
   %186 = icmp eq i32 %181, %175
-  br i1 %186, label %187, label %.preheader.i.i115.sink.split
+  br i1 %186, label %187, label %.preheader.i.i114.sink.split
 
 187:                                              ; preds = %_same_gres_name_as_prev.exit
   %188 = load i32, ptr @_parse_gres_config.prev_gres, align 4
   %.not95 = icmp eq i32 %188, %.060
   %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 8), align 4, !range !13
   %.not96 = icmp eq i8 %189, %167
-  %or.cond153 = select i1 %.not95, i1 %.not96, i1 false
-  br i1 %or.cond153, label %.preheader.i.i115.sink.split, label %190
+  %or.cond151 = select i1 %.not95, i1 %.not96, i1 false
+  br i1 %or.cond151, label %.preheader.i.i114.sink.split, label %190
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr %79, align 8
   %192 = load ptr, ptr %10, align 8
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.137, ptr noundef nonnull %.val111.pre, ptr noundef %191, ptr noundef %192) #30
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.137, ptr noundef nonnull %.val110.pre, ptr noundef %191, ptr noundef %192) #30
   unreachable
 
 _same_gres_name_as_prev.exit.thread:              ; preds = %174
   store i32 %.060, ptr @_parse_gres_config.prev_gres, align 4
-  %.not.i.i114 = icmp eq ptr %.val111.pre, null
-  br i1 %.not.i.i114, label %_set_prev_gres_flags.exit, label %.preheader.i.i115
+  %.not.i.i113 = icmp eq ptr %.val110.pre, null
+  br i1 %.not.i.i113, label %_set_prev_gres_flags.exit, label %.preheader.i.i114
 
-.preheader.i.i115.sink.split:                     ; preds = %_same_gres_name_as_prev.exit, %187, %.preheader.i.i
+.preheader.i.i114.sink.split:                     ; preds = %_same_gres_name_as_prev.exit, %187, %.preheader.i.i
   store i32 %.060, ptr @_parse_gres_config.prev_gres, align 4
-  br label %.preheader.i.i115
+  br label %.preheader.i.i114
 
-.preheader.i.i115:                                ; preds = %.preheader.i.i115.sink.split, %_same_gres_name_as_prev.exit.thread
-  %193 = load i8, ptr %.val111.pre, align 1
-  %.not1617.i.i116 = icmp eq i8 %193, 0
-  br i1 %.not1617.i.i116, label %_set_prev_gres_flags.exit, label %.lr.ph.i.i117
+.preheader.i.i114:                                ; preds = %.preheader.i.i114.sink.split, %_same_gres_name_as_prev.exit.thread
+  %193 = load i8, ptr %.val110.pre, align 1
+  %.not1617.i.i115 = icmp eq i8 %193, 0
+  br i1 %.not1617.i.i115, label %_set_prev_gres_flags.exit, label %.lr.ph.i.i116
 
-.lr.ph.i.i117:                                    ; preds = %.preheader.i.i115, %.lr.ph.i.i117
-  %indvars.iv.i.i118 = phi i64 [ %indvars.iv.next.i.i121, %.lr.ph.i.i117 ], [ 0, %.preheader.i.i115 ]
-  %194 = phi i8 [ %201, %.lr.ph.i.i117 ], [ %193, %.preheader.i.i115 ]
-  %.020.i.i119 = phi i32 [ %197, %.lr.ph.i.i117 ], [ 0, %.preheader.i.i115 ]
-  %.01119.i.i120 = phi i32 [ %199, %.lr.ph.i.i117 ], [ 0, %.preheader.i.i115 ]
+.lr.ph.i.i116:                                    ; preds = %.preheader.i.i114, %.lr.ph.i.i116
+  %indvars.iv.i.i117 = phi i64 [ %indvars.iv.next.i.i120, %.lr.ph.i.i116 ], [ 0, %.preheader.i.i114 ]
+  %194 = phi i8 [ %201, %.lr.ph.i.i116 ], [ %193, %.preheader.i.i114 ]
+  %.020.i.i118 = phi i32 [ %197, %.lr.ph.i.i116 ], [ 0, %.preheader.i.i114 ]
+  %.01119.i.i119 = phi i32 [ %199, %.lr.ph.i.i116 ], [ 0, %.preheader.i.i114 ]
   %195 = sext i8 %194 to i32
-  %196 = shl i32 %195, %.01119.i.i120
-  %197 = add i32 %196, %.020.i.i119
-  %198 = add nsw i32 %.01119.i.i120, 8
+  %196 = shl i32 %195, %.01119.i.i119
+  %197 = add i32 %196, %.020.i.i118
+  %198 = add nsw i32 %.01119.i.i119, 8
   %199 = srem i32 %198, 32
-  %indvars.iv.next.i.i121 = add nuw nsw i64 %indvars.iv.i.i118, 1
-  %200 = getelementptr inbounds nuw i8, ptr %.val111.pre, i64 %indvars.iv.next.i.i121
+  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i117, 1
+  %200 = getelementptr inbounds nuw i8, ptr %.val110.pre, i64 %indvars.iv.next.i.i120
   %201 = load i8, ptr %200, align 1
-  %.not16.i.i122 = icmp eq i8 %201, 0
-  br i1 %.not16.i.i122, label %_set_prev_gres_flags.exit, label %.lr.ph.i.i117, !llvm.loop !11
+  %.not16.i.i121 = icmp eq i8 %201, 0
+  br i1 %.not16.i.i121, label %_set_prev_gres_flags.exit, label %.lr.ph.i.i116, !llvm.loop !11
 
-_set_prev_gres_flags.exit:                        ; preds = %.lr.ph.i.i117, %_same_gres_name_as_prev.exit.thread.thread, %_same_gres_name_as_prev.exit.thread, %.preheader.i.i115
-  %.013.i.i123 = phi i32 [ 0, %_same_gres_name_as_prev.exit.thread ], [ 0, %.preheader.i.i115 ], [ 0, %_same_gres_name_as_prev.exit.thread.thread ], [ %197, %.lr.ph.i.i117 ]
-  store i32 %.013.i.i123, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
+_set_prev_gres_flags.exit:                        ; preds = %.lr.ph.i.i116, %_same_gres_name_as_prev.exit.thread.thread, %_same_gres_name_as_prev.exit.thread, %.preheader.i.i114
+  %.013.i.i122 = phi i32 [ 0, %_same_gres_name_as_prev.exit.thread ], [ 0, %.preheader.i.i114 ], [ 0, %_same_gres_name_as_prev.exit.thread.thread ], [ %197, %.lr.ph.i.i116 ]
+  store i32 %.013.i.i122, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
   store i8 %167, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 8), align 4
   call void @slurm_xfree(ptr noundef nonnull %10) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -4147,59 +4147,59 @@ _set_prev_gres_flags.exit:                        ; preds = %.lr.ph.i.i117, %_sa
   %206 = trunc nuw i8 %205 to i1
   %or.cond5 = select i1 %204, i1 true, i1 %206
   %207 = getelementptr i8, ptr %21, i64 56
-  %.val110 = load ptr, ptr %207, align 8
-  br i1 %or.cond5, label %208, label %._crit_edge166
+  %.val109 = load ptr, ptr %207, align 8
+  br i1 %or.cond5, label %208, label %._crit_edge164
 
 208:                                              ; preds = %202
-  %.not.i.i124 = icmp eq ptr %.val110, null
-  br i1 %.not.i.i124, label %_same_gres_name_as_prev.exit134, label %.preheader.i.i125
+  %.not.i.i123 = icmp eq ptr %.val109, null
+  br i1 %.not.i.i123, label %_same_gres_name_as_prev.exit133, label %.preheader.i.i124
 
-.preheader.i.i125:                                ; preds = %208
-  %209 = load i8, ptr %.val110, align 1
-  %.not1617.i.i126 = icmp eq i8 %209, 0
-  br i1 %.not1617.i.i126, label %_same_gres_name_as_prev.exit134, label %.lr.ph.i.i127
+.preheader.i.i124:                                ; preds = %208
+  %209 = load i8, ptr %.val109, align 1
+  %.not1617.i.i125 = icmp eq i8 %209, 0
+  br i1 %.not1617.i.i125, label %_same_gres_name_as_prev.exit133, label %.lr.ph.i.i126
 
-.lr.ph.i.i127:                                    ; preds = %.preheader.i.i125, %.lr.ph.i.i127
-  %indvars.iv.i.i128 = phi i64 [ %indvars.iv.next.i.i131, %.lr.ph.i.i127 ], [ 0, %.preheader.i.i125 ]
-  %210 = phi i8 [ %217, %.lr.ph.i.i127 ], [ %209, %.preheader.i.i125 ]
-  %.020.i.i129 = phi i32 [ %213, %.lr.ph.i.i127 ], [ 0, %.preheader.i.i125 ]
-  %.01119.i.i130 = phi i32 [ %215, %.lr.ph.i.i127 ], [ 0, %.preheader.i.i125 ]
+.lr.ph.i.i126:                                    ; preds = %.preheader.i.i124, %.lr.ph.i.i126
+  %indvars.iv.i.i127 = phi i64 [ %indvars.iv.next.i.i130, %.lr.ph.i.i126 ], [ 0, %.preheader.i.i124 ]
+  %210 = phi i8 [ %217, %.lr.ph.i.i126 ], [ %209, %.preheader.i.i124 ]
+  %.020.i.i128 = phi i32 [ %213, %.lr.ph.i.i126 ], [ 0, %.preheader.i.i124 ]
+  %.01119.i.i129 = phi i32 [ %215, %.lr.ph.i.i126 ], [ 0, %.preheader.i.i124 ]
   %211 = sext i8 %210 to i32
-  %212 = shl i32 %211, %.01119.i.i130
-  %213 = add i32 %212, %.020.i.i129
-  %214 = add nsw i32 %.01119.i.i130, 8
+  %212 = shl i32 %211, %.01119.i.i129
+  %213 = add i32 %212, %.020.i.i128
+  %214 = add nsw i32 %.01119.i.i129, 8
   %215 = srem i32 %214, 32
-  %indvars.iv.next.i.i131 = add nuw nsw i64 %indvars.iv.i.i128, 1
-  %216 = getelementptr inbounds nuw i8, ptr %.val110, i64 %indvars.iv.next.i.i131
+  %indvars.iv.next.i.i130 = add nuw nsw i64 %indvars.iv.i.i127, 1
+  %216 = getelementptr inbounds nuw i8, ptr %.val109, i64 %indvars.iv.next.i.i130
   %217 = load i8, ptr %216, align 1
-  %.not16.i.i132 = icmp eq i8 %217, 0
-  br i1 %.not16.i.i132, label %_same_gres_name_as_prev.exit134, label %.lr.ph.i.i127, !llvm.loop !11
+  %.not16.i.i131 = icmp eq i8 %217, 0
+  br i1 %.not16.i.i131, label %_same_gres_name_as_prev.exit133, label %.lr.ph.i.i126, !llvm.loop !11
 
-_same_gres_name_as_prev.exit134:                  ; preds = %.lr.ph.i.i127, %208, %.preheader.i.i125
-  %.013.i.i133 = phi i32 [ 0, %208 ], [ 0, %.preheader.i.i125 ], [ %213, %.lr.ph.i.i127 ]
+_same_gres_name_as_prev.exit133:                  ; preds = %.lr.ph.i.i126, %208, %.preheader.i.i124
+  %.013.i.i132 = phi i32 [ 0, %208 ], [ 0, %.preheader.i.i124 ], [ %213, %.lr.ph.i.i126 ]
   %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
-  %219 = icmp eq i32 %.013.i.i133, %218
-  br i1 %219, label %220, label %._crit_edge166
+  %219 = icmp eq i32 %.013.i.i132, %218
+  br i1 %219, label %220, label %._crit_edge164
 
-220:                                              ; preds = %_same_gres_name_as_prev.exit134
+220:                                              ; preds = %_same_gres_name_as_prev.exit133
   %221 = load i32, ptr %21, align 8
   %222 = or i32 %221, %203
   store i32 %222, ptr %21, align 8
   br label %.critedge108
 
-._crit_edge166:                                   ; preds = %202, %_same_gres_name_as_prev.exit134
+._crit_edge164:                                   ; preds = %202, %_same_gres_name_as_prev.exit133
   %223 = getelementptr i8, ptr %21, i64 56
-  %224 = call i32 @xstrcasecmp(ptr noundef %.val110, ptr noundef nonnull @.str.3) #28
+  %224 = call i32 @xstrcasecmp(ptr noundef %.val109, ptr noundef nonnull @.str.3) #28
   %.not92 = icmp eq i32 %224, 0
   br i1 %.not92, label %225, label %228
 
-225:                                              ; preds = %._crit_edge166
+225:                                              ; preds = %._crit_edge164
   %226 = load i32, ptr %21, align 8
   %227 = or i32 %226, 1024
   store i32 %227, ptr %21, align 8
   br label %228
 
-228:                                              ; preds = %._crit_edge166, %225
+228:                                              ; preds = %._crit_edge164, %225
   %229 = load ptr, ptr %223, align 8
   %230 = call i32 @xstrcasecmp(ptr noundef %229, ptr noundef nonnull @.str.9) #28
   %.not97 = icmp eq i32 %230, 0
@@ -4209,39 +4209,39 @@ _same_gres_name_as_prev.exit134:                  ; preds = %.lr.ph.i.i127, %208
   %232 = load i32, ptr %21, align 8
   %233 = or i32 %232, 2528
   store i32 %233, ptr %21, align 8
-  %.val112 = load ptr, ptr %223, align 8
+  %.val111 = load ptr, ptr %223, align 8
   store i32 2528, ptr @_parse_gres_config.prev_gres, align 4
-  %.not.i.i135 = icmp eq ptr %.val112, null
-  br i1 %.not.i.i135, label %_set_prev_gres_flags.exit145, label %.preheader.i.i136
+  %.not.i.i134 = icmp eq ptr %.val111, null
+  br i1 %.not.i.i134, label %_set_prev_gres_flags.exit144, label %.preheader.i.i135
 
-.preheader.i.i136:                                ; preds = %231
-  %234 = load i8, ptr %.val112, align 1
-  %.not1617.i.i137 = icmp eq i8 %234, 0
-  br i1 %.not1617.i.i137, label %_set_prev_gres_flags.exit145, label %.lr.ph.i.i138
+.preheader.i.i135:                                ; preds = %231
+  %234 = load i8, ptr %.val111, align 1
+  %.not1617.i.i136 = icmp eq i8 %234, 0
+  br i1 %.not1617.i.i136, label %_set_prev_gres_flags.exit144, label %.lr.ph.i.i137
 
-.lr.ph.i.i138:                                    ; preds = %.preheader.i.i136, %.lr.ph.i.i138
-  %indvars.iv.i.i139 = phi i64 [ %indvars.iv.next.i.i142, %.lr.ph.i.i138 ], [ 0, %.preheader.i.i136 ]
-  %235 = phi i8 [ %242, %.lr.ph.i.i138 ], [ %234, %.preheader.i.i136 ]
-  %.020.i.i140 = phi i32 [ %238, %.lr.ph.i.i138 ], [ 0, %.preheader.i.i136 ]
-  %.01119.i.i141 = phi i32 [ %240, %.lr.ph.i.i138 ], [ 0, %.preheader.i.i136 ]
+.lr.ph.i.i137:                                    ; preds = %.preheader.i.i135, %.lr.ph.i.i137
+  %indvars.iv.i.i138 = phi i64 [ %indvars.iv.next.i.i141, %.lr.ph.i.i137 ], [ 0, %.preheader.i.i135 ]
+  %235 = phi i8 [ %242, %.lr.ph.i.i137 ], [ %234, %.preheader.i.i135 ]
+  %.020.i.i139 = phi i32 [ %238, %.lr.ph.i.i137 ], [ 0, %.preheader.i.i135 ]
+  %.01119.i.i140 = phi i32 [ %240, %.lr.ph.i.i137 ], [ 0, %.preheader.i.i135 ]
   %236 = sext i8 %235 to i32
-  %237 = shl i32 %236, %.01119.i.i141
-  %238 = add i32 %237, %.020.i.i140
-  %239 = add nsw i32 %.01119.i.i141, 8
+  %237 = shl i32 %236, %.01119.i.i140
+  %238 = add i32 %237, %.020.i.i139
+  %239 = add nsw i32 %.01119.i.i140, 8
   %240 = srem i32 %239, 32
-  %indvars.iv.next.i.i142 = add nuw nsw i64 %indvars.iv.i.i139, 1
-  %241 = getelementptr inbounds nuw i8, ptr %.val112, i64 %indvars.iv.next.i.i142
+  %indvars.iv.next.i.i141 = add nuw nsw i64 %indvars.iv.i.i138, 1
+  %241 = getelementptr inbounds nuw i8, ptr %.val111, i64 %indvars.iv.next.i.i141
   %242 = load i8, ptr %241, align 1
-  %.not16.i.i143 = icmp eq i8 %242, 0
-  br i1 %.not16.i.i143, label %_set_prev_gres_flags.exit145, label %.lr.ph.i.i138, !llvm.loop !11
+  %.not16.i.i142 = icmp eq i8 %242, 0
+  br i1 %.not16.i.i142, label %_set_prev_gres_flags.exit144, label %.lr.ph.i.i137, !llvm.loop !11
 
-_set_prev_gres_flags.exit145:                     ; preds = %.lr.ph.i.i138, %231, %.preheader.i.i136
-  %.013.i.i144 = phi i32 [ 0, %231 ], [ 0, %.preheader.i.i136 ], [ %238, %.lr.ph.i.i138 ]
-  store i32 %.013.i.i144, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
+_set_prev_gres_flags.exit144:                     ; preds = %.lr.ph.i.i137, %231, %.preheader.i.i135
+  %.013.i.i143 = phi i32 [ 0, %231 ], [ 0, %.preheader.i.i135 ], [ %238, %.lr.ph.i.i137 ]
+  store i32 %.013.i.i143, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 8), align 4
   br label %.critedge108
 
-.critedge108:                                     ; preds = %_set_prev_gres_flags.exit, %220, %_set_prev_gres_flags.exit145, %228
+.critedge108:                                     ; preds = %_set_prev_gres_flags.exit, %220, %_set_prev_gres_flags.exit144, %228
   %243 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %244 = call i32 @s_p_get_string(ptr noundef nonnull %243, ptr noundef nonnull @.str.138, ptr noundef %18) #28
   %.not98 = icmp eq i32 %244, 0
@@ -4270,13 +4270,13 @@ _set_prev_gres_flags.exit145:                     ; preds = %.lr.ph.i.i138, %231
   %257 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %258 = load ptr, ptr %257, align 8
   %259 = call i32 @xstrcmp(ptr noundef %258, ptr noundef nonnull @.str.3) #28
-  %.not.i.i146 = icmp eq i32 %259, 0
-  br i1 %.not.i.i146, label %gres_is_shared_name.exit.thread.i, label %gres_is_shared_name.exit.i
+  %.not.i.i145 = icmp eq i32 %259, 0
+  br i1 %.not.i.i145, label %gres_is_shared_name.exit.thread.i, label %gres_is_shared_name.exit.i
 
 gres_is_shared_name.exit.i:                       ; preds = %256
   %260 = call i32 @xstrcmp(ptr noundef %258, ptr noundef nonnull @.str.4) #28
-  %.not3.i.i147 = icmp eq i32 %260, 0
-  br i1 %.not3.i.i147, label %gres_is_shared_name.exit.thread.i, label %_set_shared_flag.exit
+  %.not3.i.i146 = icmp eq i32 %260, 0
+  br i1 %.not3.i.i146, label %gres_is_shared_name.exit.thread.i, label %_set_shared_flag.exit
 
 gres_is_shared_name.exit.thread.i:                ; preds = %gres_is_shared_name.exit.i, %256
   %261 = load i32, ptr %21, align 4
@@ -4314,8 +4314,8 @@ _set_shared_flag.exit:                            ; preds = %gres_is_shared_name
   %277 = load i64, ptr %276, align 8
   %.not102 = icmp eq i64 %277, 0
   %.not103 = icmp eq i64 %277, %275
-  %or.cond109 = or i1 %.not102, %.not103
-  br i1 %or.cond109, label %286, label %281
+  %or.cond = or i1 %.not102, %.not103
+  br i1 %or.cond, label %286, label %281
 
 278:                                              ; preds = %271
   %279 = load ptr, ptr %257, align 8
@@ -4326,8 +4326,8 @@ _set_shared_flag.exit:                            ; preds = %gres_is_shared_name
 281:                                              ; preds = %274
   %282 = load i32, ptr %21, align 8
   %283 = and i32 %282, 512
-  %.not.i148.not = icmp eq i32 %283, 0
-  br i1 %.not.i148.not, label %284, label %286
+  %.not.i147.not = icmp eq i32 %283, 0
+  br i1 %.not.i147.not, label %284, label %286
 
 284:                                              ; preds = %281
   %285 = load ptr, ptr %257, align 8
@@ -4373,19 +4373,19 @@ _set_shared_flag.exit:                            ; preds = %gres_is_shared_name
   %303 = load ptr, ptr %302, align 8
   %304 = call i32 @xstrcasecmp(ptr noundef %299, ptr noundef %303) #28
   %305 = icmp eq i32 %304, 0
-  %.pre168.pre = load i32, ptr @gres_context_cnt, align 4
+  %.pre166.pre = load i32, ptr @gres_context_cnt, align 4
   br i1 %305, label %._crit_edge, label %306
 
 306:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %307 = sext i32 %.pre168.pre to i64
+  %307 = sext i32 %.pre166.pre to i64
   %308 = icmp slt i64 %indvars.iv.next, %307
   br i1 %308, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %306, %.lr.ph
   %.167.lcssa.ph.in = phi i64 [ %indvars.iv.next, %306 ], [ %indvars.iv, %.lr.ph ]
   %.167.lcssa.ph = trunc i64 %.167.lcssa.ph.in to i32
-  %309 = icmp sgt i32 %.pre168.pre, %.167.lcssa.ph
+  %309 = icmp sgt i32 %.pre166.pre, %.167.lcssa.ph
   br i1 %309, label %312, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %296, %._crit_edge

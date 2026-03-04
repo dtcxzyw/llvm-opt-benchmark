@@ -38120,131 +38120,131 @@ RSTRING_PTR.exit:                                 ; preds = %6, %14
 .lr.ph:                                           ; preds = %.preheader84
   %41 = getelementptr i8, ptr %1, i64 256
   %42 = zext i1 %.not69 to i8
-  br label %44
+  br label %45
 
 .preheader.loopexit:                              ; preds = %.thread
   %43 = icmp ne i64 %.1, 0
+  %44 = or i1 %31, %43
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader84
-  %.0.lcssa = phi i1 [ false, %.preheader84 ], [ %43, %.preheader.loopexit ]
-  br label %76
+  %.0.lcssa = phi i1 [ %31, %.preheader84 ], [ %44, %.preheader.loopexit ]
+  br label %77
 
-44:                                               ; preds = %.lr.ph, %.thread
-  %45 = phi i32 [ %40, %.lr.ph ], [ %75, %.thread ]
+45:                                               ; preds = %.lr.ph, %.thread
+  %46 = phi i32 [ %40, %.lr.ph ], [ %76, %.thread ]
   %.090 = phi i64 [ 0, %.lr.ph ], [ %.1, %.thread ]
   %.05989 = phi i64 [ 0, %.lr.ph ], [ %.160, %.thread ]
-  %46 = icmp ult i32 %45, 256
-  %47 = zext i32 %45 to i64
-  br i1 %46, label %48, label %50
+  %47 = icmp ult i32 %46, 256
+  %48 = zext i32 %46 to i64
+  br i1 %47, label %49, label %51
 
-48:                                               ; preds = %44
-  %49 = getelementptr i8, ptr %7, i64 %47
-  store i8 %42, ptr %49, align 1, !tbaa !19
+49:                                               ; preds = %45
+  %50 = getelementptr i8, ptr %7, i64 %48
+  store i8 %42, ptr %50, align 1, !tbaa !19
   br label %.thread
 
-50:                                               ; preds = %44
-  %51 = shl nuw nsw i64 %47, 1
-  %52 = or disjoint i64 %51, 1
+51:                                               ; preds = %45
+  %52 = shl nuw nsw i64 %48, 1
+  %53 = or disjoint i64 %52, 1
   %.not66 = icmp eq i64 %.090, 0
-  br i1 %.not66, label %53, label %.thread78
+  br i1 %.not66, label %54, label %.thread78
 
-53:                                               ; preds = %50
-  br i1 %.not, label %54, label %58
+54:                                               ; preds = %51
+  br i1 %.not, label %55, label %59
 
-54:                                               ; preds = %53
-  %55 = load i64, ptr %3, align 8, !tbaa !26
-  %.not67 = icmp eq i64 %55, 0
-  br i1 %.not67, label %56, label %58
+55:                                               ; preds = %54
+  %56 = load i64, ptr %3, align 8, !tbaa !26
+  %.not67 = icmp eq i64 %56, 0
+  br i1 %.not67, label %57, label %59
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr %41, align 1, !tbaa !19
-  %.not68 = icmp eq i8 %57, 0
-  br i1 %.not68, label %.thread, label %58
+57:                                               ; preds = %55
+  %58 = load i8, ptr %41, align 1, !tbaa !19
+  %.not68 = icmp eq i8 %58, 0
+  br i1 %.not68, label %.thread, label %59
 
-58:                                               ; preds = %56, %54, %53
-  br i1 %.not69, label %65, label %59
+59:                                               ; preds = %57, %55, %54
+  br i1 %.not69, label %66, label %60
 
-59:                                               ; preds = %58
-  %60 = load i64, ptr %4, align 8, !tbaa !26
-  %.not70 = icmp eq i64 %60, 0
-  br i1 %.not70, label %61, label %63
+60:                                               ; preds = %59
+  %61 = load i64, ptr %4, align 8, !tbaa !26
+  %.not70 = icmp eq i64 %61, 0
+  br i1 %.not70, label %62, label %64
 
-61:                                               ; preds = %59
-  %62 = call i64 @rb_hash_new() #30
-  br label %63
+62:                                               ; preds = %60
+  %63 = call i64 @rb_hash_new() #30
+  br label %64
 
-63:                                               ; preds = %59, %61
-  %64 = phi i64 [ %62, %61 ], [ %60, %59 ]
-  store i64 %64, ptr %4, align 8, !tbaa !26
-  br label %68
+64:                                               ; preds = %60, %62
+  %65 = phi i64 [ %63, %62 ], [ %61, %60 ]
+  store i64 %65, ptr %4, align 8, !tbaa !26
+  br label %69
 
-65:                                               ; preds = %58
-  %66 = call i64 @rb_hash_new() #30
-  %67 = load i64, ptr %3, align 8, !tbaa !26
-  store i64 %66, ptr %3, align 8, !tbaa !26
-  br label %68
+66:                                               ; preds = %59
+  %67 = call i64 @rb_hash_new() #30
+  %68 = load i64, ptr %3, align 8, !tbaa !26
+  store i64 %67, ptr %3, align 8, !tbaa !26
+  br label %69
 
-68:                                               ; preds = %63, %65
-  %.261 = phi i64 [ %67, %65 ], [ %60, %63 ]
-  %.2 = phi i64 [ %66, %65 ], [ %64, %63 ]
+69:                                               ; preds = %64, %66
+  %.261 = phi i64 [ %68, %66 ], [ %61, %64 ]
+  %.2 = phi i64 [ %67, %66 ], [ %65, %64 ]
   %.not71 = icmp eq i64 %.2, 0
   br i1 %.not71, label %.thread, label %.thread78
 
-.thread78:                                        ; preds = %50, %68
-  %.283 = phi i64 [ %.2, %68 ], [ %.090, %50 ]
-  %.26182 = phi i64 [ %.261, %68 ], [ %.05989, %50 ]
+.thread78:                                        ; preds = %51, %69
+  %.283 = phi i64 [ %.2, %69 ], [ %.090, %51 ]
+  %.26182 = phi i64 [ %.261, %69 ], [ %.05989, %51 ]
   %.not72 = icmp eq i64 %.26182, 0
-  br i1 %.not72, label %73, label %69
+  br i1 %.not72, label %74, label %70
 
-69:                                               ; preds = %.thread78
-  %70 = call i64 @rb_hash_aref(i64 noundef %.26182, i64 noundef %52) #30
-  %71 = icmp ne i64 %70, 4
-  %72 = zext i1 %71 to i32
-  %.not73 = icmp eq i32 %.055, %72
-  br i1 %.not73, label %.thread, label %73
+70:                                               ; preds = %.thread78
+  %71 = call i64 @rb_hash_aref(i64 noundef %.26182, i64 noundef %53) #30
+  %72 = icmp ne i64 %71, 4
+  %73 = zext i1 %72 to i32
+  %.not73 = icmp eq i32 %.055, %73
+  br i1 %.not73, label %.thread, label %74
 
-73:                                               ; preds = %69, %.thread78
-  %74 = call i64 @rb_hash_aset(i64 noundef %.283, i64 noundef %52, i64 noundef 20) #30
+74:                                               ; preds = %70, %.thread78
+  %75 = call i64 @rb_hash_aset(i64 noundef %.283, i64 noundef %53, i64 noundef 20) #30
   br label %.thread
 
-.thread:                                          ; preds = %56, %68, %69, %73, %48
-  %.160 = phi i64 [ %.05989, %48 ], [ %.26182, %73 ], [ %.26182, %69 ], [ %.261, %68 ], [ %.05989, %56 ]
-  %.1 = phi i64 [ %.090, %48 ], [ %.283, %73 ], [ %.283, %69 ], [ 0, %68 ], [ 0, %56 ]
-  %75 = call fastcc i32 @trnext(ptr noundef %8, ptr noundef %5)
-  %.not64 = icmp eq i32 %75, -1
-  br i1 %.not64, label %.preheader.loopexit, label %44, !llvm.loop !1044
+.thread:                                          ; preds = %57, %69, %70, %74, %49
+  %.160 = phi i64 [ %.05989, %49 ], [ %.26182, %74 ], [ %.26182, %70 ], [ %.261, %69 ], [ %.05989, %57 ]
+  %.1 = phi i64 [ %.090, %49 ], [ %.283, %74 ], [ %.283, %70 ], [ 0, %69 ], [ 0, %57 ]
+  %76 = call fastcc i32 @trnext(ptr noundef %8, ptr noundef %5)
+  %.not64 = icmp eq i32 %76, -1
+  br i1 %.not64, label %.preheader.loopexit, label %45, !llvm.loop !1044
 
-76:                                               ; preds = %.preheader, %84
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %84 ]
-  %77 = getelementptr i8, ptr %1, i64 %indvars.iv
-  %78 = load i8, ptr %77, align 1, !tbaa !19
-  %.not65 = icmp eq i8 %78, 0
-  br i1 %.not65, label %84, label %79
+77:                                               ; preds = %.preheader, %85
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %85 ]
+  %78 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %79 = load i8, ptr %78, align 1, !tbaa !19
+  %.not65 = icmp eq i8 %79, 0
+  br i1 %.not65, label %85, label %80
 
-79:                                               ; preds = %76
-  %80 = getelementptr i8, ptr %7, i64 %indvars.iv
-  %81 = load i8, ptr %80, align 1, !tbaa !19
-  %82 = icmp ne i8 %81, 0
-  %83 = zext i1 %82 to i8
-  br label %84
+80:                                               ; preds = %77
+  %81 = getelementptr i8, ptr %7, i64 %indvars.iv
+  %82 = load i8, ptr %81, align 1, !tbaa !19
+  %83 = icmp ne i8 %82, 0
+  %84 = zext i1 %83 to i8
+  br label %85
 
-84:                                               ; preds = %79, %76
-  %85 = phi i8 [ 0, %76 ], [ %83, %79 ]
-  store i8 %85, ptr %77, align 1, !tbaa !19
+85:                                               ; preds = %80, %77
+  %86 = phi i8 [ 0, %77 ], [ %84, %80 ]
+  store i8 %86, ptr %78, align 1, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %86, label %76, !llvm.loop !1045
+  br i1 %exitcond.not, label %87, label %77, !llvm.loop !1045
 
-86:                                               ; preds = %84
-  %or.cond3 = or i1 %31, %.0.lcssa
-  br i1 %or.cond3, label %88, label %87
+87:                                               ; preds = %85
+  br i1 %.0.lcssa, label %89, label %88
 
-87:                                               ; preds = %86
+88:                                               ; preds = %87
   store i64 0, ptr %3, align 8, !tbaa !26
-  br label %88
+  br label %89
 
-88:                                               ; preds = %87, %86
+89:                                               ; preds = %88, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

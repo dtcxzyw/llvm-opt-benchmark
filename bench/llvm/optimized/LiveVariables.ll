@@ -309,8 +309,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang13LiveVariables14LivenessValues6i
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %.not2141 = icmp eq i32 %10, 0
-  br i1 %.not2141, label %._crit_edge, label %.lr.ph
+  %.not2142 = icmp eq i32 %10, 0
+  br i1 %.not2142, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -319,18 +319,18 @@ define dso_local noundef zeroext i1 @_ZNK5clang13LiveVariables14LivenessValues6i
   br i1 %.not.i22, label %._crit_edge, label %.preheader.i23.preheader
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit, %.lr.ph, %7
-  %.018.lcssa = phi i1 [ false, %7 ], [ false, %.lr.ph ], [ %28, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ]
+  %.018.lcssa = phi i1 [ false, %7 ], [ false, %.lr.ph ], [ %.ph, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.loopexit, label %.preheader.i
+  br i1 %.not.i, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %20
   %.01217.i.i.i = phi ptr [ %.113.i.i.i, %20 ], [ %16, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = icmp eq ptr %1, %18
-  br i1 %19, label %.loopexit, label %20
+  br i1 %19, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %20
 
 20:                                               ; preds = %.preheader.i
   %21 = icmp ult ptr %1, %18
@@ -338,12 +338,12 @@ define dso_local noundef zeroext i1 @_ZNK5clang13LiveVariables14LivenessValues6i
   %.113.in.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i, i64 %.113.in.v.i.i.i
   %.113.i.i.i = load ptr, ptr %.113.in.i.i.i, align 8, !tbaa !59
   %.not.i.i.i = icmp eq ptr %.113.i.i.i, null
-  br i1 %.not.i.i.i, label %.loopexit, label %.preheader.i
+  br i1 %.not.i.i.i, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %.preheader.i
 
 .preheader.i23.preheader:                         ; preds = %.lr.ph, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit
-  %.01843 = phi i1 [ %28, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ], [ false, %.lr.ph ]
-  %.01942 = phi ptr [ %29, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ], [ %8, %.lr.ph ]
-  %22 = load ptr, ptr %.01942, align 8, !tbaa !60
+  %.01844 = phi i1 [ %.ph, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ], [ false, %.lr.ph ]
+  %.01943 = phi ptr [ %28, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit ], [ %8, %.lr.ph ]
+  %22 = load ptr, ptr %.01943, align 8, !tbaa !60
   br label %.preheader.i23
 
 .preheader.i23:                                   ; preds = %.preheader.i23.preheader, %26
@@ -362,39 +362,34 @@ define dso_local noundef zeroext i1 @_ZNK5clang13LiveVariables14LivenessValues6i
   br i1 %.not.i.i.i28, label %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit, label %.preheader.i23
 
 _ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit: ; preds = %26, %.preheader.i23
-  %28 = or i1 %.01843, %25
-  %29 = getelementptr inbounds nuw i8, ptr %.01942, i64 8
-  %.not21 = icmp eq ptr %29, %12
+  %.ph = phi i1 [ true, %.preheader.i23 ], [ %.01844, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01943, i64 8
+  %.not21 = icmp eq ptr %28, %12
   br i1 %.not21, label %._crit_edge, label %.preheader.i23.preheader
 
-.loopexit:                                        ; preds = %20, %.preheader.i, %._crit_edge
-  %30 = phi i1 [ false, %._crit_edge ], [ %19, %.preheader.i ], [ %19, %20 ]
-  %31 = or i1 %.018.lcssa, %30
-  br label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36
-
 .thread:                                          ; preds = %2
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !55
-  %.not.i29 = icmp eq ptr %33, null
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %.not.i29 = icmp eq ptr %30, null
   br i1 %.not.i29, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %.preheader.i30
 
-.preheader.i30:                                   ; preds = %.thread, %37
-  %.01217.i.i.i31 = phi ptr [ %.113.i.i.i34, %37 ], [ %33, %.thread ]
-  %34 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !58
-  %36 = icmp eq ptr %1, %35
-  br i1 %36, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %37
+.preheader.i30:                                   ; preds = %.thread, %34
+  %.01217.i.i.i31 = phi ptr [ %.113.i.i.i34, %34 ], [ %30, %.thread ]
+  %31 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31, i64 48
+  %32 = load ptr, ptr %31, align 8, !tbaa !58
+  %33 = icmp eq ptr %1, %32
+  br i1 %33, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %34
 
-37:                                               ; preds = %.preheader.i30
-  %38 = icmp ult ptr %1, %35
-  %.113.in.v.i.i.i32 = select i1 %38, i64 8, i64 16
+34:                                               ; preds = %.preheader.i30
+  %35 = icmp ult ptr %1, %32
+  %.113.in.v.i.i.i32 = select i1 %35, i64 8, i64 16
   %.113.in.i.i.i33 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31, i64 %.113.in.v.i.i.i32
   %.113.i.i.i34 = load ptr, ptr %.113.in.i.i.i33, align 8, !tbaa !59
   %.not.i.i.i35 = icmp eq ptr %.113.i.i.i34, null
   br i1 %.not.i.i.i35, label %_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36, label %.preheader.i30
 
-_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36: ; preds = %37, %.preheader.i30, %.loopexit, %.thread
-  %.1 = phi i1 [ %31, %.loopexit ], [ false, %.thread ], [ %36, %.preheader.i30 ], [ %36, %37 ]
+_ZNK4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit36: ; preds = %.preheader.i, %20, %34, %.preheader.i30, %._crit_edge, %.thread
+  %.1 = phi i1 [ %.018.lcssa, %._crit_edge ], [ false, %.thread ], [ %33, %34 ], [ %33, %.preheader.i30 ], [ true, %.preheader.i ], [ %.018.lcssa, %20 ]
   ret i1 %.1
 }
 
@@ -468,8 +463,8 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_8CFGBl
   %18 = zext i32 %17 to i64
   %.idx.i = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.not2141.i = icmp eq i32 %17, 0
-  br i1 %.not2141.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2142.i = icmp eq i32 %17, 0
+  br i1 %.not2142.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -478,18 +473,18 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_8CFGBl
   br i1 %.not.i22.i, label %._crit_edge.i, label %.preheader.i23.preheader.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i, %.lr.ph.i, %14
-  %.018.lcssa.i = phi i1 [ false, %14 ], [ false, %.lr.ph.i ], [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ]
+  %.018.lcssa.i = phi i1 [ false, %14 ], [ false, %.lr.ph.i ], [ %.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i, %27
   %.01217.i.i.i.i = phi ptr [ %.113.i.i.i.i, %27 ], [ %23, %._crit_edge.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !58
   %26 = icmp eq ptr %2, %25
-  br i1 %26, label %.loopexit.i, label %27
+  br i1 %26, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %27
 
 27:                                               ; preds = %.preheader.i.i
   %28 = icmp ult ptr %2, %25
@@ -497,12 +492,12 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_8CFGBl
   %.113.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 %.113.in.v.i.i.i.i
   %.113.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i, align 8, !tbaa !59
   %.not.i.i.i.i = icmp eq ptr %.113.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.preheader.i.i
+  br i1 %.not.i.i.i.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i.i
 
 .preheader.i23.preheader.i:                       ; preds = %.lr.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i
-  %.01843.i = phi i1 [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ false, %.lr.ph.i ]
-  %.01942.i = phi ptr [ %36, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ %15, %.lr.ph.i ]
-  %29 = load ptr, ptr %.01942.i, align 8, !tbaa !60
+  %.01844.i = phi i1 [ %.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ false, %.lr.ph.i ]
+  %.01943.i = phi ptr [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ %15, %.lr.ph.i ]
+  %29 = load ptr, ptr %.01943.i, align 8, !tbaa !60
   br label %.preheader.i23.i
 
 .preheader.i23.i:                                 ; preds = %33, %.preheader.i23.preheader.i
@@ -521,40 +516,35 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_8CFGBl
   br i1 %.not.i.i.i28.i, label %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i, label %.preheader.i23.i
 
 _ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i: ; preds = %33, %.preheader.i23.i
-  %35 = or i1 %.01843.i, %32
-  %36 = getelementptr inbounds nuw i8, ptr %.01942.i, i64 8
-  %.not21.i = icmp eq ptr %36, %19
+  %.ph.i = phi i1 [ true, %.preheader.i23.i ], [ %.01844.i, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.01943.i, i64 8
+  %.not21.i = icmp eq ptr %35, %19
   br i1 %.not21.i, label %._crit_edge.i, label %.preheader.i23.preheader.i
 
-.loopexit.i:                                      ; preds = %27, %.preheader.i.i, %._crit_edge.i
-  %37 = phi i1 [ false, %._crit_edge.i ], [ %26, %.preheader.i.i ], [ %26, %27 ]
-  %38 = or i1 %.018.lcssa.i, %37
-  br label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit
-
 .thread.i:                                        ; preds = %6
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !55
-  %.not.i29.i = icmp eq ptr %40, null
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !55
+  %.not.i29.i = icmp eq ptr %37, null
   br i1 %.not.i29.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i30.i
 
-.preheader.i30.i:                                 ; preds = %.thread.i, %44
-  %.01217.i.i.i31.i = phi ptr [ %.113.i.i.i34.i, %44 ], [ %40, %.thread.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !58
-  %43 = icmp eq ptr %2, %42
-  br i1 %43, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %44
+.preheader.i30.i:                                 ; preds = %.thread.i, %41
+  %.01217.i.i.i31.i = phi ptr [ %.113.i.i.i34.i, %41 ], [ %37, %.thread.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 48
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  %40 = icmp eq ptr %2, %39
+  br i1 %40, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %41
 
-44:                                               ; preds = %.preheader.i30.i
-  %45 = icmp ult ptr %2, %42
-  %.113.in.v.i.i.i32.i = select i1 %45, i64 8, i64 16
+41:                                               ; preds = %.preheader.i30.i
+  %42 = icmp ult ptr %2, %39
+  %.113.in.v.i.i.i32.i = select i1 %42, i64 8, i64 16
   %.113.in.i.i.i33.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 %.113.in.v.i.i.i32.i
   %.113.i.i.i34.i = load ptr, ptr %.113.in.i.i.i33.i, align 8, !tbaa !59
   %.not.i.i.i35.i = icmp eq ptr %.113.i.i.i34.i, null
   br i1 %.not.i.i.i35.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i30.i
 
-_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit: ; preds = %44, %.preheader.i30.i, %.thread.i, %.loopexit.i, %3
-  %46 = phi i1 [ true, %3 ], [ %38, %.loopexit.i ], [ false, %.thread.i ], [ %43, %.preheader.i30.i ], [ %43, %44 ]
-  ret i1 %46
+_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit: ; preds = %41, %.preheader.i30.i, %27, %.preheader.i.i, %.thread.i, %._crit_edge.i, %3
+  %43 = phi i1 [ true, %3 ], [ %.018.lcssa.i, %._crit_edge.i ], [ false, %.thread.i ], [ true, %.preheader.i.i ], [ %.018.lcssa.i, %27 ], [ %40, %.preheader.i30.i ], [ %40, %41 ]
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -698,8 +688,8 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_4StmtE
   %18 = zext i32 %17 to i64
   %.idx.i = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.not2141.i = icmp eq i32 %17, 0
-  br i1 %.not2141.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2142.i = icmp eq i32 %17, 0
+  br i1 %.not2142.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -708,18 +698,18 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_4StmtE
   br i1 %.not.i22.i, label %._crit_edge.i, label %.preheader.i23.preheader.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i, %.lr.ph.i, %14
-  %.018.lcssa.i = phi i1 [ false, %14 ], [ false, %.lr.ph.i ], [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ]
+  %.018.lcssa.i = phi i1 [ false, %14 ], [ false, %.lr.ph.i ], [ %.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i, %27
   %.01217.i.i.i.i = phi ptr [ %.113.i.i.i.i, %27 ], [ %23, %._crit_edge.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !58
   %26 = icmp eq ptr %2, %25
-  br i1 %26, label %.loopexit.i, label %27
+  br i1 %26, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %27
 
 27:                                               ; preds = %.preheader.i.i
   %28 = icmp ult ptr %2, %25
@@ -727,12 +717,12 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_4StmtE
   %.113.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 %.113.in.v.i.i.i.i
   %.113.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i, align 8, !tbaa !59
   %.not.i.i.i.i = icmp eq ptr %.113.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.preheader.i.i
+  br i1 %.not.i.i.i.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i.i
 
 .preheader.i23.preheader.i:                       ; preds = %.lr.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i
-  %.01843.i = phi i1 [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ false, %.lr.ph.i ]
-  %.01942.i = phi ptr [ %36, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ %15, %.lr.ph.i ]
-  %29 = load ptr, ptr %.01942.i, align 8, !tbaa !60
+  %.01844.i = phi i1 [ %.ph.i, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ false, %.lr.ph.i ]
+  %.01943.i = phi ptr [ %35, %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i ], [ %15, %.lr.ph.i ]
+  %29 = load ptr, ptr %.01943.i, align 8, !tbaa !60
   br label %.preheader.i23.i
 
 .preheader.i23.i:                                 ; preds = %33, %.preheader.i23.preheader.i
@@ -751,40 +741,35 @@ define dso_local noundef zeroext i1 @_ZN5clang13LiveVariables6isLiveEPKNS_4StmtE
   br i1 %.not.i.i.i28.i, label %_ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i, label %.preheader.i23.i
 
 _ZNK4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE8containsES4_.exit.loopexit.i: ; preds = %33, %.preheader.i23.i
-  %35 = or i1 %.01843.i, %32
-  %36 = getelementptr inbounds nuw i8, ptr %.01942.i, i64 8
-  %.not21.i = icmp eq ptr %36, %19
+  %.ph.i = phi i1 [ true, %.preheader.i23.i ], [ %.01844.i, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.01943.i, i64 8
+  %.not21.i = icmp eq ptr %35, %19
   br i1 %.not21.i, label %._crit_edge.i, label %.preheader.i23.preheader.i
 
-.loopexit.i:                                      ; preds = %27, %.preheader.i.i, %._crit_edge.i
-  %37 = phi i1 [ false, %._crit_edge.i ], [ %26, %.preheader.i.i ], [ %26, %27 ]
-  %38 = or i1 %.018.lcssa.i, %37
-  br label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit
-
 .thread.i:                                        ; preds = %6
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !55
-  %.not.i29.i = icmp eq ptr %40, null
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !55
+  %.not.i29.i = icmp eq ptr %37, null
   br i1 %.not.i29.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i30.i
 
-.preheader.i30.i:                                 ; preds = %.thread.i, %44
-  %.01217.i.i.i31.i = phi ptr [ %.113.i.i.i34.i, %44 ], [ %40, %.thread.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !58
-  %43 = icmp eq ptr %2, %42
-  br i1 %43, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %44
+.preheader.i30.i:                                 ; preds = %.thread.i, %41
+  %.01217.i.i.i31.i = phi ptr [ %.113.i.i.i34.i, %41 ], [ %37, %.thread.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 48
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  %40 = icmp eq ptr %2, %39
+  br i1 %40, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %41
 
-44:                                               ; preds = %.preheader.i30.i
-  %45 = icmp ult ptr %2, %42
-  %.113.in.v.i.i.i32.i = select i1 %45, i64 8, i64 16
+41:                                               ; preds = %.preheader.i30.i
+  %42 = icmp ult ptr %2, %39
+  %.113.in.v.i.i.i32.i = select i1 %42, i64 8, i64 16
   %.113.in.i.i.i33.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i31.i, i64 %.113.in.v.i.i.i32.i
   %.113.i.i.i34.i = load ptr, ptr %.113.in.i.i.i33.i, align 8, !tbaa !59
   %.not.i.i.i35.i = icmp eq ptr %.113.i.i.i34.i, null
   br i1 %.not.i.i.i35.i, label %_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit, label %.preheader.i30.i
 
-_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit: ; preds = %44, %.preheader.i30.i, %.thread.i, %.loopexit.i, %3
-  %46 = phi i1 [ true, %3 ], [ %38, %.loopexit.i ], [ false, %.thread.i ], [ %43, %.preheader.i30.i ], [ %43, %44 ]
-  ret i1 %46
+_ZNK5clang13LiveVariables14LivenessValues6isLiveEPKNS_7VarDeclE.exit: ; preds = %41, %.preheader.i30.i, %27, %.preheader.i.i, %.thread.i, %._crit_edge.i, %3
+  %43 = phi i1 [ true, %3 ], [ %.018.lcssa.i, %._crit_edge.i ], [ false, %.thread.i ], [ true, %.preheader.i.i ], [ %.018.lcssa.i, %27 ], [ %40, %.preheader.i30.i ], [ %40, %41 ]
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

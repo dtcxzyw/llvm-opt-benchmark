@@ -163,7 +163,7 @@ define dso_local void @_ZN4llvm15GlobalSplitPass3runERNS_6ModuleERNS_15AnalysisM
   br label %90
 
 90:                                               ; preds = %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i, %.lr.ph.i
-  %.01531.i = phi i1 [ false, %.lr.ph.i ], [ %554, %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i ]
+  %.01531.i = phi i1 [ false, %.lr.ph.i ], [ %.0.i.i, %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i ]
   %.sroa.024.030.i = phi ptr [ %48, %.lr.ph.i ], [ %92, %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.i, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !12
@@ -1290,7 +1290,7 @@ _ZN4llvm11SmallVectorIPNS_6MDNodeELj2EED2Ev.exit.i.i: ; preds = %541, %_ZNSt6vec
   br label %542
 
 542:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_6MDNodeELj2EED2Ev.exit.i.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit180.i.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit175.i.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit172.i.i, %.critedge.i.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit170.i.i
-  %.not243.i.i = phi i1 [ false, %.critedge.i.i ], [ false, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit172.i.i ], [ false, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit175.i.i ], [ false, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit180.i.i ], [ false, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit170.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj2EED2Ev.exit.i.i ]
+  %.not243.i.i = phi i1 [ %.01531.i, %.critedge.i.i ], [ %.01531.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit172.i.i ], [ %.01531.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit175.i.i ], [ %.01531.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit180.i.i ], [ %.01531.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit170.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj2EED2Ev.exit.i.i ]
   %.val.i207.i.i = load ptr, ptr %7, align 8, !tbaa !22
   %.val2.i.i.i = load i32, ptr %51, align 8, !tbaa !24
   %.not5.i.i.i.i = icmp eq i32 %.val2.i.i.i, 0
@@ -1340,63 +1340,62 @@ _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev.exi
   br label %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i
 
 _ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i:  ; preds = %_ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev.exit.i.i, %101, %98, %90
-  %.0.i.i = phi i1 [ false, %90 ], [ %.not243.i.i, %_ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev.exit.i.i ], [ false, %101 ], [ false, %98 ]
+  %.0.i.i = phi i1 [ %.01531.i, %90 ], [ %.not243.i.i, %_ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev.exit.i.i ], [ %.01531.i, %101 ], [ %.01531.i, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %554 = or i1 %.01531.i, %.0.i.i
   %.not28.i = icmp eq ptr %92, %49
   br i1 %.not28.i, label %_ZL12splitGlobalsRN4llvm6ModuleE.exit, label %90
 
 _ZL12splitGlobalsRN4llvm6ModuleE.exit:            ; preds = %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i
-  br i1 %554, label %565, label %_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread
+  br i1 %.0.i.i, label %564, label %_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread
 
 _ZL12splitGlobalsRN4llvm6ModuleE.exit.thread:     ; preds = %46, %42, %41, %_ZL12splitGlobalsRN4llvm6ModuleE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !97, !alias.scope !99
-  %555 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %555, align 8, !tbaa !102, !alias.scope !99
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %557 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %557, align 8, !tbaa !103, !alias.scope !99
-  %558 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %558, align 4, !tbaa !104, !alias.scope !99
-  %559 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %560 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %560, ptr %559, align 8, !tbaa !97, !alias.scope !99
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %561, align 8, !tbaa !102, !alias.scope !99
-  %562 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %562, align 4, !tbaa !105, !alias.scope !99
-  %563 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %563, align 8, !tbaa !103, !alias.scope !99
-  %564 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %564, align 4, !tbaa !104, !alias.scope !99
-  store i32 1, ptr %556, align 4, !tbaa !105, !alias.scope !99, !noalias !106
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %554, align 8, !tbaa !102, !alias.scope !99
+  %555 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %556, align 8, !tbaa !103, !alias.scope !99
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %557, align 4, !tbaa !104, !alias.scope !99
+  %558 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %559 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %559, ptr %558, align 8, !tbaa !97, !alias.scope !99
+  %560 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %560, align 8, !tbaa !102, !alias.scope !99
+  %561 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %561, align 4, !tbaa !105, !alias.scope !99
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %562, align 8, !tbaa !103, !alias.scope !99
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %563, align 4, !tbaa !104, !alias.scope !99
+  store i32 1, ptr %555, align 4, !tbaa !105, !alias.scope !99, !noalias !106
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !109, !alias.scope !99, !noalias !106
-  br label %575
+  br label %574
 
-565:                                              ; preds = %_ZL12splitGlobalsRN4llvm6ModuleE.exit
-  %566 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %566, i8 0, i64 64, i1 false), !alias.scope !110
-  %567 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %567, ptr %0, align 8, !tbaa !97, !alias.scope !110
-  %568 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %568, align 8, !tbaa !102, !alias.scope !110
-  %569 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %569, align 4, !tbaa !105, !alias.scope !110
-  %570 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %570, align 4, !tbaa !104, !alias.scope !110
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %572 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %572, ptr %571, align 8, !tbaa !97, !alias.scope !110
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %573, align 8, !tbaa !102, !alias.scope !110
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %574, align 4, !tbaa !104, !alias.scope !110
-  br label %575
+564:                                              ; preds = %_ZL12splitGlobalsRN4llvm6ModuleE.exit
+  %565 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %565, i8 0, i64 64, i1 false), !alias.scope !110
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %566, ptr %0, align 8, !tbaa !97, !alias.scope !110
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %567, align 8, !tbaa !102, !alias.scope !110
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %568, align 4, !tbaa !105, !alias.scope !110
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %569, align 4, !tbaa !104, !alias.scope !110
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %571, ptr %570, align 8, !tbaa !97, !alias.scope !110
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %572, align 8, !tbaa !102, !alias.scope !110
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %573, align 4, !tbaa !104, !alias.scope !110
+  br label %574
 
-575:                                              ; preds = %565, %_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread
+574:                                              ; preds = %564, %_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread
   ret void
 }
 

@@ -4806,29 +4806,29 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   %or.cond34.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %23, i1 false
   br i1 %or.cond34.i.i.i.i, label %25, label %24
 
-24:                                               ; preds = %27, %25, %20, %2
+24:                                               ; preds = %26, %25, %20, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !468
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i.i.i) ]
   %.not28.i.i.i.i = icmp eq i8 %.sroa.6.0.copyload.i.i.i, 6
-  br i1 %.not28.i.i.i.i, label %30, label %29
+  br i1 %.not28.i.i.i.i, label %29, label %28
 
 25:                                               ; preds = %20
   %switch.i.i.i.i = icmp samesign ult i8 %.sroa.6.0.copyload.i.i.i, 3
   %switch35.i.i.i.i = icmp samesign ult i8 %.sroa.612.0.copyload.i.i.i, 3
-  %26 = xor i1 %switch.i.i.i.i, %switch35.i.i.i.i
-  br i1 %26, label %24, label %27
+  %spec.select36.i.i.i.i = xor i1 %switch.i.i.i.i, %switch35.i.i.i.i
+  br i1 %spec.select36.i.i.i.i, label %24, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %25
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i.i.i) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.0.copyload.i.i.i) ]
-  %28 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h68266e94ef7c9f62E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.5.0.copyload.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.09.0.copyload.i.i.i, i64 noundef %.sroa.5.0.copyload.i.i.i), !noalias !468
-  br i1 %28, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17ha2d0a210c4d8f487E.exit", label %24
+  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h68266e94ef7c9f62E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.5.0.copyload.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.09.0.copyload.i.i.i, i64 noundef %.sroa.5.0.copyload.i.i.i), !noalias !468
+  br i1 %27, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17ha2d0a210c4d8f487E.exit", label %24
 
-29:                                               ; preds = %24
+28:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.519.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %18, i64 39, i1 false)
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %24
+29:                                               ; preds = %28, %24
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !noalias !468
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.5.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !468
@@ -4845,13 +4845,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !468
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.0.copyload.i.i.i) ]
   %.not29.i.i.i.i = icmp eq i8 %.sroa.612.0.copyload.i.i.i, 6
-  br i1 %.not29.i.i.i.i, label %32, label %31
+  br i1 %.not29.i.i.i.i, label %31, label %30
 
-31:                                               ; preds = %30
+30:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %17, i64 39, i1 false)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %31, %30
+31:                                               ; preds = %30, %29
   store ptr %.sroa.09.0.copyload.i.i.i, ptr %3, align 8, !noalias !468
   %.sroa.45.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.511.0.copyload.i.i.i, ptr %.sroa.45.0..sroa_idx.i.i.i.i, align 8, !noalias !468
@@ -4865,13 +4865,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   store i8 %.sroa.1117.0.copyload.i.i.i, ptr %.sroa.78.0..sroa_idx.i.i.i.i, align 1, !noalias !468
   %.sroa.89.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i8 %.sroa.1319.0.copyload.i.i.i, ptr %.sroa.89.0..sroa_idx.i.i.i.i, align 2, !noalias !468
-  %33 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h5c17db503d6a36e8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !468
+  %32 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h5c17db503d6a36e8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !468
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !468
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !468
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17ha2d0a210c4d8f487E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17ha2d0a210c4d8f487E.exit": ; preds = %27, %32
-  %.sroa.0.0.i.i.i.i = phi i1 [ %33, %32 ], [ true, %27 ]
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17ha2d0a210c4d8f487E.exit": ; preds = %26, %31
+  %.sroa.0.0.i.i.i.i = phi i1 [ %32, %31 ], [ true, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.519.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

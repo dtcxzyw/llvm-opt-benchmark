@@ -50733,14 +50733,14 @@ define internal fastcc void @_ZN9polars_io3csv4read6buffer6Buffer3add17heee438db
   %51 = load i8, ptr %.sroa.01.0.i.i, align 1, !alias.scope !9573, !noalias !9574, !noundef !4
   %52 = add i8 %51, -65
   %53 = icmp ult i8 %52, 26
-  %.sroa.04.0.i.i = select i1 %53, i8 32, i8 0
-  %54 = or i8 %.sroa.04.0.i.i, %51
+  %54 = select i1 %53, i8 32, i8 0
+  %.sroa.04.0.i.i = or i8 %54, %51
   %55 = load i8, ptr %.sroa.02.0.i.i, align 1, !alias.scope !9571, !noalias !9575, !noundef !4
   %56 = add i8 %55, -65
   %57 = icmp ult i8 %56, 26
-  %.sroa.05.0.i.i = select i1 %57, i8 32, i8 0
-  %58 = or i8 %.sroa.05.0.i.i, %55
-  %59 = icmp eq i8 %54, %58
+  %58 = select i1 %57, i8 32, i8 0
+  %.sroa.05.0.i.i = or i8 %58, %55
+  %59 = icmp eq i8 %.sroa.04.0.i.i, %.sroa.05.0.i.i
   br i1 %59, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %47, %44
@@ -50765,14 +50765,14 @@ define internal fastcc void @_ZN9polars_io3csv4read6buffer6Buffer3add17heee438db
   %65 = load i8, ptr %.sroa.01.0.i25.i, align 1, !alias.scope !9581, !noalias !9582, !noundef !4
   %66 = add i8 %65, -65
   %67 = icmp ult i8 %66, 26
-  %.sroa.04.0.i27.i = select i1 %67, i8 32, i8 0
-  %68 = or i8 %.sroa.04.0.i27.i, %65
+  %68 = select i1 %67, i8 32, i8 0
+  %.sroa.04.0.i27.i = or i8 %68, %65
   %69 = load i8, ptr %.sroa.02.0.i23.i, align 1, !alias.scope !9579, !noalias !9583, !noundef !4
   %70 = add i8 %69, -65
   %71 = icmp ult i8 %70, 26
-  %.sroa.05.0.i28.i = select i1 %71, i8 32, i8 0
-  %72 = or i8 %.sroa.05.0.i28.i, %69
-  %73 = icmp eq i8 %68, %72
+  %72 = select i1 %71, i8 32, i8 0
+  %.sroa.05.0.i28.i = or i8 %72, %69
+  %73 = icmp eq i8 %.sroa.04.0.i27.i, %.sroa.05.0.i28.i
   br i1 %73, label %.preheader.i21.i, label %.loopexit55.i
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3e59ba2ccdf299d9E.exit.i": ; preds = %.preheader.i.i

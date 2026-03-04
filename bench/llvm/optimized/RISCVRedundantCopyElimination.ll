@@ -294,7 +294,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
 
 30:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit
   %.sroa.012.021 = phi ptr [ %.sroa.012.018, %.lr.ph ], [ %.sroa.012.0, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit ]
-  %.01120 = phi i1 [ false, %.lr.ph ], [ %173, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit ]
+  %.01120 = phi i1 [ false, %.lr.ph ], [ %.0.i, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 72
   %32 = load i32, ptr %31, align 8, !tbaa !155
   %.not.i = icmp eq i32 %32, 1
@@ -599,7 +599,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i: ; pre
   br i1 %.not86.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %.lr.ph98.i
 
 _ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, %.thread79.i, %73, %70, %66, %61, %56, %51, %46, %39
-  %.2.i = phi i1 [ false, %39 ], [ false, %66 ], [ false, %.thread79.i ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ false, %61 ], [ false, %70 ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ false, %73 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i ]
+  %.2.i = phi i1 [ %.01120, %39 ], [ %.01120, %66 ], [ %.01120, %.thread79.i ], [ %.01120, %46 ], [ %.01120, %51 ], [ %.01120, %56 ], [ %.01120, %61 ], [ %.01120, %70 ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ %.01120, %73 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i ]
   %170 = load ptr, ptr %5, align 8, !tbaa !156
   %171 = icmp eq ptr %170, %27
   br i1 %171, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i, label %172
@@ -615,15 +615,14 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i: ; preds = %172, %_ZL
   br label %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit
 
 _ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %30, %33, %_ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i
-  %.0.i = phi i1 [ false, %30 ], [ %.2.i, %_ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i ], [ false, %33 ]
-  %173 = or i1 %.01120, %.0.i
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
-  %.sroa.012.0 = load ptr, ptr %174, align 8, !tbaa !154
+  %.0.i = phi i1 [ %.01120, %30 ], [ %.2.i, %_ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i ], [ %.01120, %33 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
+  %.sroa.012.0 = load ptr, ptr %173, align 8, !tbaa !154
   %.not = icmp eq ptr %.sroa.012.0, %26
   br i1 %.not, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %173, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.0.i, %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit ]
   ret i1 %.0
 }
 

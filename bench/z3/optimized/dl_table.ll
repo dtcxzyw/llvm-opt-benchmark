@@ -1839,23 +1839,23 @@ define linkonce_odr hidden noundef i32 @_ZNK7datalog15hashtable_table22get_size_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK7datalog15hashtable_table23get_size_estimate_bytesEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !30
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !10
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZNK6vectorImLb0EjE4sizeEv.exit, label %7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %_ZNK6vectorImLb0EjE4sizeEv.exit, label %5
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 -4
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %7 = load i32, ptr %6, align 4, !tbaa !30
+  %8 = getelementptr inbounds i8, ptr %3, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !13
+  %10 = shl i32 %7, 3
+  %11 = mul i32 %10, %9
   br label %_ZNK6vectorImLb0EjE4sizeEv.exit
 
-_ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %1, %7
-  %.0.i = phi i32 [ %9, %7 ], [ 0, %1 ]
-  %10 = shl i32 %3, 3
-  %11 = mul i32 %10, %.0.i
-  ret i32 %11
+_ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %1, %5
+  %.0.i = phi i32 [ %11, %5 ], [ 0, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

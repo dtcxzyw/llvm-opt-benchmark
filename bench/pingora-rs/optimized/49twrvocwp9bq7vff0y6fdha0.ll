@@ -15166,14 +15166,14 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %12 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1408, !noalias !1411, !noundef !4
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %.sroa.04.0.i = select i1 %14, i8 32, i8 0
-  %15 = or i8 %.sroa.04.0.i, %12
+  %15 = select i1 %14, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %15, %12
   %16 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1411, !noalias !1408, !noundef !4
   %17 = add i8 %16, -65
   %18 = icmp ult i8 %17, 26
-  %.sroa.05.0.i = select i1 %18, i8 32, i8 0
-  %19 = or i8 %.sroa.05.0.i, %16
-  %20 = icmp eq i8 %15, %19
+  %19 = select i1 %18, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %19, %16
+  %20 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %20, label %.preheader.i, label %.loopexit156
 
 .loopexit156:                                     ; preds = %8, %2
@@ -15196,14 +15196,14 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %26 = load i8, ptr %.sroa.01.0.i98, align 1, !alias.scope !1413, !noalias !1416, !noundef !4
   %27 = add i8 %26, -65
   %28 = icmp ult i8 %27, 26
-  %.sroa.04.0.i100 = select i1 %28, i8 32, i8 0
-  %29 = or i8 %.sroa.04.0.i100, %26
+  %29 = select i1 %28, i8 32, i8 0
+  %.sroa.04.0.i100 = or i8 %29, %26
   %30 = load i8, ptr %.sroa.02.0.i96, align 1, !alias.scope !1416, !noalias !1413, !noundef !4
   %31 = add i8 %30, -65
   %32 = icmp ult i8 %31, 26
-  %.sroa.05.0.i101 = select i1 %32, i8 32, i8 0
-  %33 = or i8 %.sroa.05.0.i101, %30
-  %34 = icmp eq i8 %29, %33
+  %33 = select i1 %32, i8 32, i8 0
+  %.sroa.05.0.i101 = or i8 %33, %30
+  %34 = icmp eq i8 %.sroa.04.0.i100, %.sroa.05.0.i101
   br i1 %34, label %.preheader.i94, label %.loopexit154
 
 .loopexit154:                                     ; preds = %22, %.loopexit156
@@ -15226,14 +15226,14 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %40 = load i8, ptr %.sroa.01.0.i109, align 1, !alias.scope !1418, !noalias !1421, !noundef !4
   %41 = add i8 %40, -65
   %42 = icmp ult i8 %41, 26
-  %.sroa.04.0.i111 = select i1 %42, i8 32, i8 0
-  %43 = or i8 %.sroa.04.0.i111, %40
+  %43 = select i1 %42, i8 32, i8 0
+  %.sroa.04.0.i111 = or i8 %43, %40
   %44 = load i8, ptr %.sroa.02.0.i107, align 1, !alias.scope !1421, !noalias !1418, !noundef !4
   %45 = add i8 %44, -65
   %46 = icmp ult i8 %45, 26
-  %.sroa.05.0.i112 = select i1 %46, i8 32, i8 0
-  %47 = or i8 %.sroa.05.0.i112, %44
-  %48 = icmp eq i8 %43, %47
+  %47 = select i1 %46, i8 32, i8 0
+  %.sroa.05.0.i112 = or i8 %47, %44
+  %48 = icmp eq i8 %.sroa.04.0.i111, %.sroa.05.0.i112
   br i1 %48, label %.preheader.i105, label %.loopexit152
 
 .loopexit152:                                     ; preds = %36, %.loopexit154
@@ -15420,14 +15420,14 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
   %100 = load i8, ptr %.sroa.01.0.i120, align 1, !alias.scope !1459, !noalias !1462, !noundef !4
   %101 = add i8 %100, -65
   %102 = icmp ult i8 %101, 26
-  %.sroa.04.0.i122 = select i1 %102, i8 32, i8 0
-  %103 = or i8 %.sroa.04.0.i122, %100
+  %103 = select i1 %102, i8 32, i8 0
+  %.sroa.04.0.i122 = or i8 %103, %100
   %104 = load i8, ptr %.sroa.02.0.i118, align 1, !alias.scope !1462, !noalias !1459, !noundef !4
   %105 = add i8 %104, -65
   %106 = icmp ult i8 %105, 26
-  %.sroa.05.0.i123 = select i1 %106, i8 32, i8 0
-  %107 = or i8 %.sroa.05.0.i123, %104
-  %108 = icmp eq i8 %103, %107
+  %107 = select i1 %106, i8 32, i8 0
+  %.sroa.05.0.i123 = or i8 %107, %104
+  %108 = icmp eq i8 %.sroa.04.0.i122, %.sroa.05.0.i123
   br i1 %108, label %.preheader.i116, label %.loopexit147
 
 .loopexit148:                                     ; preds = %.split.i
@@ -15461,14 +15461,14 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
   %117 = load i8, ptr %.sroa.01.0.i131, align 1, !alias.scope !1464, !noalias !1467, !noundef !4
   %118 = add i8 %117, -65
   %119 = icmp ult i8 %118, 26
-  %.sroa.04.0.i133 = select i1 %119, i8 32, i8 0
-  %120 = or i8 %.sroa.04.0.i133, %117
+  %120 = select i1 %119, i8 32, i8 0
+  %.sroa.04.0.i133 = or i8 %120, %117
   %121 = load i8, ptr %.sroa.02.0.i129, align 1, !alias.scope !1467, !noalias !1464, !noundef !4
   %122 = add i8 %121, -65
   %123 = icmp ult i8 %122, 26
-  %.sroa.05.0.i134 = select i1 %123, i8 32, i8 0
-  %124 = or i8 %.sroa.05.0.i134, %121
-  %125 = icmp eq i8 %120, %124
+  %124 = select i1 %123, i8 32, i8 0
+  %.sroa.05.0.i134 = or i8 %124, %121
+  %125 = icmp eq i8 %.sroa.04.0.i133, %.sroa.05.0.i134
   br i1 %125, label %.preheader.i127, label %.loopexit
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124": ; preds = %.preheader.i116
@@ -15543,14 +15543,14 @@ define hidden void @_ZN12pingora_core9protocols4http2v16common21init_body_writer
   %28 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1469, !noalias !1472, !noundef !4
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %.sroa.04.0.i = select i1 %30, i8 32, i8 0
-  %31 = or i8 %.sroa.04.0.i, %28
+  %31 = select i1 %30, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %31, %28
   %32 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1472, !noalias !1469, !noundef !4
   %33 = add i8 %32, -65
   %34 = icmp ult i8 %33, 26
-  %.sroa.05.0.i = select i1 %34, i8 32, i8 0
-  %35 = or i8 %.sroa.05.0.i, %32
-  %36 = icmp eq i8 %31, %35
+  %35 = select i1 %34, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %35, %32
+  %36 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %36, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.thread"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.thread": ; preds = %24, %18, %2
@@ -15811,14 +15811,14 @@ define hidden noundef zeroext i1 @_ZN12pingora_core9protocols4http2v16common22is
   %20 = load i8, ptr %.sroa.01.0.i, align 1, !alias.scope !1477, !noalias !1480, !noundef !4
   %21 = add i8 %20, -65
   %22 = icmp ult i8 %21, 26
-  %.sroa.04.0.i = select i1 %22, i8 32, i8 0
-  %23 = or i8 %.sroa.04.0.i, %20
+  %23 = select i1 %22, i8 32, i8 0
+  %.sroa.04.0.i = or i8 %23, %20
   %24 = load i8, ptr %.sroa.02.0.i, align 1, !alias.scope !1480, !noalias !1477, !noundef !4
   %25 = add i8 %24, -65
   %26 = icmp ult i8 %25, 26
-  %.sroa.05.0.i = select i1 %26, i8 32, i8 0
-  %27 = or i8 %.sroa.05.0.i, %24
-  %28 = icmp eq i8 %23, %27
+  %27 = select i1 %26, i8 32, i8 0
+  %.sroa.05.0.i = or i8 %27, %24
+  %28 = icmp eq i8 %.sroa.04.0.i, %.sroa.05.0.i
   br i1 %28, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit": ; preds = %16, %.preheader.i, %10, %7, %1

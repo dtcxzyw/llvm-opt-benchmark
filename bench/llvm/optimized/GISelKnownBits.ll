@@ -2989,7 +2989,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %931, %933
   %934 = trunc i64 %89 to i32
   %935 = lshr i32 %934, 8
   %936 = and i32 %935, 65535
-  %937 = mul i32 %936, %.0389.lcssa
+  %937 = mul i32 %.0389.lcssa, %936
   br label %938
 
 938:                                              ; preds = %929, %_ZNK4llvm3LLT14getNumElementsEv.exit

@@ -2094,14 +2094,13 @@ strlen_max_width.exit.thread.us:                  ; preds = %426
   br label %493
 
 493:                                              ; preds = %.sink.split, %492, %482
-  %.not842.not = phi i1 [ false, %482 ], [ false, %492 ], [ true, %.sink.split ]
+  %.not842.not = phi i1 [ %412, %482 ], [ %412, %492 ], [ true, %.sink.split ]
   %494 = phi i32 [ 0, %482 ], [ 0, %492 ], [ %.sink, %.sink.split ]
   %495 = load ptr, ptr %378, align 8
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 %indvars.iv803
   %497 = load i8, ptr %496, align 1
   %.not562.us = icmp ne i8 %497, 114
-  %brmerge = or i1 %412, %.not842.not
-  %or.cond906 = select i1 %.not562.us, i1 %brmerge, i1 false
+  %or.cond906 = select i1 %.not562.us, i1 %.not842.not, i1 false
   br i1 %or.cond906, label %498, label %thread-pre-split.us
 
 498:                                              ; preds = %493

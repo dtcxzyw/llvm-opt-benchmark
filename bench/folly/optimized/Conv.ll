@@ -2861,10 +2861,10 @@ _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %111,
   %122 = icmp sgt i32 %121, 63
   %123 = zext nneg i32 %.sroa.speculated89 to i64
   %124 = lshr i64 %1, %123
-  %storemerge.i.i52 = select i1 %122, i64 0, i64 %124
-  %..i.i = and i64 %.not.i.i53, %storemerge.i.i52
+  %storemerge.i52 = select i1 %122, i64 0, i64 %124
+  %..i.i = and i64 %.not.i.i53, %storemerge.i52
   %narrow.i = select i1 %119, i64 1, i64 %..i.i
-  %125 = add i64 %narrow.i, %storemerge.i.i52
+  %125 = add i64 %narrow.i, %storemerge.i52
   %126 = icmp ugt i64 %125, 8388607
   %127 = zext i1 %126 to i32
   br label %_ZN10fast_float5roundIfZNS_19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit
@@ -5154,10 +5154,10 @@ _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %112,
   %123 = icmp sgt i32 %122, 63
   %124 = zext nneg i32 %.sroa.speculated89 to i64
   %125 = lshr i64 %1, %124
-  %storemerge.i.i52 = select i1 %123, i64 0, i64 %125
-  %..i.i = and i64 %.not.i.i53, %storemerge.i.i52
+  %storemerge.i52 = select i1 %123, i64 0, i64 %125
+  %..i.i = and i64 %.not.i.i53, %storemerge.i52
   %narrow.i = select i1 %120, i64 1, i64 %..i.i
-  %126 = add i64 %narrow.i, %storemerge.i.i52
+  %126 = add i64 %narrow.i, %storemerge.i52
   %127 = icmp ugt i64 %126, 4503599627370495
   %128 = zext i1 %127 to i32
   br label %_ZN10fast_float5roundIdZNS_19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit

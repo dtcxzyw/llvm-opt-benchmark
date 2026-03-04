@@ -15759,6 +15759,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_12idENSt7__cxx1112basic_stringIcSt1
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %39, ptr %43, align 8, !tbaa !26, !alias.scope !338
+  store ptr %36, ptr %33, align 8, !tbaa !13
   store i64 0, ptr %42, align 8, !tbaa !26
   store i8 0, ptr %36, align 8, !tbaa !22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

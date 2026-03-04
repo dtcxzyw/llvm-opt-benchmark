@@ -6350,13 +6350,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   %.val6.i.i = load i8, ptr %52, align 1, !noalias !777, !noundef !4
   %53 = add i8 %.val.i.i, -65
   %54 = icmp ult i8 %53, 26
-  %.sroa.0.0.i.i7.i.i = select i1 %54, i8 32, i8 0
-  %55 = add i8 %.val6.i.i, -65
-  %56 = icmp ult i8 %55, 26
-  %.sroa.01.0.i.i.i.i = select i1 %56, i8 32, i8 0
-  %57 = or i8 %.sroa.0.0.i.i7.i.i, %.val.i.i
-  %58 = or i8 %.sroa.01.0.i.i.i.i, %.val6.i.i
-  %.not.i.i = icmp eq i8 %57, %58
+  %55 = select i1 %54, i8 32, i8 0
+  %.sroa.0.0.i.i7.i.i = or i8 %55, %.val.i.i
+  %56 = add i8 %.val6.i.i, -65
+  %57 = icmp ult i8 %56, 26
+  %58 = select i1 %57, i8 32, i8 0
+  %.sroa.01.0.i.i.i.i = or i8 %58, %.val6.i.i
+  %.not.i.i = icmp eq i8 %.sroa.0.0.i.i7.i.i, %.sroa.01.0.i.i.i.i
   br i1 %.not.i.i, label %47, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit": ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden28_$u7b$$u7b$closure$u7d$$u7d$17hd728b9b4f3c8f8f0E.exit.backedge.i", %49, %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hdc97de088082a6aeE.exit", %0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit"

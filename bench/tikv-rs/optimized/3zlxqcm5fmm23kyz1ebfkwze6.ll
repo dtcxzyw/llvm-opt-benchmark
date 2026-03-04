@@ -329,9 +329,9 @@ define void @_ZN10tikv_alloc5trace2Id13readable_name17hf03bbfd8bde0a0b5E(ptr dea
   %33 = load i8, ptr %32, align 1, !alias.scope !53, !noundef !12
   %34 = add i8 %33, -65
   %35 = icmp ult i8 %34, 26
-  %.sroa.03.0.i = select i1 %35, i8 32, i8 0
-  %36 = or i8 %.sroa.03.0.i, %33
-  store i8 %36, ptr %32, align 1, !alias.scope !53
+  %36 = select i1 %35, i8 32, i8 0
+  %.sroa.03.0.i = or i8 %36, %33
+  store i8 %.sroa.03.0.i, ptr %32, align 1, !alias.scope !53
   %37 = add nuw i64 %.sroa.0.05.i, 1
   %exitcond.not.i = icmp eq i64 %37, %31
   br i1 %exitcond.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$20make_ascii_lowercase17hc61167a8bcbc3993E.exit", label %.lr.ph.i

@@ -5575,11 +5575,11 @@ define dso_local noundef zeroext i1 @_ZN5clang6format19UnwrappedLineParser11pars
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2848
   %.pre = load ptr, ptr %3, align 8, !tbaa !214
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre132 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.pre131 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !45
   br label %16
 
 16:                                               ; preds = %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit, %2
-  %17 = phi i16 [ %.pre132, %2 ], [ %285, %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit ]
+  %17 = phi i16 [ %.pre131, %2 ], [ %285, %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit ]
   %18 = phi ptr [ %.pre, %2 ], [ %283, %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit ]
   %.073 = phi i1 [ false, %2 ], [ %.174, %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit ]
   %.071 = phi i8 [ 0, %2 ], [ %.2, %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit ]
@@ -5679,7 +5679,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format19UnwrappedLineParser11pars
   br label %65
 
 65:                                               ; preds = %60, %.thread, %56
-  %.not147 = phi i1 [ true, %60 ], [ true, %.thread ], [ false, %56 ]
+  %.not146 = phi i1 [ true, %60 ], [ true, %.thread ], [ false, %56 ]
   %.not20.ph = phi i1 [ %spec.select.i89.not, %60 ], [ true, %.thread ], [ true, %56 ]
   br label %66
 
@@ -5718,12 +5718,12 @@ switch.early.test:                                ; preds = %_ZNK5clang6format11
 
 75:                                               ; preds = %74
   %76 = tail call noundef zeroext i1 @_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_(ptr noundef nonnull align 8 dereferenceable(305) %.0.i, i16 noundef zeroext 160, i16 noundef zeroext 91)
-  %77 = or i1 %.not147, %76
+  %77 = or i1 %.not146, %76
   br label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %66, %74, %74, %switch.early.test, %switch.early.test, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %44, %75, %72
-  %.not106110118 = phi i1 [ %77, %75 ], [ true, %switch.early.test ], [ %.not147, %72 ], [ true, %74 ], [ true, %74 ], [ true, %44 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ true, %switch.early.test ], [ %.not147, %66 ]
   %.not20112117 = phi i1 [ %.not20.ph, %75 ], [ %.not20.ph, %switch.early.test ], [ %.not20.ph, %72 ], [ %.not20.ph, %74 ], [ %.not20.ph, %74 ], [ true, %44 ], [ %.not20.ph, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ %.not20.ph, %switch.early.test ], [ %.not20.ph, %66 ]
+  %or.cond19 = phi i1 [ %77, %75 ], [ true, %switch.early.test ], [ %.not146, %72 ], [ true, %74 ], [ true, %74 ], [ true, %44 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ true, %switch.early.test ], [ %.not146, %66 ]
   %78 = load ptr, ptr %14, align 8, !tbaa !329
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 716
   %80 = load i8, ptr %79, align 4, !tbaa !450
@@ -5774,7 +5774,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
 
 107:                                              ; preds = %103, %97, %96, %90, %89, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread
   %108 = phi i1 [ %106, %103 ], [ false, %97 ], [ false, %96 ], [ false, %90 ], [ false, %89 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ]
-  br i1 %.not106110118, label %109, label %111
+  br i1 %or.cond19, label %109, label %111
 
 109:                                              ; preds = %107
   %110 = trunc nuw i8 %.070 to i1
@@ -5864,8 +5864,8 @@ _ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit: ; preds = 
   br label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit96.sink.split
 
 _ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit96.sink.split: ; preds = %139, %157
-  %.sink155 = phi ptr [ %33, %157 ], [ %132, %139 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.sink155, i64 65
+  %.sink154 = phi ptr [ %33, %157 ], [ %132, %139 ]
+  %158 = getelementptr inbounds nuw i8, ptr %.sink154, i64 65
   %159 = load i16, ptr %158, align 1
   %160 = or i16 %159, 8192
   store i16 %160, ptr %158, align 1
@@ -5888,13 +5888,13 @@ _ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit96: ; preds 
 
 168:                                              ; preds = %163
   tail call void @_ZN5clang6format19UnwrappedLineParser19calculateBraceTypesEb(ptr noundef nonnull align 8 dereferenceable(3600) %0, i1 noundef zeroext false)
-  %.pre133 = load ptr, ptr %3, align 8, !tbaa !214
-  %.phi.trans.insert134 = getelementptr inbounds nuw i8, ptr %.pre133, i64 65
-  %.pre135 = load i16, ptr %.phi.trans.insert134, align 1
+  %.pre132 = load ptr, ptr %3, align 8, !tbaa !214
+  %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %.pre132, i64 65
+  %.pre134 = load i16, ptr %.phi.trans.insert133, align 1
   br label %169
 
 169:                                              ; preds = %168, %163
-  %170 = phi i16 [ %.pre135, %168 ], [ %165, %163 ]
+  %170 = phi i16 [ %.pre134, %168 ], [ %165, %163 ]
   %171 = and i16 %170, 384
   %172 = icmp eq i16 %171, 128
   br i1 %172, label %_ZN5clang6format19UnwrappedLineParser20tryToParseBracedListEv.exit, label %_ZN5clang6format19UnwrappedLineParser20tryToParseBracedListEv.exit.thread
@@ -5947,8 +5947,8 @@ _ZN5clang6format19UnwrappedLineParser20tryToParseBracedListEv.exit: ; preds = %1
   %193 = load ptr, ptr %3, align 8, !tbaa !214
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load i16, ptr %194, align 8, !tbaa !45
-  %.not120 = icmp eq i16 %195, 24
-  br i1 %.not120, label %196, label %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit
+  %.not119 = icmp eq i16 %195, 24
+  br i1 %.not119, label %196, label %_ZN5clang6format19UnwrappedLineParser20tryToParseChildBlockEv.exit
 
 196:                                              ; preds = %192
   tail call void @_ZN5clang6format19UnwrappedLineParser15parseChildBlockEv(ptr noundef nonnull align 8 dereferenceable(3600) %0)
@@ -23235,18 +23235,17 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i40: ; pr
   %152 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !382
   %154 = icmp eq ptr %141, %153
-  br label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44
+  %155 = and i1 %.024.not, %154
+  br i1 %155, label %156, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i43, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i42, %151
-  %155 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i43 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i42 ], [ %154, %151 ]
-  %or.cond6.not = and i1 %.024.not, %155
-  br i1 %or.cond6.not, label %156, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i43, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i42
+  br i1 %.024.not, label %156, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread
 
-156:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44
+156:                                              ; preds = %151, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44
   tail call void @_ZN5clang6format19UnwrappedLineParser16addUnwrappedLineENS1_9LineLevelE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
   br label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread: ; preds = %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i40, %156, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44.thread: ; preds = %151, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i40, %156, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit44
   tail call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
   br label %157
 

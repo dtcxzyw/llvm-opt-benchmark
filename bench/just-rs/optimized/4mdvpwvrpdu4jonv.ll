@@ -5269,13 +5269,13 @@ _ZN3std4path4Path4join17hce8bfe6a33f98d11E.exit.i: ; preds = %804
   %.val6.i.i.i = load i8, ptr %877, align 1, !alias.scope !921, !noalias !926, !noundef !13
   %878 = add i8 %.val.i.i.i, -65
   %879 = icmp ult i8 %878, 26
-  %.0.i.i.i.i.i.i = select i1 %879, i8 32, i8 0
-  %880 = add i8 %.val6.i.i.i, -65
-  %881 = icmp ult i8 %880, 26
-  %.02.i.i.i.i.i.i = select i1 %881, i8 32, i8 0
-  %882 = or i8 %.0.i.i.i.i.i.i, %.val.i.i.i
-  %883 = or i8 %.02.i.i.i.i.i.i, %.val6.i.i.i
-  %.not.i.i122.i = icmp eq i8 %882, %883
+  %880 = select i1 %879, i8 32, i8 0
+  %.0.i.i.i.i.i.i = or i8 %880, %.val.i.i.i
+  %881 = add i8 %.val6.i.i.i, -65
+  %882 = icmp ult i8 %881, 26
+  %883 = select i1 %882, i8 32, i8 0
+  %.02.i.i.i.i.i.i = or i8 %883, %.val6.i.i.i
+  %.not.i.i122.i = icmp eq i8 %.0.i.i.i.i.i.i, %.02.i.i.i.i.i.i
   br i1 %.not.i.i122.i, label %.preheader.i.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i": ; preds = %874, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5325dca154e1ab86E.exit.i", %866

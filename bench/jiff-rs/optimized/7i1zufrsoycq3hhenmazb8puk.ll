@@ -5958,12 +5958,12 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   %35 = load i8, ptr %34, align 1, !alias.scope !336, !noalias !341, !noundef !3
   %36 = add i8 %35, -65
   %37 = icmp ult i8 %36, 26
-  %.sroa.025.0.i.i.i = select i1 %37, i8 32, i8 0
-  %38 = or i8 %.sroa.025.0.i.i.i, %35
+  %38 = select i1 %37, i8 32, i8 0
+  %.sroa.025.0.i.i.i = or i8 %38, %35
   br label %39
 
 39:                                               ; preds = %33, %31
-  %.sroa.615.0.i.i.i = phi i8 [ %38, %33 ], [ undef, %31 ]
+  %.sroa.615.0.i.i.i = phi i8 [ %.sroa.025.0.i.i.i, %33 ], [ undef, %31 ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %1
   br i1 %exitcond.not.i.i.i, label %40, label %41
 
@@ -5972,22 +5972,22 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   br label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.i"
 
 41:                                               ; preds = %39
-  %exitcond40.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %.sroa.9.0.i.i.i.i
-  br i1 %exitcond40.not.i.i.i, label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.thread.i", label %42
+  %exitcond38.not.i.i.i = icmp eq i64 %.sroa.05.0.i.i.i, %.sroa.9.0.i.i.i.i
+  br i1 %exitcond38.not.i.i.i, label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.thread.i", label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i.i
   %44 = load i8, ptr %43, align 1, !alias.scope !342, !noalias !343, !noundef !3
   %45 = add i8 %44, -65
   %46 = icmp ult i8 %45, 26
-  %.sroa.026.0.i.i.i = select i1 %46, i8 32, i8 0
-  %47 = or i8 %.sroa.026.0.i.i.i, %44
-  %48 = icmp eq i8 %.sroa.615.0.i.i.i, %47
+  %47 = select i1 %46, i8 32, i8 0
+  %.sroa.026.0.i.i.i = or i8 %47, %44
+  %48 = icmp eq i8 %.sroa.615.0.i.i.i, %.sroa.026.0.i.i.i
   %49 = add i64 %.sroa.05.0.i.i.i, 1
   br i1 %48, label %31, label %50
 
 50:                                               ; preds = %42
-  %51 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %47)
+  %51 = tail call i8 @llvm.ucmp.i8.i8(i8 %.sroa.615.0.i.i.i, i8 %.sroa.026.0.i.i.i)
   br label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.i"
 
 "_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.i": ; preds = %50, %40
@@ -5996,10 +5996,10 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   br i1 %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h0c1d2c6d4193c9a6E.exit", label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit.thread.i"
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i"
-  %.sroa.01.061.i = phi i64 [ %103, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i" ], [ %.16.val, %2 ]
-  %.sroa.05.060.i = phi i64 [ %102, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i" ], [ 0, %2 ]
-  %53 = lshr i64 %.sroa.01.061.i, 1
-  %54 = add i64 %53, %.sroa.05.060.i
+  %.sroa.01.059.i = phi i64 [ %103, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i" ], [ %.16.val, %2 ]
+  %.sroa.05.058.i = phi i64 [ %102, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i" ], [ 0, %2 ]
+  %53 = lshr i64 %.sroa.01.059.i, 1
+  %54 = add i64 %53, %.sroa.05.058.i
   %55 = icmp ult i64 %54, %.16.val
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %.8.val, i64 %54
@@ -6073,43 +6073,43 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   %86 = load i8, ptr %85, align 1, !alias.scope !344, !noalias !349, !noundef !3
   %87 = add i8 %86, -65
   %88 = icmp ult i8 %87, 26
-  %.sroa.025.0.i.i36.i = select i1 %88, i8 32, i8 0
-  %89 = or i8 %.sroa.025.0.i.i36.i, %86
+  %89 = select i1 %88, i8 32, i8 0
+  %.sroa.025.0.i.i36.i = or i8 %89, %86
   br label %90
 
 90:                                               ; preds = %84, %82
-  %.sroa.615.0.i.i30.i = phi i8 [ %89, %84 ], [ undef, %82 ]
+  %.sroa.615.0.i.i30.i = phi i8 [ %.sroa.025.0.i.i36.i, %84 ], [ undef, %82 ]
   %.sroa.615.0.i.i30.fr.i = freeze i8 %.sroa.615.0.i.i30.i
   %exitcond.not.i.i31.i = icmp eq i64 %.sroa.05.0.i.i29.i, %1
   br i1 %exitcond.not.i.i31.i, label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.i", label %91
 
 91:                                               ; preds = %90
-  %exitcond40.not.i.i32.i = icmp eq i64 %.sroa.05.0.i.i29.i, %.sroa.9.0.i.i.i27.i
-  br i1 %exitcond40.not.i.i32.i, label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i", label %92
+  %exitcond38.not.i.i32.i = icmp eq i64 %.sroa.05.0.i.i29.i, %.sroa.9.0.i.i.i27.i
+  br i1 %exitcond38.not.i.i32.i, label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i", label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.0.i.i29.i
   %94 = load i8, ptr %93, align 1, !alias.scope !350, !noalias !351, !noundef !3
   %95 = add i8 %94, -65
   %96 = icmp ult i8 %95, 26
-  %.sroa.026.0.i.i33.i = select i1 %96, i8 32, i8 0
-  %97 = or i8 %.sroa.026.0.i.i33.i, %94
-  %98 = icmp eq i8 %.sroa.615.0.i.i30.fr.i, %97
+  %97 = select i1 %96, i8 32, i8 0
+  %.sroa.026.0.i.i33.i = or i8 %97, %94
+  %98 = icmp eq i8 %.sroa.615.0.i.i30.fr.i, %.sroa.026.0.i.i33.i
   %99 = add i64 %.sroa.05.0.i.i29.i, 1
   br i1 %98, label %82, label %100
 
 100:                                              ; preds = %92
-  %101 = icmp ugt i8 %.sroa.615.0.i.i30.fr.i, %97
+  %101 = icmp ugt i8 %.sroa.615.0.i.i30.fr.i, %.sroa.026.0.i.i33.i
   br label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.i"
 
 "_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.i": ; preds = %90, %100
   %.sroa.0.0.i.i34.i = phi i1 [ %101, %100 ], [ %83, %90 ]
-  %spec.select.i = select i1 %.sroa.0.0.i.i34.i, i64 %.sroa.05.060.i, i64 %54
+  %spec.select.i = select i1 %.sroa.0.0.i.i34.i, i64 %.sroa.05.058.i, i64 %54
   br label %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i"
 
 "_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.thread.i": ; preds = %91, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.i"
   %102 = phi i64 [ %spec.select.i, %"_ZN4jiff2tz2db12concatenated5inner11CachedZones14get_zone_index28_$u7b$$u7b$closure$u7d$$u7d$17hf4efa1562cca99a3E.exit38.i" ], [ %54, %91 ]
-  %103 = sub i64 %.sroa.01.061.i, %53
+  %103 = sub i64 %.sroa.01.059.i, %53
   %104 = icmp ugt i64 %103, 1
   br i1 %104, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6337,8 +6337,8 @@ define internal fastcc void @_ZN4jiff2tz2db12concatenated5inner14CachedTimeZone3
   %86 = load i8, ptr %85, align 1, !alias.scope !374, !noalias !379, !noundef !3
   %87 = add i8 %86, -65
   %88 = icmp ult i8 %87, 26
-  %.sroa.025.0.i.i = select i1 %88, i8 32, i8 0
-  %89 = or i8 %.sroa.025.0.i.i, %86
+  %89 = select i1 %88, i8 32, i8 0
+  %.sroa.025.0.i.i = or i8 %89, %86
   %exitcond.not.i.i = icmp eq i64 %.sroa.05.0.i.i, %4
   br i1 %exitcond.not.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i, label %90
 
@@ -6347,18 +6347,18 @@ define internal fastcc void @_ZN4jiff2tz2db12concatenated5inner14CachedTimeZone3
   br i1 %exitcond.not.i53.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread55.i, label %90
 
 90:                                               ; preds = %.thread.i, %84
-  %.sroa.615.0.i54.i = phi i8 [ undef, %.thread.i ], [ %89, %84 ]
-  %exitcond40.not.i.i = icmp eq i64 %.sroa.05.0.i.i, %82
-  br i1 %exitcond40.not.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i, label %91
+  %.sroa.615.0.i54.i = phi i8 [ undef, %.thread.i ], [ %.sroa.025.0.i.i, %84 ]
+  %exitcond38.not.i.i = icmp eq i64 %.sroa.05.0.i.i, %82
+  br i1 %exitcond38.not.i.i, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i, label %91
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.05.0.i.i
   %93 = load i8, ptr %92, align 1, !alias.scope !380, !noalias !381, !noundef !3
   %94 = add i8 %93, -65
   %95 = icmp ult i8 %94, 26
-  %.sroa.026.0.i.i = select i1 %95, i8 32, i8 0
-  %96 = or i8 %.sroa.026.0.i.i, %93
-  %97 = icmp eq i8 %.sroa.615.0.i54.i, %96
+  %96 = select i1 %95, i8 32, i8 0
+  %.sroa.026.0.i.i = or i8 %96, %93
+  %97 = icmp eq i8 %.sroa.615.0.i54.i, %.sroa.026.0.i.i
   %98 = add i64 %.sroa.05.0.i.i, 1
   br i1 %97, label %83, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.i
 

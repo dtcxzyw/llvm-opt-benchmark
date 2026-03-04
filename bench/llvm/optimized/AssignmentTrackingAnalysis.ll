@@ -18673,12 +18673,12 @@ _ZN4llvm8dyn_castINS_12DbgValueInstENS_11InstructionEEEDcPT0_.exit.thread.i: ; p
 
 _ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit.loopexit: ; preds = %._crit_edge220.i
   %6422 = zext i1 %.1.lcssa.i to i8
+  %6423 = or i8 %.5.lcssa, %6422
   br label %_ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit
 
 _ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit: ; preds = %_ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit.loopexit, %._crit_edge2442
-  %.0.lcssa.i = phi i8 [ 0, %._crit_edge2442 ], [ %6422, %_ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit.loopexit ]
-  %6423 = or i8 %.5.lcssa, %.0.lcssa.i
-  %6424 = icmp ne i8 %6423, 0
+  %.0.lcssa.i = phi i8 [ %.5.lcssa, %._crit_edge2442 ], [ %6423, %_ZN12_GLOBAL__N_126AssignmentTrackingLowering19emitPromotedVarLocsEP22FunctionVarLocsBuilder.exit.loopexit ]
+  %6424 = icmp ne i8 %.0.lcssa.i, 0
   %6425 = load ptr, ptr %54, align 8, !tbaa !252
   %6426 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %6427 = load i32, ptr %6426, align 8, !tbaa !260

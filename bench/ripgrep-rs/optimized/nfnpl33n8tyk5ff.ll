@@ -660,11 +660,11 @@ _ZN12regex_syntax3hir7literal3Seq13make_infinite17h98f0a8ed20bb9dcfE.llvm.169799
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN12regex_syntax3hir7literal3Seq8is_empty17hf16043b754c6d979E.llvm.16979978850130570624(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !20, !noundef !8
-  %.not = icmp ne i64 %2, -9223372036854775808
+  %.not.not = icmp ne i64 %2, -9223372036854775808
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  %.sroa.5.0 = select i1 %.not, i1 %5, i1 false
+  %.sroa.5.0 = select i1 %.not.not, i1 %5, i1 false
   ret i1 %.sroa.5.0
 }
 
@@ -4095,11 +4095,11 @@ define hidden noundef zeroext i1 @_ZN10grep_regex7literal4TSeq9is_finite17hc4c74
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN10grep_regex7literal4TSeq8is_empty17h2d8eb4d90ede13d7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !20, !alias.scope !868, !noundef !8
-  %.not.i = icmp ne i64 %2, -9223372036854775808
+  %.not.not.i = icmp ne i64 %2, -9223372036854775808
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !868
   %5 = icmp eq i64 %4, 0
-  %.sroa.5.0.i = select i1 %.not.i, i1 %5, i1 false
+  %.sroa.5.0.i = select i1 %.not.not.i, i1 %5, i1 false
   ret i1 %.sroa.5.0.i
 }
 

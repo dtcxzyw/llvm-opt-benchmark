@@ -842,16 +842,23 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = load i32, ptr %0, align 4, !range !172, !noundef !13
   %3 = add nsw i32 %2, -33
   %.0 = icmp ult i32 %3, 15
-  %4 = add nsw i32 %2, -58
-  %.04 = icmp ult i32 %4, 7
-  %5 = add nsw i32 %2, -91
-  %.05 = icmp ult i32 %5, 6
-  %6 = add nsw i32 %2, -123
-  %.06 = icmp ult i32 %6, 4
-  %7 = or i1 %.0, %.04
-  %8 = or i1 %.05, %7
-  %9 = or i1 %.06, %8
-  ret i1 %9
+  %4 = icmp samesign ugt i32 %2, 57
+  br i1 %4, label %5, label %.thread12
+
+5:                                                ; preds = %1
+  %6 = icmp samesign ult i32 %2, 65
+  %7 = icmp samesign ugt i32 %2, 90
+  br i1 %7, label %8, label %.thread12
+
+8:                                                ; preds = %5
+  %9 = icmp samesign ugt i32 %2, 122
+  %spec.select.v = select i1 %9, i32 127, i32 97
+  %spec.select = icmp samesign ult i32 %2, %spec.select.v
+  br label %.thread12
+
+.thread12:                                        ; preds = %8, %1, %5
+  %.06 = phi i1 [ %.0, %1 ], [ %spec.select, %8 ], [ %6, %5 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10788,37 +10795,32 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$core..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers4bert12is_bert_punc17h5c8a72f92ad1b734E(i32 noundef %0) unnamed_addr #0 {
-  %2 = add i32 %0, -33
+  %2 = add nsw i32 %0, -33
   %.0.i = icmp ult i32 %2, 15
-  br i1 %.0.i, label %5, label %switch.early.test
+  %3 = icmp samesign ugt i32 %0, 57
+  br i1 %3, label %4, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit"
 
-switch.early.test:                                ; preds = %1
-  switch i32 %0, label %3 [
-    i32 126, label %5
-    i32 125, label %5
-    i32 124, label %5
-    i32 123, label %5
-    i32 96, label %5
-    i32 95, label %5
-    i32 94, label %5
-    i32 93, label %5
-    i32 92, label %5
-    i32 91, label %5
-    i32 64, label %5
-    i32 63, label %5
-    i32 62, label %5
-    i32 61, label %5
-    i32 60, label %5
-    i32 59, label %5
-    i32 58, label %5
-  ]
+4:                                                ; preds = %1
+  %5 = icmp samesign ult i32 %0, 65
+  %6 = icmp samesign ugt i32 %0, 90
+  br i1 %6, label %7, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit"
 
-3:                                                ; preds = %switch.early.test
-  %4 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.838311727041459786(i32 noundef %0)
-  br label %5
+7:                                                ; preds = %4
+  %8 = icmp samesign ugt i32 %0, 122
+  %spec.select.v.i = select i1 %8, i32 127, i32 97
+  %spec.select.i = icmp samesign ult i32 %0, %spec.select.v.i
+  br i1 %spec.select.i, label %11, label %9
 
-5:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1, %3
-  %.0 = phi i1 [ %4, %3 ], [ true, %switch.early.test ], [ true, %1 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit": ; preds = %1, %4
+  %.06.i = phi i1 [ %.0.i, %1 ], [ %5, %4 ]
+  br i1 %.06.i, label %11, label %9
+
+9:                                                ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit"
+  %10 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.838311727041459786(i32 noundef %0)
+  br label %11
+
+11:                                               ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit", %9
+  %.0 = phi i1 [ %10, %9 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.838311727041459786.exit" ], [ true, %7 ]
   ret i1 %.0
 }
 

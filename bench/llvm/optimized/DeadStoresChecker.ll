@@ -2464,7 +2464,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isC
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !338
   %6 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(23216) %5, i32 noundef 0) #22
-  br i1 %6, label %23, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = load i16, ptr %1, align 8
@@ -2490,13 +2490,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isC
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
-22:                                               ; preds = %7, %10
-  %.1 = phi i1 [ %21, %10 ], [ undef, %7 ]
-  %spec.select = and i1 %.not, %.1
-  br label %23
-
-23:                                               ; preds = %22, %2
-  %.06 = phi i1 [ %spec.select, %22 ], [ true, %2 ]
+22:                                               ; preds = %10, %7, %2
+  %.06 = phi i1 [ true, %2 ], [ %21, %10 ], [ false, %7 ]
   ret i1 %.06
 }
 

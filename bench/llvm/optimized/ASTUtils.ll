@@ -2663,8 +2663,8 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr hidden noundef zeroext i1 @_ZN5clang21EnsureFunctionVisitor15VisitReturnStmtEPKNS_10ReturnStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !101
-  %.not.not = icmp ne ptr %4, null
-  br i1 %.not.not, label %5, label %12
+  %.not.not.not = icmp eq ptr %4, null
+  br i1 %.not.not.not, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
@@ -2678,9 +2678,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang21EnsureFunctionVisitor1
   br label %12
 
 12:                                               ; preds = %2, %5, %10
-  %.02 = phi i1 [ true, %5 ], [ %11, %10 ], [ undef, %2 ]
-  %spec.select = and i1 %.not.not, %.02
-  ret i1 %spec.select
+  %.02 = phi i1 [ true, %5 ], [ %11, %10 ], [ false, %2 ]
+  ret i1 %.02
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

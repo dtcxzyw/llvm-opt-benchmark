@@ -2310,7 +2310,7 @@ dissect_ca_enable.exit:                           ; preds = %92, %108
   br i1 %115, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %dissect_ca_enable.exit, %dissect_ca_enable.exit122
-  %.0.in135 = phi i1 [ %129, %dissect_ca_enable.exit122 ], [ %.0.i118, %dissect_ca_enable.exit ]
+  %.0.in135 = phi i1 [ %.0.i121, %dissect_ca_enable.exit122 ], [ %.0.i118, %dissect_ca_enable.exit ]
   %.4134 = phi i32 [ %130, %dissect_ca_enable.exit122 ], [ %113, %dissect_ca_enable.exit ]
   %116 = load i32, ptr @ett_dvbci_application, align 4
   %117 = tail call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.4134, i32 noundef 3, i32 noundef %116, ptr noundef null, ptr noundef nonnull @.str.996)
@@ -2329,18 +2329,18 @@ dissect_ca_enable.exit:                           ; preds = %92, %108
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %126, ptr noundef %2, i32 noundef %120, i32 noundef 1, i32 noundef 0)
   %128 = add nsw i8 %125, -1
   %or.cond5.i120 = icmp ult i8 %128, 3
+  %129 = or i1 %.0.in135, %or.cond5.i120
   br label %dissect_ca_enable.exit122
 
 dissect_ca_enable.exit122:                        ; preds = %.lr.ph, %124
-  %.0.i121 = phi i1 [ false, %.lr.ph ], [ %or.cond5.i120, %124 ]
-  %129 = or i1 %.0.in135, %.0.i121
+  %.0.i121 = phi i1 [ %.0.in135, %.lr.ph ], [ %129, %124 ]
   %130 = add i32 %.4134, 3
   %131 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %130)
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_ca_enable.exit122, %dissect_ca_enable.exit
-  %.0.in.lcssa = phi i1 [ %.0.i118, %dissect_ca_enable.exit ], [ %129, %dissect_ca_enable.exit122 ]
+  %.0.in.lcssa = phi i1 [ %.0.i118, %dissect_ca_enable.exit ], [ %.0.i121, %dissect_ca_enable.exit122 ]
   br i1 %.0.in.lcssa, label %133, label %.loopexit
 
 133:                                              ; preds = %._crit_edge

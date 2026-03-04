@@ -3179,14 +3179,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm25isIdentifiedFunctionLocalEPKNS_5V
   %2 = alloca %"class.llvm::AttributeList", align 8
   %3 = load i8, ptr %0, align 8, !tbaa !119
   %4 = icmp eq i8 %3, 60
-  br i1 %4, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3, label %5
+  br i1 %4, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %5
 
 5:                                                ; preds = %1
   %6 = icmp ugt i8 %3, 28
   br i1 %6, label %7, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread
 
 7:                                                ; preds = %5
-  switch i8 %3, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3 [
+  switch i8 %3, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit [
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i
     i8 34, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i
     i8 40, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i
@@ -3195,7 +3195,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm25isIdentifiedFunctionLocalEPKNS_5V
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %7, %7, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 0, i32 noundef 22) #24
-  br i1 %9, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3, label %10
+  br i1 %9, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %10
 
 10:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i
   %11 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -3223,7 +3223,7 @@ _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit:        ; preds = %_ZN4llvm16dyn_cast_
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %2, align 8
   %22 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0, i32 noundef 22) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %22, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split
+  br i1 %22, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split
 
 _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split: ; preds = %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit, %13, %10, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   %.pr = load i8, ptr %0, align 8, !tbaa !119
@@ -3232,18 +3232,18 @@ _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split: ; preds = %_ZN
 _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread: ; preds = %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split, %5
   %23 = phi i8 [ %.pr, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.threadthread-pre-split ], [ %3, %5 ]
   %.not.i = icmp eq i8 %23, 22
-  br i1 %.not.i, label %24, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3
+  br i1 %.not.i, label %24, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit
 
 24:                                               ; preds = %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread
   %25 = call noundef zeroext i1 @_ZNK4llvm8Argument14hasNoAliasAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
-  br i1 %25, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3, label %26
+  br i1 %25, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %26
 
 26:                                               ; preds = %24
   %27 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasByValAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
-  br label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3
+  br label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit
 
-_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread3: ; preds = %26, %24, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, %7, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit, %1
-  %28 = phi i1 [ true, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit ], [ true, %1 ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i ], [ %27, %26 ], [ true, %24 ], [ false, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread ], [ false, %7 ]
+_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit: ; preds = %7, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i, %26, %24, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit, %1
+  %28 = phi i1 [ true, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit ], [ true, %1 ], [ false, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread ], [ %27, %26 ], [ true, %24 ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i ], [ false, %7 ]
   ret i1 %28
 }
 
@@ -4583,7 +4583,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isIdentifiedObjectEPKNS_5ValueE(p
   %2 = alloca %"class.llvm::AttributeList", align 8
   %3 = load i8, ptr %0, align 8, !tbaa !119
   %4 = icmp eq i8 %3, 60
-  br i1 %4, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5, label %5
+  br i1 %4, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %5
 
 5:                                                ; preds = %1
   %switch.selectcmp.i.i.i.i.i.i.i = icmp ult i8 %3, 4
@@ -4591,7 +4591,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isIdentifiedObjectEPKNS_5ValueE(p
 
 6:                                                ; preds = %5
   %7 = icmp eq i8 %3, 1
-  br i1 %7, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5
+  br i1 %7, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit
 
 8:                                                ; preds = %5
   %9 = icmp ugt i8 %3, 28
@@ -4607,7 +4607,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isIdentifiedObjectEPKNS_5ValueE(p
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %10, %10, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0, i32 noundef 22) #24
-  br i1 %12, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5, label %13
+  br i1 %12, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %13
 
 13:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -4635,7 +4635,7 @@ _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit:        ; preds = %_ZN4llvm16dyn_cast_
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %2, align 8
   %25 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0, i32 noundef 22) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %25, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread
+  br i1 %25, label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread
 
 _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread: ; preds = %6, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, %13, %16, %8, %10, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit
   %26 = load i8, ptr %0, align 8, !tbaa !119
@@ -4650,13 +4650,8 @@ _ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread: ; preds = %6, %_ZN4llvm16dyn_c
   %30 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasByValAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   br label %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit
 
-_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit: ; preds = %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, %27, %29
-  %.05.i = phi i1 [ %30, %29 ], [ true, %27 ], [ undef, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread ]
-  %spec.select.i = and i1 %.not.i, %.05.i
-  br label %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5
-
-_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread5: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i, %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit, %6, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ %spec.select.i, %_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit ], [ true, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i ]
+_ZL24isNoAliasOrByValArgumentPKN4llvm5ValueE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i, %29, %27, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit, %6, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ false, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit.thread ], [ true, %_ZN4llvm13isNoAliasCallEPKNS_5ValueE.exit ], [ %30, %29 ], [ true, %27 ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i ]
   ret i1 %.0
 }
 

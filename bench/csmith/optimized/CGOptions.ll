@@ -3076,6 +3076,7 @@ define dso_local void @_ZN9CGOptions20set_default_settingsEv() local_unnamed_add
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %10, align 8, !tbaa !28, !alias.scope !39
+  store ptr %2, ptr %1, align 8, !tbaa !26, !noalias !39
   store i64 0, ptr %3, align 8, !tbaa !28, !noalias !39
   store i8 0, ptr %2, align 8, !tbaa !30, !noalias !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7

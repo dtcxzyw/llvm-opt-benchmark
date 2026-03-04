@@ -5149,7 +5149,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
 83:                                               ; preds = %.lr.ph.i74
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 2
   %84 = icmp samesign ult i64 %indvars.iv.next.i77, %68
-  br i1 %84, label %.lr.ph.i74, label %json_find_attr.exit80, !llvm.loop !10
+  br i1 %84, label %.lr.ph.i74, label %.lr.ph.preheader.i82, !llvm.loop !10
 
 .lr.ph.i74:                                       ; preds = %83, %.lr.ph.preheader.i73
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %83 ]
@@ -5170,9 +5170,9 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
   %95 = icmp ne ptr %94, null
   %96 = zext i1 %95 to i32
   %97 = or disjoint i32 %.2.i69, %96
-  br label %json_find_attr.exit80
+  br label %.lr.ph.preheader.i82
 
-json_find_attr.exit80:                            ; preds = %83, %.thread.i79
+.lr.ph.preheader.i82:                             ; preds = %83, %.thread.i79
   %.2.i78 = phi i32 [ %97, %.thread.i79 ], [ %.2.i69, %83 ]
   br label %.lr.ph.i83
 
@@ -5181,8 +5181,8 @@ json_find_attr.exit80:                            ; preds = %83, %.thread.i79
   %99 = icmp samesign ult i64 %indvars.iv.next.i86, %68
   br i1 %99, label %.lr.ph.i83, label %.thread, !llvm.loop !10
 
-.lr.ph.i83:                                       ; preds = %98, %json_find_attr.exit80
-  %indvars.iv.i84 = phi i64 [ 0, %json_find_attr.exit80 ], [ %indvars.iv.next.i86, %98 ]
+.lr.ph.i83:                                       ; preds = %98, %.lr.ph.preheader.i82
+  %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i86, %98 ]
   %100 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i84
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
@@ -5202,7 +5202,7 @@ json_find_attr.exit89:                            ; preds = %.lr.ph.i83
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %json_find_attr.exit89
-  %112 = or disjoint i32 %.2.i78, 2
+  %112 = or i32 %.2.i78, 2
   br label %.thread
 
 .thread:                                          ; preds = %98, %111, %json_find_attr.exit89
@@ -5233,7 +5233,7 @@ json_find_attr.exit98:                            ; preds = %.lr.ph.i92
   %125 = sext i32 %.fr200 to i64
   %126 = getelementptr i8, ptr %0, i64 %125
   %127 = icmp eq ptr %126, null
-  %128 = or disjoint i32 %113, 8
+  %128 = or i32 %113, 8
   br i1 %127, label %json_find_attr.exit98.thread, label %129
 
 json_find_attr.exit98.thread:                     ; preds = %115, %json_find_attr.exit98

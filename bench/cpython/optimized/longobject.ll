@@ -8301,7 +8301,7 @@ Py_XDECREF.exit276:                               ; preds = %Py_XDECREF.exit, %1
 157:                                              ; preds = %148, %150
   %158 = phi i64 [ %156, %150 ], [ %149, %148 ]
   %.not232 = icmp samesign ult i64 %88, %80
-  br i1 %.not232, label %165, label %159
+  br i1 %.not232, label %166, label %159
 
 159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %.2371, i64 24
@@ -8309,22 +8309,22 @@ Py_XDECREF.exit276:                               ; preds = %Py_XDECREF.exit, %1
   %162 = load i32, ptr %161, align 4, !tbaa !33
   %163 = zext i32 %162 to i64
   %164 = shl i64 %163, %126
-  br label %165
+  %165 = or i64 %164, %158
+  br label %166
 
-165:                                              ; preds = %157, %159
-  %166 = phi i64 [ %164, %159 ], [ 0, %157 ]
-  %167 = or i64 %158, %166
+166:                                              ; preds = %157, %159
+  %167 = phi i64 [ %165, %159 ], [ %158, %157 ]
   %168 = icmp eq i64 %167, 0
   br i1 %168, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %165, %178
-  %.0168355 = phi i64 [ %.0170354, %178 ], [ %141, %165 ]
-  %.0170354 = phi i64 [ %176, %178 ], [ %167, %165 ]
-  %.0179353 = phi i32 [ %181, %178 ], [ 0, %165 ]
-  %.0182352 = phi i64 [ %180, %178 ], [ 1, %165 ]
-  %.0184351 = phi i64 [ %174, %178 ], [ 0, %165 ]
-  %.0186350 = phi i64 [ %.0184351, %178 ], [ 0, %165 ]
-  %.0188349 = phi i64 [ %.0182352, %178 ], [ 1, %165 ]
+.lr.ph:                                           ; preds = %166, %178
+  %.0168355 = phi i64 [ %.0170354, %178 ], [ %141, %166 ]
+  %.0170354 = phi i64 [ %176, %178 ], [ %167, %166 ]
+  %.0179353 = phi i32 [ %181, %178 ], [ 0, %166 ]
+  %.0182352 = phi i64 [ %180, %178 ], [ 1, %166 ]
+  %.0184351 = phi i64 [ %174, %178 ], [ 0, %166 ]
+  %.0186350 = phi i64 [ %.0184351, %178 ], [ 0, %166 ]
+  %.0188349 = phi i64 [ %.0182352, %178 ], [ 1, %166 ]
   %169 = sub i64 %.0170354, %.0184351
   %170 = add i64 %.0188349, -1
   %171 = add i64 %170, %.0168355
@@ -8352,7 +8352,7 @@ Py_XDECREF.exit276:                               ; preds = %Py_XDECREF.exit, %1
   %183 = icmp eq i32 %.0179.lcssa, 0
   br i1 %183, label %._crit_edge.thread, label %196
 
-._crit_edge.thread:                               ; preds = %165, %._crit_edge
+._crit_edge.thread:                               ; preds = %166, %._crit_edge
   %184 = call fastcc i32 @l_mod(ptr noundef %.2219368, ptr noundef %.2371, ptr noundef %5)
   %185 = icmp slt i32 %184, 0
   br i1 %185, label %.loopexit, label %186

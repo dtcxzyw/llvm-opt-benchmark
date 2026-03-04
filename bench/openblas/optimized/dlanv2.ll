@@ -170,7 +170,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .backedge:                                        ; preds = %.backedge.backedge, %107
   %109 = phi double [ %108, %107 ], [ %.be, %.backedge.backedge ]
-  %110 = phi double [ %50, %107 ], [ %.be257, %.backedge.backedge ]
+  %110 = phi double [ %50, %107 ], [ %.be256, %.backedge.backedge ]
   %.0 = phi i32 [ 0, %107 ], [ %111, %.backedge.backedge ]
   %111 = add nuw nsw i32 %.0, 1
   %112 = fcmp oge double %110, 0.000000e+00
@@ -192,7 +192,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .backedge.backedge:                               ; preds = %121, %130
   %.be = phi double [ %122, %121 ], [ %131, %130 ]
-  %.be257 = phi double [ %123, %121 ], [ %132, %130 ]
+  %.be256 = phi double [ %123, %121 ], [ %132, %130 ]
   br label %.backedge
 
 125:                                              ; preds = %.backedge
@@ -201,9 +201,9 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 .thread:                                          ; preds = %121
   %127 = fcmp ugt double %119, %.011.i
-  br i1 %127, label %.loopexit, label %.thread247
+  br i1 %127, label %.loopexit, label %.thread246
 
-.thread247:                                       ; preds = %.thread
+.thread246:                                       ; preds = %.thread
   %128 = fmul double %35, %122
   %129 = fmul double %35, %123
   br label %.loopexit
@@ -214,9 +214,9 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
   %133 = icmp samesign ult i32 %.0, 20
   br i1 %133, label %.backedge.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %130, %125, %.thread247, %.thread
-  %134 = phi double [ %122, %.thread ], [ %128, %.thread247 ], [ %109, %125 ], [ %131, %130 ]
-  %135 = phi double [ %123, %.thread ], [ %129, %.thread247 ], [ %110, %125 ], [ %132, %130 ]
+.loopexit:                                        ; preds = %130, %125, %.thread246, %.thread
+  %134 = phi double [ %122, %.thread ], [ %128, %.thread246 ], [ %109, %125 ], [ %131, %130 ]
+  %135 = phi double [ %123, %.thread ], [ %129, %.thread246 ], [ %110, %125 ], [ %132, %130 ]
   store double %135, ptr %11, align 8
   store double %134, ptr %13, align 8
   %136 = call double @dlapy2_(ptr noundef nonnull %13, ptr noundef nonnull %11) #6
@@ -287,10 +287,10 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %10, %24
 
 190:                                              ; preds = %187
   %191 = fcmp ult double %188, 0.000000e+00
-  %.237 = select i1 %191, double -1.000000e+00, double 1.000000e+00
+  %.236 = select i1 %191, double -1.000000e+00, double 1.000000e+00
   %192 = fcmp ult double %185, 0.000000e+00
   %193 = select i1 %192, double -1.000000e+00, double 1.000000e+00
-  %194 = fcmp oeq double %.237, %193
+  %194 = fcmp oeq double %.236, %193
   br i1 %194, label %195, label %231
 
 195:                                              ; preds = %190

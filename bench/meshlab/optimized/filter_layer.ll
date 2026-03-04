@@ -16691,7 +16691,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %99 = and i64 %94, 63
   %100 = shl nuw i64 1, %99
-  %101 = or i64 %storemerge.i.i.i.i.i45.promoted, %100
+  %101 = or i64 %100, %storemerge.i.i.i.i.i45.promoted
   store i64 %101, ptr %storemerge.i.i.i.i.i45, align 8
   br label %102
 

@@ -257,12 +257,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs3runER
   br label %21
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit, %2
-  %.0.lcssa = phi i1 [ false, %2 ], [ %111, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit ]
+  %.0.lcssa = phi i1 [ false, %2 ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit ]
   ret i1 %.0.lcssa
 
 21:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit
   %.sroa.08.015 = phi ptr [ %.sroa.08.012, %.lr.ph ], [ %.sroa.08.0, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit ]
-  %.014 = phi i1 [ false, %.lr.ph ], [ %111, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit ]
+  %.014 = phi i1 [ false, %.lr.ph ], [ %.0.lcssa.i, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !164
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 48
@@ -300,7 +300,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   %35 = load ptr, ptr %34, align 8, !tbaa !164
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.028.040.i, i64 68
   %37 = load i16, ptr %36, align 4, !tbaa !170
-  switch i16 %37, label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit [
+  switch i16 %37, label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit.loopexit [
     i16 68, label %38
     i16 0, label %38
   ]
@@ -489,11 +489,15 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i: ; preds = %.crite
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not33.i = icmp eq ptr %.sroa.028.2.i, %24
-  br i1 %.not33.i, label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit, label %.lr.ph42.i
+  br i1 %.not33.i, label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit.loopexit, label %.lr.ph42.i
 
-_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i, %110, %21
-  %.0.lcssa.i = phi i1 [ false, %21 ], [ %.4.i, %110 ], [ %.041.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i ]
-  %111 = or i1 %.014, %.0.lcssa.i
+_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit.loopexit: ; preds = %110, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i
+  %.0.lcssa.i.ph = phi i1 [ %.041.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i ], [ %.4.i, %110 ]
+  %111 = or i1 %.014, %.0.lcssa.i.ph
+  br label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit
+
+_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit.loopexit, %21
+  %.0.lcssa.i = phi i1 [ %.014, %21 ], [ %111, %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit.loopexit ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 8
   %.sroa.08.0 = load ptr, ptr %112, align 8, !tbaa !163
   %.not = icmp eq ptr %.sroa.08.0, %15

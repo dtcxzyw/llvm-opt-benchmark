@@ -30280,6 +30280,7 @@ define void @_ZNK6casadi8Function3mapExRKSt6vectorIbSaIbEES5_RKSt3mapINSt7__cxx1
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %19, ptr %23, align 8, !tbaa !14, !alias.scope !456
+  store ptr %16, ptr %13, align 8, !tbaa !11
   store i64 0, ptr %22, align 8, !tbaa !14
   store i8 0, ptr %16, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

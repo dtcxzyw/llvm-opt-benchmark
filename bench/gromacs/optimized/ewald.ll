@@ -500,16 +500,16 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %wide.trip.count372 = zext nneg i32 %12 to i64
   %wide.trip.count377 = zext nneg i32 %12 to i64
   %wide.trip.count382 = zext nneg i32 %12 to i64
+  %.mux427 = select i1 %.not238, float %15, float 1.000000e+00
   %.val = load i64, ptr %8, align 8
   %.val428 = load i64, ptr %9, align 8
   %211 = xor i1 %.not238, true
   br label %212
 
 212:                                              ; preds = %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit, %._crit_edge342
-  %213 = phi i1 [ true, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ false, %._crit_edge342 ]
+  %213 = phi i1 [ %.not238, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ false, %._crit_edge342 ]
   %indvars.iv387.sroa.phi = phi ptr [ %.sroa.0, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ %.sroa.6, %._crit_edge342 ]
-  %.mux427 = select i1 %213, float %202, float %15
-  %.0234 = select i1 %.not238, float %.mux427, float 1.000000e+00
+  %.0234 = select i1 %213, float %202, float %.mux427
   store float 0.000000e+00, ptr %indvars.iv387.sroa.phi, align 4, !tbaa !134
   %214 = load i32, ptr %17, align 8, !tbaa !102
   %215 = icmp sgt i32 %214, 0
@@ -852,82 +852,81 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br i1 %390, label %218, label %._crit_edge342, !llvm.loop !158
 
 ._crit_edge342:                                   ; preds = %386, %212
-  %391 = and i1 %.not238, %213
-  br i1 %391, label %212, label %392, !llvm.loop !159
+  br i1 %213, label %212, label %391, !llvm.loop !159
 
-392:                                              ; preds = %._crit_edge342
-  br i1 %.not238, label %394, label %393
+391:                                              ; preds = %._crit_edge342
+  br i1 %.not238, label %393, label %392
 
-393:                                              ; preds = %392
+392:                                              ; preds = %391
   %.sroa.0.0..sroa.0.0.437 = load float, ptr %.sroa.0, align 4, !tbaa !134
-  br label %405
+  br label %404
 
-394:                                              ; preds = %392
-  %395 = fpext float %15 to double
-  %396 = fsub double 1.000000e+00, %395
+393:                                              ; preds = %391
+  %394 = fpext float %15 to double
+  %395 = fsub double 1.000000e+00, %394
   %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !134
-  %397 = fpext float %.sroa.0.0..sroa.0.0. to double
+  %396 = fpext float %.sroa.0.0..sroa.0.0. to double
   %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !134
-  %398 = fmul float %15, %.sroa.6.0..sroa.6.4.
-  %399 = fpext float %398 to double
-  %400 = tail call double @llvm.fmuladd.f64(double %396, double %397, double %399)
-  %401 = fptrunc double %400 to float
-  %402 = fsub float %.sroa.6.0..sroa.6.4., %.sroa.0.0..sroa.0.0.
-  %403 = load float, ptr %16, align 4, !tbaa !134
-  %404 = tail call float @llvm.fmuladd.f32(float %77, float %402, float %403)
-  store float %404, ptr %16, align 4, !tbaa !134
-  br label %405
+  %397 = fmul float %15, %.sroa.6.0..sroa.6.4.
+  %398 = fpext float %397 to double
+  %399 = tail call double @llvm.fmuladd.f64(double %395, double %396, double %398)
+  %400 = fptrunc double %399 to float
+  %401 = fsub float %.sroa.6.0..sroa.6.4., %.sroa.0.0..sroa.0.0.
+  %402 = load float, ptr %16, align 4, !tbaa !134
+  %403 = tail call float @llvm.fmuladd.f32(float %77, float %401, float %402)
+  store float %403, ptr %16, align 4, !tbaa !134
+  br label %404
 
-405:                                              ; preds = %394, %393
-  %.0 = phi float [ %401, %394 ], [ %.sroa.0.0..sroa.0.0.437, %393 ]
-  %406 = fpext float %77 to double
-  %407 = fmul double %406, -5.000000e-01
-  %408 = load float, ptr %13, align 4, !tbaa !134
-  %409 = fadd float %.0, %408
-  %410 = fpext float %409 to double
-  %411 = fmul double %407, %410
-  %412 = fptrunc double %411 to float
-  store float %412, ptr %13, align 4, !tbaa !134
-  %413 = load float, ptr %206, align 4, !tbaa !134
-  %414 = fpext float %413 to double
-  %415 = fmul double %407, %414
-  %416 = fptrunc double %415 to float
-  store float %416, ptr %206, align 4, !tbaa !134
-  %417 = load float, ptr %207, align 4, !tbaa !134
-  %418 = fpext float %417 to double
-  %419 = fmul double %407, %418
-  %420 = fptrunc double %419 to float
-  store float %420, ptr %207, align 4, !tbaa !134
-  %421 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %422 = load float, ptr %208, align 4, !tbaa !134
-  %423 = fadd float %.0, %422
-  %424 = fpext float %423 to double
-  %425 = fmul double %407, %424
-  %426 = fptrunc double %425 to float
-  store float %426, ptr %208, align 4, !tbaa !134
-  %427 = load float, ptr %209, align 4, !tbaa !134
-  %428 = fpext float %427 to double
-  %429 = fmul double %407, %428
-  %430 = fptrunc double %429 to float
-  store float %430, ptr %209, align 4, !tbaa !134
-  %431 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %432 = load float, ptr %210, align 4, !tbaa !134
-  %433 = fadd float %.0, %432
-  %434 = fpext float %433 to double
-  %435 = fmul double %407, %434
-  %436 = fptrunc double %435 to float
-  store float %436, ptr %210, align 4, !tbaa !134
-  store float %416, ptr %421, align 4, !tbaa !134
-  store float %420, ptr %431, align 4, !tbaa !134
-  %437 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store float %430, ptr %437, align 4, !tbaa !134
-  %438 = fmul float %.0, %77
+404:                                              ; preds = %393, %392
+  %.0 = phi float [ %400, %393 ], [ %.sroa.0.0..sroa.0.0.437, %392 ]
+  %405 = fpext float %77 to double
+  %406 = fmul double %405, -5.000000e-01
+  %407 = load float, ptr %13, align 4, !tbaa !134
+  %408 = fadd float %.0, %407
+  %409 = fpext float %408 to double
+  %410 = fmul double %406, %409
+  %411 = fptrunc double %410 to float
+  store float %411, ptr %13, align 4, !tbaa !134
+  %412 = load float, ptr %206, align 4, !tbaa !134
+  %413 = fpext float %412 to double
+  %414 = fmul double %406, %413
+  %415 = fptrunc double %414 to float
+  store float %415, ptr %206, align 4, !tbaa !134
+  %416 = load float, ptr %207, align 4, !tbaa !134
+  %417 = fpext float %416 to double
+  %418 = fmul double %406, %417
+  %419 = fptrunc double %418 to float
+  store float %419, ptr %207, align 4, !tbaa !134
+  %420 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %421 = load float, ptr %208, align 4, !tbaa !134
+  %422 = fadd float %.0, %421
+  %423 = fpext float %422 to double
+  %424 = fmul double %406, %423
+  %425 = fptrunc double %424 to float
+  store float %425, ptr %208, align 4, !tbaa !134
+  %426 = load float, ptr %209, align 4, !tbaa !134
+  %427 = fpext float %426 to double
+  %428 = fmul double %406, %427
+  %429 = fptrunc double %428 to float
+  store float %429, ptr %209, align 4, !tbaa !134
+  %430 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %431 = load float, ptr %210, align 4, !tbaa !134
+  %432 = fadd float %.0, %431
+  %433 = fpext float %432 to double
+  %434 = fmul double %406, %433
+  %435 = fptrunc double %434 to float
+  store float %435, ptr %210, align 4, !tbaa !134
+  store float %415, ptr %420, align 4, !tbaa !134
+  store float %419, ptr %430, align 4, !tbaa !134
+  %436 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  store float %429, ptr %436, align 4, !tbaa !134
+  %437 = fmul float %.0, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  ret float %438
+  ret float %437
 }
 
 ; Function Attrs: noreturn

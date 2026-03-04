@@ -71942,16 +71942,16 @@ define hidden void @_ZN9itertools9Itertools4join17h7a6a3521c2320cacE(ptr noalias
   %trunc.i.i = trunc nuw i64 %.val to i1
   %.val14 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %29 = icmp ne ptr %.val14, null
-  %narrow = select i1 %trunc.i.i, i1 %29, i1 false
-  %30 = xor i1 %29, true
-  %31 = select i1 %trunc.i.i, i1 %30, i1 false
-  %.sink1.i.i.sroa.phi = select i1 %31, ptr %.sroa.7, ptr %.sroa.5
+  %30 = select i1 %trunc.i.i, i1 %29, i1 false
+  %.sroa.023.0 = select i1 %30, i64 %3, i64 0
+  %31 = xor i1 %29, true
+  %32 = select i1 %trunc.i.i, i1 %31, i1 false
+  %.sink1.i.i.sroa.phi = select i1 %32, ptr %.sroa.7, ptr %.sroa.5
   store i64 0, ptr %.sink1.i.i.sroa.phi, align 8, !alias.scope !22277
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %32 = select i1 %narrow, i64 %3, i64 0
-  %33 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ad7839be901c6fdE"(i64 noundef %32, i1 noundef zeroext false)
+  %33 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ad7839be901c6fdE"(i64 noundef %.sroa.023.0, i1 noundef zeroext false)
           to label %39 unwind label %36
 
 34:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7ca4e81c187a1dE.exit.thread"

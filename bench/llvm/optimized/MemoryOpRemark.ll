@@ -146,101 +146,99 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @_ZN4llvm14MemoryOpRemark9canHandleEPKNS_11InstructionERKNS_17TargetLibraryInfoE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr %0, align 8, !tbaa !3
-  %5 = icmp eq i8 %4, 62
-  br i1 %5, label %59, label %6
+  switch i8 %4, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.fold.split [
+    i8 62, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
+    i8 85, label %5
+  ]
 
-6:                                                ; preds = %2
-  %.not40 = icmp eq i8 %4, 85
-  br i1 %.not40, label %7, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 -32
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %8
 
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 -32
-  %9 = load ptr, ptr %8, align 8, !tbaa !12
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %10
+8:                                                ; preds = %5
+  %9 = load i8, ptr %7, align 8, !tbaa !3
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %9, align 8, !tbaa !3
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
-
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
-  %17 = icmp eq ptr %14, %16
-  br i1 %17, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, label %24
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %15 = icmp eq ptr %12, %14
+  br i1 %15, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, label %22
 
 _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 8192
-  %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %24, label %21
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 8192
+  %.not.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i, label %22, label %19
 
-21:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %23 = load i32, ptr %22, align 4, !tbaa !41
-  %.off = add i32 %23, -238
+19:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %21 = load i32, ptr %20, align 4, !tbaa !41
+  %.off = add i32 %21, -238
   %switch = icmp ult i32 %.off, 7
-  br label %59
+  br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-24:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i
-  %.pr = load i8, ptr %9, align 8, !tbaa !3
-  %25 = icmp eq i8 %.pr, 0
-  br i1 %25, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
+22:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i
+  %.pr = load i8, ptr %7, align 8, !tbaa !3
+  %23 = icmp eq i8 %.pr, 0
+  br i1 %23, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !17
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !22
-  %30 = icmp eq ptr %27, %29
-  br i1 %30, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %28 = icmp eq ptr %25, %27
+  br i1 %28, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 268435456
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 268435456
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %32
 
-34:                                               ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+32:                                               ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = load ptr, ptr %1, align 8, !tbaa !42
-  %36 = call noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncERKNS_8FunctionERNS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 4 dereferenceable(4) %3) #13
-  br i1 %36, label %37, label %.critedge
+  %33 = load ptr, ptr %1, align 8, !tbaa !42
+  %34 = call noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncERKNS_8FunctionERNS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(216) %33, ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 4 dereferenceable(4) %3) #13
+  br i1 %34, label %35, label %.critedge
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %3, align 4, !tbaa !47
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = zext i32 %38 to i64
-  %41 = lshr i64 %40, 6
-  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %41
-  %43 = load i64, ptr %42, align 8, !tbaa !49
-  %44 = and i64 %40, 63
-  %45 = shl nuw i64 1, %44
-  %46 = and i64 %45, %43
-  %.not.i.i23 = icmp eq i64 %46, 0
+35:                                               ; preds = %32
+  %36 = load i32, ptr %3, align 4, !tbaa !47
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = zext i32 %36 to i64
+  %39 = lshr i64 %38, 6
+  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %39
+  %41 = load i64, ptr %40, align 8, !tbaa !49
+  %42 = and i64 %38, 63
+  %43 = shl nuw i64 1, %42
+  %44 = and i64 %43, %41
+  %.not.i.i23 = icmp eq i64 %44, 0
   br i1 %.not.i.i23, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, label %.critedge
 
-_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %37
-  %47 = load ptr, ptr %1, align 8, !tbaa !42
-  %48 = lshr i32 %38, 2
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !51
-  %52 = zext i8 %51 to i32
-  %53 = shl i32 %38, 1
-  %54 = and i32 %53, 6
-  %55 = shl nuw nsw i32 3, %54
-  %56 = and i32 %55, %52
-  %.not39 = icmp eq i32 %56, 0
-  br i1 %.not39, label %.critedge, label %57
+_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %35
+  %45 = load ptr, ptr %1, align 8, !tbaa !42
+  %46 = lshr i32 %36, 2
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !51
+  %50 = zext i8 %49 to i32
+  %51 = shl i32 %36, 1
+  %52 = and i32 %51, 6
+  %53 = shl nuw nsw i32 3, %52
+  %54 = and i32 %53, %50
+  %.not39 = icmp eq i32 %54, 0
+  br i1 %.not39, label %.critedge, label %55
 
-57:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
-  switch i32 %38, label %58 [
+55:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
+  switch i32 %36, label %56 [
     i32 121, label %.critedge
     i32 123, label %.critedge
     i32 124, label %.critedge
@@ -253,21 +251,19 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %37
     i32 187, label %.critedge
   ]
 
-58:                                               ; preds = %57
+56:                                               ; preds = %55
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %34, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %58
-  %.3 = phi i1 [ false, %58 ], [ false, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ true, %57 ], [ false, %34 ], [ false, %37 ]
+.critedge:                                        ; preds = %35, %32, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %56
+  %.3 = phi i1 [ false, %56 ], [ false, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ false, %32 ], [ false, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %10, %7, %6, %24, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %.critedge, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
-  %.4 = phi i1 [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %.3, %.critedge ], [ false, %24 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ undef, %6 ], [ false, %7 ], [ false, %10 ]
-  %spec.select = and i1 %.not40, %.4
-  br label %59
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.fold.split: ; preds = %2
+  br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-59:                                               ; preds = %21, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, %2
-  %.0 = phi i1 [ %switch, %21 ], [ true, %2 ], [ %spec.select, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread ]
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %8, %5, %2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.fold.split, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %.critedge, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %22, %19
+  %.0 = phi i1 [ %switch, %19 ], [ true, %2 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %.3, %.critedge ], [ false, %22 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.fold.split ], [ false, %5 ], [ false, %8 ]
   ret i1 %.0
 }
 

@@ -3028,15 +3028,15 @@ define noundef i32 @_Z19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFv
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre59 = load i32, ptr %9, align 4, !tbaa !13
   %59 = icmp slt i32 %.pre59, 1
-  %or.cond7 = and i1 %.not35, %59
-  br i1 %or.cond7, label %60, label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread"
+  %60 = and i1 %.not35, %59
+  br i1 %60, label %61, label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread"
 
-60:                                               ; preds = %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit"
-  %61 = call noundef signext i8 @_ZNK6icu_775Edits11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(232) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+61:                                               ; preds = %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit"
+  %62 = call noundef signext i8 @_ZNK6icu_775Edits11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(232) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread"
 
-"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread": ; preds = %42, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit", %60, %10, %38, %23
-  %.0 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %38 ], [ %.1.i, %60 ], [ %.1.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit" ], [ 0, %42 ]
+"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread": ; preds = %42, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit", %61, %10, %38, %23
+  %.0 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %38 ], [ %.1.i, %61 ], [ %.1.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit" ], [ 0, %42 ]
   ret i32 %.0
 }
 

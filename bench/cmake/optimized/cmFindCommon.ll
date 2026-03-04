@@ -2760,10 +2760,11 @@ _Z10cmNonempty7cmValue.exit:                      ; preds = %_ZNSt7__cxx1112basi
   %95 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !13
   %97 = icmp ne i64 %96, 0
+  %98 = or i1 %93, %97
   br label %_Z10cmNonempty7cmValue.exit138
 
 _Z10cmNonempty7cmValue.exit138:                   ; preds = %_Z10cmNonempty7cmValue.exit, %94
-  %98 = phi i1 [ false, %_Z10cmNonempty7cmValue.exit ], [ %97, %94 ]
+  %or.cond.demorgan = phi i1 [ %93, %_Z10cmNonempty7cmValue.exit ], [ %98, %94 ]
   %.not.i.i139 = icmp eq ptr %70, null
   br i1 %.not.i.i139, label %_Z10cmNonempty7cmValue.exit140, label %99
 
@@ -2771,10 +2772,11 @@ _Z10cmNonempty7cmValue.exit138:                   ; preds = %_Z10cmNonempty7cmVa
   %100 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !13
   %102 = icmp ne i64 %101, 0
+  %103 = or i1 %or.cond.demorgan, %102
   br label %_Z10cmNonempty7cmValue.exit140
 
 _Z10cmNonempty7cmValue.exit140:                   ; preds = %_Z10cmNonempty7cmValue.exit138, %99
-  %103 = phi i1 [ false, %_Z10cmNonempty7cmValue.exit138 ], [ %102, %99 ]
+  %or.cond3.demorgan = phi i1 [ %or.cond.demorgan, %_Z10cmNonempty7cmValue.exit138 ], [ %103, %99 ]
   %.not.i.i141 = icmp eq ptr %83, null
   br i1 %.not.i.i141, label %_Z10cmNonempty7cmValue.exit142, label %104
 
@@ -2782,14 +2784,11 @@ _Z10cmNonempty7cmValue.exit140:                   ; preds = %_Z10cmNonempty7cmVa
   %105 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !13
   %107 = icmp ne i64 %106, 0
-  br label %_Z10cmNonempty7cmValue.exit142
+  %108 = or i1 %or.cond3.demorgan, %107
+  br i1 %108, label %139, label %600
 
-_Z10cmNonempty7cmValue.exit142:                   ; preds = %_Z10cmNonempty7cmValue.exit140, %104
-  %108 = phi i1 [ false, %_Z10cmNonempty7cmValue.exit140 ], [ %107, %104 ]
-  %or.cond.demorgan = or i1 %93, %98
-  %or.cond3.demorgan = or i1 %or.cond.demorgan, %103
-  %or.cond5.demorgan = or i1 %or.cond3.demorgan, %108
-  br i1 %or.cond5.demorgan, label %139, label %600
+_Z10cmNonempty7cmValue.exit142:                   ; preds = %_Z10cmNonempty7cmValue.exit140
+  br i1 %or.cond3.demorgan, label %139, label %600
 
 109:                                              ; preds = %._crit_edge.i.i
   %110 = landingpad { ptr, i32 }
@@ -2877,7 +2876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %603
 
-139:                                              ; preds = %_Z10cmNonempty7cmValue.exit142
+139:                                              ; preds = %104, %_Z10cmNonempty7cmValue.exit142
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %141 = load i8, ptr %140, align 4, !tbaa !71, !range !214, !noundef !215
   %142 = trunc nuw i8 %141 to i1
@@ -4235,7 +4234,7 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %600
 
-600:                                              ; preds = %_ZN6cmListD2Ev.exit, %_Z10cmNonempty7cmValue.exit142, %3
+600:                                              ; preds = %104, %_ZN6cmListD2Ev.exit, %_Z10cmNonempty7cmValue.exit142, %3
   ret void
 
 601:                                              ; preds = %575, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300

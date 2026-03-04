@@ -7696,7 +7696,7 @@ fmap_readn.exit869.thread:                        ; preds = %68, %62, %fmap_read
   br label %93
 
 .thread891:                                       ; preds = %89, %83, %90
-  %.0710894 = phi i32 [ 1, %83 ], [ 0, %90 ], [ 0, %89 ]
+  %.0710894 = phi i32 [ 0, %90 ], [ 0, %89 ], [ 1, %83 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %.0710894, ptr %92, align 8, !tbaa !96
   %brmerge.not = and i1 %.not754, %.not751880

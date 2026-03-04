@@ -5929,8 +5929,8 @@ _get_zoom_pos.exit122:                            ; preds = %116, %119
   %158 = fadd reassoc nsz arcp contract afn double %151, %157
   %159 = fsub reassoc nsz arcp contract afn double %1, %158
   %160 = fcmp reassoc nsz arcp contract afn olt double %159, 0.000000e+00
-  %161 = select reassoc nsz arcp contract afn i1 %160, double 0.000000e+00, double %159
-  %162 = fadd reassoc nsz arcp contract afn double %161, %154
+  %161 = fadd reassoc nsz arcp contract afn double %154, %159
+  %162 = select i1 %160, double %154, double %161
   %163 = fptrunc reassoc nsz arcp contract afn double %162 to float
   %164 = fsub reassoc nsz arcp contract afn double %2, %151
   %165 = fcmp reassoc nsz arcp contract afn ogt double %164, 0.000000e+00
@@ -5941,12 +5941,12 @@ _get_zoom_pos.exit122:                            ; preds = %116, %119
   %170 = fadd reassoc nsz arcp contract afn double %151, %169
   %171 = fsub reassoc nsz arcp contract afn double %2, %170
   %172 = fcmp reassoc nsz arcp contract afn olt double %171, 0.000000e+00
-  %173 = select reassoc nsz arcp contract afn i1 %172, double 0.000000e+00, double %171
-  %174 = fadd reassoc nsz arcp contract afn double %173, %166
+  %173 = fadd reassoc nsz arcp contract afn double %166, %171
+  %174 = select i1 %172, double %166, double %173
   %175 = fptrunc reassoc nsz arcp contract afn double %174 to float
   %176 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %163)
   %177 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %175)
-  %178 = fadd reassoc nsz arcp contract afn float %177, %176
+  %178 = fadd reassoc nsz arcp contract afn float %176, %177
   %179 = fcmp reassoc nsz arcp contract afn ogt float %178, 5.000000e-01
   br i1 %179, label %180, label %182
 

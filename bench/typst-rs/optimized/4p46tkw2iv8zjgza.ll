@@ -3589,10 +3589,10 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   br label %79
 
 79:                                               ; preds = %72, %56
-  %.sroa.8.0.i.i = phi i64 [ %76, %72 ], [ undef, %56 ]
-  %.sroa.710.0.i.i = phi i64 [ %69, %72 ], [ undef, %56 ]
-  %.sroa.08.0.i.i = phi ptr [ %62, %72 ], [ null, %56 ]
-  %.1.i.i = phi i8 [ %78, %72 ], [ %spec.select.i.i, %56 ]
+  %.sroa.8.0.i.i = phi i64 [ undef, %56 ], [ %76, %72 ]
+  %.sroa.710.0.i.i = phi i64 [ undef, %56 ], [ %69, %72 ]
+  %.sroa.08.0.i.i = phi ptr [ null, %56 ], [ %62, %72 ]
+  %.1.i.i = phi i8 [ %spec.select.i.i, %56 ], [ %78, %72 ]
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 54
   %81 = load i16, ptr %80, align 2, !alias.scope !939, !noalias !940, !noundef !7
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -3663,16 +3663,16 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %109 = load ptr, ptr %94, align 8, !alias.scope !989, !noalias !990, !nonnull !7, !noundef !7
   %110 = getelementptr inbounds i8, ptr %109, i64 %.promoted.i.i.i.i.i
   store i8 44, ptr %110, align 1, !noalias !991
-  %.sroa.13.8..sroa_idx210.i.i = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store i16 %81, ptr %.sroa.13.8..sroa_idx210.i.i, align 1, !noalias !991
-  %.sroa.14.8..sroa_idx212.i.i = getelementptr inbounds nuw i8, ptr %110, i64 3
-  store i16 %83, ptr %.sroa.14.8..sroa_idx212.i.i, align 1, !noalias !991
-  %.sroa.15.8..sroa_idx214.i.i = getelementptr inbounds nuw i8, ptr %110, i64 5
-  store i16 %26, ptr %.sroa.15.8..sroa_idx214.i.i, align 1, !noalias !991
-  %.sroa.16.8..sroa_idx216.i.i = getelementptr inbounds nuw i8, ptr %110, i64 7
-  store i16 %29, ptr %.sroa.16.8..sroa_idx216.i.i, align 1, !noalias !991
-  %.sroa.17.8..sroa_idx218.i.i = getelementptr inbounds nuw i8, ptr %110, i64 9
-  store i8 %.1.i.i, ptr %.sroa.17.8..sroa_idx218.i.i, align 1, !noalias !991
+  %.sroa.13.8..sroa_idx208.i.i = getelementptr inbounds nuw i8, ptr %110, i64 1
+  store i16 %81, ptr %.sroa.13.8..sroa_idx208.i.i, align 1, !noalias !991
+  %.sroa.14.8..sroa_idx210.i.i = getelementptr inbounds nuw i8, ptr %110, i64 3
+  store i16 %83, ptr %.sroa.14.8..sroa_idx210.i.i, align 1, !noalias !991
+  %.sroa.15.8..sroa_idx212.i.i = getelementptr inbounds nuw i8, ptr %110, i64 5
+  store i16 %26, ptr %.sroa.15.8..sroa_idx212.i.i, align 1, !noalias !991
+  %.sroa.16.8..sroa_idx214.i.i = getelementptr inbounds nuw i8, ptr %110, i64 7
+  store i16 %29, ptr %.sroa.16.8..sroa_idx214.i.i, align 1, !noalias !991
+  %.sroa.17.8..sroa_idx216.i.i = getelementptr inbounds nuw i8, ptr %110, i64 9
+  store i8 %.1.i.i, ptr %.sroa.17.8..sroa_idx216.i.i, align 1, !noalias !991
   %111 = add i64 %.promoted.i.i.i.i.i, 10
   %112 = load i64, ptr %93, align 8, !alias.scope !989, !noalias !990, !noundef !7
   %113 = icmp ugt i64 %111, %112

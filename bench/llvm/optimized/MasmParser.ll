@@ -15724,11 +15724,11 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit: ; preds = %62, %_ZNSt
   %95 = load ptr, ptr %5, align 8, !tbaa !309
   %96 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %95, i64 %91) #27
   %97 = icmp eq i32 %96, 0
+  %98 = xor i1 %1, %97
   br label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %88, %94
-  %98 = phi i1 [ false, %88 ], [ %97, %94 ]
-  %99 = xor i1 %1, %98
+  %99 = phi i1 [ %1, %88 ], [ %98, %94 ]
   %100 = xor i1 %99, true
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %102 = zext i1 %100 to i8
@@ -16406,11 +16406,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser23parseD
   %90 = load ptr, ptr %7, align 8, !tbaa !309
   %91 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr %90, i64 %86) #27
   %92 = icmp eq i32 %91, 0
+  %93 = xor i1 %2, %92
   br label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %83, %89
-  %93 = phi i1 [ false, %83 ], [ %92, %89 ]
-  %94 = xor i1 %2, %93
+  %94 = phi i1 [ %2, %83 ], [ %93, %89 ]
   %95 = xor i1 %94, true
   %96 = zext i1 %95 to i8
   store i8 %96, ptr %31, align 4, !tbaa !762
@@ -28671,7 +28671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 184
   %125 = load ptr, ptr %124, align 8
   %126 = call noundef nonnull align 8 dereferenceable(40) ptr %125(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
-  br i1 %3, label %127, label %137
+  br i1 %3, label %127, label %138
 
 127:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -28682,53 +28682,53 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   store i64 %130, ptr %129, align 8, !tbaa !306
   %131 = load i64, ptr %37, align 8, !tbaa !310
   %132 = icmp eq i64 %130, %131
-  br i1 %132, label %133, label %155
+  br i1 %132, label %133, label %156
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %6, align 8, !tbaa !309
   %135 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr %134, i64 %130) #27
   %136 = icmp eq i32 %135, 0
+  %137 = xor i1 %2, %136
   %.pre = load ptr, ptr %5, align 8, !tbaa !309
   %.pre43 = load i64, ptr %35, align 8, !tbaa !310
   %.pre44 = load i64, ptr %37, align 8, !tbaa !310
-  br label %155
+  br label %156
 
-137:                                              ; preds = %122
-  %138 = load i64, ptr %35, align 8, !tbaa !310
-  %139 = load i64, ptr %37, align 8, !tbaa !310
-  %140 = icmp eq i64 %138, %139
-  br i1 %140, label %141, label %147
+138:                                              ; preds = %122
+  %139 = load i64, ptr %35, align 8, !tbaa !310
+  %140 = load i64, ptr %37, align 8, !tbaa !310
+  %141 = icmp eq i64 %139, %140
+  br i1 %141, label %142, label %148
 
-141:                                              ; preds = %137
-  %142 = icmp eq i64 %138, 0
-  br i1 %142, label %147, label %143
+142:                                              ; preds = %138
+  %143 = icmp eq i64 %139, 0
+  br i1 %143, label %148, label %144
 
-143:                                              ; preds = %141
-  %144 = load ptr, ptr %6, align 8, !tbaa !309
-  %145 = load ptr, ptr %5, align 8, !tbaa !309
-  %bcmp.i = call i32 @bcmp(ptr %145, ptr %144, i64 %138)
-  %146 = icmp eq i32 %bcmp.i, 0
-  br label %147
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %6, align 8, !tbaa !309
+  %146 = load ptr, ptr %5, align 8, !tbaa !309
+  %bcmp.i = call i32 @bcmp(ptr %146, ptr %145, i64 %139)
+  %147 = icmp eq i32 %bcmp.i, 0
+  br label %148
 
-147:                                              ; preds = %143, %141, %137
-  %148 = phi i1 [ false, %137 ], [ %146, %143 ], [ true, %141 ]
-  %149 = xor i1 %2, %148
-  %150 = xor i1 %149, true
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %152 = zext i1 %150 to i8
-  store i8 %152, ptr %151, align 4, !tbaa !762
-  %153 = xor i8 %152, 1
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 421
-  store i8 %153, ptr %154, align 1, !tbaa !468
+148:                                              ; preds = %144, %142, %138
+  %149 = phi i1 [ false, %138 ], [ %147, %144 ], [ true, %142 ]
+  %150 = xor i1 %2, %149
+  %151 = xor i1 %150, true
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %153 = zext i1 %151 to i8
+  store i8 %153, ptr %152, align 4, !tbaa !762
+  %154 = xor i8 %153, 1
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 421
+  store i8 %154, ptr %155, align 1, !tbaa !468
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %172
 
-155:                                              ; preds = %133, %127
-  %156 = phi i64 [ %131, %127 ], [ %.pre44, %133 ]
-  %157 = phi i64 [ %130, %127 ], [ %.pre43, %133 ]
-  %158 = phi ptr [ %128, %127 ], [ %.pre, %133 ]
-  %159 = phi i1 [ false, %127 ], [ %136, %133 ]
-  %160 = xor i1 %2, %159
+156:                                              ; preds = %133, %127
+  %157 = phi i64 [ %131, %127 ], [ %.pre44, %133 ]
+  %158 = phi i64 [ %130, %127 ], [ %.pre43, %133 ]
+  %159 = phi ptr [ %128, %127 ], [ %.pre, %133 ]
+  %160 = phi i1 [ %2, %127 ], [ %137, %133 ]
   %161 = xor i1 %160, true
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %163 = zext i1 %161 to i8
@@ -28738,18 +28738,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 421
   store i8 %164, ptr %165, align 1, !tbaa !468
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr %158, ptr %18, align 8, !tbaa !305
+  store ptr %159, ptr %18, align 8, !tbaa !305
   %166 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %157, ptr %166, align 8, !tbaa !306
-  %167 = icmp eq i64 %157, %156
+  store i64 %158, ptr %166, align 8, !tbaa !306
+  %167 = icmp eq i64 %158, %157
   br i1 %167, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12, label %._ZNK4llvm9StringRef18equals_insensitiveES0_.exit12_crit_edge
 
-._ZNK4llvm9StringRef18equals_insensitiveES0_.exit12_crit_edge: ; preds = %155
+._ZNK4llvm9StringRef18equals_insensitiveES0_.exit12_crit_edge: ; preds = %156
   br i1 %2, label %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit14_crit_edge.thread, label %.critedge
 
-_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12: ; preds = %155
+_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12: ; preds = %156
   %168 = load ptr, ptr %6, align 8, !tbaa !309
-  %169 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr %168, i64 %156) #27
+  %169 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr %168, i64 %157) #27
   %170 = icmp eq i32 %169, 0
   %171 = xor i1 %2, %170
   br i1 %171, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge, label %.critedge
@@ -28759,9 +28759,9 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge: ; preds = %_ZNK4l
   %.pre46 = load i64, ptr %37, align 8, !tbaa !310
   br label %172
 
-172:                                              ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge, %147
-  %173 = phi i64 [ %.pre46, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge ], [ %139, %147 ]
-  %174 = phi i64 [ %.pre45, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge ], [ %138, %147 ]
+172:                                              ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge, %148
+  %173 = phi i64 [ %.pre46, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge ], [ %140, %148 ]
+  %174 = phi i64 [ %.pre45, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12._crit_edge ], [ %139, %148 ]
   %175 = icmp eq i64 %174, %173
   br i1 %175, label %176, label %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit14_crit_edge
 

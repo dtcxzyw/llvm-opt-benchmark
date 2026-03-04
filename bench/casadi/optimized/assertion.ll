@@ -1366,6 +1366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %53, ptr %57, align 8, !tbaa !14, !alias.scope !31
+  store ptr %50, ptr %47, align 8, !tbaa !11
   store i64 0, ptr %56, align 8, !tbaa !14
   store i8 0, ptr %50, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i16

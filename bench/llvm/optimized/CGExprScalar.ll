@@ -8697,13 +8697,12 @@ _ZNK12_GLOBAL__N_19BinOpInfo14isFixedPointOpEv.exit.thread: ; preds = %52, %_ZNK
   br label %_ZNK12_GLOBAL__N_19BinOpInfo33rhsHasSignedIntegerRepresentationEv.exit
 
 _ZNK12_GLOBAL__N_19BinOpInfo33rhsHasSignedIntegerRepresentationEv.exit: ; preds = %157, %163
-  %.04.i = phi i1 [ %170, %163 ], [ undef, %157 ]
-  %spec.select.i = and i1 %spec.select.i.i.i.i.i.i.i.i.not.i, %.04.i
+  %.04.i = phi i1 [ %170, %163 ], [ false, %157 ]
   %171 = load ptr, ptr %1, align 8, !tbaa !1090
   %172 = load ptr, ptr %76, align 8, !tbaa !1093
   %173 = getelementptr i8, ptr %171, i64 8
   %.val66 = load ptr, ptr %173, align 8, !tbaa !16
-  %174 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val66, ptr noundef %172, i1 noundef zeroext %spec.select.i)
+  %174 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val66, ptr noundef %172, i1 noundef zeroext %.04.i)
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !639
   %177 = load ptr, ptr %76, align 8, !tbaa !1093
@@ -8753,7 +8752,7 @@ _ZNK12_GLOBAL__N_19BinOpInfo33rhsHasSignedIntegerRepresentationEv.exit: ; preds 
   %199 = load ptr, ptr %1, align 8, !tbaa !1090
   %200 = getelementptr i8, ptr %199, i64 8
   %.val67 = load ptr, ptr %200, align 8, !tbaa !16
-  %201 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val67, ptr noundef %.060, i1 noundef zeroext %spec.select.i)
+  %201 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val67, ptr noundef %.060, i1 noundef zeroext %.04.i)
   br label %202
 
 202:                                              ; preds = %182, %198
@@ -9136,15 +9135,14 @@ _ZNK12_GLOBAL__N_19BinOpInfo14isFixedPointOpEv.exit.thread: ; preds = %47, %_ZNK
   br label %_ZNK12_GLOBAL__N_19BinOpInfo33rhsHasSignedIntegerRepresentationEv.exit
 
 _ZNK12_GLOBAL__N_19BinOpInfo33rhsHasSignedIntegerRepresentationEv.exit: ; preds = %119, %122
-  %.04.i = phi i1 [ %129, %122 ], [ undef, %119 ]
-  %spec.select.i = and i1 %spec.select.i.i.i.i.i.i.i.i.not.i, %.04.i
+  %.04.i = phi i1 [ %129, %122 ], [ false, %119 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !639
   %132 = load ptr, ptr %71, align 8, !tbaa !1093
   %133 = load ptr, ptr %1, align 8, !tbaa !1090
   %134 = getelementptr i8, ptr %133, i64 8
   %.val26 = load ptr, ptr %134, align 8, !tbaa !16
-  %135 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val26, ptr noundef %132, i1 noundef zeroext %spec.select.i)
+  %135 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr %.val26, ptr noundef %132, i1 noundef zeroext %.04.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i16 257, ptr %136, align 8

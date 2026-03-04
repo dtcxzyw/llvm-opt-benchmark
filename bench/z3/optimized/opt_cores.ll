@@ -336,11 +336,11 @@ _ZN6vectorIN3opt13weighted_coreELb1EjE3endEv.exit: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
-._crit_edge34:                                    ; preds = %67, %2, %_ZN6vectorIN3opt13weighted_coreELb1EjE3endEv.exit
+._crit_edge34:                                    ; preds = %66, %2, %_ZN6vectorIN3opt13weighted_coreELb1EjE3endEv.exit
   ret void
 
-14:                                               ; preds = %.lr.ph33, %67
-  %.032 = phi ptr [ %5, %.lr.ph33 ], [ %68, %67 ]
+14:                                               ; preds = %.lr.ph33, %66
+  %.032 = phi ptr [ %5, %.lr.ph33 ], [ %67, %66 ]
   %15 = load ptr, ptr %.032, align 8, !tbaa !46
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit
@@ -363,11 +363,11 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %14
   br label %26
 
 ._crit_edge:                                      ; preds = %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
-  br i1 %54, label %67, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
+  br i1 %.026.i.i, label %66, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
 
 26:                                               ; preds = %.lr.ph, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
-  %.02030 = phi ptr [ %15, %.lr.ph ], [ %55, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
-  %.02229 = phi i1 [ false, %.lr.ph ], [ %54, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
+  %.02030 = phi ptr [ %15, %.lr.ph ], [ %54, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
+  %.02229 = phi i1 [ false, %.lr.ph ], [ %.026.i.i, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %27 = load ptr, ptr %.02030, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !56
@@ -385,8 +385,8 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %14
 .lr.ph.i.i:                                       ; preds = %26, %41
   %.035.i.i = phi ptr [ %42, %41 ], [ %32, %26 ]
   %33 = load ptr, ptr %.035.i.i, align 8, !tbaa !58
-  %.not.i.not.not = icmp uge ptr %33, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.not.not, label %34, label %39
+  %.not.i = icmp ult ptr %33, inttoptr (i64 2 to ptr)
+  br i1 %.not.i, label %39, label %34
 
 34:                                               ; preds = %.lr.ph.i.i
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
@@ -436,35 +436,34 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %14
   br label %.lr.ph38.i.i, !llvm.loop !61
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %34, %39, %45, %50, %53, %.preheader.i.i
-  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ true, %45 ], [ false, %50 ], [ false, %53 ], [ %.not.i.not.not, %39 ], [ %.not.i.not.not, %34 ]
-  %54 = or i1 %.02229, %.026.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %.02030, i64 8
-  %.not23 = icmp eq ptr %55, %20
+  %.026.i.i = phi i1 [ %.02229, %.preheader.i.i ], [ true, %45 ], [ %.02229, %50 ], [ %.02229, %53 ], [ %.02229, %39 ], [ true, %34 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.02030, i64 8
+  %.not23 = icmp eq ptr %54, %20
   br i1 %.not23, label %._crit_edge, label %26
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %14, %_ZNK6vectorIP4exprLb0EjE3endEv.exit, %._crit_edge
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
-  %56 = getelementptr inbounds i8, ptr %15, i64 -4
-  %57 = load i32, ptr %56, align 4, !tbaa !45
-  %58 = load i32, ptr %13, align 8, !tbaa !14
-  %59 = mul i32 %58, 214013
-  %60 = add i32 %59, 2531011
-  store i32 %60, ptr %13, align 8, !tbaa !14
-  %61 = lshr i32 %60, 16
-  %62 = and i32 %61, 32767
-  %63 = urem i32 %62, %57
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %15, i64 %64
+  %55 = getelementptr inbounds i8, ptr %15, i64 -4
+  %56 = load i32, ptr %55, align 4, !tbaa !45
+  %57 = load i32, ptr %13, align 8, !tbaa !14
+  %58 = mul i32 %57, 214013
+  %59 = add i32 %58, 2531011
+  store i32 %59, ptr %13, align 8, !tbaa !14
+  %60 = lshr i32 %59, 16
+  %61 = and i32 %60, 32767
+  %62 = urem i32 %61, %56
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw ptr, ptr %15, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %66 = load ptr, ptr %65, align 8, !tbaa !54
-  store ptr %66, ptr %3, align 8, !tbaa !54
+  %65 = load ptr, ptr %64, align 8, !tbaa !54
+  store ptr %65, ptr %3, align 8, !tbaa !54
   call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %._crit_edge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
-  %68 = getelementptr inbounds nuw i8, ptr %.032, i64 40
-  %.not = icmp eq ptr %68, %11
+66:                                               ; preds = %._crit_edge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
+  %67 = getelementptr inbounds nuw i8, ptr %.032, i64 40
+  %.not = icmp eq ptr %67, %11
   br i1 %.not, label %._crit_edge34, label %14
 }
 

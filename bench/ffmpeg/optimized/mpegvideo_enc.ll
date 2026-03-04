@@ -15898,15 +15898,15 @@ define internal fastcc void @get_visual_weight(ptr noundef nonnull writeonly cap
   br i1 %29, label %.lr.ph.us, label %._crit_edge53.loopexit62, !llvm.loop !544
 
 ._crit_edge53.loopexit62:                         ; preds = %._crit_edge.us
-  %30 = mul nsw i32 %24, %24
+  %30 = mul nsw i32 %27, %26
+  %31 = mul nsw i32 %24, %24
   br label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge53.loopexit62, %12
-  %.036.lcssa = phi i32 [ 0, %12 ], [ %30, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
-  %.034.lcssa = phi i32 [ 0, %12 ], [ %26, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
+  %.036.lcssa = phi i32 [ 0, %12 ], [ %31, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
+  %.034.lcssa = phi i32 [ 0, %12 ], [ %30, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
   %.033.lcssa = phi i32 [ 0, %12 ], [ %27, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
-  %31 = mul nsw i32 %.033.lcssa, %.034.lcssa
-  %32 = sub nsw i32 %31, %.036.lcssa
+  %32 = sub nsw i32 %.034.lcssa, %.036.lcssa
   %33 = icmp ult i32 %32, 255
   br i1 %33, label %34, label %42
 

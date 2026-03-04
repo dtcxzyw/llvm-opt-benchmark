@@ -2694,8 +2694,8 @@ _ZNK12_GLOBAL__N_16ArgSet8containsEi.exit.thread26.i.i.i: ; preds = %_ZN4llvm12I
 "_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i": ; preds = %553, %546
   %.sink6.i.i.i.i = phi ptr [ %555, %553 ], [ %537, %546 ]
   %556 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i1.i.i.i.i.i = load i64, ptr %556, align 8
-  %557 = trunc i64 %.0.copyload.i.i.i.i.i1.i.i.i.i.i to i1
+  %.0.copyload.i.i.i.i.i1.i6.i.i.i.i = load i64, ptr %556, align 8
+  %557 = trunc i64 %.0.copyload.i.i.i.i.i1.i6.i.i.i.i to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %557, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i.i.i, label %558
 
@@ -39221,6 +39221,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14077, ptr noundef nonnull align 8 dereferenceable(1) %14079, i64 %14084, i1 false), !noalias !521
   %14085 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i64 %14082, ptr %14085, align 8, !tbaa !325, !alias.scope !535, !noalias !521
+  store ptr %14079, ptr %14076, align 8, !tbaa !50, !noalias !521
   store i64 0, ptr %14081, align 8, !tbaa !325, !noalias !521
   store i8 0, ptr %14079, align 8, !tbaa !53, !noalias !521
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i

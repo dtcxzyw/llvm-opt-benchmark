@@ -562,12 +562,12 @@ define noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcE
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit, %3
-  %.0.lcssa = phi i1 [ true, %3 ], [ %17, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ]
+  %.0.lcssa = phi i1 [ true, %3 ], [ %.0.i, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa
 
 .lr.ph:                                           ; preds = %3, %_ZN3url11ReadUTFCharEPKtPiiPj.exit
-  %.06 = phi i1 [ %17, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ], [ true, %3 ]
+  %.06 = phi i1 [ %.0.i, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ], [ true, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %7, label %8, label %_ZN4base16IsValidCharacterEj.exit.thread6.i
@@ -594,15 +594,14 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i:      ; preds = %12, %.lr.ph
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit:               ; preds = %8, %12, %_ZN4base16IsValidCharacterEj.exit.thread6.i
   %16 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %9, %12 ], [ %9, %8 ]
-  %.0.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ true, %12 ], [ true, %8 ]
-  %17 = and i1 %.06, %.0.i
+  %.0.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %.06, %12 ], [ %.06, %8 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %16, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %18 = load i32, ptr %4, align 4, !tbaa !3
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %4, align 4, !tbaa !3
-  %20 = icmp slt i32 %19, %1
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %17 = load i32, ptr %4, align 4, !tbaa !3
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %4, align 4, !tbaa !3
+  %19 = icmp slt i32 %18, %1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -621,12 +620,12 @@ define noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItE
   br label %9
 
 ._crit_edge:                                      ; preds = %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit, %3
-  %.0.lcssa = phi i1 [ true, %3 ], [ %68, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
+  %.0.lcssa = phi i1 [ true, %3 ], [ %66, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
-  %.014 = phi i1 [ true, %.lr.ph ], [ %68, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
+  %.014 = phi i1 [ true, %.lr.ph ], [ %66, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %10, label %11, label %_ZN4base16IsValidCharacterEj.exit.thread6.i
@@ -651,139 +650,133 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i:      ; preds = %15, %9
   store i32 65533, ptr %5, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread
 
-_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread:        ; preds = %11, %_ZN4base16IsValidCharacterEj.exit.thread6.i
-  %.ph = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %12, %11 ]
-  %.0.i.ph = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ true, %11 ]
-  %19 = and i1 %.014, %.0.i.ph
-  br label %50
-
 _ZN3url11ReadUTFCharEPKcPiiPj.exit:               ; preds = %15
-  %20 = icmp samesign ugt i32 %12, 65535
-  br i1 %20, label %21, label %50
+  %19 = icmp samesign ugt i32 %12, 65535
+  br i1 %19, label %20, label %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread
 
-21:                                               ; preds = %_ZN3url11ReadUTFCharEPKcPiiPj.exit
-  %22 = lshr i32 %12, 10
-  %23 = trunc nuw nsw i32 %22 to i16
-  %24 = add nuw nsw i16 %23, -10304
-  %25 = load i32, ptr %7, align 4, !tbaa !25
-  %26 = load i32, ptr %8, align 8, !tbaa !28
-  %27 = icmp slt i32 %25, %26
-  br i1 %27, label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
+20:                                               ; preds = %_ZN3url11ReadUTFCharEPKcPiiPj.exit
+  %21 = lshr i32 %12, 10
+  %22 = trunc nuw nsw i32 %21 to i16
+  %23 = add nuw nsw i16 %22, -10304
+  %24 = load i32, ptr %7, align 4, !tbaa !25
+  %25 = load i32, ptr %8, align 8, !tbaa !28
+  %26 = icmp slt i32 %24, %25
+  br i1 %26, label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
 
-select.unfold.i.preheader.i.i:                    ; preds = %21
-  %28 = icmp eq i32 %26, 0
-  %spec.select = select i1 %28, i32 16, i32 %26
+select.unfold.i.preheader.i.i:                    ; preds = %20
+  %27 = icmp eq i32 %25, 0
+  %spec.select = select i1 %27, i32 16, i32 %25
   br label %select.unfold.i.i.i
 
-select.unfold.i.i.i:                              ; preds = %select.unfold.i.preheader.i.i, %30
-  %.0.i.i.i = phi i32 [ %31, %30 ], [ %spec.select, %select.unfold.i.preheader.i.i ]
-  %29 = icmp slt i32 %.0.i.i.i, 1073741824
-  br i1 %29, label %30, label %_ZN3url12CanonOutputTItE9push_backEt.exit.i
+select.unfold.i.i.i:                              ; preds = %select.unfold.i.preheader.i.i, %29
+  %.0.i.i.i = phi i32 [ %30, %29 ], [ %spec.select, %select.unfold.i.preheader.i.i ]
+  %28 = icmp slt i32 %.0.i.i.i, 1073741824
+  br i1 %28, label %29, label %_ZN3url12CanonOutputTItE9push_backEt.exit.i
 
-30:                                               ; preds = %select.unfold.i.i.i
-  %31 = shl nsw i32 %.0.i.i.i, 1
-  %.not.i.i = icmp sgt i32 %31, %26
-  br i1 %.not.i.i, label %32, label %select.unfold.i.i.i, !llvm.loop !29
+29:                                               ; preds = %select.unfold.i.i.i
+  %30 = shl nsw i32 %.0.i.i.i, 1
+  %.not.i.i = icmp sgt i32 %30, %25
+  br i1 %.not.i.i, label %31, label %select.unfold.i.i.i, !llvm.loop !29
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %2, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %31)
-  %36 = load i32, ptr %7, align 4, !tbaa !25
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %2, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %30)
+  %35 = load i32, ptr %7, align 4, !tbaa !25
   %.pre.pre.i = load i32, ptr %8, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i
 
-_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i: ; preds = %32, %21
-  %.pre.i = phi i32 [ %.pre.pre.i, %32 ], [ %26, %21 ]
-  %.sink.i.i = phi i32 [ %36, %32 ], [ %25, %21 ]
+_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i: ; preds = %31, %20
+  %.pre.i = phi i32 [ %.pre.pre.i, %31 ], [ %25, %20 ]
+  %.sink.i.i = phi i32 [ %35, %31 ], [ %24, %20 ]
   %.sink5.i.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !30
-  %37 = sext i32 %.sink.i.i to i64
-  %38 = getelementptr inbounds i16, ptr %.sink5.i.i, i64 %37
-  store i16 %24, ptr %38, align 2, !tbaa !19
-  %39 = add nsw i32 %.sink.i.i, 1
-  store i32 %39, ptr %7, align 4, !tbaa !25
+  %36 = sext i32 %.sink.i.i to i64
+  %37 = getelementptr inbounds i16, ptr %.sink5.i.i, i64 %36
+  store i16 %23, ptr %37, align 2, !tbaa !19
+  %38 = add nsw i32 %.sink.i.i, 1
+  store i32 %38, ptr %7, align 4, !tbaa !25
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i
-  %40 = phi i32 [ %.pre.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i ], [ %26, %select.unfold.i.i.i ]
-  %41 = phi i32 [ %39, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i ], [ %25, %select.unfold.i.i.i ]
-  %42 = trunc i32 %12 to i16
-  %43 = and i16 %42, 1023
-  %44 = or disjoint i16 %43, -9216
-  %45 = icmp slt i32 %41, %40
-  br i1 %45, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split, label %select.unfold.i.preheader.i6.i
+  %39 = phi i32 [ %.pre.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i ], [ %25, %select.unfold.i.i.i ]
+  %40 = phi i32 [ %38, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i ], [ %24, %select.unfold.i.i.i ]
+  %41 = trunc i32 %12 to i16
+  %42 = and i16 %41, 1023
+  %43 = or disjoint i16 %42, -9216
+  %44 = icmp slt i32 %40, %39
+  br i1 %44, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split, label %select.unfold.i.preheader.i6.i
 
 select.unfold.i.preheader.i6.i:                   ; preds = %_ZN3url12CanonOutputTItE9push_backEt.exit.i
-  %46 = icmp eq i32 %40, 0
-  %spec.select40 = select i1 %46, i32 16, i32 %40
+  %45 = icmp eq i32 %39, 0
+  %spec.select39 = select i1 %45, i32 16, i32 %39
   br label %select.unfold.i.i8.i
 
-select.unfold.i.i8.i:                             ; preds = %select.unfold.i.preheader.i6.i, %48
-  %.0.i.i9.i = phi i32 [ %49, %48 ], [ %spec.select40, %select.unfold.i.preheader.i6.i ]
-  %47 = icmp slt i32 %.0.i.i9.i, 1073741824
-  br i1 %47, label %48, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
+select.unfold.i.i8.i:                             ; preds = %select.unfold.i.preheader.i6.i, %47
+  %.0.i.i9.i = phi i32 [ %48, %47 ], [ %spec.select39, %select.unfold.i.preheader.i6.i ]
+  %46 = icmp slt i32 %.0.i.i9.i, 1073741824
+  br i1 %46, label %47, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
 
-48:                                               ; preds = %select.unfold.i.i8.i
-  %49 = shl nsw i32 %.0.i.i9.i, 1
-  %.not.i10.i = icmp sgt i32 %49, %40
+47:                                               ; preds = %select.unfold.i.i8.i
+  %48 = shl nsw i32 %.0.i.i9.i, 1
+  %.not.i10.i = icmp sgt i32 %48, %39
   br i1 %.not.i10.i, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split, label %select.unfold.i.i8.i, !llvm.loop !29
 
-50:                                               ; preds = %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread, %_ZN3url11ReadUTFCharEPKcPiiPj.exit
-  %51 = phi i1 [ %19, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %.014, %_ZN3url11ReadUTFCharEPKcPiiPj.exit ]
-  %52 = phi i32 [ %.ph, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %12, %_ZN3url11ReadUTFCharEPKcPiiPj.exit ]
-  %53 = trunc nuw i32 %52 to i16
-  %54 = load i32, ptr %7, align 4, !tbaa !25
-  %55 = load i32, ptr %8, align 8, !tbaa !28
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split, label %select.unfold.i.preheader.i16.i
+_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i, %11, %_ZN3url11ReadUTFCharEPKcPiiPj.exit
+  %49 = phi i1 [ %.014, %_ZN3url11ReadUTFCharEPKcPiiPj.exit ], [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %.014, %11 ]
+  %50 = phi i32 [ %12, %_ZN3url11ReadUTFCharEPKcPiiPj.exit ], [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %12, %11 ]
+  %51 = trunc nuw i32 %50 to i16
+  %52 = load i32, ptr %7, align 4, !tbaa !25
+  %53 = load i32, ptr %8, align 8, !tbaa !28
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split, label %select.unfold.i.preheader.i16.i
 
-select.unfold.i.preheader.i16.i:                  ; preds = %50
-  %57 = icmp eq i32 %55, 0
-  %spec.select41 = select i1 %57, i32 16, i32 %55
+select.unfold.i.preheader.i16.i:                  ; preds = %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread
+  %55 = icmp eq i32 %53, 0
+  %spec.select40 = select i1 %55, i32 16, i32 %53
   br label %select.unfold.i.i18.i
 
-select.unfold.i.i18.i:                            ; preds = %select.unfold.i.preheader.i16.i, %59
-  %.0.i.i19.i = phi i32 [ %60, %59 ], [ %spec.select41, %select.unfold.i.preheader.i16.i ]
-  %58 = icmp slt i32 %.0.i.i19.i, 1073741824
-  br i1 %58, label %59, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
+select.unfold.i.i18.i:                            ; preds = %select.unfold.i.preheader.i16.i, %57
+  %.0.i.i19.i = phi i32 [ %58, %57 ], [ %spec.select40, %select.unfold.i.preheader.i16.i ]
+  %56 = icmp slt i32 %.0.i.i19.i, 1073741824
+  br i1 %56, label %57, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
 
-59:                                               ; preds = %select.unfold.i.i18.i
-  %60 = shl nsw i32 %.0.i.i19.i, 1
-  %.not.i20.i = icmp sgt i32 %60, %55
+57:                                               ; preds = %select.unfold.i.i18.i
+  %58 = shl nsw i32 %.0.i.i19.i, 1
+  %.not.i20.i = icmp sgt i32 %58, %53
   br i1 %.not.i20.i, label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split, label %select.unfold.i.i18.i, !llvm.loop !29
 
-_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split: ; preds = %48, %59
-  %.lcssa38.sink = phi i32 [ %60, %59 ], [ %49, %48 ]
-  %.sink.ph = phi i16 [ %53, %59 ], [ %44, %48 ]
-  %.ph42.ph = phi i1 [ %51, %59 ], [ %.014, %48 ]
-  %61 = load ptr, ptr %2, align 8, !tbaa !15
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.lcssa38.sink)
-  %64 = load i32, ptr %7, align 4, !tbaa !25
+_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split: ; preds = %47, %57
+  %.lcssa37.sink = phi i32 [ %58, %57 ], [ %48, %47 ]
+  %.sink.ph = phi i16 [ %51, %57 ], [ %43, %47 ]
+  %.ph.ph = phi i1 [ %49, %57 ], [ %.014, %47 ]
+  %59 = load ptr, ptr %2, align 8, !tbaa !15
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.lcssa37.sink)
+  %62 = load i32, ptr %7, align 4, !tbaa !25
   br label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split
 
-_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split: ; preds = %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split, %50, %_ZN3url12CanonOutputTItE9push_backEt.exit.i
-  %.sink.i12.i.sink45 = phi i32 [ %41, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %54, %50 ], [ %64, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
-  %.sink = phi i16 [ %44, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %53, %50 ], [ %.sink.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
-  %.ph42 = phi i1 [ %.014, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %51, %50 ], [ %.ph42.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
+_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split: ; preds = %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread, %_ZN3url12CanonOutputTItE9push_backEt.exit.i
+  %.sink.i12.i.sink43 = phi i32 [ %40, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %52, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %62, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
+  %.sink = phi i16 [ %43, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %51, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %.sink.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
+  %.ph = phi i1 [ %.014, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %49, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %.ph.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
   %.sink5.i14.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !30
-  %65 = sext i32 %.sink.i12.i.sink45 to i64
-  %66 = getelementptr inbounds i16, ptr %.sink5.i14.i, i64 %65
-  store i16 %.sink, ptr %66, align 2, !tbaa !19
-  %67 = add nsw i32 %.sink.i12.i.sink45, 1
-  store i32 %67, ptr %7, align 4, !tbaa !25
+  %63 = sext i32 %.sink.i12.i.sink43 to i64
+  %64 = getelementptr inbounds i16, ptr %.sink5.i14.i, i64 %63
+  store i16 %.sink, ptr %64, align 2, !tbaa !19
+  %65 = add nsw i32 %.sink.i12.i.sink43, 1
+  store i32 %65, ptr %7, align 4, !tbaa !25
   br label %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
 
 _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit: ; preds = %select.unfold.i.i8.i, %select.unfold.i.i18.i, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split
-  %68 = phi i1 [ %.ph42, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split ], [ %51, %select.unfold.i.i18.i ], [ %.014, %select.unfold.i.i8.i ]
+  %66 = phi i1 [ %.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split ], [ %49, %select.unfold.i.i18.i ], [ %.014, %select.unfold.i.i8.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %69 = load i32, ptr %4, align 4, !tbaa !3
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %4, align 4, !tbaa !3
-  %71 = icmp slt i32 %70, %1
-  br i1 %71, label %9, label %._crit_edge, !llvm.loop !31
+  %67 = load i32, ptr %4, align 4, !tbaa !3
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %4, align 4, !tbaa !3
+  %69 = icmp slt i32 %68, %1
+  br i1 %69, label %9, label %._crit_edge, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -971,7 +964,7 @@ define noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12Repla
   br i1 %34, label %.lr.ph.i.i, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i
-  %.06.i.i = phi i1 [ %45, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i ], [ true, %28 ]
+  %.06.i.i = phi i1 [ %.0.i.i.i, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i ], [ true, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %35 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %33, i32 noundef %26, ptr noundef nonnull %20, ptr noundef nonnull %21)
   br i1 %35, label %36, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i
@@ -998,15 +991,14 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %40, %.lr.ph.i.i
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i:           ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %40, %36
   %44 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %37, %40 ], [ %37, %36 ]
-  %.0.i.i.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ true, %40 ], [ true, %36 ]
-  %45 = and i1 %.06.i.i, %.0.i.i.i
+  %.0.i.i.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %.06.i.i, %40 ], [ %.06.i.i, %36 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %44, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %46 = load i32, ptr %20, align 4, !tbaa !3
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %20, align 4, !tbaa !3
-  %48 = icmp slt i32 %47, %26
-  br i1 %48, label %.lr.ph.i.i, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i, !llvm.loop !24
+  %45 = load i32, ptr %20, align 4, !tbaa !3
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %20, align 4, !tbaa !3
+  %47 = icmp slt i32 %46, %26
+  br i1 %47, label %.lr.ph.i.i, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i
   %.pre.i = load i32, ptr %29, align 4, !tbaa !8
@@ -1014,708 +1006,701 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i: ; preds 
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i, %28
-  %49 = phi i32 [ %30, %28 ], [ %.pre14.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
-  %50 = phi i32 [ %30, %28 ], [ %.pre.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
-  %.0.lcssa.i.i = phi i1 [ true, %28 ], [ %45, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
+  %48 = phi i32 [ %30, %28 ], [ %.pre14.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
+  %49 = phi i32 [ %30, %28 ], [ %.pre.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
+  %.0.lcssa.i.i = phi i1 [ true, %28 ], [ %.0.i.i.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %51 = sub nsw i32 %50, %49
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %51, ptr %52, align 4, !tbaa !48
+  %50 = sub nsw i32 %49, %48
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %50, ptr %51, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit
 
 _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit: ; preds = %5, %27, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i
   %.0.i = phi i1 [ %.0.lcssa.i.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i ], [ true, %27 ], [ true, %5 ]
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !50
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not.i73 = icmp eq ptr %54, null
-  br i1 %.not.i73, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90, label %57
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.not.i73 = icmp eq ptr %53, null
+  br i1 %.not.i73, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90, label %56
 
-57:                                               ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %59 = load i32, ptr %58, align 4, !tbaa !48
-  %.not13.i74 = icmp eq i32 %59, -1
-  br i1 %.not13.i74, label %60, label %61
+56:                                               ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %58 = load i32, ptr %57, align 4, !tbaa !48
+  %.not13.i74 = icmp eq i32 %58, -1
+  br i1 %.not13.i74, label %59, label %60
 
-60:                                               ; preds = %57
-  store i64 -4294967296, ptr %56, align 4
+59:                                               ; preds = %56
+  store i64 -4294967296, ptr %55, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %63 = load i32, ptr %62, align 4, !tbaa !8
-  store i32 %63, ptr %56, align 4, !tbaa !49
-  %64 = load i32, ptr %55, align 8, !tbaa !49
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %54, i64 %65
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %62 = load i32, ptr %61, align 4, !tbaa !8
+  store i32 %62, ptr %55, align 4, !tbaa !49
+  %63 = load i32, ptr %54, align 8, !tbaa !49
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i16, ptr %53, i64 %64
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !3
-  %67 = icmp sgt i32 %59, 0
-  br i1 %67, label %.lr.ph.i.i78, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
+  %66 = icmp sgt i32 %58, 0
+  br i1 %66, label %.lr.ph.i.i78, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
 
-.lr.ph.i.i78:                                     ; preds = %61, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
-  %.06.i.i79 = phi i1 [ %78, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81 ], [ true, %61 ]
+.lr.ph.i.i78:                                     ; preds = %60, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
+  %.06.i.i79 = phi i1 [ %.0.i.i.i82, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81 ], [ true, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %68 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %66, i32 noundef %59, ptr noundef nonnull %18, ptr noundef nonnull %19)
-  br i1 %68, label %69, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80
+  %67 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %65, i32 noundef %58, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  br i1 %67, label %68, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80
 
-69:                                               ; preds = %.lr.ph.i.i78
-  %70 = load i32, ptr %19, align 4, !tbaa !3
-  %71 = icmp ult i32 %70, 55296
-  %72 = add i32 %70, -57344
-  %or.cond.i.i.i.i86 = icmp ult i32 %72, 7632
-  %or.cond9.i.i.i.i87 = or i1 %71, %or.cond.i.i.i.i86
-  br i1 %or.cond9.i.i.i.i87, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81, label %73
+68:                                               ; preds = %.lr.ph.i.i78
+  %69 = load i32, ptr %19, align 4, !tbaa !3
+  %70 = icmp ult i32 %69, 55296
+  %71 = add i32 %69, -57344
+  %or.cond.i.i.i.i86 = icmp ult i32 %71, 7632
+  %or.cond9.i.i.i.i87 = or i1 %70, %or.cond.i.i.i.i86
+  br i1 %or.cond9.i.i.i.i87, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81, label %72
 
-73:                                               ; preds = %69
-  %74 = add i32 %70, -65008
-  %or.cond3.i.i.i.i88 = icmp ult i32 %74, 1049104
-  %75 = and i32 %70, 65534
-  %76 = icmp ne i32 %75, 65534
-  %or.cond.i.i.i89 = and i1 %or.cond3.i.i.i.i88, %76
+72:                                               ; preds = %68
+  %73 = add i32 %69, -65008
+  %or.cond3.i.i.i.i88 = icmp ult i32 %73, 1049104
+  %74 = and i32 %69, 65534
+  %75 = icmp ne i32 %74, 65534
+  %or.cond.i.i.i89 = and i1 %or.cond3.i.i.i.i88, %75
   br i1 %or.cond.i.i.i89, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80: ; preds = %73, %.lr.ph.i.i78
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80: ; preds = %72, %.lr.ph.i.i78
   store i32 65533, ptr %19, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80, %73, %69
-  %77 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ %70, %73 ], [ %70, %69 ]
-  %.0.i.i.i82 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ true, %73 ], [ true, %69 ]
-  %78 = and i1 %.06.i.i79, %.0.i.i.i82
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %77, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80, %72, %68
+  %76 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ %69, %72 ], [ %69, %68 ]
+  %.0.i.i.i82 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ %.06.i.i79, %72 ], [ %.06.i.i79, %68 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %76, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %79 = load i32, ptr %18, align 4, !tbaa !3
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %18, align 4, !tbaa !3
-  %81 = icmp slt i32 %80, %59
-  br i1 %81, label %.lr.ph.i.i78, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83, !llvm.loop !24
+  %77 = load i32, ptr %18, align 4, !tbaa !3
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %18, align 4, !tbaa !3
+  %79 = icmp slt i32 %78, %58
+  br i1 %79, label %.lr.ph.i.i78, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
-  %.pre.i84 = load i32, ptr %62, align 4, !tbaa !8
-  %.pre14.i85 = load i32, ptr %56, align 4, !tbaa !49
+  %.pre.i84 = load i32, ptr %61, align 4, !tbaa !8
+  %.pre14.i85 = load i32, ptr %55, align 4, !tbaa !49
+  %80 = and i1 %.0.i, %.0.i.i.i82
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83, %61
-  %82 = phi i32 [ %63, %61 ], [ %.pre14.i85, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
-  %83 = phi i32 [ %63, %61 ], [ %.pre.i84, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
-  %.0.lcssa.i.i76 = phi i1 [ true, %61 ], [ %78, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83, %60
+  %81 = phi i32 [ %62, %60 ], [ %.pre14.i85, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
+  %82 = phi i32 [ %62, %60 ], [ %.pre.i84, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
+  %.0.lcssa.i.i76 = phi i1 [ %.0.i, %60 ], [ %80, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %84 = sub nsw i32 %83, %82
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %84, ptr %85, align 4, !tbaa !48
+  %83 = sub nsw i32 %82, %81
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 %83, ptr %84, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit, %60, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
-  %.0.i77 = phi i1 [ %.0.lcssa.i.i76, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75 ], [ true, %60 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not.i91 = icmp eq ptr %87, null
-  br i1 %.not.i91, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108, label %90
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit, %59, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
+  %.0.i77 = phi i1 [ %.0.lcssa.i.i76, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75 ], [ %.0.i, %59 ], [ %.0.i, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit ]
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !51
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.not.i91 = icmp eq ptr %86, null
+  br i1 %.not.i91, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108, label %89
 
-90:                                               ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %92 = load i32, ptr %91, align 4, !tbaa !48
-  %.not13.i92 = icmp eq i32 %92, -1
-  br i1 %.not13.i92, label %93, label %94
+89:                                               ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %91 = load i32, ptr %90, align 4, !tbaa !48
+  %.not13.i92 = icmp eq i32 %91, -1
+  br i1 %.not13.i92, label %92, label %93
 
-93:                                               ; preds = %90
-  store i64 -4294967296, ptr %89, align 4
+92:                                               ; preds = %89
+  store i64 -4294967296, ptr %88, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %96 = load i32, ptr %95, align 4, !tbaa !8
-  store i32 %96, ptr %89, align 4, !tbaa !49
-  %97 = load i32, ptr %88, align 8, !tbaa !49
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %87, i64 %98
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %95 = load i32, ptr %94, align 4, !tbaa !8
+  store i32 %95, ptr %88, align 4, !tbaa !49
+  %96 = load i32, ptr %87, align 8, !tbaa !49
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i16, ptr %86, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !3
-  %100 = icmp sgt i32 %92, 0
-  br i1 %100, label %.lr.ph.i.i96, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
+  %99 = icmp sgt i32 %91, 0
+  br i1 %99, label %.lr.ph.i.i96, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
 
-.lr.ph.i.i96:                                     ; preds = %94, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
-  %.06.i.i97 = phi i1 [ %111, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99 ], [ true, %94 ]
+.lr.ph.i.i96:                                     ; preds = %93, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
+  %.06.i.i97 = phi i1 [ %.0.i.i.i100, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99 ], [ true, %93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %101 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %99, i32 noundef %92, ptr noundef nonnull %16, ptr noundef nonnull %17)
-  br i1 %101, label %102, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98
+  %100 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %98, i32 noundef %91, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  br i1 %100, label %101, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98
 
-102:                                              ; preds = %.lr.ph.i.i96
-  %103 = load i32, ptr %17, align 4, !tbaa !3
-  %104 = icmp ult i32 %103, 55296
-  %105 = add i32 %103, -57344
-  %or.cond.i.i.i.i104 = icmp ult i32 %105, 7632
-  %or.cond9.i.i.i.i105 = or i1 %104, %or.cond.i.i.i.i104
-  br i1 %or.cond9.i.i.i.i105, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99, label %106
+101:                                              ; preds = %.lr.ph.i.i96
+  %102 = load i32, ptr %17, align 4, !tbaa !3
+  %103 = icmp ult i32 %102, 55296
+  %104 = add i32 %102, -57344
+  %or.cond.i.i.i.i104 = icmp ult i32 %104, 7632
+  %or.cond9.i.i.i.i105 = or i1 %103, %or.cond.i.i.i.i104
+  br i1 %or.cond9.i.i.i.i105, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99, label %105
 
-106:                                              ; preds = %102
-  %107 = add i32 %103, -65008
-  %or.cond3.i.i.i.i106 = icmp ult i32 %107, 1049104
-  %108 = and i32 %103, 65534
-  %109 = icmp ne i32 %108, 65534
-  %or.cond.i.i.i107 = and i1 %or.cond3.i.i.i.i106, %109
+105:                                              ; preds = %101
+  %106 = add i32 %102, -65008
+  %or.cond3.i.i.i.i106 = icmp ult i32 %106, 1049104
+  %107 = and i32 %102, 65534
+  %108 = icmp ne i32 %107, 65534
+  %or.cond.i.i.i107 = and i1 %or.cond3.i.i.i.i106, %108
   br i1 %or.cond.i.i.i107, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98: ; preds = %106, %.lr.ph.i.i96
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98: ; preds = %105, %.lr.ph.i.i96
   store i32 65533, ptr %17, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98, %106, %102
-  %110 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ %103, %106 ], [ %103, %102 ]
-  %.0.i.i.i100 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ true, %106 ], [ true, %102 ]
-  %111 = and i1 %.06.i.i97, %.0.i.i.i100
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %110, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98, %105, %101
+  %109 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ %102, %105 ], [ %102, %101 ]
+  %.0.i.i.i100 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ %.06.i.i97, %105 ], [ %.06.i.i97, %101 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %109, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %112 = load i32, ptr %16, align 4, !tbaa !3
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %16, align 4, !tbaa !3
-  %114 = icmp slt i32 %113, %92
-  br i1 %114, label %.lr.ph.i.i96, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101, !llvm.loop !24
+  %110 = load i32, ptr %16, align 4, !tbaa !3
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %16, align 4, !tbaa !3
+  %112 = icmp slt i32 %111, %91
+  br i1 %112, label %.lr.ph.i.i96, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
-  %.pre.i102 = load i32, ptr %95, align 4, !tbaa !8
-  %.pre14.i103 = load i32, ptr %89, align 4, !tbaa !49
+  %.pre.i102 = load i32, ptr %94, align 4, !tbaa !8
+  %.pre14.i103 = load i32, ptr %88, align 4, !tbaa !49
+  %113 = and i1 %.0.i77, %.0.i.i.i100
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101, %94
-  %115 = phi i32 [ %96, %94 ], [ %.pre14.i103, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
-  %116 = phi i32 [ %96, %94 ], [ %.pre.i102, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
-  %.0.lcssa.i.i94 = phi i1 [ true, %94 ], [ %111, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101, %93
+  %114 = phi i32 [ %95, %93 ], [ %.pre14.i103, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
+  %115 = phi i32 [ %95, %93 ], [ %.pre.i102, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
+  %.0.lcssa.i.i94 = phi i1 [ %.0.i77, %93 ], [ %113, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %117 = sub nsw i32 %116, %115
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %117, ptr %118, align 4, !tbaa !48
+  %116 = sub nsw i32 %115, %114
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %116, ptr %117, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90, %93, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
-  %.0.i95 = phi i1 [ %.0.lcssa.i.i94, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93 ], [ true, %93 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90 ]
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !52
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.not.i109 = icmp eq ptr %120, null
-  br i1 %.not.i109, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126, label %123
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90, %92, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
+  %.0.i95 = phi i1 [ %.0.lcssa.i.i94, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93 ], [ %.0.i77, %92 ], [ %.0.i77, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit90 ]
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %119 = load ptr, ptr %118, align 8, !tbaa !52
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.not.i109 = icmp eq ptr %119, null
+  br i1 %.not.i109, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126, label %122
 
-123:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %125 = load i32, ptr %124, align 4, !tbaa !48
-  %.not13.i110 = icmp eq i32 %125, -1
-  br i1 %.not13.i110, label %126, label %127
+122:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %124 = load i32, ptr %123, align 4, !tbaa !48
+  %.not13.i110 = icmp eq i32 %124, -1
+  br i1 %.not13.i110, label %125, label %126
 
-126:                                              ; preds = %123
-  store i64 -4294967296, ptr %122, align 4
+125:                                              ; preds = %122
+  store i64 -4294967296, ptr %121, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %129 = load i32, ptr %128, align 4, !tbaa !8
-  store i32 %129, ptr %122, align 4, !tbaa !49
-  %130 = load i32, ptr %121, align 8, !tbaa !49
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i16, ptr %120, i64 %131
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %128 = load i32, ptr %127, align 4, !tbaa !8
+  store i32 %128, ptr %121, align 4, !tbaa !49
+  %129 = load i32, ptr %120, align 8, !tbaa !49
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i16, ptr %119, i64 %130
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !3
-  %133 = icmp sgt i32 %125, 0
-  br i1 %133, label %.lr.ph.i.i114, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
+  %132 = icmp sgt i32 %124, 0
+  br i1 %132, label %.lr.ph.i.i114, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
 
-.lr.ph.i.i114:                                    ; preds = %127, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
-  %.06.i.i115 = phi i1 [ %144, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117 ], [ true, %127 ]
+.lr.ph.i.i114:                                    ; preds = %126, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
+  %.06.i.i115 = phi i1 [ %.0.i.i.i118, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117 ], [ true, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %134 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %132, i32 noundef %125, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  br i1 %134, label %135, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116
+  %133 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %131, i32 noundef %124, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  br i1 %133, label %134, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116
 
-135:                                              ; preds = %.lr.ph.i.i114
-  %136 = load i32, ptr %15, align 4, !tbaa !3
-  %137 = icmp ult i32 %136, 55296
-  %138 = add i32 %136, -57344
-  %or.cond.i.i.i.i122 = icmp ult i32 %138, 7632
-  %or.cond9.i.i.i.i123 = or i1 %137, %or.cond.i.i.i.i122
-  br i1 %or.cond9.i.i.i.i123, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117, label %139
+134:                                              ; preds = %.lr.ph.i.i114
+  %135 = load i32, ptr %15, align 4, !tbaa !3
+  %136 = icmp ult i32 %135, 55296
+  %137 = add i32 %135, -57344
+  %or.cond.i.i.i.i122 = icmp ult i32 %137, 7632
+  %or.cond9.i.i.i.i123 = or i1 %136, %or.cond.i.i.i.i122
+  br i1 %or.cond9.i.i.i.i123, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117, label %138
 
-139:                                              ; preds = %135
-  %140 = add i32 %136, -65008
-  %or.cond3.i.i.i.i124 = icmp ult i32 %140, 1049104
-  %141 = and i32 %136, 65534
-  %142 = icmp ne i32 %141, 65534
-  %or.cond.i.i.i125 = and i1 %or.cond3.i.i.i.i124, %142
+138:                                              ; preds = %134
+  %139 = add i32 %135, -65008
+  %or.cond3.i.i.i.i124 = icmp ult i32 %139, 1049104
+  %140 = and i32 %135, 65534
+  %141 = icmp ne i32 %140, 65534
+  %or.cond.i.i.i125 = and i1 %or.cond3.i.i.i.i124, %141
   br i1 %or.cond.i.i.i125, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116: ; preds = %139, %.lr.ph.i.i114
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116: ; preds = %138, %.lr.ph.i.i114
   store i32 65533, ptr %15, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116, %139, %135
-  %143 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ %136, %139 ], [ %136, %135 ]
-  %.0.i.i.i118 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ true, %139 ], [ true, %135 ]
-  %144 = and i1 %.06.i.i115, %.0.i.i.i118
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %143, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116, %138, %134
+  %142 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ %135, %138 ], [ %135, %134 ]
+  %.0.i.i.i118 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ %.06.i.i115, %138 ], [ %.06.i.i115, %134 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %142, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %145 = load i32, ptr %14, align 4, !tbaa !3
-  %146 = add nsw i32 %145, 1
-  store i32 %146, ptr %14, align 4, !tbaa !3
-  %147 = icmp slt i32 %146, %125
-  br i1 %147, label %.lr.ph.i.i114, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119, !llvm.loop !24
+  %143 = load i32, ptr %14, align 4, !tbaa !3
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %14, align 4, !tbaa !3
+  %145 = icmp slt i32 %144, %124
+  br i1 %145, label %.lr.ph.i.i114, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
-  %.pre.i120 = load i32, ptr %128, align 4, !tbaa !8
-  %.pre14.i121 = load i32, ptr %122, align 4, !tbaa !49
+  %.pre.i120 = load i32, ptr %127, align 4, !tbaa !8
+  %.pre14.i121 = load i32, ptr %121, align 4, !tbaa !49
+  %146 = and i1 %.0.i95, %.0.i.i.i118
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119, %127
-  %148 = phi i32 [ %129, %127 ], [ %.pre14.i121, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
-  %149 = phi i32 [ %129, %127 ], [ %.pre.i120, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
-  %.0.lcssa.i.i112 = phi i1 [ true, %127 ], [ %144, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119, %126
+  %147 = phi i32 [ %128, %126 ], [ %.pre14.i121, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
+  %148 = phi i32 [ %128, %126 ], [ %.pre.i120, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
+  %.0.lcssa.i.i112 = phi i1 [ %.0.i95, %126 ], [ %146, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %150 = sub nsw i32 %149, %148
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %150, ptr %151, align 4, !tbaa !48
+  %149 = sub nsw i32 %148, %147
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %149, ptr %150, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108, %126, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
-  %.0.i113 = phi i1 [ %.0.lcssa.i.i112, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111 ], [ true, %126 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108 ]
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %153 = load ptr, ptr %152, align 8, !tbaa !53
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %155 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.not.i127 = icmp eq ptr %153, null
-  br i1 %.not.i127, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144, label %156
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108, %125, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
+  %.0.i113 = phi i1 [ %.0.lcssa.i.i112, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111 ], [ %.0.i95, %125 ], [ %.0.i95, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit108 ]
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %152 = load ptr, ptr %151, align 8, !tbaa !53
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.not.i127 = icmp eq ptr %152, null
+  br i1 %.not.i127, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144, label %155
 
-156:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %158 = load i32, ptr %157, align 4, !tbaa !48
-  %.not13.i128 = icmp eq i32 %158, -1
-  br i1 %.not13.i128, label %159, label %160
+155:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %157 = load i32, ptr %156, align 4, !tbaa !48
+  %.not13.i128 = icmp eq i32 %157, -1
+  br i1 %.not13.i128, label %158, label %159
 
-159:                                              ; preds = %156
-  store i64 -4294967296, ptr %155, align 4
+158:                                              ; preds = %155
+  store i64 -4294967296, ptr %154, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %162 = load i32, ptr %161, align 4, !tbaa !8
-  store i32 %162, ptr %155, align 4, !tbaa !49
-  %163 = load i32, ptr %154, align 8, !tbaa !49
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i16, ptr %153, i64 %164
+159:                                              ; preds = %155
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %161 = load i32, ptr %160, align 4, !tbaa !8
+  store i32 %161, ptr %154, align 4, !tbaa !49
+  %162 = load i32, ptr %153, align 8, !tbaa !49
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i16, ptr %152, i64 %163
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !3
-  %166 = icmp sgt i32 %158, 0
-  br i1 %166, label %.lr.ph.i.i132, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
+  %165 = icmp sgt i32 %157, 0
+  br i1 %165, label %.lr.ph.i.i132, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
 
-.lr.ph.i.i132:                                    ; preds = %160, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
-  %.06.i.i133 = phi i1 [ %177, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135 ], [ true, %160 ]
+.lr.ph.i.i132:                                    ; preds = %159, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
+  %.06.i.i133 = phi i1 [ %.0.i.i.i136, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135 ], [ true, %159 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %167 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %165, i32 noundef %158, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  br i1 %167, label %168, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134
+  %166 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %164, i32 noundef %157, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  br i1 %166, label %167, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134
 
-168:                                              ; preds = %.lr.ph.i.i132
-  %169 = load i32, ptr %13, align 4, !tbaa !3
-  %170 = icmp ult i32 %169, 55296
-  %171 = add i32 %169, -57344
-  %or.cond.i.i.i.i140 = icmp ult i32 %171, 7632
-  %or.cond9.i.i.i.i141 = or i1 %170, %or.cond.i.i.i.i140
-  br i1 %or.cond9.i.i.i.i141, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135, label %172
+167:                                              ; preds = %.lr.ph.i.i132
+  %168 = load i32, ptr %13, align 4, !tbaa !3
+  %169 = icmp ult i32 %168, 55296
+  %170 = add i32 %168, -57344
+  %or.cond.i.i.i.i140 = icmp ult i32 %170, 7632
+  %or.cond9.i.i.i.i141 = or i1 %169, %or.cond.i.i.i.i140
+  br i1 %or.cond9.i.i.i.i141, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135, label %171
 
-172:                                              ; preds = %168
-  %173 = add i32 %169, -65008
-  %or.cond3.i.i.i.i142 = icmp ult i32 %173, 1049104
-  %174 = and i32 %169, 65534
-  %175 = icmp ne i32 %174, 65534
-  %or.cond.i.i.i143 = and i1 %or.cond3.i.i.i.i142, %175
+171:                                              ; preds = %167
+  %172 = add i32 %168, -65008
+  %or.cond3.i.i.i.i142 = icmp ult i32 %172, 1049104
+  %173 = and i32 %168, 65534
+  %174 = icmp ne i32 %173, 65534
+  %or.cond.i.i.i143 = and i1 %or.cond3.i.i.i.i142, %174
   br i1 %or.cond.i.i.i143, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134: ; preds = %172, %.lr.ph.i.i132
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134: ; preds = %171, %.lr.ph.i.i132
   store i32 65533, ptr %13, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134, %172, %168
-  %176 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ %169, %172 ], [ %169, %168 ]
-  %.0.i.i.i136 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ true, %172 ], [ true, %168 ]
-  %177 = and i1 %.06.i.i133, %.0.i.i.i136
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %176, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134, %171, %167
+  %175 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ %168, %171 ], [ %168, %167 ]
+  %.0.i.i.i136 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ %.06.i.i133, %171 ], [ %.06.i.i133, %167 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %175, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %178 = load i32, ptr %12, align 4, !tbaa !3
-  %179 = add nsw i32 %178, 1
-  store i32 %179, ptr %12, align 4, !tbaa !3
-  %180 = icmp slt i32 %179, %158
-  br i1 %180, label %.lr.ph.i.i132, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137, !llvm.loop !24
+  %176 = load i32, ptr %12, align 4, !tbaa !3
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %12, align 4, !tbaa !3
+  %178 = icmp slt i32 %177, %157
+  br i1 %178, label %.lr.ph.i.i132, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
-  %.pre.i138 = load i32, ptr %161, align 4, !tbaa !8
-  %.pre14.i139 = load i32, ptr %155, align 4, !tbaa !49
+  %.pre.i138 = load i32, ptr %160, align 4, !tbaa !8
+  %.pre14.i139 = load i32, ptr %154, align 4, !tbaa !49
+  %179 = and i1 %.0.i113, %.0.i.i.i136
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137, %160
-  %181 = phi i32 [ %162, %160 ], [ %.pre14.i139, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
-  %182 = phi i32 [ %162, %160 ], [ %.pre.i138, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
-  %.0.lcssa.i.i130 = phi i1 [ true, %160 ], [ %177, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137, %159
+  %180 = phi i32 [ %161, %159 ], [ %.pre14.i139, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
+  %181 = phi i32 [ %161, %159 ], [ %.pre.i138, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
+  %.0.lcssa.i.i130 = phi i1 [ %.0.i113, %159 ], [ %179, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %183 = sub nsw i32 %182, %181
-  %184 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %183, ptr %184, align 4, !tbaa !48
+  %182 = sub nsw i32 %181, %180
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %182, ptr %183, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126, %159, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
-  %.0.i131 = phi i1 [ %.0.lcssa.i.i130, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129 ], [ true, %159 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126 ]
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %186 = load ptr, ptr %185, align 8, !tbaa !54
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %188 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.not.i145 = icmp eq ptr %186, null
-  br i1 %.not.i145, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162, label %189
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126, %158, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
+  %.0.i131 = phi i1 [ %.0.lcssa.i.i130, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129 ], [ %.0.i113, %158 ], [ %.0.i113, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit126 ]
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %185 = load ptr, ptr %184, align 8, !tbaa !54
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.not.i145 = icmp eq ptr %185, null
+  br i1 %.not.i145, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162, label %188
 
-189:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %191 = load i32, ptr %190, align 4, !tbaa !48
-  %.not13.i146 = icmp eq i32 %191, -1
-  br i1 %.not13.i146, label %192, label %193
+188:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %190 = load i32, ptr %189, align 4, !tbaa !48
+  %.not13.i146 = icmp eq i32 %190, -1
+  br i1 %.not13.i146, label %191, label %192
 
-192:                                              ; preds = %189
-  store i64 -4294967296, ptr %188, align 4
+191:                                              ; preds = %188
+  store i64 -4294967296, ptr %187, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %195 = load i32, ptr %194, align 4, !tbaa !8
-  store i32 %195, ptr %188, align 4, !tbaa !49
-  %196 = load i32, ptr %187, align 8, !tbaa !49
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i16, ptr %186, i64 %197
+192:                                              ; preds = %188
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %194 = load i32, ptr %193, align 4, !tbaa !8
+  store i32 %194, ptr %187, align 4, !tbaa !49
+  %195 = load i32, ptr %186, align 8, !tbaa !49
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds i16, ptr %185, i64 %196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !3
-  %199 = icmp sgt i32 %191, 0
-  br i1 %199, label %.lr.ph.i.i150, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
+  %198 = icmp sgt i32 %190, 0
+  br i1 %198, label %.lr.ph.i.i150, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
 
-.lr.ph.i.i150:                                    ; preds = %193, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
-  %.06.i.i151 = phi i1 [ %210, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153 ], [ true, %193 ]
+.lr.ph.i.i150:                                    ; preds = %192, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
+  %.06.i.i151 = phi i1 [ %.0.i.i.i154, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153 ], [ true, %192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %200 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %198, i32 noundef %191, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br i1 %200, label %201, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152
+  %199 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %197, i32 noundef %190, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  br i1 %199, label %200, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152
 
-201:                                              ; preds = %.lr.ph.i.i150
-  %202 = load i32, ptr %11, align 4, !tbaa !3
-  %203 = icmp ult i32 %202, 55296
-  %204 = add i32 %202, -57344
-  %or.cond.i.i.i.i158 = icmp ult i32 %204, 7632
-  %or.cond9.i.i.i.i159 = or i1 %203, %or.cond.i.i.i.i158
-  br i1 %or.cond9.i.i.i.i159, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153, label %205
+200:                                              ; preds = %.lr.ph.i.i150
+  %201 = load i32, ptr %11, align 4, !tbaa !3
+  %202 = icmp ult i32 %201, 55296
+  %203 = add i32 %201, -57344
+  %or.cond.i.i.i.i158 = icmp ult i32 %203, 7632
+  %or.cond9.i.i.i.i159 = or i1 %202, %or.cond.i.i.i.i158
+  br i1 %or.cond9.i.i.i.i159, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153, label %204
 
-205:                                              ; preds = %201
-  %206 = add i32 %202, -65008
-  %or.cond3.i.i.i.i160 = icmp ult i32 %206, 1049104
-  %207 = and i32 %202, 65534
-  %208 = icmp ne i32 %207, 65534
-  %or.cond.i.i.i161 = and i1 %or.cond3.i.i.i.i160, %208
+204:                                              ; preds = %200
+  %205 = add i32 %201, -65008
+  %or.cond3.i.i.i.i160 = icmp ult i32 %205, 1049104
+  %206 = and i32 %201, 65534
+  %207 = icmp ne i32 %206, 65534
+  %or.cond.i.i.i161 = and i1 %or.cond3.i.i.i.i160, %207
   br i1 %or.cond.i.i.i161, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152: ; preds = %205, %.lr.ph.i.i150
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152: ; preds = %204, %.lr.ph.i.i150
   store i32 65533, ptr %11, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152, %205, %201
-  %209 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ %202, %205 ], [ %202, %201 ]
-  %.0.i.i.i154 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ true, %205 ], [ true, %201 ]
-  %210 = and i1 %.06.i.i151, %.0.i.i.i154
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %209, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152, %204, %200
+  %208 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ %201, %204 ], [ %201, %200 ]
+  %.0.i.i.i154 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ %.06.i.i151, %204 ], [ %.06.i.i151, %200 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %208, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %211 = load i32, ptr %10, align 4, !tbaa !3
-  %212 = add nsw i32 %211, 1
-  store i32 %212, ptr %10, align 4, !tbaa !3
-  %213 = icmp slt i32 %212, %191
-  br i1 %213, label %.lr.ph.i.i150, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155, !llvm.loop !24
+  %209 = load i32, ptr %10, align 4, !tbaa !3
+  %210 = add nsw i32 %209, 1
+  store i32 %210, ptr %10, align 4, !tbaa !3
+  %211 = icmp slt i32 %210, %190
+  br i1 %211, label %.lr.ph.i.i150, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
-  %.pre.i156 = load i32, ptr %194, align 4, !tbaa !8
-  %.pre14.i157 = load i32, ptr %188, align 4, !tbaa !49
+  %.pre.i156 = load i32, ptr %193, align 4, !tbaa !8
+  %.pre14.i157 = load i32, ptr %187, align 4, !tbaa !49
+  %212 = and i1 %.0.i131, %.0.i.i.i154
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155, %193
-  %214 = phi i32 [ %195, %193 ], [ %.pre14.i157, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
-  %215 = phi i32 [ %195, %193 ], [ %.pre.i156, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
-  %.0.lcssa.i.i148 = phi i1 [ true, %193 ], [ %210, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155, %192
+  %213 = phi i32 [ %194, %192 ], [ %.pre14.i157, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
+  %214 = phi i32 [ %194, %192 ], [ %.pre.i156, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
+  %.0.lcssa.i.i148 = phi i1 [ %.0.i131, %192 ], [ %212, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %216 = sub nsw i32 %215, %214
-  %217 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %216, ptr %217, align 4, !tbaa !48
+  %215 = sub nsw i32 %214, %213
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 %215, ptr %216, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144, %192, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
-  %.0.i149 = phi i1 [ %.0.lcssa.i.i148, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147 ], [ true, %192 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144 ]
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %219 = load ptr, ptr %218, align 8, !tbaa !55
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %221 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.not.i163 = icmp eq ptr %219, null
-  br i1 %.not.i163, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180, label %222
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144, %191, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
+  %.0.i149 = phi i1 [ %.0.lcssa.i.i148, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147 ], [ %.0.i131, %191 ], [ %.0.i131, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit144 ]
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %218 = load ptr, ptr %217, align 8, !tbaa !55
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.not.i163 = icmp eq ptr %218, null
+  br i1 %.not.i163, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180, label %221
 
-222:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %224 = load i32, ptr %223, align 4, !tbaa !48
-  %.not13.i164 = icmp eq i32 %224, -1
-  br i1 %.not13.i164, label %225, label %226
+221:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %223 = load i32, ptr %222, align 4, !tbaa !48
+  %.not13.i164 = icmp eq i32 %223, -1
+  br i1 %.not13.i164, label %224, label %225
 
-225:                                              ; preds = %222
-  store i64 -4294967296, ptr %221, align 4
+224:                                              ; preds = %221
+  store i64 -4294967296, ptr %220, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180
 
-226:                                              ; preds = %222
-  %227 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %228 = load i32, ptr %227, align 4, !tbaa !8
-  store i32 %228, ptr %221, align 4, !tbaa !49
-  %229 = load i32, ptr %220, align 8, !tbaa !49
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i16, ptr %219, i64 %230
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %227 = load i32, ptr %226, align 4, !tbaa !8
+  store i32 %227, ptr %220, align 4, !tbaa !49
+  %228 = load i32, ptr %219, align 8, !tbaa !49
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds i16, ptr %218, i64 %229
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  %232 = icmp sgt i32 %224, 0
-  br i1 %232, label %.lr.ph.i.i168, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
+  %231 = icmp sgt i32 %223, 0
+  br i1 %231, label %.lr.ph.i.i168, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
 
-.lr.ph.i.i168:                                    ; preds = %226, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
-  %.06.i.i169 = phi i1 [ %243, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171 ], [ true, %226 ]
+.lr.ph.i.i168:                                    ; preds = %225, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
+  %.06.i.i169 = phi i1 [ %.0.i.i.i172, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171 ], [ true, %225 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %233 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %231, i32 noundef %224, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br i1 %233, label %234, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170
+  %232 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %230, i32 noundef %223, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  br i1 %232, label %233, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170
 
-234:                                              ; preds = %.lr.ph.i.i168
-  %235 = load i32, ptr %9, align 4, !tbaa !3
-  %236 = icmp ult i32 %235, 55296
-  %237 = add i32 %235, -57344
-  %or.cond.i.i.i.i176 = icmp ult i32 %237, 7632
-  %or.cond9.i.i.i.i177 = or i1 %236, %or.cond.i.i.i.i176
-  br i1 %or.cond9.i.i.i.i177, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171, label %238
+233:                                              ; preds = %.lr.ph.i.i168
+  %234 = load i32, ptr %9, align 4, !tbaa !3
+  %235 = icmp ult i32 %234, 55296
+  %236 = add i32 %234, -57344
+  %or.cond.i.i.i.i176 = icmp ult i32 %236, 7632
+  %or.cond9.i.i.i.i177 = or i1 %235, %or.cond.i.i.i.i176
+  br i1 %or.cond9.i.i.i.i177, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171, label %237
 
-238:                                              ; preds = %234
-  %239 = add i32 %235, -65008
-  %or.cond3.i.i.i.i178 = icmp ult i32 %239, 1049104
-  %240 = and i32 %235, 65534
-  %241 = icmp ne i32 %240, 65534
-  %or.cond.i.i.i179 = and i1 %or.cond3.i.i.i.i178, %241
+237:                                              ; preds = %233
+  %238 = add i32 %234, -65008
+  %or.cond3.i.i.i.i178 = icmp ult i32 %238, 1049104
+  %239 = and i32 %234, 65534
+  %240 = icmp ne i32 %239, 65534
+  %or.cond.i.i.i179 = and i1 %or.cond3.i.i.i.i178, %240
   br i1 %or.cond.i.i.i179, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170: ; preds = %238, %.lr.ph.i.i168
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170: ; preds = %237, %.lr.ph.i.i168
   store i32 65533, ptr %9, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170, %238, %234
-  %242 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ %235, %238 ], [ %235, %234 ]
-  %.0.i.i.i172 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ true, %238 ], [ true, %234 ]
-  %243 = and i1 %.06.i.i169, %.0.i.i.i172
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %242, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170, %237, %233
+  %241 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ %234, %237 ], [ %234, %233 ]
+  %.0.i.i.i172 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ %.06.i.i169, %237 ], [ %.06.i.i169, %233 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %241, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %244 = load i32, ptr %8, align 4, !tbaa !3
-  %245 = add nsw i32 %244, 1
-  store i32 %245, ptr %8, align 4, !tbaa !3
-  %246 = icmp slt i32 %245, %224
-  br i1 %246, label %.lr.ph.i.i168, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173, !llvm.loop !24
+  %242 = load i32, ptr %8, align 4, !tbaa !3
+  %243 = add nsw i32 %242, 1
+  store i32 %243, ptr %8, align 4, !tbaa !3
+  %244 = icmp slt i32 %243, %223
+  br i1 %244, label %.lr.ph.i.i168, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
-  %.pre.i174 = load i32, ptr %227, align 4, !tbaa !8
-  %.pre14.i175 = load i32, ptr %221, align 4, !tbaa !49
+  %.pre.i174 = load i32, ptr %226, align 4, !tbaa !8
+  %.pre14.i175 = load i32, ptr %220, align 4, !tbaa !49
+  %245 = and i1 %.0.i149, %.0.i.i.i172
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173, %226
-  %247 = phi i32 [ %228, %226 ], [ %.pre14.i175, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
-  %248 = phi i32 [ %228, %226 ], [ %.pre.i174, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
-  %.0.lcssa.i.i166 = phi i1 [ true, %226 ], [ %243, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173, %225
+  %246 = phi i32 [ %227, %225 ], [ %.pre14.i175, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
+  %247 = phi i32 [ %227, %225 ], [ %.pre.i174, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
+  %.0.lcssa.i.i166 = phi i1 [ %.0.i149, %225 ], [ %245, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %249 = sub nsw i32 %248, %247
-  %250 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 %249, ptr %250, align 4, !tbaa !48
+  %248 = sub nsw i32 %247, %246
+  %249 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  store i32 %248, ptr %249, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162, %225, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
-  %.0.i167 = phi i1 [ %.0.lcssa.i.i166, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165 ], [ true, %225 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162 ]
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %252 = load ptr, ptr %251, align 8, !tbaa !56
-  %253 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %254 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.not.i181 = icmp eq ptr %252, null
-  br i1 %.not.i181, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198, label %255
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162, %224, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
+  %.0.i167 = phi i1 [ %.0.lcssa.i.i166, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165 ], [ %.0.i149, %224 ], [ %.0.i149, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit162 ]
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %251 = load ptr, ptr %250, align 8, !tbaa !56
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %253 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %.not.i181 = icmp eq ptr %251, null
+  br i1 %.not.i181, label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198, label %254
 
-255:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180
-  %256 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %257 = load i32, ptr %256, align 4, !tbaa !48
-  %.not13.i182 = icmp eq i32 %257, -1
-  br i1 %.not13.i182, label %258, label %259
+254:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %256 = load i32, ptr %255, align 4, !tbaa !48
+  %.not13.i182 = icmp eq i32 %256, -1
+  br i1 %.not13.i182, label %257, label %258
 
-258:                                              ; preds = %255
-  store i64 -4294967296, ptr %254, align 4
+257:                                              ; preds = %254
+  store i64 -4294967296, ptr %253, align 4
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
 
-259:                                              ; preds = %255
-  %260 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %261 = load i32, ptr %260, align 4, !tbaa !8
-  store i32 %261, ptr %254, align 4, !tbaa !49
-  %262 = load i32, ptr %253, align 8, !tbaa !49
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i16, ptr %252, i64 %263
+258:                                              ; preds = %254
+  %259 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %260 = load i32, ptr %259, align 4, !tbaa !8
+  store i32 %260, ptr %253, align 4, !tbaa !49
+  %261 = load i32, ptr %252, align 8, !tbaa !49
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds i16, ptr %251, i64 %262
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !3
-  %265 = icmp sgt i32 %257, 0
-  br i1 %265, label %.lr.ph.i.i186, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
+  %264 = icmp sgt i32 %256, 0
+  br i1 %264, label %.lr.ph.i.i186, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
 
-.lr.ph.i.i186:                                    ; preds = %259, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
-  %.06.i.i187 = phi i1 [ %276, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189 ], [ true, %259 ]
+.lr.ph.i.i186:                                    ; preds = %258, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
+  %.06.i.i187 = phi i1 [ %.0.i.i.i190, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189 ], [ true, %258 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %266 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %264, i32 noundef %257, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  br i1 %266, label %267, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188
+  %265 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %263, i32 noundef %256, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  br i1 %265, label %266, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188
 
-267:                                              ; preds = %.lr.ph.i.i186
-  %268 = load i32, ptr %7, align 4, !tbaa !3
-  %269 = icmp ult i32 %268, 55296
-  %270 = add i32 %268, -57344
-  %or.cond.i.i.i.i194 = icmp ult i32 %270, 7632
-  %or.cond9.i.i.i.i195 = or i1 %269, %or.cond.i.i.i.i194
-  br i1 %or.cond9.i.i.i.i195, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189, label %271
+266:                                              ; preds = %.lr.ph.i.i186
+  %267 = load i32, ptr %7, align 4, !tbaa !3
+  %268 = icmp ult i32 %267, 55296
+  %269 = add i32 %267, -57344
+  %or.cond.i.i.i.i194 = icmp ult i32 %269, 7632
+  %or.cond9.i.i.i.i195 = or i1 %268, %or.cond.i.i.i.i194
+  br i1 %or.cond9.i.i.i.i195, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189, label %270
 
-271:                                              ; preds = %267
-  %272 = add i32 %268, -65008
-  %or.cond3.i.i.i.i196 = icmp ult i32 %272, 1049104
-  %273 = and i32 %268, 65534
-  %274 = icmp ne i32 %273, 65534
-  %or.cond.i.i.i197 = and i1 %or.cond3.i.i.i.i196, %274
+270:                                              ; preds = %266
+  %271 = add i32 %267, -65008
+  %or.cond3.i.i.i.i196 = icmp ult i32 %271, 1049104
+  %272 = and i32 %267, 65534
+  %273 = icmp ne i32 %272, 65534
+  %or.cond.i.i.i197 = and i1 %or.cond3.i.i.i.i196, %273
   br i1 %or.cond.i.i.i197, label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188
 
-_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188: ; preds = %271, %.lr.ph.i.i186
+_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188: ; preds = %270, %.lr.ph.i.i186
   store i32 65533, ptr %7, align 4, !tbaa !3
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
 
-_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188, %271, %267
-  %275 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ %268, %271 ], [ %268, %267 ]
-  %.0.i.i.i190 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ true, %271 ], [ true, %267 ]
-  %276 = and i1 %.06.i.i187, %.0.i.i.i190
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %275, ptr noundef nonnull %2)
+_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188, %270, %266
+  %274 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ %267, %270 ], [ %267, %266 ]
+  %.0.i.i.i190 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ %.06.i.i187, %270 ], [ %.06.i.i187, %266 ]
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %274, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %277 = load i32, ptr %6, align 4, !tbaa !3
-  %278 = add nsw i32 %277, 1
-  store i32 %278, ptr %6, align 4, !tbaa !3
-  %279 = icmp slt i32 %278, %257
-  br i1 %279, label %.lr.ph.i.i186, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191, !llvm.loop !24
+  %275 = load i32, ptr %6, align 4, !tbaa !3
+  %276 = add nsw i32 %275, 1
+  store i32 %276, ptr %6, align 4, !tbaa !3
+  %277 = icmp slt i32 %276, %256
+  br i1 %277, label %.lr.ph.i.i186, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191, !llvm.loop !24
 
 _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191: ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
-  %.pre.i192 = load i32, ptr %260, align 4, !tbaa !8
-  %.pre14.i193 = load i32, ptr %254, align 4, !tbaa !49
+  %.pre.i192 = load i32, ptr %259, align 4, !tbaa !8
+  %.pre14.i193 = load i32, ptr %253, align 4, !tbaa !49
+  %278 = and i1 %.0.i167, %.0.i.i.i190
   br label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
 
-_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191, %259
-  %280 = phi i32 [ %261, %259 ], [ %.pre14.i193, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
-  %281 = phi i32 [ %261, %259 ], [ %.pre.i192, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
-  %.0.lcssa.i.i184 = phi i1 [ true, %259 ], [ %276, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
+_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183: ; preds = %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191, %258
+  %279 = phi i32 [ %260, %258 ], [ %.pre14.i193, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
+  %280 = phi i32 [ %260, %258 ], [ %.pre.i192, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
+  %.0.lcssa.i.i184 = phi i1 [ %.0.i167, %258 ], [ %278, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %282 = sub nsw i32 %281, %280
-  %283 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 %282, ptr %283, align 4, !tbaa !48
+  %281 = sub nsw i32 %280, %279
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i32 %281, ptr %282, align 4, !tbaa !48
   br label %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
 
-_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180, %258, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
-  %.0.i185 = phi i1 [ %.0.lcssa.i.i184, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183 ], [ true, %258 ], [ true, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180 ]
-  %284 = load ptr, ptr %1, align 8, !tbaa !46
-  %.not = icmp eq ptr %284, null
-  br i1 %.not, label %288, label %285
+_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198: ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180, %257, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
+  %.0.i185 = phi i1 [ %.0.lcssa.i.i184, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183 ], [ %.0.i167, %257 ], [ %.0.i167, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit180 ]
+  %283 = load ptr, ptr %1, align 8, !tbaa !46
+  %.not = icmp eq ptr %283, null
+  br i1 %.not, label %287, label %284
 
-285:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %287 = load ptr, ptr %286, align 8, !tbaa !17
-  store ptr %287, ptr %3, align 8, !tbaa !32
-  br label %288
+284:                                              ; preds = %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %286 = load ptr, ptr %285, align 8, !tbaa !17
+  store ptr %286, ptr %3, align 8, !tbaa !32
+  br label %287
 
-288:                                              ; preds = %285, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
-  %289 = load ptr, ptr %53, align 8, !tbaa !50
-  %.not66 = icmp eq ptr %289, null
-  br i1 %.not66, label %294, label %290
+287:                                              ; preds = %284, %_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit198
+  %288 = load ptr, ptr %52, align 8, !tbaa !50
+  %.not66 = icmp eq ptr %288, null
+  br i1 %.not66, label %293, label %289
 
-290:                                              ; preds = %288
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %292 = load ptr, ptr %291, align 8, !tbaa !17
-  %293 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %292, ptr %293, align 8, !tbaa !35
-  br label %294
+289:                                              ; preds = %287
+  %290 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %291 = load ptr, ptr %290, align 8, !tbaa !17
+  %292 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %291, ptr %292, align 8, !tbaa !35
+  br label %293
 
-294:                                              ; preds = %290, %288
-  %295 = load ptr, ptr %86, align 8, !tbaa !51
-  %.not67 = icmp eq ptr %295, null
-  br i1 %.not67, label %300, label %296
+293:                                              ; preds = %289, %287
+  %294 = load ptr, ptr %85, align 8, !tbaa !51
+  %.not67 = icmp eq ptr %294, null
+  br i1 %.not67, label %299, label %295
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %298 = load ptr, ptr %297, align 8, !tbaa !17
-  %299 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %298, ptr %299, align 8, !tbaa !36
-  br label %300
+295:                                              ; preds = %293
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %297 = load ptr, ptr %296, align 8, !tbaa !17
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %297, ptr %298, align 8, !tbaa !36
+  br label %299
 
-300:                                              ; preds = %296, %294
-  %301 = load ptr, ptr %119, align 8, !tbaa !52
-  %.not68 = icmp eq ptr %301, null
-  br i1 %.not68, label %306, label %302
+299:                                              ; preds = %295, %293
+  %300 = load ptr, ptr %118, align 8, !tbaa !52
+  %.not68 = icmp eq ptr %300, null
+  br i1 %.not68, label %305, label %301
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %304 = load ptr, ptr %303, align 8, !tbaa !17
-  %305 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %304, ptr %305, align 8, !tbaa !37
-  br label %306
+301:                                              ; preds = %299
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %303 = load ptr, ptr %302, align 8, !tbaa !17
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %303, ptr %304, align 8, !tbaa !37
+  br label %305
 
-306:                                              ; preds = %302, %300
-  %307 = load ptr, ptr %152, align 8, !tbaa !53
-  %.not69 = icmp eq ptr %307, null
-  br i1 %.not69, label %312, label %308
+305:                                              ; preds = %301, %299
+  %306 = load ptr, ptr %151, align 8, !tbaa !53
+  %.not69 = icmp eq ptr %306, null
+  br i1 %.not69, label %311, label %307
 
-308:                                              ; preds = %306
-  %309 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %310 = load ptr, ptr %309, align 8, !tbaa !17
-  %311 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %310, ptr %311, align 8, !tbaa !42
-  br label %312
+307:                                              ; preds = %305
+  %308 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %309 = load ptr, ptr %308, align 8, !tbaa !17
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %309, ptr %310, align 8, !tbaa !42
+  br label %311
 
-312:                                              ; preds = %308, %306
-  %313 = load ptr, ptr %185, align 8, !tbaa !54
-  %.not70 = icmp eq ptr %313, null
-  br i1 %.not70, label %318, label %314
+311:                                              ; preds = %307, %305
+  %312 = load ptr, ptr %184, align 8, !tbaa !54
+  %.not70 = icmp eq ptr %312, null
+  br i1 %.not70, label %317, label %313
 
-314:                                              ; preds = %312
-  %315 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %316 = load ptr, ptr %315, align 8, !tbaa !17
-  %317 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %316, ptr %317, align 8, !tbaa !43
-  br label %318
+313:                                              ; preds = %311
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %315 = load ptr, ptr %314, align 8, !tbaa !17
+  %316 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %315, ptr %316, align 8, !tbaa !43
+  br label %317
 
-318:                                              ; preds = %314, %312
-  %319 = load ptr, ptr %218, align 8, !tbaa !55
-  %.not71 = icmp eq ptr %319, null
-  br i1 %.not71, label %324, label %320
+317:                                              ; preds = %313, %311
+  %318 = load ptr, ptr %217, align 8, !tbaa !55
+  %.not71 = icmp eq ptr %318, null
+  br i1 %.not71, label %323, label %319
 
-320:                                              ; preds = %318
-  %321 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %322 = load ptr, ptr %321, align 8, !tbaa !17
-  %323 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %322, ptr %323, align 8, !tbaa !44
-  br label %324
+319:                                              ; preds = %317
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !17
+  %322 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %321, ptr %322, align 8, !tbaa !44
+  br label %323
 
-324:                                              ; preds = %320, %318
-  %325 = load ptr, ptr %251, align 8, !tbaa !56
-  %.not72 = icmp eq ptr %325, null
-  br i1 %.not72, label %330, label %326
+323:                                              ; preds = %319, %317
+  %324 = load ptr, ptr %250, align 8, !tbaa !56
+  %.not72 = icmp eq ptr %324, null
+  br i1 %.not72, label %329, label %325
 
-326:                                              ; preds = %324
-  %327 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %328 = load ptr, ptr %327, align 8, !tbaa !17
-  %329 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %328, ptr %329, align 8, !tbaa !45
-  br label %330
+325:                                              ; preds = %323
+  %326 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %327 = load ptr, ptr %326, align 8, !tbaa !17
+  %328 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr %327, ptr %328, align 8, !tbaa !45
+  br label %329
 
-330:                                              ; preds = %326, %324
-  %331 = and i1 %.0.i, %.0.i77
-  %332 = and i1 %331, %.0.i95
-  %333 = and i1 %332, %.0.i113
-  %334 = and i1 %333, %.0.i131
-  %335 = and i1 %334, %.0.i149
-  %336 = and i1 %335, %.0.i167
-  %337 = and i1 %336, %.0.i185
-  ret i1 %337
+329:                                              ; preds = %325, %323
+  ret i1 %.0.i185
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

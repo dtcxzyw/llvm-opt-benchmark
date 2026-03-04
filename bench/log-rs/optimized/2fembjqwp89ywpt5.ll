@@ -153,13 +153,13 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   %.fca.1.extract.val.i.i.i.i = load i8, ptr %24, align 1, !noalias !28, !noundef !7
   %25 = add i8 %.fca.0.extract.val.i.i.i.i, -65
   %26 = icmp ult i8 %25, 26
-  %.0.i.i.i.i.i.i.i = select i1 %26, i8 32, i8 0
-  %27 = add i8 %.fca.1.extract.val.i.i.i.i, -65
-  %28 = icmp ult i8 %27, 26
-  %.02.i.i.i.i.i.i.i = select i1 %28, i8 32, i8 0
-  %29 = or i8 %.0.i.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i.i
-  %30 = or i8 %.02.i.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %29, %30
+  %27 = select i1 %26, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %27, %.fca.0.extract.val.i.i.i.i
+  %28 = add i8 %.fca.1.extract.val.i.i.i.i, -65
+  %29 = icmp ult i8 %28, 26
+  %30 = select i1 %29, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %30, %.fca.1.extract.val.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9
@@ -278,13 +278,13 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %.fca.1.extract.val.i.i.i.i = load i8, ptr %24, align 1, !noalias !57, !noundef !7
   %25 = add i8 %.fca.0.extract.val.i.i.i.i, -65
   %26 = icmp ult i8 %25, 26
-  %.0.i.i.i.i.i.i.i = select i1 %26, i8 32, i8 0
-  %27 = add i8 %.fca.1.extract.val.i.i.i.i, -65
-  %28 = icmp ult i8 %27, 26
-  %.02.i.i.i.i.i.i.i = select i1 %28, i8 32, i8 0
-  %29 = or i8 %.0.i.i.i.i.i.i.i, %.fca.0.extract.val.i.i.i.i
-  %30 = or i8 %.02.i.i.i.i.i.i.i, %.fca.1.extract.val.i.i.i.i
-  %.not.i.i.i.i = icmp eq i8 %29, %30
+  %27 = select i1 %26, i8 32, i8 0
+  %.0.i.i.i.i.i.i.i = or i8 %27, %.fca.0.extract.val.i.i.i.i
+  %28 = add i8 %.fca.1.extract.val.i.i.i.i, -65
+  %29 = icmp ult i8 %28, 26
+  %30 = select i1 %29, i8 32, i8 0
+  %.02.i.i.i.i.i.i.i = or i8 %30, %.fca.1.extract.val.i.i.i.i
+  %.not.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i, %.02.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9

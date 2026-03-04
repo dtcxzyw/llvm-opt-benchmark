@@ -22662,9 +22662,9 @@ common.resume:                                    ; preds = %.body105, %43, %.bo
   %121 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !4183, !noalias !4186, !noundef !14
   %122 = add i8 %121, -65
   %123 = icmp ult i8 %122, 26
-  %.0.i.i.i = select i1 %123, i8 32, i8 0
-  %124 = or i8 %.0.i.i.i, %121
-  store i8 %124, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !4183, !noalias !4186
+  %124 = select i1 %123, i8 32, i8 0
+  %.0.i.i.i = or i8 %124, %121
+  store i8 %.0.i.i.i, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !4183, !noalias !4186
   %125 = icmp eq ptr %120, %118
   br i1 %125, label %.loopexit.i, label %.lr.ph.i.i.i
 

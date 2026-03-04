@@ -52699,13 +52699,13 @@ define internal fastcc void @"_ZN88_$LT$polars_arrow..bitmap..immutable..Bitmap$
 
 36:                                               ; preds = %.loopexit.i.i.i, %35
   %indvars.iv.i.i.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.016.i.i.i = phi i64 [ 0, %35 ], [ %44, %.loopexit.i.i.i ]
+  %.sroa.0.016.i.i.i = phi i64 [ 0, %35 ], [ %.sroa.07.0.i.i.i, %.loopexit.i.i.i ]
   %37 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   %38 = shl nuw nsw i64 1, %37
   br label %39
 
 39:                                               ; preds = %.noexc2.i, %36
-  %.sroa.0.114.i.i.i = phi i64 [ %.sroa.0.016.i.i.i, %36 ], [ %44, %.noexc2.i ]
+  %.sroa.0.114.i.i.i = phi i64 [ %.sroa.0.016.i.i.i, %36 ], [ %.sroa.07.0.i.i.i, %.noexc2.i ]
   %.sroa.02.013.i.i.i = phi i64 [ %38, %36 ], [ %45, %.noexc2.i ]
   %.sroa.010.012.i.i.i = phi i32 [ 0, %36 ], [ %41, %.noexc2.i ]
   %40 = invoke noundef i8 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a094df69f5f35aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
@@ -52716,15 +52716,15 @@ define internal fastcc void @"_ZN88_$LT$polars_arrow..bitmap..immutable..Bitmap$
   %42 = icmp ne i8 %40, 2
   call void @llvm.assume(i1 %42)
   %43 = trunc nuw i8 %40 to i1
-  %.sroa.02.0..i.i.i = select i1 %43, i64 %.sroa.02.013.i.i.i, i64 0
-  %44 = or i64 %.sroa.02.0..i.i.i, %.sroa.0.114.i.i.i
+  %44 = select i1 %43, i64 %.sroa.02.013.i.i.i, i64 0
+  %.sroa.07.0.i.i.i = or i64 %44, %.sroa.0.114.i.i.i
   %45 = shl i64 %.sroa.02.013.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %41, 8
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %39
 
 _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef197ad56e5eb6eaE.exit.i.i: ; preds = %.loopexit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5464
-  store i64 %44, ptr %5, align 8, !noalias !5464
+  store i64 %.sroa.07.0.i.i.i, ptr %5, align 8, !noalias !5464
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hefa4ec546e7ff036E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %5, ptr noundef nonnull %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5317f2b05315dc026cfb978e0ca8ec3.113)
           to label %.noexc3.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !5458
 
@@ -52754,13 +52754,13 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef197ad56e5eb6eaE.exit.i
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3961dc36064f1669E.exit.i.i": ; preds = %51, %47
   %52 = load ptr, ptr %20, align 8, !alias.scope !5465, !noalias !5468, !nonnull !6, !noundef !6
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %48
-  store i8 %59, ptr %53, align 1, !noalias !5458
+  store i8 %.sroa.016.0.i.i, ptr %53, align 1, !noalias !5458
   %54 = add i64 %48, 1
   store i64 %54, ptr %21, align 8, !alias.scope !5465, !noalias !5468
   br label %79
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.noexc5.i
-  %.sroa.03.037.i.i = phi i8 [ %59, %.noexc5.i ], [ 0, %._crit_edge.i.i ]
+  %.sroa.03.037.i.i = phi i8 [ %.sroa.016.0.i.i, %.noexc5.i ], [ 0, %._crit_edge.i.i ]
   %.sroa.017.036.i.i = phi i64 [ %56, %.noexc5.i ], [ 0, %._crit_edge.i.i ]
   %.sroa.012.035.i.i = phi i8 [ %60, %.noexc5.i ], [ 1, %._crit_edge.i.i ]
   %55 = invoke noundef i8 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a094df69f5f35aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
@@ -52771,11 +52771,11 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef197ad56e5eb6eaE.exit.i
   %57 = icmp ne i8 %55, 2
   call void @llvm.assume(i1 %57)
   %58 = trunc nuw i8 %55 to i1
-  %.sroa.016.0.i.i = select i1 %58, i8 %.sroa.012.035.i.i, i8 0
-  %59 = or i8 %.sroa.016.0.i.i, %.sroa.03.037.i.i
+  %59 = select i1 %58, i8 %.sroa.012.035.i.i, i8 0
+  %.sroa.016.0.i.i = or i8 %59, %.sroa.03.037.i.i
   %60 = shl i8 %.sroa.012.035.i.i, 1
-  %exitcond44.not.i.i = icmp eq i64 %56, %25
-  br i1 %exitcond44.not.i.i, label %47, label %.preheader.i.i
+  %exitcond42.not.i.i = icmp eq i64 %56, %25
+  br i1 %exitcond42.not.i.i, label %47, label %.preheader.i.i
 
 61:                                               ; preds = %.noexc7.i
   %62 = add nuw nsw i64 %.sroa.021.033.i.i, 1
@@ -52791,14 +52791,14 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef197ad56e5eb6eaE.exit.i
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3961dc36064f1669E.exit27.i.i": ; preds = %66, %61
   %67 = load ptr, ptr %20, align 8, !alias.scope !5470, !noalias !5473, !nonnull !6, !noundef !6
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %63
-  store i8 %75, ptr %68, align 1, !noalias !5458
+  store i8 %.sroa.09.0.i.i, ptr %68, align 1, !noalias !5458
   %69 = add i64 %63, 1
   store i64 %69, ptr %21, align 8, !alias.scope !5470, !noalias !5473
-  %exitcond43.not.i.i = icmp eq i64 %62, %28
-  br i1 %exitcond43.not.i.i, label %._crit_edge.i.i, label %.lr.ph34.i.i
+  %exitcond41.not.i.i = icmp eq i64 %62, %28
+  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %.lr.ph34.i.i
 
 70:                                               ; preds = %.noexc7.i, %.lr.ph34.i.i
-  %.sroa.01.032.i.i = phi i8 [ 0, %.lr.ph34.i.i ], [ %75, %.noexc7.i ]
+  %.sroa.01.032.i.i = phi i8 [ 0, %.lr.ph34.i.i ], [ %.sroa.09.0.i.i, %.noexc7.i ]
   %.sroa.05.031.i.i = phi i8 [ 1, %.lr.ph34.i.i ], [ %76, %.noexc7.i ]
   %.sroa.010.030.i.i = phi i64 [ 0, %.lr.ph34.i.i ], [ %72, %.noexc7.i ]
   %71 = invoke noundef i8 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a094df69f5f35aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
@@ -52809,11 +52809,11 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef197ad56e5eb6eaE.exit.i
   %73 = icmp ne i8 %71, 2
   call void @llvm.assume(i1 %73)
   %74 = trunc nuw i8 %71 to i1
-  %.sroa.09.0.i.i = select i1 %74, i8 %.sroa.05.031.i.i, i8 0
-  %75 = or i8 %.sroa.09.0.i.i, %.sroa.01.032.i.i
+  %75 = select i1 %74, i8 %.sroa.05.031.i.i, i8 0
+  %.sroa.09.0.i.i = or i8 %75, %.sroa.01.032.i.i
   %76 = shl i8 %.sroa.05.031.i.i, 1
-  %exitcond42.not.i.i = icmp eq i64 %72, 8
-  br i1 %exitcond42.not.i.i, label %61, label %70
+  %exitcond40.not.i.i = icmp eq i64 %72, 8
+  br i1 %exitcond40.not.i.i, label %61, label %70
 
 .loopexit.i:                                      ; preds = %.preheader.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }

@@ -631,12 +631,12 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %194 = fmul reassoc nsz arcp contract afn double %193, %77
   %195 = fadd reassoc nsz arcp contract afn double %191, %194
   %196 = fmul reassoc nsz arcp contract afn double %184, %195
+  %197 = fadd reassoc nsz arcp contract afn double %196, %.0146.i
   br label %_simplex_noise.exit
 
 _simplex_noise.exit:                              ; preds = %179, %182
-  %.0147.i = phi nsz double [ %196, %182 ], [ 0.000000e+00, %179 ]
-  %197 = fadd reassoc nsz arcp contract afn double %.0146.i, %.0147.i
-  %198 = fmul reassoc nsz arcp contract afn double %197, 3.200000e+01
+  %.0147.i = phi double [ %197, %182 ], [ %.0146.i, %179 ]
+  %198 = fmul reassoc nsz arcp contract afn double %.0147.i, 3.200000e+01
   %199 = getelementptr inbounds nuw double, ptr @_simplex_2d_noise.a, i64 %indvars.iv
   %200 = load double, ptr %199, align 8, !tbaa !69
   %201 = fmul reassoc nsz arcp contract afn double %198, %200

@@ -12960,8 +12960,8 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit14
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i:    ; preds = %32
   %41 = getelementptr inbounds i8, ptr %39, i64 -4
   %42 = load i32, ptr %41, align 4, !tbaa !88
-  %.not2633.i.not = icmp eq i32 %42, 0
-  br i1 %.not2633.i.not, label %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread, label %.lr.ph.i15.preheader
+  %.not2631.i.not = icmp eq i32 %42, 0
+  br i1 %.not2631.i.not, label %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread, label %.lr.ph.i15.preheader
 
 .lr.ph.i15.preheader:                             ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i
   %zext = zext i32 %42 to i64
@@ -13275,8 +13275,8 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i:    ; preds = %13
   %25 = getelementptr inbounds i8, ptr %23, i64 -4
   %26 = load i32, ptr %25, align 4, !tbaa !88
-  %.not2633.i = icmp ult i32 %17, %26
-  br i1 %.not2633.i, label %.lr.ph.i, label %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.preheader
+  %.not2631.i = icmp ult i32 %17, %26
+  br i1 %.not2631.i, label %.lr.ph.i, label %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.preheader
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i
   %27 = zext i32 %17 to i64
@@ -13335,8 +13335,8 @@ _ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit: ;
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21:  ; preds = %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit
   %54 = getelementptr inbounds i8, ptr %52, i64 -4
   %55 = load i32, ptr %54, align 4, !tbaa !88
-  %.not2633.i22.not = icmp eq i32 %55, 0
-  br i1 %.not2633.i22.not, label %.thread36, label %.lr.ph.i24.preheader
+  %.not2631.i22.not = icmp eq i32 %55, 0
+  br i1 %.not2631.i22.not, label %.thread36, label %.lr.ph.i24.preheader
 
 .lr.ph.i24.preheader:                             ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21
   %zext = zext i32 %55 to i64
@@ -13428,8 +13428,8 @@ define hidden noundef zeroext i1 @_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_v
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %5
   %16 = getelementptr inbounds i8, ptr %14, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !88
-  %.not2633 = icmp ult i32 %4, %17
-  br i1 %.not2633, label %.lr.ph, label %.loopexit
+  %.not2631 = icmp ult i32 %4, %17
+  br i1 %.not2631, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13471,8 +13471,8 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %5
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !740
 
 .loopexit:                                        ; preds = %37, %20, %5, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit, %33
-  %.not2631 = phi i1 [ true, %33 ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit ], [ false, %5 ], [ false, %20 ], [ false, %37 ]
-  ret i1 %.not2631
+  %.1 = phi i1 [ true, %33 ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit ], [ false, %5 ], [ false, %20 ], [ false, %37 ]
+  ret i1 %.1
 }
 
 declare void @_ZN5modelC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0

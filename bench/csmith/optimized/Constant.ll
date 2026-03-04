@@ -1098,6 +1098,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i: ; pr
   %144 = add nuw nsw i64 %142, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %65, ptr noundef nonnull align 8 dereferenceable(1) %139, i64 %144, i1 false), !noalias !70
   store i64 %142, ptr %66, align 8, !tbaa !21, !alias.scope !82, !noalias !70
+  store ptr %139, ptr %137, align 8, !tbaa !20, !noalias !70
   store i64 0, ptr %141, align 8, !tbaa !21, !noalias !70
   store i8 0, ptr %139, align 8, !tbaa !23, !noalias !70
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
