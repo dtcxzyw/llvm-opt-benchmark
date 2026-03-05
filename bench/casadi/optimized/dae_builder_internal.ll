@@ -103092,9 +103092,10 @@ _ZN6casadi18DaeBuilderInternal8variableEm.exit:   ; preds = %3
   ]
 
 60:                                               ; preds = %57
-  %.off = add i32 %2, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %347, label %61
+  switch i32 %2, label %61 [
+    i32 1, label %347
+    i32 2, label %194
+  ]
 
 61:                                               ; preds = %60
   %62 = tail call ptr @__cxa_allocate_exception(i64 40) #31
@@ -103543,7 +103544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %_Z
     i32 2, label %194
   ]
 
-194:                                              ; preds = %193
+194:                                              ; preds = %60, %193
   br label %347
 
 195:                                              ; preds = %193
@@ -104044,8 +104045,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.sink.split363
 
-347:                                              ; preds = %60, %193, %126, %194, %127
-  %.sink362 = phi i32 [ 5, %126 ], [ %2, %194 ], [ %2, %60 ], [ %2, %127 ], [ 5, %193 ]
+347:                                              ; preds = %193, %126, %60, %194, %127
+  %.sink362 = phi i32 [ 5, %126 ], [ 2, %194 ], [ %2, %60 ], [ %2, %127 ], [ 5, %193 ]
   %.sink = phi i32 [ 2, %126 ], [ 0, %194 ], [ 0, %60 ], [ 0, %127 ], [ 2, %193 ]
   %348 = load i64, ptr %53, align 8, !tbaa !80
   tail call void @_ZN6casadi18DaeBuilderInternal10categorizeEmNS_8CategoryE(ptr noundef nonnull align 8 dereferenceable(1017) %0, i64 noundef %348, i32 noundef %.sink362)

@@ -2850,8 +2850,8 @@ switch.lookup:                                    ; preds = %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %53, %29, %30, %switch.lookup, %8, %.preheader36, %.preheader, %64, %1, %43, %39
-  %.0.shrunk = phi i32 [ 0, %8 ], [ 0, %1 ], [ %switch.load, %switch.lookup ], [ %spec.select, %30 ], [ 0, %.preheader36 ], [ 0, %64 ], [ 0, %.preheader ], [ 65535, %43 ], [ 65535, %39 ], [ 65535, %29 ], [ 65535, %.lr.ph ], [ %55, %53 ]
+.loopexit:                                        ; preds = %.lr.ph, %53, %29, %30, %64, %1, %8, %switch.lookup, %.preheader36, %.preheader, %43, %39
+  %.0.shrunk = phi i32 [ %spec.select, %30 ], [ 0, %.preheader36 ], [ 65535, %43 ], [ 65535, %39 ], [ 0, %64 ], [ %switch.load, %switch.lookup ], [ 0, %.preheader ], [ 0, %8 ], [ 0, %1 ], [ 65535, %29 ], [ %55, %53 ], [ 65535, %.lr.ph ]
   %.0 = zext i32 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -10844,8 +10844,8 @@ define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr nounde
     i32 0, label %4
     i32 1, label %6
     i32 2, label %8
-    i32 3, label %14
-    i32 4, label %22
+    i32 3, label %13
+    i32 4, label %21
   ]
 
 4:                                                ; preds = %3
@@ -10859,7 +10859,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr nounde
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 8, !tbaa !36
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %.preheader.i, label %13
+  br i1 %10, label %.preheader.i, label %20
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
   %.pn.i = phi ptr [ %.07.i, %.preheader.i ], [ %1, %8 ]
@@ -10871,68 +10871,65 @@ define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr nounde
   br i1 %or.cond.not.i, label %.preheader.i, label %12, !llvm.loop !260
 
 12:                                               ; preds = %.preheader.i
-  br i1 %.not.i, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %13
+  br i1 %.not.i, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %20
 
-13:                                               ; preds = %12, %8
-  br label %_ZNK4Type20is_dereferenced_fromEPKS_.exit
+13:                                               ; preds = %3
+  %14 = icmp eq ptr %1, %0
+  br i1 %14, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %15
 
-14:                                               ; preds = %3
-  %15 = icmp eq ptr %1, %0
-  br i1 %15, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %16
+15:                                               ; preds = %13
+  %16 = load i32, ptr %1, align 8, !tbaa !36
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.preheader.i11, label %20
 
-16:                                               ; preds = %14
-  %17 = load i32, ptr %1, align 8, !tbaa !36
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %.preheader.i11, label %21
-
-.preheader.i11:                                   ; preds = %16, %.preheader.i11
-  %.pn.i12 = phi ptr [ %.07.i14, %.preheader.i11 ], [ %1, %16 ]
+.preheader.i11:                                   ; preds = %15, %.preheader.i11
+  %.pn.i12 = phi ptr [ %.07.i14, %.preheader.i11 ], [ %1, %15 ]
   %.07.in.i13 = getelementptr inbounds nuw i8, ptr %.pn.i12, i64 8
   %.07.i14 = load ptr, ptr %.07.in.i13, align 8, !tbaa !77
   %.not.i15 = icmp ne ptr %.07.i14, null
-  %19 = icmp ne ptr %.07.i14, %0
-  %or.cond.not.i16 = and i1 %19, %.not.i15
-  br i1 %or.cond.not.i16, label %.preheader.i11, label %20, !llvm.loop !260
+  %18 = icmp ne ptr %.07.i14, %0
+  %or.cond.not.i16 = and i1 %18, %.not.i15
+  br i1 %or.cond.not.i16, label %.preheader.i11, label %19, !llvm.loop !260
 
-20:                                               ; preds = %.preheader.i11
-  br i1 %.not.i15, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %21
+19:                                               ; preds = %.preheader.i11
+  br i1 %.not.i15, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %20
 
-21:                                               ; preds = %20, %16
+20:                                               ; preds = %8, %12, %19, %15
   br label %_ZNK4Type20is_dereferenced_fromEPKS_.exit
 
-22:                                               ; preds = %3
-  %23 = icmp eq ptr %0, %1
-  br i1 %23, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %24
+21:                                               ; preds = %3
+  %22 = icmp eq ptr %0, %1
+  br i1 %22, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %23
 
-24:                                               ; preds = %22
-  %25 = tail call noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1)
-  br i1 %25, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %26
+23:                                               ; preds = %21
+  %24 = tail call noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1)
+  br i1 %24, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %25
 
-26:                                               ; preds = %24
-  %27 = load i32, ptr %1, align 8, !tbaa !36
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %.preheader.i.i, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i
+25:                                               ; preds = %23
+  %26 = load i32, ptr %1, align 8, !tbaa !36
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.preheader.i.i, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i
 
-.preheader.i.i:                                   ; preds = %26, %.preheader.i.i
-  %.pn.i.i = phi ptr [ %.07.i.i, %.preheader.i.i ], [ %1, %26 ]
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.pn.i.i = phi ptr [ %.07.i.i, %.preheader.i.i ], [ %1, %25 ]
   %.07.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %.07.i.i = load ptr, ptr %.07.in.i.i, align 8, !tbaa !77
   %.not.i.i = icmp ne ptr %.07.i.i, null
-  %29 = icmp ne ptr %.07.i.i, %0
-  %or.cond.not.i.i = and i1 %29, %.not.i.i
-  br i1 %or.cond.not.i.i, label %.preheader.i.i, label %30, !llvm.loop !260
+  %28 = icmp ne ptr %.07.i.i, %0
+  %or.cond.not.i.i = and i1 %28, %.not.i.i
+  br i1 %or.cond.not.i.i, label %.preheader.i.i, label %29, !llvm.loop !260
 
-30:                                               ; preds = %.preheader.i.i
+29:                                               ; preds = %.preheader.i.i
   br i1 %.not.i.i, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i
 
-_ZNK4Type20is_dereferenced_fromEPKS_.exit.i:      ; preds = %30, %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !77
-  %33 = icmp eq ptr %32, %1
+_ZNK4Type20is_dereferenced_fromEPKS_.exit.i:      ; preds = %29, %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !77
+  %32 = icmp eq ptr %31, %1
   br label %_ZNK4Type20is_dereferenced_fromEPKS_.exit
 
-_ZNK4Type20is_dereferenced_fromEPKS_.exit:        ; preds = %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i, %30, %24, %22, %21, %20, %13, %12, %3, %14, %6, %4
-  %.0 = phi i1 [ true, %12 ], [ %5, %4 ], [ %7, %6 ], [ false, %3 ], [ true, %20 ], [ true, %14 ], [ false, %13 ], [ false, %21 ], [ true, %22 ], [ %33, %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i ], [ true, %24 ], [ true, %30 ]
+_ZNK4Type20is_dereferenced_fromEPKS_.exit:        ; preds = %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i, %29, %23, %21, %20, %19, %12, %3, %13, %6, %4
+  %.0 = phi i1 [ true, %12 ], [ %5, %4 ], [ %7, %6 ], [ false, %3 ], [ true, %19 ], [ true, %13 ], [ true, %29 ], [ false, %20 ], [ true, %21 ], [ %32, %_ZNK4Type20is_dereferenced_fromEPKS_.exit.i ], [ true, %23 ]
   ret i1 %.0
 }
 

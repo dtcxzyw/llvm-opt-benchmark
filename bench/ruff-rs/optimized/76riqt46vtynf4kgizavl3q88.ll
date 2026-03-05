@@ -64752,34 +64752,34 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 1, label %19
     i32 2, label %21
     i32 3, label %tailrecurse.backedge
-    i32 4, label %.loopexit.loopexit
+    i32 4, label %.loopexit
     i32 5, label %31
-    i32 6, label %.loopexit.loopexit
-    i32 7, label %.loopexit.loopexit
-    i32 8, label %.loopexit.loopexit
-    i32 9, label %.loopexit.loopexit
-    i32 10, label %.loopexit.loopexit
-    i32 11, label %.loopexit.loopexit
-    i32 12, label %.loopexit.loopexit
-    i32 13, label %.loopexit.loopexit
-    i32 14, label %.loopexit.loopexit
-    i32 15, label %.loopexit.loopexit
-    i32 16, label %.loopexit.loopexit68
-    i32 17, label %.loopexit
-    i32 18, label %.loopexit
-    i32 19, label %.loopexit.loopexit
-    i32 20, label %.loopexit.loopexit
-    i32 21, label %.loopexit.loopexit
-    i32 22, label %.loopexit.loopexit
-    i32 23, label %.loopexit.loopexit
-    i32 24, label %.loopexit.loopexit68
-    i32 25, label %.loopexit.loopexit68
-    i32 26, label %.loopexit.loopexit
-    i32 27, label %.loopexit.loopexit68
-    i32 28, label %.loopexit.loopexit
-    i32 29, label %.loopexit.loopexit
-    i32 30, label %.loopexit.loopexit
-    i32 31, label %.loopexit.loopexit
+    i32 6, label %.loopexit
+    i32 7, label %.loopexit
+    i32 8, label %.loopexit
+    i32 9, label %.loopexit
+    i32 10, label %.loopexit
+    i32 11, label %.loopexit
+    i32 12, label %.loopexit
+    i32 13, label %.loopexit
+    i32 14, label %.loopexit
+    i32 15, label %.loopexit
+    i32 16, label %.loopexit42
+    i32 17, label %.loopexit.loopexit68
+    i32 18, label %.loopexit.loopexit68
+    i32 19, label %.loopexit
+    i32 20, label %.loopexit
+    i32 21, label %.loopexit
+    i32 22, label %.loopexit
+    i32 23, label %.loopexit
+    i32 24, label %.loopexit42
+    i32 25, label %.loopexit42
+    i32 26, label %.loopexit
+    i32 27, label %.loopexit42
+    i32 28, label %.loopexit
+    i32 29, label %.loopexit
+    i32 30, label %.loopexit
+    i32 31, label %.loopexit
   ]
 
 default.unreachable51:                            ; preds = %tailrecurse
@@ -64864,14 +64864,14 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit42:                                      ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %47
   br label %.loopexit
 
-.loopexit.loopexit68:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit.loopexit68:                             ; preds = %tailrecurse, %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %.loopexit.loopexit68, %.loopexit.loopexit, %49, %47, %31, %44, %21, %48, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread"
-  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread" ], [ 1, %31 ], [ %.32, %44 ], [ 0, %21 ], [ 1, %47 ], [ 2, %.loopexit.loopexit68 ], [ 0, %.loopexit.loopexit ], [ 0, %49 ], [ 2, %48 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit68, %.loopexit42, %48, %47, %31, %44, %21, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread"
+  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread" ], [ 1, %31 ], [ %.32, %44 ], [ 0, %21 ], [ 1, %47 ], [ 1, %.loopexit.loopexit68 ], [ 2, %.loopexit42 ], [ 0, %48 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i8 %.sroa.0.0
 
 44:                                               ; preds = %21
@@ -64882,15 +64882,12 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %19
 
 47:                                               ; preds = %31
   switch i8 %37, label %.loopexit [
-    i8 2, label %48
-    i8 0, label %49
+    i8 2, label %.loopexit42
+    i8 0, label %48
   ]
 
-48:                                               ; preds = %47, %49
-  br label %.loopexit
-
-49:                                               ; preds = %47
-  br i1 %.not29, label %48, label %.loopexit
+48:                                               ; preds = %47
+  br i1 %.not29, label %.loopexit42, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

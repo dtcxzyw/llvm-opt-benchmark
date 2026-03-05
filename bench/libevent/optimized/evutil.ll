@@ -3059,12 +3059,12 @@ define i32 @evutil_sockaddr_cmp(ptr noundef readonly captures(none) %0, ptr noun
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %5, %7
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %42
+  br i1 %.not, label %9, label %41
 
 9:                                                ; preds = %3
-  switch i16 %4, label %42 [
+  switch i16 %4, label %41 [
     i16 2, label %10
-    i16 10, label %28
+    i16 10, label %27
   ]
 
 10:                                               ; preds = %9
@@ -3073,15 +3073,15 @@ define i32 @evutil_sockaddr_cmp(ptr noundef readonly captures(none) %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %12, %14
-  br i1 %15, label %42, label %16
+  br i1 %15, label %41, label %16
 
 16:                                               ; preds = %10
   %17 = icmp ugt i32 %12, %14
-  br i1 %17, label %42, label %18
+  br i1 %17, label %41, label %18
 
 18:                                               ; preds = %16
   %.not34 = icmp eq i32 %2, 0
-  br i1 %.not34, label %27, label %19
+  br i1 %.not34, label %40, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3092,38 +3092,35 @@ define i32 @evutil_sockaddr_cmp(ptr noundef readonly captures(none) %0, ptr noun
   %25 = zext i16 %24 to i32
   %26 = sub nsw i32 %22, %25
   %.not35 = icmp eq i32 %26, 0
-  br i1 %.not35, label %27, label %42
+  br i1 %.not35, label %40, label %41
 
-27:                                               ; preds = %19, %18
-  br label %42
+27:                                               ; preds = %9
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull dereferenceable(16) %29, i64 noundef 16) #32
+  %.not31 = icmp eq i32 %30, 0
+  br i1 %.not31, label %31, label %41
 
-28:                                               ; preds = %9
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %29, ptr noundef nonnull dereferenceable(16) %30, i64 noundef 16) #32
-  %.not31 = icmp eq i32 %31, 0
-  br i1 %.not31, label %32, label %42
-
-32:                                               ; preds = %28
+31:                                               ; preds = %27
   %.not32 = icmp eq i32 %2, 0
-  br i1 %.not32, label %41, label %33
+  br i1 %.not32, label %40, label %32
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %35 = load i16, ptr %34, align 2
-  %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = sub nsw i32 %36, %39
-  %.not33 = icmp eq i32 %40, 0
-  br i1 %.not33, label %41, label %42
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = sub nsw i32 %35, %38
+  %.not33 = icmp eq i32 %39, 0
+  br i1 %.not33, label %40, label %41
 
-41:                                               ; preds = %33, %32
-  br label %42
+40:                                               ; preds = %18, %19, %32, %31
+  br label %41
 
-42:                                               ; preds = %9, %41, %28, %33, %27, %10, %16, %19, %3
-  %.0 = phi i32 [ %40, %33 ], [ %8, %3 ], [ %26, %19 ], [ 0, %27 ], [ -1, %10 ], [ 1, %16 ], [ 0, %41 ], [ %31, %28 ], [ 1, %9 ]
+41:                                               ; preds = %9, %40, %27, %32, %10, %16, %19, %3
+  %.0 = phi i32 [ %39, %32 ], [ %8, %3 ], [ %26, %19 ], [ 1, %9 ], [ -1, %10 ], [ 1, %16 ], [ 0, %40 ], [ %30, %27 ]
   ret i32 %.0
 }
 

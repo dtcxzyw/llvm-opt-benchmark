@@ -1455,7 +1455,7 @@ _ZN4ncnn3MatD2Ev.exit2114:                        ; preds = %1041, %1039, %1047,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined, ptr nonnull %7, ptr nonnull %1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread5505
+  br label %.thread5527
 
 1066:                                             ; preds = %1056
   %1067 = icmp eq i32 %70, 3
@@ -2856,7 +2856,7 @@ _ZN4ncnn3MatD2Ev.exit2123:                        ; preds = %2051, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %2033, label %.thread5505, label %5485
+  br i1 %2033, label %.thread5527, label %5485
 
 2066:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2121, %1982
   %.pn1898 = phi { ptr, i32 } [ %2008, %_ZN4ncnn3MatD2Ev.exit2121 ], [ %1983, %1982 ]
@@ -2903,9 +2903,6 @@ _ZN4ncnn3MatD2Ev.exit2124:                        ; preds = %2068, %2066, %2074,
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %5486
-
-.thread5505:                                      ; preds = %.thread5503, %_ZN4ncnn3MatD2Ev.exit2123
-  br label %5485
 
 2083:                                             ; preds = %1959
   %2084 = icmp eq i32 %79, 2
@@ -3862,7 +3859,7 @@ _ZN4ncnn3MatD2Ev.exit2128:                        ; preds = %2677, %2675, %2683,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.6, ptr nonnull %23, ptr nonnull %1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread5513
+  br label %.thread5527
 
 2702:                                             ; preds = %2692
   %2703 = icmp eq i32 %70, 3
@@ -4898,7 +4895,7 @@ _ZN4ncnn3MatD2Ev.exit2137:                        ; preds = %3330, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %3312, label %.thread5513, label %5485
+  br i1 %3312, label %.thread5527, label %5485
 
 3345:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2135, %3261
   %.pn1882 = phi { ptr, i32 } [ %3287, %_ZN4ncnn3MatD2Ev.exit2135 ], [ %3262, %3261 ]
@@ -4945,9 +4942,6 @@ _ZN4ncnn3MatD2Ev.exit2138:                        ; preds = %3347, %3345, %3353,
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %5486
-
-.thread5513:                                      ; preds = %.thread5510, %_ZN4ncnn3MatD2Ev.exit2137
-  br label %5485
 
 3362:                                             ; preds = %3238
   %3363 = icmp eq i32 %79, 2
@@ -5734,7 +5728,7 @@ _ZN4ncnn3MatD2Ev.exit2142:                        ; preds = %3790, %3788, %3796,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.12, ptr nonnull %39, ptr nonnull %1, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.thread5521
+  br label %.thread5527
 
 3815:                                             ; preds = %3805
   %3816 = icmp eq i32 %70, 3
@@ -6602,7 +6596,7 @@ _ZN4ncnn3MatD2Ev.exit2151:                        ; preds = %4279, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br i1 %4261, label %.thread5521, label %5485
+  br i1 %4261, label %.thread5527, label %5485
 
 4294:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2149, %4210
   %.pn1866 = phi { ptr, i32 } [ %4236, %_ZN4ncnn3MatD2Ev.exit2149 ], [ %4211, %4210 ]
@@ -6649,9 +6643,6 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4296, %4294, %4302,
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %5486
-
-.thread5521:                                      ; preds = %.thread5518, %_ZN4ncnn3MatD2Ev.exit2151
-  br label %5485
 
 4311:                                             ; preds = %4187
   %4312 = icmp eq i32 %79, 2
@@ -8661,7 +8652,7 @@ _ZN4ncnn3MatD2Ev.exit2166:                        ; preds = %5267, %5265, %5273,
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %5486
 
-.thread5527:                                      ; preds = %.thread5524, %_ZN4ncnn3MatD2Ev.exit2165
+.thread5527:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit2123, %.thread5503, %_ZN4ncnn3MatD2Ev.exit2137, %.thread5510, %_ZN4ncnn3MatD2Ev.exit2151, %.thread5518, %.thread5524, %_ZN4ncnn3MatD2Ev.exit2165
   br label %5485
 
 5282:                                             ; preds = %5158
@@ -9215,8 +9206,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %5470, %.critedge192
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %5485
 
-5485:                                             ; preds = %.thread5527, %.thread5521, %.thread5513, %.thread5505, %5282, %5284, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit2100, %_ZN4ncnn3MatD2Ev.exit2101, %4311, %4313, %_ZN4ncnn3MatD2Ev.exit2102, %_ZN4ncnn3MatD2Ev.exit2103, %_ZN4ncnn3MatD2Ev.exit2104, %3362, %3364, %_ZN4ncnn3MatD2Ev.exit2105, %_ZN4ncnn3MatD2Ev.exit2106, %_ZN4ncnn3MatD2Ev.exit2107, %2083, %2085, %_ZN4ncnn3MatD2Ev.exit2108, %_ZN4ncnn3MatD2Ev.exit2109, %_ZN4ncnn3MatD2Ev.exit2110, %_ZN4ncnn3MatD2Ev.exit2112, %_ZN4ncnn3MatD2Ev.exit2118, %_ZN4ncnn3MatD2Ev.exit2123, %_ZN4ncnn3MatD2Ev.exit2126, %_ZN4ncnn3MatD2Ev.exit2132, %_ZN4ncnn3MatD2Ev.exit2137, %_ZN4ncnn3MatD2Ev.exit2140, %_ZN4ncnn3MatD2Ev.exit2146, %_ZN4ncnn3MatD2Ev.exit2151, %_ZN4ncnn3MatD2Ev.exit2154, %_ZN4ncnn3MatD2Ev.exit2160, %_ZN4ncnn3MatD2Ev.exit2165
-  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit2108 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2123 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2118 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2112 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2105 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2137 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2132 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2126 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2102 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2151 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2140 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit2165 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2160 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2154 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2110 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2109 ], [ 0, %2085 ], [ 0, %2083 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2107 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2106 ], [ 0, %3364 ], [ 0, %3362 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2104 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2103 ], [ 0, %4313 ], [ 0, %4311 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2101 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2100 ], [ 0, %5284 ], [ 0, %5282 ], [ 0, %.thread5505 ], [ 0, %.thread5513 ], [ 0, %.thread5521 ], [ 0, %.thread5527 ]
+5485:                                             ; preds = %.thread5527, %5282, %5284, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit2100, %_ZN4ncnn3MatD2Ev.exit2101, %4311, %4313, %_ZN4ncnn3MatD2Ev.exit2102, %_ZN4ncnn3MatD2Ev.exit2103, %_ZN4ncnn3MatD2Ev.exit2104, %3362, %3364, %_ZN4ncnn3MatD2Ev.exit2105, %_ZN4ncnn3MatD2Ev.exit2106, %_ZN4ncnn3MatD2Ev.exit2107, %2083, %2085, %_ZN4ncnn3MatD2Ev.exit2108, %_ZN4ncnn3MatD2Ev.exit2109, %_ZN4ncnn3MatD2Ev.exit2110, %_ZN4ncnn3MatD2Ev.exit2112, %_ZN4ncnn3MatD2Ev.exit2118, %_ZN4ncnn3MatD2Ev.exit2123, %_ZN4ncnn3MatD2Ev.exit2126, %_ZN4ncnn3MatD2Ev.exit2132, %_ZN4ncnn3MatD2Ev.exit2137, %_ZN4ncnn3MatD2Ev.exit2140, %_ZN4ncnn3MatD2Ev.exit2146, %_ZN4ncnn3MatD2Ev.exit2151, %_ZN4ncnn3MatD2Ev.exit2154, %_ZN4ncnn3MatD2Ev.exit2160, %_ZN4ncnn3MatD2Ev.exit2165
+  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit2108 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2123 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2118 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2112 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2105 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2137 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2132 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2126 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2102 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2151 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2140 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit2165 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2160 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2154 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2110 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2109 ], [ 0, %2085 ], [ 0, %2083 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2107 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2106 ], [ 0, %3364 ], [ 0, %3362 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2104 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2103 ], [ 0, %4313 ], [ 0, %4311 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2101 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2100 ], [ 0, %5284 ], [ 0, %5282 ], [ 0, %.thread5527 ]
   ret i32 %.3
 
 5486:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2166, %_ZN4ncnn3MatD2Ev.exit2162, %_ZN4ncnn3MatD2Ev.exit2156, %_ZN4ncnn3MatD2Ev.exit2152, %_ZN4ncnn3MatD2Ev.exit2148, %_ZN4ncnn3MatD2Ev.exit2142, %_ZN4ncnn3MatD2Ev.exit2138, %_ZN4ncnn3MatD2Ev.exit2134, %_ZN4ncnn3MatD2Ev.exit2128, %_ZN4ncnn3MatD2Ev.exit2124, %_ZN4ncnn3MatD2Ev.exit2120, %_ZN4ncnn3MatD2Ev.exit2114

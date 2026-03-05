@@ -7912,7 +7912,7 @@ match_ns.exit170:                                 ; preds = %.thread.i164, %150,
   %.not139 = icmp eq i32 %167, 0
   br i1 %.not139, label %.thread, label %168
 
-168:                                              ; preds = %166, %164, %161, %158
+168:                                              ; preds = %218, %228, %231, %233, %166, %164, %161, %158
   br label %.thread
 
 169:                                              ; preds = %61
@@ -8024,7 +8024,7 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
   %219 = getelementptr inbounds nuw i8, ptr %.4223, i64 24
   %220 = load ptr, ptr %219, align 8, !tbaa !124
   %.not120 = icmp eq ptr %220, null
-  br i1 %.not120, label %235, label %221
+  br i1 %.not120, label %168, label %221
 
 221:                                              ; preds = %218
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -8042,42 +8042,39 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
   %229 = getelementptr inbounds nuw i8, ptr %220, i64 80
   %230 = load ptr, ptr %229, align 8, !tbaa !128
   %.not122 = icmp eq ptr %230, null
-  br i1 %.not122, label %235, label %231
+  br i1 %.not122, label %168, label %231
 
 231:                                              ; preds = %228
   %232 = load i8, ptr %230, align 1, !tbaa !9
   %.not123 = icmp eq i8 %232, 0
-  br i1 %.not123, label %235, label %233
+  br i1 %.not123, label %168, label %233
 
 233:                                              ; preds = %231
   %234 = tail call i32 @xmlStrEqual(ptr noundef nonnull %230, ptr noundef nonnull @.str.46) #14
   %.not124 = icmp eq i32 %234, 0
-  br i1 %.not124, label %.thread, label %235
+  br i1 %.not124, label %.thread, label %168
 
-235:                                              ; preds = %233, %231, %228, %218
-  br label %.thread
+.thread:                                          ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %match_ns.exit, %94, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162.thread, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %sxe_find_element_by_name.exit, %60
+  %.090 = phi i32 [ 0, %168 ], [ 1, %166 ], [ 1, %.critedge ], [ 1, %225 ], [ 0, %match_ns.exit170 ], [ 1, %233 ], [ 1, %221 ], [ 1, %sxe_find_element_by_name.exit.thread220 ], [ 0, %sxe_find_element_by_name.exit ], [ 0, %60 ], [ 0, %181 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162.thread ], [ 0, %php_sxe_get_first_node_non_destructive.exit162 ], [ 0, %.preheader226 ], [ 0, %.preheader ], [ 0, %match_ns.exit ], [ 0, %match_ns.exit170.us ], [ 0, %94 ], [ 0, %match_ns.exit.i ]
+  %235 = icmp ne ptr %.084, %5
+  %or.cond225 = select i1 %235, i1 true, i1 %.not.i
+  br i1 %or.cond225, label %.critedge141, label %236
 
-.thread:                                          ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %match_ns.exit, %94, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162.thread, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %235, %sxe_find_element_by_name.exit, %60
-  %.090 = phi i32 [ 0, %168 ], [ 1, %166 ], [ 1, %.critedge ], [ 1, %225 ], [ 0, %235 ], [ 1, %233 ], [ 1, %221 ], [ 1, %sxe_find_element_by_name.exit.thread220 ], [ 0, %sxe_find_element_by_name.exit ], [ 0, %60 ], [ 0, %181 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162.thread ], [ 0, %php_sxe_get_first_node_non_destructive.exit162 ], [ 0, %.preheader226 ], [ 0, %.preheader ], [ 0, %match_ns.exit ], [ 0, %match_ns.exit170.us ], [ 0, %match_ns.exit170 ], [ 0, %94 ], [ 0, %match_ns.exit.i ]
-  %236 = icmp ne ptr %.084, %5
-  %or.cond225 = select i1 %236, i1 true, i1 %.not.i
-  br i1 %or.cond225, label %.critedge141, label %237
+236:                                              ; preds = %.thread
+  %237 = load i32, ptr %16, align 4, !tbaa !87
+  %238 = icmp ne i32 %237, 0
+  call void @llvm.assume(i1 %238)
+  %239 = add i32 %237, -1
+  store i32 %239, ptr %16, align 4, !tbaa !87
+  %.not3.i = icmp eq i32 %239, 0
+  br i1 %.not3.i, label %240, label %.critedge141
 
-237:                                              ; preds = %.thread
-  %238 = load i32, ptr %16, align 4, !tbaa !87
-  %239 = icmp ne i32 %238, 0
-  call void @llvm.assume(i1 %239)
-  %240 = add i32 %238, -1
-  store i32 %240, ptr %16, align 4, !tbaa !87
-  %.not3.i = icmp eq i32 %240, 0
-  br i1 %.not3.i, label %241, label %.critedge141
-
-241:                                              ; preds = %237
+240:                                              ; preds = %236
   call void @_efree(ptr noundef nonnull %16) #14
   br label %.critedge141
 
-.critedge141:                                     ; preds = %241, %237, %8, %.thread
-  %.183 = phi i32 [ %.090, %.thread ], [ 0, %8 ], [ %.090, %241 ], [ %.090, %237 ]
+.critedge141:                                     ; preds = %240, %236, %8, %.thread
+  %.183 = phi i32 [ %.090, %.thread ], [ 0, %8 ], [ %.090, %240 ], [ %.090, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.183
 }

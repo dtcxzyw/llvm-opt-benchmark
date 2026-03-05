@@ -23305,23 +23305,23 @@ thread-pre-split:                                 ; preds = %606, %"_ZN4core3ptr
 
 .thread218:                                       ; preds = %212, %216
   switch i16 %57, label %231 [
-    i16 40, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i16 40, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i16 41, label %.thread222
     i16 42, label %220
     i16 43, label %.thread222
     i16 44, label %.thread222
     i16 45, label %.thread222
-    i16 46, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i16 46, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i16 47, label %.thread222
   ]
 
 220:                                              ; preds = %.thread218
   switch i8 %59, label %default.unreachable.i [
-    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i8 1, label %.thread222
-    i8 2, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
-    i8 3, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
-    i8 4, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i8 2, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
+    i8 3, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
+    i8 4, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i8 5, label %.thread222
     i8 6, label %221
   ]
@@ -23346,7 +23346,7 @@ default.unreachable.i:                            ; preds = %220
 226:                                              ; preds = %.noexc151, %.noexc150
   %227 = phi ptr [ %230, %.noexc151 ], [ %223, %.noexc150 ]
   %.not.not.not.i.not.not.i.not.i = icmp eq ptr %227, %225
-  br i1 %.not.not.not.i.not.not.i.not.i, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228, label %228
+  br i1 %.not.not.not.i.not.not.i.not.i, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread, label %228
 
 228:                                              ; preds = %226
   %229 = invoke noundef zeroext i1 @_ZN9uv_pep44017version_specifier16VersionSpecifier14any_prerelease17h971261d8c35c95dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %227)
@@ -23359,17 +23359,17 @@ default.unreachable.i:                            ; preds = %220
 231:                                              ; preds = %.thread218
   switch i8 %62, label %.thread222 [
     i8 2, label %232
-    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
   ]
 
 232:                                              ; preds = %231
   switch i8 %59, label %default.unreachable [
-    i8 7, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
-    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i8 7, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
+    i8 0, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i8 1, label %.thread222
-    i8 2, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
-    i8 3, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
-    i8 4, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+    i8 2, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
+    i8 3, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
+    i8 4, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
     i8 5, label %.thread222
     i8 6, label %233
   ]
@@ -23388,7 +23388,7 @@ default.unreachable.i:                            ; preds = %220
 238:                                              ; preds = %.noexc153, %.noexc152
   %239 = phi ptr [ %242, %.noexc153 ], [ %235, %.noexc152 ]
   %.not.not.not.i.not.not.i.not.i.not.i.not.i = icmp eq ptr %239, %237
-  br i1 %.not.not.not.i.not.not.i.not.i.not.i.not.i, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228, label %240
+  br i1 %.not.not.not.i.not.not.i.not.i.not.i.not.i, label %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread, label %240
 
 240:                                              ; preds = %238
   %241 = invoke noundef zeroext i1 @_ZN9uv_pep44017version_specifier16VersionSpecifier14any_prerelease17h971261d8c35c95dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %239)
@@ -23398,7 +23398,7 @@ default.unreachable.i:                            ; preds = %220
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 24
   br i1 %241, label %.thread222, label %238
 
-.thread222:                                       ; preds = %.noexc151, %.noexc153, %231, %212, %232, %232, %220, %220, %.thread218, %.thread218, %.thread218, %.thread218, %.thread218, %216, %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+.thread222:                                       ; preds = %.noexc151, %.noexc153, %231, %212, %.thread218, %.thread218, %.thread218, %.thread218, %.thread218, %220, %220, %232, %232, %216, %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %243 = load ptr, ptr %56, align 8, !noalias !6094, !nonnull !20, !align !529, !noundef !20
   %244 = load ptr, ptr %243, align 8, !noalias !6094, !nonnull !20, !noundef !20
@@ -23435,14 +23435,14 @@ default.unreachable.i:                            ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %600
 
-_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228: ; preds = %226, %238, %231, %220, %220, %220, %220, %.thread218, %.thread218, %232, %232, %232, %232, %232
+_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread: ; preds = %226, %238, %231, %220, %220, %220, %220, %.thread218, %.thread218, %232, %232, %232, %232, %232
   %256 = load i8, ptr %55, align 8, !range !5911, !noundef !20
   %257 = add nsw i8 %256, -10
   %switch.i = icmp ult i8 %257, -3
   %or.cond7 = or i1 %.sroa.037.0, %switch.i
   br i1 %or.cond7, label %.thread222, label %258
 
-258:                                              ; preds = %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread228
+258:                                              ; preds = %_ZN9uv_python9discovery13PythonRequest18allows_prereleases17h671ebdb9f06a3dbfE.exit.thread
   %259 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %260 = icmp ult i64 %259, 2
   br i1 %260, label %262, label %.thread234
@@ -27004,7 +27004,7 @@ default.unreachable:                              ; preds = %37
   unreachable
 
 .thread:                                          ; preds = %.thread115, %.thread102, %.thread93, %88, %.thread81, %14, %13, %36, %.thread89, %37, %9, %10, %.thread111, %15
-  %.sroa.0.1 = phi i8 [ %.60, %10 ], [ %spec.select130, %.thread102 ], [ -1, %13 ], [ %., %9 ], [ %16, %15 ], [ 1, %14 ], [ %spec.select131, %.thread115 ], [ %.sroa.0.3, %36 ], [ 1, %37 ], [ %spec.select129, %.thread93 ], [ %.sroa.0.7114, %.thread111 ], [ %spec.select, %88 ], [ -1, %.thread89 ], [ 1, %.thread81 ]
+  %.sroa.0.1 = phi i8 [ %.60, %10 ], [ %spec.select129, %.thread102 ], [ -1, %13 ], [ %., %9 ], [ %16, %15 ], [ 1, %14 ], [ %spec.select130, %.thread115 ], [ 1, %37 ], [ %.sroa.0.7114, %.thread111 ], [ %spec.select, %.thread93 ], [ 1, %88 ], [ -1, %.thread89 ], [ %.sroa.0.3, %36 ], [ 1, %.thread81 ]
   ret i8 %.sroa.0.1
 
 11:                                               ; preds = %9
@@ -27081,7 +27081,7 @@ default.unreachable:                              ; preds = %37
   %trunc45 = trunc nuw i8 %42 to i1
   br i1 %trunc44, label %44, label %43
 
-.thread89:                                        ; preds = %.thread81, %37
+.thread89:                                        ; preds = %88, %.thread81, %37
   br label %.thread
 
 43:                                               ; preds = %38
@@ -27111,7 +27111,7 @@ default.unreachable:                              ; preds = %37
 .thread93:                                        ; preds = %44, %43, %45
   %.sroa.0.596 = phi i8 [ %50, %45 ], [ 1, %44 ], [ -1, %43 ]
   %switch.offset128 = sub nsw i8 0, %.sroa.0.596
-  %spec.select129 = select i1 %switch, i8 %switch.offset128, i8 %.sroa.0.596
+  %spec.select = select i1 %switch, i8 %switch.offset128, i8 %.sroa.0.596
   br label %.thread
 
 55:                                               ; preds = %.thread97
@@ -27138,7 +27138,7 @@ default.unreachable:                              ; preds = %37
 .thread102:                                       ; preds = %56, %55, %57
   %.sroa.0.6105 = phi i8 [ %62, %57 ], [ 1, %56 ], [ -1, %55 ]
   %switch.offset124 = sub nsw i8 0, %.sroa.0.6105
-  %spec.select130 = select i1 %switch, i8 %switch.offset124, i8 %.sroa.0.6105
+  %spec.select129 = select i1 %switch, i8 %switch.offset124, i8 %.sroa.0.6105
   br label %.thread
 
 66:                                               ; preds = %.thread106
@@ -27177,7 +27177,7 @@ default.unreachable:                              ; preds = %37
   %86 = load i8, ptr %85, align 1, !range !6141, !noundef !20
   %87 = tail call i8 @llvm.ucmp.i8.i8(i8 %84, i8 %86)
   %switch.offset = sub nsw i8 0, %87
-  %spec.select131 = select i1 %switch, i8 %switch.offset, i8 %87
+  %spec.select130 = select i1 %switch, i8 %switch.offset, i8 %87
   br label %.thread
 
 .thread111:                                       ; preds = %70, %66, %75
@@ -27186,8 +27186,7 @@ default.unreachable:                              ; preds = %37
 
 88:                                               ; preds = %.thread111
   %89 = icmp eq i8 %.sroa.0.7114, -1
-  %spec.select = select i1 %89, i8 1, i8 -1
-  br label %.thread
+  br i1 %89, label %.thread, label %.thread89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

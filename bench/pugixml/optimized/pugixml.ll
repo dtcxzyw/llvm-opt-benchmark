@@ -41499,9 +41499,9 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xp
 define internal fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11binary_op_t5parseERNS1_11xpath_lexerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i32, ptr %2, align 8, !tbaa !368
-  switch i32 %.val, label %46 [
+  switch i32 %.val, label %.loopexit [
     i32 20, label %3
-    i32 1, label %47
+    i32 1, label %46
     i32 2, label %37
     i32 3, label %38
     i32 4, label %39
@@ -41522,7 +41522,7 @@ define internal fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11
   %7 = ptrtoint ptr %.val11 to i64
   %8 = sub i64 %6, %7
   %.not14.i.i = icmp eq ptr %.val12, %.val11
-  br i1 %.not14.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread, label %.lr.ph.i.i
+  br i1 %.not14.i.i, label %.loopexit, label %.lr.ph.i.i
 
 9:                                                ; preds = %.lr.ph.i.i
   %10 = add nuw i64 %.01013.i.i, 1
@@ -41540,7 +41540,7 @@ define internal fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %9
   %15 = icmp eq i64 %8, 2
-  br i1 %15, label %47, label %.lr.ph.i.i14.preheader
+  br i1 %15, label %46, label %.lr.ph.i.i14.preheader
 
 .lr.ph.i.i14.preheader:                           ; preds = %.lr.ph.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
   br label %.lr.ph.i.i14
@@ -41561,7 +41561,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %9
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20: ; preds = %16
   %22 = icmp eq i64 %8, 3
-  br i1 %22, label %47, label %.lr.ph.i.i22.preheader
+  br i1 %22, label %46, label %.lr.ph.i.i22.preheader
 
 .lr.ph.i.i22.preheader:                           ; preds = %.lr.ph.i.i14, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20
   br label %.lr.ph.i.i22
@@ -41582,7 +41582,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20: ; preds = %16
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28: ; preds = %23
   %29 = icmp eq i64 %8, 3
-  br i1 %29, label %47, label %.lr.ph.i.i30.preheader
+  br i1 %29, label %46, label %.lr.ph.i.i30.preheader
 
 .lr.ph.i.i30.preheader:                           ; preds = %.lr.ph.i.i22, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28
   br label %.lr.ph.i.i30
@@ -41599,48 +41599,45 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28: ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %.val11, i64 %.01013.i.i31
   %35 = load i8, ptr %34, align 1, !tbaa !28
   %.not.i.i32 = icmp eq i8 %33, %35
-  br i1 %.not.i.i32, label %30, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread
+  br i1 %.not.i.i32, label %30, label %.loopexit
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36: ; preds = %30
   %36 = icmp eq i64 %8, 3
-  br i1 %36, label %47, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread
-
-_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread: ; preds = %.lr.ph.i.i30, %3, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36
-  br label %47
+  br i1 %36, label %46, label %.loopexit
 
 37:                                               ; preds = %1
-  br label %47
+  br label %46
 
 38:                                               ; preds = %1
-  br label %47
+  br label %46
 
 39:                                               ; preds = %1
-  br label %47
+  br label %46
 
 40:                                               ; preds = %1
-  br label %47
+  br label %46
 
 41:                                               ; preds = %1
-  br label %47
+  br label %46
 
 42:                                               ; preds = %1
-  br label %47
+  br label %46
 
 43:                                               ; preds = %1
-  br label %47
+  br label %46
 
 44:                                               ; preds = %1
-  br label %47
+  br label %46
 
 45:                                               ; preds = %1
-  br label %47
+  br label %46
 
-46:                                               ; preds = %1
-  br label %47
+.loopexit:                                        ; preds = %.lr.ph.i.i30, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36, %3, %1
+  br label %46
 
-47:                                               ; preds = %1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread
-  %.sroa.33.0 = phi i32 [ 0, %46 ], [ 7, %45 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 3, %37 ], [ 4, %38 ], [ 4, %39 ], [ 4, %40 ], [ 4, %41 ], [ 5, %42 ], [ 5, %43 ], [ 6, %44 ], [ 3, %1 ]
-  %.sroa.17.0 = phi i64 [ 0, %46 ], [ 4294967311, %45 ], [ 17179869185, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869186, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 8589934604, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 8589934605, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 17179869188, %37 ], [ 17179869189, %38 ], [ 17179869190, %39 ], [ 17179869191, %40 ], [ 17179869192, %41 ], [ 8589934601, %42 ], [ 8589934602, %43 ], [ 8589934603, %44 ], [ 17179869187, %1 ]
+46:                                               ; preds = %1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, %.loopexit, %45, %44, %43, %42, %41, %40, %39, %38, %37
+  %.sroa.33.0 = phi i32 [ 0, %.loopexit ], [ 7, %45 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 3, %1 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 3, %37 ], [ 4, %38 ], [ 4, %39 ], [ 4, %40 ], [ 4, %41 ], [ 5, %42 ], [ 5, %43 ], [ 6, %44 ]
+  %.sroa.17.0 = phi i64 [ 0, %.loopexit ], [ 4294967311, %45 ], [ 17179869185, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869186, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 8589934604, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 17179869187, %1 ], [ 8589934605, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 17179869188, %37 ], [ 17179869189, %38 ], [ 17179869190, %39 ], [ 17179869191, %40 ], [ 17179869192, %41 ], [ 8589934601, %42 ], [ 8589934602, %43 ], [ 8589934603, %44 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.17.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.33.0, 1
   ret { i64, i32 } %.fca.1.insert
