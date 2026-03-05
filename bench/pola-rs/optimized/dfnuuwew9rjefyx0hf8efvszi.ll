@@ -12752,7 +12752,7 @@ default.unreachable:                              ; preds = %7, %3
   %..i = zext i1 %switch.i to i8
   br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   %8 = load i64, ptr %1, align 8, !range !2024, !noundef !3
   switch i64 %8, label %default.unreachable [
     i64 19, label %switch.lookup
@@ -12777,11 +12777,11 @@ default.unreachable:                              ; preds = %7, %3
     i64 18, label %10
   ]
 
-_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %7, %7, %7, %7, %7, %7, %7, %7, %10, %9, %5
+_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %7, %7, %7, %7, %7, %7, %7, %8, %10, %9, %5
   %.sroa.0.0 = phi i8 [ 1, %7 ], [ %..i, %5 ], [ 2, %10 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 0, %9 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ]
   ret i8 %.sroa.0.0
 
-switch.lookup:                                    ; preds = %7
+11:                                               ; preds = %7
   %.val4 = load i64, ptr %2, align 8, !range !2025, !noundef !3
   %switch.shiftamt = shl nuw nsw i64 %.val4, 3
   %switch.downshift = lshr i64 72339069048193025, %switch.shiftamt

@@ -32666,13 +32666,13 @@ thread-pre-split.i:                               ; preds = %437, %434, %_ZN3ue2
 .thread230.i:                                     ; preds = %481
   %.pre333.i = urem i64 %.sroa.8.0.copyload.i, %443
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %444, i64 %.pre333.i
-  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i.i.i.i.i159.i = icmp eq ptr %.pre120, null
+  %.pre118 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not.i.i.i.i.i159.i = icmp eq ptr %.pre118, null
   br i1 %.not.i.i.i.i.i159.i, label %.loopexit.i.i166.invoke.i, label %.thread230.i.thread
 
 .thread230.i.thread:                              ; preds = %.thread.i, %.thread230.i
-  %.pre-phi.i175 = phi i64 [ %.pre333.i, %.thread230.i ], [ %454, %.thread.i ]
-  %485 = phi ptr [ %.pre120, %.thread230.i ], [ %456, %.thread.i ]
+  %.pre-phi.i173 = phi i64 [ %.pre333.i, %.thread230.i ], [ %454, %.thread.i ]
+  %485 = phi ptr [ %.pre118, %.thread230.i ], [ %456, %.thread.i ]
   %486 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 32
@@ -32701,7 +32701,7 @@ thread-pre-split.i:                               ; preds = %437, %434, %_ZN3ue2
   %500 = getelementptr inbounds nuw i8, ptr %498, i64 32
   %501 = load i64, ptr %500, align 8
   %502 = urem i64 %501, %443
-  %.not19.i.i.i.i.i164.i = icmp eq i64 %502, %.pre-phi.i175
+  %.not19.i.i.i.i.i164.i = icmp eq i64 %502, %.pre-phi.i173
   br i1 %.not19.i.i.i.i.i164.i, label %493, label %..loopexit_crit_edge22.i.i.i.i.i165.i, !llvm.loop !136
 
 ..loopexit_crit_edge22.i.i.i.i.i165.i:            ; preds = %471, %499

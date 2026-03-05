@@ -16082,14 +16082,14 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %80 = fcmp uge double %43, 0.000000e+00
   %81 = fmul nnan double %43, 5.000000e-01
-  br i1 %80, label %128, label %224
+  br i1 %80, label %128, label %225
 
 82:                                               ; preds = %40
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %225
+  br label %226
 
 84:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -16173,7 +16173,7 @@ _ZN11colvarvalueD2Ev.exit66:                      ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %124 = fcmp ule double %87, 0.000000e+00
   %125 = fmul nnan double %87, 5.000000e-01
-  br i1 %124, label %128, label %224
+  br i1 %124, label %128, label %225
 
 126:                                              ; preds = %84
   %127 = landingpad { ptr, i32 }
@@ -16273,14 +16273,14 @@ _ZN11colvarvalueD2Ev.exit76:                      ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = fcmp uge double %135, 0.000000e+00
   %173 = fmul nnan double %135, 5.000000e-01
-  br i1 %172, label %176, label %224
+  br i1 %172, label %176, label %225
 
 174:                                              ; preds = %133
   %175 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %225
+  br label %226
 
 176:                                              ; preds = %_ZN11colvarvalueD2Ev.exit76, %129
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -16371,7 +16371,7 @@ _ZN11colvarvalueD2Ev.exit86:                      ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %220 = fcmp ule double %183, 0.000000e+00
   %221 = fmul nnan double %183, 5.000000e-01
-  br i1 %220, label %128, label %224
+  br i1 %220, label %128, label %225
 
 222:                                              ; preds = %181
   %223 = landingpad { ptr, i32 }
@@ -16380,11 +16380,11 @@ _ZN11colvarvalueD2Ev.exit86:                      ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %225
 
-224:                                              ; preds = %128, %_ZN11colvarvalueD2Ev.exit66, %_ZN11colvarvalueD2Ev.exit, %_ZN11colvarvalueD2Ev.exit76, %_ZN11colvarvalueD2Ev.exit86
+225:                                              ; preds = %128, %_ZN11colvarvalueD2Ev.exit66, %_ZN11colvarvalueD2Ev.exit, %_ZN11colvarvalueD2Ev.exit76, %_ZN11colvarvalueD2Ev.exit86
   %.3 = phi double [ %173, %_ZN11colvarvalueD2Ev.exit76 ], [ %125, %_ZN11colvarvalueD2Ev.exit66 ], [ %221, %_ZN11colvarvalueD2Ev.exit86 ], [ 0.000000e+00, %128 ], [ %81, %_ZN11colvarvalueD2Ev.exit ]
   ret double %.3
 
-225:                                              ; preds = %82, %126, %222, %174
+226:                                              ; preds = %82, %126, %222, %174
   %.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %223, %222 ], [ %83, %82 ], [ %127, %126 ]
   resume { ptr, i32 } %.pn.pn
 }

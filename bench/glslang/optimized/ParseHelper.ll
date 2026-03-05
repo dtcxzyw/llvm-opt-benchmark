@@ -46740,7 +46740,7 @@ declare void @_ZN7glslang14TParseVersions12requireStageERKNS_10TSourceLocE15EShL
 define void @_ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp ne ptr %3, null
   %or.cond = and i1 %2, %5
-  br i1 %or.cond, label %6, label %63
+  br i1 %or.cond, label %6, label %66
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -46769,7 +46769,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %6, %10
     i32 1, label %27
     i32 2, label %35
     i32 4, label %42
-    i32 13, label %49
+    i32 13, label %51
   ]
 
 22:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
@@ -46793,14 +46793,14 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %6, %10
   %.not5.i = icmp eq i64 %30, 0
   br i1 %.not5.i, label %31, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
-31:                                               ; preds = %27
+28:                                               ; preds = %27
   %32 = trunc i64 %29 to i32
   %33 = and i32 %32, 127
   %switch.tableidx = add nsw i32 %33, -3
-  %34 = icmp ult i32 %switch.tableidx, 28
-  br i1 %34, label %switch.lookup, label %56
+  %.not5.i = icmp ult i32 %switch.tableidx, 28
+  br i1 %.not5.i, label %switch.lookup, label %56
 
-35:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
+40:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 17592186044416
@@ -46819,17 +46819,17 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %6, %10
     i32 21, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
   ]
 
-42:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
+43:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 1649267441664
   %or.cond.i = icmp eq i64 %45, 0
-  br i1 %or.cond.i, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit, label %46
+  br i1 %or.cond.i, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit, label %48
 
-46:                                               ; preds = %42
-  %47 = trunc i64 %44 to i32
-  %48 = and i32 %47, 127
-  switch i32 %48, label %56 [
+48:                                               ; preds = %42
+  %49 = trunc i64 %44 to i32
+  %50 = and i32 %49, 127
+  switch i32 %50, label %56 [
     i32 3, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
     i32 26, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
     i32 27, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
@@ -46838,14 +46838,14 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %6, %10
     i32 21, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
   ]
 
-49:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
+51:                                               ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 8796093022208
   %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %53, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
-53:                                               ; preds = %49
+53:; preds = %51
   %54 = trunc i64 %51 to i32
   %55 = and i32 %54, 127
   switch i32 %55, label %56 [
@@ -46858,28 +46858,28 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %6, %10
     i32 30, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
   ]
 
-56:                                               ; preds = %31, %53, %46, %39, %22
+59:                                               ; preds = %31, %53, %46, %39, %22
   br label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 switch.lookup:                                    ; preds = %31
-  %57 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE, i64 %57
+  %60 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
-_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %switch.lookup, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit, %22, %22, %22, %22, %22, %22, %27, %35, %39, %39, %39, %39, %39, %39, %42, %46, %46, %46, %46, %46, %46, %49, %53, %53, %53, %53, %53, %53, %53, %56
+_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %switch.lookup, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit, %22, %22, %22, %22, %22, %22, %27, %40, %39, %39, %39, %39, %39, %39, %42, %46, %46, %46, %46, %46, %46, %49, %53, %53, %53, %53, %53, %53, %53, %56
   %.0.i = phi i32 [ 1, %46 ], [ 0, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit ], [ 1, %39 ], [ 1, %22 ], [ %switch.load, %switch.lookup ], [ 0, %27 ], [ 1, %53 ], [ 0, %35 ], [ 0, %42 ], [ 0, %49 ], [ 1, %53 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 0, %56 ], [ 1, %46 ], [ 1, %46 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %46 ], [ 1, %46 ], [ 1, %46 ]
-  %58 = icmp sgt i32 %.0.i.i, %.0.i
-  br i1 %58, label %59, label %63
+  %61 = icmp sgt i32 %.0.i.i, %.0.i
+  br i1 %61, label %62, label %66
 
-59:                                               ; preds = %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 344
-  %62 = load ptr, ptr %61, align 8
+62:                                               ; preds = %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 344
+  %65 = load ptr, ptr %64, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %62(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.727, ptr noundef nonnull @.str.658, ptr noundef nonnull @.str.2) #23
-  br label %63
+  br label %66
 
-63:                                               ; preds = %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit, %59, %4
+66:                                               ; preds = %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit, %62, %4
   ret void
 }
 

@@ -459,7 +459,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
 12:                                               ; preds = %11
   %13 = tail call i32 @SSL_CTX_set_default_verify_file(ptr noundef %0) #27
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %33, label %15
+  br i1 %14, label %34, label %15
 
 15:                                               ; preds = %12, %11
   %.not30 = icmp eq i32 %4, 0
@@ -468,7 +468,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
 16:                                               ; preds = %15
   %17 = tail call i32 @SSL_CTX_set_default_verify_dir(ptr noundef %0) #27
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %33, label %19
+  br i1 %18, label %34, label %19
 
 19:                                               ; preds = %16, %15
   %.not31 = icmp eq i32 %6, 0
@@ -477,7 +477,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
 20:                                               ; preds = %19
   %21 = tail call i32 @SSL_CTX_set_default_verify_store(ptr noundef %0) #27
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %33, label %32
+  br i1 %22, label %34, label %32
 
 23:                                               ; preds = %7
   br i1 %8, label %26, label %24
@@ -487,26 +487,26 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
   %.not24 = icmp eq i32 %25, 0
   br i1 %.not24, label %33, label %26
 
-26:                                               ; preds = %24, %23
+25:                                               ; preds = %24, %23
   br i1 %9, label %29, label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %25
   %28 = tail call i32 @SSL_CTX_load_verify_dir(ptr noundef %0, ptr noundef nonnull %3) #27
   %.not26 = icmp eq i32 %28, 0
   br i1 %.not26, label %33, label %29
 
-29:                                               ; preds = %27, %26
+28:                                               ; preds = %27, %26
   br i1 %10, label %32, label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %28
   %31 = tail call i32 @SSL_CTX_load_verify_store(ptr noundef %0, ptr noundef nonnull %5) #27
   %.not28 = icmp eq i32 %31, 0
   br i1 %.not28, label %33, label %32
 
-32:                                               ; preds = %19, %20, %30, %29
-  br label %33
+33:                                               ; preds = %19, %20, %30, %29
+  br label %34
 
-33:                                               ; preds = %30, %27, %24, %20, %16, %12, %32
+34:                                               ; preds = %30, %27, %24, %20, %16, %12, %32
   %.0 = phi i32 [ 0, %30 ], [ 0, %16 ], [ 0, %12 ], [ 0, %20 ], [ 1, %32 ], [ 0, %27 ], [ 0, %24 ]
   ret i32 %.0
 }

@@ -5435,7 +5435,7 @@ define internal ptr @property_get___isabstractmethod__(ptr noundef readonly capt
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %5 = tail call i32 @_PyObject_IsAbstract(ptr noundef %4) #9
   switch i32 %5, label %10 [
-    i32 -1, label %15
+    i32 -1, label %16
     i32 0, label %6
   ]
 
@@ -5448,20 +5448,20 @@ define internal ptr @property_get___isabstractmethod__(ptr noundef readonly capt
     i32 0, label %11
   ]
 
-10:                                               ; preds = %2, %6
-  br label %15
+11:                                               ; preds = %2, %6
+  br label %16
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !155
-  %14 = tail call i32 @_PyObject_IsAbstract(ptr noundef %13) #9
-  %switch.selectcmp = icmp eq i32 %14, 0
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !155
+  %15 = tail call i32 @_PyObject_IsAbstract(ptr noundef %14) #9
+  %switch.selectcmp = icmp eq i32 %15, 0
   %switch.select = select i1 %switch.selectcmp, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  %switch.selectcmp15 = icmp eq i32 %14, -1
+  %switch.selectcmp15 = icmp eq i32 %15, -1
   %switch.select16 = select i1 %switch.selectcmp15, ptr null, ptr %switch.select
-  br label %15
+  br label %16
 
-15:                                               ; preds = %11, %6, %2, %10
+16:                                               ; preds = %12, %6, %2, %11
   %.0 = phi ptr [ %switch.select16, %11 ], [ null, %6 ], [ null, %2 ], [ @_Py_TrueStruct, %10 ]
   ret ptr %.0
 }

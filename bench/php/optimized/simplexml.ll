@@ -8054,13 +8054,13 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
   %.not124 = icmp eq i32 %234, 0
   br i1 %.not124, label %.thread, label %168
 
-.thread:                                          ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %match_ns.exit, %94, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162.thread, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %sxe_find_element_by_name.exit, %60
+235:                                              ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %match_ns.exit, %94, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162235, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %sxe_find_element_by_name.exit, %60
   %.090 = phi i32 [ 0, %168 ], [ 1, %166 ], [ 1, %.critedge ], [ 1, %225 ], [ 0, %match_ns.exit170 ], [ 1, %233 ], [ 1, %221 ], [ 1, %sxe_find_element_by_name.exit.thread220 ], [ 0, %sxe_find_element_by_name.exit ], [ 0, %60 ], [ 0, %181 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162.thread ], [ 0, %php_sxe_get_first_node_non_destructive.exit162 ], [ 0, %.preheader226 ], [ 0, %.preheader ], [ 0, %match_ns.exit ], [ 0, %match_ns.exit170.us ], [ 0, %94 ], [ 0, %match_ns.exit.i ]
   %235 = icmp ne ptr %.084, %5
   %or.cond225 = select i1 %235, i1 true, i1 %.not.i
   br i1 %or.cond225, label %.critedge141, label %236
 
-236:                                              ; preds = %.thread
+236: ; preds = %.thread
   %237 = load i32, ptr %16, align 4, !tbaa !87
   %238 = icmp ne i32 %237, 0
   call void @llvm.assume(i1 %238)
@@ -8069,7 +8069,7 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
   %.not3.i = icmp eq i32 %239, 0
   br i1 %.not3.i, label %240, label %.critedge141
 
-240:                                              ; preds = %236
+240:; preds = %236
   call void @_efree(ptr noundef nonnull %16) #14
   br label %.critedge141
 

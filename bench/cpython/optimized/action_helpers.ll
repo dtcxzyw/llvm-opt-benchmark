@@ -4472,9 +4472,9 @@ define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly captures(add
   switch i32 %5, label %.split.us [
     i32 25, label %.split88.us
     i32 26, label %.split92.us
-    i32 21, label %.split.us.loopexit170
-    i32 22, label %.split.us.loopexit170
-    i32 24, label %.split.us.loopexit170
+    i32 21, label %.loopexit66.loopexit129
+    i32 22, label %.loopexit66.loopexit129
+    i32 24, label %.loopexit66.loopexit129
   ]
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %tailrecurse
@@ -4566,10 +4566,10 @@ tailrecurse.outer:                                ; preds = %33
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.split.us, label %.lr.ph
 
-.split.us.loopexit170:                            ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %tailrecurse, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+.loopexit66.loopexit129:                          ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %tailrecurse, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
   br label %.split.us
 
-.split.us:                                        ; preds = %tailrecurse.outer, %.split96.us, %33, %.lr.ph.split, %24, %.lr.ph113, %13, %.lr.ph119, %.split.us.loopexit170, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %21, %10
+.split.us.loopexit212:                            ; preds = %tailrecurse.outer, %.split96.us, %33, %.lr.ph.split, %24, %.lr.ph113, %13, %.lr.ph119, %.split.us.loopexit170, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %21, %10
   %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.split92.us ], [ null, %.split.us.loopexit170 ], [ %28, %.lr.ph113 ], [ null, %10 ], [ %.tr78, %.lr.ph.split ], [ %17, %.lr.ph119 ], [ null, %2 ], [ %.tr.ph108, %.lr.ph.split.us ], [ null, %13 ], [ null, %24 ], [ null, %33 ], [ %.tr78, %.split96.us ], [ null, %tailrecurse.outer ]
   ret ptr %.0
 }

@@ -22911,7 +22911,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i10: ; preds = %88
   store i64 %98, ptr %.05.i8, align 8, !alias.scope !3946
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 23
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !316
-  br label %125
+  br label %127
 
 99:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3947)
@@ -22924,7 +22924,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i10: ; preds = %88
     i8 2, label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
   ]
 
-default.unreachable:                              ; preds = %114, %108, %99
+default.unreachable:                              ; preds = %116, %108, %99
   unreachable
 
 102:                                              ; preds = %99
@@ -22944,7 +22944,7 @@ default.unreachable:                              ; preds = %114, %108, %99
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit.i: ; preds = %99
   %107 = and i32 %27, 268435456
   %.not.i = icmp eq i32 %107, 0
-  br i1 %.not.i, label %114, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i
+  br i1 %.not.i, label %116, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i
 
 108:                                              ; preds = %99
   %109 = lshr i32 %27, 29
@@ -22961,45 +22961,45 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i: ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit.i
-  %112 = and i32 %27, 8388608
-  %113 = icmp eq i32 %112, 0
-  %..i = select i1 %113, i8 4, i8 8
+  %114 = and i32 %27, 8388608
+  %115 = icmp eq i32 %114, 0
+  %..i = select i1 %115, i8 4, i8 8
   br label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
 
-114:                                              ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit.i
-  %115 = lshr i32 %27, 29
-  %116 = and i32 %115, 3
-  switch i32 %116, label %default.unreachable [
+116:                                              ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit.i
+  %117 = lshr i32 %27, 29
+  %118 = and i32 %117, 3
+  switch i32 %118, label %default.unreachable [
     i32 0, label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
-    i32 1, label %118
-    i32 2, label %119
-    i32 3, label %117
+    i32 1, label %120
+    i32 2, label %121
+    i32 3, label %119
   ]
 
-117:                                              ; preds = %114
+119:                                              ; preds = %116
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.489) #38, !noalias !3947
   unreachable
 
-118:                                              ; preds = %114, %108
+120:                                              ; preds = %116, %108
   br label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
 
-119:                                              ; preds = %114, %108
+121:                                              ; preds = %116, %108
   br label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
 
-_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit: ; preds = %99, %108, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i, %114, %118, %119
+_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit: ; preds = %99, %108, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i, %116, %120, %121
   %.0.i13 = phi i8 [ %..i, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i ], [ 16, %99 ], [ 16, %108 ], [ 32, %118 ], [ 16, %114 ], [ 64, %119 ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %121 = load i8, ptr %120, align 1, !range !316, !noundef !4
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %123 = load i8, ptr %122, align 1, !noundef !4
-  %124 = and i8 %123, 7
-  tail call fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex19emit_modrm_sib_disp17h94e284587b5eda9bE(ptr noalias noundef align 8 dereferenceable(4856) %1, i8 noundef %124, ptr noalias noundef readonly align 4 dereferenceable(16) %0, i8 noundef %121, i1 noundef zeroext true, i8 %.0.i13)
-  br label %125
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %123 = load i8, ptr %122, align 1, !range !316, !noundef !4
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %125 = load i8, ptr %124, align 1, !noundef !4
+  %126 = and i8 %125, 7
+  tail call fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex19emit_modrm_sib_disp17h94e284587b5eda9bE(ptr noalias noundef align 8 dereferenceable(4856) %1, i8 noundef %126, ptr noalias noundef readonly align 4 dereferenceable(16) %0, i8 noundef %123, i1 noundef zeroext true, i8 %.0.i13)
+  br label %127
 
-125:                                              ; preds = %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit12"
-  %126 = phi i8 [ %121, %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit ], [ %.pre, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit12" ]
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %147
+127:                                              ; preds = %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit12"
+  %128 = phi i8 [ %123, %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit ], [ %.pre, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit12" ]
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %128, label %149
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -23014,40 +23014,40 @@ _ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_
   %135 = icmp eq i64 %134, %.sink.i.i16
   br i1 %135, label %136, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit21"
 
-136:                                              ; preds = %128
+130:                                              ; preds = %128
   %137 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h01e8fe5d7f2cc80fE"(ptr noalias noundef nonnull align 8 dereferenceable(1032) %30, i64 noundef 1)
   %138 = extractvalue { i64, i64 } %137, 0
   switch i64 %138, label %140 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19
-    i64 0, label %139
+    i64 0, label %141
   ]
 
-139:                                              ; preds = %136
+141:                                              ; preds = %136
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569) #38
   unreachable
 
-140:                                              ; preds = %136
-  %141 = extractvalue { i64, i64 } %137, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %138, i64 noundef %141) #38
+142:                                              ; preds = %136
+  %143 = extractvalue { i64, i64 } %137, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %138, i64 noundef %143) #38
   unreachable
 
 _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19: ; preds = %136
-  %142 = load ptr, ptr %30, align 8, !alias.scope !3957, !nonnull !4, !noundef !4
+  %144 = load ptr, ptr %30, align 8, !alias.scope !3957, !nonnull !4, !noundef !4
   %.pre.i20 = load i64, ptr %35, align 8, !alias.scope !3957
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit21"
 
 "_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit21": ; preds = %128, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19
-  %143 = phi i64 [ %.pre.i20, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19 ], [ %134, %128 ]
+  %145 = phi i64 [ %.pre.i20, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19 ], [ %134, %128 ]
   %.05.i17 = phi ptr [ %35, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19 ], [ %.sink2.i.i15, %128 ]
-  %.0.i18 = phi ptr [ %142, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19 ], [ %.sink3.i.i14, %128 ]
-  %144 = getelementptr inbounds i8, ptr %.0.i18, i64 %143
-  store i8 %130, ptr %144, align 1
-  %145 = load i64, ptr %.05.i17, align 8, !alias.scope !3957, !noundef !4
-  %146 = add i64 %145, 1
-  store i64 %146, ptr %.05.i17, align 8, !alias.scope !3957
-  br label %147
+  %.0.i18 = phi ptr [ %144, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i19 ], [ %.sink3.i.i14, %128 ]
+  %146 = getelementptr inbounds i8, ptr %.0.i18, i64 %145
+  store i8 %130, ptr %146, align 1
+  %147 = load i64, ptr %.05.i17, align 8, !alias.scope !3957, !noundef !4
+  %148 = add i64 %147, 1
+  store i64 %148, ptr %.05.i17, align 8, !alias.scope !3957
+  br label %149
 
-147:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit21", %125
+149:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h4dbba274197bdcfcE.exit21", %127
   ret void
 }
 

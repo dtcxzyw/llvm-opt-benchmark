@@ -70238,7 +70238,7 @@ define dso_local void @_ZN5Catch17SonarQubeReporter14writeAssertionERKNS_14Asser
 
 24:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #57
-  br i1 %2, label %25, label %28
+  br i1 %2, label %25, label %27
 
 25:                                               ; preds = %28, %24
   br label %.invoke
@@ -70248,14 +70248,14 @@ define dso_local void @_ZN5Catch17SonarQubeReporter14writeAssertionERKNS_14Asser
           cleanup
   br label %.body
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %15, align 8
-  switch i32 %29, label %34 [
+27:                                               ; preds = %24
+  %28 = load i32, ptr %15, align 8
+  switch i32 %28, label %34 [
     i32 273, label %.invoke
     i32 528, label %.invoke
-    i32 18, label %30
-    i32 17, label %30
-    i32 274, label %30
+    i32 18, label %29
+    i32 17, label %29
+    i32 274, label %29
     i32 4, label %25
     i32 1, label %31
     i32 2, label %31
@@ -70265,18 +70265,18 @@ define dso_local void @_ZN5Catch17SonarQubeReporter14writeAssertionERKNS_14Asser
     i32 272, label %31
   ]
 
-30:                                               ; preds = %28, %28, %28
+29:                                               ; preds = %27, %27, %27
   br label %.invoke
 
-31:                                               ; preds = %28, %28, %28, %28, %28, %28
+31:                                               ; preds = %27, %27, %27, %27, %27, %27
   br label %.invoke
 
-.invoke:                                          ; preds = %28, %28, %25, %30, %31
+.invoke:                                          ; preds = %27, %27, %25, %30, %31
   %32 = phi ptr [ @.str.358, %31 ], [ @.str.356, %28 ], [ @.str.357, %30 ], [ @.str.327, %25 ], [ @.str.356, %28 ]
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %32)
           to label %34 unwind label %26
 
-34:                                               ; preds = %.invoke, %28
+34:                                               ; preds = %.invoke, %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.experimental.noalias.scope.decl(metadata !1088)
   store ptr %35, ptr %7, align 8, !alias.scope !1088

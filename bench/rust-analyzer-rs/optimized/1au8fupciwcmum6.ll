@@ -4297,7 +4297,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   %7 = load atomic i64, ptr %3 acquire, align 8
   switch i64 %7, label %.thread.loopexit4 [
     i64 0, label %8
-    i64 1, label %.thread.loopexit
+    i64 1, label %.thread.loopexit15
     i64 2, label %.thread
   ]
 
@@ -4329,7 +4329,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %15 = load atomic i64, ptr %3 acquire, align 8
   switch i64 %15, label %.thread.loopexit4 [
     i64 0, label %16
-    i64 1, label %.thread.loopexit20
+    i64 1, label %.thread.loopexit18
     i64 2, label %.thread
   ]
 
@@ -4361,16 +4361,16 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   tail call void @_ZN3std6thread12park_timeout17hd5e7217f4f5c5e09E(i64 noundef %26, i32 noundef %27)
   br label %.preheader.split
 
-.thread.loopexit4:                                ; preds = %4, %.preheader.split, %.preheader.split.us
+.thread.loopexit13:                               ; preds = %4, %.preheader.split, %.preheader.split.us
   br label %.thread
 
-.thread.loopexit:                                 ; preds = %.preheader.split.us
+.thread.loopexit15:                               ; preds = %.preheader.split.us
   br label %.thread
 
-.thread.loopexit20:                               ; preds = %.preheader.split
+.thread.loopexit18:                               ; preds = %.preheader.split
   br label %.thread
 
-.thread.loopexit26:                               ; preds = %4
+.thread:                                          ; preds = %4
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.split.us, %.preheader.split, %4, %.thread.loopexit26, %.thread.loopexit20, %.thread.loopexit, %.thread.loopexit4, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"

@@ -1636,7 +1636,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit: ; preds = 
   %15 = load atomic i64, ptr %3 acquire, align 8
   switch i64 %15, label %.split.us.loopexit4 [
     i64 0, label %16
-    i64 1, label %.split.us.loopexit20
+    i64 1, label %.split.us.loopexit18
     i64 2, label %.split.us
   ]
 
@@ -1668,16 +1668,16 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit: ; preds = 
   tail call void @_ZN3std6thread12park_timeout17h16b05452e96afd8dE(i64 noundef %24, i32 noundef %25)
   br label %.preheader.split
 
-.split.us.loopexit4:                              ; preds = %4, %.preheader.split, %.preheader.split.us
+.split.us.loopexit:                               ; preds = %4, %.preheader.split, %.preheader.split.us
   br label %.split.us
 
-.split.us.loopexit:                               ; preds = %.preheader.split.us
+.split.us.loopexit15:                             ; preds = %.preheader.split.us
   br label %.split.us
 
-.split.us.loopexit20:                             ; preds = %.preheader.split
+.split.us.loopexit18:                             ; preds = %.preheader.split
   br label %.split.us
 
-.split.us.loopexit26:                             ; preds = %4
+.split.us:                                        ; preds = %4
   br label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.us, %.preheader.split, %4, %.split.us.loopexit26, %.split.us.loopexit20, %.split.us.loopexit, %.split.us.loopexit4, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread26"

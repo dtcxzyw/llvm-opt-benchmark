@@ -7845,7 +7845,7 @@ define hidden range(i32 1, 12) i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zer
 
 8:                                                ; preds = %4
   %.not48 = icmp eq ptr %2, null
-  br i1 %.not48, label %50, label %9
+  br i1 %.not48, label %52, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #13
@@ -7860,7 +7860,7 @@ define hidden range(i32 1, 12) i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zer
 15:                                               ; preds = %12
   %16 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #13
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %48, label %50
+  br i1 %17, label %48, label %52
 
 18:                                               ; preds = %4
   %19 = icmp eq i16 %0, 1
@@ -7868,56 +7868,56 @@ define hidden range(i32 1, 12) i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zer
   %or.cond5 = and i1 %19, %20
   br i1 %or.cond5, label %50, label %21
 
-21:                                               ; preds = %18
+21:; preds = %18
   %22 = icmp eq i16 %0, 1406
   %23 = icmp eq i16 %1, 8198
   %or.cond8 = and i1 %22, %23
   br i1 %or.cond8, label %50, label %24
 
-24:                                               ; preds = %21
+24:; preds = %21
   %25 = icmp eq i16 %1, 8199
   %or.cond11 = and i1 %22, %25
   br i1 %or.cond11, label %26, label %30
 
-26:                                               ; preds = %24
+26:; preds = %24
   %.not46 = icmp eq ptr %2, null
-  br i1 %.not46, label %29, label %27
+  br i1 %.not46, label %30, label %28
 
-27:                                               ; preds = %26
-  %28 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #13
-  %.not47 = icmp eq ptr %28, null
-  br i1 %.not47, label %29, label %50
+28:                                               ; preds = %26
+  %29 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #13
+  %.not47 = icmp eq ptr %29, null
+  br i1 %.not47, label %30, label %52
 
-29:                                               ; preds = %32, %33, %27, %26
-  br label %50
+30:                                               ; preds = %32, %33, %27, %26
+  br label %52
 
-30:                                               ; preds = %24
-  %31 = icmp eq i16 %1, 8206
-  %or.cond14 = and i1 %22, %31
-  br i1 %or.cond14, label %32, label %35
+31:                                               ; preds = %24
+  %32 = icmp eq i16 %1, 8206
+  %or.cond14 = and i1 %22, %32
+  br i1 %or.cond14, label %33, label %35
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %29, label %33
+  br i1 %.not, label %30, label %33
 
-33:                                               ; preds = %32
+36:                                               ; preds = %33
   %34 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #13
   %.not45 = icmp eq ptr %34, null
-  br i1 %.not45, label %29, label %50
+  br i1 %.not45, label %31, label %50
 
-35:                                               ; preds = %30
+40:                                               ; preds = %30
   %36 = icmp eq i16 %1, 8200
   %or.cond17 = and i1 %22, %36
   br i1 %or.cond17, label %50, label %37
 
-37:                                               ; preds = %35
+37:; preds = %35
   br i1 %3, label %38, label %40
 
-38:                                               ; preds = %37
+38: ; preds = %37
   %39 = tail call zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %0, i16 noundef zeroext %1)
   br i1 %39, label %50, label %40
 
-40:                                               ; preds = %38, %37
+40:; preds = %38, %37
   %41 = tail call i32 @GuessControllerType(i32 noundef %5, i32 noundef %6) #13
   switch i32 %41, label %50 [
     i32 31, label %42
@@ -7931,33 +7931,33 @@ define hidden range(i32 1, 12) i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zer
     i32 44, label %49
   ]
 
-42:                                               ; preds = %40
-  br label %50
-
-43:                                               ; preds = %40
-  br label %50
-
 44:                                               ; preds = %40
-  br label %50
+  br label %52
 
 45:                                               ; preds = %40
-  br label %50
+  br label %52
 
 46:                                               ; preds = %40
-  br label %50
+  br label %52
 
 47:                                               ; preds = %40
-  %. = select i1 %3, i32 5, i32 1
-  br label %50
+  br label %52
 
-48:                                               ; preds = %9, %12, %15, %40, %40
-  br label %50
+48:                                               ; preds = %40
+  br label %52
 
 49:                                               ; preds = %40
-  %.49 = select i1 %3, i32 7, i32 1
-  br label %50
+  %. = select i1 %3, i32 5, i32 1
+  br label %52
 
-50:                                               ; preds = %49, %47, %38, %35, %33, %27, %21, %18, %29, %42, %43, %44, %45, %46, %48, %40, %8, %15
+50:                                               ; preds = %9, %12, %15, %40, %40
+  br label %52
+
+51:                                               ; preds = %40
+  %.49 = select i1 %3, i32 7, i32 1
+  br label %52
+
+52:                                               ; preds = %51, %49, %38, %40, %33, %28, %21, %18, %29, %42, %43, %44, %45, %46, %48, %40, %8, %15
   %.0 = phi i32 [ 7, %48 ], [ 1, %15 ], [ 1, %8 ], [ %.49, %49 ], [ 1, %18 ], [ 8, %21 ], [ 9, %29 ], [ 1, %27 ], [ 11, %38 ], [ 8, %33 ], [ 10, %35 ], [ 1, %40 ], [ 2, %42 ], [ 3, %43 ], [ 4, %44 ], [ 5, %45 ], [ 6, %46 ], [ %., %47 ]
   ret i32 %.0
 }

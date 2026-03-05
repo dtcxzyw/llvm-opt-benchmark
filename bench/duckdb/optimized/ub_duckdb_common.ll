@@ -62495,7 +62495,7 @@ _ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.us.i.i: ; preds = %switch
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 %.035.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !73
   %cond.i.i = icmp eq i8 %28, 37
-  br i1 %cond.i.i, label %29, label %39
+  br i1 %cond.i.i, label %30, label %39
 
 29:                                               ; preds = %.lr.ph.split.i.i
   %30 = add i64 %.035.i.i, 2
@@ -266277,31 +266277,31 @@ _ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62: ; preds = %23
   %.not = icmp eq i8 %27, 6
   br i1 %.not, label %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, label %.critedge
 
-_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread: ; preds = %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit
+28:                                               ; preds = %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit
   br label %.critedge
 
 _ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78: ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !2473
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !2473
-  %32 = icmp eq ptr %29, %31
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %30 = load ptr, ptr %29, align 8, !tbaa !2473
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %32 = load ptr, ptr %31, align 8, !tbaa !2473
+  %33 = icmp eq ptr %30, %32
   br label %.critedge
 
 _ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit: ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %34 = load i8, ptr %33, align 8, !tbaa !295
-  %35 = add i8 %34, -1
-  %or.cond = icmp ult i8 %35, 38
-  br i1 %or.cond, label %36, label %.critedge
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %35 = load i8, ptr %34, align 8, !tbaa !295
+  %36 = add i8 %35, -1
+  %or.cond = icmp ult i8 %36, 38
+  br i1 %or.cond, label %37, label %.critedge
 
-36:                                               ; preds = %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit
-  %37 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %38 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %39 = icmp ule i8 %37, %38
+37:                                               ; preds = %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit
+  %38 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %39 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %40 = icmp ule i8 %38, %39
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, %23, %18, %13, %8, %3, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit, %36, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit, %1, %1, %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78
+.critedge:                                        ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, %23, %18, %13, %8, %3, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit, %37, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit, %1, %1, %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78
   %.0 = phi i1 [ false, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54 ], [ true, %1 ], [ %39, %36 ], [ %32, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46 ], [ true, %1 ], [ true, %1 ], [ false, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread ], [ true, %3 ], [ true, %8 ], [ true, %13 ], [ true, %18 ], [ true, %23 ]
   ret i1 %.0
 }

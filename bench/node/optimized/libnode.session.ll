@@ -7512,7 +7512,7 @@ if.else41:                                        ; preds = %sw.bb29
     i32 1, label %sw.bb17
   ]
 
-sw.epilog52.sink.split:                           ; preds = %if.else41, %if.then31, %if.else, %if.then, %sw.bb25, %sw.bb17
+sw.bb47:                                          ; preds = %if.else41, %if.then31, %if.else, %if.then, %sw.bb25, %sw.bb17
   %.sink36 = phi i64 [ 64, %if.else41 ], [ 72, %if.else ], [ 88, %sw.bb25 ], [ 72, %if.then31 ], [ 80, %sw.bb17 ], [ 64, %if.then ]
   %ptr_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %13 = load ptr, ptr %ptr_.i24, align 8
