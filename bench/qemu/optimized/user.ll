@@ -161,7 +161,7 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %5, 0
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %gdb_get_char.exit.thread
 
 16:                                               ; preds = %14
   %17 = load i32, ptr @gdbserver_user_state, align 8
@@ -169,7 +169,7 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
   store i32 -1, ptr @gdbserver_user_state, align 8
   br label %gdb_get_char.exit
 
-19:                                               ; preds = %14
+gdb_get_char.exit.thread:                         ; preds = %14
   %20 = load i8, ptr %1, align 1
   %21 = zext i8 %20 to i32
   br label %gdb_get_char.exit
@@ -177,7 +177,7 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
 gdb_get_char.exit:                                ; preds = %12, %16, %19
   %.0.i = phi i32 [ %21, %19 ], [ -1, %16 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %22 = icmp slt i32 %.0.i, 0
+  %20 = icmp slt i32 %.0.i, 0
   %23 = icmp eq i32 %.0.i, 43
   %.0 = or i1 %22, %23
   ret i1 %.0

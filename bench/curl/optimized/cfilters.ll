@@ -861,19 +861,19 @@ define hidden i32 @Curl_conn_connect(ptr noundef %0, i32 noundef %1, i1 noundef 
   %20 = trunc i8 %19 to i1
   %21 = and i8 %19, 1
   store i8 %21, ptr %3, align 1, !tbaa !3
-  br i1 %20, label %conn_report_connect_stats.exit43, label %22
+  br i1 %20, label %conn_report_connect_stats.exit43, label %Curl_conn_needs_flush.exit
 
-22:                                               ; preds = %17
+Curl_conn_needs_flush.exit:                       ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !43
-  %23 = load ptr, ptr %15, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
-  %26 = call i32 %25(ptr noundef nonnull %15, ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %9, ptr noundef null) #12
-  %27 = icmp eq i32 %26, 0
+  %22 = load ptr, ptr %15, align 8, !tbaa !14
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  %24 = load ptr, ptr %23, align 8, !tbaa !49
+  %25 = call i32 %25(ptr noundef nonnull %15, ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %9, ptr noundef null) #12
+  %26 = icmp eq i32 %25, 0
   br i1 %27, label %Curl_conn_needs_flush.exit, label %Curl_conn_needs_flush.exit.thread
 
-Curl_conn_needs_flush.exit.thread:                ; preds = %22
+Curl_conn_needs_flush.exit.thread:; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Curl_conn_flush.exit.thread
 
@@ -1100,7 +1100,7 @@ define hidden zeroext i1 @Curl_conn_needs_flush(ptr noundef %0, i32 noundef %1) 
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %Curl_conn_cf_needs_flush.exit
 
-16:                                               ; preds = %10
+16:; preds = %10
   %17 = load i32, ptr %3, align 4, !tbaa !43
   %.not5.i = icmp ne i32 %17, 0
   br label %Curl_conn_cf_needs_flush.exit
@@ -1408,7 +1408,7 @@ define hidden zeroext i1 @Curl_conn_cf_needs_flush(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !43
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.critedge, label %4
+  br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !14
@@ -1416,14 +1416,14 @@ define hidden zeroext i1 @Curl_conn_cf_needs_flush(ptr noundef %0, ptr noundef %
   %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = call i32 %7(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 7, ptr noundef nonnull %3, ptr noundef null) #12
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %.critedge
+  br i1 %9, label %10, label %12
 
-10:                                               ; preds = %4
+10:; preds = %4
   %11 = load i32, ptr %3, align 4, !tbaa !43
   %.not5 = icmp ne i32 %11, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %10, %4
+12:                                               ; preds = %2, %10, %4
   %not. = phi i1 [ false, %4 ], [ %.not5, %10 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %not.

@@ -5270,14 +5270,14 @@ _ZN9Stockfish12_GLOBAL__N_17TBTableILNS0_6TBTypeE0EEC2Ev.exit.i.i: ; preds = %7
 60:                                               ; preds = %59
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 4
   %.not.i.i = icmp eq i64 %.0.add.i.i, 8
-  br i1 %.not.i.i, label %_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit, label %30
+  br i1 %.not.i.i, label %61, label %30
 
-_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit: ; preds = %60
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 372
-  %62 = load i32, ptr %61, align 4
-  %.not12.i.i = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 340
-  %64 = load i32, ptr %63, align 4
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 372
+  %63 = load i32, ptr %62, align 4
+  %.not12.i.i = icmp eq i32 %63, 0
+  %.sroa.gep27.i.i = getelementptr inbounds nuw i8, ptr %4, i64 340
+  %.sroa.gep.val29.i.i = load i32, ptr %.sroa.gep27.i.i, align 4
   %.not13.i.i = icmp ne i32 %64, 0
   %65 = icmp sge i32 %62, %64
   %spec.select.i.i = and i1 %.not13.i.i, %65
@@ -5291,7 +5291,7 @@ _ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9cons
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 %71, ptr %72, align 1
   %73 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ColorEPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 1, ptr noundef nonnull %3) #24
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 848
+  %68 = getelementptr inbounds nuw i8, ptr %73, i64 848
   %75 = load ptr, ptr %74, align 8
   %76 = load i64, ptr %75, align 64
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40

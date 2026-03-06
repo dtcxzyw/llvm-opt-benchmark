@@ -2328,9 +2328,9 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   store float 1.000000e+00, ptr %13, align 4, !alias.scope !99
   %14 = add nuw nsw i64 %.017.i1.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %14, 4
-  br i1 %exitcond.not.i2.i.i, label %_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %11, !llvm.loop !74
+  br i1 %exitcond.not.i2.i.i, label %_ZN7mitsuba9TransformINS_5PointIfLm4EEEEC2Ev.exit.i, label %11, !llvm.loop !74
 
-_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %11
+_ZN7mitsuba9TransformINS_5PointIfLm4EEEEC2Ev.exit.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, ptr noundef nonnull align 16 dereferenceable(128) %15, i64 128, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2373,14 +2373,14 @@ _ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_imp
   %50 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %38, <4 x float> %49, <4 x float> %44)
   %51 = fcmp contract oge float %47, 0.000000e+00
   %52 = fcmp contract ole float %47, %45
-  %or.cond.not143.i = select i1 %51, i1 %52, i1 false
+  %or.cond.i = select i1 %51, i1 %52, i1 false
   %.sroa.0.0.vec.extract.i = extractelement <4 x float> %50, i64 0
   %53 = tail call contract float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i)
   %54 = fcmp contract ole float %53, 1.000000e+00
-  %or.cond140.not.i = and i1 %or.cond.not143.i, %54
+  %or.cond140.not.i = and i1 %or.cond.i, %54
   %.sroa.0.4.vec.extract.i = extractelement <4 x float> %50, i64 1
-  %55 = tail call contract float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
-  %56 = fcmp contract ole float %55, 1.000000e+00
+  %56 = tail call contract float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
+  %57 = fcmp contract ole float %56, 1.000000e+00
   %57 = and i1 %56, %or.cond140.not.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %57
@@ -2510,9 +2510,9 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   store float 1.000000e+00, ptr %11, align 4, !alias.scope !120
   %12 = add nuw nsw i64 %.017.i1.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %12, 4
-  br i1 %exitcond.not.i2.i.i, label %_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %9, !llvm.loop !74
+  br i1 %exitcond.not.i2.i.i, label %_ZN7mitsuba9TransformINS_5PointIfLm4EEEEC2Ev.exit.i, label %9, !llvm.loop !74
 
-_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %9
+_ZN7mitsuba9TransformINS_5PointIfLm4EEEEC2Ev.exit.i: ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) %13, i64 128, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2555,17 +2555,17 @@ _ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_imp
   %48 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %36, <4 x float> %47, <4 x float> %42)
   %49 = fcmp contract oge float %45, 0.000000e+00
   %50 = fcmp contract ole float %45, %43
-  %or.cond.not143.i = select i1 %49, i1 %50, i1 false
+  %or.cond.i = select i1 %49, i1 %50, i1 false
   %.sroa.0.0.vec.extract.i = extractelement <4 x float> %48, i64 0
   %51 = tail call contract float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i)
   %52 = fcmp contract ole float %51, 1.000000e+00
-  %or.cond140.not.i = and i1 %or.cond.not143.i, %52
+  %or.cond140.not.i = and i1 %or.cond.i, %52
   %.sroa.0.4.vec.extract.i = extractelement <4 x float> %48, i64 1
-  %53 = tail call contract float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
-  %54 = fcmp contract ole float %53, 1.000000e+00
+  %54 = tail call contract float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
+  %55 = fcmp contract ole float %54, 1.000000e+00
   %55 = and i1 %54, %or.cond140.not.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %55
+  ret i1 %56
 }
 
 ; Function Attrs: mustprogress uwtable

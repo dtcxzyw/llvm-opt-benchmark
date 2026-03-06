@@ -110816,14 +110816,14 @@ define linkonce_odr dso_local void @_ZNK25dpiTypesToStringConverter7convertB5cxx
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 260
   %5 = load i64, ptr %4, align 4
   %6 = and i64 %5, 1073741824
-  %.not17 = icmp eq i64 %6, 0
-  br i1 %.not17, label %10, label %7
+  %.not19 = icmp eq i64 %6, 0
+  br i1 %.not19, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
-  br label %40
+  br label %44
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -110856,39 +110856,39 @@ define linkonce_odr dso_local void @_ZNK25dpiTypesToStringConverter7convertB5cxx
 30:                                               ; preds = %20
   switch i8 %.sroa.0.0.copyload.i.i, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread16 [
     i8 7, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
-    i8 6, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
-    i8 11, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
-    i8 26, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
+    i8 6, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16
+    i8 11, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16
+    i8 26, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16
   ]
 
-_ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %30
-  br i1 %28, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread16
+_ZNK13AstBasicDType11isDpiBitVecEv.exit:          ; preds = %30
+  br i1 %28, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16
 
-_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread: ; preds = %30, %30, %30, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit, %20
+_ZNK13AstBasicDType11isDpiBitVecEv.exit16:        ; preds = %30, %30, %30, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit, %20
   %31 = load ptr, ptr %1, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, i1 noundef zeroext %29)
   br label %40
 
-_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread16: ; preds = %30, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
-  %34 = load ptr, ptr %1, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
-  br label %40
+_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread: ; preds = %30, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
+  %38 = load ptr, ptr %1, align 8, !tbaa !24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
+  br label %44
 
 ._crit_edge.i.i:                                  ; preds = %10
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %37, ptr %0, align 8, !tbaa !27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %37, ptr noundef nonnull align 1 dereferenceable(7) @.str.1147, i64 7, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7, ptr %38, align 8, !tbaa !30
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %39, align 1, !tbaa !32
-  br label %40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %41, ptr %0, align 8, !tbaa !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %41, ptr noundef nonnull align 1 dereferenceable(7) @.str.1147, i64 7, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 7, ptr %42, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  store i8 0, ptr %43, align 1, !tbaa !32
+  br label %44
 
-40:                                               ; preds = %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread16, %._crit_edge.i.i, %7
+44:                                               ; preds = %_ZNK13AstBasicDType11isDpiBitVecEv.exit16, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, %._crit_edge.i.i, %7
   ret void
 }
 

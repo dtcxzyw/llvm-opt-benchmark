@@ -43537,14 +43537,14 @@ define internal fastcc range(i32 -2147483648, 8003) i32 @str_find_aux(ptr nounde
 
 luaL_checklstring.exit:                           ; preds = %2
   %9 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5)
-  %.not.i63 = icmp eq ptr %9, null
-  br i1 %.not.i63, label %10, label %luaL_checklstring.exit64
+  %.not.i61 = icmp eq ptr %9, null
+  br i1 %.not.i61, label %10, label %luaL_checklstring.exit62
 
 10:                                               ; preds = %luaL_checklstring.exit
   call fastcc void @luaL_typerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.26)
   unreachable
 
-luaL_checklstring.exit64:                         ; preds = %luaL_checklstring.exit
+luaL_checklstring.exit62:                         ; preds = %luaL_checklstring.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !86
   %13 = getelementptr i8, ptr %12, i64 32
@@ -43555,7 +43555,7 @@ luaL_checklstring.exit64:                         ; preds = %luaL_checklstring.e
   %or.cond.i = or i1 %.not28.i.i.i, %16
   br i1 %or.cond.i, label %luaL_optinteger.exit.thread, label %lua_type.exit.i
 
-lua_type.exit.i:                                  ; preds = %luaL_checklstring.exit64
+lua_type.exit.i:                                  ; preds = %luaL_checklstring.exit62
   %17 = getelementptr i8, ptr %12, i64 40
   %18 = load i32, ptr %17, align 8, !tbaa !69
   %19 = icmp slt i32 %18, 1
@@ -43571,9 +43571,9 @@ lua_type.exit.i:                                  ; preds = %luaL_checklstring.e
   %24 = load ptr, ptr %11, align 8, !tbaa !86
   %25 = getelementptr i8, ptr %24, i64 32
   %26 = load ptr, ptr %14, align 8, !tbaa !62
-  %.not28.i.i67 = icmp ult ptr %25, %26
-  %.luaO_nilobject_.i.i68 = select i1 %.not28.i.i67, ptr %25, ptr @luaO_nilobject_
-  %27 = getelementptr inbounds nuw i8, ptr %.luaO_nilobject_.i.i68, i64 8
+  %.not28.i.i65 = icmp ult ptr %25, %26
+  %.luaO_nilobject_.i.i66 = select i1 %.not28.i.i65, ptr %25, ptr @luaO_nilobject_
+  %27 = getelementptr inbounds nuw i8, ptr %.luaO_nilobject_.i.i66, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !69
   switch i32 %28, label %luaV_tonumber.exit.i [
     i32 3, label %luaL_optinteger.exit.thread
@@ -43581,7 +43581,7 @@ lua_type.exit.i:                                  ; preds = %luaL_checklstring.e
   ]
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %.luaO_nilobject_.i.i68, align 8, !tbaa !46
+  %30 = load ptr, ptr %.luaO_nilobject_.i.i66, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = call double @strtod(ptr noundef nonnull %31, ptr noundef nonnull %3) #37
@@ -43641,7 +43641,7 @@ luaV_tonumber.exit.i:                             ; preds = %23, %luaO_str2d.exi
   call fastcc void @luaL_typerror(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.25)
   unreachable
 
-luaL_optinteger.exit.thread:                      ; preds = %luaL_checklstring.exit64, %lua_type.exit.i, %23, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread14.i.i
+luaL_optinteger.exit.thread:                      ; preds = %luaL_checklstring.exit62, %lua_type.exit.i, %23, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread14.i.i
   %.ph = phi i64 [ 1, %luaL_checklstring.exit64 ], [ 0, %23 ], [ 1, %lua_type.exit.i ], [ 0, %luaO_str2d.exit.i.i ], [ 0, %luaO_str2d.exit.thread14.i.i ]
   %52 = load i64, ptr %4, align 8, !tbaa !111
   br label %56
@@ -43650,13 +43650,13 @@ luaL_optinteger.exit:                             ; preds = %20
   %53 = load i64, ptr %4, align 8, !tbaa !111
   %54 = icmp slt i64 %.fr, 0
   %55 = add nsw i64 %53, 1
-  %spec.select82 = select i1 %54, i64 %55, i64 0
+  %spec.select80 = select i1 %54, i64 %55, i64 0
   br label %56
 
 56:                                               ; preds = %luaL_optinteger.exit, %luaL_optinteger.exit.thread
   %57 = phi i64 [ %52, %luaL_optinteger.exit.thread ], [ %53, %luaL_optinteger.exit ]
   %58 = phi i64 [ %.ph, %luaL_optinteger.exit.thread ], [ %.fr, %luaL_optinteger.exit ]
-  %59 = phi i64 [ 0, %luaL_optinteger.exit.thread ], [ %spec.select82, %luaL_optinteger.exit ]
+  %59 = phi i64 [ 0, %luaL_optinteger.exit.thread ], [ %spec.select80, %luaL_optinteger.exit ]
   %.0.i = add nsw i64 %59, %58
   %60 = call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.0.i, i64 0)
   %61 = add nsw i64 %60, -1
@@ -43681,30 +43681,30 @@ luaL_optinteger.exit:                             ; preds = %20
 
 lua_toboolean.exit:                               ; preds = %62
   %68 = load i32, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
-  %.not83 = icmp eq i32 %68, 0
-  br i1 %.not83, label %lua_toboolean.exit.thread, label %lua_toboolean.exit.thread72
+  %.not81 = icmp eq i32 %68, 0
+  br i1 %.not81, label %lua_toboolean.exit.thread, label %lua_toboolean.exit.thread70
 
 lua_toboolean.exit.thread:                        ; preds = %62, %lua_toboolean.exit
   %69 = call ptr @strpbrk(ptr noundef nonnull %9, ptr noundef nonnull @.str.239) #36
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %lua_toboolean.exit.thread72, label %105
+  br i1 %70, label %lua_toboolean.exit.thread70, label %105
 
-lua_toboolean.exit.thread72:                      ; preds = %62, %lua_toboolean.exit.thread, %lua_toboolean.exit
+lua_toboolean.exit.thread70:                      ; preds = %62, %lua_toboolean.exit.thread, %lua_toboolean.exit
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 %.050
   %72 = sub i64 %57, %.050
   %73 = load i64, ptr %5, align 8, !tbaa !111
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %lmemfind.exit.thread76, label %75
+  br i1 %74, label %lmemfind.exit.thread74, label %75
 
-75:                                               ; preds = %lua_toboolean.exit.thread72
+75:                                               ; preds = %lua_toboolean.exit.thread70
   %76 = icmp ugt i64 %73, %72
-  br i1 %76, label %.critedge60, label %77
+  br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %75
   %78 = add i64 %73, -1
   %79 = sub i64 %72, %78
   %.not27.i = icmp eq i64 %79, 0
-  br i1 %.not27.i, label %.critedge60, label %.lr.ph.i
+  br i1 %.not27.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77
   %80 = load i8, ptr %9, align 1, !tbaa !46
@@ -43717,25 +43717,25 @@ lua_toboolean.exit.thread72:                      ; preds = %62, %lua_toboolean.
   %.02128.i = phi ptr [ %71, %.lr.ph.i ], [ %86, %88 ]
   %84 = call ptr @memchr(ptr noundef %.02128.i, i32 noundef %81, i64 noundef %.02029.i) #36
   %.not25.i = icmp eq ptr %84, null
-  br i1 %.not25.i, label %.critedge60, label %85
+  br i1 %.not25.i, label %.critedge, label %85
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %bcmp.i = call i32 @bcmp(ptr nonnull %86, ptr nonnull readonly %82, i64 %78)
   %87 = icmp eq i32 %bcmp.i, 0
-  br i1 %87, label %lmemfind.exit.thread76, label %88
+  br i1 %87, label %lmemfind.exit.thread74, label %88
 
 88:                                               ; preds = %85
   %89 = ptrtoint ptr %86 to i64
   %90 = ptrtoint ptr %.02128.i to i64
   %.neg.i = add i64 %.02029.i, %90
   %91 = sub i64 %.neg.i, %89
-  %.not.i65 = icmp eq i64 %91, 0
-  br i1 %.not.i65, label %.critedge60, label %83, !llvm.loop !407
+  %.not.i63 = icmp eq i64 %91, 0
+  br i1 %.not.i63, label %.critedge, label %83, !llvm.loop !407
 
-lmemfind.exit.thread76:                           ; preds = %85, %lua_toboolean.exit.thread72
-  %.0.i6679 = phi ptr [ %71, %lua_toboolean.exit.thread72 ], [ %84, %85 ]
-  %92 = ptrtoint ptr %.0.i6679 to i64
+lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.exit.thread70
+  %.0.i6477 = phi ptr [ %71, %lua_toboolean.exit.thread72 ], [ %84, %85 ]
+  %92 = ptrtoint ptr %.0.i6477 to i64
   %93 = ptrtoint ptr %7 to i64
   %94 = sub i64 %92, %93
   %95 = add nsw i64 %94, 1
@@ -43759,10 +43759,10 @@ lmemfind.exit.thread76:                           ; preds = %85, %lua_toboolean.
 105:                                              ; preds = %lua_toboolean.exit.thread, %56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %106 = load i8, ptr %9, align 1, !tbaa !46
-  %.fr96 = freeze i8 %106
-  %.not57 = icmp eq i8 %.fr96, 94
-  %spec.select61.idx = zext i1 %.not57 to i64
-  %spec.select61 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select61.idx
+  %.fr94 = freeze i8 %106
+  %.not95 = icmp eq i8 %.fr94, 94
+  %spec.select58.idx = zext i1 %.not95 to i64
+  %spec.select58 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select58.idx
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 %.050
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %108, align 8, !tbaa !397
@@ -43772,12 +43772,12 @@ lmemfind.exit.thread76:                           ; preds = %85, %lua_toboolean.
   store ptr %109, ptr %110, align 8, !tbaa !400
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %111, align 8, !tbaa !401
-  %112 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %107, ptr noundef nonnull %spec.select61)
+  %112 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %107, ptr noundef nonnull %spec.select58)
   %.not55.us = icmp eq ptr %112, null
-  br i1 %.not57, label %.split.us, label %.split, !llvm.loop !408
+  br i1 %.not57, label %.split, label %.split, !llvm.loop !408
 
-.split.us:                                        ; preds = %105
-  br i1 %.not55.us, label %.critedge, label %.split91.us
+.split:                                           ; preds = %105
+  br i1 %.not55.us, label %131, label %.split91.us
 
 .split:                                           ; preds = %105
   br i1 %.not55.us, label %.lr.ph, label %.split91.us
@@ -43826,16 +43826,16 @@ lmemfind.exit.thread76:                           ; preds = %85, %lua_toboolean.
 134:                                              ; preds = %.lr.ph
   %135 = getelementptr inbounds nuw i8, ptr %.04594, i64 1
   store i32 0, ptr %111, align 8, !tbaa !401
-  %136 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %135, ptr noundef nonnull %spec.select61)
-  %.not55 = icmp eq ptr %136, null
+  %113 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %135, ptr noundef nonnull %spec.select58)
+  %.not55 = icmp eq ptr %113, null
   br i1 %.not55, label %.lr.ph, label %.split91.us
 
-.critedge:                                        ; preds = %.lr.ph, %.split.us
+131:                                              ; preds = %.lr.ph, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %14, align 8, !tbaa !62
-  br label %.critedge60
+  br label %.critedge
 
-.critedge60:                                      ; preds = %88, %83, %77, %75, %.critedge
+.critedge:                                        ; preds = %88, %83, %77, %75, %.critedge
   %137 = phi ptr [ %.pre, %.critedge ], [ %65, %77 ], [ %65, %75 ], [ %65, %83 ], [ %65, %88 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 0, ptr %138, align 8, !tbaa !69
@@ -43843,12 +43843,12 @@ lmemfind.exit.thread76:                           ; preds = %85, %lua_toboolean.
   store ptr %139, ptr %14, align 8, !tbaa !62
   br label %140
 
-.critedge62:                                      ; preds = %130, %113
+.critedge60:                                      ; preds = %130, %113
   %.3.ph = phi i32 [ %131, %130 ], [ %129, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
-140:                                              ; preds = %lmemfind.exit.thread76, %.critedge62, %.critedge60
+140:                                              ; preds = %lmemfind.exit.thread74, %.critedge60, %.critedge
   %.1 = phi i32 [ 1, %.critedge60 ], [ 2, %lmemfind.exit.thread76 ], [ %.3.ph, %.critedge62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

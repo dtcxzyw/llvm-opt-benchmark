@@ -2551,7 +2551,7 @@ define internal fastcc void @manage_tempaddrs(ptr noundef %0, ptr noundef %1, i3
   %69 = select i1 %67, i1 true, i1 %68
   %70 = select i1 %66, i1 %69, i1 false
   %71 = or i1 %4, %70
-  br i1 %71, label %72, label %77
+  br i1 %71, label %72, label %78
 
 72:                                               ; preds = %.loopexit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -2559,16 +2559,16 @@ define internal fastcc void @manage_tempaddrs(ptr noundef %0, ptr noundef %1, i3
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %77
 
-76:                                               ; preds = %72
+77:                                               ; preds = %72
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %7) #20
   tail call fastcc void @ipv6_create_tempaddr(ptr noundef %1, i1 noundef zeroext false)
-  br label %78
+  br label %79
 
-77:                                               ; preds = %72, %.loopexit
+78:                                               ; preds = %72, %.loopexit
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %7) #20
-  br label %78
+  br label %79
 
-78:                                               ; preds = %77, %76
+79:                                               ; preds = %78, %77
   ret void
 }
 

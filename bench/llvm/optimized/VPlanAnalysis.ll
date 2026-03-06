@@ -3927,25 +3927,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominate
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %.sroa.01.04.i = load ptr, ptr %12, align 8, !tbaa !163
-  %.not5.i = icmp ne ptr %.sroa.01.04.i, %13
-  tail call void @llvm.assume(i1 %.not5.i)
+  %.sroa.01.06.i = load ptr, ptr %12, align 8, !tbaa !163
+  %.not7.i = icmp ne ptr %.sroa.01.06.i, %13
+  tail call void @llvm.assume(i1 %.not7.i)
   br label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i, i64 8
   %.sroa.01.0.i = load ptr, ptr %15, align 8, !tbaa !163
   %.not.i = icmp eq ptr %.sroa.01.0.i, %13
   br i1 %.not.i, label %"_ZZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_ENK3$_0clES3_S3_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %11
-  %.sroa.01.07.i = phi ptr [ %.sroa.01.0.i, %14 ], [ %.sroa.01.04.i, %11 ]
+  %.sroa.01.09.i = phi ptr [ %.sroa.01.0.i, %14 ], [ %.sroa.01.06.i, %11 ]
   %.06.i = phi i1 [ %.2.i, %14 ], [ undef, %11 ]
   %16 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 -24
   %17 = icmp eq ptr %16, %1
-  %18 = icmp ne ptr %16, %2
+  %.not14.i = icmp ne ptr %16, %2
   %..0.i = select i1 %18, i1 %.06.i, i1 false
-  %cond.i = xor i1 %17, %18
+  %cond.i = xor i1 %17, %.not14.i
   %.2.i = select i1 %17, i1 true, i1 %..0.i
   br i1 %cond.i, label %14, label %"_ZZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_ENK3$_0clES3_S3_.exit"
 

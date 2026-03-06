@@ -242,11 +242,11 @@ lean_nat_eq.exit:                                 ; preds = %37
 
 57:                                               ; preds = %54, %lean_nat_eq.exit
   %58 = icmp eq i8 %41, 0
-  %59 = icmp eq i8 %47, 0
+  %.not = icmp eq i8 %47, 0
   %60 = xor i1 %58, %59
   br i1 %60, label %65, label %61
 
-61:                                               ; preds = %57
+59:                                               ; preds = %57
   %62 = icmp eq i8 %43, 0
   br i1 %62, label %63, label %65
 
@@ -375,11 +375,11 @@ lean_nat_eq.exit.i:                               ; preds = %37
 
 57:                                               ; preds = %lean_nat_eq.exit.i, %54
   %58 = icmp eq i8 %41, 0
-  %59 = icmp eq i8 %47, 0
+  %.not.i8 = icmp eq i8 %47, 0
   %60 = xor i1 %58, %59
   br i1 %60, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit, label %61
 
-61:                                               ; preds = %57
+59:                                               ; preds = %57
   %62 = icmp eq i8 %43, 0
   br i1 %62, label %63, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit
 

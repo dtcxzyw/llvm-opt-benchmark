@@ -1434,7 +1434,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_plane(ptr noundef r
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = load i32, ptr %15, align 8, !tbaa !36
   %17 = icmp eq i32 %16, 0
-  %.not.i = icmp eq i32 %1, 0
+  %18 = icmp eq i32 %1, 0
   %18 = zext i1 %.not.i to i32
   %19 = xor i32 %18, -1
   %20 = select i1 %17, i32 %19, i32 -1

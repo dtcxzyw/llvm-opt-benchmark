@@ -247,10 +247,10 @@ switch.lookup:
   %2 = load i32, ptr %1, align 8
   %trunc = trunc i32 %2 to i8
   %switch.tableidx = add i8 %trunc, -7
-  %3 = icmp ult i8 %switch.tableidx, 5
+  %4 = icmp ult i8 %switch.tableidx, 5
   %switch.shifted = lshr i8 23, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
   %4 = and i32 %2, 255
   %5 = icmp ne i32 %4, 10
   %not.or.cond = xor i1 %or.cond, true

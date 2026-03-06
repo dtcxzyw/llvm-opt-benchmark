@@ -206,8 +206,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4d76962
   %.sroa.0.0.i = icmp ult i32 %4, 10
   %5 = icmp samesign ugt i32 %3, 64
   %6 = icmp samesign ult i32 %3, 91
-  %.sroa.01.0.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i
-  %7 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i
+  %spec.select.i = icmp samesign ugt i32 %3, 96
   %8 = icmp samesign ult i32 %3, 123
   %.sroa.02.0.i = select i1 %7, i1 %8, i1 %.sroa.01.0.i
   ret i1 %.sroa.02.0.i
@@ -220,8 +220,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$co
   %.sroa.0.0.i.i = icmp ult i32 %4, 10
   %5 = icmp samesign ugt i32 %3, 64
   %6 = icmp samesign ult i32 %3, 91
-  %.sroa.01.0.i.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i.i
-  %7 = icmp samesign ugt i32 %3, 96
+  %spec.select.v.i.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i.i
+  %spec.select.i.i = icmp samesign ugt i32 %3, 96
   %8 = icmp samesign ult i32 %3, 123
   %.sroa.02.0.i.i = select i1 %7, i1 %8, i1 %.sroa.01.0.i.i
   ret i1 %.sroa.02.0.i.i
@@ -370,12 +370,12 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = load i32, ptr %0, align 4, !range !20, !noundef !3
   %3 = add nsw i32 %2, -48
   %.sroa.0.0 = icmp ult i32 %3, 10
-  %4 = icmp samesign ugt i32 %2, 64
-  %5 = icmp samesign ult i32 %2, 91
+  %.sroa.0.0 = icmp samesign ugt i32 %2, 64
+  %3 = icmp samesign ult i32 %2, 91
   %.sroa.01.0 = select i1 %4, i1 %5, i1 %.sroa.0.0
   %6 = icmp samesign ugt i32 %2, 96
-  %7 = icmp samesign ult i32 %2, 123
-  %.sroa.02.0 = select i1 %6, i1 %7, i1 %.sroa.01.0
+  %spec.select = icmp samesign ult i32 %2, 123
+  %.sroa.02.0 = select i1 %6, i1 %spec.select, i1 %.sroa.01.0
   ret i1 %.sroa.02.0
 }
 

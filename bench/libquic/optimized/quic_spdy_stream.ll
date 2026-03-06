@@ -727,8 +727,8 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream14HasBytesToReadEv(ptr nounde
   %7 = load i64, ptr %6, align 8, !tbaa !88
   %8 = or i64 %7, %3
   %9 = icmp ne i64 %8, 0
-  %10 = or i1 %5, %9
-  ret i1 %10
+  %or.cond = or i1 %5, %9
+  ret i1 %or.cond
 }
 
 declare noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(169)) local_unnamed_addr #1

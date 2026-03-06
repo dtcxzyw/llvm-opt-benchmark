@@ -8533,24 +8533,24 @@ define internal zeroext i1 @record_inside(ptr noundef readonly captures(none) %0
   %15 = icmp eq ptr %5, null
   br i1 %15, label %16, label %22
 
-16:                                               ; preds = %3
+16:; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !100
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 40
   br label %23
 
-22:                                               ; preds = %3
+24:                                               ; preds = %3
   %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.10.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %23
+  br label %25
 
-23:                                               ; preds = %22, %16
+25:                                               ; preds = %24, %16
   %.sroa.09.0.in = phi ptr [ %21, %16 ], [ %5, %22 ]
   %.sroa.7.0.in = phi ptr [ %.sroa.7.0..sroa_idx, %16 ], [ %.sroa.7.0..sroa_idx12, %22 ]
   %.sroa.10.0.in = phi ptr [ %.sroa.10.0..sroa_idx, %16 ], [ %.sroa.10.0..sroa_idx15, %22 ]

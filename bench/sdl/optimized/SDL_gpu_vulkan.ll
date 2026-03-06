@@ -27090,7 +27090,7 @@ VULKAN_INTERNAL_VerifySwapPresentMode.exit.thread: ; preds = %82, %VULKAN_INTERN
   %.mux = sub nuw nsw i32 8, %172
   br i1 %brmerge.not, label %174, label %175
 
-174:                                              ; preds = %171
+173:                                              ; preds = %171
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 9, ptr noundef nonnull @.str.222) #12
   %.pre = load i32, ptr %41, align 8
   %.pre327 = load i32, ptr %44, align 4

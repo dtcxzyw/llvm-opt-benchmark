@@ -36029,8 +36029,8 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8, !alias.scope !6686
   %12 = icmp ult i32 %3, %11
-  %.0.i = select i1 %or.cond.i, i1 %12, i1 false
-  br i1 %.0.i, label %13, label %_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972066640e96d8E.exit
+  %or.cond = select i1 %or.cond.i, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread
 
 13:                                               ; preds = %4
   %14 = zext i8 %1 to i64
@@ -36051,14 +36051,14 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE(ptr 
   %29 = extractvalue { i64, i1 } %27, 1
   %or.cond.demorgan.i = or i1 %20, %24
   %or.cond3.demorgan.i = or i1 %or.cond.demorgan.i, %29
-  br i1 %or.cond3.demorgan.i, label %_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972066640e96d8E.exit, label %30
+  br i1 %or.cond3.demorgan.i, label %_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread, label %30
 
 30:                                               ; preds = %13
   %31 = extractvalue { i64, i1 } %23, 0
   %32 = extractvalue { i64, i1 } %19, 0
   %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %31)
   %34 = extractvalue { i64, i1 } %33, 1
-  br i1 %34, label %_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972066640e96d8E.exit, label %35
+  br i1 %34, label %_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread, label %35
 
 35:                                               ; preds = %30
   %36 = extractvalue { i64, i1 } %33, 0
@@ -36067,9 +36067,9 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE(ptr 
   %39 = extractvalue { i64, i1 } %37, 0
   %not..i = xor i1 %38, true
   %spec.select20.i = zext i1 %not..i to i64
-  br label %_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972066640e96d8E.exit
+  br label %_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread
 
-_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972066640e96d8E.exit: ; preds = %35, %30, %13, %4
+_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread: ; preds = %35, %30, %13, %4
   %.sroa.3.0 = phi i64 [ undef, %4 ], [ undef, %13 ], [ %39, %35 ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ 0, %4 ], [ 0, %13 ], [ %spec.select20.i, %35 ], [ 0, %30 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

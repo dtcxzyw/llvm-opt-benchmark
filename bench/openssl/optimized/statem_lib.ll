@@ -4359,26 +4359,26 @@ define range(i32 0, 2) i32 @ssl_set_version_bound(i32 noundef %0, i32 noundef %1
   %spec.select = icmp ult i32 %8, 3
   br i1 %spec.select, label %9, label %switch.early.test
 
-switch.early.test:                                ; preds = %5
+switch.early.test:; preds = %5
   switch i32 %1, label %12 [
     i32 772, label %9
-    i32 771, label %9
-    i32 770, label %9
-    i32 769, label %9
-    i32 768, label %9
-    i32 256, label %9
+    i32 771, label %.thread
+    i32 770, label %.thread
+    i32 769, label %.thread
+    i32 768, label %.thread
+    i32 256, label %.thread
   ]
 
-9:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %5
+.thread:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %5
   switch i32 %0, label %12 [
     i32 65536, label %10
     i32 131071, label %11
   ]
 
-10:                                               ; preds = %9
-  br i1 %7, label %.sink.split, label %12
+12:                                               ; preds = %.thread
+  br i1 %7, label %.sink.split, label %14
 
-11:                                               ; preds = %9
+13:                                               ; preds = %.thread
   switch i32 %1, label %12 [
     i32 65279, label %.sink.split
     i32 65278, label %.sink.split
@@ -4386,12 +4386,12 @@ switch.early.test:                                ; preds = %5
     i32 256, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %11, %11, %11, %11, %10, %3
+.sink.split:                                      ; preds = %13, %11, %11, %11, %12, %3
   %.sink = phi i32 [ 0, %3 ], [ %1, %10 ], [ %1, %11 ], [ %1, %11 ], [ %1, %11 ], [ %1, %11 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !101
-  br label %12
+  br label %14
 
-12:                                               ; preds = %.sink.split, %11, %switch.early.test, %9, %10
+14:                                               ; preds = %.sink.split, %11, %switch.early.test, %.thread, %12
   %.0 = phi i32 [ 1, %10 ], [ 0, %switch.early.test ], [ 1, %11 ], [ 1, %9 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

@@ -47492,12 +47492,12 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9004)
   %.val.i = load i8, ptr %6, align 8, !range !3165, !alias.scope !9001, !noalias !9004, !noundef !4
   %.val1.i = load i8, ptr %7, align 8, !range !3165, !alias.scope !9004, !noalias !9001, !noundef !4
-  %8 = add nsw i8 %.val.i, -18
-  %narrow.i.i.i = tail call i8 @llvm.umin.i8(i8 %8, i8 23)
-  %9 = add nsw i8 %.val1.i, -18
-  %narrow1.i.i.i = tail call i8 @llvm.umin.i8(i8 %9, i8 23)
-  %10 = icmp ne i8 %narrow.i.i.i, %narrow1.i.i.i
-  %11 = icmp ugt i8 %8, 22
+  %9 = add nsw i8 %.val.i, -18
+  %narrow.i.i.i = tail call i8 @llvm.umin.i8(i8 %9, i8 23)
+  %10 = add nsw i8 %.val1.i, -18
+  %narrow1.i.i.i = tail call i8 @llvm.umin.i8(i8 %10, i8 23)
+  %11 = icmp ne i8 %narrow.i.i.i, %narrow1.i.i.i
+  %11 = icmp ugt i8 %9, 22
   %12 = icmp ne i8 %.val.i, %.val1.i
   %spec.select.i.not4.i.i = and i1 %11, %12
   %.sroa.0.0.i.not.i.i = or i1 %spec.select.i.not4.i.i, %10
@@ -47507,7 +47507,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hb6e18ff0111f78baE.exit" ], [ %exitcond.not, %5 ]
   ret i1 %.sroa.0.0
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hb6e18ff0111f78baE.exit": ; preds = %5
+_ZN4core3cmp9PartialEq2ne17hde797d20904d9cceE.exit.i: ; preds = %5
   %13 = add i64 %.sroa.01.0, 1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val2.i = load ptr, ptr %14, align 8, !alias.scope !9001, !noalias !9004, !nonnull !4, !noundef !4

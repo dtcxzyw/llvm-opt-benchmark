@@ -1956,25 +1956,25 @@ list_length.exit.i:                               ; preds = %2
 
 list_length.exit.i.thread:                        ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %.not.i3.i57 = icmp eq ptr %7, null
-  br i1 %.not.i3.i57, label %.thread44, label %cmp_list_len_asc.exit.thread.thread
+  %.not.i3.i61 = icmp eq ptr %7, null
+  br i1 %.not.i3.i61, label %.thread43, label %cmp_list_len_asc.exit.thread.thread
 
 cmp_list_len_asc.exit:                            ; preds = %list_length.exit.i
   %8 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
-  br label %.thread44
+  br label %.thread43
 
 cmp_list_len_asc.exit.thread:                     ; preds = %list_length.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %10)
   %12 = icmp eq i32 %5, %10
-  br i1 %12, label %.preheader.split.split, label %.thread44
+  br i1 %12, label %.preheader.split.split, label %.thread43
 
 cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.thread
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 0, i32 %14)
-  br label %.thread44
+  br label %.thread43
 
 .preheader.split.split:                           ; preds = %cmp_list_len_asc.exit.thread
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2002,28 +2002,28 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
 28:                                               ; preds = %23, %25
   %29 = phi ptr [ %27, %25 ], [ null, %23 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.thread44, label %30
+  br i1 %exitcond.not, label %.thread43, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %18, align 8
   %32 = icmp eq ptr %29, null
   %33 = icmp eq ptr %31, null
   %.not40 = select i1 %32, i1 true, i1 %33
-  br i1 %.not40, label %.thread44, label %34
+  br i1 %.not40, label %.thread43, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %36 = load i32, ptr %29, align 8
   %37 = load i32, ptr %35, align 8
-  %.not = icmp sgt i32 %36, %37
+  %38 = icmp sgt i32 %36, %37
   %.not47 = icmp slt i32 %36, %37
   %..0 = select i1 %.not47, i32 -1, i32 %.0
   %cond2 = icmp eq i32 %36, %37
-  %.2 = select i1 %.not, i32 1, i32 %..0
+  %.2 = select i1 %38, i32 1, i32 %..0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %cond2, label %23, label %.thread44, !llvm.loop !17
+  br i1 %cond2, label %23, label %.thread43, !llvm.loop !17
 
-.thread44:                                        ; preds = %28, %30, %34, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
+.thread43:                                        ; preds = %28, %30, %34, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
   %.3 = phi i32 [ %8, %cmp_list_len_asc.exit ], [ 0, %list_length.exit.i.thread ], [ %11, %cmp_list_len_asc.exit.thread ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ %.2, %34 ], [ %11, %30 ], [ %11, %28 ]
   ret i32 %.3
 }

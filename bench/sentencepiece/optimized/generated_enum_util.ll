@@ -20,8 +20,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmNS0_11StringPieceEPi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %1
-  %.not16 = icmp eq i64 %1, 0
-  br i1 %.not16, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
+  %.not20 = icmp eq i64 %1, 0
+  br i1 %.not20, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds = %5, %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i ], [ %0, %5 ]
@@ -33,49 +33,49 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !8
   %9 = icmp slt i64 %.sroa.22.0.copyload.i, %3
   %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.22.0.copyload.i, i64 %3)
-  %10 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i, ptr noundef %2, i64 noundef %spec.select.i.i) #13
-  %11 = icmp slt i32 %10, 0
-  %12 = icmp eq i32 %10, 0
+  %9 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i, ptr noundef %2, i64 noundef %spec.select.i.i) #13
+  %10 = icmp slt i32 %9, 0
+  %12 = icmp eq i32 %9, 0
   %spec.select9.i.i = and i1 %9, %12
   %13 = or i1 %11, %spec.select9.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %15 = xor i64 %7, -1
-  %16 = add nsw i64 %.01116.i.i, %15
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = xor i64 %7, -1
+  %13 = add nsw i64 %.01116.i.i, %12
   %.112.i.i = select i1 %13, i64 %16, i64 %7
   %.1.i.i = select i1 %13, ptr %14, ptr %.017.i.i
   %17 = icmp sgt i64 %.112.i.i, 0
   br i1 %17, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, !llvm.loop !10
 
-_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i, %5
+_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit:; preds = %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i, %5
   %.0.lcssa.i.i = phi ptr [ %0, %5 ], [ %.1.i.i, %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i ]
   %.not = icmp eq ptr %.0.lcssa.i.i, %6
-  br i1 %.not, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread14, label %18
+  br i1 %.not, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18, label %23
 
-18:                                               ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit
+23:                                               ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit
   %.sroa.01.0.copyload = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !8
   %.not.i = icmp eq i64 %.sroa.22.0.copyload, %3
-  br i1 %.not.i, label %19, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread14
+  br i1 %.not.i, label %24, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 
-19:                                               ; preds = %18
-  %20 = icmp eq ptr %.sroa.01.0.copyload, %2
-  %21 = icmp slt i64 %3, 1
-  %or.cond.i = or i1 %20, %21
+24:                                               ; preds = %23
+  %25 = icmp eq ptr %.sroa.01.0.copyload, %2
+  %26 = icmp slt i64 %3, 1
+  %or.cond.i = or i1 %25, %26
   br i1 %or.cond.i, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit
 
-_ZN6google8protobufeqENS0_11StringPieceES1_.exit: ; preds = %19
+_ZN6google8protobufeqENS0_11StringPieceES1_.exit: ; preds = %24
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload, ptr %2, i64 %3)
-  %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread14
+  %27 = icmp eq i32 %bcmp.i, 0
+  br i1 %27, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 
-_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread: ; preds = %19, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !12
-  store i32 %24, ptr %4, align 4, !tbaa !16
-  br label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread14
+_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread: ; preds = %24, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit
+  %28 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !12
+  store i32 %29, ptr %4, align 4, !tbaa !16
+  br label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 
-_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread14: ; preds = %18, %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread
+_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18: ; preds = %23, %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread
   %.0 = phi i1 [ true, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread ], [ false, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit ], [ false, %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit ], [ false, %18 ]
   ret i1 %.0
 }

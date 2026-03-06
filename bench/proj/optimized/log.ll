@@ -31,10 +31,10 @@ define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = icmp ne i32 %7, 0
-  %or.cond.not = select i1 %8, i1 true, i1 %5
+  %or.cond = select i1 %8, i1 true, i1 %5
   %spec.select = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %9 = icmp sle i32 %1, %spec.select
-  %.0 = select i1 %or.cond.not, i1 %9, i1 false
+  %10 = icmp sle i32 %1, %spec.select
+  %.0 = select i1 %or.cond, i1 %10, i1 false
   ret i1 %.0
 }
 
@@ -54,11 +54,11 @@ define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr noundef readonly captures(none) %
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !38
   %13 = icmp ne i32 %12, 0
-  %or.cond.not.i.i = select i1 %13, i1 true, i1 %10
+  %or.cond.i.not35.i = select i1 %13, i1 true, i1 %10
   %spec.select.i.i = call i32 @llvm.abs.i32(i32 %9, i1 true)
   %14 = icmp sle i32 %1, %spec.select.i.i
-  %.0.i.i = select i1 %or.cond.not.i.i, i1 %14, i1 false
-  br i1 %.0.i.i, label %15, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
+  %or.cond.i = select i1 %or.cond.i.not35.i, i1 %14, i1 false
+  br i1 %or.cond.i, label %15, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 
 15:                                               ; preds = %8
   %16 = call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #15
@@ -99,16 +99,16 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !38
   %13 = icmp ne i32 %12, 0
-  %or.cond.not.i = select i1 %13, i1 true, i1 %10
+  %or.cond.i.not35 = select i1 %13, i1 true, i1 %10
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
   %14 = icmp sle i32 %1, %spec.select.i
-  %.0.i = select i1 %or.cond.not.i, i1 %14, i1 false
-  br i1 %.0.i, label %15, label %68
+  %or.cond = select i1 %or.cond.i.not35, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %_Z13pj_log_activeP6pj_ctxi.exit.thread
 
 15:                                               ; preds = %5
   %16 = tail call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #15
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %68, label %18
+  br i1 %17, label %_Z13pj_log_activeP6pj_ctxi.exit.thread, label %18
 
 18:                                               ; preds = %15
   %19 = icmp eq ptr %2, null
@@ -235,9 +235,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %56,
   %67 = load ptr, ptr %66, align 8, !tbaa !41
   call void %65(ptr noundef %67, i32 noundef %1, ptr noundef nonnull %16)
   call void @free(ptr noundef nonnull %16) #16
-  br label %68
+  br label %_Z13pj_log_activeP6pj_ctxi.exit.thread
 
-68:                                               ; preds = %62, %15, %5
+_Z13pj_log_activeP6pj_ctxi.exit.thread:           ; preds = %62, %15, %5
   ret void
 }
 
@@ -313,11 +313,11 @@ define hidden void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr noundef readonly 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = icmp ne i32 %8, 0
-  %or.cond.not.i.i = select i1 %9, i1 true, i1 %6
+  %or.cond.i.not35.i = select i1 %9, i1 true, i1 %6
   %10 = add i32 %5, -2
   %11 = icmp ult i32 %10, -3
-  %.0.i.i = select i1 %or.cond.not.i.i, i1 %11, i1 false
-  br i1 %.0.i.i, label %12, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
+  %or.cond.i = select i1 %or.cond.i.not35.i, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 
 12:                                               ; preds = %2
   %13 = call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #15

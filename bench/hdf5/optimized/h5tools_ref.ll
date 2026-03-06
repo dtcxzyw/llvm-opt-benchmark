@@ -51,12 +51,12 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   %4 = alloca %struct.H5L_info2_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %21, label %6
+  br i1 %5, label %22, label %6
 
 6:                                                ; preds = %2
   %char0 = load i8, ptr %0, align 1
   switch i8 %char0, label %.tail.thread [
-    i8 0, label %21
+    i8 0, label %22
     i8 47, label %.tail
   ]
 
@@ -64,7 +64,7 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %15, label %.tail.thread
+  br i1 %9, label %16, label %.tail.thread
 
 .tail.thread:                                     ; preds = %6, %.tail
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -75,20 +75,20 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   %14 = icmp slt i32 %13, 64
   %cond = select i1 %12, i1 %14, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %cond, label %15, label %21
+  br i1 %cond, label %16, label %22
 
-15:                                               ; preds = %.tail.thread, %.tail
-  %16 = load i64, ptr @thefile, align 8, !tbaa !12
-  %17 = call i32 @H5Oget_info_by_name3(i64 noundef %16, ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #11
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %21, label %19
+16:                                               ; preds = %.tail.thread, %.tail
+  %17 = load i64, ptr @thefile, align 8, !tbaa !12
+  %18 = call i32 @H5Oget_info_by_name3(i64 noundef %17, ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #11
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
-  br label %21
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  br label %22
 
-21:                                               ; preds = %6, %15, %2, %.tail.thread, %19
+22:                                               ; preds = %6, %16, %2, %.tail.thread, %20
   %.07 = phi i32 [ -1, %.tail.thread ], [ -1, %2 ], [ 0, %19 ], [ -1, %6 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.07
@@ -463,7 +463,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = !{!"p1 omnipotent char", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = !{!15, !15, i64 0}
+!14 = !{!15, !16, i64 0}
 !15 = !{!"int", !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"_Bool", !6, i64 0}

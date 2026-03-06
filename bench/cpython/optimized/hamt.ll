@@ -2868,7 +2868,7 @@ define hidden i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr nou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %0, %1
-  br i1 %7, label %28, label %8
+  br i1 %7, label %29, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2876,7 +2876,7 @@ define hidden i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !16
   %.not = icmp eq i64 %10, %12
-  br i1 %.not, label %13, label %28
+  br i1 %.not, label %13, label %29
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2894,14 +2894,14 @@ define hidden i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr nou
   %.1 = phi i32 [ undef, %13 ], [ %.3, %23 ]
   %18 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %.thread19
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %4, align 8, !tbaa !110
   %22 = call fastcc i32 @hamt_find(ptr noundef %1, ptr noundef %21, ptr noundef nonnull %6)
   switch i32 %22, label %default.unreachable23 [
-    i32 0, label %.thread.loopexit
-    i32 1, label %.thread
+    i32 0, label %.thread19.loopexit
+    i32 1, label %.thread19
     i32 2, label %23
   ]
 
@@ -2914,23 +2914,23 @@ define hidden i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr nou
   %..1 = select i1 %.not19, i32 0, i32 %.1
   %cond = icmp sgt i32 %26, 0
   %.3 = select i1 %27, i32 %..1, i32 -1
-  br i1 %cond, label %17, label %.thread, !llvm.loop !120
+  br i1 %cond, label %17, label %.thread19, !llvm.loop !120
 
-default.unreachable23:                            ; preds = %20
+default.unreachable27:                            ; preds = %20
   unreachable
 
-.thread.loopexit:                                 ; preds = %20
-  br label %.thread
+.thread19.loopexit:                               ; preds = %20
+  br label %.thread19
 
-.thread:                                          ; preds = %17, %23, %20, %.thread.loopexit
+.thread19:                                        ; preds = %17, %23, %20, %.thread19.loopexit
   %.2 = phi i32 [ 0, %20 ], [ 1, %17 ], [ %.3, %23 ], [ -1, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %8, %2, %.thread
+29:                                               ; preds = %8, %2, %.thread19
   %.0 = phi i32 [ %.2, %.thread ], [ 1, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
@@ -3514,7 +3514,7 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
 default.unreachable:                              ; preds = %27
   unreachable
 
-_PyHamt_Eq.exit.thread23:                         ; preds = %27
+_PyHamt_Eq.exit.thread21:                         ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -143916,27 +143916,27 @@ default.unreachable:                              ; preds = %257
   call void @llvm.experimental.noalias.scope.decl(metadata !14602)
   %.val4.i.i.i22.i.i.i = load i8, ptr %278, align 1, !range !2985, !alias.scope !14604, !noalias !14605, !noundef !4
   %.val5.i.i.i23.i.i.i = load i8, ptr %279, align 1, !range !2985, !alias.scope !14606, !noalias !14607, !noundef !4
-  %280 = add nsw i8 %.val4.i.i.i22.i.i.i, -18
-  %narrow.i.i.i.i.i.i.i.i = call i8 @llvm.umin.i8(i8 %280, i8 4)
-  %281 = add nsw i8 %.val5.i.i.i23.i.i.i, -18
-  %narrow1.i.i.i.i.i.i.i.i = call i8 @llvm.umin.i8(i8 %281, i8 4)
-  %282 = icmp ne i8 %narrow.i.i.i.i.i.i.i.i, %narrow1.i.i.i.i.i.i.i.i
+  %281 = add nsw i8 %.val4.i.i.i22.i.i.i, -18
+  %narrow.i.i.i.i.i.i.i.i = call i8 @llvm.umin.i8(i8 %281, i8 4)
+  %282 = add nsw i8 %.val5.i.i.i23.i.i.i, -18
+  %narrow1.i.i.i.i.i.i.i.i = call i8 @llvm.umin.i8(i8 %282, i8 4)
+  %283 = icmp ne i8 %narrow.i.i.i.i.i.i.i.i, %narrow1.i.i.i.i.i.i.i.i
   %283 = icmp ugt i8 %280, 3
   %284 = icmp ne i8 %.val4.i.i.i22.i.i.i, %.val5.i.i.i23.i.i.i
   %spec.select.i.not4.i.i.i.i.i.i.i = and i1 %283, %284
-  %.sroa.0.0.i.not.i.i.i.i.i.i.i = or i1 %spec.select.i.not4.i.i.i.i.i.i.i, %282
+  %.sroa.0.0.i.not.i.i.i.i.i.i.i = or i1 %spec.select.i.not4.i.i.i.i.i.i.i, %283
   br i1 %.sroa.0.0.i.not.i.i.i.i.i.i.i, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17he5aec9f32b9222a9E.exit.i.i.i.i.i"
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17he5aec9f32b9222a9E.exit.i.i.i.i.i": ; preds = %277
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17he5aec9f32b9222a9E.exit.i.i.i.i.i":; preds = %277
   %285 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %.val.i.i.i24.i.i.i = load ptr, ptr %285, align 8, !alias.scope !14604, !noalias !14605, !nonnull !4, !noundef !4
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  %.val1.i.i.i25.i.i.i = load i64, ptr %286, align 8, !alias.scope !14604, !noalias !14605, !noundef !4
+  %.val.i.i.i24.i.i.i = load i64, ptr %286, align 8, !alias.scope !14604, !noalias !14605, !noundef !4
   %287 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %.val2.i.i.i26.i.i.i = load ptr, ptr %287, align 8, !alias.scope !14606, !noalias !14607, !nonnull !4, !noundef !4
+  %.val1.i.i.i25.i.i.i = load ptr, ptr %287, align 8, !alias.scope !14606, !noalias !14607, !nonnull !4, !noundef !4
   %288 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  %.val3.i.i.i27.i.i.i = load i64, ptr %288, align 8, !alias.scope !14606, !noalias !14607, !noundef !4
-  %289 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i24.i.i.i, i64 noundef %.val1.i.i.i25.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val2.i.i.i26.i.i.i, i64 noundef %.val3.i.i.i27.i.i.i)
+  %.val2.i.i.i26.i.i.i = load i64, ptr %288, align 8, !alias.scope !14606, !noalias !14607, !noundef !4
+  %289 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ffb86a09b73a0b2E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i24.i.i.i, i64 noundef %.val.i.i.i24.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val2.i.i.i26.i.i.i, i64 noundef %.val3.i.i.i27.i.i.i)
           to label %.noexc128 unwind label %.loopexit.split-lp.loopexit
 
 .noexc128:                                        ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17he5aec9f32b9222a9E.exit.i.i.i.i.i"

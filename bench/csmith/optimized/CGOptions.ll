@@ -3937,7 +3937,7 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i8, ptr @_ZN9CGOptions15dfs_exhaustive_E, align 1, !tbaa !17, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %89
+  br i1 %6, label %7, label %87
 
 7:                                                ; preds = %0
   %8 = load i8, ptr @_ZN9CGOptions17compatible_check_E, align 1, !tbaa !17, !range !19, !noundef !20
@@ -4076,7 +4076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %49, 
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %55, ptr noundef nonnull @.str.27, i64 noundef 29)
-  br label %89
+  br label %87
 
 57:                                               ; preds = %_ZN9CGOptions14partial_expandB5cxx11Ev.exit5
   %58 = landingpad { ptr, i32 }
@@ -4103,7 +4103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %57,
 66:                                               ; preds = %63
   %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %67, ptr noundef nonnull @.str.28, i64 noundef 39)
-  br label %89
+  br label %87
 
 69:                                               ; preds = %63
   %70 = load i8, ptr @_ZN9CGOptions11use_struct_E, align 1, !tbaa !17, !range !19, !noundef !20
@@ -4117,7 +4117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %57,
 74:                                               ; preds = %69
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %75, ptr noundef nonnull @.str.29, i64 noundef 45)
-  br label %89
+  br label %87
 
 77:                                               ; preds = %69
   %78 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
@@ -4127,19 +4127,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %57,
   %or.cond.i = select i1 %79, i1 true, i1 %81
   %82 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
   %83 = trunc nuw i8 %82 to i1
-  %84 = select i1 %or.cond.i, i1 true, i1 %83
-  br i1 %84, label %85, label %88
+  %or.cond14 = select i1 %or.cond.i, i1 true, i1 %83
+  br i1 %or.cond14, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %86
 
-85:                                               ; preds = %77
-  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
-  %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %86, ptr noundef nonnull @.str.30, i64 noundef 66)
-  br label %89
+_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %77
+  %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
+  %85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %84, ptr noundef nonnull @.str.30, i64 noundef 66)
+  br label %87
 
-88:                                               ; preds = %77
+86:                                               ; preds = %77
   store i8 1, ptr @_ZN9CGOptions20fixed_struct_fields_E, align 1, !tbaa !17
-  br label %89
+  br label %87
 
-89:                                               ; preds = %54, %66, %74, %85, %88, %0
+87:                                               ; preds = %54, %66, %74, %_ZN9CGOptions21has_extension_supportEv.exit.thread, %86, %0
   %.0 = phi i1 [ false, %0 ], [ true, %54 ], [ true, %66 ], [ true, %85 ], [ false, %88 ], [ true, %74 ]
   ret i1 %.0
 }
@@ -4157,8 +4157,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions21has_extension_supportEv() lo
   %or.cond = select i1 %2, i1 true, i1 %4
   %5 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
   %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %or.cond, i1 true, i1 %6
-  ret i1 %7
+  %or.cond = select i1 %or.cond, i1 true, i1 %6
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4351,11 +4351,11 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11allow_int64Ev() local_unname
   %or.cond.i = select i1 %2, i1 true, i1 %4
   %5 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
   %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %or.cond.i, i1 true, i1 %6
-  %.not = xor i1 %7, true
-  %8 = load i8, ptr @_ZN9CGOptions7math64_E, align 1, !range !19
-  %9 = trunc nuw i8 %8 to i1
-  %or.cond = select i1 %.not, i1 %9, i1 false
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %6
+  %or.cond.not = xor i1 %or.cond, true
+  %7 = load i8, ptr @_ZN9CGOptions7math64_E, align 1, !range !19
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond3 = select i1 %or.cond.not, i1 %8, i1 false
   %10 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1, !range !19
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %or.cond, i1 %11, i1 false

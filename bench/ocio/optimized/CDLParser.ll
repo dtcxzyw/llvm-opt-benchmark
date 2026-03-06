@@ -5365,29 +5365,29 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev9CDLParser4Impl21IsVal
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %11, label %8
 
-8:                                                ; preds = %2
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @_ZN19OpenColorIO_v2_5devL28METADATA_VIEWING_DESCRIPTIONE) #34
-  %10 = icmp eq i32 %9, 0
-  br label %11
+16:                                               ; preds = %2
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @_ZN19OpenColorIO_v2_5devL28METADATA_VIEWING_DESCRIPTIONE) #34
+  %18 = icmp eq i32 %17, 0
+  br label %19
 
-11:                                               ; preds = %8, %2
+19:                                               ; preds = %16, %2
   %12 = phi i1 [ true, %2 ], [ %10, %8 ]
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SOPNODEE) #34
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %21, label %15
 
-15:                                               ; preds = %11
+22:                                               ; preds = %11
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SATNODEE) #34
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
 
-18:                                               ; preds = %15
+24:                                               ; preds = %22
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL14TAG_SATNODEALTE) #34
   %20 = icmp ne i32 %19, 0
   br label %21
 
-21:                                               ; preds = %18, %15, %11
-  %22 = phi i1 [ false, %15 ], [ false, %11 ], [ %20, %18 ]
+26:                                               ; preds = %24, %22, %11
+  %27 = phi i1 [ false, %15 ], [ false, %11 ], [ %20, %18 ]
   %23 = icmp eq i32 %5, 0
   %24 = select i1 %12, i1 %22, i1 false
   %25 = select i1 %23, i1 true, i1 %24

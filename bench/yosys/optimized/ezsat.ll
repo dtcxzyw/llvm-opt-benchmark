@@ -3081,7 +3081,7 @@ define noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull ali
   br label %19
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %3
-  %.tr138.lcssa = phi i32 [ %1, %3 ], [ %.tr138.be, %tailrecurse.backedge ]
+  %.tr140.lcssa = phi i32 [ %1, %3 ], [ %.tr140.be, %tailrecurse.backedge ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = load ptr, ptr %2, align 8, !tbaa !69
@@ -3090,21 +3090,21 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %11 = sub i64 %9, %10
   %12 = lshr exact i64 %11, 2
   %13 = trunc i64 %12 to i32
-  %.not110 = icmp sgt i32 %.tr138.lcssa, %13
-  br i1 %.not110, label %common.ret316, label %14
+  %.not110 = icmp sgt i32 %.tr140.lcssa, %13
+  br i1 %.not110, label %common.ret319, label %14
 
 14:                                               ; preds = %tailrecurse._crit_edge
-  %15 = zext nneg i32 %.tr138.lcssa to i64
+  %15 = zext nneg i32 %.tr140.lcssa to i64
   %16 = getelementptr [4 x i8], ptr %8, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !78
   %switch = icmp ult i32 %18, 3
-  %spec.select133 = select i1 %switch, i32 %18, i32 0
-  br label %common.ret316
+  %spec.select135 = select i1 %switch, i32 %18, i32 0
+  br label %common.ret319
 
 19:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr138167 = phi i32 [ %1, %.lr.ph ], [ %.tr138.be, %tailrecurse.backedge ]
-  %20 = xor i32 %.tr138167, -1
+  %.tr140169 = phi i32 [ %1, %.lr.ph ], [ %.tr140.be, %tailrecurse.backedge ]
+  %20 = xor i32 %.tr140169, -1
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %5, align 8, !tbaa !83
   %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %21
@@ -3119,9 +3119,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
     i32 5, label %70
   ]
 
-common.ret316:                                    ; preds = %14, %tailrecurse._crit_edge, %30, %38, %46, %58, %36, %.lr.ph192, %44, %.lr.ph185, %53, %.lr.ph178, %65, %.lr.ph171, %70, %26
-  %common.ret316.op = phi i32 [ %switch.select117, %26 ], [ 1, %65 ], [ 2, %46 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select133, %14 ], [ %spec.select112, %44 ], [ 1, %58 ], [ 0, %.lr.ph178 ], [ 1, %30 ], [ %spec.select, %36 ], [ 2, %38 ], [ 2, %.lr.ph192 ], [ 1, %.lr.ph185 ], [ %.995, %53 ], [ %.13, %.lr.ph171 ], [ 0, %70 ]
-  ret i32 %common.ret316.op
+common.ret319:                                    ; preds = %14, %tailrecurse._crit_edge, %30, %38, %46, %58, %36, %.lr.ph195, %44, %.lr.ph188, %53, %.lr.ph181, %65, %.lr.ph172, %70, %26
+  %common.ret319.op = phi i32 [ %switch.select117, %26 ], [ 1, %65 ], [ 2, %46 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select133, %14 ], [ %spec.select112, %44 ], [ 1, %58 ], [ 0, %.lr.ph178 ], [ 1, %30 ], [ %spec.select, %36 ], [ 2, %38 ], [ 2, %.lr.ph192 ], [ 1, %.lr.ph185 ], [ %.995, %53 ], [ %.13, %.lr.ph171 ], [ 0, %70 ]
+  ret i32 %common.ret319.op
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %25, align 8, !tbaa !69
@@ -3131,76 +3131,76 @@ common.ret316:                                    ; preds = %14, %tailrecurse._c
   %switch.select = zext i1 %switch.selectcmp to i32
   %switch.selectcmp116 = icmp eq i32 %29, 1
   %switch.select117 = select i1 %switch.selectcmp116, i32 2, i32 %switch.select
-  br label %common.ret316
+  br label %common.ret319
 
 30:                                               ; preds = %19
   %31 = load ptr, ptr %25, align 8, !tbaa !101
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !101
-  %.not137189 = icmp eq ptr %31, %33
-  br i1 %.not137189, label %common.ret316, label %.lr.ph192
+  %.not139192 = icmp eq ptr %31, %33
+  br i1 %.not139192, label %common.ret319, label %.lr.ph195
 
-.lr.ph192:                                        ; preds = %30, %36
-  %.086191 = phi i32 [ %spec.select, %36 ], [ 1, %30 ]
-  %.sroa.0130.0190 = phi ptr [ %37, %36 ], [ %31, %30 ]
-  %34 = load i32, ptr %.sroa.0130.0190, align 4, !tbaa !78
+.lr.ph195:                                        ; preds = %30, %36
+  %.086194 = phi i32 [ %spec.select, %36 ], [ 1, %30 ]
+  %.sroa.0130.0193 = phi ptr [ %37, %36 ], [ %31, %30 ]
+  %34 = load i32, ptr %.sroa.0130.0193, align 4, !tbaa !78
   %35 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.not109 = icmp eq i32 %35, 2
-  br i1 %.not109, label %common.ret316, label %36
+  br i1 %.not109, label %common.ret319, label %36
 
-36:                                               ; preds = %.lr.ph192
-  %.not233 = icmp eq i32 %35, 1
-  %spec.select = select i1 %.not233, i32 %.086191, i32 0
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0190, i64 4
-  %.not137 = icmp eq ptr %37, %33
-  br i1 %.not137, label %common.ret316, label %.lr.ph192
+36:                                               ; preds = %.lr.ph195
+  %.not236 = icmp eq i32 %35, 1
+  %spec.select = select i1 %.not236, i32 %.086194, i32 0
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0193, i64 4
+  %.not139 = icmp eq ptr %37, %33
+  br i1 %.not139, label %common.ret319, label %.lr.ph195
 
 38:                                               ; preds = %19
   %39 = load ptr, ptr %25, align 8, !tbaa !101
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !101
-  %.not136182 = icmp eq ptr %39, %41
-  br i1 %.not136182, label %common.ret316, label %.lr.ph185
+  %.not138185 = icmp eq ptr %39, %41
+  br i1 %.not138185, label %common.ret319, label %.lr.ph188
 
-.lr.ph185:                                        ; preds = %38, %44
-  %.389184 = phi i32 [ %spec.select112, %44 ], [ 2, %38 ]
-  %.sroa.0126.0183 = phi ptr [ %45, %44 ], [ %39, %38 ]
-  %42 = load i32, ptr %.sroa.0126.0183, align 4, !tbaa !78
+.lr.ph188:                                        ; preds = %38, %44
+  %.389187 = phi i32 [ %spec.select112, %44 ], [ 2, %38 ]
+  %.sroa.0126.0186 = phi ptr [ %45, %44 ], [ %39, %38 ]
+  %42 = load i32, ptr %.sroa.0126.0186, align 4, !tbaa !78
   %43 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.not108 = icmp eq i32 %43, 1
-  br i1 %.not108, label %common.ret316, label %44
+  br i1 %.not108, label %common.ret319, label %44
 
-44:                                               ; preds = %.lr.ph185
-  %.not232 = icmp eq i32 %43, 2
-  %spec.select112 = select i1 %.not232, i32 %.389184, i32 0
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0183, i64 4
-  %.not136 = icmp eq ptr %45, %41
-  br i1 %.not136, label %common.ret316, label %.lr.ph185
+44:                                               ; preds = %.lr.ph188
+  %.not235 = icmp eq i32 %43, 2
+  %spec.select112 = select i1 %.not235, i32 %.389187, i32 0
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0186, i64 4
+  %.not138 = icmp eq ptr %45, %41
+  br i1 %.not138, label %common.ret319, label %.lr.ph188
 
 46:                                               ; preds = %19
   %47 = load ptr, ptr %25, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !101
-  %.not135175 = icmp eq ptr %47, %49
-  br i1 %.not135175, label %common.ret316, label %.lr.ph178
+  %.not137178 = icmp eq ptr %47, %49
+  br i1 %.not137178, label %common.ret319, label %.lr.ph181
 
-.lr.ph178:                                        ; preds = %46, %53
-  %.692177 = phi i32 [ %.995, %53 ], [ 2, %46 ]
-  %.sroa.0122.0176 = phi ptr [ %57, %53 ], [ %47, %46 ]
-  %50 = load i32, ptr %.sroa.0122.0176, align 4, !tbaa !78
+.lr.ph181:                                        ; preds = %46, %53
+  %.692180 = phi i32 [ %.995, %53 ], [ 2, %46 ]
+  %.sroa.0122.0179 = phi ptr [ %57, %53 ], [ %47, %46 ]
+  %50 = load i32, ptr %.sroa.0122.0179, align 4, !tbaa !78
   %51 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %52 = add i32 %51, -1
   %or.cond12 = icmp ult i32 %52, 2
-  br i1 %or.cond12, label %53, label %common.ret316
+  br i1 %or.cond12, label %53, label %common.ret319
 
-53:                                               ; preds = %.lr.ph178
+53:                                               ; preds = %.lr.ph181
   %54 = icmp eq i32 %51, 1
-  %55 = icmp eq i32 %.692177, 1
+  %55 = icmp eq i32 %.692180, 1
   %56 = select i1 %55, i32 2, i32 1
-  %.995 = select i1 %54, i32 %56, i32 %.692177
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0176, i64 4
-  %.not135 = icmp eq ptr %57, %49
-  br i1 %.not135, label %common.ret316, label %.lr.ph178
+  %.995 = select i1 %54, i32 %56, i32 %.692180
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0179, i64 4
+  %.not137 = icmp eq ptr %57, %49
+  br i1 %.not137, label %common.ret319, label %.lr.ph181
 
 58:                                               ; preds = %19
   %59 = load ptr, ptr %25, align 8, !tbaa !69
@@ -3209,16 +3209,16 @@ common.ret316:                                    ; preds = %14, %tailrecurse._c
   %62 = load ptr, ptr %25, align 8, !tbaa !101
   %63 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !101
-  %.not134168 = icmp eq ptr %62, %64
-  br i1 %.not134168, label %common.ret316, label %.lr.ph171
+  %.not136170 = icmp eq ptr %62, %64
+  br i1 %.not136170, label %common.ret319, label %.lr.ph172
 
 65:                                               ; preds = %.lr.ph171
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0169, i64 4
-  %.not134 = icmp eq ptr %66, %64
-  br i1 %.not134, label %common.ret316, label %.lr.ph171
+  %.not136 = icmp eq ptr %66, %64
+  br i1 %.not136, label %common.ret319, label %.lr.ph172
 
-.lr.ph171:                                        ; preds = %58, %65
-  %.11170 = phi i32 [ %.13, %65 ], [ undef, %58 ]
+.lr.ph172:                                        ; preds = %58, %65
+  %.sroa.0118.0171 = phi i32 [ %.13, %65 ], [ undef, %58 ]
   %.sroa.0118.0169 = phi ptr [ %66, %65 ], [ %62, %58 ]
   %67 = load i32, ptr %.sroa.0118.0169, align 4, !tbaa !78
   %68 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -3230,7 +3230,7 @@ common.ret316:                                    ; preds = %14, %tailrecurse._c
   %.13 = select i1 %or.cond14, i32 %.11., i32 0
   br i1 %cond1, label %65, label %common.ret316
 
-70:                                               ; preds = %19
+70:; preds = %19
   %71 = load ptr, ptr %25, align 8, !tbaa !69
   %72 = load i32, ptr %71, align 4, !tbaa !78
   %73 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -3239,18 +3239,18 @@ common.ret316:                                    ; preds = %14, %tailrecurse._c
     i32 2, label %tailrecurse.backedge
   ]
 
-74:                                               ; preds = %70
+75:                                               ; preds = %70
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %70, %74
-  %.sink256 = phi i64 [ 4, %74 ], [ 8, %70 ]
-  %75 = load ptr, ptr %25, align 8, !tbaa !69
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink256
-  %.tr138.be = load i32, ptr %76, align 4, !tbaa !78
-  %77 = icmp sgt i32 %.tr138.be, 0
-  br i1 %77, label %tailrecurse._crit_edge, label %19
+tailrecurse.backedge:                             ; preds = %70, %75
+  %.sink259 = phi i64 [ 4, %74 ], [ 8, %70 ]
+  %76 = load ptr, ptr %25, align 8, !tbaa !69
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sink259
+  %.tr140.be = load i32, ptr %77, align 4, !tbaa !78
+  %78 = icmp sgt i32 %.tr140.be, 0
+  br i1 %78, label %tailrecurse._crit_edge, label %19
 
-78:                                               ; preds = %19
+79:                                               ; preds = %19
   tail call void @abort() #33
   unreachable
 }

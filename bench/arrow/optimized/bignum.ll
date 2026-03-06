@@ -1976,13 +1976,13 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   %31 = sub i16 %6, %29
   store i16 %31, ptr %5, align 2, !tbaa !8
   %.pre = load i16, ptr %1, align 4, !tbaa !3
-  %.pre49 = load i16, ptr %11, align 2, !tbaa !8
-  %.pre50 = sext i16 %30 to i32
-  %.pre51 = sext i16 %31 to i32
-  %.pre53 = add nsw i32 %.pre51, %.pre50
-  %.pre55 = sext i16 %.pre to i32
-  %.pre57 = sext i16 %.pre49 to i32
-  %.pre59 = add nsw i32 %.pre57, %.pre55
+  %.pre48 = load i16, ptr %11, align 2, !tbaa !8
+  %.pre49 = sext i16 %30 to i32
+  %.pre50 = sext i16 %31 to i32
+  %.pre52 = add nsw i32 %.pre50, %.pre49
+  %.pre54 = sext i16 %.pre to i32
+  %.pre56 = sext i16 %.pre48 to i32
+  %.pre58 = add nsw i32 %.pre56, %.pre54
   br label %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i, %.lr.ph.i
@@ -1996,21 +1996,21 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds 
   br i1 %34, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.lr.ph20.i, !llvm.loop !26
 
 _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %16, %.lr.ph20.i
-  %.pre-phi60 = phi i32 [ %14, %16 ], [ %.pre59, %.lr.ph20.i ]
-  %.pre-phi54 = phi i32 [ %8, %16 ], [ %.pre53, %.lr.ph20.i ]
+  %.pre-phi59 = phi i32 [ %14, %16 ], [ %.pre58, %.lr.ph20.i ]
+  %.pre-phi53 = phi i32 [ %8, %16 ], [ %.pre52, %.lr.ph20.i ]
   %35 = phi i16 [ %9, %16 ], [ %.pre, %.lr.ph20.i ]
   %36 = phi i16 [ %3, %16 ], [ %30, %.lr.ph20.i ]
-  %37 = icmp sgt i32 %.pre-phi54, %.pre-phi60
+  %37 = icmp sgt i32 %.pre-phi53, %.pre-phi59
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit, %.lr.ph
   %38 = phi i16 [ %44, %.lr.ph ], [ %36, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ]
-  %.03141 = phi i16 [ %43, %.lr.ph ], [ 0, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ]
+  %.03138 = phi i16 [ %43, %.lr.ph ], [ 0, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ]
   %39 = sext i16 %38 to i64
   %40 = getelementptr [4 x i8], ptr %0, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !9
   %42 = trunc i32 %41 to i16
-  %43 = add i16 %.03141, %42
+  %43 = add i16 %.03138, %42
   tail call void @_ZN14arrow_vendored17double_conversion6Bignum13SubtractTimesERKS1_i(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %1, i32 noundef %41)
   %44 = load i16, ptr %0, align 4, !tbaa !3
   %45 = sext i16 %44 to i32
@@ -2027,10 +2027,10 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %16, %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
   %.031.lcssa = phi i16 [ 0, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %43, %.lr.ph ]
-  %.lcssa40 = phi i16 [ %36, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %44, %.lr.ph ]
+  %.lcssa37 = phi i16 [ %36, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %44, %.lr.ph ]
   %.lcssa = phi i16 [ %35, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %49, %.lr.ph ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %56 = sext i16 %.lcssa40 to i64
+  %56 = sext i16 %.lcssa37 to i64
   %57 = getelementptr [4 x i8], ptr %55, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -4
   %59 = load i32, ptr %58, align 4, !tbaa !9
@@ -2049,11 +2049,11 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %16, %
   store i32 %.recomposed, ptr %58, align 4, !tbaa !9
   %69 = trunc i32 %67 to i16
   %70 = add i16 %.031.lcssa, %69
-  %71 = icmp sgt i16 %.lcssa40, 0
+  %71 = icmp sgt i16 %.lcssa37, 0
   br i1 %71, label %.lr.ph.i33, label %.critedge.i
 
 .lr.ph.i33:                                       ; preds = %66, %79
-  %72 = phi i16 [ %80, %79 ], [ %.lcssa40, %66 ]
+  %72 = phi i16 [ %80, %79 ], [ %.lcssa37, %66 ]
   %73 = zext nneg i16 %72 to i64
   %74 = add nuw nsw i64 %73, 4294967295
   %75 = and i64 %74, 4294967295
@@ -2069,7 +2069,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %16, %
   br i1 %81, label %.lr.ph.i33, label %.critedge.thread3.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %66
-  %82 = icmp eq i16 %.lcssa40, 0
+  %82 = icmp eq i16 %.lcssa37, 0
   br i1 %82, label %.critedge.thread3.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
 
 .critedge.thread3.i:                              ; preds = %79, %.critedge.i
@@ -2088,7 +2088,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %16, %
   br i1 %90, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %83, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit.thread
-  %.132 = phi i16 [ %121, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit.thread ], [ %87, %83 ]
+  %.132 = phi i16 [ %122, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit.thread ], [ %87, %83 ]
   %91 = load i16, ptr %1, align 4, !tbaa !3
   %92 = sext i16 %91 to i32
   %93 = load i16, ptr %11, align 2, !tbaa !8
@@ -2147,23 +2147,23 @@ _ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit.i.i: ; preds 
 
 _ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i: ; preds = %115, %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
   %.0.i31.i.i = phi i32 [ %119, %115 ], [ 0, %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit.i.i ]
-  %.not.i.i = icmp ult i32 %.0.i.i.i, %.0.i31.i.i
+  %120 = icmp ult i32 %.0.i.i.i, %.0.i31.i.i
   %.not34.i.i = icmp ugt i32 %.0.i.i.i, %.0.i31.i.i
   %..1.i.i = select i1 %.not34.i.i, i32 1, i32 %.1.i.i
   %cond1.i.i = icmp eq i32 %.0.i.i.i, %.0.i31.i.i
-  %.3.i.i = select i1 %.not.i.i, i32 -1, i32 %..1.i.i
+  %.3.i.i = select i1 %120, i32 -1, i32 %..1.i.i
   br i1 %cond1.i.i, label %106, label %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit, !llvm.loop !41
 
-_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit: ; preds = %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i
+.loopexit:                                        ; preds = %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i
   %120 = icmp slt i32 %.3.i.i, 1
   br i1 %120, label %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit.thread, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
 
 _ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit.thread: ; preds = %106, %.preheader, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit
   tail call void @_ZN14arrow_vendored17double_conversion6Bignum14SubtractBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %1)
-  %121 = add i16 %.132, 1
+  %122 = add i16 %.132, 1
   br label %.preheader, !llvm.loop !42
 
-_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %102, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %83, %2
+_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %102, %.thread, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %83, %2
   %.0 = phi i16 [ 0, %2 ], [ %70, %.critedge.thread3.i ], [ %87, %83 ], [ %70, %.lr.ph.i33 ], [ %70, %.critedge.i ], [ %.132, %_ZN14arrow_vendored17double_conversion6Bignum9LessEqualERKS1_S3_.exit ], [ %.132, %102 ]
   ret i16 %.0
 }
@@ -2493,11 +2493,11 @@ define noundef i32 @_ZN14arrow_vendored17double_conversion6Bignum7CompareERKS1_S
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, %10
   %15 = icmp slt i32 %8, %14
-  br i1 %15, label %.loopexit, label %16
+  br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %2
   %17 = icmp sgt i32 %8, %14
-  br i1 %17, label %.loopexit, label %.preheader
+  br i1 %17, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %16
   %18 = tail call i16 @llvm.smin.i16(i16 %12, i16 %6)
@@ -2511,7 +2511,7 @@ define noundef i32 @_ZN14arrow_vendored17double_conversion6Bignum7CompareERKS1_S
   %.1 = phi i32 [ %.3, %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32 ], [ undef, %.preheader ]
   %.024 = add nsw i32 %.024.in, -1
   %.not.not.not = icmp sgt i32 %.024.in, %19
-  br i1 %.not.not.not, label %23, label %.loopexit
+  br i1 %.not.not.not, label %23, label %.thread
 
 23:                                               ; preds = %22
   %.not.i = icmp sgt i32 %.024.in, %8
@@ -2542,14 +2542,14 @@ _ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %2
 
 _ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit, %31
   %.0.i31 = phi i32 [ %35, %31 ], [ 0, %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit ]
-  %.not = icmp ult i32 %.0.i, %.0.i31
+  %36 = icmp ult i32 %.0.i, %.0.i31
   %.not34 = icmp ugt i32 %.0.i, %.0.i31
   %..1 = select i1 %.not34, i32 1, i32 %.1
   %cond1 = icmp eq i32 %.0.i, %.0.i31
   %.3 = select i1 %.not, i32 -1, i32 %..1
-  br i1 %cond1, label %22, label %.loopexit, !llvm.loop !41
+  br i1 %cond1, label %22, label %.thread, !llvm.loop !41
 
-.loopexit:                                        ; preds = %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32, %22, %16, %2
+.thread:                                          ; preds = %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32, %22, %16, %2
   %.0 = phi i32 [ 1, %16 ], [ -1, %2 ], [ 0, %22 ], [ %.3, %_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32 ]
   ret i32 %.0
 }

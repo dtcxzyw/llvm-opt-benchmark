@@ -1343,7 +1343,7 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
-  br i1 %5, label %6, label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
+  br i1 %5, label %6, label %.thread.i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1356,7 +1356,7 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
   %.sroa.018.0.i.i.i.i = phi ptr [ %9, %6 ], [ %12, %13 ]
   %12 = getelementptr i8, ptr %.sroa.018.0.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i, label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit, label %13
+  br i1 %.not.i.i.i.i, label %.thread.i, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
@@ -1368,10 +1368,10 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
   %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
   %.fr.i = freeze i64 %18
-  %.not6.i = icmp eq i64 %.fr.i, -4
-  br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
+  %.not11.i = icmp eq i64 %.fr.i, -4
+  br label %.thread.i
 
-_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit: ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i
+.thread.i:                                        ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i
   %.0.i = phi i1 [ true, %2 ], [ %.not6.i, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i ], [ true, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %20 = load i8, ptr %19, align 2, !range !14, !noundef !15
@@ -1387,7 +1387,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
-  br i1 %5, label %6, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1400,7 +1400,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
   %.sroa.018.0.i.i.i = phi ptr [ %9, %6 ], [ %12, %13 ]
   %12 = getelementptr i8, ptr %.sroa.018.0.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %13
+  br i1 %.not.i.i.i, label %.thread, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
@@ -1412,10 +1412,10 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
   %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
   %.fr = freeze i64 %18
-  %.not6 = icmp eq i64 %.fr, -4
-  br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
+  %.not11 = icmp eq i64 %.fr, -4
+  br label %.thread
 
-_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %2
+.thread:                                          ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %2
   %.0 = phi i1 [ true, %2 ], [ %.not6, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ true, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %20 = load i8, ptr %19, align 2, !range !14, !noundef !15

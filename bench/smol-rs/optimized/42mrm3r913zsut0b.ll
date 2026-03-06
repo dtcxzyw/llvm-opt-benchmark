@@ -393,13 +393,13 @@ define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C
   switch i8 %20, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us.unreachabledefault" [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
-    i8 2, label %.split32.us
+    i8 2, label %.split35.us
   ]
 
 "_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us.unreachabledefault": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   unreachable
 
-default.unreachable:                              ; preds = %33, %16
+default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %16
   unreachable
 
 21:                                               ; preds = %16
@@ -416,31 +416,31 @@ default.unreachable:                              ; preds = %33, %16
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.17.llvm.6090777742988092048) #15
   unreachable
 
-"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread": ; preds = %33, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us", %16, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
+"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread": ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us", %16, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
   %.016 = phi i1 [ %.04.i, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit" ], [ true, %16 ], [ true, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us" ], [ true, %33 ]
   ret i1 %.016
 
-"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %33
+"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30"
   %26 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
   %.fca.0.extract = extractvalue { i64, i32 } %26, 0
   %.fca.1.extract = extractvalue { i64, i32 } %26, 1
-  %.not.i = icmp eq i64 %.fca.0.extract, %1
-  %switch29 = icmp uge i32 %.fca.1.extract, %2
+  %29 = icmp eq i64 %.fca.0.extract, %1
+  %switch = icmp uge i32 %.fca.1.extract, %2
   %switch30 = icmp sge i64 %.fca.0.extract, %1
-  %switch = select i1 %.not.i, i1 %switch29, i1 %switch30
+  %switch = select i1 %29, i1 %switch, i1 %switch30
   br i1 %switch, label %.critedge, label %33
 
-.split32.us:                                      ; preds = %33, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
+.split35.us:                                      ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.16.llvm.6090777742988092048, ptr %8, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %30, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %33, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.17.llvm.6090777742988092048) #15
   unreachable
 
@@ -448,103 +448,103 @@ default.unreachable:                              ; preds = %33, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$6remove17h7699c1d76d7f3459E.llvm.6090777742988092048"(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
-  %31 = load i8, ptr %10, align 8, !range !8, !noundef !4
-  %32 = icmp eq i8 %31, 4
-  br i1 %32, label %36, label %37
+  %34 = load i8, ptr %10, align 8, !range !8, !noundef !4
+  %35 = icmp eq i8 %34, 4
+  br i1 %35, label %38, label %39
 
-33:                                               ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
-  %34 = tail call noundef zeroext i1 @_ZN7parking6Parker13park_deadline17hcc76ef234181dafeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef %2)
-  %35 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
-  switch i8 %35, label %default.unreachable [
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
+  %36 = tail call noundef zeroext i1 @_ZN7parking6Parker13park_deadline17hcc76ef234181dafeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef %2)
+  %37 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
+  switch i8 %37, label %default.unreachable [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
-    i8 2, label %.split32.us
+    i8 2, label %.split35.us
   ]
 
-36:                                               ; preds = %.critedge
+38:                                               ; preds = %.critedge
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.11, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.12) #15
   unreachable
 
-37:                                               ; preds = %.critedge
+39:                                               ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %38 = load i8, ptr %11, align 8, !range !115, !alias.scope !112, !noundef !4
-  switch i8 %38, label %50 [
+  %40 = load i8, ptr %11, align 8, !range !115, !alias.scope !112, !noundef !4
+  switch i8 %40, label %50 [
     i8 1, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
-    i8 3, label %39
+    i8 3, label %41
   ]
 
-39:                                               ; preds = %37
+41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !112
   store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.1, ptr %7, align 8, !noalias !112
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %40, align 8, !noalias !112
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %41, align 8, !noalias !112
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %42, align 8, !noalias !112
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %43, align 8, !noalias !112
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %42, align 8, !noalias !112
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %43, align 8, !noalias !112
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.2.llvm.6090777742988092048, ptr %44, align 8, !noalias !112
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %45, align 8, !noalias !112
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.4) #15
-          to label %44 unwind label %46, !noalias !112
+          to label %44 unwind label %48, !noalias !112
 
-44:                                               ; preds = %39
+46:                                               ; preds = %41
   unreachable
 
-45:                                               ; preds = %46
-  resume { ptr, i32 } %47
+47:                                               ; preds = %48
+  resume { ptr, i32 } %49
 
-46:                                               ; preds = %39
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %41
+  %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #17
-          to label %45 unwind label %48
+          to label %45 unwind label %50
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-50:                                               ; preds = %37
+52:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %cond.i.i = icmp eq i8 %38, 2
-  br i1 %cond.i.i, label %51, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
+  %cond.i.i = icmp eq i8 %40, 2
+  br i1 %cond.i.i, label %53, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %53 = load ptr, ptr %52, align 8, !alias.scope !122, !noundef !4
-  %.not.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i, label %59, label %54
+  %55 = load ptr, ptr %54, align 8, !alias.scope !122, !noundef !4
+  %.not.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i, label %61, label %56
 
-54:                                               ; preds = %51
+56:                                               ; preds = %53
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %56 = load ptr, ptr %55, align 8, !noalias !129, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %58 = load ptr, ptr %57, align 8, !alias.scope !129, !noundef !4
-  tail call void %56(ptr noundef %58), !noalias !129
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %58 = load ptr, ptr %57, align 8, !noalias !129, !nonnull !4, !noundef !4
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %60 = load ptr, ptr %59, align 8, !alias.scope !129, !noundef !4
+  tail call void %56(ptr noundef %60), !noalias !129
   br label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
-59:                                               ; preds = %51
-  %60 = getelementptr inbounds nuw i8, ptr %11, i64 16
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %61 = load ptr, ptr %60, align 8, !alias.scope !139, !nonnull !4, !noundef !4
-  %62 = atomicrmw sub ptr %61, i64 1 release, align 8, !noalias !139
-  %63 = icmp eq i64 %62, 1
-  br i1 %63, label %64, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
+  %63 = load ptr, ptr %62, align 8, !alias.scope !139, !nonnull !4, !noundef !4
+  %64 = atomicrmw sub ptr %63, i64 1 release, align 8, !noalias !139
+  %65 = icmp eq i64 %64, 1
+  br i1 %65, label %66, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
-64:                                               ; preds = %59
+66:                                               ; preds = %61
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h24bf0d8528e8b700E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h24bf0d8528e8b700E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62)
   br label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
-"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit": ; preds = %37, %50, %54, %59, %64
+"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit": ; preds = %39, %52, %56, %61, %66
   %.04.i = phi i1 [ false, %64 ], [ true, %37 ], [ false, %50 ], [ false, %54 ], [ false, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"

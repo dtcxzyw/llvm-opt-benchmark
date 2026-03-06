@@ -991,8 +991,8 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i67, i8 1)
   %.058 = select i1 %.not, i8 %.0.i67, i8 %spec.store.select
   %57 = zext nneg i8 %.058 to i64
-  %switch.gep90 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sdsAllocSize, i64 %57
-  %switch.load91 = load i64, ptr %switch.gep90, align 8
+  %switch.gep94 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sdsAllocSize, i64 %57
+  %switch.load95 = load i64, ptr %switch.gep94, align 8
   %58 = icmp eq i8 %6, %.058
   %59 = icmp samesign ult i8 %.058, %6
   %60 = icmp samesign ugt i8 %.058, 1
@@ -1003,10 +1003,10 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %63 = add i64 %.in, %.pn
   br i1 %62, label %64, label %73
 
-64:                                               ; preds = %sdsReqType.exit
+64:; preds = %sdsReqType.exit
   %65 = tail call i64 @je_nallocx(i64 noundef %63, i32 noundef 0) #27
-  %66 = tail call i64 @je_malloc_usable_size(ptr noundef %47) #25
-  %67 = icmp eq i64 %65, %66
+  %64 = tail call i64 @je_malloc_usable_size(ptr noundef %47) #27
+  %67 = icmp eq i64 %65, %64
   br i1 %67, label %79, label %68
 
 68:                                               ; preds = %64
@@ -1018,13 +1018,13 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.0.i
   br label %79
 
-73:                                               ; preds = %sdsReqType.exit
+72:                                               ; preds = %sdsReqType.exit
   %74 = tail call noalias ptr @zmalloc(i64 noundef %63) #29
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.critedge, label %76
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load91
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load95
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
   tail call void @zfree(ptr noundef %47) #25
   %78 = getelementptr inbounds i8, ptr %77, i64 -1
@@ -1108,7 +1108,7 @@ sdssetlen.exit:                                   ; preds = %79, %84, %86, %89, 
   store i64 %1, ptr %109, align 1, !tbaa !11
   br label %.critedge
 
-.critedge:                                        ; preds = %108, %105, %102, %99, %sdssetlen.exit, %73, %68, %sdsalloc.exit
+.critedge:                                        ; preds = %108, %105, %102, %99, %sdssetlen.exit, %72, %68, %sdsalloc.exit
   %.0 = phi ptr [ %0, %sdsalloc.exit ], [ null, %68 ], [ null, %73 ], [ %.255, %sdssetlen.exit ], [ %.255, %99 ], [ %.255, %102 ], [ %.255, %105 ], [ %.255, %108 ]
   ret ptr %.0
 }

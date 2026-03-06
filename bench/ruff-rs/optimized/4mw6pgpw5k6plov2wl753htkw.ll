@@ -2183,8 +2183,8 @@ _ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit: ; pr
   br i1 %38, label %40, label %45
 
 39:                                               ; preds = %40
-  %.not.i1 = icmp eq i64 %.sroa.07.0.i.i, 6
-  br i1 %.not.i1, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread35.i
+  %.not.i2 = icmp eq i64 %.sroa.07.0.i.i, 6
+  br i1 %.not.i2, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread34.i
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2338
@@ -2193,53 +2193,53 @@ _ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit: ; pr
   br i1 %43, label %44, label %39
 
 44:                                               ; preds = %40
-  %spec.select.i2 = select i1 %.not.i, i64 %.sroa.07.0.i.i, i64 6
+  %spec.select.i3 = select i1 %.not.i, i64 %.sroa.07.0.i.i, i64 6
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
 45:                                               ; preds = %35
-  %.not31.i = icmp eq i64 %.sroa.07.0.i.i, 6
+  %.not30.i = icmp eq i64 %.sroa.07.0.i.i, 6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 2338
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !range !91
   %46 = trunc nuw i8 %.pre.i to i1
   %not..not.i = xor i1 %.not.i, true
   %or.cond18.i = and i1 %not..not.i, %46
-  br i1 %or.cond18.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread35.i
+  br i1 %or.cond18.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread34.i
 
-.thread35.i:                                      ; preds = %45, %39
-  %.not3339.i = phi i1 [ %.not31.i, %45 ], [ false, %39 ]
+.thread34.i:                                      ; preds = %45, %39
+  %.not3238.i = phi i1 [ %.not30.i, %45 ], [ false, %39 ]
   %47 = load i8, ptr %3, align 8, !range !114, !alias.scope !127
   %.not.i.i.i = icmp eq i8 %47, 2
   br i1 %.not.i.i.i, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i
 
-_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i: ; preds = %.thread35.i
+_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i: ; preds = %.thread34.i
   %48 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = icmp eq i64 %49, 1
   br i1 %50, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, label %51
 
 51:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i
-  %.not33.not.i = xor i1 %.not3339.i, true
-  %or.cond20.not.i = and i1 %31, %.not33.not.i
+  %.not32.not.i = xor i1 %.not3238.i, true
+  %or.cond20.not.i = and i1 %31, %.not32.not.i
   %.not.i.i = icmp eq i64 %.sroa.07.0.i.i, 5
   %or.cond.i = and i1 %.not.i.i, %or.cond20.not.i
   br i1 %or.cond.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.critedge.i
 
-_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i, %.thread35.i
-  br i1 %.not3339.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %53
+_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i, %.thread34.i
+  br i1 %.not3238.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %53
 
 .critedge.i:                                      ; preds = %51
   %52 = icmp samesign ult i64 %spec.select.i, %.sroa.07.0.i.i
-  %spec.select.i.i.i = or i1 %52, %.not3339.i
+  %spec.select.i.i.i = or i1 %52, %.not3238.i
   %.sroa.0.0.i.i.i.i = and i1 %.not.i, %spec.select.i.i.i
   %.sroa.0.0.sroa.speculated.i.i = select i1 %.sroa.0.0.i.i.i.i, i64 5, i64 %.sroa.07.0.i.i
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
 53:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i
-  %.sroa.0.0.sroa.speculated.i26.i = tail call i64 @llvm.umin.i64(i64 range(i64 5, 7) %spec.select.i, i64 range(i64 0, 7) %.sroa.07.0.i.i)
+  %.sroa.0.0.sroa.speculated.i25.i = tail call i64 @llvm.umin.i64(i64 range(i64 5, 7) %spec.select.i, i64 range(i64 0, 7) %.sroa.07.0.i.i)
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit, %39, %44, %45, %51, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, %.critedge.i, %53
-  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %39 ], [ %spec.select.i, %51 ], [ 6, %45 ], [ %.sroa.0.0.sroa.speculated.i26.i, %53 ], [ %spec.select.i2, %44 ]
+  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %39 ], [ %spec.select.i, %51 ], [ 6, %45 ], [ %.sroa.0.0.sroa.speculated.i25.i, %53 ], [ %spec.select.i3, %44 ]
   ret i64 %.sroa.07.0.i
 }
 

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @BN_is_odd(ptr noundef %6) #2
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %65, label %11
+  br i1 %.not, label %64, label %11
 
 11:                                               ; preds = %9
   tail call void @BN_CTX_start(ptr noundef %7) #2
@@ -125,12 +125,12 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
   %.1 = select i1 %59, i32 %.102, i32 2
   br i1 %.not100, label %60, label %62
 
-60:                                               ; preds = %57, %55
+60:; preds = %57, %55
   %61 = tail call i32 @BN_add(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %21) #2
   %.not101 = icmp eq i32 %61, 0
   br i1 %.not101, label %.thread, label %62
 
-62:                                               ; preds = %60, %57
+62: ; preds = %60, %57
   %.077 = phi i32 [ %.1, %57 ], [ 0, %60 ]
   switch i32 %.077, label %.unreachabledefault [
     i32 0, label %.preheader
@@ -145,12 +145,12 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
 .thread:                                          ; preds = %60, %.preheader, %51, %53, %62, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %63
   %.079 = phi i32 [ 0, %19 ], [ 1, %63 ], [ 0, %24 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %62 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.preheader ], [ 0, %60 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
-  br label %65
+  br label %64
 
 .unreachabledefault:                              ; preds = %62
   unreachable
 
-65:                                               ; preds = %9, %.thread
+64:                                               ; preds = %9, %.thread
   %.0 = phi i32 [ %.079, %.thread ], [ 0, %9 ]
   ret i32 %.0
 }

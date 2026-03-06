@@ -1427,7 +1427,7 @@ _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %8, %12
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %70, label %31
 
-31:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
+31:; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !6
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 266624
@@ -1448,28 +1448,28 @@ _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %8, %12
   %48 = zext i1 %46 to i64
   %49 = or disjoint i64 %47, %48
   %50 = xor i64 %.neg.i.i, -1
-  %51 = or i64 %49, %50
+  %51 = or i64 %49, %49
   %52 = sub i64 2305843009213693950, %51
-  %53 = and i64 %52, %51
+  %53 = and i64 %52, %50
   %54 = xor i64 %53, -1
   %55 = shl i64 %54, 3
   %56 = xor i64 %55, -1
   %57 = and i64 %2, %56
   %58 = xor i64 %40, %1
-  %59 = icmp uge i64 %43, %44
+  %54 = icmp uge i64 %43, %44
   %60 = icmp ult i64 %1, %40
-  %61 = and i1 %59, %60
+  %61 = and i1 %54, %60
   %62 = icmp ult i64 %1, %.0.i
-  %63 = icmp uge i64 %43, %45
-  %64 = or i1 %62, %63
-  %65 = and i1 %61, %64
+  %63 = icmp uge i64 %spec.select, %45
+  %59 = or i1 %62, %63
+  %65 = and i1 %61, %59
   %66 = icmp eq i64 %57, 0
   %67 = icmp ugt i64 %2, %58
   %68 = select i1 %66, i1 %67, i1 false
   %69 = select i1 %41, i1 %65, i1 %68
   br label %70
 
-70:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %31
+70:; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %31
   %.0 = phi i1 [ %69, %31 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ]
   ret i1 %.0
 }
@@ -1499,7 +1499,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %or.cond5 = select i1 %17, i1 %11, i1 false
   %or.cond83 = select i1 %or.cond82, i1 true, i1 %or.cond5
   %18 = select i1 %16, i1 %9, i1 false
-  %spec.select = select i1 %or.cond83, i1 true, i1 %18
+  %spec.select86 = select i1 %or.cond83, i1 true, i1 %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2176
@@ -1509,7 +1509,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(48) %22) #30
   %27 = trunc i64 %26 to i1
-  br i1 %27, label %28, label %47
+  br i1 %27, label %28, label %46
 
 28:                                               ; preds = %4
   %29 = and i32 %7, 6
@@ -1521,14 +1521,14 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
 
 32:                                               ; preds = %28
   %33 = and i1 %15, %.not
-  br label %51
+  br label %50
 
 34:                                               ; preds = %28
   %not. = xor i1 %12, true
   %35 = select i1 %not., i1 %11, i1 false
   %36 = icmp sgt i8 %6, -1
   %37 = xor i1 %14, %36
-  %38 = select i1 %37, i1 %spec.select, i1 false
+  %38 = select i1 %37, i1 %spec.select86, i1 false
   %.not12 = xor i1 %13, true
   %or.cond14 = select i1 %.not12, i1 %9, i1 false
   br i1 %or.cond14, label %39, label %40
@@ -1536,7 +1536,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
 39:                                               ; preds = %34
   %or.cond17.not = and i1 %15, %.not
   %or.cond19 = or i1 %17, %or.cond17.not
-  br i1 %or.cond19, label %44, label %.thread87
+  br i1 %or.cond19, label %43, label %.thread88
 
 40:                                               ; preds = %34
   %or.cond21 = select i1 %13, i1 true, i1 %9
@@ -1546,31 +1546,31 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %or.cond24.not = and i1 %15, %.not
   %or.cond26 = and i1 %17, %14
   %or.cond84 = or i1 %or.cond24.not, %or.cond26
-  br i1 %or.cond84, label %44, label %.thread87
+  br i1 %or.cond84, label %43, label %.thread88
 
 42:                                               ; preds = %40
   %or.cond28.old = and i1 %16, %13
-  br i1 %or.cond28.old, label %44, label %.thread87
+  br i1 %or.cond28.old, label %43, label %.thread88
 
-.thread87:                                        ; preds = %39, %41, %42
+.thread88:                                        ; preds = %39, %41, %42
   %or.cond30 = and i1 %15, %13
   %or.cond32 = select i1 %or.cond30, i1 %9, i1 false
-  %43 = and i1 %14, %or.cond32
-  br label %44
+  %spec.select = and i1 %14, %or.cond32
+  br label %43
 
-44:                                               ; preds = %42, %41, %39, %.thread87
-  %45 = phi i1 [ true, %42 ], [ true, %39 ], [ true, %41 ], [ %43, %.thread87 ]
-  %46 = select i1 %35, i1 %45, i1 %38
-  br label %51
+43:                                               ; preds = %42, %41, %39, %.thread87
+  %44 = phi i1 [ true, %42 ], [ true, %39 ], [ true, %41 ], [ %43, %.thread87 ]
+  %45 = select i1 %35, i1 %44, i1 %38
+  br label %50
 
-47:                                               ; preds = %4
-  %48 = xor i1 %13, true
-  %49 = select i1 %14, i1 %48, i1 false
-  %50 = select i1 %49, i1 true, i1 %spec.select
-  br label %51
+46:                                               ; preds = %4
+  %47 = xor i1 %13, true
+  %48 = select i1 %14, i1 %47, i1 false
+  %49 = select i1 %48, i1 true, i1 %spec.select86
+  br label %50
 
-51:                                               ; preds = %47, %44, %32
-  %.0 = phi i1 [ %33, %32 ], [ %46, %44 ], [ %50, %47 ]
+50:                                               ; preds = %46, %43, %32
+  %.0 = phi i1 [ %33, %32 ], [ %45, %44 ], [ %49, %47 ]
   ret i1 %.0
 }
 

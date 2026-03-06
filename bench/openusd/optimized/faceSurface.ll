@@ -635,8 +635,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
 
 38:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %39 = phi ptr [ %33, %.lr.ph ], [ %76, %68 ]
-  %.030 = phi ptr [ %2, %.lr.ph ], [ %75, %68 ]
+  %39 = phi ptr [ %33, %.lr.ph ], [ %75, %68 ]
+  %.031 = phi ptr [ %2, %.lr.ph ], [ %75, %68 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw [224 x i8], ptr %41, i64 %indvars.iv
@@ -644,14 +644,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %44 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %indvars.iv
-  %47 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull align 8 dereferenceable(224) %42, ptr noundef %46, ptr noundef %.030, ptr noundef nonnull align 4 dereferenceable(12) %44)
+  %47 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull align 8 dereferenceable(224) %42, ptr noundef %46, ptr noundef %.031, ptr noundef nonnull align 4 dereferenceable(12) %44)
   %48 = load i16, ptr %46, align 4
   %49 = and i16 %48, 3
   %or.cond.not = icmp eq i16 %49, 1
   br i1 %or.cond.not, label %50, label %51
 
 50:                                               ; preds = %38
-  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInterpolationEPNS1_16FaceVertexSubsetEPKiRKS3_RKNS1_10FaceVertexE(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull %46, ptr noundef %.030, ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(224) %42)
+  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInterpolationEPNS1_16FaceVertexSubsetEPKiRKS3_RKNS1_10FaceVertexE(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull %46, ptr noundef %.031, ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(224) %42)
   %.pre = load i16, ptr %46, align 4, !noalias !11
   br label %51
 
@@ -680,7 +680,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %67 = select i1 %.not28, i8 0, i8 2
   br label %68
 
-68:                                               ; preds = %56, %51
+68:; preds = %56, %51
   %69 = phi i8 [ 0, %51 ], [ %67, %56 ]
   %70 = and i8 %54, -3
   %71 = or disjoint i8 %69, %70
@@ -690,12 +690,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds [4 x i8], ptr %.030, i64 %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %38, label %._crit_edge, !llvm.loop !14
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = sext i32 %77 to i64
+  %79 = icmp slt i64 %indvars.iv.next, %78
+  br i1 %79, label %38, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %68, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr noundef nonnull align 8 dereferenceable(143) %0)

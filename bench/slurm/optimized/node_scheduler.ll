@@ -220,7 +220,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   %15 = select i1 %.not31, i1 true, i1 %11
   %.3 = select i1 %15, i1 true, i1 %.02240
   %16 = and i1 %.not31, %or.cond34
-  %.121 = select i1 %16, i1 true, i1 %.02041
+  %spec.select35 = select i1 %16, i1 true, i1 %.02041
   %17 = load i32, ptr %2, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %2, align 4

@@ -3235,7 +3235,7 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicType6jvalueb(pt
   tail call void @_ZN13EscapeBarrier20sync_and_suspend_oneEv(ptr noundef nonnull align 8 dereferenceable(17) %20) #17
   br label %_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit
 
-_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit:      ; preds = %7, %33
+.critedge.i:                                      ; preds = %7, %33
   ret void
 }
 

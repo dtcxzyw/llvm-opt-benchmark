@@ -535,7 +535,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int8_int8(ptr noundef readonly ca
   br i1 %21, label %23, label %24, !prof !7
 
 23:                                               ; preds = %16
-  %.in = xor i1 %.not, %10
+  %spec.select18 = xor i1 %.not, %10
   br label %29
 
 24:                                               ; preds = %16
@@ -550,7 +550,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int8_int8(ptr noundef readonly ca
   br label %29
 
 29:                                               ; preds = %27, %25, %23
-  %.0.in = phi i1 [ %.in, %23 ], [ %26, %25 ], [ %28, %27 ]
+  %.0.in = phi i1 [ %spec.select18, %23 ], [ %26, %25 ], [ %28, %27 ]
   %.0 = zext i1 %.0.in to i64
   ret i64 %.0
 }
@@ -1604,16 +1604,16 @@ define dso_local i64 @dtoi8(ptr noundef readonly captures(none) %0) local_unname
   %.not7 = or i1 %5, %6
   br i1 %.not7, label %7, label %11, !prof !7
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %9 = tail call i32 @errcode(i32 noundef 50331778) #11
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1312, ptr noundef nonnull @__func__.dtoi8) #11
   unreachable
 
-11:                                               ; preds = %1
-  %12 = fptosi double %4 to i64
-  ret i64 %12
+12:                                               ; preds = %1
+  %13 = fptosi double %4 to i64
+  ret i64 %13
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -1641,16 +1641,16 @@ define dso_local i64 @ftoi8(ptr noundef readonly captures(none) %0) local_unname
   %.not7 = or i1 %7, %8
   br i1 %.not7, label %9, label %13, !prof !7
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %11 = tail call i32 @errcode(i32 noundef 50331778) #11
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1347, ptr noundef nonnull @__func__.ftoi8) #11
   unreachable
 
-13:                                               ; preds = %1
-  %14 = fptosi float %6 to i64
-  ret i64 %14
+14:                                               ; preds = %1
+  %15 = fptosi float %6 to i64
+  ret i64 %15
 }
 
 ; Function Attrs: nounwind uwtable

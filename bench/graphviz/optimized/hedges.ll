@@ -323,7 +323,7 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %.1.in = xor i1 %55, %54
   br i1 %.1.in, label %56, label %94
 
-56:                                               ; preds = %40, %46
+56:; preds = %40, %46
   %57 = phi double [ %41, %40 ], [ %47, %46 ]
   %58 = phi double [ %43, %40 ], [ %49, %46 ]
   %59 = phi double [ %42, %40 ], [ %48, %46 ]
@@ -339,12 +339,12 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %69 = fdiv double %68, %62
   %70 = fadd double %69, 1.000000e+00
   %71 = tail call double @llvm.fmuladd.f64(double %57, double %57, double %70)
-  %72 = fmul double %67, %71
+  %69 = fmul double %67, %71
   %73 = fcmp olt double %66, %72
   %74 = fcmp olt double %57, 0.000000e+00
   br i1 %74, label %75, label %94
 
-75:                                               ; preds = %56
+75:; preds = %56
   %76 = xor i1 %73, true
   br label %94
 
@@ -367,14 +367,14 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %93 = fcmp ogt double %90, %92
   br label %94
 
-94:                                               ; preds = %40, %46, %75, %56, %77
+94:; preds = %40, %46, %75, %56, %77
   %.2.shrunk = phi i1 [ false, %46 ], [ %76, %75 ], [ %73, %56 ], [ %93, %77 ], [ true, %40 ]
   %95 = icmp ne i8 %12, 0
   %.v = xor i1 %.2.shrunk, %95
   %96 = zext i1 %.v to i32
   br label %97
 
-97:                                               ; preds = %.critedge, %13, %94
+97:; preds = %.critedge, %13, %94
   %.0 = phi i32 [ 1, %13 ], [ %96, %94 ], [ 0, %.critedge ]
   ret i32 %.0
 }

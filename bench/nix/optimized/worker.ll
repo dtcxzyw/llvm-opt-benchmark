@@ -11256,12 +11256,12 @@ define noundef range(i32 1, 112) i32 @_ZN3nix6Worker17failingExitStatusEv(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 522
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
-  %10 = or i8 %6, %8
-  %11 = shl i8 %10, 2
-  %12 = and i8 %11, 4
-  %13 = and i8 %5, 1
-  %.113 = or disjoint i8 %12, %13
-  %.1 = zext nneg i8 %.113 to i32
+  %9 = or i8 %6, %8
+  %10 = shl i8 %9, 2
+  %11 = and i8 %10, 4
+  %.mask = and i8 %5, 1
+  %.116 = or disjoint i8 %11, %.mask
+  %.1 = zext nneg i8 %.116 to i32
   %14 = or disjoint i32 %.1, 2
   %.2 = select i1 %9, i32 %14, i32 %.1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 523
@@ -11270,8 +11270,8 @@ define noundef range(i32 1, 112) i32 @_ZN3nix6Worker17failingExitStatusEv(ptr no
   %18 = or disjoint i32 %.2, 8
   %.3 = select i1 %17, i32 %18, i32 %.2
   %.not = icmp eq i32 %.3, 0
-  %19 = or i32 %.3, 96
-  %.4 = select i1 %.not, i32 1, i32 %19
+  %18 = or i32 %.3, 96
+  %.4 = select i1 %.not, i32 1, i32 %18
   ret i32 %.4
 }
 

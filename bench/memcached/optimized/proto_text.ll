@@ -5309,8 +5309,8 @@ sub_0:                                            ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !66
   %8 = load i8, ptr %7, align 1
-  %.not48 = icmp eq i8 %8, 48
-  br i1 %.not48, label %sub_1, label %.tail
+  %.not49 = icmp eq i8 %8, 48
+  br i1 %.not49, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -5349,13 +5349,13 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
   %or.cond3 = select i1 %26, i1 %12, i1 false
   %27 = select i1 %or.cond3, i1 %24, i1 false
   %28 = select i1 %or.cond47, i1 true, i1 %27
-  br i1 %28, label %.critedge, label %29
+  br i1 %28, label %34, label %29
 
-29:                                               ; preds = %set_noreply_maybe.exit
+28:                                               ; preds = %set_noreply_maybe.exit
   tail call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull @.str.121) #13
-  br label %78
+  br label %77
 
-.critedge:                                        ; preds = %set_noreply_maybe.exit, %3
+34:                                               ; preds = %set_noreply_maybe.exit, %3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5367,18 +5367,18 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
   tail call void @out_string(ptr noundef %0, ptr noundef nonnull @.str.51) #13
   br label %78
 
-36:                                               ; preds = %.critedge
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !118
-  %.not = icmp eq i32 %37, 0
+64:                                               ; preds = %34
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !118
+  %.not = icmp eq i32 %65, 0
   br i1 %.not, label %39, label %38
 
-38:                                               ; preds = %36
+69:                                               ; preds = %36
   tail call void @stats_prefix_record_delete(ptr noundef %31, i64 noundef %33) #13
   br label %39
 
-39:                                               ; preds = %38, %36
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %41 = load ptr, ptr %40, align 8, !tbaa !28
+39:  ; preds = %38, %36
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %41 = load ptr, ptr %73, align 8, !tbaa !28
   %42 = call ptr @item_get_locked(ptr noundef %31, i64 noundef %33, ptr noundef %41, i1 noundef zeroext false, ptr noundef nonnull %4) #13
   %.not45 = icmp eq ptr %42, null
   %43 = load ptr, ptr %40, align 8, !tbaa !28
@@ -5433,11 +5433,11 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
 76:                                               ; preds = %70, %65
   %.str.4.sink = phi ptr [ @.str.4, %70 ], [ @.str.122, %65 ]
   call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull %.str.4.sink) #13
-  %77 = load i32, ptr %4, align 4, !tbaa !27
-  call void @item_unlock(i32 noundef %77) #13
-  br label %78
+  %76 = load i32, ptr %4, align 4, !tbaa !27
+  call void @item_unlock(i32 noundef %76) #13
+  br label %77
 
-78:                                               ; preds = %29, %76, %35
+77:                                               ; preds = %28, %76, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

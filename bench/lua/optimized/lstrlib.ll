@@ -2938,14 +2938,14 @@ posrelatI.exit:                                   ; preds = %2, %11, %15
 
 20:                                               ; preds = %posrelatI.exit
   call void @lua_pushnil(ptr noundef %0) #12
-  br label %94
+  br label %93
 
 21:                                               ; preds = %posrelatI.exit
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.nospecials.exit.thread_crit_edge, label %22
 
 .nospecials.exit.thread_crit_edge:                ; preds = %21
-  %.pre89.pre = load i64, ptr %4, align 8, !tbaa !4
+  %.pre88.pre = load i64, ptr %4, align 8, !tbaa !4
   br label %nospecials.exit.thread
 
 22:                                               ; preds = %21
@@ -2955,15 +2955,15 @@ posrelatI.exit:                                   ; preds = %2, %11, %15
   br i1 %.not54, label %.preheader, label %nospecials.exit
 
 .preheader:                                       ; preds = %22, %26
-  %.0.i62 = phi i64 [ %29, %26 ], [ 0, %22 ]
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %.0.i62
+  %.0.i60 = phi i64 [ %29, %26 ], [ 0, %22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %.0.i60
   %25 = call ptr @strpbrk(ptr noundef readonly %24, ptr noundef nonnull @.str.20) #13
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %nospecials.exit.thread
 
 26:                                               ; preds = %.preheader
   %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #13
-  %28 = add i64 %.0.i62, 1
+  %28 = add i64 %.0.i60, 1
   %29 = add i64 %28, %27
   %.not9.i = icmp ugt i64 %29, %.pre
   br i1 %.not9.i, label %nospecials.exit, label %.preheader
@@ -2977,13 +2977,13 @@ nospecials.exit:                                  ; preds = %26, %22
 
 34:                                               ; preds = %nospecials.exit
   %35 = icmp ugt i64 %.pre, %32
-  br i1 %35, label %.critedge60, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %34
   %37 = add i64 %.pre, -1
   %38 = sub i64 %32, %37
   %.not27.i = icmp eq i64 %38, 0
-  br i1 %.not27.i, label %.critedge60, label %.lr.ph.i
+  br i1 %.not27.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
   %39 = load i8, ptr %7, align 1, !tbaa !9
@@ -2996,29 +2996,29 @@ nospecials.exit:                                  ; preds = %26, %22
   %.02128.i = phi ptr [ %30, %.lr.ph.i ], [ %45, %47 ]
   %43 = call ptr @memchr(ptr noundef %.02128.i, i32 noundef %40, i64 noundef %.02029.i) #13
   %.not25.i = icmp eq ptr %43, null
-  br i1 %.not25.i, label %.critedge60, label %44
+  br i1 %.not25.i, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %bcmp.i = call i32 @bcmp(ptr nonnull %45, ptr nonnull readonly %41, i64 %37)
   %46 = icmp eq i32 %bcmp.i, 0
-  br i1 %46, label %lmemfind.exit.thread69, label %47
+  br i1 %46, label %lmemfind.exit.thread67, label %47
 
 47:                                               ; preds = %44
   %48 = ptrtoint ptr %45 to i64
   %49 = ptrtoint ptr %.02128.i to i64
   %.neg.i = add i64 %.02029.i, %49
   %50 = sub i64 %.neg.i, %48
-  %.not.i63 = icmp eq i64 %50, 0
-  br i1 %.not.i63, label %.critedge60, label %42
+  %.not.i61 = icmp eq i64 %50, 0
+  br i1 %.not.i61, label %.critedge, label %42
 
 lmemfind.exit:                                    ; preds = %nospecials.exit
-  %.not58 = icmp eq ptr %6, null
-  br i1 %.not58, label %.critedge60, label %lmemfind.exit.thread69
+  %.not57 = icmp eq ptr %6, null
+  br i1 %.not57, label %.critedge, label %lmemfind.exit.thread67
 
-lmemfind.exit.thread69:                           ; preds = %44, %lmemfind.exit
-  %.0.i6472 = phi ptr [ %30, %lmemfind.exit ], [ %43, %44 ]
-  %51 = ptrtoint ptr %.0.i6472 to i64
+lmemfind.exit.thread67:                           ; preds = %44, %lmemfind.exit
+  %.0.i6270 = phi ptr [ %30, %lmemfind.exit ], [ %43, %44 ]
+  %51 = ptrtoint ptr %.0.i6270 to i64
   %52 = ptrtoint ptr %6 to i64
   %53 = sub i64 %51, %52
   %54 = add nsw i64 %53, 1
@@ -3026,36 +3026,36 @@ lmemfind.exit.thread69:                           ; preds = %44, %lmemfind.exit
   %55 = load i64, ptr %4, align 8, !tbaa !4
   %56 = add i64 %53, %55
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %56) #12
-  br label %94
+  br label %93
 
 nospecials.exit.thread:                           ; preds = %.preheader, %.nospecials.exit.thread_crit_edge
-  %.pre89 = phi i64 [ %.pre89.pre, %.nospecials.exit.thread_crit_edge ], [ %.pre, %.preheader ]
+  %.pre88 = phi i64 [ %.pre88.pre, %.nospecials.exit.thread_crit_edge ], [ %.pre, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %58 = load i8, ptr %7, align 1, !tbaa !9
-  %.not57 = icmp eq i8 %58, 94
-  br i1 %.not57, label %.split.us, label %.split
+  %.not83 = icmp eq i8 %58, 94
+  br i1 %.not83, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %nospecials.exit.thread
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %60 = add i64 %.pre89, -1
-  store i64 %60, ptr %4, align 8, !tbaa !4
-  %61 = load i64, ptr %3, align 8, !tbaa !4
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %62, align 8, !tbaa !27
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 200, ptr %63, align 8, !tbaa !29
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %68 = add i64 %.pre88, -1
+  store i64 %68, ptr %4, align 8, !tbaa !4
+  %69 = load i64, ptr %3, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %0, ptr %70, align 8, !tbaa !27
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 200, ptr %71, align 8, !tbaa !29
   store ptr %6, ptr %5, align 8, !tbaa !30
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %61
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %64, ptr %65, align 8, !tbaa !31
-  %66 = getelementptr i8, ptr %7, i64 %.pre89
-  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %66, ptr %67, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %68, align 4, !tbaa !37
-  %69 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef %57, ptr noundef nonnull %59)
-  %.not56.us = icmp eq ptr %69, null
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 %69
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %72, ptr %73, align 8, !tbaa !31
+  %74 = getelementptr i8, ptr %7, i64 %.pre88
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %74, ptr %75, align 8, !tbaa !32
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 0, ptr %76, align 4, !tbaa !37
+  %77 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef %57, ptr noundef nonnull %67)
+  %.not56.us = icmp eq ptr %77, null
   br i1 %.not56.us, label %.critedge, label %.split81.us
 
 .split:                                           ; preds = %nospecials.exit.thread
@@ -3093,19 +3093,19 @@ nospecials.exit.thread:                           ; preds = %.preheader, %.nospe
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %84) #12
   %85 = call fastcc i32 @push_captures(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
   %86 = add nsw i32 %85, 2
-  br label %.critedge61
+  br label %.critedge59
 
 87:                                               ; preds = %.split81.us
   %88 = call fastcc i32 @push_captures(ptr noundef nonnull %5, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi82)
-  br label %.critedge61
+  br label %.critedge59
 
-.lr.ph:                                           ; preds = %.split, %91
+89:                                               ; preds = %.split, %91
   %.04784 = phi ptr [ %92, %91 ], [ %57, %.split ]
-  %89 = load ptr, ptr %74, align 8, !tbaa !31
-  %90 = icmp ult ptr %.04784, %89
-  br i1 %90, label %91, label %.critedge
+  %91 = load ptr, ptr %74, align 8, !tbaa !31
+  %92 = icmp ult ptr %.04784, %91
+  br i1 %92, label %.split82, label %.critedge
 
-91:                                               ; preds = %.lr.ph
+.split82:                                         ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %.04784, i64 1
   store i32 0, ptr %77, align 4, !tbaa !37
   %93 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef nonnull %92, ptr noundef nonnull %7)
@@ -3114,18 +3114,18 @@ nospecials.exit.thread:                           ; preds = %.preheader, %.nospe
 
 .critedge:                                        ; preds = %.lr.ph, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge60
+  br label %.critedge
 
-.critedge60:                                      ; preds = %47, %42, %36, %34, %.critedge, %lmemfind.exit
+.critedge:                                        ; preds = %47, %42, %36, %34, %.critedge, %lmemfind.exit
   call void @lua_pushnil(ptr noundef %0) #12
-  br label %94
+  br label %93
 
-.critedge61:                                      ; preds = %87, %79
+.critedge59:                                      ; preds = %87, %79
   %.3.ph = phi i32 [ %88, %87 ], [ %86, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %94
+  br label %93
 
-94:                                               ; preds = %lmemfind.exit.thread69, %.critedge61, %.critedge60, %20
+93:                                               ; preds = %lmemfind.exit.thread67, %.critedge59, %.critedge, %20
   %.0 = phi i32 [ 1, %20 ], [ 1, %.critedge60 ], [ 2, %lmemfind.exit.thread69 ], [ %.3.ph, %.critedge61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

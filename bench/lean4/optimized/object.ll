@@ -12545,7 +12545,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
 
 9:                                                ; preds = %4
   store i32 %7, ptr %3, align 4, !tbaa !156
-  br label %76
+  br label %.critedge59
 
 10:                                               ; preds = %4
   %11 = and i32 %7, 224
@@ -12567,7 +12567,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   %23 = or disjoint i32 %20, %22
   store i32 %23, ptr %3, align 4, !tbaa !156
   %24 = icmp samesign ult i32 %20, 128
-  br i1 %24, label %25, label %76
+  br i1 %24, label %25, label %.critedge59
 
 25:                                               ; preds = %16, %13, %10
   %26 = and i32 %7, 240
@@ -12601,7 +12601,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   %47 = icmp samesign ult i32 %41, 55296
   %48 = icmp samesign ugt i32 %37, 57343
   %or.cond = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond, label %76, label %.critedge
+  br i1 %or.cond, label %.critedge59, label %.critedge
 
 .critedge:                                        ; preds = %31, %46, %28, %25
   %49 = and i32 %7, 248
@@ -12636,12 +12636,12 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   store i32 %73, ptr %3, align 4, !tbaa !156
   %74 = add nsw i32 %66, -1114112
   %or.cond57 = icmp ult i32 %74, -1048576
-  br i1 %or.cond57, label %75, label %76
+  br i1 %or.cond57, label %75, label %.critedge59
 
 75:                                               ; preds = %54, %51, %.critedge
   br label %76
 
-76:                                               ; preds = %46, %16, %54, %75, %9
+.critedge59:                                      ; preds = %46, %16, %54, %75, %9
   %.0 = phi i1 [ true, %9 ], [ false, %75 ], [ true, %54 ], [ true, %16 ], [ true, %46 ]
   ret i1 %.0
 }

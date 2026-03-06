@@ -2488,18 +2488,18 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %60 = load i8, ptr %59, align 4, !range !116, !alias.scope !171, !noalias !174
   %61 = trunc nuw i8 %60 to i1
   %or.cond.i = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond.i, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit, label %62
+  br i1 %or.cond.i, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %64 = load i64, ptr %63, align 16, !alias.scope !171, !noalias !174, !noundef !3
-  %65 = icmp ult i64 %64, 288230376151711744
-  call void @llvm.assume(i1 %65)
-  %66 = icmp ne i64 %64, 0
+_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit: ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %63 = load i64, ptr %62, align 16, !alias.scope !171, !noalias !174, !noundef !3
+  %64 = icmp ult i64 %63, 288230376151711744
+  call void @llvm.assume(i1 %64)
+  %65 = icmp ne i64 %63, 0
   br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
-_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit: ; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit, %22, %27, %28, %40, %41, %45, %50, %55, %62
-  %.sroa.0.0.i3 = phi i1 [ %66, %62 ], [ true, %50 ], [ true, %45 ], [ true, %41 ], [ true, %28 ], [ true, %22 ], [ true, %55 ], [ true, %40 ], [ true, %27 ], [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ]
+_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit:; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit, %22, %27, %28, %40, %41, %45, %50, %55, %62
+  %.sroa.0.0.i3 = phi i1 [ %65, %62 ], [ true, %50 ], [ true, %45 ], [ true, %41 ], [ true, %28 ], [ true, %22 ], [ true, %55 ], [ true, %40 ], [ true, %27 ], [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %68 = load i8, ptr %67, align 4, !range !116
   %69 = trunc nuw i8 %68 to i1

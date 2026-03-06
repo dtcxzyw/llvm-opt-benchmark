@@ -189,11 +189,11 @@ define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpea
   %18 = sub nsw i32 %.pn, %11
   %19 = zext i32 %18 to i64
   %20 = shl nuw i64 %19, 32
-  %21 = zext i1 %storemerge.in to i64
+  %22 = zext i1 %storemerge.in to i64
   %22 = or disjoint i64 %20, %21
   br label %23
 
-23:                                               ; preds = %2, %8
+23:; preds = %2, %8
   %.sroa.0.0.insert.insert = phi i64 [ 0, %2 ], [ %22, %8 ]
   ret i64 %.sroa.0.0.insert.insert
 }

@@ -3091,7 +3091,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau13CountMismatcheqERKS0_(ptr nounde
   %18 = select i1 %brmerge.not.i, i1 %17, i1 %14
   br i1 %18, label %19, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-19:                                               ; preds = %6
+_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3128,7 +3128,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau13CountMismatcheqERKS0_(ptr nounde
   %44 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %41, %39, %31, %25, %19, %6, %2
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %41, %39, %31, %25, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %6, %2
   %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %6 ], [ false, %2 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
   ret i1 %45
 }
@@ -44501,7 +44501,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_12TypeMis
   %18 = select i1 %brmerge.not.i.i, i1 %17, i1 %14
   br i1 %18, label %19, label %_ZNK4Luau13CountMismatcheqERKS0_.exit
 
-19:                                               ; preds = %6
+_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i: ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44538,7 +44538,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_12TypeMis
   %44 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZNK4Luau13CountMismatcheqERKS0_.exit
 
-_ZNK4Luau13CountMismatcheqERKS0_.exit:            ; preds = %2, %6, %19, %25, %31, %39, %41
+_ZNK4Luau13CountMismatcheqERKS0_.exit:            ; preds = %2, %6, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %25, %31, %39, %41
   %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %6 ], [ false, %2 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
   ret i1 %45
 }

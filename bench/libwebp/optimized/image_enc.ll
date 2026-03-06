@@ -796,9 +796,9 @@ define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is
   %172 = icmp eq ptr %0, null
   %173 = icmp eq ptr %1, null
   %or.cond = or i1 %172, %173
-  br i1 %or.cond, label %.loopexit, label %WebPIsAlphaMode.exit
+  br i1 %or.cond, label %.loopexit, label %174
 
-WebPIsAlphaMode.exit:                             ; preds = %2
+174:                                              ; preds = %2
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %175 = load i32, ptr %174, align 4, !tbaa !11
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -839,39 +839,39 @@ WebPIsAlphaMode.exit:                             ; preds = %2
   store i32 %193, ptr %100, align 2
   br i1 %.not.not, label %195, label %194
 
-194:                                              ; preds = %183
+194:; preds = %183
   store i32 0, ptr %149, align 2
-  br label %195
+  br label %197
 
-195:                                              ; preds = %194, %183
-  %196 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 210, i64 noundef 1, ptr noundef nonnull %0)
-  %.not38 = icmp eq i64 %196, 1
+197:                                              ; preds = %194, %183
+  %198 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 210, i64 noundef 1, ptr noundef nonnull %0)
+  %.not38 = icmp eq i64 %198, 1
   br i1 %.not38, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %195
-  %197 = zext nneg i8 %187 to i64
-  %198 = zext i32 %175 to i64
+.preheader:                                       ; preds = %197
+  %199 = zext nneg i8 %187 to i64
+  %200 = zext i32 %175 to i64
   %.not44 = icmp eq i32 %177, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %199 = sext i32 %181 to i64
-  br label %200
+  %201 = sext i32 %181 to i64
+  br label %202
 
-200:                                              ; preds = %.lr.ph, %202
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %204, %202 ]
-  %.03340 = phi ptr [ %179, %.lr.ph ], [ %203, %202 ]
-  %201 = tail call i64 @fwrite(ptr noundef %.03340, i64 noundef %197, i64 noundef %198, ptr noundef nonnull %0)
-  %.not39 = icmp eq i64 %201, %198
-  br i1 %.not39, label %202, label %.loopexit
+202:                                              ; preds = %.lr.ph, %204
+  %.041 = phi i32 [ 0, %.lr.ph ], [ %206, %202 ]
+  %.03340 = phi ptr [ %179, %.lr.ph ], [ %205, %202 ]
+  %203 = tail call i64 @fwrite(ptr noundef %.03340, i64 noundef %199, i64 noundef %200, ptr noundef nonnull %0)
+  %.not39 = icmp eq i64 %203, %200
+  br i1 %.not39, label %204, label %.loopexit
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %.03340, i64 %199
-  %204 = add nuw i32 %.041, 1
-  %exitcond.not = icmp eq i32 %204, %177
-  br i1 %exitcond.not, label %.loopexit, label %200, !llvm.loop !24
+204:                                              ; preds = %202
+  %205 = getelementptr inbounds i8, ptr %.03340, i64 %201
+  %206 = add nuw i32 %.041, 1
+  %exitcond.not = icmp eq i32 %206, %177
+  br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !24
 
-.loopexit:                                        ; preds = %200, %202, %.preheader, %195, %WebPIsAlphaMode.exit, %2
+.loopexit:                                        ; preds = %202, %204, %.preheader, %197, %WebPIsAlphaMode.exit, %2
   %.032 = phi i32 [ 0, %195 ], [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 1, %.preheader ], [ 0, %200 ], [ 1, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.032

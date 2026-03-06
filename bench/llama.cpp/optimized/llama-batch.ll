@@ -1237,7 +1237,7 @@ define void @_ZN12llama_sbatch11split_equalEm(ptr dead_on_unwind noalias writabl
   %cond = select i1 %36, i1 %38, i1 false
   br i1 %cond, label %24, label %.loopexit, !llvm.loop !100
 
-.loopexit:                                        ; preds = %32, %24, %3
+.loopexit:; preds = %32, %24, %3
   ret void
 }
 

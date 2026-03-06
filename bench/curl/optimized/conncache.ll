@@ -2678,11 +2678,11 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   %.015 = phi i1 [ false, %38 ], [ %37, %35 ]
   %40 = load i8, ptr %31, align 1, !tbaa !138
   %.not17 = icmp eq i8 %40, 0
-  br i1 %.not17, label %41, label %47
+  br i1 %.not17, label %41, label %46
 
 41:                                               ; preds = %39
   %42 = call zeroext i1 @Curl_conn_is_connected(ptr noundef nonnull %1, i32 noundef 1) #8
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
   %44 = call i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5) #8
@@ -2691,7 +2691,7 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   %46 = trunc nuw i8 %.pre to i1
   br label %47
 
-47:                                               ; preds = %39, %41, %43
+46:                                               ; preds = %39, %41, %43
   %48 = phi i1 [ %46, %43 ], [ true, %41 ], [ true, %39 ]
   %.0 = phi i1 [ %45, %43 ], [ false, %41 ], [ false, %39 ]
   %or.cond = select i1 %.015, i1 true, i1 %.0
@@ -2709,7 +2709,7 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   store i64 %56, ptr %6, align 8
   br label %57
 
-57:                                               ; preds = %47, %54, %29
+57:; preds = %47, %54, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

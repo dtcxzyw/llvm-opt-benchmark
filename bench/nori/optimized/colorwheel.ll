@@ -587,8 +587,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %sqrt = tail call float @llvm.sqrt.f32(float %32)
   %33 = and i32 %2, 2
   %.not = icmp eq i32 %33, 0
-  %.sink116.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink116.sroa.gep118 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink117.sroa.gep119 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not, label %49, label %34
 
 34:                                               ; preds = %3
@@ -649,12 +649,12 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %.not67 = icmp eq i32 %75, 0
   br i1 %.not67, label %108, label %76
 
-76:                                               ; preds = %49
+76:; preds = %49
   %77 = fcmp ole float %74, 1.000000e+00
   %78 = fcmp oge float %74, 0.000000e+00
-  %79 = fcmp oge double %68, 0xB690000000000000
-  %80 = fcmp ole double %68, 0x3FF0000010000000
-  %or.cond4 = and i1 %79, %80
+  %80 = fcmp oge double %68, 0xB690000000000000
+  %81 = fcmp ole double %68, 0x3FF0000010000000
+  %82 = and i1 %80, %81
   %81 = fcmp oge double %71, 0xB690000000000000
   %82 = fcmp ole double %71, 0x3FF0000010000000
   %83 = and i1 %81, %82
@@ -665,7 +665,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %or.cond16 = or i1 %86, %85
   br i1 %or.cond16, label %87, label %108
 
-87:                                               ; preds = %76
+87:; preds = %76
   %88 = fcmp ogt float %69, 0.000000e+00
   %.sroa.speculated95 = select i1 %88, float %69, float 0.000000e+00
   %89 = fcmp ogt float %.sroa.speculated95, 1.000000e+00
@@ -691,8 +691,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %.not.i.i74.not = icmp eq ptr %101, null
   br i1 %.not.i.i74.not, label %108, label %.sink.split
 
-.sink.split:                                      ; preds = %87, %40
-  %.sink116.sroa.phi = phi ptr [ %.sink116.sroa.gep, %40 ], [ %.sink116.sroa.gep118, %87 ]
+.sink.split:; preds = %87, %40
+  %.sink116.sroa.phi = phi ptr [ %.sink117.sroa.gep, %40 ], [ %.sink116.sroa.gep118, %87 ]
   %.sink116 = phi ptr [ %4, %40 ], [ %5, %87 ]
   %.0.ph = phi i32 [ 2, %40 ], [ 1, %87 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 160

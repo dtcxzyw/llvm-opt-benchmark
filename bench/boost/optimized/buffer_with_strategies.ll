@@ -185754,14 +185754,14 @@ _ZNK5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS0_12ove
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.021.037, i64 128
   %39 = load ptr, ptr %38, align 8, !tbaa !149
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.021.037, i64 112
-  %.not5354.i = icmp eq ptr %39, %40
-  br i1 %.not5354.i, label %_ZNK5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS5_22buffer_overlay_visitorEE26has_only_isolated_childrenERKNSZ_17region_propertiesE.exit, label %.lr.ph.i19
+  %.not5657.i = icmp eq ptr %39, %40
+  br i1 %.not5657.i, label %_ZNK5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS5_22buffer_overlay_visitorEE26has_only_isolated_childrenERKNSZ_17region_propertiesE.exit, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %36, %65
-  %.02357.i = phi i1 [ %.124.i, %65 ], [ true, %36 ]
-  %.02956.i = phi i64 [ %.130.i, %65 ], [ 0, %36 ]
-  %.sroa.049.055.i = phi ptr [ %66, %65 ], [ %39, %36 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.049.055.i, i64 32
+  %.02360.i = phi i1 [ %.124.i, %65 ], [ true, %36 ]
+  %.02959.i = phi i64 [ %.130.i, %65 ], [ 0, %36 ]
+  %.sroa.049.058.i = phi ptr [ %66, %65 ], [ %39, %36 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.049.058.i, i64 32
   %42 = load i64, ptr %41, align 8, !tbaa !3539
   %43 = load ptr, ptr %6, align 8, !tbaa !148
   %.not10.i.i.i.i = icmp eq ptr %43, null
@@ -185791,7 +185791,7 @@ _ZNKSt3mapIlN5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0EL
   br i1 %50, label %_ZNK5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS5_22buffer_overlay_visitorEE26has_only_isolated_childrenERKNSZ_17region_propertiesE.exit.thread, label %51
 
 51:                                               ; preds = %_ZNKSt3mapIlN5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS1_12overlay_typeE3ENS2_6buffer24buffered_ring_collectionINS6_13buffered_ringINS1_5model4ringINS9_5pointIdLm2ENS1_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESI_SF_INS6_16buffer_turn_infoISE_NS1_13segment_ratioIdEEEESaISM_EES_IlNS3_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS2_17no_rescale_policyENS6_22buffer_overlay_visitorEE17region_propertiesESR_SaISS_IST_S10_EEE4findERST_.exit.i
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.049.055.i, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.049.058.i, i64 40
   %53 = load i64, ptr %52, align 8, !tbaa !3535
   %.not.i20 = icmp eq i64 %53, 1
   br i1 %.not.i20, label %57, label %54
@@ -185809,7 +185809,7 @@ _ZNKSt3mapIlN5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0EL
   br i1 %switch.i, label %65, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.049.055.i, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.049.058.i, i64 72
   %62 = load ptr, ptr %61, align 8, !tbaa !149
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load i64, ptr %63, align 8, !tbaa !93
@@ -185820,7 +185820,7 @@ _ZNKSt3mapIlN5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0EL
 
 65:                                               ; preds = %60, %57
   %.130.i = phi i64 [ %.02956.i, %57 ], [ %.534.i, %60 ]
-  %.124.i = phi i1 [ %.02357.i, %57 ], [ false, %60 ]
+  %.130.i = phi i1 [ %.02357.i, %57 ], [ false, %60 ]
   %66 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.049.055.i) #65
   %.not53.i = icmp eq ptr %66, %40
   br i1 %.not53.i, label %_ZNK5boost8geometry6detail7overlay25traversal_switch_detectorILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS5_22buffer_overlay_visitorEE26has_only_isolated_childrenERKNSZ_17region_propertiesE.exit, label %.lr.ph.i19

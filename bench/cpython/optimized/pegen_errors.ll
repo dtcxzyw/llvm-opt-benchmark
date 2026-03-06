@@ -921,22 +921,22 @@ define internal fastcc ptr @get_error_line_from_tokenizer_buffers(ptr noundef re
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 23:                                               ; preds = %.lr.ph
-  %24 = add i32 %.03146, 1
+  %24 = add i32 %.03149, 1
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i64 %15, %25
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %21, %23
-  %.03146 = phi i32 [ %24, %23 ], [ 0, %21 ]
-  %.03345 = phi ptr [ %29, %23 ], [ %6, %21 ]
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03345, i32 noundef 10) #8
+  %.03149 = phi i32 [ %24, %23 ], [ 0, %21 ]
+  %.03348 = phi ptr [ %29, %23 ], [ %6, %21 ]
+  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03348, i32 noundef 10) #8
   %28 = icmp ne ptr %27, null
   %29 = getelementptr i8, ptr %27, i64 1
   %30 = icmp ule ptr %29, %.032
   %cond = select i1 %28, i1 %30, i1 false
   br i1 %cond, label %23, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %23, %21
+._crit_edge:; preds = %.lr.ph, %23, %21
   %.1 = phi ptr [ %6, %21 ], [ %.03345, %.lr.ph ], [ %29, %23 ]
   %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 10) #8
   %32 = icmp eq ptr %31, null

@@ -5180,115 +5180,115 @@ RANGE_EXCL.exit:                                  ; preds = %9, %16
   br label %RANGE_EXCL.exit46
 
 RANGE_EXCL.exit46:                                ; preds = %RANGE_EXCL.exit, %30
-  %.in97 = phi ptr [ %32, %30 ], [ %29, %RANGE_EXCL.exit ]
+  %.in86 = phi ptr [ %32, %30 ], [ %29, %RANGE_EXCL.exit ]
   %.0.i.i.i45 = phi ptr [ %31, %30 ], [ %25, %RANGE_EXCL.exit ]
-  %33 = load i64, ptr %.in97, align 8, !tbaa !7
+  %33 = load i64, ptr %.in86, align 8, !tbaa !7
   %34 = getelementptr i8, ptr %.0.i.i.i45, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !7
   %36 = and i64 %35, -5
   %37 = icmp ne i64 %36, 0
   %38 = icmp eq i64 %12, 4
   %39 = icmp eq i64 %33, 4
-  %or.cond9.i = or i1 %38, %39
-  br i1 %or.cond9.i, label %empty_region_p.exit.thread, label %40
+  %or.cond10.i = or i1 %38, %39
+  br i1 %or.cond10.i, label %empty_region_p.exit.thread65, label %40
 
 40:                                               ; preds = %RANGE_EXCL.exit46
   %41 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 135, i32 noundef 1, i64 noundef %33) #12
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %empty_region_p.exit.thread71, label %empty_region_p.exit
+  br i1 %42, label %empty_region_p.exit.thread, label %r_less.exit.i
 
-empty_region_p.exit:                              ; preds = %40
+r_less.exit.i:                                    ; preds = %40
   %43 = tail call i32 @rb_cmpint(i64 noundef %41, i64 noundef %12, i64 noundef %33) #12
   %44 = icmp sgt i32 %43, 0
   %45 = icmp eq i32 %43, 0
   %or.cond.i = and i1 %37, %45
   %.1.i = or i1 %44, %or.cond.i
-  br i1 %.1.i, label %empty_region_p.exit.thread71, label %empty_region_p.exit.thread
+  br i1 %.1.i, label %empty_region_p.exit.thread, label %empty_region_p.exit.thread65
 
-empty_region_p.exit.thread:                       ; preds = %RANGE_EXCL.exit46, %empty_region_p.exit
+empty_region_p.exit.thread65:                     ; preds = %RANGE_EXCL.exit46, %r_less.exit.i
   %46 = icmp eq i64 %26, 4
   %47 = icmp eq i64 %19, 4
-  %or.cond9.i47 = or i1 %47, %46
-  br i1 %or.cond9.i47, label %empty_region_p.exit53.thread, label %48
+  %or.cond10.i47 = or i1 %47, %46
+  br i1 %or.cond10.i47, label %empty_region_p.exit51.thread68, label %48
 
-48:                                               ; preds = %empty_region_p.exit.thread
+48:                                               ; preds = %empty_region_p.exit.thread65
   %49 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %26, i64 noundef 135, i32 noundef 1, i64 noundef %19) #12
   %50 = icmp eq i64 %49, 4
-  br i1 %50, label %empty_region_p.exit.thread71, label %empty_region_p.exit53
+  br i1 %50, label %empty_region_p.exit.thread, label %r_less.exit.i48
 
-empty_region_p.exit53:                            ; preds = %48
+r_less.exit.i48:                                  ; preds = %48
   %51 = tail call i32 @rb_cmpint(i64 noundef %49, i64 noundef %26, i64 noundef %19) #12
   %52 = icmp sgt i32 %51, 0
   %53 = icmp eq i32 %51, 0
-  %or.cond.i50 = and i1 %23, %53
-  %.1.i51 = or i1 %52, %or.cond.i50
-  br i1 %.1.i51, label %empty_region_p.exit.thread71, label %empty_region_p.exit53.thread
+  %or.cond.i49 = and i1 %23, %53
+  %.1.i51 = or i1 %52, %or.cond.i49
+  br i1 %.1.i51, label %empty_region_p.exit.thread, label %empty_region_p.exit51.thread68
 
-empty_region_p.exit53.thread:                     ; preds = %empty_region_p.exit.thread, %empty_region_p.exit53
+empty_region_p.exit51.thread68:                   ; preds = %empty_region_p.exit.thread65, %r_less.exit.i48
   br i1 %38, label %.critedge, label %54
 
-54:                                               ; preds = %empty_region_p.exit53.thread
+54:                                               ; preds = %empty_region_p.exit51.thread68
   br i1 %46, label %64, label %55
 
 55:                                               ; preds = %54
   %56 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 135, i32 noundef 1, i64 noundef %26) #12
   %57 = icmp eq i64 %56, 4
-  br i1 %57, label %empty_region_p.exit.thread71, label %58
+  br i1 %57, label %empty_region_p.exit.thread, label %58
 
 58:                                               ; preds = %55
   %59 = tail call i32 @rb_cmpint(i64 noundef %56, i64 noundef %12, i64 noundef %26) #12
-  %.not98 = icmp eq i32 %59, 0
-  br i1 %.not98, label %empty_region_p.exit.thread71, label %64
+  %.not87 = icmp eq i32 %59, 0
+  br i1 %.not87, label %empty_region_p.exit.thread, label %64
 
-.critedge:                                        ; preds = %empty_region_p.exit53.thread
-  %.not96 = xor i1 %46, true
-  %brmerge = or i1 %47, %.not96
-  br i1 %brmerge, label %empty_region_p.exit60.thread, label %60
+.critedge:                                        ; preds = %empty_region_p.exit51.thread68
+  %.not84 = xor i1 %46, true
+  %brmerge = or i1 %47, %.not84
+  br i1 %brmerge, label %empty_region_p.exit56.thread76, label %60
 
 60:                                               ; preds = %.critedge
   %61 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef 135, i32 noundef 1, i64 noundef %33) #12
   %62 = icmp eq i64 %61, 4
   %63 = select i1 %62, i64 0, i64 20
-  br label %empty_region_p.exit.thread71
+  br label %empty_region_p.exit.thread
 
 64:                                               ; preds = %54, %58
-  br i1 %47, label %empty_region_p.exit60.thread, label %65
+  br i1 %47, label %empty_region_p.exit56.thread76, label %65
 
 65:                                               ; preds = %64
   %66 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 135, i32 noundef 1, i64 noundef %19) #12
   %67 = icmp eq i64 %66, 4
-  br i1 %67, label %empty_region_p.exit.thread71, label %empty_region_p.exit60
+  br i1 %67, label %empty_region_p.exit.thread, label %r_less.exit.i53
 
-empty_region_p.exit60:                            ; preds = %65
+r_less.exit.i53:                                  ; preds = %65
   %68 = tail call i32 @rb_cmpint(i64 noundef %66, i64 noundef %12, i64 noundef %19) #12
   %69 = icmp sgt i32 %68, 0
   %70 = icmp eq i32 %68, 0
-  %or.cond.i57 = and i1 %23, %70
-  %.1.i58 = or i1 %69, %or.cond.i57
-  br i1 %.1.i58, label %empty_region_p.exit.thread71, label %empty_region_p.exit60.thread
+  %or.cond.i54 = and i1 %23, %70
+  %.1.i58 = or i1 %69, %or.cond.i54
+  br i1 %.1.i58, label %empty_region_p.exit.thread, label %empty_region_p.exit56.thread76
 
-empty_region_p.exit60.thread:                     ; preds = %.critedge, %64, %empty_region_p.exit60
-  %or.cond9.i61 = or i1 %46, %39
-  br i1 %or.cond9.i61, label %empty_region_p.exit.thread71, label %71
+empty_region_p.exit56.thread76:                   ; preds = %.critedge, %64, %r_less.exit.i53
+  %or.cond10.i57 = or i1 %46, %39
+  br i1 %or.cond10.i57, label %empty_region_p.exit.thread, label %71
 
-71:                                               ; preds = %empty_region_p.exit60.thread
+71:                                               ; preds = %empty_region_p.exit56.thread76
   %72 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %26, i64 noundef 135, i32 noundef 1, i64 noundef %33) #12
   %73 = icmp eq i64 %72, 4
-  br i1 %73, label %empty_region_p.exit67.thread91, label %empty_region_p.exit67
+  br i1 %73, label %empty_region_p.exit61.thread, label %r_less.exit.i58
 
-empty_region_p.exit67:                            ; preds = %71
+r_less.exit.i58:                                  ; preds = %71
   %74 = tail call i32 @rb_cmpint(i64 noundef %72, i64 noundef %26, i64 noundef %33) #12
   %75 = icmp sgt i32 %74, 0
   %76 = icmp eq i32 %74, 0
-  %or.cond.i64 = and i1 %37, %76
-  %.1.i65 = or i1 %75, %or.cond.i64
+  %or.cond.i59 = and i1 %37, %76
+  %.1.i65 = or i1 %75, %or.cond.i59
   %cond.fr = freeze i1 %.1.i65
   br i1 %cond.fr, label %empty_region_p.exit67.thread91, label %empty_region_p.exit.thread71
 
-empty_region_p.exit67.thread91:                   ; preds = %71, %empty_region_p.exit67
-  br label %empty_region_p.exit.thread71
+empty_region_p.exit61.thread:                     ; preds = %71, %empty_region_p.exit67
+  br label %empty_region_p.exit.thread
 
-empty_region_p.exit.thread71:                     ; preds = %empty_region_p.exit60.thread, %65, %55, %48, %40, %empty_region_p.exit67.thread91, %empty_region_p.exit67, %empty_region_p.exit60, %empty_region_p.exit53, %empty_region_p.exit, %58, %60
+empty_region_p.exit.thread:                       ; preds = %empty_region_p.exit56.thread76, %65, %55, %48, %40, %empty_region_p.exit61.thread, %r_less.exit.i58, %r_less.exit.i53, %r_less.exit.i48, %r_less.exit.i, %58, %60
   %.0 = phi i64 [ 20, %58 ], [ 0, %empty_region_p.exit ], [ 0, %empty_region_p.exit53 ], [ 0, %55 ], [ 0, %empty_region_p.exit60 ], [ %63, %60 ], [ 0, %65 ], [ 0, %40 ], [ 0, %48 ], [ 0, %empty_region_p.exit67.thread91 ], [ 20, %empty_region_p.exit67 ], [ 20, %empty_region_p.exit60.thread ]
   ret i64 %.0
 }

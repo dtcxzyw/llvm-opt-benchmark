@@ -2933,12 +2933,12 @@ if.end.i680:                                      ; preds = %_ZNK4llvh9StringRef
 
 _ZNK4llvh9StringRef10startswithES0_.exit590:      ; preds = %if.end.i680, %_ZNK4llvh9StringRef10startswithES0_.exit601
   %frombool83277 = phi i8 [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %frombool83278, %if.end.i680 ]
-  %18 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %16, %if.end.i680 ]
-  %19 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %17, %if.end.i680 ]
+  %19 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %16, %if.end.i680 ]
+  %frombool86 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %17, %if.end.i680 ]
   %frombool86 = zext i1 %19 to i8
   %cmp87 = icmp ne i32 %call80, 0
-  %or.cond = select i1 %cmp87, i1 true, i1 %18
-  %20 = select i1 %or.cond, i1 true, i1 %19
+  %or.cond = select i1 %cmp87, i1 true, i1 %19
+  %20 = select i1 %or.cond, i1 true, i1 %frombool86
   br i1 %20, label %if.end105, label %for.inc169
 
 sw.bb91:                                          ; preds = %if.end66

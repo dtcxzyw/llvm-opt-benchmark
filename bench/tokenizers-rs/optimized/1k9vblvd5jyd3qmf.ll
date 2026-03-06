@@ -6070,7 +6070,7 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %5 = icmp samesign ult i32 %2, 65
   %.04 = select i1 %4, i1 %5, i1 %.0
   %6 = icmp samesign ugt i32 %2, 90
-  %7 = icmp samesign ult i32 %2, 97
+  %6 = icmp samesign ult i32 %2, 97
   %.05 = select i1 %6, i1 %7, i1 %.04
   %8 = icmp samesign ugt i32 %2, 122
   %9 = icmp samesign ult i32 %2, 127
@@ -21258,7 +21258,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7i
   %4 = icmp samesign ult i32 %0, 65
   %.04.i = select i1 %3, i1 %4, i1 %.0.i
   %5 = icmp samesign ugt i32 %0, 90
-  %6 = icmp samesign ult i32 %0, 97
+  %5 = icmp samesign ult i32 %0, 97
   %.05.i = select i1 %5, i1 %6, i1 %.04.i
   %7 = icmp samesign ugt i32 %0, 122
   %8 = icmp samesign ult i32 %0, 127

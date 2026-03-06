@@ -4564,24 +4564,24 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %59 = load ptr, ptr %58, align 16, !tbaa !292
   %60 = icmp eq ptr %1, %59
-  br i1 %60, label %61, label %.thread92
+  br i1 %60, label %61, label %.thread90
 
 61:                                               ; preds = %.thread
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %63 = load i32, ptr %62, align 4, !tbaa !127
   %64 = icmp eq i32 %63, 0
-  %spec.select112 = select i1 %64, i32 0, i32 4
+  %spec.select110 = select i1 %64, i32 0, i32 4
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 672
-  store i32 %spec.select112, ptr %65, align 16, !tbaa !255
-  br i1 %.not, label %81, label %.thread92
+  store i32 %spec.select110, ptr %65, align 16, !tbaa !255
+  br i1 %.not, label %81, label %.thread90
 
-.thread92:                                        ; preds = %.thread, %61
+.thread90:                                        ; preds = %.thread, %61
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !285
   %68 = icmp eq ptr %1, %67
   br i1 %68, label %81, label %69
 
-69:                                               ; preds = %.thread92
+69:                                               ; preds = %.thread90
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %71 = load ptr, ptr %70, align 16, !tbaa !292
   %72 = icmp eq ptr %1, %71
@@ -4591,18 +4591,18 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 2288
   %75 = load ptr, ptr %74, align 16, !tbaa !254
   %76 = icmp eq ptr %1, %75
-  br i1 %76, label %81, label %.thread93
+  br i1 %76, label %81, label %.thread91
 
 .critedge:                                        ; preds = %57
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %78 = load i32, ptr %77, align 4, !tbaa !127
   %79 = icmp eq i32 %78, 0
-  %spec.select112.c = select i1 %79, i32 0, i32 4
+  %spec.select110.c = select i1 %79, i32 0, i32 4
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 672
-  store i32 %spec.select112.c, ptr %80, align 16, !tbaa !255
+  store i32 %spec.select110.c, ptr %80, align 16, !tbaa !255
   br label %81
 
-81:                                               ; preds = %.critedge, %73, %69, %.thread92, %61
+81:                                               ; preds = %.critedge, %73, %69, %.thread90, %61
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 404
   %83 = load i32, ptr %82, align 4, !tbaa !123
   %.not89 = icmp eq i32 %83, 0
@@ -4635,15 +4635,15 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %102 = icmp eq i32 %101, 1
   %103 = zext i1 %102 to i32
   tail call void @gtk_widget_set_visible(ptr noundef %100, i32 noundef %103) #21
-  br i1 %.not, label %107, label %.thread93
+  br i1 %.not, label %107, label %.thread91
 
-.thread93:                                        ; preds = %73, %89
+.thread91:                                        ; preds = %73, %89
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %105 = load ptr, ptr %104, align 8, !tbaa !293
   %106 = icmp eq ptr %1, %105
-  br i1 %106, label %107, label %.thread94
+  br i1 %106, label %107, label %.thread92
 
-107:                                              ; preds = %.thread93, %89
+107:                                              ; preds = %.thread91, %89
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %110 = load float, ptr %109, align 4, !tbaa !36
@@ -4767,21 +4767,21 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %136, %113, %127, %1
   br label %179
 
 179:                                              ; preds = %141, %144
-  br i1 %.not, label %187, label %.thread94
+  br i1 %.not, label %187, label %.thread92
 
-.thread94:                                        ; preds = %.thread93, %179
+.thread92:                                        ; preds = %.thread91, %179
   %180 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !285
   %182 = icmp eq ptr %1, %181
   br i1 %182, label %187, label %183
 
-183:                                              ; preds = %.thread94
+183:                                              ; preds = %.thread92
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 2288
   %185 = load ptr, ptr %184, align 16, !tbaa !254
   %186 = icmp eq ptr %1, %185
   br i1 %186, label %187, label %214
 
-187:                                              ; preds = %183, %.thread94, %179
+187:                                              ; preds = %183, %.thread92, %179
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %189 = load i32, ptr %188, align 4, !tbaa !115
   %190 = icmp eq i32 %189, 4
@@ -4804,16 +4804,16 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %136, %113, %127, %1
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %205 = load ptr, ptr %204, align 8, !tbaa !297
   %206 = load i32, ptr %199, align 4, !tbaa !123
-  %.not90 = icmp eq i32 %206, 0
-  %207 = xor i1 %spec.select, true
+  %207 = icmp eq i32 %206, 0
+  %208 = xor i1 %spec.select, true
   %208 = zext i1 %207 to i32
-  %209 = select i1 %.not90, i32 0, i32 %208
+  %209 = select i1 %207, i32 0, i32 %208
   call void @gtk_widget_set_visible(ptr noundef %205, i32 noundef %209) #21
-  %210 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %211 = load ptr, ptr %210, align 16, !tbaa !298
-  %212 = load i32, ptr %199, align 4, !tbaa !123
-  %.not91 = icmp eq i32 %212, 0
-  %213 = select i1 %.not91, i32 0, i32 %208
+  %211 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %212 = load ptr, ptr %211, align 16, !tbaa !298
+  %213 = load i32, ptr %199, align 4, !tbaa !123
+  %214 = icmp eq i32 %213, 0
+  %213 = select i1 %214, i32 0, i32 %208
   call void @gtk_widget_set_visible(ptr noundef %211, i32 noundef %213) #21
   br label %214
 

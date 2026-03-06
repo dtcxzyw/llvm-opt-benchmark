@@ -170,36 +170,36 @@ define noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull read
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %16
+9:                                                ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.021 = phi i32 [ undef, %.lr.ph ], [ %.2, %16 ]
   %10 = icmp eq i64 %indvars.iv, %8
-  br i1 %10, label %.loopexit, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !11
-  %.not = icmp slt i8 %13, %15
+  %16 = icmp slt i8 %13, %15
   %.not18 = icmp sgt i8 %13, %15
   %..0 = select i1 %.not18, i32 1, i32 %.021
   %cond = icmp eq i8 %13, %15
-  %.2 = select i1 %.not, i32 -1, i32 %..0
-  br i1 %cond, label %16, label %.loopexit
+  %.2 = select i1 %16, i32 -1, i32 %..0
+  br i1 %cond, label %18, label %.thread
 
-16:                                               ; preds = %11
+18:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %16, %3
+._crit_edge:                                      ; preds = %18, %3
   %.012.lcssa = phi i32 [ 0, %3 ], [ %5, %16 ]
-  %17 = icmp slt i32 %.012.lcssa, %2
-  %.16 = sext i1 %17 to i32
-  br label %.loopexit
+  %19 = icmp slt i32 %.012.lcssa, %2
+  %.16 = sext i1 %19 to i32
+  br label %.thread
 
-.loopexit:                                        ; preds = %9, %11, %._crit_edge
+.thread:                                          ; preds = %9, %11, %._crit_edge
   %.1 = phi i32 [ %.16, %._crit_edge ], [ %.2, %11 ], [ 1, %9 ]
   ret i32 %.1
 }

@@ -424,8 +424,8 @@ define hidden i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %.not4854.not = icmp eq i64 %28, 0
-  br i1 %.not4854.not, label %.thread, label %.lr.ph
+  %.not4856.not = icmp eq i64 %28, 0
+  br i1 %.not4856.not, label %.thread, label %.lr.ph
 
 36:                                               ; preds = %.lr.ph
   %37 = add nuw i64 %.04055, 1
@@ -433,7 +433,7 @@ define hidden i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader, %36
-  %.256 = phi i32 [ %.4, %36 ], [ undef, %.preheader ]
+  %.04057 = phi i32 [ %.4, %36 ], [ undef, %.preheader ]
   %.04055 = phi i64 [ %37, %36 ], [ 0, %.preheader ]
   %38 = xor i64 %.04055, -1
   %39 = add i64 %28, %38
@@ -441,11 +441,11 @@ define hidden i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, pt
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = getelementptr [4 x i8], ptr %33, i64 %39
   %43 = load i32, ptr %42, align 4, !tbaa !13
-  %.not52 = icmp ult i32 %41, %43
+  %44 = icmp ult i32 %41, %43
   %.not53 = icmp ugt i32 %41, %43
   %..2 = select i1 %.not53, i32 %11, i32 %.256
   %cond1 = icmp eq i32 %41, %43
-  %.4 = select i1 %.not52, i32 %.neg, i32 %..2
+  %.4 = select i1 %44, i32 %.neg, i32 %..2
   br i1 %cond1, label %36, label %.thread
 
 .thread:                                          ; preds = %36, %.lr.ph, %.preheader, %15, %19, %25, %27, %31, %8

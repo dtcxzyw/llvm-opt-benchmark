@@ -1813,19 +1813,19 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %41 = phi ptr [ %32, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit" ], [ %6, %19 ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i" ], [ %12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i" ]
   %42 = phi i32 [ %40, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit" ], [ %20, %19 ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i" ], [ %17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i" ]
   %43 = icmp samesign ugt i32 %42, 64
-  %44 = icmp samesign ugt i32 %42, 96
-  %45 = icmp samesign ult i32 %42, 123
-  %46 = icmp samesign ult i32 %42, 91
+  %.sroa.0.0.i.i.i = icmp samesign ugt i32 %42, 96
+  %44 = icmp samesign ult i32 %42, 123
+  %45 = icmp samesign ult i32 %42, 91
   %47 = add nsw i32 %42, -48
-  %48 = icmp ult i32 %47, 10
-  %49 = select i1 %43, i1 %46, i1 %48
-  %.sroa.02.0.i.i.not.i.not = select i1 %44, i1 %45, i1 %49
+  %spec.select.i.i.i = icmp ult i32 %47, 10
+  %.sroa.02.0.i.i.i = select i1 %43, i1 %46, i1 %.sroa.0.0.i.i.i.i
+  %.sroa.02.0.i.i.not.i.not = select i1 %44, i1 %45, i1 %.sroa.02.0.i.i.i
   %50 = freeze i1 %.sroa.02.0.i.i.not.i.not
   br i1 %50, label %.backedge, label %switch.early.test
 
 .backedge:                                        ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread", %switch.early.test, %switch.early.test
-  %51 = icmp eq ptr %41, %3
-  br i1 %51, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split", label %.lr.ph
+  %47 = icmp eq ptr %41, %3
+  br i1 %47, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split", label %.lr.ph
 
 switch.early.test:                                ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread"
   switch i32 %42, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split" [
@@ -1840,8 +1840,8 @@ switch.early.test:                                ; preds = %"_ZN81_$LT$core..st
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split", %1
-  %52 = phi i1 [ false, %1 ], [ %.ph, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split" ]
-  ret i1 %52
+  %48 = phi i1 [ false, %1 ], [ %.ph, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread7.sink.split" ]
+  ret i1 %48
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4052,19 +4052,19 @@ define void @"_ZN110_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core.
   %45 = phi ptr [ %36, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i" ], [ %10, %23 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i.i" ], [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i.i" ]
   %46 = phi i32 [ %44, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i" ], [ %24, %23 ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i.i" ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i.i" ]
   %47 = icmp samesign ugt i32 %46, 64
-  %48 = icmp samesign ugt i32 %46, 96
-  %49 = icmp samesign ult i32 %46, 123
-  %50 = icmp samesign ult i32 %46, 91
+  %.sroa.0.0.i.i.i.i = icmp samesign ugt i32 %46, 96
+  %48 = icmp samesign ult i32 %46, 123
+  %49 = icmp samesign ult i32 %46, 91
   %51 = add nsw i32 %46, -48
-  %52 = icmp ult i32 %51, 10
-  %53 = select i1 %47, i1 %50, i1 %52
-  %.sroa.02.0.i.i.not.i.not.i = select i1 %48, i1 %49, i1 %53
+  %spec.select.i.i.i.i = icmp ult i32 %47, 10
+  %.sroa.02.0.i.i.i.i = select i1 %47, i1 %50, i1 %spec.select.i.i.i.i
+  %.sroa.02.0.i.i.not.i.not.i = select i1 %48, i1 %.sroa.02.0.i.i.i, i1 %53
   %54 = freeze i1 %.sroa.02.0.i.i.not.i.not.i
   br i1 %54, label %.backedge.i, label %switch.early.test.i
 
 .backedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread.i"
-  %55 = icmp eq ptr %45, %7
-  br i1 %55, label %.loopexit, label %.lr.ph.i
+  %51 = icmp eq ptr %45, %7
+  br i1 %51, label %.loopexit, label %.lr.ph.i
 
 switch.early.test.i:                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread.i"
   switch i32 %46, label %.loopexit7 [
@@ -4073,15 +4073,15 @@ switch.early.test.i:                              ; preds = %"_ZN81_$LT$core..st
   ]
 
 .loopexit:                                        ; preds = %.backedge.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i"
-  %56 = add i64 %6, -401
-  %or.cond = icmp ult i64 %56, -400
+  %52 = add i64 %6, -401
+  %or.cond = icmp ult i64 %52, -400
   %spec.select = zext i1 %or.cond to i64
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %switch.early.test.i, %.loopexit, %2
   %storemerge = phi i64 [ %spec.select, %.loopexit ], [ 1, %2 ], [ 1, %switch.early.test.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -4171,19 +4171,19 @@ define void @"_ZN85_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..
   %50 = phi ptr [ %41, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i" ], [ %15, %28 ], [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i.i.i" ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i.i.i" ]
   %51 = phi i32 [ %49, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i" ], [ %29, %28 ], [ %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit14.i.i.i.i" ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a526ecc59f9a970E.exit12.i.i.i.i" ]
   %52 = icmp samesign ugt i32 %51, 64
-  %53 = icmp samesign ugt i32 %51, 96
-  %54 = icmp samesign ult i32 %51, 123
-  %55 = icmp samesign ult i32 %51, 91
+  %.sroa.0.0.i.i.i.i.i = icmp samesign ugt i32 %51, 96
+  %53 = icmp samesign ult i32 %51, 123
+  %54 = icmp samesign ult i32 %51, 91
   %56 = add nsw i32 %51, -48
-  %57 = icmp ult i32 %56, 10
-  %58 = select i1 %52, i1 %55, i1 %57
-  %.sroa.02.0.i.i.not.i.not.i.i = select i1 %53, i1 %54, i1 %58
+  %spec.select.i.i.i.i.i = icmp ult i32 %56, 10
+  %.sroa.02.0.i.i.i.i.i = select i1 %spec.select.i.i.i.i, i1 %55, i1 %57
+  %.sroa.02.0.i.i.not.i.not.i.i = select i1 %.sroa.02.0.i.i.i.i, i1 %54, i1 %58
   %59 = freeze i1 %.sroa.02.0.i.i.not.i.not.i.i
   br i1 %59, label %.backedge.i.i, label %switch.early.test.i.i
 
 .backedge.i.i:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread.i.i"
-  %60 = icmp eq ptr %50, %12
-  br i1 %60, label %.loopexit.i, label %.lr.ph.i.i
+  %56 = icmp eq ptr %50, %12
+  br i1 %56, label %.loopexit.i, label %.lr.ph.i.i
 
 switch.early.test.i.i:                            ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread.i.i"
   switch i32 %51, label %"_ZN110_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17he1f06e2987194185E.exit" [
@@ -4192,14 +4192,14 @@ switch.early.test.i.i:                            ; preds = %"_ZN81_$LT$core..st
   ]
 
 .loopexit.i:                                      ; preds = %.backedge.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i"
-  %61 = icmp ugt i64 %2, 400
-  %spec.select = zext i1 %61 to i64
+  %57 = icmp ugt i64 %2, 400
+  %spec.select = zext i1 %57 to i64
   br label %"_ZN110_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17he1f06e2987194185E.exit"
 
 "_ZN110_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17he1f06e2987194185E.exit": ; preds = %switch.early.test.i.i, %.loopexit.i, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.9153134991762065841.exit"
   %storemerge.i = phi i64 [ 1, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.9153134991762065841.exit" ], [ %spec.select, %.loopexit.i ], [ 1, %switch.early.test.i.i ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %62, align 8, !alias.scope !1483
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %7, ptr %58, align 8, !alias.scope !1483
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.5.0..sroa_idx5, align 8, !alias.scope !1483
   %.sroa.6.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 24

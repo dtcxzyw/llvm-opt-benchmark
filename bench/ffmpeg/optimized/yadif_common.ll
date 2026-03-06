@@ -514,10 +514,10 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %46 = xor i32 %1, %.044
   %47 = xor i32 %46, 1
   tail call void %44(ptr noundef nonnull %0, ptr noundef %42, i32 noundef %47, i32 noundef %.044) #5
-  br i1 %.not49, label %._crit_edge52, label %48
+  br i1 %.not49, label %._crit_edge51, label %48
 
-._crit_edge52:                                    ; preds = %41
-  %.pre53 = load ptr, ptr %45, align 8, !tbaa !54
+._crit_edge51:                                    ; preds = %41
+  %.pre52 = load ptr, ptr %45, align 8, !tbaa !54
   br label %74
 
 48:                                               ; preds = %41
@@ -559,8 +559,8 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   store i64 -9223372036854775808, ptr %73, align 8, !tbaa !55
   br label %74
 
-74:                                               ; preds = %._crit_edge52, %71, %66, %59
-  %75 = phi ptr [ %.pre53, %._crit_edge52 ], [ %72, %71 ], [ %61, %66 ], [ %61, %59 ]
+74:                                               ; preds = %._crit_edge51, %71, %66, %59
+  %75 = phi ptr [ %.pre52, %._crit_edge52 ], [ %72, %71 ], [ %61, %66 ], [ %61, %59 ]
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %77 = tail call i32 @ff_ccfifo_inject(ptr noundef nonnull %76, ptr noundef %75) #5
   %78 = load ptr, ptr %5, align 8, !tbaa !58

@@ -7353,7 +7353,7 @@ define noundef zeroext i1 @"_ZN72_$LT$actix_http..h1..timer..TimerState$u20$as$u
     i64 2, label %11
   ]
 
-default.unreachable17:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -7373,17 +7373,17 @@ default.unreachable17:                            ; preds = %2
   %17 = tail call { i64, i32 } @_ZN5tokio4time7instant7Instant3now17h0047dad5b0b9cb49E()
   %18 = extractvalue { i64, i32 } %17, 0
   %19 = extractvalue { i64, i32 } %17, 1
-  %.not.i = icmp eq i64 %14, %18
+  %20 = icmp eq i64 %14, %18
   %20 = icmp ult i32 %16, %19
   %21 = icmp slt i64 %14, %18
-  %22 = select i1 %.not.i, i1 %20, i1 %21
+  %22 = select i1 %20, i1 %20, i1 %21
   br i1 %22, label %39, label %24
 
-23:                                               ; preds = %24, %39, %9, %7
+23:; preds = %24, %39, %9, %7
   %.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %40, %39 ], [ %38, %24 ]
   ret i1 %.0.in
 
-24:                                               ; preds = %11
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread18": ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7414,8 +7414,8 @@ default.unreachable17:                            ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
-39:                                               ; preds = %11
-  %40 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.122, i64 noundef 40)
+"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread": ; preds = %11
+  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.122, i64 noundef 40)
   br label %23
 }
 

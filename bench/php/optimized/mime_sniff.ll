@@ -133,8 +133,8 @@ collect_a_sequence_of_code_points.exit55:         ; preds = %.lr.ph123, %29, %23
   %33 = sub i64 %31, %32
   %34 = tail call fastcc zeroext i1 @is_empty_string_or_does_not_solely_contain_http_token_code_points(ptr noundef nonnull %25, i64 noundef %33)
   %35 = icmp uge ptr %.0.i54.lcssa, %.043.lcssa
-  %or.cond.not248 = or i1 %35, %34
-  br i1 %or.cond.not248, label %zend_string_release_ex.exit65.thread92, label %.lr.ph162
+  %or.cond.not249 = or i1 %35, %34
+  br i1 %or.cond.not249, label %zend_string_release_ex.exit65.thread92, label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %collect_a_sequence_of_code_points.exit55
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 %33
@@ -368,7 +368,7 @@ collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %107, %.
   store i8 0, ptr %119, align 1, !tbaa !4
   %120 = getelementptr inbounds nuw i8, ptr %60, i64 %53
   %.not52144 = icmp eq i64 %111, 0
-  br i1 %.not52144, label %.loopexit236, label %.lr.ph145
+  br i1 %.not52144, label %.loopexit237, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %collect_a_sequence_of_code_points.exit63
   %121 = getelementptr i8, ptr %114, i64 23
@@ -389,9 +389,9 @@ is_http_whitespace.exit69.thread:                 ; preds = %122, %122, %122, %1
   %126 = add i64 %123, -1
   store i64 %126, ptr %117, align 8, !tbaa !10
   %.not52 = icmp eq i64 %126, 0
-  br i1 %.not52, label %.loopexit236, label %122
+  br i1 %.not52, label %.loopexit237, label %122
 
-.loopexit236:                                     ; preds = %is_http_whitespace.exit69.thread, %collect_a_sequence_of_code_points.exit63
+.loopexit237:                                     ; preds = %is_http_whitespace.exit69.thread, %collect_a_sequence_of_code_points.exit63
   store i8 0, ptr %118, align 1, !tbaa !4
   br label %zend_string_release_ex.exit65.sink.split
 
@@ -420,9 +420,9 @@ zend_string_release_ex.exit:                      ; preds = %122
   %135 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   br label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %142
-  %.08.i = phi i64 [ %143, %142 ], [ %129, %.lr.ph.i70.preheader ]
-  %.047.i = phi ptr [ %144, %142 ], [ %135, %.lr.ph.i70.preheader ]
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %is_http_quoted_string_token.exit.thread.i
+  %.08.i = phi i64 [ %141, %142 ], [ %129, %.lr.ph.i70.preheader ]
+  %.047.i = phi ptr [ %is_http_quoted_string_token.exit.thread.i, %142 ], [ %135, %.lr.ph.i70.preheader ]
   %136 = load i8, ptr %.047.i, align 1, !tbaa !4
   %137 = icmp eq i8 %136, 9
   %138 = icmp ugt i8 %136, 31
@@ -431,25 +431,25 @@ zend_string_release_ex.exit:                      ; preds = %122
   %141 = or i1 %137, %140
   br i1 %141, label %142, label %zend_string_release_ex.exit65.sink.split
 
-142:                                              ; preds = %.lr.ph.i70
-  %143 = add i64 %.08.i, -1
-  %144 = getelementptr inbounds nuw i8, ptr %.047.i, i64 1
-  %.not.i71 = icmp eq i64 %143, 0
+is_http_quoted_string_token.exit.thread.i:        ; preds = %.lr.ph.i70
+  %141 = add i64 %.08.i, -1
+  %142 = getelementptr inbounds nuw i8, ptr %.047.i, i64 1
+  %.not.i71 = icmp eq i64 %141, 0
   br i1 %.not.i71, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70
 
-zend_string_release_ex.exit65.sink.split:         ; preds = %.lr.ph.i70, %128, %131, %.loopexit236
-  %.sink246 = phi ptr [ %114, %.loopexit236 ], [ %.042, %128 ], [ %.042, %131 ], [ %.042, %.lr.ph.i70 ]
+zend_string_release_ex.exit65.sink.split:         ; preds = %.lr.ph.i70, %128, %131, %.loopexit237
+  %.sink247 = phi ptr [ %114, %.loopexit236 ], [ %.042, %128 ], [ %.042, %131 ], [ %.042, %.lr.ph.i70 ]
   %.1.ph = phi ptr [ %120, %.loopexit236 ], [ %.286, %128 ], [ %.286, %131 ], [ %.286, %.lr.ph.i70 ]
-  store i32 0, ptr %.sink246, align 4, !tbaa !7
-  tail call void @_efree(ptr noundef nonnull %.sink246) #10
+  store i32 0, ptr %.sink247, align 4, !tbaa !7
+  tail call void @_efree(ptr noundef nonnull %.sink247) #10
   br label %zend_string_release_ex.exit65
 
 zend_string_release_ex.exit65:                    ; preds = %zend_string_release_ex.exit65.sink.split, %56
   %.1 = phi ptr [ %54, %56 ], [ %.1.ph, %zend_string_release_ex.exit65.sink.split ]
-  %145 = icmp ult ptr %.1, %.043.lcssa
-  br i1 %145, label %37, label %zend_string_release_ex.exit65.thread92
+  %143 = icmp ult ptr %.1, %.043.lcssa
+  br i1 %143, label %37, label %zend_string_release_ex.exit65.thread92
 
-zend_string_release_ex.exit65.thread92:           ; preds = %zend_string_release_ex.exit65, %collect_a_sequence_of_code_points.exit59, %134, %142, %collect_a_sequence_of_code_points.exit.thread, %collect_a_sequence_of_code_points.exit55, %collect_a_sequence_of_code_points.exit
+zend_string_release_ex.exit65.thread92:           ; preds = %zend_string_release_ex.exit65, %collect_a_sequence_of_code_points.exit59, %134, %is_http_quoted_string_token.exit.thread.i, %collect_a_sequence_of_code_points.exit.thread, %collect_a_sequence_of_code_points.exit55, %collect_a_sequence_of_code_points.exit
   %.0 = phi ptr [ null, %collect_a_sequence_of_code_points.exit.thread ], [ null, %collect_a_sequence_of_code_points.exit ], [ null, %collect_a_sequence_of_code_points.exit55 ], [ %.042, %142 ], [ null, %zend_string_release_ex.exit65 ], [ null, %collect_a_sequence_of_code_points.exit59 ], [ %.042, %134 ]
   ret ptr %.0
 }
@@ -460,9 +460,9 @@ define internal fastcc noundef zeroext i1 @is_empty_string_or_does_not_solely_co
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %is_http_token.exit.thread
-  %.09 = phi i64 [ %10, %is_http_token.exit.thread ], [ %1, %2 ]
-  %.058 = phi ptr [ %11, %is_http_token.exit.thread ], [ %0, %2 ]
-  %4 = load i8, ptr %.058, align 1, !tbaa !4
+  %.010 = phi i64 [ %10, %is_http_token.exit.thread ], [ %1, %2 ]
+  %.059 = phi ptr [ %11, %is_http_token.exit.thread ], [ %0, %2 ]
+  %4 = load i8, ptr %.059, align 1, !tbaa !4
   switch i8 %4, label %is_http_token.exit [
     i8 33, label %is_http_token.exit.thread
     i8 126, label %is_http_token.exit.thread
@@ -481,22 +481,22 @@ define internal fastcc noundef zeroext i1 @is_empty_string_or_does_not_solely_co
     i8 35, label %is_http_token.exit.thread
   ]
 
-is_http_token.exit:                               ; preds = %.preheader
-  %5 = add i8 %4, -48
-  %or.cond.i.i = icmp ult i8 %5, 10
-  %6 = and i8 %4, -33
-  %7 = add i8 %6, -65
-  %8 = icmp ult i8 %7, 26
-  %9 = or i1 %or.cond.i.i, %8
-  br i1 %9, label %is_http_token.exit.thread, label %.loopexit
+5:                                                ; preds = %.preheader
+  %6 = add i8 %4, -48
+  %or.cond.i.i = icmp ult i8 %6, 10
+  %7 = and i8 %4, -33
+  %8 = add i8 %7, -65
+  %9 = icmp ult i8 %8, 26
+  %or.cond = or i1 %or.cond.i.i, %9
+  br i1 %or.cond, label %is_http_token.exit.thread, label %.loopexit
 
-is_http_token.exit.thread:                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %is_http_token.exit
-  %10 = add i64 %.09, -1
-  %11 = getelementptr inbounds nuw i8, ptr %.058, i64 1
+is_http_token.exit.thread:                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %5
+  %10 = add i64 %.010, -1
+  %11 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %is_http_token.exit.thread, %is_http_token.exit, %2
+.loopexit:                                        ; preds = %is_http_token.exit.thread, %5, %2
   %.06 = phi i1 [ true, %2 ], [ false, %is_http_token.exit.thread ], [ true, %is_http_token.exit ]
   ret i1 %.06
 }

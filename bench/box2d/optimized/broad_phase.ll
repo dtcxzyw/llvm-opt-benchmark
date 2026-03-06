@@ -524,14 +524,14 @@ define hidden zeroext i1 @b2BroadPhase_TestOverlap(ptr noundef %0, i32 noundef %
   %18 = fcmp ule float %.sroa.0.0.vec.extract.i, %.sroa.32.8.vec.extract.i
   %19 = fcmp ule <2 x float> %16, %12
   %20 = extractelement <2 x i1> %19, i64 1
-  %or.cond.not6.i = select i1 %18, i1 %20, i1 false
+  %or.cond.i = select i1 %18, i1 %20, i1 false
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %11, i64 0
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %17, i64 0
   %21 = fcmp ule float %.sroa.01.0.vec.extract.i, %.sroa.3.8.vec.extract.i
-  %or.cond3.not.i = select i1 %or.cond.not6.i, i1 %21, i1 false
+  %or.cond3.i = select i1 %or.cond.i, i1 %21, i1 false
   %22 = fcmp ule <2 x float> %11, %17
   %23 = extractelement <2 x i1> %22, i64 1
-  %24 = select i1 %or.cond3.not.i, i1 %23, i1 false
+  %24 = select i1 %or.cond3.i, i1 %23, i1 false
   ret i1 %24
 }
 

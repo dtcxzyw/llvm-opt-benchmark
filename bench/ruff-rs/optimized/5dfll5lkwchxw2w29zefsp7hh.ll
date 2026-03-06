@@ -22041,9 +22041,9 @@ define hidden noundef i32 @_ZN9getrandom8backends8use_file9util_libc14sys_fill_e
   br label %6
 
 6:                                                ; preds = %.lr.ph, %13
-  %.sroa.0.034 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1, %13 ]
-  %.sroa.4.033 = phi i64 [ %1, %.lr.ph ], [ %.sroa.4.1, %13 ]
-  %7 = tail call noundef i64 %5(ptr noundef nonnull align 1 %.sroa.0.034, i64 noundef range(i64 1, 0) %.sroa.4.033, i32 noundef 0) #30
+  %.sroa.0.035 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1, %13 ]
+  %.sroa.4.034 = phi i64 [ %1, %.lr.ph ], [ %.sroa.4.1, %13 ]
+  %7 = tail call noundef i64 %5(ptr noundef nonnull align 1 %.sroa.0.035, i64 noundef range(i64 1, 0) %.sroa.4.034, i32 noundef 0) #30
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %15, label %9
 
@@ -22061,18 +22061,18 @@ define hidden noundef i32 @_ZN9getrandom8backends8use_file9util_libc14sys_fill_e
   br i1 %.not, label %13, label %._crit_edge
 
 13:                                               ; preds = %11, %17
-  %.sroa.4.1 = phi i64 [ %18, %17 ], [ %.sroa.4.033, %11 ]
-  %.sroa.0.1 = phi ptr [ %19, %17 ], [ %.sroa.0.034, %11 ]
+  %.sroa.4.1 = phi i64 [ %18, %17 ], [ %.sroa.4.034, %11 ]
+  %.sroa.0.1 = phi ptr [ %19, %17 ], [ %.sroa.0.035, %11 ]
   %14 = icmp eq i64 %.sroa.4.1, 0
   br i1 %14, label %._crit_edge, label %6
 
 15:                                               ; preds = %6
-  %16 = icmp ult i64 %.sroa.4.033, %7
+  %16 = icmp ult i64 %.sroa.4.034, %7
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %15
-  %18 = sub nuw i64 %.sroa.4.033, %7
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.034, i64 %7
+  %18 = sub nuw i64 %.sroa.4.034, %7
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 %7
   br label %13
 }
 

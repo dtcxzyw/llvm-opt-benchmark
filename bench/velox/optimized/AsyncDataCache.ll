@@ -16145,21 +16145,21 @@ if.then.i.i.i.i:                                  ; preds = %if.then8.i.i
 invoke.cont.i.i:                                  ; preds = %if.then8.i.i
   %collectGuard_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %5 = load ptr, ptr %collectGuard_.i.i, align 8
-  %cmp.i.i.i = icmp ne ptr %5, null
+  %cmp.i.not.i.i = icmp ne ptr %5, null
   %collectCount_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %6 = load i64, ptr %collectCount_.i.i, align 8
   %cmp12.not.i.i = icmp ne i64 %6, %add.i.i
-  %cond.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp12.not.i.i
+  %cond.not.i.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp12.not.i.i
   %call1.i.i.i7.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %collectMutex_.i.i) #21
   br i1 %cond.not.i.i, label %invoke.cont2, label %invoke.cont2.thread3
 
 _ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   store atomic i8 0, ptr %inUpdate_.i.i release, align 8
   br label %terminate.lpad.body
 
-invoke.cont2.thread3:                             ; preds = %if.end.i.i, %invoke.cont.i.i
+cleanup.i.i:                                      ; preds = %if.end.i.i, %invoke.cont.i.i
   store atomic i8 0, ptr %inUpdate_.i.i release, align 8
   br label %return
 
@@ -16205,7 +16205,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i, %entry
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %terminate.lpad ], [ %7, %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %terminate.lpad ], [ %6, %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i ]
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   tail call void @__clang_call_terminate(ptr %11) #43
   unreachable
@@ -17983,21 +17983,21 @@ if.then.i.i.i.i:                                  ; preds = %if.then8.i.i
 invoke.cont.i.i:                                  ; preds = %if.then8.i.i
   %collectGuard_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %5 = load ptr, ptr %collectGuard_.i.i, align 8
-  %cmp.i.i.i = icmp ne ptr %5, null
+  %cmp.i.not.i.i = icmp ne ptr %5, null
   %collectCount_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %6 = load i64, ptr %collectCount_.i.i, align 8
   %cmp12.not.i.i = icmp ne i64 %6, %add.i.i
-  %cond.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp12.not.i.i
+  %cond.not.i.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp12.not.i.i
   %call1.i.i.i7.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %collectMutex_.i.i) #21
   br i1 %cond.not.i.i, label %invoke.cont2, label %invoke.cont2.thread38
 
 _ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   store atomic i8 0, ptr %inUpdate_.i.i release, align 8
   br label %terminate.lpad.body
 
-invoke.cont2.thread38:                            ; preds = %if.end.i.i, %invoke.cont.i.i
+cleanup.i.i:                                      ; preds = %if.end.i.i, %invoke.cont.i.i
   store atomic i8 0, ptr %inUpdate_.i.i release, align 8
   br label %return
 
@@ -18054,7 +18054,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i, %entry
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %13, %terminate.lpad ], [ %7, %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %terminate.lpad ], [ %6, %_ZN5folly6detail14ScopeGuardImplIZNS_10TLRefCount13LocalRefCount6updateElEUlvE_Lb1EED2Ev.exit.i.i ]
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   tail call void @__clang_call_terminate(ptr %14) #43
   unreachable
